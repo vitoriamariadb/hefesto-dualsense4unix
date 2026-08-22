@@ -1,9 +1,10 @@
 # BT-AGENT-TRAVA-O-RESTART-01 — noventa segundos de Bluetooth fora do ar
 
 - **Medido em:** 03→04/08/2026, no journal dela
-- **Estado:** ~~CURADO em 04/08/2026~~ → **REABERTA em 06/08/2026.** A cura
-  funcionou no que se propôs, e mesmo assim o sintoma dela voltou com 57
-  segundos. O dono mudou: ver a **nota datada de 06/08** no fim
+- **Estado:** ~~CURADO em 04/08/2026~~ → **REABERTA em 06/08/2026** → **E4, E5 e
+  E6 fechados; falta só a E7 (22/08/2026).** A cura de 04/08 funcionou no que se
+  propôs, e mesmo assim o sintoma dela voltou com 57 segundos. O dono mudou: ver
+  a **nota datada de 06/08** no fim, e o estado de cada aceite na lista dela
 - **Gravidade:** alta — é a explicação do sintoma que ela reporta há semanas
 - **Pré-requisito:** nenhum
 
@@ -173,15 +174,41 @@ rodou às 21:04:26, e o PID 808958 é o `ExecStopPost` bifurcado às 21:03:51:
 segurava o lock, e a alternativa (inanição de I/O enquanto o apport lia o core)
 não pode ser separada com os dados que restaram.
 
+**A aritmética diz quanto o `flock` explica, e não é tudo (22/08/2026).** O
+diretório `20260806-210426-808958` **foi criado**, logo o lock FOI obtido — e
+`flock -w 30` desiste em 30 s. Dos 34,4 s, portanto, no máximo 30 são espera de
+lock; sobram **≥4,4 s** de outra coisa (o `find` sobre `/var/lib/bluetooth` e o
+`sha256sum` da assinatura correm antes do `flock`, e é aí que a inanição de I/O
+caberia). É por isso que o E4 sozinho não bastava e o E5 deixou de ser opcional:
+o teto vale para as duas hipóteses, e a que ainda não foi separada continua sem
+dono.
+
 ### O que fazer (aceites abertos)
 
-- **E4 — `flock -n` no gancho de PARADA.** Esperar por um lock enquanto o
-  Bluetooth está fora do ar troca "snapshot perdido" (que o timer de 10 min e a
-  borda udev da `83-hefesto-bond-snapshot.rules` cobrem) por "rádio morto". No
-  gancho, desistir na hora é a escolha certa.
-- **E5 — `TimeoutStopSec` explícito no drop-in do `bluetooth.service`**, para
-  que nenhum gancho nosso possa segurar o serviço por tempo indefinido.
-- **E6 — reexaminar `WatchdogSec=30`.** Ele é a única razão pela qual um
+- **E4 — `flock -n` no gancho de PARADA. FEITO em 22/08/2026.** Esperar por um
+  lock enquanto o Bluetooth está fora do ar troca "snapshot perdido" (que o
+  timer de 15 min e a borda udev da `83-hefesto-bond-snapshot.rules` cobrem)
+  por "rádio morto". No gancho, desistir na hora é a escolha certa.
+  `scripts/bt_bonds_snapshot.sh` decide pelo `$SERVICE_RESULT`, que o systemd
+  só entrega a `ExecStop=`/`ExecStopPost=` — a mesma leitura que o
+  `bt_bonds_autorestore.sh` já usava, e que uma linha nova de `ExecStopPost`
+  herda sem ninguém lembrar de passar argumento. **Fora** do gancho o `-w 30`
+  fica: é ele que serializa o timer contra a borda udev (SNAPSHOT-LOCK-01).
+  Portão: `tests/unit/test_bt_gancho_de_parada_nao_segura_o_radio.py`, que roda
+  o script de verdade com o `.lock` ocupado.
+- **E5 — `TimeoutStopSec` explícito no drop-in do `bluetooth.service`. FEITO em
+  22/08/2026:** `TimeoutStopSec=15s`. Sem a linha vale o
+  `DefaultTimeoutStopSec` de 90 s, e nada limitava os ganchos. 15 s é 500x a
+  parada limpa medida (29 ms) e pouco mais de um terço do pior caso já visto
+  (42,8 s). Sintaxe conferida com `systemd-analyze verify` sobre o
+  `bluetooth.service` do bluez com o drop-in composto (rc=0 em 22/08).
+- **E6 — FECHADO em 08/08/2026 pela
+  [BLUETOOTHD-MORTO-POR-NOS-01](2026-08-08-BLUETOOTHD-MORTO-POR-NOS-01-o-watchdog-que-ligamos-matou-o-radio-dela.md):**
+  o valor hoje é `WatchdogSec=0`, explícito, e quem cobre o hang é a vigia da
+  casa, que sonda o D-Bus e distingue "travado" de "ocupado". O texto abaixo
+  fica como o raciocínio que levou lá.
+
+  **E6 — reexaminar `WatchdogSec=30`.** Ele é a única razão pela qual um
   travamento de 30 s vira SIGABRT + core + 57 s fora do ar, em vez de um
   soluço. O template do BlueZ traz `#WatchdogSec=10` **comentado**; sem o nosso
   drop-in não haveria SIGABRT. E hoje pagamos o preço sem a forense que o

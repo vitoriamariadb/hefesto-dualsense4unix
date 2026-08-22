@@ -1,7 +1,8 @@
 # BT-SNAPSHOT-SANDBOX-01 — o salva-vidas que falhava só no naufrágio
 
 - **Medido em:** 03→04/08/2026, no journal dela
-- **Estado:** **CURADO em 04/08/2026.** Registro de causa-raiz
+- **Estado:** **CURADO em 04/08/2026;** o portão que a sprint pediu por escrito
+  entrou em **22/08/2026** (ver "O que morde"). Registro de causa-raiz
 - **Gravidade:** alta — o mecanismo falhava **exatamente** na ocasião para a
   qual foi construído
 - **Pré-requisito:** nenhum
@@ -81,12 +82,41 @@ escreveu.
 
 ---
 
-## O que morde
+## O que morde — **ESCRITO em 22/08/2026**
 
 Um teste que leia o drop-in e exija `ReadWritePaths` cobrindo **todo caminho
 que os `ExecStopPost` dele escrevem**. Arrancar a linha faz reprovar. Sem esse
 teste, a próxima pessoa que acrescentar um `ExecStopPost` que escreve noutro
 lugar reabre isto — e só descobre no próximo naufrágio.
+
+`tests/unit/test_bt_sandbox_cobre_o_que_os_ganchos_escrevem.py`. Ele faz a
+varredura pedida na seção acima **sozinho e a cada execução**: percorre
+`assets/systemd/`, resolve cada `Exec*=` que aponta para script nosso (e os
+scripts que ELES chamam), extrai os alvos de escrita — `install`, `cp`,
+`mkdir`, `chmod`, redirecionamento — resolvendo as variáveis contra as
+atribuições do próprio script, e confronta com o `ReadWritePaths`,
+`StateDirectory` e `ReadOnlyPaths` declarados.
+
+**A lista é DERIVADA, e essa é a parte que importa.** Uma lista de caminhos
+escrita à mão caduca no primeiro caminho novo — o portão fica verde enquanto o
+defeito volta, que é exatamente o modo de falhar desta sprint.
+
+Três mordidas, todas conferidas em 22/08:
+
+| arranque | quem reprova |
+|---|---|
+| apagar `ReadWritePaths=/var/lib/hefesto-dualsense4unix` do drop-in | `test_todo_caminho_escrito_esta_no_readwritepaths` |
+| acrescentar ao snapshot uma escrita em lugar novo | o mesmo, nomeando o lugar novo |
+| cegar o extrator (devolver vazio) | os quatro testes de `TestOExtratorEnxerga` |
+
+A terceira é a régua do instrumento (lição de 19/08: cada portão precisa da
+sua). Sem ela, um extrator quebrado deixaria o portão verde por não enxergar
+nada.
+
+**O único dado que não sai do repositório** é o sandbox da unit de terceiro — o
+`ProtectSystem=strict` do `bluetooth.service` mora no pacote do bluez. Ele está
+numa tabela nomeada dentro do teste, e uma segunda régua a confronta com o
+`systemctl show` da máquina quando há uma, para que ela não envelheça calada.
 
 ---
 
