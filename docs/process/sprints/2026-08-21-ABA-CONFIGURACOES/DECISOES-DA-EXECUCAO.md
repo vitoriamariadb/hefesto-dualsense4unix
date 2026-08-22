@@ -126,3 +126,89 @@ Sistema é do Hefesto; esta é da mesa (portas e rádio). Nada se move de aba (D
 
 **E6 — O exame roda ao ENTRAR na aba e no botão** — nunca no arranque da
 janela, que é o caminho por onde o retrato passa.
+
+## As da seção 2 — o medidor de rádio
+
+**R1 — Um relatório consome um slot.** É a única conta que a palavra "derivado
+da especificação" consegue defender. Não está escrito em lugar nenhum da árvore,
+e por isso vai escrito na tela.
+
+**R2 — As taxas são as do A/B de 25/07** (260,4 sem microfone; 170,5 de entrada
+mais 106,2 de áudio com ele). Medir ao vivo não serve: o rádio não tem número
+único — o envelope medido num dia inteiro vai de 157,8 a 402,9 Hz
+(`docs/data/ensaios.csv:104`), e um medidor que oscilasse assim ensinaria a
+desconfiar dele.
+
+**R3 — Três palavras, duas cores: Folgada (verde) até 60 %, Apertada (laranja)
+até 85 %, Cheia (laranja) acima.** Nunca vermelho. Rádio cheio é reversível —
+basta tirar um controle do adaptador —, e vermelho nesta casa é para o que
+destrói e não tem volta.
+
+**R4 — "Com microfone" é só a ponte por HID**, nunca a placa USB: por rádio o
+DualSense não publica placa ALSA nenhuma (medido em 15/08), e é a ponte que
+custa rádio.
+
+**R5 — O aceite fecha com o controle negativo.** Não há adaptador Bluetooth
+nesta bancada — medido em 22/08, `/sys/class/bluetooth` vazio. Com todos os
+controles no cabo, toda barra em zero é resultado válido e é o que a foto vai
+mostrar. O ensaio com dongle fica registrado como pendente dela.
+
+**R6 — A dependência dura do medidor é CONFIG-02, não CONFIG-03.** Ele não lê
+nada do `maquina.json`. O índice diz o contrário e está errado.
+
+## As da seção 3 — o orçamento
+
+**O1 — A tabela só lista o que tem ponto de aplicação de verdade.** Hoje é a
+vibração, que tem funil único (`core/rumble._effective_mult`). Uma linha
+dizendo "limitado a 25 % pelo orçamento" sem ninguém limitar nada é a tela
+mentindo — e é o defeito que esta leva inteira existe para não cometer. Cada
+linha nova entra na leva que lhe der ponto de aplicação.
+
+**O2 — O dono da escolha é o `machine.declare` de CONFIG-03.** Nada de handler
+próprio: dois donos do mesmo valor é a classe de bug que a `ABAS-01` curou.
+
+**O3 — O clique marca o rascunho; o efeito sai no "Aplicar".** É a D-A4, sem
+exceção.
+
+**O4 — A dica do Auto está errada e se substitui.** O desenho diz *"controle no
+cabo joga em Máximo"*; o código, o rótulo e a dica do botão dizem, desde
+11/08/2026, que o Auto **nunca amplifica** e lê só bateria. A escada real é
+acima de 50 % → 100 %, de 20 a 50 % → 70 %, abaixo de 20 % → 30 %.
+
+**O5 — Economia é 30 %, não 40 %.** O produto entrega 30 %
+(`RUMBLE_POLICY_MULT`) e a tela de hoje já diz 30 % (`main.glade:1654`). O
+desenho e o `TOOLTIPS.md` dizem 40 % em três lugares, e é neles que se corrige —
+o número tem dono, e o dono é o código.
+
+## As da seção 1 — os controles
+
+**T1 — O modo é DEDUZIDO e mostrado, não declarado.** A dedução tem grau ALTA
+em cinco dos sete pares modo-transporte
+(`externos-firmware-e-modos.md:218-228`), e declarar colidiria com a leitura que
+já existe.
+
+**T2 — Um seletor de modo só, e ele herda a insensibilidade e a dica do que já
+existe** na ficha do controle (*"a troca não é por software"*). Dois seletores
+fariam a janela dizer duas coisas opostas sobre o mesmo fato.
+
+**T3 — Quatro modos, não três:** D-input, X-input, Switch e macOS. O desenho
+mostra três; a canônica lista quatro, e faltar um faz o card mentir sobre o
+aparelho.
+
+**T4 — "Tratar como modelo conhecido" fica FORA desta leva.** É máscara, e a
+`ExternalMaskRegistry.set_mask` tem condição de retorno própria, fixada em
+`MÁSCARA-01`. Ligar por atalho aqui seria furar aquela decisão de lado.
+
+**T5 — A cor do plástico persiste no `maquina.json`.** O veto de 12/08 era
+contra *arquivo por endereço*; a camada de máquina é um arquivo só, e é
+exatamente o lugar que a D-A3 criou para isto.
+
+**T6 — A leitura da cor por cabo entra no produto nesta leva.** Ela está provada
+(ensaio E7) e vive fora do app, em `scripts/ensaios/`. Sem ela, toda linha
+"Cor:" nasce em "não sei" — inclusive nos DualSense do cabo, que o desenho
+mostra com a cor lida.
+
+**T7 — Os cards ficam lado a lado, com altura igual.** A `EMPILHA-01` (decisão
+dela, 02/08) é sobre os cards da aba Status e continua valendo lá. Este é outro
+desenho, aprovado por ela depois — e a invariante de altura igual só existe
+porque eles ficam lado a lado.
