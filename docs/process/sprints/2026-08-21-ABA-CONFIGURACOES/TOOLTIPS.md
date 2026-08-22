@@ -24,8 +24,8 @@ widget novo precisa ser inventado para isto.
 Vale a mesma proibição de jargão do resto da interface: nada de *daemon*,
 *systemd*, *uinput*, *polling*, *throttle*, *JSON*.
 
-> ✗ *"Desativa o autosuspend do btusb via regra udev"*
-> ✓ *"Se o sistema desligar o adaptador para poupar energia, o controle cai
+> ERRADO — *"Desativa o autosuspend do btusb via regra udev"*
+> CERTO  — *"Se o sistema desligar o adaptador para poupar energia, o controle cai
 > sozinho no meio do jogo."*
 
 **2. Nunca esconda numa dica o que a pessoa precisa para decidir.**
@@ -62,8 +62,8 @@ que o projeto já segue.
 Rótulo, opção e título começam com **maiúscula**. Vale para dentro do
 segmentado, que era onde a inconsistência estava:
 
-> ✗ `teclado sem fio` · `mouse sem fio` · `não sei`
-> ✓ `Teclado` · `Mouse` · `Não sei`
+> ERRADO — `teclado sem fio` · `mouse sem fio` · `não sei`
+> CERTO  — `Teclado` · `Mouse` · `Não sei`
 
 Frase dentro da dica é frase normal: maiúscula no começo, ponto no fim.
 
@@ -104,13 +104,28 @@ Frase dentro da dica é frase normal: maiúscula no começo, ponto no fim.
 | >Frente · colado no vizinho | Dois rádios encostados um no outro se atrapalham. Vale afastar em portas diferentes. |
 | >Trás · vizinho do adaptador 1 | USB 3.0 emite ruído de banda larga bem em cima dos 2,4 GHz. Ao lado do adaptador Bluetooth, atrapalha. |
 | >? | Um teto para a mesa inteira. As abas continuam mandando no que fazem — só não passam daqui. Nenhum ajuste seu é apagado. |
-| >Economia | Menos bateria gasta. A vibração chega com 40% da força e a barra de luz com 25% do brilho. |
+| >Economia | Menos bateria gasta. A vibração chega com 30% da força. |
 | >Balanceado | Tudo como o jogo pedir, sem teto. |
 | >Máximo | Tudo como o jogo pedir, e o giroscópio na taxa mais alta. |
-| >Auto | Controle no cabo joga em Máximo. Controle em rádio abaixo de 20% de bateria cai para Economia sozinho. |
+| >Auto | A vibração acompanha a bateria: cheia joga inteira, pela metade cai para 70%, abaixo de 20% cai para 30%. Nunca aumenta. |
 | >Ambiente: | O ícone na barra do sistema depende do ambiente. No COSMIC aparece sozinho; no GNOME precisa de uma extensão instalada. |
 | >? | Detectado: COSMIC. Corrija se estiver errado. |
 | >Reexaminar a mesa | Relê os adaptadores e os rádios. Não muda nada. |
 
 Extraído do mockup. Ao implementar, este é o texto que vai para `set_tooltips` e
 `set_tooltip_text` — não reescreva na hora.
+
+## Duas correções datadas — 22/08/2026
+
+As duas dicas do orçamento prometiam número que o produto não entrega, e foram
+substituídas acima. O que estava escrito, e por que saiu:
+
+**Economia dizia 40 %.** O produto entrega **30 %**
+(`RUMBLE_POLICY_MULT["economia"] = 0.3`) e a tela de hoje já diz 30 %
+(`main.glade:1654`). O número tem dono, e o dono é o código. A menção à barra de
+luz também saiu: não existe teto de brilho implementado, e prometê-lo aqui seria
+a aba nova aumentando a dívida que ela existe para não aumentar.
+
+**Auto dizia "controle no cabo joga em Máximo".** O Auto **nunca amplifica**
+desde 11/08/2026 — ele lê bateria e só desce. Manter a frase antiga ensinaria a
+esperar mais vibração no cabo do que o produto entrega.
