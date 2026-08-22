@@ -39,14 +39,25 @@ estimativa de esforço.
 | ~~4~~ **FEITO 22/08** (`d15055f`) | **A aba Sistema marca a allowlist e a caixinha da aba Perfis não relê.** `.../app/actions/daemon_actions.py`, `.../app/actions/profiles_actions.py`, `app/app.py` | Duas abas mostram estados diferentes do MESMO arquivo, e a tooltip manda usar justamente a que mente. Ela desmarca sem querer o que acabou de marcar | Acrescentar o sincronizador à tupla da aba Perfis (cobre também a CLI, que nenhuma outra cura alcança) e, opcional, chamá-lo por despacho dinâmico logo após a marcação. Obriga a atualizar o teste que congela o mapa com `==` |
 | ~~5~~ **FEITO 22/08** (`d15055f`) | **O interruptor do teclado emulado ganhou um SEGUNDO escritor (PS + R3), e a aba não relê.** `app/app.py` (o comentário e o mapa de refresh por aba), `.../daemon/subsystems/hotkey.py`, `.../app/actions/emulation_actions.py` | A aba desenha um interruptor que o gesto já virou. O mouse tem o mesmo defeito quando o perfil traz seção de mouse. Abaixo do 4 só porque o gesto ainda não foi visto em hardware | Substituir a frase larga do comentário e trocar o grep por `set_keyboard_emulation(` — o método IPC não pega a chamada em processo. Mexe em dois testes que congelam o desenho atual |
 | ~~6~~ **FEITO 22/08** (`d0e7a0e`) | **O gate do mic é por SEÇÃO e deveria ser por CAMPO.** `app/draft_config.py`, consumido em `.../daemon/ipc_draft_applier.py` | Mexer no volume marca a seção inteira como tocada, e o Aplicar leva junto um flag de botão de mic que ninguém escolheu. É o menor dos oito por medição: a ativação de perfil ignora o campo, e o valor volta sozinho no restart | O gate passa a ser por campo, como o alto-falante já faz; ou nasce a superfície que falta |
-| 7 | **O portão A-CASA-SABE mede alcance PLANO.** `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py`, o laço de 1166-1179 e `_TERRITORIOS_DE_PRODUCAO` em 150 | Instrumento, não produto — por isso não é o 1. Mas é o portão da classe de defeito mais cara desta casa: corrente fechada em si mesma passa, e colisão de nome entre módulos perdoa símbolo sem relação nenhuma | NÃO trocar por "chamador fora do próprio arquivo": já medido em 12/08, acusa 846 símbolos. A régua é alcance a partir dos pontos de entrada declarados, pelo grafo de import, com nome resolvido ao módulo. E estreitar o território ao que algum instalador COPIA para fora do checkout |
+| ~~7~~ **FEITO 22/08** (`61ba2ab`) | **O portão A-CASA-SABE mede alcance PLANO.** `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py`, o laço de 1166-1179 e `_TERRITORIOS_DE_PRODUCAO` em 150 | Instrumento, não produto — por isso não é o 1. Mas é o portão da classe de defeito mais cara desta casa: corrente fechada em si mesma passa, e colisão de nome entre módulos perdoa símbolo sem relação nenhuma | NÃO trocar por "chamador fora do próprio arquivo": já medido em 12/08, acusa 846 símbolos. A régua é alcance a partir dos pontos de entrada declarados, pelo grafo de import, com nome resolvido ao módulo. E estreitar o território ao que algum instalador COPIA para fora do checkout |
 | ~~8~~ **FEITO 22/08** | **A aba Configurações afirma na tela três coisas no presente sem uma linha de código.** `.../app/actions/config_actions.py` e `gui/main.glade` | Mentira na tela, na aba que nasceu vazia ontem. O silêncio só custa até a leva que der conteúdo à seção — a dica e a seção andam juntas | A dica viaja com a seção. Corrigir junto o passo 4 do `COMO-EXECUTAR.md` da sprint, senão volta. Critério do portão: enquanto a seção não tiver widget, ela não tem dica |
 
-**Sete dos oito fecharam em 22/08/2026**, em quatro commits (`ab49f25`,
-`d15055f`, `d0e7a0e`, `6d0cdb5`). O 8 fechou junto com a leva da aba: as cinco
-seções ganharam conteúdo, cada dica descreve o que a seção DESENHA, e o critério
-virou portão — `test_config_01_a_aba_nasce_vazia.py::test_secao_sem_widget_nao_tem_dica`.
-Só o **7** segue aberto, e é o único que é instrumento e não produto.
+**OS OITO FECHARAM em 22/08/2026.** Os de produto em quatro commits
+(`ab49f25`, `d15055f`, `d0e7a0e`, `6d0cdb5`); o 8 junto com a leva da aba (as
+cinco seções ganharam conteúdo e o critério virou portão,
+`test_config_01_a_aba_nasce_vazia.py::test_secao_sem_widget_nao_tem_dica`); e o
+7, o instrumento, em `61ba2ab` — a régua passou a ser alcance por GRAFO de
+import a partir dos pontos de entrada declarados, e os 27 acusados novos
+entraram nos registros de lacuna com razão datada.
+
+### O que a noite de 22/08 abriu, e não estava em lista nenhuma
+
+| Onde | O quê | Estado |
+|---|---|---|
+| [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | O lançamento aplicava DUAS seções de oito; as outras seis esperavam a classe da janela, que respondeu `unknown` por 21 min | **E1 feita** (`62d092a`), **E2 metade** (`b68223e`); E3 a E7 abertas, três decisões DELA |
+| `secao_mesa.py` | A seção "A mesa" não gravava nada: o `TODO(CONFIG-03)` sobreviveu à camada que esperava, nascida no mesmo dia | **Feito** (`9b2389b`) |
+| A aba Configurações | Três semânticas de salvar numa tela só, duas caladas | **Feito** (`0ef6300`), com portão por AST |
+| `gerente_do_daemon` | Quatro rotas montam o `ProfileManager` à mão e uma derivou; a fábrica nasceu e **só duas rotas a usam** | **ABERTA** — unificar as outras três |
 
 ---
 

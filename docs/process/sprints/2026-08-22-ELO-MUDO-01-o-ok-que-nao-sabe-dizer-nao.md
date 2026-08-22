@@ -249,7 +249,31 @@ produto age e a tela cala.
 
 ## Entregas
 
-### E1 — o lançamento ATIVA o perfil, não arma duas seções
+### ~~E1~~ **FEITA em 22/08/2026** (`62d092a`) — o lançamento ATIVA o perfil
+
+> **FEITA. Prova ao vivo, no daemon dela, três vezes.** Escrevi o marker do
+> Sackboy à mão e li o journal:
+>
+> ```
+> profile_activated  name=Sackboy origin=launch priority=97
+> launch_perfil_ativado  appid=1599660 profile=Sackboy secoes={'led': 'aplicado',
+>   'trigger': 'aplicado', 'keyboard': 'ignorado_sem_device',
+>   'suppression': 'aplicado', 'rumble_policy': 'aplicado', 'speaker': 'aplicado'}
+> ```
+>
+> **E o journal pegou o que o teste não pegou.** A primeira versão trouxe
+> `'mode': 'aplicado'` na allowlist — a allowlist sendo pulada e cumprida na
+> mesma linha. São DOIS caminhos até o mesmo applier: o `return` do ramo pula o
+> `apply_profile_mode` que o arming chama direto, e a ativação tem o seu dentro
+> do `apply_emulation`. Curado com `mode_applier=None` na fábrica desse ramo, e
+> a régua do teste passou a ser a CONSTRUÇÃO do gerente.
+>
+> **O gerente passou a vir de uma FÁBRICA** (`profiles.manager.gerente_do_daemon`).
+> Quatro rotas montavam o próprio, cada uma com a sua lista, e uma derivou —
+> `PERFIL-REESCRITO-NA-PARTIDA-01` item 6. Applier ausente não levanta: a seção é
+> ignorada em silêncio. As outras três rotas **continuam com lista própria**, e
+> unificá-las é trabalho de outra leva.
+
 
 **Custo do silêncio: diário, e é a queixa dela inteira.** Hoje o produto sabe o
 nome do jogo, resolve o perfil por appid, e aplica dois campos.
@@ -272,7 +296,24 @@ mostra `profile_activated name=<perfil> origin=launch` e o relatório traz todas
 as seções. Teste que morde: arrancar a chamada faz o teste reprovar nomeando as
 seções que sumiram.
 
-### E2 — a resposta é por EFEITO, e o "ok" aprende a dizer não
+### E2 — **METADE FEITA em 22/08/2026** (`b68223e`) — a resposta é por EFEITO
+
+> **METADE FEITA.** O item 2 saiu: gatilho, luz e teclado passam a ser nomeados
+> no relatório da ativação — antes gatilho e luz só apareciam quando a trava
+> manual os silenciava, e o teclado nunca. O teclado ganhou os três estados
+> (`aplicado`, `ignorado_sem_device`, `falhou`).
+>
+> **O item 1 NÃO sai como escrito, e a razão é medida.** `status` fixo em
+> `"ok"` é decisão registrada em `app/ipc_bridge.py::aplicacao_confirmada`: a
+> janela de hoje traduz `status != "ok"` como *"daemon offline?"*, e essa
+> mensagem mandaria ela caçar o problema no lugar errado. A honestidade já
+> viaja por `applied`/`failed`, e o rodapé os lê
+> (`footer_actions.py`). Trocar o status exige mudar a JANELA antes — nesta
+> ordem, ou a cura vira defeito.
+>
+> **Falta ainda:** `mic` e `mouse` continuam ausentes do relatório quando o
+> perfil não tem a seção, e o item 3 (a frase do toast) não foi feito.
+
 
 **Custo do silêncio: é o que transforma um defeito em "nada funciona".**
 
