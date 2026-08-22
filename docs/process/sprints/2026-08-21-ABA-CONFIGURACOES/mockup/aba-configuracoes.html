@@ -130,7 +130,7 @@ h2{font-size:14px;font-weight:700;color:var(--purple);margin:0 0 var(--sp-3)}
 .chk input:hover{border-color:var(--purple)}
 .chk input:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
 .chk input:checked{background:var(--purple);border-color:var(--purple)}
-.chk input:checked::after{content:"✓";font-size:9px;color:var(--purple-deep);font-weight:700;line-height:1}
+.chk input:checked::after{content:"●";font-size:9px;color:var(--purple-deep);font-weight:700;line-height:1}
 
 /* ---- tabela: adaptadores e rádios ---- */
 table{border-collapse:collapse;width:100%;font-size:13px}
@@ -175,6 +175,20 @@ td.origem{color:var(--text-muted)}
 
 <p class="aviso">Mockup estático · valores de exemplo</p>
 
+<p class="aviso"><strong>Nota de 22/08/2026, depois da leva executada.</strong>
+O visto do desenho virou <strong>&#9679;</strong> (Geometric Shapes, ADR-011):
+o U+2713 é recusado pelo sanitizador da casa, e o produto já usa
+&#9679;&nbsp;&#9650;&nbsp;&#9632;&nbsp;&#9675; nos quatro estados do exame.
+Três números deste desenho não sobreviveram à medição e foram corrigidos aqui:
+o Economia dizia 40&nbsp;% de vibração e entrega <strong>30&nbsp;%</strong>
+(<code>RUMBLE_POLICY_MULT["economia"]</code>); o Balanceado e o Máximo diziam
+100&nbsp;% onde não há teto nenhum; e o Auto dizia que o cabo joga em Máximo,
+quando ele <strong>nunca amplifica</strong> desde 11/08/2026 — só lê bateria e
+desce. As três linhas de baixo da tabela (barra de luz, microfone por rádio e
+giroscópio) continuam <strong>sem teto implementado</strong>: o produto não as
+promete, e a seção diz isso em voz alta na linha de alcance. O registro completo
+está em <code>../DECISOES-DA-EXECUCAO.md</code>.</p>
+
 <div class="abas" role="tablist">
   <button class="aba" role="tab" aria-selected="false">Início</button>
   <button class="aba" role="tab" aria-selected="false">Status</button>
@@ -197,16 +211,16 @@ td.origem{color:var(--text-muted)}
   <h2>Está tudo certo?<span class="i" tabindex="0" title="O mesmo exame que o Hefesto já sabe fazer pelo terminal, agora com resposta em uma linha. Só lê — não muda nada na máquina.">?</span></h2>
   <div class="painel">
     <div class="saude">
-      <span class="selo bom"><span class="bola">✓</span> Pronto para jogar</span>
+      <span class="selo bom"><span class="bola">●</span> Pronto para jogar</span>
       <button class="btn" title="Refaz o exame agora. Leva alguns segundos e não altera nada.">Examinar de novo</button>
       <span class="fim" style="margin-left:auto;font-size:11px;color:var(--text-muted)">Há 2 minutos</span>
     </div>
     <div class="checks">
-      <div class="ck bom"><i>✓</i><span class="aj" title="Os adaptadores carregaram o firmware sem erro. Sem isso o Bluetooth nem sobe.">Firmware dos adaptadores</span></div>
-      <div class="ck bom"><i>✓</i><span class="aj" title="O sistema está proibido de desligar os adaptadores para poupar energia. Se desligar, o controle cai sozinho no meio do jogo.">Economia de energia desligada</span></div>
-      <div class="ck bom"><i>✓</i><span class="aj" title="Nenhuma porta está entregando menos corrente do que o aparelho pede.">Energia das portas</span></div>
-      <div class="ck bom"><i>✓</i><span class="aj" title="Todos os controles têm pareamento salvo e válido. Pareamento pela metade faz o controle cair logo depois de conectar.">Pareamentos salvos</span></div>
-      <div class="ck bom"><i>✓</i><span class="aj" title="O módulo que fala com o DualSense está carregado.">Suporte ao controle</span></div>
+      <div class="ck bom"><i>●</i><span class="aj" title="Os adaptadores carregaram o firmware sem erro. Sem isso o Bluetooth nem sobe.">Firmware dos adaptadores</span></div>
+      <div class="ck bom"><i>●</i><span class="aj" title="O sistema está proibido de desligar os adaptadores para poupar energia. Se desligar, o controle cai sozinho no meio do jogo.">Economia de energia desligada</span></div>
+      <div class="ck bom"><i>●</i><span class="aj" title="Nenhuma porta está entregando menos corrente do que o aparelho pede.">Energia das portas</span></div>
+      <div class="ck bom"><i>●</i><span class="aj" title="Todos os controles têm pareamento salvo e válido. Pareamento pela metade faz o controle cair logo depois de conectar.">Pareamentos salvos</span></div>
+      <div class="ck bom"><i>●</i><span class="aj" title="O módulo que fala com o DualSense está carregado.">Suporte ao controle</span></div>
       <div class="ck aten"><i>!</i><span class="aj" title="Há um Wi-Fi USB 3.0 na porta ao lado de um adaptador Bluetooth. Ele emite ruído bem em cima da faixa dos controles. Vale mudar de porta.">Vizinhança das portas</span></div>
     </div>
   </div>
@@ -400,7 +414,7 @@ td.origem{color:var(--text-muted)}
   <h2>Orçamento<span class="i" tabindex="0" title="Um teto para a mesa inteira. As abas continuam mandando no que fazem — só não passam daqui. Nenhum ajuste seu é apagado.">?</span></h2>
   <div class="painel">
     <div class="seg linha4">
-      <button aria-pressed="false" title="Menos bateria gasta. A vibração chega com 40% da força e a barra de luz com 25% do brilho.">Economia</button>
+      <button aria-pressed="false" title="Menos bateria gasta. A vibração chega com 30% da força.">Economia</button>
       <button aria-pressed="true" title="Tudo como o jogo pedir, sem teto.">Balanceado</button>
       <button aria-pressed="false" title="Tudo como o jogo pedir, e o giroscópio na taxa mais alta.">Máximo</button>
       <button aria-pressed="false" title="Controle no cabo joga em Máximo. Controle em rádio abaixo de 20% de bateria cai para Economia sozinho.">Auto</button>
@@ -408,7 +422,7 @@ td.origem{color:var(--text-muted)}
     <table>
       <thead><tr><th>O que</th><th>Vem de</th><th>Economia</th><th class="ativa">Balanceado</th><th>Máximo</th></tr></thead>
       <tbody>
-        <tr><td>Vibração</td><td class="origem">Rumble</td><td>40%</td><td class="ativa">100%</td><td>100%</td></tr>
+        <tr><td>Vibração</td><td class="origem">Rumble</td><td>30%</td><td class="ativa">Sem teto</td><td>Sem teto</td></tr>
         <tr><td>Gatilhos</td><td class="origem">Gatilhos</td><td>Desligados</td><td class="ativa">Como o jogo pedir</td><td>Como o jogo pedir</td></tr>
         <tr><td>Barra de luz</td><td class="origem">Lightbar</td><td>25%</td><td class="ativa">100%</td><td>100%</td></tr>
         <tr><td>Microfone por rádio</td><td class="origem">Emulação</td><td>Só por cabo</td><td class="ativa">Como você ligar</td><td>Como você ligar</td></tr>

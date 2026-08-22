@@ -3,17 +3,34 @@
 O mockup mostra **como tudo deve ficar ao final das sprints** — não o que dá para
 fazer hoje. Esta lista é a diferença entre os dois.
 
+> **Estado em 22/08/2026, com a leva executada.** As quatro linhas de "Nasce
+> nesta leva" nasceram, e mais três de "Depende de outra frente" (1, 7 e 12)
+> foram entregues pelo caminho. O que continua aberto está marcado linha a linha.
+
 ## Depende de outra frente
 
 | # | O quê | Onde está hoje | O que falta |
 |---|---|---|---|
-| 1 | **Cor do plástico por rádio** | Provado possível numa outra máquina; a leitura por cabo já funciona (ensaio E7, `cor_do_plastico.py:159-165`) | Medir nesta bancada e levar a leitura para dentro do produto — hoje ela só existe em `scripts/ensaios/` |
+| 1 | **Cor do plástico por rádio** | **A leitura por cabo entrou no produto em 22/08** (`integrations/cor_do_plastico.py`), e é ela que pinta a borda dos cards | Só a leitura **por rádio** continua aberta: falta medir nesta bancada |
 | 2 | **Borda na cor do plástico** | Desenhado em `ONDE-A-COR-MORA-01` (D-16, D-17, D-18); custo estimado ~120 linhas em `status_actions.py`, ~30 no `theme.css` | Executar. A aba Configurações **consome** essa borda, não a implementa |
 | 3 | **O tom de cada cor** | O aparelho entrega `05`, a tabela entrega *Starlight Blue*, e **ninguém entrega um RGB** | Definir os seis tons. É pergunta aberta da própria `ONDE-A-COR-MORA-01` |
 | 4 | **Número de jogador fixo por controle** | `identity.number.set` existe, funciona nos dois registros | A GUI nunca oferece para controles externos |
 | 5 | **Máscara por aparelho** | `ExternalMaskRegistry.set_mask` pronto e **sem chamador** desde 15/08 | Ligar aos três degraus fora do módulo (`virtual_pad`, `coop.py`, `gamepad.py`) e o lado da escrita |
-| 6 | **`doctor.sh --json`** | O doctor tem 4920 linhas e 26 funções de diagnóstico, só em texto | Modo de saída aditivo — ver [CONFIG-09](CONFIG-09-esta-tudo-certo.md) |
-| 7 | **Escala tipográfica** | Backend pronto, escala 0-8 | Nunca teve tela — ver [CONFIG-07](CONFIG-07-a-janela.md) |
+| 6 | ~~**`doctor.sh --json`**~~ **A direção é a inversa, e nada falta** | `integrations/exame_da_mesa.py` é a fonte única, e o `check_exame_da_mesa()` do doctor **consome** o módulo | **Nada.** Ver a nota abaixo |
+| 7 | **Escala tipográfica** | **Ganhou tela em 22/08**, na seção "A janela": Compacto · Normal · Grande | **Nada nesta leva.** Continua valendo só na próxima abertura, porque `apply_theme` compõe e não sabe se desfazer |
+
+**Por que o item 6 não é mais uma pendência, e sim um caminho descartado**
+(22/08/2026). O plano era um `--json` aditivo no `doctor.sh`, que a aba
+consumiria. **O doctor não viaja nos pacotes**: o `install.sh:3064-3076` só copia
+o `storm_watch.sh`, a spec do Fedora instala `install-host-udev.sh` e
+`dkms_lib.sh`, e o manifesto Flatpak não o menciona. Uma aba que dependesse dele
+nasceria **vazia** para quem instalou por pacote, que é a maioria futura.
+
+A direção foi invertida, e é o padrão que a casa já usava três vezes: o módulo
+viaja dentro do wheel e o **doctor é que o consome** — `check_exame_da_mesa()`
+roda o mesmo `integrations/exame_da_mesa.py` que a aba roda, com o python do
+produto. Assim o terminal e a janela não têm como divergir, que era o problema
+real por trás do pedido do `--json`.
 
 ## Nasce nesta leva
 
@@ -37,9 +54,9 @@ fazer hoje. Esta lista é a diferença entre os dois.
 
 | Script | O que muda | Por quê |
 |---|---|---|
-| `scripts/gui-captura/retratar_abas.py` | Passa a fotografar **onze** abas, e `NOMES` ganha `readme_configuracoes` | O script confere os nomes no fim e avisa se a documentação não bate |
-| idem | Fixture novo de **cinco** controles, ao lado do `state_full_quatro_controles.json` | A mesa real desta casa é de cinco; a captura de quatro não mostra o pior caso de largura |
-| `scripts/doctor.sh` | Modo `--json` aditivo, sem tocar na saída de texto | É a fonte única da seção "Está tudo certo?" — ver [CONFIG-09](CONFIG-09-esta-tudo-certo.md) |
+| ~~`scripts/gui-captura/retratar_abas.py`~~ **feito** | Fotografa **onze** abas, e a Configurações ganha também a foto esticada (`ABAS_ESTICADAS`) | O script confere os nomes no fim e avisa se a documentação não bate |
+| idem — **aberto** | Fixture novo de **cinco** controles, ao lado do `state_full_quatro_controles.json` | A mesa real desta casa é de cinco; a captura de quatro não mostra o pior caso de largura |
+| ~~`scripts/doctor.sh`~~ **feito, pelo caminho inverso** | `check_exame_da_mesa()` roda o módulo da aba e publica o que ele concluiu | Ver a nota do item 6: quem viaja nos pacotes é o módulo, não o script |
 | `scripts/doctor.sh` | `hci0` fixo em `:2555`, `:2563`, `:2823` | Mente numa mesa de dois ou três adaptadores, que é o caso desta leva |
 | `scripts/ensaios/cor_do_plastico.py` | A leitura sai de `ensaios/` e entra no produto | Hoje a cor só existe fora do app |
 | `scripts/validar-palavra-de-tela.py` | Roda sobre os rótulos novos | Portão de pré-commit; a aba tem ~110 textos novos |
@@ -74,8 +91,9 @@ Nenhuma bloqueia a leva; todas melhoram o que a aba consegue afirmar.
 
 **"Poupar bateria" já é promessa feita na tela hoje, sem número medido por trás.**
 Não existe medição de mA nem de horas de autonomia neste projeto. O orçamento
-diz consequência verificável — *"a vibração chega com no máximo 40 % da força"* —
-e nunca uma porcentagem de bateria economizada.
+diz consequência verificável — *"a vibração chega com 30% da força"*, que é o que
+`RUMBLE_POLICY_MULT["economia"]` entrega — e nunca uma porcentagem de bateria
+economizada.
 
 Converter o desconto de rumble em minutos de autonomia é sprint própria, e vale
 a pena. Mas é outra.

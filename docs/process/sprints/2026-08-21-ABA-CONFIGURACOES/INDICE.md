@@ -140,7 +140,7 @@ já gravados no disco dela**.
 ### D2 — O orçamento é teto, não troca
 
 Escolher Economia **não desliga** a vibração. O jogo continua pedindo, a aba
-Rumble continua mandando, e o valor chega ao controle limitado a 40 %. Nenhum
+Rumble continua mandando, e o valor chega ao controle limitado a 30 %. Nenhum
 ajuste da pessoa é apagado, e voltar para Balanceado devolve tudo como estava.
 
 A alternativa — perfil que sobrescreve os ajustes das abas — cria a pior falha
@@ -254,7 +254,7 @@ importância.
 |---|---|---|
 | A aba vira gaveta | Alguém propõe mover um controle de outra aba para cá | Aplicar o teste de admissão: se o produto consegue medir, não entra |
 | Onze abas não cabem | A tira ganha rolagem horizontal em tela pequena | Medir com `retratar_abas.py` já em CONFIG-01, antes de haver conteúdo |
-| O teto briga com a aba de origem | Rumble mostra 100 % e o controle vibra a 40 % | O valor efetivo precisa aparecer na aba de origem, não só aqui — resolver em CONFIG-05, não depois |
+| O teto briga com a aba de origem | Rumble mostra 100 % e o controle vibra a 30 % | O valor efetivo precisa aparecer na aba de origem, não só aqui — resolver em CONFIG-05, não depois |
 | A aba vira parágrafo de novo | Alguém acrescenta texto explicativo na tela | Texto novo entra como dica, não como `<p>`. Ver [TOOLTIPS.md](TOOLTIPS.md) |
 | Declaração vira obrigação | A pessoa não preenche e algo para de funcionar | Todo campo nasce em "não sei", e "não sei" é resposta válida em todo lugar |
 | O medidor promete diagnóstico que não sustenta | A tela diz "por isso seu controle está ruim" | Dois controles no mesmo dongle já diferiram 381 contra 191 Hz **com a mesa folgada**, e o motivo é ABERTO. O medidor fala de ocupação, nunca de culpa |

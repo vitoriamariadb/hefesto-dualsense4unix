@@ -23,6 +23,19 @@ Uma execução. Nenhum clique, nenhuma janela aberta, nenhuma tela em foco. Sai
 um PNG por aba, no tamanho da tela dela maximizada (1920x1080), **com o card do
 controle vivo dentro**.
 
+**Uma aba sai duas vezes, e desde 22/08/2026.** A **Configurações** pede mais
+altura do que a janela tem, então ela ganha também a foto **esticada** até a
+altura que a página pede (`readme_configuracoes_inteira.png`). A lista é
+`ABAS_ESTICADAS`, no próprio script — quem puser uma aba nova lá ganha o mesmo
+tratamento sem escrever código. Sem isso a documentação mostraria quatro seções
+e meia, e quem lesse concluiria que a quinta não existe.
+
+A altura da foto esticada é a que **aquela página** pede, e não a que o
+`notebook` pede: `get_preferred_height()` de um `GtkNotebook` devolve o maior
+natural entre as onze páginas, e usar esse número esticava toda foto até a altura
+da aba mais alta. Medido em 22/08/2026: a Configurações pede 1005px e a foto
+saía com 1925, com 900px de vão vazio espalhado entre as seções.
+
 **Sem argumento, ele SOBRESCREVE as imagens da documentação**
 (`docs/usage/assets/readme_*.png`) — que são as mesmas do `README.md` e do
 `docs/usage/interface.md`. É o comportamento pedido: rodar e a documentação
@@ -64,7 +77,7 @@ exige que todo dado de entrada more em `tests/fixtures/`.
 | foto | o que ela responde |
 |---|---|
 | `mesa_cheia_status_inteira.png` | a aba Status na altura que ela **pede** (2055 px) em vez da que **recebe** (1080). É a medida do problema de empilhar quatro cards |
-| `mesa_cheia_cabecalho.png` | a **fita do alvo** ("Ajustes vão para: …"), que mora no `header_bar` e que **nenhuma das dez fotos de aba alcança** — o `main` fotografa o `main_notebook`, e o cabeçalho fica fora do recorte |
+| `mesa_cheia_cabecalho.png` | a **fita do alvo** ("Ajustes vão para: …"), que mora no `header_bar` e que **nenhuma foto de aba alcança** — o `main` fotografa o `main_notebook`, e o cabeçalho fica fora do recorte |
 
 ## O logo e os ícones
 
@@ -165,7 +178,7 @@ Seja honesto sobre isto ao usá-la:
 
 - **não passa pelo compositor** — não há sombra, canto arredondado nem o tema de
   janela do COSMIC;
-- **não mostra o cabeçalho** (14/08/2026): as dez fotos são do `main_notebook`,
+- **não mostra o cabeçalho** (14/08/2026): as fotos de aba são do `main_notebook`,
   que o script arranca do `root_box` — o `header_bar` fica **fora do recorte**.
   A fita "Ajustes vão para: …" e o selo "Editando: …" moram lá, e por isso
   nunca apareceram em foto nenhuma desta casa. Quem precisa delas usa o

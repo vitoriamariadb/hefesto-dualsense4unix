@@ -178,7 +178,9 @@ acima de 50 % → 100 %, de 20 a 50 % → 70 %, abaixo de 20 % → 30 %.
 **O5 — Economia é 30 %, não 40 %.** O produto entrega 30 %
 (`RUMBLE_POLICY_MULT`) e a tela de hoje já diz 30 % (`main.glade:1654`). O
 desenho e o `TOOLTIPS.md` dizem 40 % em três lugares, e é neles que se corrige —
-o número tem dono, e o dono é o código.
+o número tem dono, e o dono é o código. **Corrigido em 22/08** no mockup, no
+`INDICE.md` (D2 e tabela de riscos) e no `TOOLTIPS.md`; o mockup ganhou nota
+datada no topo explicando as três correções.
 
 ## As da seção 1 — os controles
 

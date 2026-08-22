@@ -501,6 +501,36 @@ Três recusas de revisão, que valem por melhor que seja a taxa de acerto:
    critério: se não roda sozinha na máquina de um desconhecido, no primeiro
    boot, não é esta cura.
 
+> **NOTA DATADA — 21/08/2026: o VETO 3 ganhou ESCOPO. Ninguém o furou.**
+>
+> A aba **Configurações** é declarativa por construção — a tese dela é *"o que o
+> produto não consegue medir, a pessoa declara"*. Lido ao pé da letra, o veto
+> acima a proibiria inteira. A colisão foi levada à mesa em vez de contornada, e
+> a decisão está registrada em
+> [D-A1](2026-08-21-ABA-CONFIGURACOES/DECISOES-ABERTAS.md).
+>
+> **O que continua proibido: declarar o que o produto PODE medir.** É o caso que
+> fez o veto nascer — a cura de identidade, em que pedir à pessoa qual controle é
+> qual seria empurrar para ela um trabalho que o produto tem obrigação de fazer
+> sozinho. Ali ele vale palavra por palavra, e nada nesta nota o afrouxa.
+>
+> **O que passa a ser permitido: declarar o que ele comprovadamente NÃO mede.**
+> Existe uma classe de fato que medição nenhuma alcança. Nenhum `sysfs` distingue
+> um hub em cima do rack de um hub embutido no monitor, e a diferença é de metros
+> de alcance; nenhum barramento sabe se a antena está acima da linha das cabeças.
+>
+> **As duas salvaguardas são parte da regra, não recomendação:**
+>
+> 1. **toda declaração nasce em "não sei", e "não sei" é resposta válida.** Nada
+>    deixa de funcionar por falta de declaração — quem nunca abrir aquela aba não
+>    perde nada;
+> 2. **onde a medição existe, ela pré-preenche, e a declaração só corrige.**
+>    Declarar nunca é a primeira opção.
+>
+> O teste de admissão daquela aba é este mesmo veto, escrito como pergunta: *o
+> Hefesto conseguiria descobrir isso sozinho?* Se sim, o lugar não é um
+> formulário.
+
 ---
 
 ## O que a tela mostra
