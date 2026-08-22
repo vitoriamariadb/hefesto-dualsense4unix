@@ -214,3 +214,42 @@ mostra com a cor lida.
 dela, 02/08) é sobre os cards da aba Status e continua valendo lá. Este é outro
 desenho, aprovado por ela depois — e a invariante de altura igual só existe
 porque eles ficam lado a lado.
+
+## As do fecho da leva — 22/08/2026, depois de ver a aba montada
+
+**F1 — A seção "A mesa" grava, e o TODO que dizia o contrário era o defeito.**
+CONFIG-02 escreveu `_ao_declarar` com um `TODO(CONFIG-03): enquanto a camada de
+persistência de mesa não existe, o valor morre com a janela`. CONFIG-03 nasceu
+no MESMO dia, e o TODO sobreviveu a ela: a altura da antena e a linha de visada
+eram perdidas ao fechar a janela, sem uma linha avisando. É a
+`A-CASA-SABE-E-O-PRODUTO-NAO-FAZ-01` acontecendo dentro da leva que a
+documentou. Curado pela mesma rota das outras seções — `_maquina_pendente`,
+gravado pelo "Aplicar" do rodapé, com portão em
+`tests/unit/test_a_mesa_guarda_o_que_ela_declarou.py`.
+
+Um dos testes desse portão reprova se `TODO(CONFIG-03)` voltar ao módulo. O
+comentário caduco não é enfeite do defeito: foi ele que convenceu duas revisões
+de que o buraco era conhecido e aceito.
+
+**F2 — A coluna "O que é" nasce agora, e não é escopo novo.**
+`RadioDeclarado.tipo` entrou no esquema em CONFIG-03 e ficou sem widget nenhum —
+a outra metade do mesmo defeito da F1. Sem ela, o exame da mesa só sabe listar
+`046d:c52b` e calar; com ela, pode dizer de que aparelho está falando. Os sete
+botões são os seis `Literal` do esquema mais "Não sei", que grava `None`.
+
+**F3 — O `apelido` do "Outro" fica para outra leva.** O desenho abre um campo
+de texto ("Fone sem fio da TV"). Um `Gtk.Entry` por linha, numa tabela que já
+tem três colunas, custa a largura que esta janela não tem — e o apelido não
+muda uma linha do que o exame consegue afirmar. O `tipo` muda.
+
+**F4 — A fileira dos sete botões é HORIZONTAL, e o número é medido.** A
+primeira versão usou `wrap=True`, que é grade de três colunas fixas: sete botões
+viram três linhas, e com quatro rádios a seção cresceu 384px de uma vez
+(1921 → 2305, medido na foto). Em fileira única os sete ocupam ~595px e a tabela
+inteira fica em ~885px, dentro dos 1066px de largura mínima da janela. A largura
+sobrava; a altura, numa aba que já rola, não.
+
+**F5 — A dica não chega antes do conteúdo, e isso virou portão.** É o item 8 dos
+oito de código de 22/08. Régua:
+*enquanto a seção não puser um widget na caixa dela, ela não tem dica*
+(`test_config_01_a_aba_nasce_vazia.py::test_secao_sem_widget_nao_tem_dica`).
