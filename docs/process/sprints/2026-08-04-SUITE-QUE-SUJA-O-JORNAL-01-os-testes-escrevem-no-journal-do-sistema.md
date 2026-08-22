@@ -2,9 +2,57 @@
 
 - **Descoberta:** 04/08/2026, por acidente, investigando outra coisa
 - **Gravidade:** alta — **ataca o instrumento de diagnóstico da casa**
-- **Estado:** aberta
+- **Estado (22/08/2026):** ENTREGUE EM CÓDIGO — AGUARDANDO A PALAVRA DELA.
+  As quatro entregas estão de pé e três dos quatro aceites foram MEDIDOS no
+  journal dela. O que sobrou está listado abaixo. *(O cabeçalho dizia "aberta"
+  até 22/08, sobre uma sprint que já estava quase toda paga desde 20/08.)*
 
 ---
+
+## Onde isto está, medido em 22/08/2026
+
+| entrega | estado | onde, e a prova |
+|---|---|---|
+| **E1** nome que se declara teste | dispensada por E2 | com o dublê, **nenhum** teste cria nó — não há nome a declarar. Sobrou um só nó por execução, o do portão, e ele nasce `Hefesto MORDIDA de teste (VIGIA-DE-APARELHO-01)` |
+| **E2** dublê em vez de uinput real | ENTREGUE (20/08, ampliada 22/08) | `_nenhum_uinput_de_verdade` em `tests/conftest.py` cobre o python-uinput; a VIGIA-DE-APARELHO-01 (22/08) fecha as outras duas portas |
+| **E3** script sob teste não escreve no journal | ENTREGUE (15/08) | `HEFESTO_BT_LOG_DEST` na `_hefesto_fake_env` desvia os seis `bt_*.sh` para um arquivo por teste (DIÁRIO-QUE-NAO-MENTE-01) |
+| **E4** o portão | ENTREGUE (22/08) | `tests/unit/test_a_suite_nao_cria_aparelho_no_kernel.py` + `_vigia_no_fim_da_sessao` no conftest |
+
+**Os aceites, medidos no journal dela em 22/08:**
+
+| aceite | medição |
+|---|---|
+| 1. sem `pytest-of-` no journal | 226 linhas em 15/08 → **0** em 18, 20 e 22/08 ● |
+| 2. sem `Hefesto - Dualsense4Unix Virtual Keyboard` no `journalctl -k` | **0** em 19, 20, 21 e 22/08, e 0 desde o boot ● |
+| 3. os testes de borda com o kernel continuam mordendo | ○ **este é o resto** — ver abaixo |
+| 4. `acpid` e `systemd-logind` param de reagir | `acpid`: **0** em 24 h ●. `systemd-logind`: 4 linhas em 24 h, em dois pares isolados (02:50 e 03:02), sem a assinatura de rajada de dezessete — cara de controle dela desconectando, não de suíte |
+
+### O que sobrou (22/08)
+
+- **Aceite 3, e ele mudou de forma.** Não há mais teste que exercite a borda com
+  o kernel: a cura foi dublar tudo, e é isso que protege a máquina dela. O único
+  nó de verdade que a suíte cria hoje é o do teste da mordida do portão — um por
+  execução, com nome de teste, vivo por microssegundos. Se um dia alguém quiser
+  a borda de volta, é decisão dela: o preço é nó real na máquina em que ela joga.
+- **A pergunta 4 da lista "o que ainda NÃO está medido"** (o `hefesto-bt-rebind`
+  em `--dry-run` pode deixar de ser dry-run em algum caminho?) continua **sem
+  medição**.
+- **Fora do território desta frente:** os índices de sprint e o
+  `docs/process/SPRINT_ORDER.md` ainda listam esta sprint pelo rótulo antigo.
+
+### Duas perguntas da lista de 04/08 que a medição respondeu
+
+- *"quais testes criam uinput real"* — em 22/08, **nenhum**. Com a porta
+  instrumentada, 1120 testes dos 55 arquivos mais suspeitos (todos os que
+  mencionam `UInput`, `uhid` ou os teclados/mouses uinput) e a coleta inteira
+  (10853 testes) não bateram uma vez em `uinput.Device`, `evdev.UInput` ou
+  `os.open` de `/dev/uinput` / `/dev/uhid`.
+- *"se algum deles pode capturar tecla de verdade enquanto existe"* — a pergunta
+  estava mal feita, e a resposta veio por outro caminho em 20/08: nó uinput
+  **injeta**, não captura. O dano medido foi outro e pior — cada add/remove
+  re-assenta o seat do compositor, e **a tela cheia dela caiu no meio de um
+  jogo**, com 1289 nós num dia. O número de 04/08 (17 por execução) é o da
+  medição daquele dia; o de 20/08 é o que vale.
 
 ## O sintoma que me enganou
 
@@ -154,6 +202,26 @@ adivinhar que "está sendo testado" é script que não se testou.
 **E4. Um portão.** Depois da cura, um teste que rode a suíte e afirme que ela
 não deixou rastro no journal do sistema. Sem ele, o próximo teste com uinput
 real reabre isto e ninguém nota por semanas — que é exatamente o que aconteceu.
+
+**Feito em 22/08, e a régua NÃO é o journal.** A VIGIA-DE-APARELHO-01 fica na
+**porta**: `uinput.Device`, `evdev.UInput` e `os.open` de `/dev/uinput` /
+`/dev/uhid`. Ela registra o nodeid de quem passa e recusa com `OSError` — o
+mesmo erro que o produto já sabe tratar numa máquina sem permissão. As outras
+três réguas foram medidas antes de descartadas, e duas caíram por medição:
+
+- contar `/dev/input/event*` é **cego** ao nó que morre dentro do teste;
+- o maior `inputN` do sysfs **também é** — `/sys/class/input` só lista o que
+  está vivo, e o máximo volta ao valor de antes assim que o nó morre (o nó da
+  mordida saiu `input198` com o máximo em 196, e o máximo voltou a 196);
+- o journal do kernel é a única que sobrevive ao nó, mas não existe no CI e não
+  diz de QUEM é o nó — ficou como **aviso** no fim da sessão, que é onde ela
+  vale: é o único instrumento que enxerga nó criado por processo FILHO, o cego
+  declarado da porta.
+
+O portão cobre a sessão inteira pelo `sessionfinish` (que reprova com
+`exitstatus = 1` nomeando o teste ofensor) e o arquivo de teste garante o que o
+`sessionfinish` não garante sozinho: que a vigia está **armada** e que a régua
+**morde**, contra um nó uinput de verdade criado e morto dentro do próprio teste.
 
 ---
 
