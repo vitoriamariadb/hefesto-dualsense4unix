@@ -236,7 +236,7 @@ importância.
 | **CONFIG-01** | A aba existe e está vazia | A 11ª aba no notebook, registrada, com as seções em branco e a fita de alvo inativa | — |
 | **CONFIG-02** | O que a mesa já sabe dizer | Seções 1 e 2 em modo somente-leitura: adaptadores, rádios concorrentes, topologia USB | 01 |
 | **CONFIG-03** | A declaração persiste | **Cria a camada de configuração de máquina** (`maquina.json`) — schema, disco e leitura no daemon | 02 |
-| **CONFIG-04** | O medidor de rádio | O orçamento de slots calculado a partir do que está conectado e declarado | 03 |
+| **CONFIG-04** | O medidor de rádio | A ocupação do rádio de cada adaptador, calculada a partir do que está conectado | 02 |
 | **CONFIG-05** | Orçamento como teto | Economia/Balanceado/Máximo/Auto aplicados como limite sobre as features existentes | 03 |
 | **CONFIG-06** | Controles que não são DualSense | Declaração por aparelho para 8BitDo e Nintendo Pro, com as quatro medições como aceite | 03 |
 | **CONFIG-07** | A janela | Seção 5: escala do texto, bandeja, ambiente — com o aceite COSMIC/GNOME | 01 |
