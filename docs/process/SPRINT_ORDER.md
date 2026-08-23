@@ -21,8 +21,8 @@ até a faxina de 24/07 (`a639e0d`), foi apagado, e ela o pediu de volta em
 
 ## 1. A FILA DE AGORA — 22/08/2026, fim do dia
 
-**O dia inteiro:** 52 commits entre 04h03 e 21h48, medidos por
-`git log --oneline 985b41a..HEAD | wc -l`. O que fechou está resumido depois da
+**O dia inteiro:** 53 commits entre 04h03 e 22h00, medidos por
+`git log --oneline 985b41a..HEAD | wc -l` contra o HEAD `4272438`. O que fechou está resumido depois da
 fila; o detalhe de cada um está no commit e no `CHANGELOG.md`, e não se repete
 aqui — esta seção é fila do que falta, não registro do que se achou.
 

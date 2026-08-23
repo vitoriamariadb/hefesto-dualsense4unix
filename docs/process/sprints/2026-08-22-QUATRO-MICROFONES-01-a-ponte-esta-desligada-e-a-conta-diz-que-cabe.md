@@ -146,3 +146,30 @@ campo de voltar a ficar órfão é o `portao_a_casa_sabe_e_o_produto_nao_faz.py`
 existe para quem lê o código.** O hardware foi comprado, a conta foi feita, o
 módulo está pronto desde julho — e a distância entre isso e o produto é um
 interruptor.
+
+---
+
+## A linha de base, medida na bancada às 22h de 22/08/2026
+
+Lida pela régua do PRODUTO — `daemon.state_full` mais
+`integrations/radio_da_mesa.ocupacao_por_adaptador` — com os quatro DualSense
+no rádio e **nenhuma ponte de microfone de pé**:
+
+| Adaptador | Controles | Slots de entrada | Áudio | Do teto de 1600 |
+|---|---|---|---|---|
+| `d8:44:89…` (o 5.0) | 1 | 260,4 | 0 | 16% |
+| `ac:a7:f1…` (5.4, o primeiro) | 2 | 520,8 | 0 | 33% |
+| `ac:a7:f1…` (5.4, o segundo) | 1 | 260,4 | 0 | 16% |
+
+**É o controle negativo da E1:** hoje o campo `bt_mic_enabled` não tem escritor,
+e a coluna de áudio é zero nos três — não porque o rádio recusou, mas porque
+ninguém pediu. Quando a E1 existir, esta mesma tabela é a régua: a coluna de
+áudio tem de sair de zero, e o pior rádio tem de continuar abaixo do teto.
+
+**E a bancada acabou de dar um aviso de produto:** os dois 5.4 têm o **mesmo
+OUI** (`ac:a7:f1`). Qualquer leitura que trunque o endereço os funde num só —
+foi o que aconteceu com o `grep` de `HID_PHYS` desta passagem, que contou
+`3 / 1 / 0` onde o produto contava `1 / 2 / 1`. O produto acertou porque usa o
+endereço inteiro; o instrumento improvisado errou. É a razão prática do nome por
+adaptador que entrou hoje: com dois rádios da mesma safra, o endereço curto não
+distingue e o rótulo do fabricante repete.

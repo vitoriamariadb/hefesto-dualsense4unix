@@ -5,13 +5,20 @@
   [2026-08-16-ONDE-PARAMOS](2026-08-16-ONDE-PARAMOS-a-sessao-de-vinte-horas.md),
   que continua valendo para o que mediu — o rádio meio mudo, o áudio e as
   cinco armadilhas daquele dia. Deixou só de ser o retrato de hoje.
+- **O ponteiro do `CLAUDE.md` foi repontado para cá, e ele NÃO viaja.** Medido:
+  `git check-ignore -v CLAUDE.md` → `.gitignore:90`. O arquivo é local por
+  construção, então "repontar a linha do `CLAUDE.md`" é gesto **por máquina** e
+  nenhum commit o resolve para os outros. É por isso que o de 16/08 pediu a
+  ação de um minuto duas vezes e ela nunca "pegou": não havia como pegar.
 - **O que ela pediu, textual:** *"manda agentes documentarem e corrigirem a
   documentação no final com as novas descobertas, e o que ficar por fazer
   documenta em novas sprints. Sempre pensando na próxima sessão sem contexto."*
-- **O que este dia foi, medido:** **48 commits** entre 04h03 e 21h27
-  (`git log --oneline 985b41a..HEAD | wc -l`), **185 arquivos**, +38.301 e
-  −1.176 linhas. Vinte módulos novos em `src/`, 45 arquivos de teste novos,
-  sete sprints novas.
+- **O que este dia foi, medido:** **53 commits** entre 04h03 e 22h00,
+  **199 arquivos**, +41.938 e −1.219 linhas. Vinte módulos novos em `src/`,
+  dezenas de arquivos de teste novos, e treze sprints. Medido com
+  `git log --oneline 985b41a..HEAD | wc -l` **contra o HEAD `4272438`** — a
+  árvore ainda andava enquanto esta página era escrita, e o número sem a âncora
+  seria falso amanhã.
 - **Grau desta página:** compilação. **Nada aqui foi medido com o controle na
   mão.** As contagens de árvore (contadores, chamadores, colunas do mapa)
   foram rodadas por esta passagem e o comando está ao lado. Tudo que é bancada
@@ -27,7 +34,7 @@ que **não** se deve refazer.
 
 ### 1.1 A aba Configurações nasceu inteira — a décima primeira
 
-Nove sprints `CONFIG-01` a `CONFIG-09`, todas fechadas, com cinco seções vivas:
+Nove sprints, de [CONFIG-01](sprints/2026-08-21-ABA-CONFIGURACOES/CONFIG-01-a-aba-existe-e-esta-vazia.md) a [CONFIG-09](sprints/2026-08-21-ABA-CONFIGURACOES/CONFIG-09-esta-tudo-certo.md), todas fechadas, com cinco seções vivas:
 **"Está tudo certo?"**, **"Os controles"**, **"A mesa"**, **"Orçamento"** e
 **"A janela"**. Nasceu junto a camada que faltava: `~/.config/hefesto-dualsense4unix/maquina.json`
 (`utils/maquina.py`, handler `machine.declare`) — este projeto não tinha onde
@@ -326,7 +333,7 @@ mudou de dono.
 |---|---|---|
 | **O sinal da barra só está ligado pela metade** | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o botão consulta `limpo_para_conectar`; o tique de hotplug não carimba nada, e `sinal_da_barra.ler_a_mesa` tem zero chamadores em `src/` |
 | **A fábrica do `ProfileManager` tem UM cliente** | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | `gerente_do_daemon` é chamada em 1 lugar; 12 construções diretas de `ProfileManager` seguem em `src/`, e **a saída do Modo Nativo passa 6 dos 7 appliers** |
-| **A central de rádio não tem porta** | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | `censo_do_barramento` e `apelido_do_dongle` não são importados por nada em `src/`; o helper privilegiado tem 7 verbos e nenhum chamador Python |
+| **Mover um controle de adaptador continua sendo terminal** | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | as E1 e E3 fecharam às 21h48 (`49797f8`), 48 min depois de a sprint ser escrita; o helper privilegiado segue com 7 verbos e **nenhum chamador Python** |
 | E3 a E7 da ELO-MUDO-01 | [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | a tela do que está valendo, o appid do wrapper como fonte de match, o Proton por jogo, e o portão da família |
 | E2 a E5 da N-IGUAL-A-UM-01, E1 a E7 da NO-MEU-FUNCIONA-01, E2 a E4 da UMA-FAIXA | as três sprints da auditoria | o `head -1` que sobrou, a Steam Flatpak, a bandeja fora do COSMIC, o XWayland |
 | E3, E4, E6 e E8 da LUZ-CEGA-01 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) | inclui tirar quatro MACs de fixture do `controllers.json` vivo dela |
