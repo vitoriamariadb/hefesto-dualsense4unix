@@ -30,6 +30,78 @@ que **não** se deve refazer.
 
 ---
 
+## 0. A MADRUGADA DE 23/08 — o que aconteceu DEPOIS desta página
+
+> Escrito em 23/08/2026, por uma passagem de auditoria de perda, sobre o que
+> ficou só na conversa e ia se perder na compactação. Nada foi commitado.
+
+**Três sprints novas, e uma que fechou:**
+
+| sprint | o que é | grau |
+|---|---|---|
+| [ENGASGO-VULKAN-01](sprints/2026-08-23-ENGASGO-VULKAN-01-sessenta-quadros-por-segundo-e-setenta-engasgos-por-minuto.md) | a queixa de meses do Sackboy: a FORMA do defeito medida e nove suspeitos eliminados. Suspeita: a camada Vulkan implícita do EOS. **O A/B foi lido em 23/08 e DERRUBA a hipótese** — sem a camada tudo piora, e as duas sessões rampam igual | **evidência CONTRÁRIA** |
+| [ESCONDE-SÓ-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md) | a cura do Steam Input esconde o `hidraw` e deixa `evdev`/`joydev` do mesmo controle abertos. **16 nós de jogo para 4 controles, sem Steam aberta** | MEDIDO |
+| [DAEMON-ACORDADO-01](sprints/2026-08-23-DAEMON-ACORDADO-01-quinze-por-cento-de-um-nucleo-sem-ninguem-jogando.md) | **15,2 % de um núcleo em repouso**, 6.393 `read()`/s. Ninguém conhecia o número | MEDIDO |
+| MASCARA-QUE-GRUDA-01 | **FECHOU.** A E1 mandava remedir a H1 — que já fora remedida em 22/07, em três jogos nomeados | — |
+
+**A armadilha da madrugada, e ela é a mais cara:** *uma hipótese bem escrita
+sobrevive à medição que a derruba.* A investigação concluiu que os nós hidraw
+por rádio ficam `0600` porque *"`uaccess` não concede em aparelho sem assento"*.
+Quatro medições derrubaram isso — a etiqueta `uaccess` **está** lá, a regra da
+casa **casa**, ela é três dias mais velha que os nós, e os vpads no **mesmo**
+`/devices/virtual/misc/uhid/` recebem ACL. A causa era o próprio produto
+(`hidraw_broker.hide()`), e descobrir isso trocou um falso problema de
+permissão por um defeito real de produto. **Duas armadilhas novas de
+instrumento** entraram no
+[COMO-OLHAR-A-TELA](COMO-OLHAR-A-TELA.md): a metade GPU do MangoHud escrevendo
+zero, e o endereço de rádio truncado fundindo dois adaptadores.
+
+**Fatos errados substituídos nesta passagem** (a regra é sair de TODOS os
+lugares):
+
+| fato que caiu | onde estava | o que é medido |
+|---|---|---|
+| *"a H1 nunca foi reconferida"* — **na tela dela** | `profiles_actions`, `uinput_gamepad`, `interface.md`, a sprint, **e um teste que a pinava** | remedida em **22/07** (HARMONIA-MASK-01), em Sackboy/Mad King/Pragmata |
+| *"o daemon usa `xbox` numa instalação nova"* | `uinput_gamepad.py` | **`dualsense`** — medido num `XDG_CONFIG_HOME` vazio |
+| *"máscara Xbox tira esses **dois**"* | `controller_card.py` | **três** — o acelerômetro cai junto. A outra frase já dizia três |
+| *"~392 Hz é o sustentado máximo do rádio"* | `driver-hid-playstation.md` | ~800/s é orçamento do **ADAPTADOR**, repartido: 392 é metade, e o adaptador dela hospeda dois controles |
+| *"`esportes` e `fps` já estão em dualsense"* | sprint + `SPRINT_ORDER` | só `esportes`; `fps.json` **não tem seção `mode`** |
+| *"um dongle de teclado e um de caixa de som são o mesmo VID:PID"* | `CHANGELOG.md` | o kernel classifica pela **classe da interface** |
+| *"`grep 'Disconnect(' src/`"* e *"`ler_a_mesa` tem zero chamadores"* | esta própria página | comandos/números que não se sustentam — corrigidos acima |
+
+**Dois portões consertados.** O de anonimato ficou **vermelho** no instante em
+que os `.csv.gz` de frametime entraram na árvore: acusou três MACs que **não
+existem** — eram os três bytes do OUI casando por acaso no envelope comprimido.
+Ao consertar apareceu o buraco de verdade, medido: **um MAC em ASCII dentro de
+um `.gz` passava por TODOS os portões** (o de texto não descomprime; o de bytes
+procura o OUI cru, não a forma escrita). Os dois agora varrem o **conteúdo**, e
+as quatro mordidas (ASCII, big-endian, little-endian, e o mascarado que deve
+passar) estão conferidas. A cura NÃO foi pôr `.gz` na lista de pulados — isso
+cegaria o portão para o caso que ele existe para pegar.
+
+**E uma regressão:** `test_faxina_de_testes.py` estava **vermelho na
+árvore** desde 22/08 — apagaram `test_preset_flavor_migration.py` <!-- ref-externa: o arquivo foi APAGADO em 22/08 e a ausência dele é o assunto da frase --> sem repontar
+quem o lia. Repontado, e a régua ganhou a forma de escrita nova que não
+enxergava (senão ficaria verde por cegueira, que é pior).
+
+**O censo de sprints órfãs é um NÃO-ACHADO — e custou TRÊS réguas erradas para
+chegar nele.** O número final, medido: **246 sprints na raiz, 183 com marcador
+de estado, 63 sem; das 63, 23 são índices/checklists (que corretamente não têm
+estado), e das 40 restantes 36 já estão no `SPRINT_ORDER.md`. Sobram QUATRO** —
+e as quatro são documento de retomada/organização, não sprint com entrega
+pendente. **Não há backlog escondido nas órfãs.**
+
+> As três réguas que erraram antes disso, todas da mesma família: (1) um apelido
+> com prefixo de data opcional capturava `2026-08`, que casa com quase toda
+> linha; (2) uma passagem afirmou que essa régua tinha sido consertada **sem
+> nunca a ter rodado**, e dois subagentes trabalharam 20 min sobre a premissa
+> inventada; (3) a régua "consertada" procurava `**Estado:**` e perdia
+> `- **Status:**` — que é a forma MAIS COMUM da casa, com **90** ocorrências —
+> e a de negrito aninhado (`- **Status:** **VALOR**`). Foi um subagente que
+> derrubou a terceira, com a prova no próprio lote que ela lhe mandou.
+
+---
+
 ## 1. O que MUDOU hoje, em cinco frentes
 
 ### 1.1 A aba Configurações nasceu inteira — a décima primeira
@@ -298,8 +370,11 @@ Isto se repetiu **dentro deste dia**, e por isso está aqui: a
 [BARRA-MUDA-01](sprints/2026-08-22-BARRA-MUDA-01-a-lampada-nao-se-le-o-nascimento-sim.md)
 registrou às 20h38 que *"`Disconnect` do BlueZ continua com zero chamadores em
 `src/`"*. Às 21h19 o botão "A luz não acende" entrou e passou a chamá-lo.
-Conferido por esta passagem: `grep -rn 'Disconnect(' src/` devolve
-`integrations/gesto_de_reconexao.py:234`, e `limpo_para_conectar` é chamada em
+Conferido em 23/08: `grep -rn 'Disconnect(' src/` **não devolve nada** — a
+chamada é a string `"Disconnect"` dentro de um argv, e a régua certa é
+`grep -rn '"Disconnect"' src/` → `integrations/gesto_de_reconexao.py:234`. O
+fato está certo; o comando que esta página mandava rodar estava errado, e quem
+o rodasse concluiria que o chamador sumiu. e `limpo_para_conectar` é chamada em
 `app/actions/config/secao_controles.py:1110`. **Quem lê uma sprint de hoje tem
 de conferir contra a árvore antes de agir sobre o que ela declara aberto.**
 
@@ -331,7 +406,7 @@ mudou de dono.
 
 | O quê | Onde | Medido por esta passagem |
 |---|---|---|
-| **O sinal da barra só está ligado pela metade** | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o botão consulta `limpo_para_conectar`; o tique de hotplug não carimba nada, e `sinal_da_barra.ler_a_mesa` tem zero chamadores em `src/` |
+| **O sinal da barra só está ligado pela metade** | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o botão consulta `limpo_para_conectar`; o tique de hotplug não carimba nada, e `sinal_da_barra.ler_a_mesa` não é chamada nem pelo daemon nem pela janela (tinha um chamador: o `main()` da CLI do próprio módulo — dizer "zero chamadores" era endurecer o número). **Fechado em 22/08 à noite:** `daemon/connection.py:1031` passou a chamá-la |
 | **A fábrica do `ProfileManager` tem UM cliente** | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | `gerente_do_daemon` é chamada em 1 lugar; 12 construções diretas de `ProfileManager` seguem em `src/`, e **a saída do Modo Nativo passa 6 dos 7 appliers** |
 | **Mover um controle de adaptador continua sendo terminal** | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | as E1 e E3 fecharam às 21h48 (`49797f8`), 48 min depois de a sprint ser escrita; o helper privilegiado segue com 7 verbos e **nenhum chamador Python** |
 | E3 a E7 da ELO-MUDO-01 | [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | a tela do que está valendo, o appid do wrapper como fonte de match, o Proton por jogo, e o portão da família |
@@ -341,9 +416,13 @@ mudou de dono.
 
 ### 4.2 Decisão DELA — não decido por ela
 
-1. **Os quatro presets de gênero pedem `xbox`, e agora isso GRUDA.** Medido
-   hoje no disco dela: `acao`, `aventura`, `coop_local` e `corrida` trazem
-   `gamepad_flavor: xbox`. Com a máscara persistente, qualquer jogo que case num
+1. **Os presets de gênero pedem `xbox`, e agora isso GRUDA.** São **sete** os
+   que shipavam `xbox` (`acao`, `aventura`, `coop_local`, `corrida`, `esportes`,
+   `fps`, `sackboy_nativo`); **quatro** estão assim no disco dela — `acao`,
+   `aventura`, `coop_local` e `corrida`. (Este item dizia "os quatro presets",
+   confundindo as duas contagens.) **Resolvido em 22/08:** os sete passaram a
+   shipar `gamepad_flavor: null`; os perfis dela não foram tocados, de
+   propósito. Com a máscara persistente, qualquer jogo que case num
    deles deixa `xbox` gravado — a mesma queixa dela por outra porta. Há portão
    exigindo o xbox (`SPRINT-GAME-RUMBLE-01`: *"a máscara DualSense faz o jogo
    ignorar o gamepad virtual"*), mas hoje os quatro vpads subiram em

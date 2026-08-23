@@ -56,9 +56,24 @@ duas sãs, lado a lado. É essa simultaneidade que torna esta medição possíve
 
 O `hw_version` casa `.0028`→`.0033` e `.002A`→`.0034` **exatamente**: são os
 dois controles que ela reconectou, e é a prova de que a tabela é a mesma
-bancada em dois instantes. Guarde este campo — ele é a única impressão digital
-do PLÁSTICO que sobrevive à reconexão (o MAC da instância muda, o `inputN`
-muda, o sufixo muda, o `hw_version` não).
+bancada em dois instantes. O que muda na reconexão é o número da instância
+(`.NNNN`), o `inputN` e o sufixo; o `hw_version` não.
+
+> **CORREÇÃO DATADA — 23/08/2026.** Aqui estava escrito que *"o MAC da
+> instância muda"*, e a coluna acima é a do **ADAPTADOR** (`ac:a7:f1:00:00:41`
+> aparece três vezes, com três `hw_version` diferentes — são os três
+> adaptadores da bancada), não a do controle. O endereço do controle (`uniq`)
+> **não muda** de uma conexão para outra: a SINAL-NO-NASCIMENTO-01 cruzou os
+> pares `uniq`↔`hw_version` desta bancada (22/08) com a tabela independente de
+> 15/08 ([SEMPRE IDENTIFICADO](../estudos/2026-08-15-SEMPRE-IDENTIFICADO-a-resposta-e-o-MAC-e-onde-ela-falha.md))
+> e os **quatro de quatro** são idênticos, uma semana depois. Quem quiser
+> reconferir pela §1.6, que é onde a tabela por `uniq` está — pela §1.1 sozinha
+> se chega à conclusão oposta.
+>
+> Consequência de desenho, já executada: o veredito de nascimento é chaveado
+> pela **INSTÂNCIA** (o defeito é da conexão), e a busca da tela é pelo
+> **`uniq`** (o defeito não é do plástico). São duas chaves, cada uma para uma
+> pergunta.
 
 ### 1.2 A diferença, e ela é única
 
@@ -234,7 +249,9 @@ O relógio de nascimento tem de vir do log do kernel, e vem.
 
 ### 3.4 "O produto já não causa mais o travamento, então a causa é outra coisa nova" — DERRUBADA
 
-O `0x08` saiu em 03/08 e as barras continuaram travando — o que me fez procurar
+O `0x08` saiu em 04/08 (`07f8704`, medido por `git log -S RELEASE_LEDS`; o
+§7 corrige a data de 03/08 que este documento afirmava) e as barras continuaram
+travando — o que me fez procurar
 uma causa nova. Não há causa nova: há uma causa **externa** que a casa já
 conhecia por outro nome. O `ESCRITOR-CRU-01` (16/08) mediu a Steam apagando a
 barra e chamou aquilo de disputa de escrita ("ganha quem escreve por último").

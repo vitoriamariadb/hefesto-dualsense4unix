@@ -205,7 +205,7 @@ Rode antes: `pytest tests/unit -k "profile or mode or segmented or empate"`.
 | `test_segmented_selector.py` (`:76-82`, `:84-100`, `:204-230`) | **a forma da tupla `(id, label)` é load-bearing** |
 | `test_profile_mode.py`, `test_r03_lock_manual_adia_modo.py`, `test_r04_gate_destrutivo_vpad.py`, `test_r04_arming_no_launch.py`, `test_modo01_*.py` | qualquer mudança de precedência bate em pelo menos um |
 | `test_perfil_salva_tudo_registrar_nao_e_aplicar.py` | **portão por AST**: proíbe o escritor do rascunho disparar aplicação |
-| `test_preset_flavor_migration.py` | a migração `dualsense→xbox` dos presets |
+| `test_preset_flavor_migration.py` | a migração `dualsense→xbox` dos presets |  <!-- ref-externa: apagado em 22/08/2026 (MASCARA-QUE-GRUDA-01); no lugar está test_o_preset_nao_escolhe_a_mascara.py -->
 | `test_empate01_a_cor_volta_a_ser_dela.py` | o desempate por incumbente |
 
 ## Armadilhas nomeadas — leia antes de tocar no código

@@ -14,12 +14,46 @@ até a faxina de 24/07 (`a639e0d`), foi apagado, e ela o pediu de volta em
 > abriu estão na fila da seção 1 e na seção 3; a contagem do cabeçalho **não**
 > foi refeita, porque refazer o censo é trabalho de censo, não de aritmética.
 >
+> **RECONTADO em 23/08/2026** — 244 no primeiro nível, 17 na subpasta, **261 no
+> total**; 143 citadas por NOME neste arquivo, **114 fora dele**. E o resultado
+> que importa é um **NÃO-ACHADO**: das que declaram estado, **nenhuma órfã diz
+> ABERTA**. Elas estão fora da fila porque a fila é *"do que falta, não registro
+> do que se achou"*, e isso está certo.
+>
+> **Três alarmes de órfã aberta foram conferidos um a um e os três eram da
+> régua, não da árvore.** `CONTAGEM-01`, `UI-SELETOR-01`, `JOGO-COMPLETO-01`,
+> `PEDIDOS-DELA-01`, `RECEITA-ERRADA-01` e `APPLET-MONOCROMATICO-01` têm
+> cabeçalho de concluída **acima** de um `Status: ABERTA` preservado de
+> propósito; `2026-07-30-INDICE` e `2026-07-31-INDICE` são índices de leva
+> antiga, não sprints. E os dois casos inversos (*"a fila diz ABERTA e o
+> arquivo diz FEITA"*) também caíram: a linha do `TRES-MODOS-DO-SOM-01` foi
+> lida contra o arquivo do `SOM-01` por colisão de sufixo, e a
+> `PROVA-NO-PLASTICO-01` foi dada como fechada porque a linha 37 dela diz
+> *"exige a Steam FECHADA"*. **A anatomia das três réguas está em
+> [COMO-OLHAR-A-TELA.md](COMO-OLHAR-A-TELA.md)**, §"Régua que casa um token em
+> qualquer lugar do texto".
+>
 > **O retrato do dia inteiro, para quem chega sem contexto:**
 > [ONDE PARAMOS — a aba que nasceu, e as quatro réguas que mentiam](2026-08-22-ONDE-PARAMOS-a-aba-que-nasceu-e-as-quatro-reguas-que-mentiam.md).
+>
+> **E o índice de 21/08 continua valendo, apesar de este arquivo tê-lo
+> substituído como porta de entrada:**
+> [a casa mudou de endereço](sprints/2026-08-21-INDICE-a-casa-mudou-de-endereco-e-a-fila-mudou-de-ordem.md).
+> Ele ficou **sem um único ponteiro na árvore** entre 22/08 e 23/08, e carrega
+> uma linha que não está escrita em nenhum outro lugar: **o `pre-commit` global
+> desta máquina barra segredo com 9 regras mais o cofre de literais em
+> `~/.config/git/segredos-literais` — trocar a senha da máquina exige trocar lá
+> também.**
 
 ---
 
-## 1. A FILA DE AGORA — 22/08/2026, fim do dia
+## 1. A FILA DE AGORA — 23/08/2026, madrugada
+
+> **A madrugada de 23/08 acrescentou três sprints e fechou uma.** A
+> ENGASGO-VULKAN-01 nasceu da queixa do Sackboy; a ESCONDE-SÓ-O-HIDRAW-01 e a
+> DAEMON-ACORDADO-01 nasceram de medições laterais da mesma investigação. A
+> MASCARA-QUE-GRUDA-01 **fechou** — a E1 dela mandava pagar um custo já pago.
+> Entram nas posições 1, 2 e 13 da fila abaixo.
 
 **O dia inteiro:** 53 commits entre 04h03 e 22h00, medidos por
 `git log --oneline 985b41a..HEAD | wc -l` contra o HEAD `4272438`. O que fechou está resumido depois da
@@ -33,16 +67,22 @@ no cabo E no rádio, com as features todas nos quatro controles ao mesmo tempo.*
 
 | # | O quê | Por que primeiro | DELA |
 |---|---|---|---|
-| 1 | [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) | sete presets shipam `xbox` e desde hoje a máscara PERSISTE. Um vpad Xbox não tem touchpad, giroscópio nem acelerômetro no descritor HID — o caminho de menor gesto grava por ela a máscara que tira três features do jogo, e ela já desfez à mão em dois perfis | **DELA** |
-| 2 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) **E8** | quatro MACs de FIXTURE moram no `controllers.json` VIVO dela e empurram os DualSense reais para os postos 6, 7 e 8. Pior que o efeito: alguma coisa da suíte fala com o daemon vivo dela, e ninguém sabe o quê | limpar o arquivo é DELA; achar quem escreveu, não |
-| 3 | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o produto SABE dizer se a conexão nasceu condenada e não pergunta na hora em que ela nasce. A luz apagada dela é isto. O botão já consulta o sinal; falta o tique de hotplug carimbar | |
-| 4 | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | sair do Modo Nativo monta o `ProfileManager` com **6 dos 7 appliers**, e applier ausente é seção ignorada em silêncio: `rumble.passthrough` do perfil não é aplicado. É a rota que a `PERFIL-REESCRITO-NA-PARTIDA-01` já tinha corrigido uma vez | |
-| 5 | [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | é o que falta para o alvo dela inteiro, e a conta do guia diz que cabe (3 × 1.600 contra ~1.385). `bt_mic_enabled` é lido por três lugares e escrito por nenhum | **DELA** |
-| 6 | ELO-MUDO-01, **E3 a E7** | sem a tela do que está VALENDO agora, nem ela nem um agente separam "o produto mexeu" de "o jogo é assim" — foi isso que fez o engasgo do Sackboy custar uma madrugada | parte **DELA** |
-| 7 | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) **E2 e E4** | E1 e E3 fecharam em `49797f8`. Falta **mover um controle de adaptador** (o helper tem os 7 verbos e nenhum chamador Python) e o alcance total que ela pediu: webcam, microfones extras, todo o USB | E4 é **DELA** |
-| 8 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | existe quem retoma e não existe quem suspende: o par de estados mente sempre para o mesmo lado. **A E4 está desbloqueada** — a seção "Está tudo certo?" existe desde 22/08 | |
-| 9 | [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | um `Disconnect` derrubou DOIS controles, o segundo em outro adaptador. Sem explicação — e o botão que entrou hoje usa esse mesmo `Disconnect` | |
-| 10 | O resto da auditoria de viés: [N-IGUAL-A-UM-01](sprints/2026-08-22-N-IGUAL-A-UM-01-o-produto-escolhe-um-quando-ha-tres.md) E2/E4/E5, [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) E1 a E7, [UMA-FAIXA-NÃO-É-UM-FABRICANTE-01](sprints/2026-08-22-UMA-FAIXA-NAO-E-UM-FABRICANTE-01-o-pro-dela-virou-a-definicao-de-pro.md) E2 a E4, LUZ-CEGA-01 E3/E4/E6 | cada um sozinho é pequeno; a família inteira é a preocupação que ela nomeou: *"vai ficar pra sempre naquela de no meu pc funciona de boa"* | algumas **DELA** |
+| 1 | [ENGASGO-VULKAN-01](sprints/2026-08-23-ENGASGO-VULKAN-01-sessenta-quadros-por-segundo-e-setenta-engasgos-por-minuto.md) | a queixa dela tem MESES, e a madrugada mediu a FORMA do defeito e eliminou nove suspeitos. **Mas o A/B, lido em 23/08 contra os 267.465 quadros crus, aponta para o lado CONTRÁRIO:** sem a camada Vulkan a rampa do p99 é quase o dobro mais íngreme (+4,19 contra +2,28 ms/min) e há quatro vezes mais picos. **As duas sessões rampam** — logo a rampa não é da camada, e há uma segunda causa que ninguém explicou. Falta o A/B de verdade: a MESMA fase do jogo, duas vezes | o A/B é **DELA** (dez minutos de jogo) |
+| 2 | [ESCONDE-SÓ-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md) | a cura do Steam Input esconde o `hidraw` e deixa `evdev` e `joydev` do MESMO controle abertos — 16 nós de jogo para 4 controles, sem Steam aberta. E o `doctor.sh:3715` afirma **em verde** que "o jogo só vê o vpad". É o terceiro controle dela, com o mecanismo enfim medido | E2 é **DELA** |
+| 3 | [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) — **FECHADA em 23/08**, fica na fila só até ela ver | os presets perderam a opinião de máscara e a tela passou a dizer o preço dos dois lados. A E1 ("remedir a H1") foi **CANCELADA**: a H1 já fora remedida em 22/07, em três jogos nomeados, e a tela chegou a afirmar o contrário para ela. **A redação nova da frase pede o olho dela** | **DELA**, só a palavra final |
+| 4 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) **E8** | quatro MACs de FIXTURE moram no `controllers.json` VIVO dela e empurram os DualSense reais para os postos 6, 7 e 8. Pior que o efeito: alguma coisa da suíte fala com o daemon vivo dela, e ninguém sabe o quê | limpar o arquivo é DELA; achar quem escreveu, não |
+| 5 | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o produto SABE dizer se a conexão nasceu condenada e não pergunta na hora em que ela nasce. A luz apagada dela é isto. O botão já consulta o sinal; falta o tique de hotplug carimbar | |
+| 6 | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | sair do Modo Nativo monta o `ProfileManager` com **6 dos 7 appliers**, e applier ausente é seção ignorada em silêncio: `rumble.passthrough` do perfil não é aplicado. É a rota que a `PERFIL-REESCRITO-NA-PARTIDA-01` já tinha corrigido uma vez | |
+| 7 | **Arbitrar o hidraw — o 5.a de 16/08, que o 22/08 pulou** ([QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md), nota de 23/08) | o estudo de 16/08 mediu que *"a ponte NÃO é segura ainda"* e que ela *"não entra no caminho automático da interface"* enquanto o `0x32` tiver dois donos; o item 4 dizia *"a ponte do mic não volta a subir sem o item 1"*. Em 22/08 o interruptor voltou à janela. **MEDIDO em 23/08: não existe arbitragem em `src/`, o broker não rastreia quem abriu o nó, e não há portão 5.a/5.b.** Ela pediu o interruptor sem que o preço estivesse na mesa | a decisão de aceitar o risco é **DELA** |
+| 8 | **PEDIDOS-DELA-01 — três dos SEIS pedidos dela continuam sem entrega** ([sprint](sprints/2026-08-03-PEDIDOS-DELA-01-o-roteiro-dos-seis-pedidos-da-interface.md), fora da fila desde 03/08) | **#5 a máscara do controle externo:** `daemon/subsystems/external_mask.py:320` `set_mask` tem **zero chamadores em `src/`** — a `TODO-INTEGRACAO` registra isso desde 15/08. **#6.2 o `doctor` manda ela para o modo que MATA:** `scripts/doctor.sh:2753` diz *"troque o modo (Switch) ou use no cabo"* sem separar transporte, contra o `troubleshooting-8bitdo.md`, que mediu Switch por rádio como **PROVADO instável** — e `tests/unit/test_plataforma_wiring.py:209` **trava a string em verde**, que é portão pinando fato errado. **#3a e #3c:** não achados | **DELA** |
+| 9 | [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | é o que falta para o alvo dela inteiro, e a conta do guia diz que cabe (3 × 1.600 contra ~1.385). `bt_mic_enabled` é lido por três lugares e escrito por nenhum | **DELA** |
+| 10 | ELO-MUDO-01, **E3 a E7** | sem a tela do que está VALENDO agora, nem ela nem um agente separam "o produto mexeu" de "o jogo é assim" — foi isso que fez o engasgo do Sackboy custar uma madrugada | parte **DELA** |
+| 11 | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) **E2 e E4** | E1 e E3 fecharam em `49797f8`. Falta **mover um controle de adaptador** (o helper tem os 7 verbos e nenhum chamador Python) e o alcance total que ela pediu: webcam, microfones extras, todo o USB | E4 é **DELA** |
+| 12 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | existe quem retoma e não existe quem suspende: o par de estados mente sempre para o mesmo lado. **A E4 está desbloqueada** — a seção "Está tudo certo?" existe desde 22/08 | |
+| 13 | [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | um `Disconnect` derrubou DOIS controles, o segundo em outro adaptador. Sem explicação — e o botão que entrou hoje usa esse mesmo `Disconnect` | |
+| 14 | O resto da auditoria de viés: [N-IGUAL-A-UM-01](sprints/2026-08-22-N-IGUAL-A-UM-01-o-produto-escolhe-um-quando-ha-tres.md) E2/E4/E5, [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) E1 a E7, [UMA-FAIXA-NÃO-É-UM-FABRICANTE-01](sprints/2026-08-22-UMA-FAIXA-NAO-E-UM-FABRICANTE-01-o-pro-dela-virou-a-definicao-de-pro.md) E2 a E4, LUZ-CEGA-01 E3/E4/E6 | cada um sozinho é pequeno; a família inteira é a preocupação que ela nomeou: *"vai ficar pra sempre naquela de no meu pc funciona de boa"* | algumas **DELA** |
+| 15 | [DAEMON-ACORDADO-01](sprints/2026-08-23-DAEMON-ACORDADO-01-quinze-por-cento-de-um-nucleo-sem-ninguem-jogando.md) | **15,2 % de um núcleo em repouso** — sem jogo, sem janela, quatro controles parados; 6.393 `read()`/s para 2.400 relatórios/s. Ninguém conhecia o número. A E1 são dez segundos de `strace` e não precisa dela | |
+| 16 | [AUDITORIA-DE-PERDA-01](sprints/2026-08-23-AUDITORIA-DE-PERDA-01-tres-portoes-verdes-que-nao-medem-nada.md) | **três portões passam com a cura arrancada** — o da foto da aba não olha a foto, o da coluna "O que é" é tautologia (`ids.issubset(ids)`), e o de referências casa por sufixo de caminho. Nenhum estava escrito. A E4 tira do vermelho o `A-CASA-SABE`, que três frentes já disseram, com razão, não ser delas | |
 
 **Ainda aberta, com o hardware na mesa:** a bancada de rádio, pelo
 [GUIA-RADIO-DA-SALA.md](../../GUIA-RADIO-DA-SALA.md). **DELA**: exige controle na

@@ -429,6 +429,134 @@ seções 8.1 e 9.
 
 Nunca aceite código de saída como prova de que o som saiu no dispositivo certo.
 
+### Régua que pergunta pelo campo errado — ou no lugar errado — produz NÃO-ACHADO convincente
+
+**Esta é a família, e ela é mais cara que qualquer medição individual desta
+página.** As outras armadilhas fazem o instrumento dizer um número errado, e
+número errado tem chance de parecer estranho. Esta faz o instrumento dizer
+**"não há nada"** — e "não há nada" nunca parece estranho. Ele parece
+tranquilizador, encerra a investigação, e às vezes vira relatório.
+
+O molde é sempre o mesmo: a pergunta é boa, a régua é plausível, a saída é
+vazia, e **vazio é lido como ausência quando na verdade é erro de endereço.**
+
+Casos reais, todos de 22 e 23/08/2026, e vários são de quem escreveu isto:
+
+| a régua | o que ela devolveu | o que era |
+|---|---|---|
+| `grep` por `trigger` no perfil | *"34 perfis sem gatilho"* — levado à dona da casa | o campo é `triggers`, **no plural** |
+| `find /tmp /home -maxdepth 4` pelos logs de frametime | *"o log por quadro não está no disco; os números não são sustentáveis"* | estavam em `$CLAUDE_JOB_DIR/tmp/mangohud/`, fora das raízes e abaixo do `maxdepth` |
+| `grep -rn "Disconnect(" src/` | *"zero chamadores; o chamador sumiu"* | a chamada é a **string** `"Disconnect"` dentro de um argv, sem parêntese |
+| `cat /sys/class/bluetooth/hci*/address` | campo vazio para todo adaptador | esse atributo não existe nesse caminho nesta máquina |
+| contar controles por `HID_PHYS` truncado no OUI | `3/1` adaptadores | são `2/1/1` — dois adaptadores do mesmo fabricante fundidos |
+| censo de sprints por apelido com prefixo de data opcional | uma lista de "órfãs abertas" | o apelido capturado era `2026-08`, que casa com quase toda linha |
+| a régua seguinte, procurando `\*\*Estado:\*\*` no cabeçalho | *"66 sprints sem marcador de estado nenhum"* | a forma mais comum da casa é `- **Status:**`, com **90** ocorrências, e existe a de negrito aninhado. São **quatro**, não 66 |
+
+**O antídoto, e ele é barato:** *antes* de acreditar num vazio, prove que a
+régua sabe achar. Rode-a contra um caso que você **sabe** que existe e veja-a
+acusar. Se `grep trigger` devolve 34, rode `grep triggers` também; se um `find`
+não acha, imprima onde ele procurou e até que profundidade. Uma régua que nunca
+foi vista acertando não mediu nada — só ficou quieta.
+
+**E a variante social, que é a pior:** *afirmar o resultado de uma régua que
+nunca foi rodada.* Aconteceu nesta sessão — uma passagem disse a dois
+subagentes que um censo tinha sido "consertado e revalidado" quando ele não
+tinha sido rodado nenhuma vez, e os dois trabalharam vinte minutos sobre a
+premissa inventada. A regra que fecha isto é a de sempre nesta casa: **o
+comando ao lado do número.** Se não dá para colar o comando, o número não
+existe.
+
+### O MangoHud escreve ZERO na metade GPU inteira nesta máquina
+
+**MEDIDO em 23/08/2026**, na RTX 4060 dela, num log real de sessão do Sackboy
+(`/tmp/hefesto-mh/*.csv`, 923 linhas de dado):
+
+| coluna | zeros |
+|---|---|
+| `gpu_load`, `gpu_temp`, `gpu_core_clock`, `gpu_mem_clock`, `gpu_vram_used`, `gpu_power` | **100 %** — todas as 923 linhas |
+| `fps`, `frametime`, `cpu_load`, `cpu_temp`, `ram_used` | zero zeros, valores plausíveis |
+
+Não é uma coluna morta: é **a metade GPU do instrumento inteira**, enquanto o
+`nvidia-smi` na mesma sessão mostrava 51 % de uso. O cabeçalho de metadados sai
+com o campo `driver` **vazio**, que é o sintoma antecedente. O `_summary.csv`
+sai com `Average FPS,-nan` e `GPU Load,-nan`.
+
+É a armadilha nº 1 desta página noutro traje: quem ler esse CSV e concluir *"a
+GPU está ociosa, fria e sem VRAM"* está lendo sensor desconectado, não medição.
+**Antes de usar um log do MangoHud como prova, conte os zeros por coluna.** E
+não confunda com o outro defeito do mesmo arquivo: aquele log é **amostrado a
+2,47 amostras/s**, não por quadro — `frametime` ali não sustenta análise de
+cauda (p99), por mais que a coluna exista.
+
+### Endereço de rádio truncado FUNDE dois adaptadores num só
+
+**MEDIDO em 23/08/2026** na mesa dela, que tem dois adaptadores 5.4 do **mesmo
+fabricante** — logo o mesmo OUI, os três primeiros octetos.
+
+Contando controles por adaptador na mesma leitura de `HID_PHYS`:
+
+| régua | resultado |
+|---|---|
+| endereço **inteiro** (o que o produto usa) | `ac:a7:f1:00:00:41` → 2 · `ac:a7:f1:00:00:ce` → 1 · `d8:44:89:00:00:c4` → 1 |
+| **OUI** (três octetos) | `ac:a7:f1` → **3** · `d8:44:89` → 1 |
+
+Os dois adaptadores viram um, e um deles desaparece com os controles dele
+junto. Um `grep` de conveniência sobre o prefixo produz uma distribuição
+**convincente e errada** — e a casa já pagou por isso noutro lugar (*"uma faixa
+de MAC não é um fabricante"*, `e5376a0`).
+
+**A régua é sempre o endereço inteiro.** E na hora de ESCREVER o número em
+arquivo versionado, a máscara da casa é zerar os octetos 4 e 5
+(`ac:a7:f1:00:00:41`); em fixture, a faixa sintética `aa:bb:cc`. Há portão
+(`scripts/check_anonymity.sh`), e ele não perdoa. **A máscara preserva o último
+octeto de propósito** — é ela que continua separando `…:41` de `…:ce` depois de
+anonimizado.
+
+### O `environ` do PRIMEIRO processo da árvore da Steam não é o do jogo
+
+**MEDIDO em 16/08/2026**, e a armadilha voltou em 23/08 num traje novo, o que é
+o motivo de estar nesta página e não só no estudo que a mediu
+([O RÁDIO MEIO MUDO](estudos/2026-08-16-O-RADIO-MEIO-MUDO-o-que-atravessa-e-o-que-nao.md),
+§"Os erros de instrumento do dia").
+
+O `quem_o_jogo_abre.py` dizia *"o WRAPPER rodou? NÃO"* para dois jogos. Ele lia
+o `environ` do primeiro processo da árvore — o **`reaper` da Steam**, que roda
+*antes* do wrapper. O `/proc` do processo do JOGO tinha a variável.
+
+**A régua certa é estrutural:** o processo **mais fundo** da cadeia que casa com
+o padrão, nunca o primeiro, e nunca por conteúdo. Já é código:
+`scripts/ensaios/quem_o_jogo_abre.py::processo_do_jogo`. Use-o — não escreva um
+`grep` novo em `/proc`.
+
+*Um instrumento que acusa a própria cura de não existir manda a investigação
+para o lugar mais caro possível.* Em 23/08 esse mesmo formato de leitura
+produziu a conclusão *"cura por variável de ambiente no wrapper não serve"* —
+generalização que a
+[ESCONDE-SÓ-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md)
+teve de desfazer com nota datada.
+
+### Régua que casa um token em QUALQUER lugar do texto, em vez do campo que o significa
+
+**MEDIDO em 23/08/2026**, num censo das sprints. Três resultados convincentes e
+falsos, os três da mesma família: a régua achou a palavra certa no lugar errado.
+
+| o que a régua fez | o que ela concluiu | o que era |
+|---|---|---|
+| extraiu a **data** do nome do arquivo como se fosse o apelido da sprint | tudo casava com tudo (`2026-08` está em toda linha) | régua correta: `^\d{4}-\d{2}-\d{2}-([A-ZÀ-Ú][A-Z0-9À-Ú-]*-\d{2})\b`, **e conferir que nenhuma chave extraída parece uma data** |
+| casou a chave por **substring** contra a linha do `SPRINT_ORDER.md` | a linha de `TRES-MODOS-DO-SOM-01` (ABERTA) foi lida contra o arquivo de `SOM-01` (ENTREGUE) → alarme de *"a fila diz aberta e a sprint diz feita"* | `SOM-01` é sufixo de `TRES-MODOS-DO-SOM-01`. Casamento tem de ser da chave INTEIRA, com fronteira |
+| procurou a palavra `FECHADA` em **qualquer lugar** do arquivo | `PROVA-NO-PLASTICO-01` foi dada como concluída | a linha 37 diz *"exige a Steam FECHADA"*. É sobre a Steam, não sobre a sprint |
+
+E a régua mais óbvia de todas também mente: **o campo `Status:` de uma sprint
+não é fonte.** Esta casa preserva o rótulo antigo de propósito (*"não se apaga
+decisão medida"*), então um arquivo cujo cabeçalho diz **CONCLUÍDA** carrega
+logo abaixo, e para sempre, o `Status: ABERTA` que valeu antes. Já foi medido
+duas vezes: **40 de 48 diziam ABERTA** em 30/07 e **41 de 50** em 31/07, com
+entregas provadas no meio. Ler `Status:` produz uma lista de "sprints abertas"
+que é quase toda tumba.
+
+**A régua que sobrevive:** cruzar cada pedido com a árvore de HOJE — *a entrega
+que ela pede existe em `src/`?* — e nunca com o cabeçalho.
+
 ---
 
 ## Ferramentas de sistema, e o que não fazer com elas

@@ -261,6 +261,15 @@ produto age e a tela cala.
 >   'suppression': 'aplicado', 'rumble_policy': 'aplicado', 'speaker': 'aplicado'}
 > ```
 >
+> **NOTA DATADA — 23/08/2026 ([GATILHO-NÃO-PERDIDO-01](2026-08-23-GATILHO-NAO-PERDIDO-01-a-regua-perguntou-pelo-campo-errado.md)).**
+> O `'trigger': 'aplicado'` e o `'led': 'aplicado'` desta captura eram palavra
+> FIXA: o `apply` escrevia `relatorio.setdefault(categoria, "aplicado")` sem
+> perguntar se algum byte saiu, e com a mesa vazia o relatório dizia o mesmo com
+> zero escrita. A cura desta entrega hospedava, para duas seções, exatamente o
+> defeito que ela nomeia. Curado: as duas palavras passam a vir do
+> `ResultadoDeSaida` que o `apply_output_defaults` devolve, e mesa vazia agora
+> diz `adiado_sem_controle`.
+>
 > **E o journal pegou o que o teste não pegou.** A primeira versão trouxe
 > `'mode': 'aplicado'` na allowlist — a allowlist sendo pulada e cumprida na
 > mesma linha. São DOIS caminhos até o mesmo applier: o `return` do ramo pula o

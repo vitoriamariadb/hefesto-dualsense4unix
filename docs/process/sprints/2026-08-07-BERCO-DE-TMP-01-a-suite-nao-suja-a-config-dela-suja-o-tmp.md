@@ -62,7 +62,7 @@ mtime. **Não há config dela para limpar depois dos testes.**
 **Grau: MEDIDO**, e a causa dos 9 foi confirmada duas vezes — por leitura do
 código (`d = Path(tempfile.mkdtemp())` sem `finally`, 7 chamadas em
 `tests/unit/test_coop_default_on_migration.py` e 2 em
-`tests/unit/test_preset_flavor_migration.py`) e pelo **conteúdo dos diretórios
+`tests/unit/test_preset_flavor_migration.py`) e pelo **conteúdo dos diretórios  <!-- ref-externa: apagado em 22/08/2026 (MASCARA-QUE-GRUDA-01); no lugar está test_o_preset_nao_escolhe_a_mascara.py -->
 no disco**, que são os arquivos daqueles testes.
 
 **O acumulado no dia da medição:**
@@ -199,7 +199,7 @@ Cinco detalhes, cada um com um defeito por trás:
 escotilha declarada é melhor que um portão contornado no escuro.
 
 **Verificado em 07/08, em dois níveis.** Primeiro no pequeno: com o berço
-armado, `test_coop_default_on_migration.py` e `test_preset_flavor_migration.py`
+armado, `test_coop_default_on_migration.py` e `test_preset_flavor_migration.py`  <!-- ref-externa: apagado em 22/08/2026 (MASCARA-QUE-GRUDA-01); no lugar está test_o_preset_nao_escolhe_a_mascara.py -->
 rodaram os mesmos 13 testes e o `/tmp` foi de **915 diretórios `tmp<8>` para
 915** — os 9 nasceram e saíram no berço, e o relato os nomeou.
 
