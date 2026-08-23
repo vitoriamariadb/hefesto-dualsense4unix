@@ -172,8 +172,9 @@ ciano; as duas `●` são as que obedeceram e devolveram a cor original.
   registrado o resultado. **Eu não repeti a leitura, e a decisão foi
   deliberada** — ver §4;
 - **`LIGHTBAR-BT-CULPADO-01`** (`core/backend_pydualsense.py:2069`): o `0x08`
-  dentro da janela de ~3,4 s pós-conexão trava a barra, 7 de 7. Foi REMOVIDO em
-  03/08. Li, não remedi;
+  dentro da janela de ~3,4 s pós-conexão trava a barra, 7 de 7. A sprint que
+  mediu é de 03/08; a **remoção no código é de 04/08** (`07f8704`, medido em
+  22/08 por `git log -S RELEASE_LEDS`). Li, não remedi;
 - **`LIGHTBAR-BT-RESET-01`** (mesmo arquivo): acusa as *feature reads* da adoção
   de derrubarem o claim no firmware. Essa acusação **nunca foi eliminada por
   medição** — a de 03/08 isolou o `0x08`, não as leituras.
@@ -340,6 +341,17 @@ muda.
 ---
 
 ## 7. O que ficou aberto
+
+> **NOTA DE 22/08/2026, algumas horas depois desta página.** Os itens 1 e 2
+> mudaram no mesmo dia, e ficam aqui **substituídos**, não apagados: o botão "A
+> luz não acende" entrou em `8b167cc` e passou a chamar `limpo_para_conectar`
+> (`app/actions/config/secao_controles.py:1110`) e o `Disconnect` do BlueZ
+> (`integrations/gesto_de_reconexao.py:234`). **Continua aberto** só o outro
+> ponto de chamada — o tique de hotplug carimbando o veredito no nascimento —,
+> e ele virou sprint própria:
+> [SINAL-NO-NASCIMENTO-01](2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md).
+> O item 4 virou
+> [DOIS-CAIRAM-DE-UMA-VEZ-01](2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md).
 
 1. **O sinal não está ligado em lugar nenhum.** O módulo existe e tem CLI; o
    daemon e a janela não o chamam. É a

@@ -44,7 +44,7 @@ Commit cd5eaf1. Medida de janela offscreen prova geometria, não prova que ficou
 
 ![Aba Perfis](docs/usage/assets/readme_perfis.png)
 
-- [ ] **Aprovar as cinco de largura numa olhada com a janela maximizada** — a metade de geometria fecha e a E5-E8 pode começar. Cinco minutos passando pelas abas com Ctrl+PageDown.
+- [ x] **Aprovar as cinco de largura numa olhada com a janela maximizada** — a metade de geometria fecha e a E5-E8 pode começar. Cinco minutos passando pelas abas com Ctrl+PageDown.
 - [ ] **Aprovar tudo numa sessão de 15 min, incluindo abrir um jogo e ver a janela reconciliar o perfil** — as duas sprints fecham inteiras; é a única forma de provar a E1 e a E4, que mexem em qual perfil a janela grava.
 - [ ] **Reprovar o que não ficou bom, com foto** — eu desfaço item por item o que você apontar; o resto segue e fecha.
 - [ ] **Triar a fila inteira pela foto, não duas sprints por vez** — os 13 PNGs de `docs/usage/assets/` já são a janela de hoje maximizada em 1920: zero minuto de janela viva para a metade de geometria, janela viva só para o que a foto não responde, e na mesma sessão caem as 26 que aguardam a sua palavra (a JANELA-QUE-RESPIRA-01 e a CARD-OCUPA-01 incluídas). A E1 e a E4 se provam SEM jogo — clicar "Ativar" noutro perfil e digitar "Navegacao" no Salvar Perfil, ~2 min. *(levantada pelo cético)*
@@ -64,7 +64,11 @@ Commit cd5eaf1. Medida de janela offscreen prova geometria, não prova que ficou
 - [ ] **Autorizo, com Modo Nativo** — zero escritas do daemon sem parar serviço nenhum e sem sudo. Caminho limpo e reversível por gesto.
 - [ ] **Autorizo, com o daemon parado** — mais simples de auditar, e é gesto de sessão seu. Foi o que a página de decisões de 15/08 recomendou.
 - [ ] **Não autorizo** — o suspeito que sobrou fica sem sentença, e a justificativa do throttle continua sem prova nem refutação.
-- [ ] **Autorizo P0/P1/P2 agora, sem você na mesa; o P3 só com você presente** — P1 e P2 são os dois valores que o produto já usa (0,008 s e 0,032 s), então não há risco novo neles, e a §7.2 da própria sprint diz que "é entre P1 e P2 que a resposta interessa". E, no eixo operacional, o caminho é o botão "Desligar o Hefesto" da aba Início: um clique, sem terminal, sem sudo, reversível pelo mesmo botão, e o único que arma o flag que impede a ressurreição. *(levantada pelo cético)*
+- [x ] **Autorizo P0/P1/P2 agora, sem você na mesa; o P3 só com você presente** — P1 e P2 são os dois valores que o produto já usa (0,008 s e 0,032 s), então não há risco novo neles, e a §7.2 da própria sprint diz que "é entre P1 e P2 que a resposta interessa". E, no eixo operacional, o caminho é o botão "Desligar o Hefesto" da aba Início: um clique, sem terminal, sem sudo, reversível pelo mesmo botão, e o único que arma o flag que impede a ressurreição. *(levantada pelo cético)*
+
+me chama pra fazer ela
+
+
 
 **Se ficar sem resposta:** o throttle de 32 ms continua cobrando latência em toda mudança de LED, gatilho e rumble com a mesa cheia, para proteger contra um mecanismo que ninguém provou existir.
 
@@ -83,7 +87,7 @@ O `install.sh` instala um `.path` e um `.timer`, e a documentação de usuário 
 - [ ] **Manter o vigia, documentá-lo, e mostrar na tela se ele está vivo** — a sua escolha sobrevive ao reboot e você consegue ver isso.
 - [ ] **Manter e só documentar** — barato; você continua sem saber, olhando a tela, se o guarda rodou ou está morto.
 - [ ] **Parar de instalar o vigia** — nada mais desfaz o que você mexer na Steam; em troca, o desligamento global volta sozinho no primeiro update da Steam.
-- [ ] **Separar o conserto da decisão, e avisar só quando houver problema** — o timer nascer `elapsed` depois de todo `install.sh` é defeito, não política: conserto uma linha da unidade sem perguntar. Na tela, o guarda morto entra como achado do cartão "Saúde do sistema", que já existe e já emite avisos, em vez de uma linha permanente dizendo "tudo bem" 99% do tempo. *(levantada pelo cético)*
+- [x ] **Separar o conserto da decisão, e avisar só quando houver problema** — o timer nascer `elapsed` depois de todo `install.sh` é defeito, não política: conserto uma linha da unidade sem perguntar. Na tela, o guarda morto entra como achado do cartão "Saúde do sistema", que já existe e já emite avisos, em vez de uma linha permanente dizendo "tudo bem" 99% do tempo. *(levantada pelo cético)*
 
 **Se ficar sem resposta:** o produto segue instalando em silêncio um vigia que a documentação nega. *(Nota de higiene: a E8 manda corrigir duas linhas de `docs/usage/troubleshooting.md` que já não existem nesse formato; as menções vivas ao guarda estão em `docs/usage/instalacao.md`, `docs/usage/troubleshooting-8bitdo.md` e `docs/usage/bluetooth.md`.)*
 
@@ -97,7 +101,7 @@ Treze trocas de perfil no meio da partida em 54 minutos, todas porque uma janela
 
 ![Aba Perfis](docs/usage/assets/readme_perfis.png)
 
-- [ ] **Tirar "steam" e "Steam" do perfil Navegação** — o defeito some hoje, sem uma linha de código. Você perde o perfil de desktop enquanto navega na loja.
+- [x ] **Tirar "steam" e "Steam" do perfil Navegação** — o defeito some hoje, sem uma linha de código. Você perde o perfil de desktop enquanto navega na loja. tava pensando que o perfil de navegação também não faz sentido já que temos uyma aba de navegação que permite usar o controle. Temos que tirar o perfil de navegação também. o que acha?
 - [ ] **Manter "steam" e confiar na guarda nova** — o perfil de desktop continua valendo na loja; com o jogo fechado, a troca continua acontecendo, que é o comportamento certo.
 - [ ] **O produto passa a recusar "steam" em regra de perfil de desktop** — fecha a classe inteira do defeito, e tira de você a possibilidade de ter perfil próprio para a loja.
 - [ ] **Manter "steam" e exigir título, ou trocar `window_class` por `process_name`** — as duas custam zero linha de código e não perdem o perfil na loja: a janela fantasma foi medida com nome vazio, então exigir um título qualquer a mata; e o botão "Steam" que o próprio editor oferece já escreve `process_name`, não `window_class` — o seu `navegacao.json` está numa forma que o produto não gera mais. Precisa de um ensaio de dois minutos para confirmar o título e o executável da loja. *(levantada pelo cético)*
@@ -117,8 +121,8 @@ Medido em 06/08: 15 perfis na sua pasta e 13 jogos instalados — semear todos d
 - [ ] **Eu marco quais, nada marcado por padrão, e vejo quantos e com que nomes antes de confirmar** *(sugerida)* — jogo que já tem perfil não é oferecido, colisão de nome é recusa e nunca sobrescrita, e o lote nasce com uma prioridade só.
 - [ ] **Semear os treze de uma vez** — um gesto só, e a lista dobra sem você ver o que nasceu, numa ação cujo desfazer é apagar arquivo.
 - [ ] **Não semear nada** — a lista da biblioteca já resolve escolher o jogo sem digitar número; criar cada perfil continua sendo um gesto por jogo.
-- [ ] **Semear só os que faltam, mostrando os que já estão feitos — e com desfazer do LOTE** — a pasta já tem 8 perfis de jogo, então "os treze de 06/08" esbarraria nos que existem hoje; e apagar exatamente os N arquivos que este lote criou não é o mesmo gesto que apagar perfil seu. O vocabulário já existe no carregador (marca de semeadura, trava de arquivo, nunca sobrescrever) e a linha de comando já tem `delete`, `historico` e `restore`. *(levantada pelo cético)*
-
+- [x ] **Semear só os que faltam, mostrando os que já estão feitos — e com desfazer do LOTE** — a pasta já tem 8 perfis de jogo, então "os treze de 06/08" esbarraria nos que existem hoje; e apagar exatamente os N arquivos que este lote criou não é o mesmo gesto que apagar perfil seu. O vocabulário já existe no carregador (marca de semeadura, trava de arquivo, nunca sobrescrever) e a linha de comando já tem `delete`, `historico` e `restore`. *(levantada pelo cético)*
+acho que por default já deveria ter um perfil por jogo instalado. por defaulta na nossa lista e lá eu só ativaria o perfil do jogo sairia modificando as abas pra setar o perfil. salvaria e aplicaria e todas as próximas vezes esse jogo automaticamente abriria com o perfil aplicado pra todos os controles.
 **Se ficar sem resposta:** a metade grande do seu pedido de 06/08 — "setar um perfil específico pra cada jogo" — continua sem dono nenhum no produto.
 
 ---
