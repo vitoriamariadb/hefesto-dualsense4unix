@@ -4,8 +4,11 @@
 máscara persistir até ela mudar na interface. A cura está certa e é decisão
 dela; o efeito de borda é este documento.
 
-**Estado:** ABERTA — **decisão DELA**, com uma medição pendente antes da
-pergunta.
+**Estado:** **FECHADA em 23/08/2026.** A E2 e a E3 fecharam em 22/08 pela
+decisão dela — o preset perdeu a opinião de máscara, a tela passou a dizer o
+preço dos dois lados, e os perfis dela **não foram tocados** (o porquê está na
+E3). A **E1 não é trabalho a fazer: é custo já pago**, e a nota datada de 23/08
+dentro dela diz por quê.
 
 ---
 
@@ -23,11 +26,16 @@ um): sete trazem `mode.kind = gamepad` com `gamepad_flavor = xbox` — `acao`,
 outros cinco não declaram modo.
 
 **O disco DELA** (`~/.config/hefesto-dualsense4unix/profiles/`): quatro perfis de
-gênero seguem em `xbox` — `acao`, `aventura`, `coop_local` e `corrida`. Os
-outros dois presets de jogo que shipam em `xbox` já estão em `dualsense` no
-disco dela: `esportes` e `fps`.
+gênero seguem em `xbox` — `acao`, `aventura`, `coop_local` e `corrida`.
 
-**A leitura disso importa:** ela já desfez a máscara Xbox à mão em dois dos
+> **NOTA DATADA — 23/08/2026, releitura do disco dela.** Este parágrafo dizia
+> que `esportes` **e `fps`** já estavam em `dualsense`. Só `esportes` está
+> (`mode.gamepad_flavor: "dualsense"`, 9 chaves). O `fps.json` tem **8 chaves e
+> nenhuma seção `mode`** — não é "posto em dualsense", é perfil **sem opinião de
+> máscara**, que é coisa diferente e cai no ramo "mantém a que estiver valendo".
+> Logo ela desfez a máscara à mão em **um** perfil, não em dois.
+
+**A leitura disso importa:** ela já desfez a máscara Xbox à mão em um dos
 sete. O produto shipa uma escolha que ela vem corrigindo perfil a perfil.
 
 **E os quatro vpads subiram em `dualsense/uhid` sem degradação hoje**, medido no
@@ -38,12 +46,14 @@ launch_env_materializado  backends=['uhid','uhid','uhid','uhid'] mascara=dualsen
 mascara_divergencias: []   (eram 8)
 ```
 
-## O portão que exige o xbox, e o que ele afirma
+## O portão que exigia o xbox, e o que ele afirmava
 
-`tests/unit/test_preset_flavor_migration.py` reprova qualquer preset de jogo que
-shipe fora de `xbox`, e `integrations/uinput_gamepad.py:137` fixa
-`DEFAULT_FLAVOR = "xbox"`. A justificativa está escrita no cabeçalho do teste,
-palavra por palavra:
+**Ele saiu em 22/08/2026** — o que está no lugar é
+`tests/unit/test_o_preset_nao_escolhe_a_mascara.py`, e a nota datada de por que
+a razão mudou está no cabeçalho dele. O que havia: um portão que reprovava
+qualquer preset de jogo shipando fora de `xbox`, mais o
+`DEFAULT_FLAVOR = "xbox"` de `integrations/uinput_gamepad.py` (esse **fica**,
+ver E2). A justificativa estava escrita no cabeçalho, palavra por palavra:
 
 > *"H1 da auditoria pré-release: a máscara DualSense faz o jogo ignorar o
 > gamepad virtual (rumble in-game morto + controle duplicado)."*
@@ -77,9 +87,34 @@ dela de 09/08: *a vontade da GUI prevalece*.
 
 ## Entregas
 
-### E1 — remedir a H1, com o desenho de hoje
+### E1 — remedir a H1 — **CANCELADA em 23/08/2026: o custo já foi pago**
 
-O ensaio é curto e mecânico, e **não** precisa dela para rodar:
+> **NOTA DATADA — 23/08/2026.** Esta entrega mandava remedir a H1 de julho. Ela
+> **já foi remedida**, em julho, e a cronologia fecha sem lacuna:
+>
+> | quando | o quê |
+> |---|---|
+> | **14/07** (`56564de`) | nasce o portão que impunha `xbox` aos presets, citando a "H1 da auditoria pré-release" |
+> | **16/07** (`b0596f0`, `389e429`) | o vpad passa a subir por `uhid`, com PID próprio de Edge — o caminho em que a H1 foi medida deixa de existir |
+> | **22/07** | HARMONIA-MASK-01, **decisão dela**: a máscara dualsense é *"validada em jogo real (Sackboy/Mad King/Pragmata)"*, e a razão do xbox fica *"de antes da máscara dualsense vibrar — **superado** pela validação da Onda Harmonia"* |
+>
+> Está escrito em `daemon/lifecycle.py`, ao lado do
+> `gamepad_flavor: str = "dualsense"` que essa remedição produziu — **MEDIDO em
+> 23/08 num `XDG_CONFIG_HOME` vazio:** o default de fábrica é `dualsense`, e não
+> o `DEFAULT_FLAVOR = "xbox"` de `uinput_gamepad.py`, que só atende entrada
+> corrompida.
+>
+> Manter esta entrega aberta mandava alguém pagar de novo um custo já pago —
+> que é exatamente o teste que a regra *"fato errado se substitui"* usa. E o
+> custo não era só de tempo: a frase que ela produziu chegou à **tela dela**
+> dizendo que a máscara DualSense *"nunca foi reconferida"*, semeando dúvida
+> sobre a máscara que a casa validou e empurrando para a Xbox — a que custa
+> giroscópio, acelerômetro e touchpad. A frase foi substituída em 23/08 (ver
+> `profiles_actions.TEXTO_MASCARA_DUALSENSE_VALIDADA`), **e a redação nova pede
+> o olho dela**.
+
+O ensaio que esta entrega descrevia, preservado para quem quiser um segundo
+ponto de medição no desenho de hoje (não é pré-requisito de nada):
 
 1. um jogo que use vibração, com um DualSense, máscara `dualsense`, vpad em
    `uhid`;
@@ -92,23 +127,70 @@ versão do cliente Steam anotada — foi a **ausência** dessa versão que inval
 o resultado antigo da CONTROLE-SONY-MEDIDO-01, e repetir o erro custaria o
 ensaio inteiro.
 
-### E2 — a consequência, seja qual for
+### E2 — a consequência — FECHADA em 22/08/2026
 
-- **Se a H1 caiu:** os presets de gênero deixam de shipar `xbox`, o
-  `DEFAULT_FLAVOR` é reavaliado, e o portão muda de conteúdo com nota datada
-  dizendo o que foi remedido e quando.
-- **Se a H1 continua de pé:** o portão fica como está, e o produto ganha uma
-  frase — na aba Perfis, onde a máscara é escolhida — dizendo o que se perde em
-  cada lado. Hoje a tela não diz que o vpad Xbox não tem touchpad, giroscópio
-  nem acelerômetro.
+A pergunta "se a H1 caiu / se a H1 continua" **não é mais o que decide**: a
+decisão dela vale nos dois casos. O que entrou:
 
-### E3 — a migração dos perfis dela, se a E2 mudar o default
+* **os sete presets de jogo shipam `"gamepad_flavor": null`** — que o applier já
+  entende como "mantém a máscara que estiver valendo". `acao`, `aventura`,
+  `coop_local`, `corrida`, `esportes`, `fps`, `sackboy_nativo`;
+* **`migrate_game_presets_to_xbox` foi REMOVIDA** de `profiles/loader.py`, com o
+  chamador. O marker `.flavor_xbox_migrated` fica no disco de quem já a rodou e
+  é inerte;
+* **`DEFAULT_FLAVOR = "xbox"` FICA**, com nota datada em
+  `integrations/uinput_gamepad.py`. São duas perguntas, e confundi-las foi o que
+  fez o `xbox` viajar para dentro do disco dela: o que um *perfil* shipa (nada,
+  agora) e o que o *daemon* usa quando ninguém nunca escolheu (este piso). O
+  segundo depende da E1;
+* **a tela diz o preço dos dois lados**, embaixo dos botões de máscara na aba
+  Perfis — não mais só em tooltip. Xbox: os três campos que o descritor não tem
+  (medido). DualSense: o que ela ganha, **mais** a H1 declarada como não
+  reconferida. Sem escolha: o que `null` faz.
 
-`migrate_game_presets_to_xbox` (em `profiles/loader.py`) é o precedente exato:
-migra uma vez, **sem tocar edições da usuária**. Se o default mudar, a migração
-inversa segue a mesma regra — e `esportes` e `fps`, que ela já pôs em
-`dualsense`, provam que a distinção entre "preset" e "edição dela" precisa
-funcionar.
+E uma sobra que a decisão apagou: a montagem do editor nascia com **Xbox
+marcado** (`flavor_sel.set_active_id("xbox")`). Se algum caminho mostrasse o
+editor sem passar pelo populate, o Salvar gravaria `xbox` — e desde `2b11172`
+isso gruda. Nasce sem nada marcado.
+
+**O que a E2 NÃO resolveu, e continua da E1:** se a H1 cair, a linha do
+DualSense perde a ressalva e o `DEFAULT_FLAVOR` volta à mesa. Enquanto isso, a
+tela diz que não sabe — que é diferente de calar e diferente de afirmar.
+
+### E3 — os perfis dela — FECHADA: **não se toca**, e há portão
+
+**Nenhuma migração escreve máscara em perfil que já existe.** Nem a inversa.
+
+O motivo é que a distinção "preset" vs. "edição dela" **não funciona para o
+`xbox`**: o preset shipava `xbox` E o seletor grava `xbox`, e nada no arquivo
+separa os dois casos. Uma migração inversa desfaria em silêncio uma escolha
+real — o defeito desta sprint com o sinal trocado. `esportes` prova que ela
+edita esses arquivos (`mode.gamepad_flavor: dualsense`, mtime 06/08);
+`duskfade`, que estava em `xbox` quando esta sprint foi aberta e está em
+`dualsense` agora, prova que ela edita **enquanto** a sprint corre.
+
+> **CORREÇÃO DATADA — 23/08/2026, medida arquivo a arquivo no disco dela.**
+> Aqui e no §38 estava escrito *"`esportes` e `fps`"*. O `fps.json` **não tem
+> seção `mode` nenhuma** — oito chaves, mtime 05/08, enquanto o preset shipado
+> tem `mode` desde `bd22ed6` (25/07). Não é máscara desfeita à mão: é perfil
+> sem opinião de máscara. O §38 foi corrigido para *"um dos"* e esta linha não
+> — as duas versões vivas no mesmo arquivo é o defeito que a regra da casa
+> existe para matar.
+
+Estado do disco dela em 22/08/2026, lido arquivo a arquivo: quatro perfis em
+`xbox` (`acao`, `aventura`, `coop_local`, `corrida`), oito em `dualsense`, o
+resto sem seção `mode`. Ficam como estão. A máscara deles muda quando ela mudar,
+na aba Perfis — que agora diz o que cada lado custa.
+
+Portão: `tests/unit/test_o_preset_nao_escolhe_a_mascara.py` roda as três
+migrações one-shot que a semeadura dispara contra um diretório de mentira com
+os três casos (máscara dela, máscara oposta, sem opinião) e reprova se alguma
+reescrever qualquer um.
+
+**Uma divergência entre as duas leituras, e ela é dela, não do instrumento:** a
+medição do topo desta página diz `fps` em `dualsense`; a de 22/08 à noite acha
+`fps.json` **sem seção `mode`**. Nenhuma das duas está errada — ela mexeu no
+arquivo entre uma e outra, que é exatamente o comportamento que a E3 protege.
 
 ---
 
@@ -155,9 +237,16 @@ isso com o resultado da E1 na mão.
 
 ## Como morde
 
-Rode a E1 e o resultado é a mordida: ou o portão passa a guardar uma medição de
-22/08 em vez de uma de julho, ou ele muda. Enquanto isso não acontecer, o teste
-continua verde guardando uma frase que ninguém reconferiu.
+O portão velho (`test_preset_flavor_migration.py`) exigia o CONTRÁRIO — que todo  <!-- ref-externa: apagado em 22/08/2026 (MASCARA-QUE-GRUDA-01); no lugar está test_o_preset_nao_escolhe_a_mascara.py -->
+preset de jogo shipasse `xbox` — e citava a H1 como razão. Ele **saiu**, e no
+lugar entrou `test_o_preset_nao_escolhe_a_mascara.py`, com a nota datada de por
+que a razão mudou de natureza: não porque a H1 caiu (ela segue sem remedição),
+mas porque nem a H1 de pé autoriza o produto a escrever máscara no perfil de
+alguém.
+
+Falta a E1. Enquanto ela não rodar, a linha do DualSense na tela é o que o
+produto tem a dizer: *"há uma anotação de julho […] e ela nunca foi reconferida
+no desenho de hoje"*.
 
 ## O que este achado ensina
 
