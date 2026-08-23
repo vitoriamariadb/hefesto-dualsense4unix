@@ -1,9 +1,10 @@
 # STEAM-INPUT-01 — ela nunca mais precisa decidir quando ligar a entrada Steam
 
-- **Status:** **PARCIAL — as E1, E3 e E9 estão ENTREGUES EM CÓDIGO, AGUARDANDO
-  A PALAVRA DELA; a E2 e as E4 a E8 seguem ABERTAS.** Remarcada em 09/08/2026.
-  Entraram em `e96dea8` (27/07/2026) e `c10adaf` (01/08/2026). **Rótulo
-  anterior: ABERTA**, preservado aqui. Ver a nota datada no fim
+- **Status:** **PARCIAL — as E1, E3, E7, E8 e E9 estão ENTREGUES EM CÓDIGO,
+  AGUARDANDO A PALAVRA DELA; a E2 e as E4 a E6 seguem ABERTAS.** Remarcada em
+  22/08/2026 (E7 e E8: o vigia que nascia `elapsed`). Antes disso, em
+  09/08/2026. Entraram em `e96dea8` (27/07/2026) e `c10adaf` (01/08/2026).
+  **Rótulo anterior: ABERTA**, preservado aqui. Ver a nota datada no fim
 - **O que falta ela validar, em uma linha (das E1/E3/E9):** abrir a janela e ver
   que ela **não pergunta mais** quando ligar a entrada Steam — e que o texto que
   o doutor imprime é o mesmo que o botão diz
@@ -116,14 +117,41 @@ systemctl --user show hefesto-steam-input-guard.timer
   LastTriggerUSec=Sat 2026-07-25 23:43:05
 ```
 
-As unidades foram reiniciadas às 00:13:55 (leva da madrugada). Com `OnBootSec`
-vencido e `OnUnitActiveSec=30min` sem uma ativação posterior em que se ancorar, o
-timer ficou `elapsed` e **não tem próximo disparo**. Há mais de cinco horas o
-guarda não roda.
+As unidades foram reiniciadas às 00:13:55 (leva da madrugada) e o timer ficou
+`elapsed`, **sem próximo disparo**. Há mais de cinco horas o guarda não roda.
 
 O efeito prático é o pior possível para quem só quer jogar: **o estado que ela vê
 hoje não é o estado que o Hefesto acha que impôs**, e o comportamento do jogo vai
 mudar sozinho no próximo boot.
+
+> **A causa, medida em 22/08/2026 (systemd 255) — e não é a que estava escrita
+> aqui.** A frase anterior culpava *"`OnBootSec` vencido e `OnUnitActiveSec`
+> sem âncora"*. Isso está **errado** e foi substituído: com `OnBootSec` vencido
+> e sem âncora nenhuma, o systemd dispara **na hora** (medido: `SubState=waiting`,
+> rearma em 30min). O que matava era a linha `Persistent=true`.
+>
+> `Persistent=` só tem efeito em timer com `OnCalendar=` (`systemd.timer(5)`).
+> No nosso `.timer` ele não agendava nada — fazia o systemd **ler o carimbo**
+> (`~/.local/share/systemd/timers/stamp-*`) para dentro de `last_trigger`; com
+> `last_trigger` preenchido o `OnBootSec=` passa a ser um disparo único já
+> ocorrido e é desabilitado, e o `OnUnitActiveSec=` fica sem âncora porque o
+> serviço ainda não rodou neste boot. Sem nenhuma das duas bases, não há
+> próximo disparo.
+>
+> O gatilho é o ciclo `uninstall.sh` → `install.sh`: o uninstall apaga as
+> unidades (`uninstall.sh:411-413`) e **deixa o carimbo no disco**; o install
+> recria — objeto de unidade novo, `last_trigger` zerado, carimbo velho vivo.
+> A/B na bancada, mesmo roteiro, só essa linha de diferença:
+>
+> ```
+> com Persistent=true -> SubState=elapsed, NextElapseUSecMonotonic=infinity
+> sem Persistent      -> SubState=waiting, dispara na hora, rearma em 30min
+> ```
+>
+> Cura: a linha saiu de `assets/hefesto-steam-input-guard.timer`. O roteiro do
+> A/B ficou executável em
+> `tests/unit/test_o_vigia_do_steam_input_nao_nasce_morto.py`
+> (`HEFESTO_TESTE_SYSTEMD_VIVO=1 ... -k systemd_vivo`).
 
 ### 4. O desfazer é prometido na tela e não existe
 
@@ -218,14 +246,33 @@ A ordem é a ordem de impacto sobre a pergunta dela.
    GUI** — grep em `src/` só acha a definição e os usos internos do próprio
    módulo. Sem ela, um jogo da allowlist parece ter desligado o Hefesto sozinho,
    o que casa com a queixa 2 do rollback.
-7. **Consertar o vigia e mostrar que ele está vivo.** O timer `elapsed` sem
-   próximo disparo é um defeito de unidade (`OnBootSec` vencido sem âncora). E o
-   cartão precisa dizer, em uma linha, se o guarda está ativo — porque é ele que
-   decide se a escolha dela sobrevive ao próximo boot.
-8. **Documentar o guarda, ou parar de instalá-lo em silêncio.**
-   `docs/usage/troubleshooting.md` descreve um one-shot; o produto instala um
-   vigia permanente. E o sprint citado pelas units
-   (`FEAT-STEAM-INPUT-SELF-HEAL-01.md`) precisa existir ou sair da referência.
+7. **ENTREGUE em 22/08/2026 — consertar o vigia e mostrar quando ele morre.**
+   A causa do `elapsed` era `Persistent=true`, não "`OnBootSec` vencido sem
+   âncora" (ver a nota datada em *A rede de segurança está morta agora*); a
+   linha saiu de `assets/hefesto-steam-input-guard.timer`.
+   **Decisão dela, literal:** *"o timer nascer `elapsed` depois de todo
+   `install.sh` é defeito, não política: conserto uma linha da unidade sem
+   perguntar. Na tela, o guarda morto entra como achado do cartão 'Saúde do
+   sistema', que já existe e já emite avisos, em vez de uma linha permanente
+   dizendo 'tudo bem' 99% do tempo."* Feito assim:
+   `daemon_actions.interpretar_guarda_do_steam_input` devolve `None` — cartão
+   calado — com o vigia vivo, ausente (`--keep-steam-input`) ou desabilitado de
+   propósito, e só emite `[WARN]` quando ele está **habilitado e sem próximo
+   disparo**. A régua é `NextElapse*`, nunca `ActiveState`: o cadáver de 26/07
+   respondia `ActiveState=active`.
+8. **ENTREGUE em 22/08/2026 — documentar o guarda.** As duas linhas de
+   `docs/usage/troubleshooting.md` que esta entrega mandava corrigir **já não
+   existem nesse formato**; as menções vivas estavam em
+   `docs/usage/instalacao.md` e `docs/usage/troubleshooting-8bitdo.md`
+   (`docs/usage/bluetooth.md` **não** cita o guarda). As duas ganharam onde se
+   descobre que o vigia morreu — o cartão *Saúde do sistema* — e o 8BitDo passou
+   a dizer que desabilitar o vigia de propósito não gera resmungo.
+   `instalacao.md` dizia **seis** unidades de usuário sempre rodando: são
+   **cinco**, e a sexta (`…-gui-hotplug.service`) é opt-in. As units citavam
+   **dois** sprints fantasmas — `FEAT-STEAM-INPUT-SELF-HEAL-01.md` e
+   `2026-08-16-CARONA-NO-GUARD-01-….md`, nenhum dos dois existe —, agora
+   repontadas para esta página e para `SENTINELA-WRAPPER-01`, com portão em
+   `test_as_unidades_nao_apontam_para_sprint_fantasma`.
 9. **Corrigir os dois ponteiros errados:** o rótulo do botão em
    `storm_doctor.py:148-149` e `:215`, e a aba citada em
    `docs/usage/jogos-e-mascaras.md:43` e no tooltip da máscara.
