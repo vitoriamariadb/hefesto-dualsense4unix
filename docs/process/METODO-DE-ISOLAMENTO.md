@@ -864,6 +864,7 @@ As `A-13` a `A-25` são de 12 e 13/08, e a maioria também é erro meu:
 | coluna | o que é |
 |---|---|
 | `ate_onde_foi` | **a escada**, definida na seção seguinte. Cinco degraus, duas direções |
+| `por_que_nao_aciona` | **por que o produto não faz**, quando ele não faz. Seção logo abaixo |
 | `provado_por` | `ci` / `bancada` / `olho-dela` — só `olho-dela` sustenta *O APARELHO OBEDECEU* e *O JOGO REAGIU* |
 | `provado_em` | a data. Sem ela a prova não vence nunca, e prova que não vence vira mito |
 | `teste_que_morde` | o nó do pytest que reprova se aquilo quebrar |
@@ -873,6 +874,58 @@ Tratar **MONTOU** como **funciona** é a mentira mais cara desta casa.
 
 > A coluna se chamava `grau` até 15/08/2026 (D-13, decisão dela). O nome velho
 > não é aceito em lugar nenhum: quem o escrever leva `integridade` do portão.
+
+---
+
+## `por_que_nao_aciona` — a coluna que separa dívida de decisão (22/08/2026)
+
+**O problema que ela resolve.** Contado no CSV em 22/08/2026: **41 células**
+dizem `de_onde_sei = medido` e `aciona = não` — 20 no cabo, 21 no rádio, e 13
+linhas com as duas assim. O `gerar-mapa.py` já as pintava de laranja
+(`--color-lacuna`, *"a casa sabe e o produto não faz"*) e já as somava no cartão
+de cada controle. **Contar não bastava, e é por isso que nunca houve portão
+aqui:** as 41 não são a mesma coisa.
+
+- `identidade.revisao_de_placa@dualsense` não é acionada porque o mapa diz, em
+  letras grandes, *"NÃO É A COR"*. Ler aquele nó para nomear jogador daria dois
+  "controles iguais" no dia em que ela comprar um par. **Não acionar é o certo.**
+- `movimento.imu.perda@dualsense` não é acionada porque a cura está medida e
+  nunca foi ligada: o `__le32` de `corpo[11..14]` é contador de reports nos
+  **dois** transportes e o produto não o lê em transporte nenhum. **Não acionar
+  é falta.**
+
+Um portão que reprovasse as 41 juntas reprovaria a decisão junto com a dívida —
+e seria desligado na primeira semana.
+
+**É um par por transporte** (`cabo_por_que_nao_aciona`,
+`radio_por_que_nao_aciona`) porque a resposta muda de lado:
+`identidade.cor_do_aparelho@dualsense` é decisão nenhuma no cabo (lá o produto
+lê a cor do plástico, e a aba Configurações a mostra desde 22/08) e é dívida no
+rádio, onde não chega.
+
+| valor | *não aciona — e daí?* |
+|---|---|
+| *(vazio)* | ninguém respondeu. É o que o portão cobra |
+| `divida` | falta fazer, e há quem queira. **É o que o portão limita** |
+| `decisao-tomada` | não acionar é a escolha, e ela está certa hoje |
+| `nada-a-acionar` | não há feature a acionar: ou o aparelho não oferece, ou a linha é de MEDIÇÃO e `aciona = não` quer dizer *"o fenômeno não aconteceu"*, nunca *"o produto não faz"* |
+| `so-ela-decide` | a pergunta existe, ninguém a respondeu, e a resposta é dela |
+
+Retrato de 22/08/2026: **4 dívidas**, 15 decisões, 20 `nada-a-acionar`,
+2 `so-ela-decide`.
+
+**A régua** é `tests/unit/test_o_mapa_separa_divida_de_decisao.py`, e ela tem
+teto: as dívidas não podem passar de quatro. **Subir o teto é confissão, não
+conserto** — pagar uma dívida é baixá-lo no mesmo commit, senão o teto vira
+folga e o portão para de morder.
+
+> **Dívida deste desenho, dita na cara.** O domínio desta coluna tem dono
+> executável no arquivo de teste, e não no `DOMINIO_POR_SUFIXO` de
+> `scripts/check_paridade_transporte.py`, que é o lugar dele — a leva que
+> escreveu a coluna não tinha `scripts/` no território. Duas consequências,
+> ambas abertas: o portão do mapa **não** confere o domínio desta coluna, e a
+> `bancada.py` não a oferece no formulário, de modo que a resposta só entra
+> editando o CSV à mão.
 
 ---
 

@@ -154,6 +154,12 @@ lugar e no mesmo tom da que já existe para o Modo Nativo:
 
 > **A Steam também escreve nesta barra**
 
+**Esta frase caducou em 22/08/2026** (LUZ-CEGA-01/F2): o `btmon` mediu 426
+reports de saída nossos em 32 s contra 1 da Steam, então quem escreve somos nós
+— o campo mede quem SEGURA o `fd`, e segurar não é escrever. O card diz agora
+**"A Steam tem este controle aberto"** (`ROTULO_LIGHTBAR_SEGURADA`). O item 7.1
+abaixo continua valendo: a palavra final é dela, e mudar segue sendo uma linha.
+
 A bolinha continua na última cor NOSSA (é a informação que existe). O que muda
 é que ninguém mais afirma "verde" nem "apagada" sem ter medido. Precedência:
 **Nativo > disputada > desconhecida > apagada > cor**.

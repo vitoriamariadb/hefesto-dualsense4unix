@@ -12,7 +12,9 @@ E sob a queixa que abriu a leva:
 > *"estranho que mesmo o lightbar que mapeamos tudo (...) o lightbar no modo BT
 > deveria ser sempre aceso. Mas os 4 controles o lightbar tá apagando."*
 
-**Estado:** ABERTA. Uma entrega fechada (E1, com teste que morde), seis abertas.
+**Estado:** ABERTA. Fechadas: E1, E2, E7 e a METADE segura da E5 — todas com
+teste que morde. Abertas: E3, E4, E6 e E8 (as três primeiras dependem do olho ou
+da palavra dela; a E6 esbarrou numa decisão medida, ver a nota lá embaixo).
 
 **Território:** `core/led_control.py`, `core/sysfs_leds.py`,
 `core/lightbar_gatilho.py`, `core/lightbar_reset.py`,
@@ -313,6 +315,16 @@ dois — **SUSPEITO**, não medi (não tenho as duas embalagens nesta máquina).
 autor já explicou por quê). É separar "ninguém segura" de "não sei dizer" — o
 mesmo remédio do ELO-MUDO-01, aplicado a um booleano que hoje só sabe dizer sim.
 
+**Não executada nesta leva, e por uma razão de sequência (22/08).** O terceiro
+estado não cabe no canal que existe: `lightbar_disputada` é um booleano do
+`state_full`, e tanto o campo quanto a frase que o documenta
+(`daemon/ipc_handlers.py:2982-2988`, *"hoje só a Steam é reconhecida"*) moram no
+handler. Alargar a sonda ANTES disso trocaria uma mentira por outra — a tela
+diria "a Steam tem este controle aberto" para quem tem Lutris. A ordem certa é:
+primeiro o campo aprende a dizer QUEM (ou "não sei"), depois a sonda aprende
+outros escritores. O teste da E2 já é o cão de guarda dessa ordem: ele reprova
+se a sonda passar a reconhecer alguém fora da Steam com a frase intacta.
+
 ---
 
 ### F7 ● MEDIDO — o `discover()` devolve os nós do nosso próprio vpad
@@ -368,6 +380,19 @@ esteve no fio.
 *Isto quebraria na máquina de outra pessoa?* Só se a suíte rodar lá — mas é
 exatamente o padrão de "a suíte cria teclados de verdade": **teste escrevendo no
 config real da máquina**.
+
+**Correção medida (22/08, execução da leva): a suíte de unidade NÃO é a
+suspeita.** `tests/conftest.py:1494-1538` isola `XDG_CONFIG_HOME` (e data/cache/
+state) num tmp por teste, `autouse` e sem condição — é a BUG-TEST-CONFIG-LEAK-01,
+e ela cobre `identity._path()`, que resolve por `utils.xdg_paths.config_dir()`. E
+o `aa:bb:cc` não sai do produto: não existe em `src/` fora de docstrings, então
+não é o FakeController. Quem escreveu ainda é desconhecido, e a busca fica com
+duas pistas: (1) as ferramentas de shell da suíte ESCAPAM mesmo — o journal dela
+tem `hefesto-bt-autorestore[…]: bond de AA:BB:CC:00:00:03 restaurado` em 15/08,
+ou seja, teste de script rodando contra o sistema vivo; (2) o `XDG_RUNTIME_DIR`
+é deliberadamente NÃO isolado (mesma fixture, linha 1519), então um teste que
+não isole o nome do socket IPC fala com o **daemon vivo dela** — e é o daemon
+vivo que grava o `controllers.json`.
 
 **Custo da cura:** duas partes. Limpar o arquivo dela é um comando e **é decisão
 dela** (é o dado dela). Impedir a reincidência é achar quem escreveu — não
@@ -448,11 +473,21 @@ Antes: `0` de 4 na bancada. Depois: `4` de 4.
 
 **Custo:** pago.
 
-### E2 ○ ABERTA — a tela para de acusar a Steam de escrever
+### E2 ● FECHADA — a tela para de acusar a Steam de escrever
 
-F2. `app/widgets/controller_card.py:1137` dizer o que o booleano mede ("a Steam
-tem este controle aberto") e não o que ele não mede. **Custo:** baixo (texto +
-teste). **Decisão dela:** a frase.
+F2. O rótulo virou a constante `ROTULO_LIGHTBAR_SEGURADA` em
+`app/widgets/controller_card.py`: **"A Steam tem este controle aberto"** — o que
+o `fuser` mediu, e nada além.
+
+**Teste que morde:** `tests/unit/test_a_tela_nao_acusa_a_steam_de_escrever.py`,
+quatro casos. Devolvendo a frase antiga reprovam 3 (contando o caso irmão em
+`test_escritor_cru_01_…`); trocando por um rótulo genérico sem a Steam reprova
+1 — o caso que amarra a frase ao ALCANCE da sonda, e que obriga a F6 a trocar as
+duas coisas na mesma leva. A régua se valida sozinha: um caso cobra que o
+detector de acusação reprove a frase que existiu de verdade.
+
+**Ainda é decisão dela:** a frase. Está escrita num só lugar, e trocá-la é uma
+linha.
 
 ### E3 ○ ABERTA — o ensaio que fecha ou derruba a hipótese do volume
 
@@ -466,21 +501,69 @@ não acende com o daemon vivo, o culpado é o volume (F3) e o E5 vira prioridade
 
 F5. Falta isolar o disparo (o ciano nos quatro). **Custo:** não estimado.
 
-### E5 ○ ABERTA — a rota de rotina passa a usar o report único
+### E5 ▲ METADE FECHADA — um quadro a menos por cor, sem trocar de rota
 
-F3. Sete quadros viram um. Mexe na política LIGHTBAR-BT-NEVER-01. **Custo:**
-médio-alto. **Decisão dela:** trocar a classe LED (que faz cabo e rádio ficarem
-iguais) pelo report avulso na rota de rotina é uma troca com preço; a mesa dela
-paga 7×N e uma mesa de um controle paga 7.
+F3. A parte que **não** depende de decisão dela foi entregue: `set_rgb` só
+escreve `brightness` quando ele DIVERGE de 255. Os dois quadros que o `btmon`
+mediu no mesmo milissegundo eram byte a byte iguais — o output report carrega o
+estado inteiro do LED, então o quadro do `brightness` já levava a cor nova.
+Cada troca de cor passou de **2 quadros para 1**; com `brightness` divergente
+(um terceiro apagou pela classe) ou ilegível (nó sumindo), escreve como sempre e
+na mesma ordem. Mesma disciplina do `set_players_verified` (NUMA-03), que já
+fazia isto para os LEDs de jogador.
+
+**Teste que morde:** `tests/unit/test_um_quadro_a_menos_por_cor_no_radio.py`,
+sete casos — e o que ele trava, além da contagem, é a PARIDADE: o estado que o
+kernel enxerga no fim é byte a byte o de antes. Devolvendo a escrita
+incondicional reprovam 2; arrancando-a de vez reprovam 2 (a barra apagada por um
+terceiro nunca mais reacenderia).
+
+**Continua ABERTA e é decisão dela** a troca de ROTA — a rotina passar a usar o
+report único do `lightbar_gatilho` (cor + número num só quadro, 5 quadros de
+`set_players` viram 0). Isso mexe na LIGHTBAR-BT-NEVER-01 e tem preço: sair da
+classe LED é sair do que faz cabo e rádio se comportarem igual, e é o que
+alimenta a leitura `fonte=sysfs` da aba Status.
 
 ### E6 ○ ABERTA — o perfil chega ao brilho e à paleta mesmo quando a ativação é do autoswitch
 
 F4. **Custo:** baixo-médio. **Decisão dela:** se "pular o restore de perfil de
 janela" deve mesmo pular junto o brilho e a paleta.
 
-### E7 ○ ABERTA — o `lightbar_reset.py` deixa de chamar o `0x08` de cura automática
+**NÃO EXECUTADA, e a razão é uma decisão medida (22/08, execução da leva).** A
+cura que esta entrega descreve — `configure()` com os valores do perfil que o
+boot PULOU — é literalmente o que a RESTORE-ESCOPO-01 (22/07) proibiu depois de
+medir. `daemon/connection.py:196-207`, na letra: *"um perfil de jogo/regex (caso
+medido: 'FPS', marker de 19/07) voltava a cada boot/reconexão, **pintava a
+lightbar e suprimia a paleta automática** sem NENHUMA janela correspondente
+aberta"*. Suprimir a paleta automática a partir de um perfil de janela cuja
+janela não existe é o sintoma que aquela decisão existe para impedir — e o
+perfil que o boot pulou aqui era o `Sackboy`, de janela.
 
-F9. **Custo:** um parágrafo.
+Vale também corrigir o enquadramento do F4: o brilho 1.0 não é o produto
+esquecendo o perfil vigente; **não há perfil vigente** (o próprio falso positivo
+2 desta sprint diz isso). O que sobra de verdadeiro é menor e outro: enquanto o
+autoswitch não vê a janela, a luz roda nos defaults do construtor e **nada na
+tela diz isso** — a aba mostra a cor como `fonte=sysfs`, a etiqueta que
+significa "esta é a verdade". A `PERFIL-ADIADO-POR-JANELA-01` já grava o nome do
+perfil em espera no store; o caminho honesto é a tela dizer "esperando a janela
+de `<perfil>`; a luz está no padrão", não o perfil adiado pintar por baixo.
+
+**A decisão dela, então, é entre três** e não entre duas: (a) manter como está;
+(b) deixar o perfil de janela mandar no brilho/paleta antes da janela existir —
+o que reabre a RESTORE-ESCOPO-01 e precisa da nota datada; (c) a tela contar
+que a luz está no padrão porque o perfil está esperando a janela.
+
+### E7 ● FECHADA — o `lightbar_reset.py` deixa de chamar o `0x08` de cura automática
+
+F9. O cabeçalho de `core/lightbar_reset.py` dizia "A CURA"; agora diz o que é —
+o gesto MANUAL de último recurso (`hefesto lightbar-reset` / IPC
+`lightbar.reset`) — e registra que o envio automático saiu em `108b711` (04/08)
+por ter sido medido como nocivo, com o controle de 22/08: 0 de 776 reports no
+fio carregaram `RELEASE_LEDS`.
+
+Conferido nos outros dois lugares onde o assunto aparece, porque fato errado sai
+de TODOS: `cli/cmd_lightbar_reset.py` já dizia "ISTO NÃO É CURA" e
+`docs/usage/cli.md:404-412` já estava certo. Era só o cabeçalho.
 
 ### E8 ○ ABERTA — os quatro fixtures saem do `controllers.json` dela
 
