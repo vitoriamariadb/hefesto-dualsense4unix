@@ -60,9 +60,14 @@ duas continuam de pé:
 1. **Privacidade.** *"Um microfone que liga sozinho quando o daemon sobe é
    inaceitável, por melhor que seja a intenção. A ponte é um gesto explícito."*
 2. **Banda do rádio.** Com o mic ligado, os reports de input caem de ~260 para
-   ~170 Hz. Continua muito acima do poll de 60 Hz do daemon, mas **quem usa mira
-   por giroscópio perde resolução de integração** — o espelho de motion mira
-   250 Hz. É trade-off da usuária, não do programa.
+   ~170 Hz, e o total de pacotes não muda — o áudio divide a fila. É a conta
+   por adaptador, e é o que o orçamento da mesa mede.
+
+   **NOTA DATADA — 22/08/2026.** Aqui estava escrito que *"quem usa mira por
+   giroscópio perde resolução de integração — o espelho de motion mira
+   250 Hz"*, e isso saiu. Ver `daemon/subsystems/bt_mic.py`: 250 Hz é a taxa
+   nativa do CABO, e no rádio o físico entrega em rajada, entre ~55 e ~392 Hz
+   com o mic DESLIGADO. A frase comparava réguas de transportes diferentes.
 
 E o [ONDE PARAMOS de 16/08](../2026-08-16-ONDE-PARAMOS-a-sessao-de-vinte-horas.md)
 §1.5 registrou o estado como **decisão medida**: ponte parada, risco por dia
@@ -124,12 +129,27 @@ e contamina o resultado.
 
 ---
 
-## O que é decisão DELA
+## O que ela DECIDIU — 22/08/2026, e não se reabre
 
-1. **Se o interruptor é por controle ou da mesa inteira.** Quatro microfones é o
-   pedido; um por card é a forma que a seção já tem.
-2. **Se vale ligar sabendo do preço de giroscópio.** A medição existe desde
-   25/07 e nunca foi levada a ela nesses termos.
+**1. O interruptor é POR CONTROLE.** Textual: *"por controle"*. Um por card, na
+forma que a seção "Os controles" já tem. Não há chave de mesa inteira.
+
+**2. O microfone não é trade-off contra o giroscópio.** Ela derrubou a pergunta
+antes de respondê-la:
+
+> *"tá desatualizado, já conseguimos provar via testes que dá pra usar o
+> DualSense com todas as features ao mesmo tempo. Funciona assim no PlayStation.
+> O que provamos também é que um adaptador só, BT, seria impossível fazer isso.
+> Hoje temos 3. O alvo é usar 4 controles por BT. É viável e possível."*
+
+A medição de 11/08 concorda: a premissa da frase de preço não existia (ver a
+nota datada acima). **O alvo é o PS5**, e a régua do que cabe é a conta por
+adaptador — não uma escolha entre features.
+
+O que isto muda nas entregas: a **E1 deixa de precisar de um aviso de preço** ao
+lado do interruptor. O que a tela deve dizer é o que o orçamento da mesa já
+sabe — quanto do rádio aquele microfone ocupa, e se ainda cabe. Informação de
+capacidade, não advertência.
 
 ---
 

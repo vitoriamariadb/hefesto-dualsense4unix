@@ -112,16 +112,44 @@ funcionar.
 
 ---
 
-## O que é decisão DELA
+## O que ela DECIDIU — 22/08/2026, e não se reabre
 
-1. **Se a máscara deve vir dos presets de gênero.** A alternativa é o preset não
-   ter opinião sobre máscara nenhuma, e ela decidir por jogo — que é o fluxo que
-   ela descreveu em 22/08: *"eu só ativaria o perfil do jogo, sairia modificando
-   as abas"*.
-2. **O que vale mais no caso de a H1 continuar de pé:** vibração garantida no
-   jogo (`xbox`) ou touchpad, giroscópio e acelerômetro visíveis para o jogo
-   (`dualsense`). Não há resposta técnica — é escolha de produto, com o preço na
-   mesa.
+**A máscara vem da escolha de quem usa.** Textual:
+
+> *"A máscara deve vir da escolha do user. Ele escolhe como quer que o jogo
+> reconheça o controle conectado: se deve aparecer como Xbox ou DualSense."*
+
+Isto responde as DUAS perguntas que estavam aqui, e a segunda deixa de existir:
+
+- **o preset de gênero não tem opinião sobre máscara.** Preset é sobre gatilho,
+  vibração e luz; quem o aplica não deve descobrir depois que ele também trocou
+  o aparelho que o jogo enxerga. É a regra dela de 09/08 — *a vontade da GUI
+  prevalece* — aplicada ao caso em que a vontade é sobre identidade;
+- **"o que vale mais" não é pergunta para o produto.** Era a #2 desta lista, e
+  ela a derrubou pela raiz: não se escolhe entre vibração e giroscópio em nome
+  de quem usa. Escolhe-se **mostrando os dois preços e deixando a pessoa
+  decidir**.
+
+**O que a decisão NÃO dispensa: a remedição da E1.** Ela é o que dá conteúdo à
+escolha. Uma tela que oferece Xbox e DualSense sem dizer o que cada um custa não
+é escolha, é sorteio — e o produto hoje **não diz** que o pad Xbox não tem
+touchpad, giroscópio nem acelerômetro no descritor.
+
+**A H1, para quem chega sem contexto**, é uma frase só, congelada num teste como
+a razão de `DEFAULT_FLAVOR = "xbox"` (`integrations/uinput_gamepad.py:137`):
+
+> *"a máscara DualSense faz o jogo ignorar o gamepad virtual (rumble in-game
+> morto + controle duplicado)."*
+
+Se a H1 continuar de pé, ela não vira default imposto — vira **a frase que a
+aba Perfis mostra ao lado de "DualSense"**. Se caiu, sai do teste com nota
+datada. Nos dois casos quem escolhe é ela, e a E1 é o que a tela tem para dizer.
+
+**O que fica em aberto e é trabalho, não decisão:** com que máscara um perfil
+NOVO nasce, antes de alguém escolher qualquer coisa. Um campo obrigatório sem
+default trava o gesto de criar perfil; a escolha dela vale a partir do momento
+em que ela escolhe, e antes disso alguma coisa tem de estar lá. A E2 resolve
+isso com o resultado da E1 na mão.
 
 ---
 
