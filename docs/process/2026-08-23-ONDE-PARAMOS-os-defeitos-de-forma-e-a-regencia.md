@@ -121,7 +121,7 @@ a mesa.
 com a mesa vazia é IDÊNTICA à mesa cheia (38 botões clicáveis). Rumble mostra
 verde *"o JOGO controla a vibração"*. Emulação pinta *"Microfone: Ligado"* com
 zero placa de áudio. Início AFIRMA *"Nenhum controle conectado"* com dois acesos
-na frente dela. **É o que quebra a 0.999 para quem não é ela:** quem instala e
+na frente dela. **É o que quebra a 0.9.5 para quem não é ela:** quem instala e
 abre antes de ligar o controle vê um produto que se declara são.
 
 > Um caso do F7 já FECHOU: a aba Configurações dizia "Folgada" em verde com o
@@ -139,7 +139,7 @@ fica **sem caminho para escrever**. systemd de usuário presumido pela Início,
 que em caso de falha manda "tente pela aba Sistema" — que usa o mesmo mecanismo.
 
 **Funciona na casa dela porque a casa dela é a exceção nos cinco casos.** Este é
-o defeito que mais separa o produto da 0.999 liberável.
+o defeito que mais separa o produto da 0.9.5 liberável.
 
 ### F11 — o léxico é um trabalho só, não onze
 

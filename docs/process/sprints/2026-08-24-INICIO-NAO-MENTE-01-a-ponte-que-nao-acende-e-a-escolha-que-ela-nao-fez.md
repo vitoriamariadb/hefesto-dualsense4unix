@@ -502,7 +502,7 @@ executável; sem ela, esta tabela é conselho, não regra.
 | [O-DESLIGADO-DE-ONTEM-01](2026-08-10-O-DESLIGADO-DE-ONTEM-01-o-produto-inerte-por-decisao-antiga.md) | O produto inerte por decisão de outra sessão — é o I4 e o I8 | **Sim**, se a D-F for respondida |
 | [SINAL-DE-JOGO-01](2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | O sinal de jogo aberto, que o `_ha_jogo_aberto_agora` do rodapé relê — premissa do I1 | **Não** — a raiz é do daemon, balde da Onda 12 |
 | [NOME-HONESTO-01](2026-08-03-NOME-HONESTO-01-a-tela-chama-de-sony-o-que-o-kernel-ja-sabe-que-nao-e.md) | A tela chamando de uma coisa o que o kernel sabe ser outra — é a forma do I9 | **Sim**, com I9 |
-| [MASCARA-POR-JOGADOR-01](2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | A máscara por jogador; explica por que o seletor daqui vale para a mesa inteira | **Não** — é leva própria, depois da 0.999.x |
+| [MASCARA-POR-JOGADOR-01](2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | A máscara por jogador; explica por que o seletor daqui vale para a mesa inteira | **Não** — é leva própria, depois da 0.9.5 |
 
 Relacionadas e **não** absorvidas, porque são de outra onda:
 [VPAD-SUSPENSO-MORTO-01](2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md)

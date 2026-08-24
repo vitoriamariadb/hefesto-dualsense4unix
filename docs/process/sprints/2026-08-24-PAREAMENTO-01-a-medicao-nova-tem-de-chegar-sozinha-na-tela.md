@@ -120,7 +120,7 @@ publicar uma página que descreve um domínio diferente do que o portão aceita.
 
 **Por que gerado, e não lido em runtime:** o CSV **não está no wheel, no `.deb`
 nem no Flatpak** (medido acima). Uma GUI que lê `docs/data/` funciona na
-máquina dela e quebra na de quem instalou — o contrário exato do alvo 0.999.x.
+máquina dela e quebra na de quem instalou — o contrário exato do alvo 0.9.5.
 O módulo gerado viaja no pacote.
 
 ### Peça 2 — o registro: onde a tela declara do que está falando

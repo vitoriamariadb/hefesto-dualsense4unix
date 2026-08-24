@@ -13,7 +13,7 @@
 **O que esta sprint fecha:** as treze tarefas de §6, e com elas o defeito de forma
 **F8** do [ONDE-PARAMOS de 23/08](../2026-08-23-ONDE-PARAMOS-os-defeitos-de-forma-e-a-regencia.md)
 (lá chamado **F8**), que aquele documento classifica como *"o defeito que mais
-separa o produto da 0.999 liberável"*.
+separa o produto da 0.9.5 liberável"*.
 
 **O que ela NÃO faz:**
 

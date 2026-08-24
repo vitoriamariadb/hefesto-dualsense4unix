@@ -229,7 +229,7 @@ uma pergunta que **só Z2 responde**, e responder errado é retrabalho garantido
 | **9 · Emulação** | mesmo par: a máscara tem cinco donos e a aba aplica na hora (**D-B**). Sem o contrato de alvo, o quinto dono nasce aqui |
 | **6 · Perfis** | o escritor do perfil é L7. **Z4 depende de Z2** por este fio: o applier pula `controllers: None`, e quem decide se há `controllers` é o alvo |
 | **3 · No jogo** e **8 · Sistema** | herdam a fita acesa sem leitor; a moldura do §5 diz o que fazer sem tocar no arquivo delas |
-| **10 · Navegação** | o "alvo por jogador" está fora da 0.999.x pela **D-J**. Z2 é quem torna essa exclusão declarável em vez de silenciosa |
+| **10 · Navegação** | o "alvo por jogador" está fora da 0.9.5 pela **D-J**. Z2 é quem torna essa exclusão declarável em vez de silenciosa |
 
 E o inverso, que é o custo de **não** rodar Z2 primeiro: seis abas escrevendo
 seis versões de `getattr(self, "_edit_target_uniq", None)` — que é exatamente
@@ -791,8 +791,8 @@ scripts/gui-captura/retratar_abas.py     # e o lote de fotos vai ao olho dela
   [F4](2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md) já
   tem 14 mordidas prontas sobre ele.
 - **A granularidade por peça da vibração** — é a **D-G**, ramo *"depois da
-  0.999.x"*.
-- **O alvo por jogador na Navegação** — está **fora da 0.999.x** pela **D-J**.
+  0.9.5"*.
+- **O alvo por jogador na Navegação** — está **fora da 0.9.5** pela **D-J**.
 
 ### O que NÃO se deve refazer
 

@@ -362,7 +362,7 @@ apesar de o esquema prometer que é para isso que os dois campos existem (2.2).
 Hoje a linha `ROTULO_VIZINHANCA` (`:66`) sai laranja na bancada dela e não diz
 uma palavra sobre o que a mudaria.
 
-**O conserto tem duas metades, e a segunda é a que fecha o buraco de 0.999:**
+**O conserto tem duas metades, e a segunda é a que fecha o buraco de 0.9.5:**
 
 1. o exame recebe a declaração por argumento (o módulo é 100 % stdlib e
    read-only por contrato de CONFIG-09 — **não** importe `utils.maquina` lá

@@ -56,7 +56,7 @@ tem a prova no §3.
 | **1** | `docs/process/COMO-EXECUTAR-UMA-SPRINT.md` existe, tem 240 linhas, e **não está no git** | quem coordenou 23/08 | portão é cego a arquivo novo; ninguém rodou `git add` | rastreado, e apontado pelo `CLAUDE.md` e pelo `SPRINT_ORDER.md` |
 | **2** | "Aplicar e fechar" **grava e recusa fechar**: o contrato do retorno está invertido | conferência de 24/08 | a cura de 23/08 escreveu o contrato oposto no comentário e o dublê do teste confirmou o comentário | tarefa com mordida — hoje sem dono em sprint nenhuma |
 | **3** | **FORMA 3:** entrar no Modo Nativo com alvo que saiu da mesa **não libera ninguém** | dois agentes de 23/08 | a Z3 varre o *fan-out*; este é o inverso — um sítio que passou a não fazer nada | tarefa na Z3, que é a dona da rota de alvo |
-| **4** | O `.deb` **mata o daemon no `apt upgrade`** e nada o religa | agente de empacotamento | nenhuma sprint da leva olha `packaging/debian/` | a frente que produzir a 0.999.x, que **não existe** |
+| **4** | O `.deb` **mata o daemon no `apt upgrade`** e nada o religa | agente de empacotamento | nenhuma sprint da leva olha `packaging/debian/` | a frente que produzir a 0.9.5, que **não existe** |
 | **5** | `check_packaging_parity.sh` testa **1 de 7** empacotadores; os outros 6 são pulados em silêncio | agente de empacotamento | o `|| continue` do portão pula quem não leva `doctor.sh`, que é justamente quem falha | tarefa no balde de instalação e empacotamento |
 | **6** | `docs/protocol/onde-a-porta-usb-mora.md` é **órfão de entrada**: 0 referências | agente das portas USB | `validar-referencias-docs.py` vê referência morta de SAÍDA, nunca órfão de ENTRADA | apontado pela PORTAS-DA-CASA-01, que depende dele |
 | **7** | `docs/data/LEIA-PRIMEIRO.md` publica **47 colunas, 13 pares, 696.546 bytes**; são **49, 14, 701.611** | agente do mapa | o fato errado foi registrado na FILA e não substituído na FONTE | substituído no próprio arquivo |
@@ -623,7 +623,7 @@ execução que começa agora.**
 | **T10** | Substituir o `6645` do `CLAUDE.md`; e a decisão sobre versioná-lo é dela | ela + quem tocar o `CLAUDE.md` | o número bate com `pytest --collect-only` rodado numa árvore parada |
 | **T11** | Descer a substituição dos `~392 Hz` para os 5 sítios de `src/` e para `driver-hid-playstation.md:1015` | quem tocar o rádio | `grep -rn 392` em `src/` não devolve a justificativa velha |
 | **T12** | A cor por rádio (HANDSHAKE 0x04) entra na linha `identidade.cor_do_aparelho` do CSV | Z6, que é a dona do elo | `grep -c "HANDSHAKE 0x04"` no CSV devolve ≥ 1 |
-| **T13** | O `.deb` religa o daemon no `apt upgrade` — §3.2(c) | a frente da 0.999.x, que **não existe e é pré-requisito da entrega** | ciclo `apt install` → `apt upgrade` com o daemon no ar: ele volta sem gesto humano |
+| **T13** | O `.deb` religa o daemon no `apt upgrade` — §3.2(c) | a frente da 0.9.5, que **não existe e é pré-requisito da entrega** | ciclo `apt install` → `apt upgrade` com o daemon no ar: ele volta sem gesto humano |
 | **T14** | Reconciliar os três dialetos de decisão num só; as D-A..D-M entram no CSV | quem reger, depois que o `SPRINT_ORDER.md` parar de se mover | interseção não vazia entre os identificadores dos três lugares |
 | **T15** | Salvar as saídas de agente de 23/08 em `docs/process/agentes/2026-08-23/`, se ainda houver `journal.jsonl` | quem reger | o diretório existe e não está vazio |
 
@@ -645,7 +645,7 @@ Esta sprint fecha quando **todas** valerem:
 2. **T5 e T6 têm dono nomeado dentro da `CONFIGURACOES-FECHA-01` e da Z3** —
    não precisam estar consertados; precisam estar escritos como tarefa com a
    mordida do §7. São defeitos vivos criados ou expostos pela véspera, e
-   entregar a 0.999.x com regressão de véspera é o pior desfecho disponível.
+   entregar a 0.9.5 com regressão de véspera é o pior desfecho disponível.
 3. **F11 tem dono** — uma frente ou um balde com sprint. Enquanto ele estiver só
    na §0.1 "para não se perder", as onze ondas escrevem onze léxicos em paralelo.
 4. **O CSV das decisões tem pelo menos uma linha `decidida`** — feito no §4, e o

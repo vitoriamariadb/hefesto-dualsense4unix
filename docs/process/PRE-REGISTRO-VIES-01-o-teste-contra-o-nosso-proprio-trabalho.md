@@ -12,6 +12,15 @@
 
 ---
 
+
+> **NOTA DE 24/08/2026 — a "0.999" citada abaixo NÃO EXISTE.** Medido depois:
+> `grep -c "0\.999" CHANGELOG.md pyproject.toml` devolve zero e zero; a versão
+> real é `0.9.4.5` e o marco canônico é **`0.9.5`**, com o critério dela de
+> 15/08 escrito no `CHANGELOG`. O número saiu dos documentos de PLANO e **fica
+> aqui de propósito**: este é registro do que estava escrito na época, e
+> reescrever registro para ficar bonito é falsificá-lo. Quem achou foi o
+> advogado do diabo do braço C — planejávamos para um número que ninguém criou.
+
 ## 1. A SUSPEITA, e o que já está medido
 
 Doze workflows e mais de sessenta agentes trabalharam em 23/08/2026. Dois
