@@ -663,7 +663,7 @@ mora — ou o parágrafo do §5 que explica por que ele não merece uma.
 
 ## 9. Referências
 
-* [SPRINT_ORDER.md](SPRINT_ORDER.md) — a fila; as 22 de 24/08 estão todas lá
+* [SPRINT_ORDER.md](../SPRINT_ORDER.md) — a fila; as 22 de 24/08 estão todas lá
 * [2026-08-23-ONDE-PARAMOS](../2026-08-23-ONDE-PARAMOS-os-defeitos-de-forma-e-a-regencia.md)
   — os quinze defeitos de forma e as três decisões de processo dela
 * [ONDA0-Z3-BROADCAST-PROIBIDO-01](2026-08-24-ONDA0-Z3-BROADCAST-PROIBIDO-01-o-pulso-do-jogador-2-na-mao-dos-outros.md)
