@@ -500,17 +500,38 @@ ordenadas pela mesma régua que já rege a Onda 0: **posse de arquivo**, medida
 por censo de dois agentes independentes (não confiar no rótulo dos arquivos —
 vários mentem sobre si mesmos, achado central do censo de hoje).
 
-**A descoberta que decide a ordem geral:** os quatro baldes que tocam código de
-produto (daemon, co-op, identidade, instalação) colidem em arquivo com a leva
-de 24/08 **já em voo** — `daemon/lifecycle.py`, `daemon/subsystems/gamepad.py`,
-`daemon/launch_env.py`, `core/led_control.py`, `install.sh`, `scripts/doctor.sh`
-e `scripts/build_deb.sh` — e nenhuma dessas oito colisões está declarada em
-sprint nenhuma hoje (tabela "Cruzamentos com a leva de 24/08" do censo,
-24/08/2026). A mais cara: `SISTEMA-O-VIGIA-VIVO-01` (Onda 11 · Sistema, em
-voo) já reescreve `install.sh` em **~19 pontos**. Regra desta seção, e ela
-vale para todo executor: **nenhuma das oito frentes abre em código antes de a
-Onda 0 + as onze ondas de aba fecharem** — a única exceção é a Onda 12
-("o olho dela"), que não toca código de produto.
+**A descoberta que decidia a ordem geral estava errada, e a correção muda o
+caminho crítico — medido em 24/08 pelo crítico da própria leva.** A alegação
+original citava uma tabela "Cruzamentos com a leva de 24/08" do censo como
+fonte de oito colisões de arquivo; **essa tabela não existe em lugar nenhum
+do repositório** — é referência a um artefato que não sobreviveu à sessão que
+o produziu. E três dos sete arquivos que ela citava como colisão tinham
+alegação falsa: `install.sh`, `scripts/doctor.sh` e `scripts/build_deb.sh`
+**não são reescritos em "~19 pontos"** por `SISTEMA-O-VIGIA-VIVO-01` — esse número não existe em lugar
+nenhum da sprint. O que a sprint diz, em texto próprio (linha 20): *"não mexe
+no `install.sh` além da linha 3504, nem em `build_deb.sh` além do bloco dos
+scripts. O resto do instalador é a Onda 12"* — a colisão está **declarada**, e
+a fronteira já cede o resto do arquivo para a frente 16. `doctor.sh` não é
+tocado por ela; quem o edita é `CURA-QUE-FERE-01`, primeiro item da própria
+frente 16.
+
+Continuam de pé, confirmadas só por grep — não medidas linha a linha como a
+alegação acima foi, e por isso não tomadas como garantidas com o mesmo peso:
+`daemon/lifecycle.py` (Z1/Z2/Z4/Z5), `daemon/subsystems/gamepad.py` (Z3/Onda
+5), `daemon/launch_env.py` (Onda 5/11) e `core/led_control.py`
+(`LUGAR-À-MESA-01`, frente 14).
+
+**Regra revista:** a frente 16 (Instalação) pode rodar **em paralelo com a
+Onda 11**, respeitando só a linha 3504 de `install.sh` — o mesmo padrão de
+posse de linha que a Onda 0 já usa; ela segue presa à Onda 14 (co-op),
+motivo à parte, não derrubado. A frente 13 (Daemon) continua atrás da Onda 0
++ onze ondas de aba, pelas colisões de `lifecycle.py`/`gamepad.py`/
+`launch_env.py` acima — não tocadas por esta correção. A frente 15
+(Identidade) espera a frente 14 fechar, por outro motivo (`identity.py`,
+já correto na tabela abaixo), não pela leva de 24/08. A frente 17 (portão
+e teste) nunca precisou esperar — não toca arquivo de produto, e a sua
+própria linha na tabela abaixo já dizia isso. A frente 12 ("o olho dela")
+também nunca teve essa trava, por não tocar código de produto.
 
 | # | Frente | Conteúdo (sprints reais, censo 24/08) | Depende de | Paralelizável com | Tamanho |
 |---|---|---|---|---|---|
@@ -518,10 +539,22 @@ Onda 0 + as onze ondas de aba fecharem** — a única exceção é a Onda 12
 | **13** | **Daemon e desempenho** | `ESCONDE-SÓ-O-HIDRAW-01` (parcial — E2 é dela), `VPAD-SUSPENSO-MORTO-01`, `DAEMON-ACORDADO-01` (E1 livre, 10 s de `strace`), `ENGASGO-VULKAN-01` (parcial — A/B de 10 min é dela), `SINAL-NO-NASCIMENTO-01` (E2/E4, sem onda própria até hoje — entra aqui por afinidade, §censo). **Gap a materializar, não sprint nova:** "arbitrar o hidraw" (item 7 da fila §1) não tem sprint — aceitar o risco antes é dela | **Onda 0 + Ondas 1-11 fechadas** (colisão não declarada com Z1/Z2/Z4/Z5 em `lifecycle.py`, Z3/Onda 5 em `gamepad.py`, Onda 5/11 em `launch_env.py`) | Onda 17 (portão e teste) | 5 sprints, ~1 agente |
 | **14** | **Co-op e ciclo de vida do jogador** (dono único `coop.py`) | Ordem interna fixa (censo 24/08, ordem por reuso de bancada): `COOP-QUE-NÃO-DESMONTA-01` → `BORDA-DE-QUEDA-01` → `QUATRO-NA-MESA-01` → `DUAS-CONTABILIDADES-01` (resíduo — o achado central já foi curado por `cb46bd8`/`eef9853` fora do ciclo de sprint; só registra o que sobra, sem sprint dona) → `PARTIDA-PICOTADA-01` (**já entregue**, confere e risca) → `JOGADOR-3-FANTASMA-01` → `LUGAR-À-MESA-01` (trava em `MASCARA-01`, Onda 5, por decisão dela — se Onda 5 já fechou, destravada). `MONITOR-QUE-VENCE-01` **fora**: concluída, não toca `coop.py` | Onda 13 (gamepad/vpad estáveis antes do ciclo de vida do jogador pousar em cima) — **NÃO VERIFICADO por colisão de arquivo, é dependência lógica** | nenhuma das frentes 15-18 declara tocar `coop.py`, exceto `ÁRVORE-DIVERGENTE-01` (frente 16) | 7 sprints abertas, dono único, 1 agente sequencial |
 | **15** | **Identidade de aparelho** | `IDENT-01`, `IDENTIDADE-DUPLA-01` (E1 é dela — 2 min, MAC do 8BitDo por modo), `UMA-FAIXA-NÃO-É-UM-FABRICANTE-01`, `N-IGUAL-A-UM-01` (E1 já entrou; resto é dela) | **Onda 14 fechada** — `QUATRO-NA-MESA-01` (frente 14) já reivindica `daemon/subsystems/identity.py`, mesmo arquivo desta frente | Onda 16 e 17 | 4 sprints |
-| **16** | **Instalação e empacotamento** (dono único, mesmo grupo de arquivo) | Ordem interna fixa (censo 24/08): `CURA-QUE-FERE-01` (portão do padrão) → `BT-AGENT-TRAVA-O-RESTART-01` → `RADIO-ABERTO-01` → `BONDS-QUE-SOBREVIVEM-01` (ressalva: reconferir os 4 defeitos contra o código de hoje — commits de 15/08 e 22/08 não citados na sprint) → `DROPIN-AMBIGUO-01` → `SIMETRIA-INSTALL-02` → `IDENTIDADE-01` → `ÁRVORE-DIVERGENTE-01` (**ressalva forte**: cita por nome `STATUS-SIMETRIA-01`/`MIC-USB-01` como abertas quando a §0.6 já as classifica "entregue, só falta o olho dela" — **re-medir a lista inteira antes de sequenciar**; é a única sprint do balde que toca `coop.py` diretamente) | **Onda 0 + Ondas 1-11 fechadas** (mesmo motivo da frente 13: `install.sh`/`doctor.sh`/`build_deb.sh` reivindicados por `SISTEMA-O-VIGIA-VIVO-01` em voo) **e Onda 14 fechada** (`led_control.py` reivindicado por `LUGAR-À-MESA-01`, e `ÁRVORE-DIVERGENTE-01` toca `coop.py` direto) | Onda 15 e 17 | 8 sprints, dono único, 1 agente sequencial |
+| **16** | **Instalação e empacotamento** (dono único, mesmo grupo de arquivo) | Ordem interna fixa (censo 24/08): `CURA-QUE-FERE-01` (portão do padrão) → `BT-AGENT-TRAVA-O-RESTART-01` → `RADIO-ABERTO-01` → `BONDS-QUE-SOBREVIVEM-01` (ressalva: reconferir os 4 defeitos contra o código de hoje — commits de 15/08 e 22/08 não citados na sprint) → `DROPIN-AMBIGUO-01` → `SIMETRIA-INSTALL-02` → `IDENTIDADE-01` → `ÁRVORE-DIVERGENTE-01` (**ressalva forte**: cita por nome `STATUS-SIMETRIA-01`/`MIC-USB-01` como abertas quando a §0.6 já as classifica "entregue, só falta o olho dela" — **re-medir a lista inteira antes de sequenciar**; é a única sprint do balde que toca `coop.py` diretamente) | **Onda 14 fechada** (`led_control.py` reivindicado por `LUGAR-À-MESA-01`, e `ÁRVORE-DIVERGENTE-01` toca `coop.py` direto — colisão só confirmada por grep, não linha a linha). **Não depende mais de fechar a Onda 11** (24/08: a alegação que a prendia lá era falsa, ver nota acima) — respeita só `install.sh:3504` | Onda 11, Onda 15 e 17 | 8 sprints, dono único, 1 agente sequencial |
 | **17** | **Portão e teste** | `TESTE-HONESTO-01` (planejamento, zero código), `AUDITORIA-DE-PERDA-01` (= item 18 da fila §1 — mesma sprint), cauda de `BERÇO-DE-TMP-01` (a parte do `$HOME`, a parte de `/tmp` já está curada) | nenhuma (toca `scripts/check_*.py` e fixtures de teste — **NÃO VERIFICADO** colisão fina com `check_packaging_parity.sh` da frente 16, mas os arquivos-alvo declarados são outros) | tudo, inclusive Z0..Z7 e as ondas de aba — pode começar no dia 1 | 3 sprints |
 | **18** | **Documentação** (sem sprint própria — três fatos soltos) | `LEIA-PRIMEIRO.md` (47→49 colunas, 696.546→701.611 bytes), `README.md:219` ("~40% do sinal", já caduco no CSV), `docs/usage/interface.md` (linha morta da aba Status desde 17/08) | **Onda 0 + Ondas 1-11 fechadas** — regra do próprio balde (§0.6): documentar antes é documentar o produto de ontem | pode rodar depois de fechar, em paralelo com 13-17 se elas ainda estiverem de pé, mas nunca antes da leva de aba | 3 fatos, ~1 h |
 | — | **Clean-room** — **DECLARADAMENTE FORA da 0.9.5** (decisão D-J, §0.9) | `CR-03` → `CR-04` → `CR-06` → `CR-SEQUENCIA-01` (ordem já fixada no §0.6). `CR-01`, `CR-02`, `CR-05`, `METODO-01` já entregues — fecham sem executar | é 1.0, não sequenciar aqui | — | não entra na conta da 0.9.5 |
+
+**Os dois baldes que a tabela acima não nomeia, por já tecidos noutro
+lugar — registrados aqui para a seção valer sozinha, sem depender do §0.6/§0.9
+para fechar o quadro:**
+
+- **BT, trilha DELA (§0.7, decisão D2):** fica fora das ondas de agente,
+  sempre — não é frente, não tem agente, não entra na tabela. Aparece embutido
+  no critério #2 abaixo ("depende das sete perguntas de Bluetooth dela").
+- **Decisão dela (§0.9, D-A a D-M):** não é um balde à parte — está tecida
+  dentro das frentes 13 a 16, em cada `E` marcada "é dela" nas ordens internas
+  acima. A única exceção com linha própria é D-J (clean-room, linha "—" da
+  tabela).
 
 **O buraco sem sprint, registrado e não materializado (achado 4 do censo):**
 "co-op não existe no Modo Nativo" (`coop.py:307-313` exige `_gamepad_device`) —
@@ -534,7 +567,15 @@ a escrever:
 
 1. `python3 scripts/gerar-painel.py` → `censo_de_sprints()`: `diz_aberta` menos
    as exceções nomeadas (as 6 de cabeçalho preservado + as 3 da régua velha,
-   §0.10) deve ser **0** — hoje **102** brutas.
+   §0.10) deve ser **0** — hoje **102** brutas. **Ressalva medida em 24/08:**
+   a régua só enxerga um arquivo se ele tiver `ABERTA`, `CONCLUÍDA` ou
+   `FECHADA` nos primeiros 2400 caracteres — **119 dos 287** arquivos de
+   sprint não têm nenhuma das três aí (`PARCIAL`, `PENDENTE`, `EM ANDAMENTO`,
+   ou preâmbulo mais comprido que 2400 caracteres ficam invisíveis a ela).
+   Este critério pode chegar a **0** com um terço do inventário em estado
+   desconhecido para a régua — **não é prova de pronto sozinho**; antes de
+   declarar 0.9.5, alguém confere os 119 à mão, ou a régua aprende as outras
+   palavras de estado primeiro.
 2. A contagem de pendência do mapa de canais por inferência (`aceita∈{sim,
    parcial}` E `aciona≠sim` E motivo fora de `{nada-a-acionar, decisao-tomada,
    so-ela-decide}`) deve ser **0** na união cabo/rádio — hoje **61**, e
