@@ -33,6 +33,11 @@ até a faxina de 24/07 (`a639e0d`), foi apagado, e ela o pediu de volta em
 > [COMO-OLHAR-A-TELA.md](COMO-OLHAR-A-TELA.md)**, §"Régua que casa um token em
 > qualquer lugar do texto".
 >
+> **A PORTA DE ENTRADA DE HOJE é a seção 0** — a fila em ONDAS de 23/08, que
+> organiza as onze abas sob as invariantes da Onda 0. A seção 1 continua sendo a
+> fila por custo do silêncio, e cada linha dela que uma onda absorveu está
+> marcada com `→ Onda N`.
+>
 > **O retrato do dia inteiro, para quem chega sem contexto:**
 > [ONDE PARAMOS — a aba que nasceu, e as quatro réguas que mentiam](2026-08-22-ONDE-PARAMOS-a-aba-que-nasceu-e-as-quatro-reguas-que-mentiam.md).
 >
@@ -44,6 +49,236 @@ até a faxina de 24/07 (`a639e0d`), foi apagado, e ela o pediu de volta em
 > desta máquina barra segredo com 9 regras mais o cofre de literais em
 > `~/.config/git/segredos-literais` — trocar a senha da máquina exige trocar lá
 > também.**
+
+---
+
+## 0. A FILA EM ONDAS — 23/08/2026, a leva das onze abas
+
+Pedido dela em 23/08: *"montar uma sprint pra cada aba... e depois pra execução
+da auditoria, e trazendo um plano com sprints muito bem desenhadas e adicionadas
+ao sprint order para que no final das contas todas as sprints de cada aba sejam
+executadas em harmonia."* **O alvo é a 0.999.x liberável para usuários reais.**
+
+**A ordem é decisão dela (D1): transversal primeiro.** A **Onda 0** são as
+invariantes que valem para as ONZE abas; as **Ondas 1 a 11** são as abas, já sob
+essas regras; a **Onda 12** é o que não pertence a aba nenhuma. O motivo, e ele
+manda no desenho: **as invariantes MUDAM o que cada aba tem de fazer** — arrumar
+layout de aba antes de saber se a feature dela vale POR CONTROLE é retrabalho
+garantido.
+
+**A ordem da tira, corrigida — e é dura.** Medida por mim em 23/08 com
+`awk '/<child type="tab">/{f=NR} f && /<property name="label"/{print}'` sobre
+`src/hefesto_dualsense4unix/gui/main.glade` (linhas 269, 703, 750, 1131, 1634,
+2027, 2615, 2991, 3541, 4020, 4065):
+
+```
+1 Início   2 Status   3 No jogo   4 Gatilhos   5 Lightbar   6 Rumble
+7 Perfis   8 Sistema  9 Emulação  10 Navegação 11 Configurações
+```
+
+**"No jogo" é a 3ª, não a 10ª; "Navegação" é a 10ª, não a 9ª.** Quem numerar aba
+pela ordem antiga aponta para a aba errada duas vezes. **O número da ONDA não é
+o número da aba** — a ordem das ondas é por dependência, não por posição na tira.
+
+### 0.1 Por que não se conserta aba por aba
+
+O produto não tem onze problemas de aba. Tem **doze defeitos de forma que
+aparecem onze vezes** — e é por isso que a Onda 0 vem antes.
+
+| | O defeito de forma | Onde aparece |
+|---|---|---|
+| P1 | **"Aplicado" é palavra sem prova.** `_call_checked`/`_safe_call` terminam em `return True, None`: a ponte joga fora a resposta que o daemon JÁ calculou | 6 abas |
+| P2 | **A cura escrita e nunca ligada.** O daemon publica no `state_full` e nenhuma superfície lê (`mascara_divergente`, `bateria_no_jogo`, `jack`, o bloco `coop`, `osk_instalado`, `controles_sem_driver`); e o `prontuario_dos_jogos.py` tem 1037 linhas e zero chamadores | daemon↔janela |
+| P3 | **O alvo tem um escritor e sete leitores por `getattr(..., None)`.** `_edit_target_uniq` nasce só no tique de 2 Hz da Status; se ele faltar, quatro abas caem em edição GLOBAL em silêncio | 6 abas leem a fita |
+| P4 | **Grava na peça, manda na mesa.** O clique grava no Controle 2 e o comando vai para os quatro; e alvo que sai da mesa vira broadcast (`backend_pydualsense.py:2639`) | Rumble, Gatilhos, Lightbar |
+| P5 | **O perfil não guarda tudo, e cada aba tem seu buraco diferente.** Decisão dela de 18/08 não executada; e o campo `coop` do schema é aceito, logado e IGNORADO | 5 abas |
+| P6 | **Só Início e Status têm pulso.** As outras nove dependem do gancho de entrada na aba, e vários faltam; o laço do switch-page chama `fn()` sem `try/except` | 9 abas |
+| P7 | **O ambiente presumido tem sempre a mesma forma.** `XDG_CONFIG_HOME` ignorado, Steam só em `~/.steam/steam`, OSK só onboard/wvkbd, systemd de usuário presumido | 5 abas |
+| P8 | **O léxico é um trabalho só, não onze.** "Microfone" nomeia três coisas em três abas; dois "Silenciar" idênticos a 60 px um do outro; "leve/forte" leem como escala e são dois MOTORES | todas |
+| P9 | **O portão do specs é cego à tela.** `check_paridade_transporte.py` cruza CSV × testes × specs.html e não lê uma linha de `main.glade` nem de `app/` | todas |
+| P10 | **A foto mente para a documentação**, e a regra da casa manda olhar a foto primeiro: cinco abas não têm host no `retratar_abas.py` e o README publica o glade cru | 5 abas |
+| P11 | **Verde que não protege.** A função pura tem oito testes e o fio que a chama não tem nenhum; nenhum teste abre um perfil real pela porta da janela | suíte |
+| P12 | **Os pares que disputam o mesmo estado.** Status↔No jogo moram no MESMO arquivo e importam o mesmo widget; Início↔Emulação disputam a máscara; Perfis↔Sistema↔CLI escrevem o mesmo `steam_input_apps.txt` | 6 pares |
+
+**Buraco declarado deste desenho:** a **Onda 0 é DESENHO, não censo medido** — ela
+foi derivada dos dez relatórios de aba, e as três frentes transversais que
+deveriam tê-la medido falharam. E a **aba Lightbar não teve batedor**: a onda 8
+nasce com meia medição e a primeira tarefa dela é a auditoria que não houve.
+
+### 0.2 Onda 0 — as invariantes (Z0 a Z7)
+
+Nenhuma onda de aba fecha antes da frente de que depende. O aceite de cada frente
+é uma **mordida**: arrancar a cura tem de fazer REPROVAR.
+
+| Frente | Por que vem ANTES | Agentes | O aceite que MORDE |
+|---|---|---|---|
+| **Z0 — a régua e a foto** | toda onda de aba fecha com prova de tela, e hoje cinco abas fotografam o XML sem ninguém ter rodado. A foto de mesa cheia mais recente é de 14/08 e mostra três coisas que o produto já não faz | 3 | arrancar o host de qualquer uma das cinco abas faz o portão REPROVAR **nomeando a aba**; as onze fotos + a de mesa cheia + a do cabeçalho saem numa execução e mostram texto que existe no `app/` de hoje |
+| **Z1 — a ponte que sabe dizer não** | seis abas dizem "aplicado" sem prova e a verdade já está no daemon; sem esta frente, seis ondas escrevem seis versões do mesmo toast e as seis divergem | 5 | com a mesa VAZIA, "Aplicar em L2", "Testar por 500 ms" e o "Aplicar" do rodapé dizem que NÃO fizeram, com motivo; arrancar a propagação do campo de recusa reprova em SEIS testes de aba |
+| **Z2 — o alvo ganha dono próprio** | `_edit_target_uniq` só é escrito no tique da Status, que sai cedo com qualquer popup aberto em qualquer aba; nove abas mudam por causa desta frente | 6 | montar o host sem o mixin da Status faz as quatro abas leitoras REPROVAREM em vez de virarem globais; e um teste trava a ORDEM dos cards contra a ordem da fita |
+| **Z3 — broadcast proibido** | é a invariante dos 4 controles na forma mais visível: o Controle 2 sai da mesa e o pulso vai para os outros três. É REINTRODUZÍVEL por refactor — foi o estrago que a entrega ABAS-06 (dentro da ABAS-01) curou em 25/07 | 3 | escolher o Controle 2, removê-lo da mesa, disparar o gesto e exigir **0** escritas — reprovando ao ver 4 quando a cura é arrancada. Vale para rumble, gatilho e lightbar |
+| **Z4 — o perfil guarda tudo** | é a pergunta dela em pessoa, e a resposta medida é NÃO com um buraco DIFERENTE por aba; sem isto a décima primeira aba descobre que as dez anteriores não combinam | 5 | abrir os perfis REAIS dela na janela, mexer em cada aba, Salvar, FECHAR, reabrir e comparar campo a campo — não teste de função pura |
+| **Z5 — o dado que existe e não chega à tela** | as duas metades do defeito mais caro desta casa: o daemon publica e ninguém lê; a tela lê uma vez e nunca mais. Sem ele, cada aba escreve seu poller e o produto ganha onze relógios | 4 | tirar a entrada de QUALQUER aba do mapa de refresh reprova nomeando a aba; para cada chave órfã existe ou teste que prova que uma tela a mostra, ou commit que a removeu com data |
+| **Z6 — comunhão com o specs** | é a pergunta dela "cada aba está em comunhão com o specs?", e hoje NINGUÉM pode saber. É esta frente que torna a D2 executável: sem portão, "qual pergunta de BT bloqueia esta aba" é conselho, não regra | 5 | plantar na tela uma frase que promete no rádio o que o CSV diz não medido faz o portão REPROVAR nomeando arquivo e linha; a varredura de caducos roda duas vezes e não acha nada na segunda |
+| **Z7 — o ambiente que o produto presume** | 0.999.x é liberação para usuários REAIS e cinco presunções quebram o produto para quem não é ela, em cinco abas ao mesmo tempo | 4 | a suíte roda com `XDG_CONFIG_HOME` em outro lugar e uma Steam Flatpak falsa, e as três abas concordam sobre o mesmo arquivo; arrancar o resolvedor único reprova em Perfis, Sistema E Emulação |
+
+### 0.3 As onze ondas de aba
+
+Cada uma tem sprint própria no disco, com o carimbo de tela da D3 em cada tarefa
+e a declaração de qual pergunta de Bluetooth a bloqueia.
+
+| # | Aba (posição na tira) | Sprint | Depende de | O que o Bluetooth trava nela |
+|---|---|---|---|---|
+| 1 | Configurações (11ª) | [CONFIGURACOES-FECHA-01](sprints/2026-08-24-CONFIGURACOES-FECHA-01-o-aplicar-que-nao-responde-e-o-campo-que-apaga-o-arquivo.md) | Z1, Z5, Z0. **Não** depende de Z2 — esta aba se desqualifica do alvo de propósito, e é o molde a copiar | o medidor de rádio não pode afirmar fonte de captura do mic por BT |
+| 2 | Início (1ª) | INICIO-NAO-MENTE-01 | Z1, Z2, Z5, Z7 | a linha "Ponte com o jogo" fica presa atrás da VPAD-SUSPENSO-MORTO-01 (Onda 12) |
+| 3 | Status (2ª) | STATUS-DIZ-O-QUE-VE-01 | Z0, Z2, Z1, Z6, Z4. **Restrição dura: mesmo arquivo e mesmo widget da onda 4 — mesmo agente-dono, sequencial** | alto-falante por rádio e microfone por rádio: a tela não pode oferecer o que não foi medido |
+| 4 | No jogo (3ª) | [NO-JOGO-SEM-FALSO-VERDE-01](sprints/2026-08-24-NO-JOGO-SEM-FALSO-VERDE-01-a-palavra-verde-que-nao-prova-que-chegou.md) | **Onda 3** (mesmo arquivo, mesmo widget), Z1, Z5, Z6 | as quatro linhas de falso-verde são cruzamento tela↔mapa; `passthrough` e alto-falante sem degrau no rádio |
+| 5 | Perfis (7ª) | PERFIS-ABRE-O-QUE-GUARDA-01 | Z4, Z7, Z5, Z1; e a redação da caixinha depende da decisão dela sobre a ESCONDE-SÓ-O-HIDRAW-01 | — |
+| 6 | Emulação (9ª) | [EMULACAO-UM-DONO-SO-01](sprints/2026-08-24-EMULACAO-UM-DONO-SO-01-a-mascara-com-cinco-donos-e-o-verde-que-nao-tem-alvo.md) | **Onda 2** (o contrato de MARCAR), Z1, Z2, Z5, Z6, Z7 | a frase "o controle virtual foi recolhido" descreve estado que o produto nunca alcança (VPAD-SUSPENSO-MORTO-01) |
+| 7 | Navegação (10ª) | [NAVEGACAO-UM-CONTROLE-SO-01](sprints/2026-08-24-NAVEGACAO-UM-CONTROLE-SO-01-o-teclado-que-jura-despachar-e-os-atalhos-que-somem.md) | **Onda 6** (dona de metade do código desta aba), **Onda 2**, Z4, Z5, Z6, Z7 | gatilho e analógico movem o cursor por rádio? A observação DELA de 11/08 diz que não — trava a tabela de Mapeamento |
+| 8 | Lightbar (5ª) | [LIGHTBAR-COR-DE-CADA-UM-01](sprints/2026-08-24-LIGHTBAR-COR-DE-CADA-UM-01-a-aba-mais-vazia-e-o-aceso-agora-que-nao-volta.md) | Z2, Z3, Z5, Z0 — **e de uma auditoria que ainda não existe**: esta onda pode ser INICIADA pelo desenho de hoje, não executada | `LIGHTBAR-BT-NEVER-01` e `ROTA-BT-EM-REGIME-01` se contradizem sobre o rádio, e uma das duas está velha |
+| 9 | Gatilhos (4ª) | GATILHOS-APLICADO-COM-PROVA-01 | **Onda 8** (o `_edit_uniq`), Z1, Z2, Z3, Z4, Z5, Z6 | o gatilho adaptativo por rádio foi sentido em UM modo só (`Rigid`), com um jogo de parâmetros: trava dezoito dos dezenove botões |
+| 10 | Rumble (6ª) | RUMBLE-POR-JOGADOR-01 | **Onda 1** (o teto do orçamento), Z1, Z2, Z3, Z5, Z6 | `vibracao.rumble.passthrough` tem o rádio em `inferido-do-codigo` e sem degrau: o card principal não pode afirmar nada por rádio |
+| 11 | Sistema (8ª) | [SISTEMA-O-VIGIA-VIVO-01](sprints/2026-08-24-SISTEMA-O-VIGIA-VIVO-01-a-rede-de-seguranca-parada-e-o-conserto-que-nao-conserta.md) | Z1, Z5, Z6, Z7, Z0; e o balde de instalação da Onda 12 — o conserto do vigia é uma linha do `install.sh` | — |
+
+> **CINCO SPRINTS DE ABA NÃO ESTAVAM NO DISCO** quando esta fila foi costurada
+> (medido com `ls docs/process/sprints/2026-08-24*` às 19:30 de 23/08: existiam
+> seis das onze). As linhas 2, 3, 5, 9 e 10 acima trazem o **nome previsto sem
+> link**, de propósito: link para arquivo que não existe é referência morta, e há
+> portão. **Quem publicar uma dessas cinco converte a linha em link no mesmo
+> commit** — é a regra da seção 6 aplicada a esta seção.
+
+### 0.4 O que cada onda ABSORVE
+
+Cada sprint abaixo **está marcada na seção 3 (ou na seção 1) com a onda que a
+absorveu**, para que ela não flutue em dois lugares. Aqui só o índice; o link
+mora na faixa a que ela pertence.
+
+- **Onda 1 — Configurações:** CONFIG-03, CONFIG-04, CONFIG-06, CONFIG-07, CONFIG-09, DECISOES-ABERTAS (da subpasta `2026-08-21-ABA-CONFIGURACOES/`), ELO-MUDO-01.
+- **Onda 2 — Início:** MESA-CHEIA-10, LUGAR-À-MESA-01, A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01, MASCARA-QUE-GRUDA-01, AGORA-E-DEPOIS-01, MASCARA-POR-JOGADOR-01, SINAL-DE-JOGO-01.
+- **Onda 3 — Status:** PAINEL-DA-VERDADE-01, MESA-CHEIA-01, SOM-DE-CADA-JOGADOR-01, QUATRO-MICROFONES-01, TRES-MODOS-DO-SOM-01, ESTADO-QUE-MENTE-01, SOM-02, MESA-CHEIA-11, JANELA-CORTADA-01.
+- **Onda 4 — No jogo:** MESA-CHEIA-07, PARIDADE-SONY-01, e os três índices de leva (`2026-08-01`, `2026-08-13`, `2026-08-14`), ESTADO-DA-NOITE-01.
+- **Onda 5 — Perfis:** PERFIL-SALVA-TUDO-01, PERFIL-NASCE-CERTO-01, AUTOMATISMO-MORTO-01, ESCOLHA-DELA-VENCE-01, FOCO-ERRANTE-01, ABAS-01, MODO-01, PERFIL-ATUAL-01, POR-UNIDADE-01.
+- **Onda 6 — Emulação:** MASCARA-01, BT-E-VPAD-01, CONTAGEM-E-COOP-01, EMULACAO-NO-JOGO-01, MESA-CHEIA-06, NO-MEU-FUNCIONA-01.
+- **Onda 7 — Navegação:** NAVEGA-PELO-CONTROLE-01, NAVEGAR-ESTA-JANELA-01, JANELA-QUE-RESPIRA-01, PROVA-DE-TELA-01.
+- **Onda 8 — Lightbar:** LIGHTBAR-JOGADOR-01, MESA-CHEIA-03, ONDE-A-COR-MORA-01, UNIDADE-COR-01, ESCRITOR-CRU-01, BARRA-MUDA-01, LED-SEM-DONO-01, PLAYER-LED-01, SEGUNDO-ESCRITOR-01.
+- **Onda 9 — Gatilhos:** MESA-CHEIA-02, MESA-CHEIA-09, TRIGGER-CANON-01, GATILHO-PALAVRA-01, GATILHO-NÃO-PERDIDO-01, LARGURA-01, BOTAO-QUE-NAO-MENTE-01.
+- **Onda 10 — Rumble:** MESA-CHEIA-05, A-FÁBRICA-COM-UM-CLIENTE-01, POSSE-POR-CONTROLE-01, CONFIG-05, OITO-DEFEITOS-01, O-LACO-DE-ESCRITA-01.
+- **Onda 11 — Sistema:** STEAM-INPUT-01, DUPLO-REGISTRO-01, STEAM-QUE-DECIDE-01, O-WRAPPER-QUE-SUMIU-01, SENTINELA-WRAPPER-01, WRAPPER-EM-TODOS-01, JANELA-CEGA-01.
+
+**Absorvida não é fechada.** A onda entrega o que a sprint pedia *naquela aba*;
+o que a sprint tem de bancada, de rádio ou de palavra dela continua dela, e
+continua na faixa em que está.
+
+**O que a reconciliação revelou, e não é pequeno: 81 linhas deste arquivo
+ganharam a marca `→ Onda N`, e 23 das sprints absorvidas NÃO TINHAM LINHA
+NENHUMA na fila.** Elas estavam entre as órfãs — foram achadas pelos batedores
+de aba, não pela fila. É a medida do tamanho do **balde 0 da Onda 12**: a fila
+não sabia da existência de quase um quarto do que agora tem dono.
+
+### 0.5 As dez colisões, e quem ficou dona
+
+Dez sprints apareceram em dois lugares do plano. A regra aplicada, e ela é a
+mesma para todas: **dona é quem MEXE NO CÓDIGO; a outra declara dependência.**
+
+| Sprint | Aparecia em | **Dona** | Quem consome |
+|---|---|---|---|
+| VPAD-SUSPENSO-MORTO-01 | Onda 2 e balde do daemon | **Onda 12, balde do daemon** | Onda 2 (a linha da ponte) e Onda 6 (a frase do vpad recolhido) |
+| CURA-QUE-FERE-01 | Onda 11 e balde de instalação | **Onda 12, balde de instalação** | Onda 11 (o vigia religar) |
+| BT-E-VPAD-01 | Onda 6 e balde de BT | **Onda 6** | o balde de BT carrega a PERGUNTA (o furo 5, a taxa do Edge), não a sprint |
+| SINAL-DE-JOGO-01 | Onda 2 e balde do daemon | **Onda 2** | o balde do daemon cita e não executa |
+| O-LACO-DE-ESCRITA-01 | Onda 10 e balde do daemon | **Onda 10** | idem |
+| MESA-CHEIA-06 | Onda 6 e balde de portão | **Onda 6** | o balde de portão fica com o MECANISMO, não com este caso |
+| QUATRO-MICROFONES-01 | Onda 3 e balde de BT | **Onda 3** | o balde de BT fica com a pergunta "existe fonte de captura por rádio?" |
+| PROVA-DE-TELA-01 | Onda 7 e a frente Z0 | **Onda 7** | a Z0 produz o instrumento que a folha usa |
+| CONFIG-05 (orçamento como teto) | pasta da aba Configurações, defeito da Rumble | **Onda 10** | a Onda 1 não a reabre |
+| MASCARA-QUE-GRUDA-01 | Onda 2 e a fila da seção 1 | **Onda 2** | está FECHADA desde 23/08 e fica na fila só até ela ver |
+
+### 0.6 Onda 12 — os sete baldes
+
+O que não é de aba nenhuma, e sem o qual não há 0.999.x.
+
+| Balde | O que carrega | Quando roda |
+|---|---|---|
+| **0 — o censo que não aconteceu** | a frente de censo e redistribuição FALHOU: **111 sprints continuam fora deste arquivo** (eram 118 antes desta leva) e ninguém as classificou por aba. **Primeira tarefa da Onda 12, antes de qualquer outra: refazer o censo com DUAS réguas independentes** — este arquivo já registra três alarmes de órfã que eram da régua, não da árvore | **antes de tudo na Onda 12**; até existir, toda onda de aba pode estar deixando uma sprint dela para trás |
+| **BT — a trilha DELA (D2)** | a maior fonte de bloqueio de TEXTO das onze ondas; a lista está na §0.7 | fora deste plano por decisão dela; a ordem de medir é dela |
+| **daemon e desempenho** | ESCONDE-SÓ-O-HIDRAW-01, VPAD-SUSPENSO-MORTO-01, DAEMON-ACORDADO-01, ENGASGO-VULKAN-01, ESPELHO-QUE-NÃO-NASCEU-01 | **três destas são pré-requisito de TEXTO**: sem elas, três abas entregam frase provisória |
+| **instalação e empacotamento** | o `enable --now` que não religa o vigia; o ciclo uninstall→install como prova (CURA-QUE-FERE-01); a paridade de empacotamento e o Flatpak; IDENTIDADE-01 | **nada disto aparece em aba nenhuma e sem isto não há 0.999.x** |
+| **portão e teste** | TESTE-HONESTO-01, AUDITORIA-DE-PERDA-01, o portão de timers que promete cobrir `painel_no_jogo.py` e não cobre, e o `validar-palavra-de-tela.py`, **cego a abas montadas em Python** | o MECANISMO vem para cá; as mordidas de cada aba ficam nas ondas |
+| **documentação** | `docs/usage/interface.md` descreve uma linha da aba Status que não existe desde 17/08; o `README.md` carrega os números de mudo do microfone que o CSV declara caducos | **só DEPOIS da Z0 e das onze ondas** — antes disso documentaria o produto de ontem |
+| **decisão dela** | a §0.9; nada dele é executável antes da resposta | três ondas ficam com tarefa em suspenso enquanto isso |
+
+### 0.7 A trilha do Bluetooth — DELA com o assistente (D2)
+
+**Decisão dela: o mapeamento de Bluetooth não é planejado aqui.** Ele é trilha
+dela com o assistente, na mesa do specs. O que esta fila carrega é a lista de
+**qual pergunta trava qual aba** — para o agente executor saber o que ele **não
+pode afirmar na tela** até a medição existir.
+
+| Pergunta que falta medir | Abas que ela destrava | Onde a pergunta mora |
+|---|---|---|
+| a vibração do jogo chega ao motor por rádio? (`passthrough`: rádio em `inferido-do-codigo`, sem degrau) | Rumble, No jogo, Emulação, Início | BT-FURO-FINO-01, O-LACO-DE-ESCRITA-01 |
+| o alto-falante emite por rádio? ("zero linhas de implementação") | Status, No jogo | O-ALTO-FALANTE-POR-RADIO-01, A-CADEIA-DE-BLOCOS-01 |
+| existe fonte de captura do microfone por rádio? (medido em 23/08: **NÃO** — zero sources com dois controles no rádio) | Status, Emulação, Configurações | MIC-BT-01, QUATRO-MICROFONES-01 |
+| quantos DualSense por rádio o produto sustenta, e com quantos adaptadores? (`slot_jogador` é inferido do código, sem ensaio) | Início, Status, Emulação, Lightbar — é a promessa "um jogador para cada controle" | QUATRO-NO-RADIO-01, DOIS-CAIRAM-DE-UMA-VEZ-01 |
+| gatilho e analógico movem o cursor por rádio? (a observação DELA de 11/08 diz que não) | Navegação (a tabela de Mapeamento) | NAVEGA-PELO-CONTROLE-01 |
+| o gatilho adaptativo por rádio funciona fora do `Rigid`? (sentido em UM modo, com um jogo de parâmetros) | Gatilhos — trava dezoito dos dezenove botões | TRIGGER-CANON-01, BT-SURDO-01 |
+| a barra de luz obedece por rádio, e sob qual regime? (`LIGHTBAR-BT-NEVER-01` e `ROTA-BT-EM-REGIME-01` se contradizem) | Lightbar, Início | LIGHTBAR-BT-CLAIM-01, LIGHTBAR-BT-CULPADO-01, A-LUZ-QUE-CUROU-01, RADIO-BOMBARDEADO-01 |
+
+**A ordem de medir deveria ser a das abas, não a do protocolo** — é o que faz
+cada medição destravar uma tela, e não só uma linha do mapa.
+
+### 0.8 D3 — o carimbo de prova de tela
+
+**Ela pré-aprovou a classe COSMÉTICA.** Toda tarefa de tela numa sprint desta
+leva **tem** de vir carimbada com uma das duas classes:
+
+| Classe | O que é | O olho dela |
+|---|---|---|
+| **COSMÉTICA** | alinhamento, espaçamento, altura/largura de botão, quebra de linha, tornar dica visível, cor de estado já decidida | **foto DEPOIS, em lote** |
+| **ESTRUTURAL** | texto novo ou reescrito na tela, ordem das seções, o que nasce colapsado ou visível, qualquer coisa que mude o que se vê ao abrir | **ANTES**, sem exceção |
+
+### 0.9 As decisões que esperam ela — a leva das onze abas
+
+No molde do
+[DECISOES-ABERTAS](sprints/2026-08-21-ABA-CONFIGURACOES/DECISOES-ABERTAS.md) da
+aba Configurações: a pergunta, a recomendação com motivo, e **o custo de decidir
+para o outro lado**. Nenhuma delas é trabalho — todas são palavra dela.
+
+| # | A pergunta | Recomendação (e o motivo) | Custo de decidir para o outro lado |
+|---|---|---|---|
+| D-A | **O que o perfil guarda, exatamente?** | tudo que é do CONTROLE entra no perfil (touch, giroscópio, acelerômetro, o liga/desliga do teclado emulado, o microfone, o preset de gatilho); tudo que é da MÁQUINA (Proton travado, camadas Vulkan, autostart, a marca de Steam Input) vira uma **receita do jogo** separada, que viaja junto e não é o perfil | enfiar os sete gestos da aba Sistema no `Profile` faz o perfil dela deixar de ser portátil entre máquinas — que é justamente o que ela quer que ele seja |
+| D-B | **A máscara: MARCAR ou APLICAR?** | MARCAR em todo lugar, com o verde do rodapé como único aplicador. Hoje a Início marca, a Emulação aplica na hora, e o rodapé desfaz o clique da Emulação em silêncio | quem usa a Emulação perde a resposta imediata; em troca, um gesto só no produto inteiro e a proteção do diálogo de relançamento valendo nas duas portas |
+| D-C | **A linha "som do controle" da aba No jogo** | APAGAR até existir replicação de verdade: ela fica VERDE por uma escrita do KERNEL, com a mesma palavra e a mesma cor da vibração, que chega mesmo | manter o verde falso é pior que a ausência: ela conclui que o alto-falante funciona e vai caçar defeito no aparelho |
+| D-D | **O texto da caixinha do Steam Input** | reescrever AGORA para o que é verdade hoje, sem esperar a ESCONDE-SÓ-O-HIDRAW-01 fechar: os três textos prometem que "o jogo passa a ver só o controle do Hefesto" e a medição de 23/08 diz que o jogo continua vendo o físico pelo evdev | cada dia com a frase antiga é mais uma pessoa concluindo que o produto está quebrado quando é o produto que prometeu demais |
+| D-E | **A aba No jogo fora da Steam** | SIM, soltar o gate: hoje ela só nasce para jogo da Steam, e quem joga por Lutris, Heroic, GOG, emulador ou binário nativo não tem NENHUM lugar no produto que responda "o giroscópio está atravessando?" | 10 linhas mais um teste. É a decisão de produto mais barata desta lista |
+| D-F | **Ligar e desligar o Hefesto: um dono ou dois?** | um dono só — a aba Início, com a confirmação, a checagem de retorno e a memória de que ela desligou de propósito — e a Sistema apontando para lá | hoje são dois contratos, e quando o forte falha ele manda "tente pela aba Sistema", que é o fraco e usa o mesmo mecanismo: a pessoa fica sem saída |
+| D-G | **Vibração por peça: agora ou na 1.0?** | o rótulo honesto AGORA (20 min: a tela para de dizer que grava no Controle 2 quando manda na mesa) e a política por peça DEPOIS da 0.999.x (a sprint mediu ~11 h). Mesmo raciocínio para o "Auto", que escala os quatro pela bateria de UM | fazer a granularidade agora custa ~15 h e adia o resto da leva; **a mentira é o que fere, a granularidade é conforto** |
+| D-H | **Os dois botões de gatilho que mandam o byte de outro modo** | "Disparo (Weapon)" manda `0x06` e "Vibração" manda `0x22`, os dois fora do grupo medido, e o mapa declara a divergência VIVA. **1 h de bancada com o dedo dela antes de qualquer código** | é o mesmo mecanismo dos sete presets que não faziam nada até 01/08, e foi o tato dela que descobriu. Se sentir diferença, obedecer ao nome custa 4 linhas; se não sentir, os dois saem da grade até haver medição |
+| D-I | **O prontuário dos jogos: liga ou sai?** | LIGAR na aba Sistema (~40 linhas + 3 testes, 2 h): são 1037 linhas que respondem exatamente à pergunta que a aba cria a cada clique em "Este jogo não funciona", e não têm um chamador | se ela preferir enxugar para a 0.999.x, sai **com nota datada**. O que NÃO pode é continuar no meio — é o defeito mais caro desta casa |
+| D-J | **O que é 0.999.x, em uma frase** | entra o que produz **mentira na tela** ou **perda de configuração**; fica para a 1.0 o que é conforto, granularidade e cobertura de aparelho que ela não tem na mesa (Pro Controller, 8BitDo) | por esse corte entram a Onda 0 inteira e os achados de "alta" das onze abas; saem vibração por peça, máscara por jogador, alvo por jogador na Emulação e o carrossel de abas pelo controle. **Sem essa frase, o plano não tem como dizer não a nada** |
+
+### 0.10 O censo desta leva — e o que ele NÃO recontou
+
+Medido em **23/08/2026, 19:31**, na árvore de trabalho (inclui os cinco arquivos
+ainda não versionados). **Régua declarada:** o nome de arquivo de cada sprint
+procurado como texto literal dentro deste documento —
+
+```
+find docs/process/sprints -maxdepth 1 -name '*.md' | wc -l        -> 252
+find docs/process/sprints -mindepth 2 -name '*.md' | wc -l        ->  17
+# nome de arquivo procurado como texto literal dentro deste documento:
+#   ANTES desta leva   -> 151 citadas, 118 fora
+#   DEPOIS desta leva  -> 158 citadas, 111 fora   (269 sprints ao todo)
+```
+
+**O que mudou desde a recontagem de 23/08 de madrugada** (261 no total, 143
+citadas, 114 fora): a árvore ganhou 8 arquivos, dos quais 6 são as sprints de
+aba desta leva. **A diferença de citadas (143 → 151) não foi auditada régua
+contra régua** — a régua da madrugada não está escrita, e esta casa já teve três
+alarmes falsos que eram da régua e não da árvore. **Não recontei estado
+(concluída / aberta / parcial) de sprint nenhuma:** o cabeçalho deste arquivo
+segue valendo, e refazer o censo de estado é trabalho de censo, não de
+aritmética — é o **balde 0 da Onda 12**.
 
 ---
 
@@ -67,24 +302,24 @@ no cabo E no rádio, com as features todas nos quatro controles ao mesmo tempo.*
 
 | # | O quê | Por que primeiro | DELA |
 |---|---|---|---|
-| 1 | [ENGASGO-VULKAN-01](sprints/2026-08-23-ENGASGO-VULKAN-01-sessenta-quadros-por-segundo-e-setenta-engasgos-por-minuto.md) | a queixa dela tem MESES, e a madrugada mediu a FORMA do defeito e eliminou nove suspeitos. **Mas o A/B, lido em 23/08 contra os 267.465 quadros crus, aponta para o lado CONTRÁRIO:** sem a camada Vulkan a rampa do p99 é quase o dobro mais íngreme (+4,19 contra +2,28 ms/min) e há quatro vezes mais picos. **As duas sessões rampam** — logo a rampa não é da camada, e há uma segunda causa que ninguém explicou. Falta o A/B de verdade: a MESMA fase do jogo, duas vezes | o A/B é **DELA** (dez minutos de jogo) |
-| 2 | [ESCONDE-SÓ-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md) | a cura do Steam Input esconde o `hidraw` e deixa `evdev` e `joydev` do MESMO controle abertos — 16 nós de jogo para 4 controles, sem Steam aberta. E o `doctor.sh:3715` afirma **em verde** que "o jogo só vê o vpad". É o terceiro controle dela, com o mecanismo enfim medido | E2 é **DELA** |
-| 3 | [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) — **FECHADA em 23/08**, fica na fila só até ela ver | os presets perderam a opinião de máscara e a tela passou a dizer o preço dos dois lados. A E1 ("remedir a H1") foi **CANCELADA**: a H1 já fora remedida em 22/07, em três jogos nomeados, e a tela chegou a afirmar o contrário para ela. **A redação nova da frase pede o olho dela** | **DELA**, só a palavra final |
+| 1 | [ENGASGO-VULKAN-01](sprints/2026-08-23-ENGASGO-VULKAN-01-sessenta-quadros-por-segundo-e-setenta-engasgos-por-minuto.md) | **→ Onda 12 · daemon.** a queixa dela tem MESES, e a madrugada mediu a FORMA do defeito e eliminou nove suspeitos. **Mas o A/B, lido em 23/08 contra os 267.465 quadros crus, aponta para o lado CONTRÁRIO:** sem a camada Vulkan a rampa do p99 é quase o dobro mais íngreme (+4,19 contra +2,28 ms/min) e há quatro vezes mais picos. **As duas sessões rampam** — logo a rampa não é da camada, e há uma segunda causa que ninguém explicou. Falta o A/B de verdade: a MESMA fase do jogo, duas vezes | o A/B é **DELA** (dez minutos de jogo) |
+| 2 | [ESCONDE-SÓ-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md) | **→ Onda 12 · daemon.** a cura do Steam Input esconde o `hidraw` e deixa `evdev` e `joydev` do MESMO controle abertos — 16 nós de jogo para 4 controles, sem Steam aberta. E o `doctor.sh:3715` afirma **em verde** que "o jogo só vê o vpad". É o terceiro controle dela, com o mecanismo enfim medido | E2 é **DELA** |
+| 3 | [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) — **FECHADA em 23/08**, fica na fila só até ela ver | **→ Onda 2.** os presets perderam a opinião de máscara e a tela passou a dizer o preço dos dois lados. A E1 ("remedir a H1") foi **CANCELADA**: a H1 já fora remedida em 22/07, em três jogos nomeados, e a tela chegou a afirmar o contrário para ela. **A redação nova da frase pede o olho dela** | **DELA**, só a palavra final |
 | 4 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) **E8** | quatro MACs de FIXTURE moram no `controllers.json` VIVO dela e empurram os DualSense reais para os postos 6, 7 e 8. Pior que o efeito: alguma coisa da suíte fala com o daemon vivo dela, e ninguém sabe o quê | limpar o arquivo é DELA; achar quem escreveu, não |
 | 5 | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o produto SABE dizer se a conexão nasceu condenada e não pergunta na hora em que ela nasce. A luz apagada dela é isto. O botão já consulta o sinal; falta o tique de hotplug carimbar | |
-| 6 | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | sair do Modo Nativo monta o `ProfileManager` com **6 dos 7 appliers**, e applier ausente é seção ignorada em silêncio: `rumble.passthrough` do perfil não é aplicado. É a rota que a `PERFIL-REESCRITO-NA-PARTIDA-01` já tinha corrigido uma vez | |
-| 7 | **Arbitrar o hidraw — o 5.a de 16/08, que o 22/08 pulou** ([QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md), nota de 23/08) | o estudo de 16/08 mediu que *"a ponte NÃO é segura ainda"* e que ela *"não entra no caminho automático da interface"* enquanto o `0x32` tiver dois donos; o item 4 dizia *"a ponte do mic não volta a subir sem o item 1"*. Em 22/08 o interruptor voltou à janela. **MEDIDO em 23/08: não existe arbitragem em `src/`, o broker não rastreia quem abriu o nó, e não há portão 5.a/5.b.** Ela pediu o interruptor sem que o preço estivesse na mesa | a decisão de aceitar o risco é **DELA** |
+| 6 | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | **→ Onda 10.** sair do Modo Nativo monta o `ProfileManager` com **6 dos 7 appliers**, e applier ausente é seção ignorada em silêncio: `rumble.passthrough` do perfil não é aplicado. É a rota que a `PERFIL-REESCRITO-NA-PARTIDA-01` já tinha corrigido uma vez | |
+| 7 | **Arbitrar o hidraw — o 5.a de 16/08, que o 22/08 pulou** ([QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md), nota de 23/08) | **→ Onda 3** (o microfone na aba Status); **a arbitragem do `hidraw` em si é da Onda 12 · daemon.** o estudo de 16/08 mediu que *"a ponte NÃO é segura ainda"* e que ela *"não entra no caminho automático da interface"* enquanto o `0x32` tiver dois donos; o item 4 dizia *"a ponte do mic não volta a subir sem o item 1"*. Em 22/08 o interruptor voltou à janela. **MEDIDO em 23/08: não existe arbitragem em `src/`, o broker não rastreia quem abriu o nó, e não há portão 5.a/5.b.** Ela pediu o interruptor sem que o preço estivesse na mesa | a decisão de aceitar o risco é **DELA** |
 | 8 | **PEDIDOS-DELA-01 — três dos SEIS pedidos dela continuam sem entrega** ([sprint](sprints/2026-08-03-PEDIDOS-DELA-01-o-roteiro-dos-seis-pedidos-da-interface.md), fora da fila desde 03/08) | **#5 a máscara do controle externo:** `daemon/subsystems/external_mask.py:320` `set_mask` tem **zero chamadores em `src/`** — a `TODO-INTEGRACAO` registra isso desde 15/08. **#6.2 o `doctor` manda ela para o modo que MATA:** `scripts/doctor.sh:2753` diz *"troque o modo (Switch) ou use no cabo"* sem separar transporte, contra o `troubleshooting-8bitdo.md`, que mediu Switch por rádio como **PROVADO instável** — e `tests/unit/test_plataforma_wiring.py:209` **trava a string em verde**, que é portão pinando fato errado. **#3a e #3c:** não achados | **DELA** |
-| 9 | [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | é o que falta para o alvo dela inteiro, e a conta do guia diz que cabe (3 × 1.600 contra ~1.385). `bt_mic_enabled` é lido por três lugares e escrito por nenhum | **DELA** |
+| 9 | [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | **→ Onda 3.** é o que falta para o alvo dela inteiro, e a conta do guia diz que cabe (3 × 1.600 contra ~1.385). `bt_mic_enabled` é lido por três lugares e escrito por nenhum | **DELA** |
 | 10 | ELO-MUDO-01, **E3 a E7** | sem a tela do que está VALENDO agora, nem ela nem um agente separam "o produto mexeu" de "o jogo é assim" — foi isso que fez o engasgo do Sackboy custar uma madrugada | parte **DELA** |
 | 11 | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) **E2 e E4** | E1 e E3 fecharam em `49797f8`. Falta **mover um controle de adaptador** (o helper tem os 7 verbos e nenhum chamador Python) e o alcance total que ela pediu: webcam, microfones extras, todo o USB | E4 é **DELA** |
-| 12 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | existe quem retoma e não existe quem suspende: o par de estados mente sempre para o mesmo lado. **A E4 está desbloqueada** — a seção "Está tudo certo?" existe desde 22/08 | |
-| 13 | [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | um `Disconnect` derrubou DOIS controles, o segundo em outro adaptador. Sem explicação — e o botão que entrou hoje usa esse mesmo `Disconnect` | |
-| 14 | O resto da auditoria de viés: [N-IGUAL-A-UM-01](sprints/2026-08-22-N-IGUAL-A-UM-01-o-produto-escolhe-um-quando-ha-tres.md) E2/E4/E5, [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) E1 a E7, [UMA-FAIXA-NÃO-É-UM-FABRICANTE-01](sprints/2026-08-22-UMA-FAIXA-NAO-E-UM-FABRICANTE-01-o-pro-dela-virou-a-definicao-de-pro.md) E2 a E4, LUZ-CEGA-01 E3/E4/E6 | cada um sozinho é pequeno; a família inteira é a preocupação que ela nomeou: *"vai ficar pra sempre naquela de no meu pc funciona de boa"* | algumas **DELA** |
-| 15 | [DAEMON-ACORDADO-01](sprints/2026-08-23-DAEMON-ACORDADO-01-quinze-por-cento-de-um-nucleo-sem-ninguem-jogando.md) | **15,2 % de um núcleo em repouso** — sem jogo, sem janela, quatro controles parados; 6.393 `read()`/s para 2.400 relatórios/s. Ninguém conhecia o número. A E1 são dez segundos de `strace` e não precisa dela | |
-| 16 | **PAINEL-DA-VERDADE-01/E2 — a linha da verdade existe e NÃO vai para a tela** ([sprint](sprints/2026-08-01-PAINEL-DA-VERDADE-01-a-aba-status-diz-o-que-chega-ao-jogo.md)) | `app/widgets/controller_card.py:2598-2606` constrói o `_verdade_label` e o alimenta a cada tique (`_update_verdade`), e **nenhum `pack_start`/`add` o coloca na janela** — conferido em 23/08. Foi despacotado em 17/08 a pedido dela (SEM-BARRA-DA-VERDADE-01) e ninguém voltou para riscar a E2. **Custo do silêncio:** no card COMPACTO (2+ controles, que é o alvo da casa) a única frase que sobra sobre giroscópio é `"Giroscópio: fluindo para o jogo"` (`:1240`), decidida só por `motion_streaming` (`:1236`) — que prova que NÓS EMITIMOS, nunca que o jogo recebe. É a frase que a JOGO-COMPLETO-01/E3 já classificou como mentira | |
-| 17 | **TRIGGER-CANON-01/E5 — sete presets de gatilho sem como validar** ([sprint](sprints/2026-08-01-TRIGGER-CANON-01-os-modos-de-gatilho-contra-a-enum-da-sony.md)) | a leitura do nibble de status do gatilho (sem carga, carga aplicada, arma pronta, disparando, disparada, vibrando) **não existe em `src/`**; `gatilho.leitura` no `docs/data/mapa-controles.csv` está `não/não`, sem teste que morda. **Custo do silêncio:** os sete presets que a E2 curou eram sete presets que não faziam absolutamente nada, e ela conviveu com isso sem saber — sem a leitura, só a mão dela no controle valida | **DELA** |
-| 18 | [AUDITORIA-DE-PERDA-01](sprints/2026-08-23-AUDITORIA-DE-PERDA-01-tres-portoes-verdes-que-nao-medem-nada.md) | **três portões passam com a cura arrancada** — o da foto da aba não olha a foto, o da coluna "O que é" é tautologia (`ids.issubset(ids)`), e o de referências casa por sufixo de caminho. Nenhum estava escrito. A E4 tira do vermelho o `A-CASA-SABE`, que três frentes já disseram, com razão, não ser delas | |
+| 12 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | **→ Onda 12 · daemon.** existe quem retoma e não existe quem suspende: o par de estados mente sempre para o mesmo lado. **A E4 está desbloqueada** — a seção "Está tudo certo?" existe desde 22/08 | |
+| 13 | [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | **→ Onda 12 · BT, trilha DELA.** um `Disconnect` derrubou DOIS controles, o segundo em outro adaptador. Sem explicação — e o botão que entrou hoje usa esse mesmo `Disconnect` | |
+| 14 | O resto da auditoria de viés: [N-IGUAL-A-UM-01](sprints/2026-08-22-N-IGUAL-A-UM-01-o-produto-escolhe-um-quando-ha-tres.md) E2/E4/E5, [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) E1 a E7, [UMA-FAIXA-NÃO-É-UM-FABRICANTE-01](sprints/2026-08-22-UMA-FAIXA-NAO-E-UM-FABRICANTE-01-o-pro-dela-virou-a-definicao-de-pro.md) E2 a E4, LUZ-CEGA-01 E3/E4/E6 | **→ Onda 6 só a NO-MEU-FUNCIONA-01;** as outras três desta linha continuam sem onda — são candidatas do balde 0 da Onda 12. cada um sozinho é pequeno; a família inteira é a preocupação que ela nomeou: *"vai ficar pra sempre naquela de no meu pc funciona de boa"* | algumas **DELA** |
+| 15 | [DAEMON-ACORDADO-01](sprints/2026-08-23-DAEMON-ACORDADO-01-quinze-por-cento-de-um-nucleo-sem-ninguem-jogando.md) | **→ Onda 12 · daemon.** **15,2 % de um núcleo em repouso** — sem jogo, sem janela, quatro controles parados; 6.393 `read()`/s para 2.400 relatórios/s. Ninguém conhecia o número. A E1 são dez segundos de `strace` e não precisa dela | |
+| 16 | **PAINEL-DA-VERDADE-01/E2 — a linha da verdade existe e NÃO vai para a tela** ([sprint](sprints/2026-08-01-PAINEL-DA-VERDADE-01-a-aba-status-diz-o-que-chega-ao-jogo.md)) | **→ Onda 3.** `app/widgets/controller_card.py:2598-2606` constrói o `_verdade_label` e o alimenta a cada tique (`_update_verdade`), e **nenhum `pack_start`/`add` o coloca na janela** — conferido em 23/08. Foi despacotado em 17/08 a pedido dela (SEM-BARRA-DA-VERDADE-01) e ninguém voltou para riscar a E2. **Custo do silêncio:** no card COMPACTO (2+ controles, que é o alvo da casa) a única frase que sobra sobre giroscópio é `"Giroscópio: fluindo para o jogo"` (`:1240`), decidida só por `motion_streaming` (`:1236`) — que prova que NÓS EMITIMOS, nunca que o jogo recebe. É a frase que a JOGO-COMPLETO-01/E3 já classificou como mentira | |
+| 17 | **TRIGGER-CANON-01/E5 — sete presets de gatilho sem como validar** ([sprint](sprints/2026-08-01-TRIGGER-CANON-01-os-modos-de-gatilho-contra-a-enum-da-sony.md)) | **→ Onda 9.** a leitura do nibble de status do gatilho (sem carga, carga aplicada, arma pronta, disparando, disparada, vibrando) **não existe em `src/`**; `gatilho.leitura` no `docs/data/mapa-controles.csv` está `não/não`, sem teste que morda. **Custo do silêncio:** os sete presets que a E2 curou eram sete presets que não faziam absolutamente nada, e ela conviveu com isso sem saber — sem a leitura, só a mão dela no controle valida | **DELA** |
+| 18 | [AUDITORIA-DE-PERDA-01](sprints/2026-08-23-AUDITORIA-DE-PERDA-01-tres-portoes-verdes-que-nao-medem-nada.md) | **→ Onda 12 · portão.** **três portões passam com a cura arrancada** — o da foto da aba não olha a foto, o da coluna "O que é" é tautologia (`ids.issubset(ids)`), e o de referências casa por sufixo de caminho. Nenhum estava escrito. A E4 tira do vermelho o `A-CASA-SABE`, que três frentes já disseram, com razão, não ser delas | |
 
 **Ainda aberta, com o hardware na mesa:** a bancada de rádio, pelo
 [GUIA-RADIO-DA-SALA.md](../../GUIA-RADIO-DA-SALA.md). **DELA**: exige controle na
@@ -144,62 +379,62 @@ que só custa tempo da próxima pessoa.
 | [JOGADOR-3-FANTASMA-01](sprints/2026-08-08-JOGADOR-3-FANTASMA-01-a-cura-certa-no-momento-errado.md) | Os três primeiros itens da seção 7. O `xfail` é a marca honesta de que o ciclo de vida da dispensa não tem código | DELA |
 | [BORDA-DE-QUEDA-01](sprints/2026-08-03-BORDA-DE-QUEDA-01-o-que-fica-para-tras-quando-um-controle-cai.md) | ABERTA. E1 a E5. Sintoma reproduzido pela fala dela: quatro travamentos em 28 segundos | |
 | [QUATRO-NA-MESA-01](sprints/2026-08-03-QUATRO-NA-MESA-01-o-que-so-quebra-quando-sao-quatro.md) | ABERTA. Os quatro defeitos. O aceite não pode ser escrito contra o sysfs (nota de 04/08) | DELA |
-| [QUATRO-NO-RADIO-01](sprints/2026-08-03-QUATRO-NO-RADIO-01-o-checklist-dos-quatro-controles-por-bluetooth.md) | ABERTA. O aceite inteiro, com jogo aberto. Depende de B1, B2 e B4 caírem antes | DELA |
+| [QUATRO-NO-RADIO-01](sprints/2026-08-03-QUATRO-NO-RADIO-01-o-checklist-dos-quatro-controles-por-bluetooth.md) | **→ Onda 12 · BT, trilha DELA.** ABERTA. O aceite inteiro, com jogo aberto. Depende de B1, B2 e B4 caírem antes | DELA |
 | [JOGAVEL-EM-TODOS-01](sprints/2026-08-16-JOGAVEL-EM-TODOS-01-o-alvo-dela-e-cada-jogo-nos-dois-transportes.md) | ABERTA. Os quatro ensaios da seção 2, o chamador da allowlist, e o `hidden_count` que conta em vez de nomear | DELA |
 | [TRES-PORTOES-01](sprints/2026-08-19-TRES-PORTOES-01-nao-anda-nem-o-microfone.md) | Seção 6 inteira: o `origem=`, a recriação do vpad em slot único, os 26 bytes que o vpad nunca escreve, a cadeia do microfone | DELA |
 | [DUAS-CONTABILIDADES-01](sprints/2026-08-07-DUAS-CONTABILIDADES-01-a-lampada-conta-a-mesa-inteira-e-o-coop-so-metade.md) | ABERTA. O protocolo do cabo no meio da partida, e o cruzamento no jogador 1 — que é pior que colisão | DELA |
-| [CONTAGEM-E-COOP-01](sprints/2026-07-31-CONTAGEM-E-COOP-01-o-aviso-antes-de-derrubar-tres-jogadores.md) | Duas peças do aceite da E3: a frase do Modo jogo durante a exceção, e o preço do gesto manual no toast | DELA |
-| [POSSE-POR-CONTROLE-01](sprints/2026-08-03-POSSE-POR-CONTROLE-01-a-trava-de-um-controle-congela-os-quatro.md) | E1 inteira (trava indexada por MAC), o fallback broadcast do rumble em E3, e as quatro bancadas de E4 | DELA |
-| [A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01](sprints/2026-08-16-A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01-o-jogo-nao-enxerga-e-a-culpa-nao-e-da-pessoa.md) | Os dois ensaios que a seção 8 exige antes de qualquer linha não têm bruto | DELA |
-| [MASCARA-01](sprints/2026-07-25-MASCARA-01-como-este-controle-aparece-nos-jogos.md) | E2, E4 e metade da E3. Pré-requisito da E3/E4 da LUGAR-À-MESA-01, por decisão dela de 07/08 | |
-| [MASCARA-POR-JOGADOR-01](sprints/2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | O último degrau da 7.2: `make_virtual_pad` resolver a máscara ANTES de escolher o backend, e o lado da escrita no IPC | |
-| [LUGAR-A-MESA-01](sprints/2026-08-06-LUGAR-A-MESA-01-tres-controles-ligados-e-um-jogador-so.md) | E3 e E4, presas atrás da MASCARA-01. O grab mais FF em aparelho não-Sony continua sem prova | DELA |
+| [CONTAGEM-E-COOP-01](sprints/2026-07-31-CONTAGEM-E-COOP-01-o-aviso-antes-de-derrubar-tres-jogadores.md) | **→ Onda 6.** Duas peças do aceite da E3: a frase do Modo jogo durante a exceção, e o preço do gesto manual no toast | DELA |
+| [POSSE-POR-CONTROLE-01](sprints/2026-08-03-POSSE-POR-CONTROLE-01-a-trava-de-um-controle-congela-os-quatro.md) | **→ Onda 10.** E1 inteira (trava indexada por MAC), o fallback broadcast do rumble em E3, e as quatro bancadas de E4 | DELA |
+| [A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01](sprints/2026-08-16-A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01-o-jogo-nao-enxerga-e-a-culpa-nao-e-da-pessoa.md) | **→ Onda 2.** Os dois ensaios que a seção 8 exige antes de qualquer linha não têm bruto | DELA |
+| [MASCARA-01](sprints/2026-07-25-MASCARA-01-como-este-controle-aparece-nos-jogos.md) | **→ Onda 6.** E2, E4 e metade da E3. Pré-requisito da E3/E4 da LUGAR-À-MESA-01, por decisão dela de 07/08 | |
+| [MASCARA-POR-JOGADOR-01](sprints/2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | **→ Onda 2.** O último degrau da 7.2: `make_virtual_pad` resolver a máscara ANTES de escolher o backend, e o lado da escrita no IPC | |
+| [LUGAR-A-MESA-01](sprints/2026-08-06-LUGAR-A-MESA-01-tres-controles-ligados-e-um-jogador-so.md) | **→ Onda 2.** E3 e E4, presas atrás da MASCARA-01. O grab mais FF em aparelho não-Sony continua sem prova | DELA |
 | [JOGO-01](sprints/2026-07-25-JOGO-01-o-jogo-enxerga-quatro-controles.md) | A E2: a frase que distingue os dois estados do opt-in na aba Emulação | |
-| [O-WRAPPER-QUE-SUMIU-01](sprints/2026-08-16-O-WRAPPER-QUE-SUMIU-01-uma-variavel-nova-apaga-a-ponte-em-silencio.md) | E2 (o guard de `LaunchOptions` por merge, no instalador e simétrico no uninstall) e E3 (a fração na aba Sistema) | |
-| [WRAPPER-EM-TODOS-01](sprints/2026-08-03-WRAPPER-EM-TODOS-01-a-invariante-duplicado-melhor-que-zero-com-quatro.md) | E3 e o aceite de campo: a invariante só se prova com quatro controles numa partida de verdade | DELA |
-| [STEAM-INPUT-01](sprints/2026-07-26-STEAM-INPUT-01-ela-nunca-mais-precisa-decidir.md) | E2 e E4 a E8, entre elas a lista por nome de jogo em vez de contagem | DELA |
-| [DUPLO-REGISTRO-01](sprints/2026-07-26-DUPLO-REGISTRO-01-o-steam-input-tem-dois-cadastros.md) | ABERTA. A reconciliação dos dois registros, o grab pendente deixar de ser silencioso, e a leitura do `localconfig.vdf` em runtime | |
-| [STEAM-QUE-DECIDE-01](sprints/2026-08-05-STEAM-QUE-DECIDE-01-ela-nao-tem-como-saber-quando-ligar.md) | E1 (o experimento M-04), E5, a metade honesta da E3, e o M-05 | DELA |
+| [O-WRAPPER-QUE-SUMIU-01](sprints/2026-08-16-O-WRAPPER-QUE-SUMIU-01-uma-variavel-nova-apaga-a-ponte-em-silencio.md) | **→ Onda 11.** E2 (o guard de `LaunchOptions` por merge, no instalador e simétrico no uninstall) e E3 (a fração na aba Sistema) | |
+| [WRAPPER-EM-TODOS-01](sprints/2026-08-03-WRAPPER-EM-TODOS-01-a-invariante-duplicado-melhor-que-zero-com-quatro.md) | **→ Onda 11.** E3 e o aceite de campo: a invariante só se prova com quatro controles numa partida de verdade | DELA |
+| [STEAM-INPUT-01](sprints/2026-07-26-STEAM-INPUT-01-ela-nunca-mais-precisa-decidir.md) | **→ Onda 11.** E2 e E4 a E8, entre elas a lista por nome de jogo em vez de contagem | DELA |
+| [DUPLO-REGISTRO-01](sprints/2026-07-26-DUPLO-REGISTRO-01-o-steam-input-tem-dois-cadastros.md) | **→ Onda 11.** ABERTA. A reconciliação dos dois registros, o grab pendente deixar de ser silencioso, e a leitura do `localconfig.vdf` em runtime | |
+| [STEAM-QUE-DECIDE-01](sprints/2026-08-05-STEAM-QUE-DECIDE-01-ela-nao-tem-como-saber-quando-ligar.md) | **→ Onda 11.** E1 (o experimento M-04), E5, a metade honesta da E3, e o M-05 | DELA |
 | [JOGOS-QUE-ELA-TEM-01](sprints/2026-08-06-JOGOS-QUE-ELA-TEM-01-escolher-da-biblioteca-em-vez-de-adivinhar-o-numero.md) | A E4 — perfil por jogo instalado. Nenhum símbolo em `src/` o faz nascer | DELA |
 | [CONTROLE-SONY-MEDIDO-01](sprints/2026-08-06-CONTROLE-SONY-MEDIDO-01-o-experimento-que-decide-metade-da-doutrina.md) | A versão do cliente Steam não foi anotada — e é a variável que invalidou o resultado antigo | DELA |
 | [AUDIO-QUE-TRANCA-01](sprints/2026-08-03-AUDIO-QUE-TRANCA-01-um-toque-no-volume-congela-a-troca-de-perfil.md) | ABERTA. As cinco entregas. A E1 é uma linha e é o que trava o produto hoje | DELA |
 | [PERFIL-JOGO-01](sprints/2026-07-26-PERFIL-JOGO-01-as-configs-somem-ao-abrir-o-jogo.md) | A entrega 1 (rodar o experimento com ela e nomear o sintoma) nunca rodou, e sem ela as 2 a 6 não se sustentam | DELA |
-| [PERFIL-NASCE-CERTO-01](sprints/2026-07-26-PERFIL-NASCE-CERTO-01-o-perfil-do-jogo-que-nunca-vence.md) | E3 e o resto da E4: o detector de sanidade existe e ninguém o dispara | |
+| [PERFIL-NASCE-CERTO-01](sprints/2026-07-26-PERFIL-NASCE-CERTO-01-o-perfil-do-jogo-que-nunca-vence.md) | **→ Onda 5.** E3 e o resto da E4: o detector de sanidade existe e ninguém o dispara | |
 | [AUTO-01](sprints/2026-07-25-AUTO-01-um-clique-em-vez-de-dez.md) | Dois catch-all semeados ainda em `match: any`, o `--no-dkms` único, e o critério de aceite nunca medido | DELA |
 | [CONECTA-E-DESLIGA-01](sprints/2026-08-07-CONECTA-E-DESLIGA-01-a-regressao-que-ela-relatou-e-a-suspeita-que-recai-sobre-nos.md) | ABERTA. A cura, que ela mandou esperar. E a pergunta do item 2 vem antes dela | DELA |
-| [OITO-DEFEITOS-01](sprints/2026-08-08-OITO-DEFEITOS-01-a-fila-que-a-verificacao-adversarial-derrubou-inteira.md) | 2.5 (o rumble) sem causa provada; 2.3, 2.6 e 2.8 não reconferidos e sem marca na árvore | DELA |
+| [OITO-DEFEITOS-01](sprints/2026-08-08-OITO-DEFEITOS-01-a-fila-que-a-verificacao-adversarial-derrubou-inteira.md) | **→ Onda 10.** 2.5 (o rumble) sem causa provada; 2.3, 2.6 e 2.8 não reconferidos e sem marca na árvore | DELA |
 | [ORDEM-DE-CHEGADA-01](sprints/2026-08-15-ORDEM-DE-CHEGADA-01-a-fila-que-ela-pediu-nao-e-a-fila-que-o-produto-guarda.md) | E3 (o gesto `identity.renumber` alcançável de onde ela está), e o item C da frase dela segue não medido | |
-| [ESCOLHA-DELA-VENCE-01](sprints/2026-08-01-ESCOLHA-DELA-VENCE-01-a-mascara-do-perfil-e-o-tooltip-do-xbox.md) | E2 (a máscara sobrevive ao reboot), E3 (a recusa com jogo aberto deixa de reportar sucesso), E5 | DELA |
-| [EMULACAO-NO-JOGO-01](sprints/2026-07-29-EMULACAO-NO-JOGO-01-o-r1-troca-de-app-em-vez-de-jogar.md) | E5, duas peças do aceite da E3 não conferidas, e o cabeçalho desatualizado | DELA |
+| [ESCOLHA-DELA-VENCE-01](sprints/2026-08-01-ESCOLHA-DELA-VENCE-01-a-mascara-do-perfil-e-o-tooltip-do-xbox.md) | **→ Onda 5.** E2 (a máscara sobrevive ao reboot), E3 (a recusa com jogo aberto deixa de reportar sucesso), E5 | DELA |
+| [EMULACAO-NO-JOGO-01](sprints/2026-07-29-EMULACAO-NO-JOGO-01-o-r1-troca-de-app-em-vez-de-jogar.md) | **→ Onda 6.** E5, duas peças do aceite da E3 não conferidas, e o cabeçalho desatualizado | DELA |
 | [PS-TOQUE-CURTO-01](sprints/2026-08-03-PS-TOQUE-CURTO-01-o-gesto-de-religar-o-controle-abre-a-steam.md) | ABERTA. E1 a E4, incluindo declarar o `wmctrl` no install ou a dependência morre | |
 | [IDENT-01](sprints/2026-07-25-IDENT-01-um-controle-duas-identidades.md) | ABERTA. As quatro entregas. O documento recusa o palpite automático de propósito | DELA |
 | [IDENTIDADE-DUPLA-01](sprints/2026-08-04-IDENTIDADE-DUPLA-01-o-8bitdo-ocupa-dois-lugares-na-fila.md) | ABERTA. E1 é o MAC de cada modo, 2 minutos da mão dela. Sem ele, E2 a E4 seriam adivinhação por OUI | DELA |
 | [REGRA-NAO-REGISTRO-01](sprints/2026-08-06-REGRA-NAO-REGISTRO-01-o-8bitdo-e-um-so-e-o-defeito-e-de-todo-mundo.md) | ABERTA. Fundir os dois rostos do 8BitDo. Ler antes a nota de `0df6825`: quatro pontos declarados errados, um deles destrutivo | |
 | [NOME-HONESTO-01](sprints/2026-08-03-NOME-HONESTO-01-a-tela-chama-de-sony-o-que-o-kernel-ja-sabe-que-nao-e.md) | ABERTA. E1 a E5. Nenhuma linha entregue | DELA |
 | [CHECKLIST de validação em hardware](sprints/2026-07-25-CHECKLIST-validacao-em-hardware.md) | ABERTA. As 31 caixas. Por construção, só ela pode fechá-las | DELA |
-| [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) | NOVA em 22/08. E1 a E3: remedir a H1 do portão que exige `xbox` com o desenho de hoje (vpad em `uhid`), e decidir o que os presets shipam | DELA |
-| [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | E1 feita (`62d092a`) e E2 pela metade (`b68223e`). Faltam E3 a E7: a tela do que está VALENDO, o appid do wrapper como fonte de match, o Proton por jogo, o roteiro do engasgo e o portão da família | DELA |
-| [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | E1 a E4. Existe quem retoma e não existe quem suspende; a E4 está desbloqueada desde que a seção "Está tudo certo?" nasceu | |
+| [MASCARA-QUE-GRUDA-01](sprints/2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md) | **→ Onda 2.** NOVA em 22/08. E1 a E3: remedir a H1 do portão que exige `xbox` com o desenho de hoje (vpad em `uhid`), e decidir o que os presets shipam | DELA |
+| [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | **→ Onda 1.** E1 feita (`62d092a`) e E2 pela metade (`b68223e`). Faltam E3 a E7: a tela do que está VALENDO, o appid do wrapper como fonte de match, o Proton por jogo, o roteiro do engasgo e o portão da família | DELA |
+| [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | **→ Onda 12 · daemon.** E1 a E4. Existe quem retoma e não existe quem suspende; a E4 está desbloqueada desde que a seção "Está tudo certo?" nasceu | |
 
 ### Faixa 2 — a casa sabe e o produto não faz (15)
 
 | Sprint | O que falta | DELA |
 |---|---|---|
-| [AUTOMATISMO-MORTO-01](sprints/2026-07-30-AUTOMATISMO-MORTO-01-o-perfil-do-jogo-nunca-entra.md) | ABERTA. Tudo, a começar pela E0 (a janela dizer POR QUE o perfil não trocou). Duas sprints escreveram a cura, nenhuma a ligou | |
-| [JANELA-CEGA-01](sprints/2026-07-28-JANELA-CEGA-01-o-detector-que-nunca-adoece.md) | A fiação do motivo do autoswitch até o IPC — escrita em duas sprints, ausente do daemon | |
-| [SINAL-DE-JOGO-01](sprints/2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | E1 (o experimento com o jogo vivo, sem bloco de journal no documento) e E2. E4 e E5 não reconferidas | DELA |
-| [MODO-01](sprints/2026-07-25-MODO-01-o-modo-jogo-liga-sozinho.md) | O B4: o gate de foco cega a detecção. A AUTOMATISMO-MORTO-01 mediu 135 episódios DEPOIS desta sprint | DELA |
+| [AUTOMATISMO-MORTO-01](sprints/2026-07-30-AUTOMATISMO-MORTO-01-o-perfil-do-jogo-nunca-entra.md) | **→ Onda 5.** ABERTA. Tudo, a começar pela E0 (a janela dizer POR QUE o perfil não trocou). Duas sprints escreveram a cura, nenhuma a ligou | |
+| [JANELA-CEGA-01](sprints/2026-07-28-JANELA-CEGA-01-o-detector-que-nunca-adoece.md) | **→ Onda 11.** A fiação do motivo do autoswitch até o IPC — escrita em duas sprints, ausente do daemon | |
+| [SINAL-DE-JOGO-01](sprints/2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | **→ Onda 2.** E1 (o experimento com o jogo vivo, sem bloco de journal no documento) e E2. E4 e E5 não reconferidas | DELA |
+| [MODO-01](sprints/2026-07-25-MODO-01-o-modo-jogo-liga-sozinho.md) | **→ Onda 5.** O B4: o gate de foco cega a detecção. A AUTOMATISMO-MORTO-01 mediu 135 episódios DEPOIS desta sprint | DELA |
 | [ENTREGA-QUE-NAO-LIGOU-01](sprints/2026-08-03-ENTREGA-QUE-NAO-LIGOU-01-o-codigo-que-existe-e-ninguem-chama.md) | E3, E4 e E5. Sem prova de nenhuma das três; o defeito 3 não foi conferido | |
 | [A-NOITE-DOS-QUATRO-INVENTARIOS-01](sprints/2026-08-09-A-NOITE-DOS-QUATRO-INVENTARIOS-01-o-que-a-casa-sabe-e-o-que-o-produto-faz.md) | F-6(a) confirmado aberto pelo próprio código; F-2 e F-11 abertos e sem marca. F-3, F-7, F-9 e F-10 não reconferidos | DELA |
-| [AGORA-E-DEPOIS-01](sprints/2026-08-08-AGORA-E-DEPOIS-01-o-plano-executavel-da-separacao-dos-dois-tempos.md) | O passo 6. As três ausências da seção 10 reproduzidas. Cuidado com o falso positivo `MascaraAdiada`, que mora em memória e morre no restart | DELA |
+| [AGORA-E-DEPOIS-01](sprints/2026-08-08-AGORA-E-DEPOIS-01-o-plano-executavel-da-separacao-dos-dois-tempos.md) | **→ Onda 2.** O passo 6. As três ausências da seção 10 reproduzidas. Cuidado com o falso positivo `MascaraAdiada`, que mora em memória e morre no restart | DELA |
 | [BONDS-QUE-SOBREVIVEM-01](sprints/2026-08-04-BONDS-QUE-SOBREVIVEM-01-o-salva-vidas-que-ninguem-aciona.md) | E5 inteira, E3.1, e o cabeçalho — que diz aberta sobre uma sprint de coração de pé desde 15/08 | DELA |
-| [MESA-CHEIA-05](sprints/2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md) | A E1: `rumble_active` virar mapa por uniq, `rumble.set` aceitar endereço, e o `state_full` expor os quatro estados | |
-| [SOM-DE-CADA-JOGADOR-01](sprints/2026-08-15-SOM-DE-CADA-JOGADOR-01-o-botao-que-nunca-funcionou-com-a-mesa-cheia.md) | E2 — a peça existe desde 20/08 e nunca foi ligada no botão. E3 e as mordidas 1 a 4. O ensaio às cegas do canal 3 não tem bruto | DELA |
+| [MESA-CHEIA-05](sprints/2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md) | **→ Onda 10.** A E1: `rumble_active` virar mapa por uniq, `rumble.set` aceitar endereço, e o `state_full` expor os quatro estados | |
+| [SOM-DE-CADA-JOGADOR-01](sprints/2026-08-15-SOM-DE-CADA-JOGADOR-01-o-botao-que-nunca-funcionou-com-a-mesa-cheia.md) | **→ Onda 3.** E2 — a peça existe desde 20/08 e nunca foi ligada no botão. E3 e as mordidas 1 a 4. O ensaio às cegas do canal 3 não tem bruto | DELA |
 | [MIC-BT-DONO-01](sprints/2026-08-03-MIC-BT-DONO-01-a-posse-do-mudo-ganha-dono-e-ciclo-de-vida.md) | ABERTA. Dar ao mudo do mic o tratamento que o LED recebeu. O alvo honesto é 55-75% de mudo, não 0% | |
-| [ESTADO-QUE-MENTE-01](sprints/2026-08-03-ESTADO-QUE-MENTE-01-o-daemon-afirma-controle-conectado-com-a-mesa-vazia.md) | ABERTA. Derivar o topo do `state_full` da lista de controles. O painel da verdade mostra bateria de controle que não existe | |
+| [ESTADO-QUE-MENTE-01](sprints/2026-08-03-ESTADO-QUE-MENTE-01-o-daemon-afirma-controle-conectado-com-a-mesa-vazia.md) | **→ Onda 3.** ABERTA. Derivar o topo do `state_full` da lista de controles. O painel da verdade mostra bateria de controle que não existe | |
 | [PERFIL-SEM-RASTRO-01](sprints/2026-08-05-PERFIL-SEM-RASTRO-01-o-perfil-mudava-e-nada-registrava-quem-mudou.md) | A dívida de descoberta (três parágrafos na doc da CLI e uma linha no README), e o `_reject_traversal` nos caminhos de escrita | |
 | [PROMESSA-NAO-CUMPRIDA-01](sprints/2026-07-26-PROMESSA-NAO-CUMPRIDA-01-o-que-o-projeto-anuncia-e-nao-entrega.md) | C3 continua verdadeiro e o código o confessa. A2, A3, C2, D, E e F não conferidos item a item | |
-| [A-FÁBRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | NOVA em 22/08. E1 a E3: a saída do Modo Nativo passa 6 dos 7 appliers, e a fábrica `gerente_do_daemon` tem um cliente só | |
+| [A-FÁBRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | **→ Onda 10.** NOVA em 22/08. E1 a E3: a saída do Modo Nativo passa 6 dos 7 appliers, e a fábrica `gerente_do_daemon` tem um cliente só | |
 
 ### Faixa 3 — o install e o pacote entregam cura morta (10)
 
@@ -207,46 +442,46 @@ que só custa tempo da próxima pessoa.
 |---|---|---|
 | [INSTALL-QUE-NAO-CARREGA-01](sprints/2026-08-07-INSTALL-QUE-NAO-CARREGA-01-as-descobertas-que-nunca-viraram-codigo.md) | L3 aberta e medida hoje: cinco arquivos de `assets/` citam documentos que não existem, e o portão de referências só varre `docs/`. L5 sem resposta | DELA |
 | [SIMETRIA-INSTALL-02](sprints/2026-07-31-SIMETRIA-INSTALL-02-o-que-o-install-deixa-para-tras.md) | E3, E4, E6 (decisão dela) e E7. Não reconferido se a E2 fechou ou só foi anotada | DELA |
-| [CURA-QUE-FERE-01](sprints/2026-08-04-CURA-QUE-FERE-01-toda-cura-de-systemd-tem-de-provar-o-ciclo-inteiro.md) | E1 a E4: teste de ciclo por unit instalada, o portão da tabela de combinações, unit em failed virar FALHA no doctor, e a tela com o agente morto | |
+| [CURA-QUE-FERE-01](sprints/2026-08-04-CURA-QUE-FERE-01-toda-cura-de-systemd-tem-de-provar-o-ciclo-inteiro.md) | **→ Onda 12 · instalação.** E1 a E4: teste de ciclo por unit instalada, o portão da tabela de combinações, unit em failed virar FALHA no doctor, e a tela com o agente morto | |
 | [BT-AGENT-TRAVA-O-RESTART-01](sprints/2026-08-04-BT-AGENT-TRAVA-O-RESTART-01-noventa-segundos-de-bluetooth-fora-do-ar.md) | E4 (`flock -n` no `ExecStopPost`) e E5 (`TimeoutStopSec` explícito). E7 é da CURA-QUE-FERE-01 e também segue aberta | |
 | [BT-SNAPSHOT-SANDBOX-01](sprints/2026-08-04-BT-SNAPSHOT-SANDBOX-01-o-salva-vidas-que-falhava-so-no-naufragio.md) | O teste que a sprint pediu por escrito (o `ReadWritePaths` cobrir tudo que os `ExecStopPost` escrevem) e a varredura irmã | |
 | [DROPIN-AMBIGUO-01](sprints/2026-08-04-DROPIN-AMBIGUO-01-a-ausencia-do-drop-in-e-indistinguivel-de-escolha.md) | ABERTA. E1 a E5. A E4 é decisão a declarar em voz alta | |
 | [RADIO-ABERTO-01](sprints/2026-08-04-RADIO-ABERTO-01-o-que-instalamos-por-padrao-anula-a-autenticacao.md) | E2 (agente próprio, que é o que fecha o cenário) e E3. E4 a E6 seguem N/A | |
 | [PUBLICACAO-FIEL-01](sprints/2026-07-31-PUBLICACAO-FIEL-01-o-que-a-release-conta-de-errado.md) | E2 (decisão dela) e E3, que não consegui localizar para reconferir. O cabeçalho precisa deixar de dizer que não houve código | DELA |
-| [IDENTIDADE-01](sprints/2026-08-21-IDENTIDADE-01-o-projeto-ainda-se-chama-pelo-nome-dele.md) | Fase 2 (renomear o id, os 15 testes, o CI) e Fase 3 (a migração). As duas na mesma leva: id novo sem migração deixa quem já usava sem os perfis | |
+| [IDENTIDADE-01](sprints/2026-08-21-IDENTIDADE-01-o-projeto-ainda-se-chama-pelo-nome-dele.md) | **→ Onda 12 · instalação.** Fase 2 (renomear o id, os 15 testes, o CI) e Fase 3 (a migração). As duas na mesma leva: id novo sem migração deixa quem já usava sem os perfis | |
 | [ARVORE-DIVERGENTE-01](sprints/2026-07-30-ARVORE-DIVERGENTE-01-o-que-esta-na-main-e-nao-roda.md) | Portar E1, E4 (com o co-op desligado, todo controle conectado ainda vira jogador 1) e E5. A tag citada resolve para outro commit | DELA |
 
 ### Faixa 4 — a janela mente, corta, ou não deixa ela ver (27)
 
 | Sprint | O que falta | DELA |
 |---|---|---|
-| [LIGHTBAR-JOGADOR-01](sprints/2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | ABERTA. E0 a E4. Queixa direta dela olhando a tela, prioridade ALTA, 25 dias sem uma linha | DELA |
-| [MESA-CHEIA-01](sprints/2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md) | ABERTA. A entrega inteira: a linguagem de cor do card da Status nos chips da fita, nas ONZE abas | DELA |
-| [MESA-CHEIA-02](sprints/2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md) | ABERTA. A entrega inteira. É ela que dá o formato da marca de que a 04 e a 06 dependem | DELA |
-| [MESA-CHEIA-03](sprints/2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar.md) | ABERTA. Quatro prévias numeradas, a marca nos seis presets, e a tela saber dizer o terceiro estado | DELA |
+| [LIGHTBAR-JOGADOR-01](sprints/2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | **→ Onda 8.** ABERTA. E0 a E4. Queixa direta dela olhando a tela, prioridade ALTA, 25 dias sem uma linha | DELA |
+| [MESA-CHEIA-01](sprints/2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md) | **→ Onda 3.** ABERTA. A entrega inteira: a linguagem de cor do card da Status nos chips da fita, nas ONZE abas | DELA |
+| [MESA-CHEIA-02](sprints/2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md) | **→ Onda 9.** ABERTA. A entrega inteira. É ela que dá o formato da marca de que a 04 e a 06 dependem | DELA |
+| [MESA-CHEIA-03](sprints/2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar.md) | **→ Onda 8.** ABERTA. Quatro prévias numeradas, a marca nos seis presets, e a tela saber dizer o terceiro estado | DELA |
 | [MESA-CHEIA-04](sprints/2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md) | ABERTA. A entrega inteira. Depende da 02 | DELA |
-| [MESA-CHEIA-06](sprints/2026-08-13-MESA-CHEIA-06-o-portao-contra-a-marca-que-mente.md) | ABERTA. O portão inteiro. Depende da 02, que daria o primeiro caso real | |
-| [MESA-CHEIA-07](sprints/2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md) | A E2 — o painel da aba No jogo não tem uma única linha de cor | DELA |
-| [MESA-CHEIA-10](sprints/2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md) | ABERTA. A fita se requalificar nas seis abas em que o alvo não é honrado | DELA |
-| [ONDE-A-COR-MORA-01](sprints/2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido.md) | ABERTA. As três perguntas da seção 7 são dela; depois, ~190 linhas e as quatro mordidas, incluindo o guarda do alto contraste | DELA |
-| [NAVEGA-PELO-CONTROLE-01](sprints/2026-08-15-NAVEGA-PELO-CONTROLE-01-quem-tem-o-foco-decide-o-que-o-R1-faz.md) | ABERTA. Seções 4 a 8 inteiras, a pergunta única da seção 9, e a prova de tela | DELA |
-| [NAVEGAR-ESTA-JANELA-01](sprints/2026-08-15-NAVEGAR-ESTA-JANELA-01-a-decisao-ja-esta-tomada-e-o-dado-ja-esta-no-fio.md) | ABERTA. A entrega inteira, as duas perguntas da seção 8, e a prova de tela | DELA |
+| [MESA-CHEIA-06](sprints/2026-08-13-MESA-CHEIA-06-o-portao-contra-a-marca-que-mente.md) | **→ Onda 6.** ABERTA. O portão inteiro. Depende da 02, que daria o primeiro caso real | |
+| [MESA-CHEIA-07](sprints/2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md) | **→ Onda 4.** A E2 — o painel da aba No jogo não tem uma única linha de cor | DELA |
+| [MESA-CHEIA-10](sprints/2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md) | **→ Onda 2.** ABERTA. A fita se requalificar nas seis abas em que o alvo não é honrado | DELA |
+| [ONDE-A-COR-MORA-01](sprints/2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido.md) | **→ Onda 8.** ABERTA. As três perguntas da seção 7 são dela; depois, ~190 linhas e as quatro mordidas, incluindo o guarda do alto contraste | DELA |
+| [NAVEGA-PELO-CONTROLE-01](sprints/2026-08-15-NAVEGA-PELO-CONTROLE-01-quem-tem-o-foco-decide-o-que-o-R1-faz.md) | **→ Onda 7.** ABERTA. Seções 4 a 8 inteiras, a pergunta única da seção 9, e a prova de tela | DELA |
+| [NAVEGAR-ESTA-JANELA-01](sprints/2026-08-15-NAVEGAR-ESTA-JANELA-01-a-decisao-ja-esta-tomada-e-o-dado-ja-esta-no-fio.md) | **→ Onda 7.** ABERTA. A entrega inteira, as duas perguntas da seção 8, e a prova de tela | DELA |
 | [FIACAO-QUE-FALTA-01](sprints/2026-08-05-FIACAO-QUE-FALTA-01-o-verificador-que-ela-nao-tem-como-ver.md) | E1 (o verificador na janela), E4.1, E4.3, E5, E6 (texto de interface, palavra dela) e E3b | DELA |
 | [JANELA-FIEL-01](sprints/2026-07-31-JANELA-FIEL-01-a-janela-que-para-de-reconciliar-e-o-botao-morto-no-pacote.md) | E5 (TUI) e E6 (bandeja), mais o aceite dela: a janela não trocar sozinha o que está na tela, e o Restaurar Padrão achar o arquivo | DELA |
-| [JANELA-CORTADA-01](sprints/2026-08-17-JANELA-CORTADA-01-o-rodape-que-o-gtk-diz-que-cabe.md) | O item 2 — o selo Saída muda dentro do bloco, com bancada fiel à largura real do card | DELA |
-| [JANELA-QUE-RESPIRA-01](sprints/2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md) | O aceite dela na janela real. Não há foto de aceite nem palavra registrada | DELA |
-| [LARGURA-01](sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | E5 a E8. Só a E8 está provada aberta por símbolo. O `_WRAP_COLUNAS` fixo tranca a GATILHO-PALAVRA-01 | DELA |
+| [JANELA-CORTADA-01](sprints/2026-08-17-JANELA-CORTADA-01-o-rodape-que-o-gtk-diz-que-cabe.md) | **→ Onda 3.** O item 2 — o selo Saída muda dentro do bloco, com bancada fiel à largura real do card | DELA |
+| [JANELA-QUE-RESPIRA-01](sprints/2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md) | **→ Onda 7.** O aceite dela na janela real. Não há foto de aceite nem palavra registrada | DELA |
+| [LARGURA-01](sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | **→ Onda 9.** E5 a E8. Só a E8 está provada aberta por símbolo. O `_WRAP_COLUNAS` fixo tranca a GATILHO-PALAVRA-01 | DELA |
 | [LEGIBILIDADE-01](sprints/2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md) | O lugar dos analógicos e a largura a 1180x830, mais a decisão sobre as 11 classes órfãs do CSS | DELA |
 | [CARD-OCUPA-01](sprints/2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md) | E4: a aba Estado maximizada, e ela dizer se os quatro elementos ocuparam os vãos laterais | DELA |
 | [RADAR-01](sprints/2026-07-31-RADAR-01-as-tres-superficies-que-ninguem-nunca-olhou.md) | E1, E2, E3 e o D1. O applet que ela usa TODO DIA continua sem o olho dela por cima | DELA |
-| [BOTAO-QUE-NAO-MENTE-01](sprints/2026-07-26-BOTAO-QUE-NAO-MENTE-01-clico-e-nao-acontece-nada.md) | E5 (a regra de informar quantos controles cada sprint de interface adiciona ou remove) e E6. E1 e E3 não reconferidas | DELA |
-| [PERFIL-SALVA-TUDO-01](sprints/2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md) | E5 e E6, nenhuma provável na árvore. E o cabeçalho, que ainda diz que E1 e E2 estão abertas — as duas estão em código com teste que morde | DELA |
-| [PLAYER-LED-01](sprints/2026-07-25-PLAYER-LED-01-o-numero-do-jogo-chega-ao-controle.md) | A entrega 5 — o diagnóstico honesto por controle. A entrega 4 tem sucessora própria, sinal de que o buraco não fechou aqui | |
-| [FOCO-ERRANTE-01](sprints/2026-08-18-FOCO-ERRANTE-01-o-x-aponta-para-a-steam-e-leva-o-perfil-junto.md) | Passos 1, 2, 7, 8 e a cura de zero linhas (decisão dela). A ONDA 2 (backend COSMIC) intocada | DELA |
-| [PROVA-DE-TELA-01](sprints/2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md) | A folha respondida dentro do documento — o passo 4 do próprio procedimento. Hoje as fotos entram e a folha não | DELA |
-| [GATILHO-PALAVRA-01](sprints/2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) | A escolha das dezenove palavras, que é dela por construção. Amarrada à decisão irmã da CR-SEQUENCIA-01/E5 | DELA |
+| [BOTAO-QUE-NAO-MENTE-01](sprints/2026-07-26-BOTAO-QUE-NAO-MENTE-01-clico-e-nao-acontece-nada.md) | **→ Onda 9.** E5 (a regra de informar quantos controles cada sprint de interface adiciona ou remove) e E6. E1 e E3 não reconferidas | DELA |
+| [PERFIL-SALVA-TUDO-01](sprints/2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md) | **→ Onda 5.** E5 e E6, nenhuma provável na árvore. E o cabeçalho, que ainda diz que E1 e E2 estão abertas — as duas estão em código com teste que morde | DELA |
+| [PLAYER-LED-01](sprints/2026-07-25-PLAYER-LED-01-o-numero-do-jogo-chega-ao-controle.md) | **→ Onda 8.** A entrega 5 — o diagnóstico honesto por controle. A entrega 4 tem sucessora própria, sinal de que o buraco não fechou aqui | |
+| [FOCO-ERRANTE-01](sprints/2026-08-18-FOCO-ERRANTE-01-o-x-aponta-para-a-steam-e-leva-o-perfil-junto.md) | **→ Onda 5.** Passos 1, 2, 7, 8 e a cura de zero linhas (decisão dela). A ONDA 2 (backend COSMIC) intocada | DELA |
+| [PROVA-DE-TELA-01](sprints/2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md) | **→ Onda 7.** A folha respondida dentro do documento — o passo 4 do próprio procedimento. Hoje as fotos entram e a folha não | DELA |
+| [GATILHO-PALAVRA-01](sprints/2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) | **→ Onda 9.** A escolha das dezenove palavras, que é dela por construção. Amarrada à decisão irmã da CR-SEQUENCIA-01/E5 | DELA |
 | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | NOVA em 22/08. E1 e E3 fecharam (`49797f8`); faltam a E2 (mover um controle de adaptador — o helper tem 7 verbos e nenhum chamador Python) e a E4, o alcance total que ela pediu | E4 DELA |
-| [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) | NOVA em 22/08. E1 a E7: a Steam Flatpak, a bandeja fora do COSMIC, a janela que não abre sem XWayland, o backend escolhido pela presença de `DISPLAY` | parte DELA |
+| [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) | **→ Onda 6.** NOVA em 22/08. E1 a E7: a Steam Flatpak, a bandeja fora do COSMIC, a janela que não abre sem XWayland, o backend escolhido pela presença de `DISPLAY` | parte DELA |
 
 ### Faixa 5 — o aparelho: luz, som, gatilho, rádio (35)
 
@@ -258,35 +493,35 @@ A maioria destas destranca com a bancada de 22/08 e o controle na mão dela.
 | [O QUE PRECISA DE VOCÊ (19/08)](sprints/2026-08-19-O-QUE-PRECISA-DE-VOCE.md) | O roteiro de 40 min sem o bloco B1, abrir o Grim Fandango uma vez, olhar as cinco cores, e o chamador automático da allowlist | DELA |
 | [A-PONTE-UNIVERSAL-01](sprints/2026-08-15-A-PONTE-UNIVERSAL-01-o-cabo-como-pedra-de-roseta.md) | P-1 (o oráculo de transporte pelo `HID_ID`), P-3, E-2, e a Onda 4 inteira | DELA |
 | [ESCADA-QUE-RESPONDE-01](sprints/2026-08-15-ESCADA-QUE-RESPONDE-01-do-degrau-que-obedece-ao-conteudo-do-payload.md) | E-2 a E-6: todos escrevem no aparelho e dependem da D-31 e da D-32. E as linhas no caderno com a coluna do degrau preenchida | DELA |
-| [A-CADEIA-DE-BLOCOS-01](sprints/2026-08-16-A-CADEIA-DE-BLOCOS-01-o-ensaio-de-quatro-minutos-que-decide-o-som-por-radio.md) | ABERTA. O acréscimo no instrumento, os 6 minutos de olho dela no E-7, e as quatro perguntas da seção 10 | DELA |
-| [O-ALTO-FALANTE-POR-RADIO-01](sprints/2026-08-15-O-ALTO-FALANTE-POR-RADIO-01-a-casa-ja-tinha-o-mapa.md) | ABERTA. E1 (montar o `0x39` com o bloco duplo), E2 (o ensaio com a orelha dela) e E3 | DELA |
-| [TRES-MODOS-DO-SOM-01](sprints/2026-08-16-TRES-MODOS-DO-SOM-01-o-que-sai-onde-e-quem-escolhe.md) | ABERTA. As cinco decisões P-1 a P-5 e as cinco ondas. Não conferido se a ONDA 1.2 caducou por outra via | DELA |
+| [A-CADEIA-DE-BLOCOS-01](sprints/2026-08-16-A-CADEIA-DE-BLOCOS-01-o-ensaio-de-quatro-minutos-que-decide-o-som-por-radio.md) | **→ Onda 12 · BT, trilha DELA.** ABERTA. O acréscimo no instrumento, os 6 minutos de olho dela no E-7, e as quatro perguntas da seção 10 | DELA |
+| [O-ALTO-FALANTE-POR-RADIO-01](sprints/2026-08-15-O-ALTO-FALANTE-POR-RADIO-01-a-casa-ja-tinha-o-mapa.md) | **→ Onda 12 · BT, trilha DELA.** ABERTA. E1 (montar o `0x39` com o bloco duplo), E2 (o ensaio com a orelha dela) e E3 | DELA |
+| [TRES-MODOS-DO-SOM-01](sprints/2026-08-16-TRES-MODOS-DO-SOM-01-o-que-sai-onde-e-quem-escolhe.md) | **→ Onda 3.** ABERTA. As cinco decisões P-1 a P-5 e as cinco ondas. Não conferido se a ONDA 1.2 caducou por outra via | DELA |
 | [E5 — O TERRENO](sprints/2026-08-16-E5-O-TERRENO-o-que-o-E1-mudou-no-caminho-do-som.md) | Duas linhas no caderno de ensaios e o bruto da corrida. As três perguntas da seção 10 são dela | DELA |
 | [SOM-ROTA-01](sprints/2026-08-01-SOM-ROTA-01-a-rota-o-preamp-e-o-canal-do-controle.md) | E2, metade da E3, E4 e E5 — dependem do hardware e da mão dela | DELA |
-| [PARIDADE-SONY-01](sprints/2026-08-01-PARIDADE-SONY-01-o-que-o-jogo-manda-ao-alto-falante.md) | A E2 em diante só destranca com medição de jogo real mostrando valores diferentes dos que o sistema escreve | DELA |
+| [PARIDADE-SONY-01](sprints/2026-08-01-PARIDADE-SONY-01-o-que-o-jogo-manda-ao-alto-falante.md) | **→ Onda 4.** A E2 em diante só destranca com medição de jogo real mostrando valores diferentes dos que o sistema escreve | DELA |
 | [CONTROLE-INTEIRO-NO-RADIO-01](sprints/2026-08-07-CONTROLE-INTEIRO-NO-RADIO-01-o-mic-e-o-fone-que-nao-atravessam.md) | A metade da SAÍDA (P5 e P6): não há sink virtual nenhum. E o documento precisa de nota datada dizendo que P0 a P3 caíram | |
 | [SEM-MICROFONE-NENHUM-01](sprints/2026-08-06-SEM-MICROFONE-NENHUM-01-o-alto-falante-vira-a-entrada-padrao.md) | ABERTA. A política, e a medição que ela exige: o que o WirePlumber faz sem nenhuma fonte com porta usável. É privacidade | |
-| [MIC-BT-01](sprints/2026-07-25-MIC-BT-01-o-medidor-do-microfone-por-bluetooth.md) | Caixa 2 (só reabre com a posse do `/dev/hidraw` arbitrada), e as caixas 3 e 4 não encontradas na árvore | |
-| [UNIDADE-COR-01](sprints/2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md) | A cor do plástico chegar ao produto. E a metade por rádio da D-15 continua sem caminho | DELA |
-| [LIGHTBAR-BT-CULPADO-01](sprints/2026-08-03-LIGHTBAR-BT-CULPADO-01-o-report-que-curava-e-o-que-trava.md) | A E3 e o aceite dela. É a regressão que ela descreve como sempre arrumamos mas sempre volta | DELA |
-| [SEGUNDO-ESCRITOR-01](sprints/2026-08-08-SEGUNDO-ESCRITOR-01-o-driver-do-kernel-tambem-escreve-a-barra.md) | ABERTA. A medição de contraste dela. Nada virou código, e nada aponta para ela | DELA |
-| [A-LUZ-QUE-CUROU-01](sprints/2026-08-07-A-LUZ-QUE-CUROU-01-calar-parou-o-bombardeio-e-voltar-tem-preco.md) | O protocolo da seção 6 nunca rodou, e a pergunta da seção 7 não aparece respondida no painel de decisões dela | DELA |
+| [MIC-BT-01](sprints/2026-07-25-MIC-BT-01-o-medidor-do-microfone-por-bluetooth.md) | **→ Onda 12 · BT, trilha DELA.** Caixa 2 (só reabre com a posse do `/dev/hidraw` arbitrada), e as caixas 3 e 4 não encontradas na árvore | |
+| [UNIDADE-COR-01](sprints/2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md) | **→ Onda 8.** A cor do plástico chegar ao produto. E a metade por rádio da D-15 continua sem caminho | DELA |
+| [LIGHTBAR-BT-CULPADO-01](sprints/2026-08-03-LIGHTBAR-BT-CULPADO-01-o-report-que-curava-e-o-que-trava.md) | **→ Onda 12 · BT, trilha DELA.** A E3 e o aceite dela. É a regressão que ela descreve como sempre arrumamos mas sempre volta | DELA |
+| [SEGUNDO-ESCRITOR-01](sprints/2026-08-08-SEGUNDO-ESCRITOR-01-o-driver-do-kernel-tambem-escreve-a-barra.md) | **→ Onda 8.** ABERTA. A medição de contraste dela. Nada virou código, e nada aponta para ela | DELA |
+| [A-LUZ-QUE-CUROU-01](sprints/2026-08-07-A-LUZ-QUE-CUROU-01-calar-parou-o-bombardeio-e-voltar-tem-preco.md) | **→ Onda 12 · BT, trilha DELA.** O protocolo da seção 6 nunca rodou, e a pergunta da seção 7 não aparece respondida no painel de decisões dela | DELA |
 | [CANETA-NA-MAO-01](sprints/2026-08-12-CANETA-NA-MAO-01-o-suspeito-que-ninguem-olhou-em-dezesseis-dias.md) | Seção 7, itens 1 a 5 e 7: a volta do ensaio da lightbar, o bit de autorização do gatilho, sete dos oito modos, e a PODA | DELA |
-| [O-LACO-DE-ESCRITA-01](sprints/2026-08-15-O-LACO-DE-ESCRITA-01-o-suspeito-que-sobrou.md) | A D-38 (autorização dela) e o E-9. O negativo aposentaria uma justificativa que hoje cobra até 32 ms de latência | DELA |
-| [BT-SURDO-01](sprints/2026-08-03-BT-SURDO-01-o-controle-parado-no-radio-nao-recebe-ordem.md) | E2 (o `init()` que deixa thread fantasma), E3 (o ioctl de 5 s segurando o lock central) e E4 | |
-| [BT-FURO-FINO-01](sprints/2026-08-03-BT-FURO-FINO-01-os-sete-caminhos-que-so-degradam-no-radio.md) | Os defeitos 2 a 7, sem prova de cura e sem prova de que sigam abertos. O 2 é o outro marcado ALTA | |
-| [BT-E-VPAD-01](sprints/2026-08-01-BT-E-VPAD-01-o-que-so-existe-no-cabo-e-os-seis-furos.md) | Furo 5 (a taxa declarada do Edge), não medido e sem nada na árvore que o meça. O furo 4 tem decisão registrada de não fazer | |
-| [RADIO-BOMBARDEADO-01](sprints/2026-08-04-RADIO-BOMBARDEADO-01-quarenta-mil-frames-corrompidos-em-meia-hora.md) | ABERTA. O bloco F inteiro e o A/B de dez minutos. ATENÇÃO: a fixture de 20/08 cortou o amplificador citado, e isso muda a linha de base | |
+| [O-LACO-DE-ESCRITA-01](sprints/2026-08-15-O-LACO-DE-ESCRITA-01-o-suspeito-que-sobrou.md) | **→ Onda 10.** A D-38 (autorização dela) e o E-9. O negativo aposentaria uma justificativa que hoje cobra até 32 ms de latência | DELA |
+| [BT-SURDO-01](sprints/2026-08-03-BT-SURDO-01-o-controle-parado-no-radio-nao-recebe-ordem.md) | **→ Onda 12 · BT, trilha DELA.** E2 (o `init()` que deixa thread fantasma), E3 (o ioctl de 5 s segurando o lock central) e E4 | |
+| [BT-FURO-FINO-01](sprints/2026-08-03-BT-FURO-FINO-01-os-sete-caminhos-que-so-degradam-no-radio.md) | **→ Onda 12 · BT, trilha DELA.** Os defeitos 2 a 7, sem prova de cura e sem prova de que sigam abertos. O 2 é o outro marcado ALTA | |
+| [BT-E-VPAD-01](sprints/2026-08-01-BT-E-VPAD-01-o-que-so-existe-no-cabo-e-os-seis-furos.md) | **→ Onda 6.** Furo 5 (a taxa declarada do Edge), não medido e sem nada na árvore que o meça. O furo 4 tem decisão registrada de não fazer | |
+| [RADIO-BOMBARDEADO-01](sprints/2026-08-04-RADIO-BOMBARDEADO-01-quarenta-mil-frames-corrompidos-em-meia-hora.md) | **→ Onda 12 · BT, trilha DELA.** ABERTA. O bloco F inteiro e o A/B de dez minutos. ATENÇÃO: a fixture de 20/08 cortou o amplificador citado, e isso muda a linha de base | |
 | [BUSCA-QUE-ESTOURA-01](sprints/2026-08-07-BUSCA-QUE-ESTOURA-01-o-sdp-que-nao-responde-a-tempo.md) | ABERTA. A escolha entre os cinco desenhos é dela. Houve movimento lateral em `7c2fb92`, que não é nenhum dos cinco | DELA |
 | [CR-03](sprints/2026-07-25-CR-03-bancada-de-medicao.md) | ABERTA. A sprint inteira. Bloqueia a CR-04, que bloqueia a CR-06 | |
 | [CR-04](sprints/2026-07-25-CR-04-os-efeitos-da-casa.md) | ABERTA. Todos os efeitos medidos na bancada. Não começa antes da CR-03 | |
 | [CR-06](sprints/2026-07-25-CR-06-devolver-ao-ecossistema.md) | ABERTA. A publicação inteira. Não começa antes de CR-03 e CR-04 | |
 | [CR-SEQUENCIA-01](sprints/2026-07-31-CR-SEQUENCIA-01-o-que-avanca-sem-a-mao-dela-e-o-que-nao.md) | E3 (a bancada, com posse explícita do hidraw), E4 (a parte dela), E6 e a decisão E5. O cabeçalho ABERTA é enganoso: metade do trilho já fechou | DELA |
-| [BARRA-MUDA-01](sprints/2026-08-22-BARRA-MUDA-01-a-lampada-nao-se-le-o-nascimento-sim.md) | ENTREGUE, menos o experimento da §6 — o único que fecha a célula do mapa, e só o olho dela o faz | DELA |
+| [BARRA-MUDA-01](sprints/2026-08-22-BARRA-MUDA-01-a-lampada-nao-se-le-o-nascimento-sim.md) | **→ Onda 8.** ENTREGUE, menos o experimento da §6 — o único que fecha a célula do mapa, e só o olho dela o faz | DELA |
 | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | NOVA em 22/08. E1 a E4: o tique de hotplug carimbar o veredito, a razão aparecer no card, o portão, e a colisão de nome entre `mesa_de_radio` e `sinal_da_barra` | |
 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) | E1, E2, E7 e metade da E5 fecharam. Faltam E3, E4, E6 e a **E8** — quatro MACs de fixture no `controllers.json` vivo dela | E8 parte DELA |
-| [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | NOVA em 22/08. E1 a E3: o interruptor que `bt_mic_enabled` nunca teve, a frase do medidor, e o ensaio dos quatro ao mesmo tempo | DELA |
-| [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | NOVA em 22/08. E1 a E3: reproduzir (ou não), separar as três famílias, e decidir o que o botão faz enquanto não se sabe | |
+| [QUATRO-MICROFONES-01](sprints/2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | **→ Onda 3.** NOVA em 22/08. E1 a E3: o interruptor que `bt_mic_enabled` nunca teve, a frase do medidor, e o ensaio dos quatro ao mesmo tempo | DELA |
+| [DOIS-CAIRAM-DE-UMA-VEZ-01](sprints/2026-08-22-DOIS-CAIRAM-DE-UMA-VEZ-01-o-disconnect-que-derrubou-o-controle-do-vizinho.md) | **→ Onda 12 · BT, trilha DELA.** NOVA em 22/08. E1 a E3: reproduzir (ou não), separar as três famílias, e decidir o que o botão faz enquanto não se sabe | |
 | [N-IGUAL-A-UM-01](sprints/2026-08-22-N-IGUAL-A-UM-01-o-produto-escolhe-um-quando-ha-tres.md) | E1 e E3 fecharam (`29c8a19`, `b77ed62`). Faltam E2 (o alias em TODO adaptador que hospeda Nintendo), E4 (o portão da classe) e E5 | parte DELA |
 | [UMA-FAIXA-NÃO-É-UM-FABRICANTE-01](sprints/2026-08-22-UMA-FAIXA-NAO-E-UM-FABRICANTE-01-o-pro-dela-virou-a-definicao-de-pro.md) | E1 saiu em `e5376a0` (nasceu `core/linhagem_nintendo.py`). Faltam E2 (a regra 84 aprender a dizer "não sei"), E3 e E4 | DELA |
 
@@ -302,7 +537,7 @@ A maioria destas destranca com a bancada de 22/08 e o controle na mão dela.
 | [ROTULOS-DE-SPRINT-01](sprints/2026-08-09-ROTULOS-DE-SPRINT-01-entregue-no-codigo-nao-e-validado-por-ela.md) | A regra 4 do portão continua PROPOSTA. O portão de referências tem só as regras 1, 2 e 3 | DELA |
 | [A-LINHA-QUE-DISPENSA-01](sprints/2026-08-15-A-LINHA-QUE-DISPENSA-01-o-defeito-mora-onde-a-autora-escreveu-que-nao-precisava-olhar.md) | E1, E2 e E3 — a E3 é a que teria pego quatro das seis. Cinquenta minutos ao todo | DELA |
 | [TRES-REFUTADAS-01](sprints/2026-08-15-TRES-REFUTADAS-01-o-que-a-terceira-rodada-de-ceticismo-deixou-de-pe.md) | 1.5 (E1 e E3), 1.4 (E1 a E4) e o teste permanente das quatro conjunções nuas de 1.11 | DELA |
-| [TESTE-HONESTO-01](sprints/2026-07-31-TESTE-HONESTO-01-os-297-verdes-que-nao-medem-interface.md) | E2 (a fixture de captura de Bluetooth) e os 68 `importorskip` restantes | |
+| [TESTE-HONESTO-01](sprints/2026-07-31-TESTE-HONESTO-01-os-297-verdes-que-nao-medem-interface.md) | **→ Onda 12 · portão.** E2 (a fixture de captura de Bluetooth) e os 68 `importorskip` restantes | |
 | [SUITE-QUE-SUJA-O-JORNAL-01](sprints/2026-08-04-SUITE-QUE-SUJA-O-JORNAL-01-os-testes-escrevem-no-journal-do-sistema.md) | E4 (o portão) — exatamente o que a sprint previu. E o cabeçalho, que diz aberta sobre uma sprint majoritariamente paga | |
 | [BERCO-DE-TMP-01](sprints/2026-08-07-BERCO-DE-TMP-01-a-suite-nao-suja-a-config-dela-suja-o-tmp.md) | Quatro dos sete declarados. Rodar a faxina no `/tmp` dela é palavra dela | DELA |
 | [GATE-EMOJI-01](sprints/2026-07-27-GATE-EMOJI-01-o-higienizador-apaga-o-que-o-adr-protege.md) | E1: colar um emoji, salvar pelo editor dela, e ver se os 238 glifos do ADR-011 sobrevivem. Só a máquina dela responde | DELA |
@@ -421,3 +656,14 @@ Quem fecha uma sprint atualiza aqui, no mesmo commit — tira a linha da seção
 e corrige a contagem do cabeçalho. Quem abre uma sprint nova põe a linha na
 faixa a que ela pertence. Este arquivo não tem portão: ele vale exatamente o
 que a última pessoa que o tocou escreveu.
+
+**Três regras a mais, nascidas da leva das onze abas (23/08):**
+
+1. **Uma sprint tem UMA onda.** Se ela aparecer em duas, a dona é quem mexe no
+   código; a outra declara dependência — e a troca fica registrada na §0.5.
+2. **Quem publica uma das cinco sprints de aba que ainda não estavam no disco
+   converte a linha da §0.3 em link no mesmo commit.** Nome sem link é dívida
+   visível de propósito; link para arquivo que não existe é referência morta, e
+   há portão.
+3. **Quem fecha uma onda risca a marca `→ Onda N` das sprints que ela absorveu**,
+   ou diz na linha o que ficou de fora. Absorvida não é fechada.
