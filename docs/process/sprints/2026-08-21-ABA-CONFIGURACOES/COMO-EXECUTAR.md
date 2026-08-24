@@ -310,9 +310,15 @@ só mostra/esconde. Copie o precedente que já existe em `_on_notebook_switch_pa
 acrescente, logo abaixo, a chamada simétrica ao método do mixin novo — algo como
 `inativar = getattr(self, "set_alvo_inativo", None)` e `inativar(nome == ABA_CONFIG)`. No mixin,
 implemente `def set_alvo_inativo(self, inativo: bool) -> None:` que pega
-`strip = getattr(self, "_target_strip", None)`, faz `strip.set_sensitive(not inativo)` e
-mostra/esconde um `Gtk.Label` com a razão ("Esta aba vale para a mesa inteira, não para um
-controle"), tudo dentro de `contextlib.suppress(Exception)` (restrição 4 da sprint).
+`strip = getattr(self, "_target_strip", None)` e faz `strip.set_sensitive(not inativo)`,
+dentro de `contextlib.suppress(Exception)` (restrição 4 da sprint).
+
+> **O rótulo da razão saiu, por decisão dela (23/08/2026).** Esta receita mandava
+> mostrar ao lado da fita um `Gtk.Label` com o motivo do esmaecimento. Ele nasceu,
+> e a foto mostrou o preço: empurrava a altura e a largura do cabeçalho, cobria o
+> subtítulo do produto e deixava a aba visivelmente mais larga que as outras dez.
+> **A fita continua inerte e sem rótulo nenhum.** O teste que vigia isso é
+> `test_entrar_na_aba_nao_engorda_o_cabecalho`.
 **NÃO use `_REFRESH_POR_ABA`** (`app.py:920-957`): aquele mapa só dispara ao ENTRAR na aba
 destino, e a fita ficaria esmaecida para sempre depois da primeira visita.
 
