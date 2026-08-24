@@ -874,9 +874,11 @@ cor do plástico"*.
    `[1, 1]` **reseta o controle** e `[12, 1, ...]` **grava calibração na NVS**.
    O par `[1, 19]` é leitura pura — mas **byte errado no payload escreve onde
    não devia**, e não há desfazer.
-3. **Só está provado POR CABO.** O `dualshock-tools` **recusa Bluetooth de
-   saída**. Por rádio ninguém demonstrou — o que **não** é o mesmo que
-   impossível, e é justamente o que o **ENSAIO 2+2** (seção 11) mede.
+3. **Funciona POR CABO, e o APARELHO recusa por rádio.** O `dualshock-tools`
+   **recusa Bluetooth de saída**, e em 23/08/2026 se mediu por quê: o
+   `SET_REPORT` sai inteiro no canal de controle L2CAP e o CONTROLE responde
+   `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense,
+   com e sem CRC. O **ENSAIO 2+2** (seção 11) foi rodado e a resposta é essa.
 4. **O que já foi descartado**, para você não pagar de novo: PID, `info` do
    BlueZ, `iSerialNumber` USB (é o MAC, não o serial do produto), part number,
    prefixo de MAC, e os offsets 45-51 do `0x22` (mudam por `sw_series`, não por
@@ -891,7 +893,7 @@ um:**
 |---|---|---|
 | **(a) não fazer** | **zero risco.** Você escolhe a cor de cada controle na interface **uma vez**, e ela fica salva por MAC (D-16 já decidiu que é da PEÇA) | a tela pinta certo hoje à noite, e nunca escreve nada no aparelho |
 | **(b) fazer POR CABO, um de cada vez** | é o **caminho provado**, e ainda assim é escrita na família de fábrica. Um controle no cabo por vez, com o daemon parado ou pelo broker | a cor sai do próprio aparelho, sem você digitar nada — inclusive para controle que você comprar depois |
-| **(c) tentar POR RÁDIO** | **território não demonstrado.** Some ao risco da escrita o transporte que já mostrou timeout e resposta trocada no censo de hoje | o mesmo de (b), sem cabo — se funcionar |
+| ~~**(c) tentar POR RÁDIO**~~ **MEDIDO em 23/08: o aparelho recusa** | O `SET_REPORT` sai inteiro no canal L2CAP e o CONTROLE responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense, com e sem CRC | **nada — não funciona.** Ver [UNIDADE-COR-01](2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md) |
 
 **A minha recomendação é (a) agora e (b) depois**, nesta ordem e por este
 motivo: (a) entrega a tela hoje e não toca no aparelho; (b) vira melhoria
@@ -1383,7 +1385,7 @@ publicou a tentativa por rádio. Com dois no cabo e dois no rádio, o mesmo
 braços no mesmo minuto, e há três resultados possíveis — **os três úteis**:
 
 - **funciona nos dois** -> a leitura de cor não precisa de cabo, e a alínea (c)
-  da D-15 deixa de ser território não demonstrado;
+  da D-15 deixa de ser território não demonstrado — **e em 23/08 deixou: o aparelho recusa o comando por rádio**, medido com `btmon`;
 - **só no cabo** -> a casa passa a poder escrever *"medido: o serial de fábrica
   não atravessa o rádio"*, com data e amostra, em vez de repetir a leitura de
   terceiro;

@@ -2,8 +2,12 @@
 
 - **Escrito em:** 15/08/2026, sobre `c8065d8`
 - **Grau:** **MEDIDO** no que descarta; **MEDIDO NO CABO** no que propõe
-  (15/08/2026, dois controles — ver §1); **MEDIDO E RECUSADO NO RÁDIO**
-  (15/08/2026, duas tentativas, `EIO` nas duas — ver §4).
+  (15/08/2026, dois controles — ver §1); **MEDIDO E RECUSADO NO RÁDIO** — em
+  15/08/2026 por `EIO` em duas tentativas, e em **23/08/2026 pela causa**: o
+  canal de controle instrumentado com `btmon` mostra o `SET_REPORT` saindo
+  inteiro e o **controle** respondendo `HANDSHAKE 0x04`
+  (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois aparelhos, com e sem CRC. Quem
+  recusa é o firmware — ver §4.
 - **Citada desde:** 10/08/2026, em três documentos, e nunca escrita até agora —
   o que é, ele mesmo, o defeito que esta sprint documenta.
 
@@ -199,11 +203,34 @@ mesma janela, **o cabo obedeceu**: `hidraw4` devolveu `05` e `hidraw5` devolveu
   o descritor prometer um canal que o rádio não tem;
 - **não é o timeout de ~3 s do BlueZ**, logo **não é o canal de controle se
   esgotando** nem o rádio se perdendo — a execução inteira levou **0,25 s**;
-- **sobra uma hipótese, e ela é HIPÓTESE, não medição:** o `SET_REPORT` de
-  feature é recusado na camada **HIDP/L2CAP** — pelo firmware ou pelo BlueZ —
-  independentemente do conteúdo. Separar *quem* recusou exige instrumentar o
-  canal de controle, e isso é uma **terceira** tentativa, que não foi feita: o
-  orçamento eram duas escritas, e ele acabou.
+- **quem recusa: o CONTROLE. Medido em 23/08/2026**, e a hipótese desta página
+  ("HIDP/L2CAP, pelo firmware ou pelo BlueZ") está respondida pela metade que
+  importa. O canal de controle foi instrumentado com `btmon`, que era
+  exatamente a terceira tentativa que faltava::
+
+      9.0320 hci2 TX cid=65 len=65  53 80 01 13 … 93 0d 46 73
+      9.0369 hci2 RX cid=64 len=1   04
+
+  `0x53` é `HIDP_TRANS_SET_REPORT|FEATURE`; `0x04` é `HANDSHAKE` com
+  `ERR_INVALID_PARAMETER` (`bluez/profiles/input/hidp_defs.h`). **O pacote sai
+  do host inteiro** — 65 bytes no canal de controle L2CAP — e o **aparelho**
+  responde erro em ~5 ms. Não é o BlueZ, não é o uhid, não é o kernel, não é o
+  daemon. O par idêntico se repete no `hci1`, no outro controle. O `-EIO` que
+  o Python enxerga é máscara do uhid (`hid-playstation.c:901`), não a causa.
+
+  **A régua foi validada antes**, com três âncoras independentes: o
+  `GET_FEATURE 0x20` no MESMO canal responde em ~6 ms, e os bytes 24-31 batem
+  com `firmware_version` e `hardware_version` do sysfs, e o CRC lido bate com o
+  calculado. O fio está bom; o comando é que é recusado.
+
+- **A quinta assinatura de falha, que a tabela acima não previa.** Ela lista
+  quatro (EPIPE, timeout do BlueZ, eco errado, sucesso). A que veio é a quinta:
+  handshake de erro do próprio controle.
+
+- **O que esta página fecha cedo demais:** "o CRC não é o discriminante". As
+  duas caudas tentadas — semente `0xA3` e zeros — são **ambas inválidas** para
+  um firmware que valide CRC no sentido de ESCRITA. Semente `0xA2` (saída),
+  `0xA1` (entrada) e buffer curto de 3 bytes seguem por tentar.
 
 Medição bruta:
 [`2026-08-15-E7-cor-do-plastico.txt`](../../data/ensaios-brutos/2026-08-15-E7-cor-do-plastico.txt),

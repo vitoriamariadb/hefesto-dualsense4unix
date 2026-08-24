@@ -11,7 +11,7 @@ fazer hoje. Esta lista é a diferença entre os dois.
 
 | # | O quê | Onde está hoje | O que falta |
 |---|---|---|---|
-| 1 | **Cor do plástico por rádio** | **A leitura por cabo entrou no produto em 22/08** (`integrations/cor_do_plastico.py`), e é ela que pinta a borda dos cards | Só a leitura **por rádio** continua aberta: falta medir nesta bancada |
+| 1 | ~~**Cor do plástico por rádio**~~ **FECHADO — o firmware recusa** | A leitura por cabo entrou no produto em 22/08 (`integrations/cor_do_plastico.py`), e é ela que pinta a borda dos cards | **Nada. Medido em 23/08**, nos dois DualSense, com e sem CRC: o `SET_REPORT` sai inteiro no ar e o CONTROLE responde `HANDSHAKE 0x04` em ~5 ms. Não tem conserto do nosso lado; o caminho é o item 12 (ela escolher a cor) |
 | 2 | **Borda na cor do plástico** | Desenhado em `ONDE-A-COR-MORA-01` (D-16, D-17, D-18); custo estimado ~120 linhas em `status_actions.py`, ~30 no `theme.css` | Executar. A aba Configurações **consome** essa borda, não a implementa |
 | 3 | **O tom de cada cor** | O aparelho entrega `05`, a tabela entrega *Starlight Blue*, e **ninguém entrega um RGB** | Definir os seis tons. É pergunta aberta da própria `ONDE-A-COR-MORA-01` |
 | 4 | **Número de jogador fixo por controle** | `identity.number.set` existe, funciona nos dois registros | A GUI nunca oferece para controles externos |
@@ -72,7 +72,8 @@ bandeja.
 
 Nenhuma bloqueia a leva; todas melhoram o que a aba consegue afirmar.
 
-1. Cor do plástico por rádio nesta bancada — item 1 acima.
+1. ~~Cor do plástico por rádio nesta bancada~~ — **MEDIDA em 23/08 e o aparelho recusa.** Ver o item 1 acima e a nota nova em
+   [UNIDADE-COR-01](../2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md).
 2. O modelo do 8BitDo desta casa: SN30 Pro ou SN30 Pro+.
 3. Default da Steam para `SteamController_SwitchSupport` quando a chave não existe.
 4. Se o Hefesto enxerga o controle em modo D-input.

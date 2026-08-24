@@ -176,6 +176,15 @@ que "ninguém demonstrou", que houve uma "rodada seca", que resta uma "dúvida
 honesta" sobre o CRC que a medição já respondeu, e a lista de "como ler a
 falha, se vier" não tem a assinatura que **de fato veio**.
 
+> **Fechado em 23/08/2026, e por medição nova.** O corpo da UNIDADE-COR-01 foi
+> reescrito: a hipótese *"HIDP/L2CAP, pelo firmware ou pelo BlueZ"* virou
+> medida — `btmon` no canal de controle mostra o `SET_REPORT` saindo inteiro e
+> o **controle** respondendo `HANDSHAKE 0x04` em ~5 ms, nos dois aparelhos, com
+> e sem CRC. A quinta assinatura de falha (que a tabela não previa) está
+> escrita, e a dúvida do CRC ficou **mais estreita, não fechada**: as duas
+> caudas tentadas são ambas inválidas para escrita, e as sementes `0xA2`/`0xA1`
+> seguem por tentar.
+
 **Dado de graça que ele deixou para outra frente:** os dois controles de rádio
 publicam o **mesmo** estado no sysfs — o vermelho são e o branco de lightbar
 apagada, ambos com `brightness=255 multi_intensity=[0 255 0]`. O kernel acha
