@@ -3,9 +3,10 @@
 - **Pedido dela, 07/08/2026:** *"salvo engano também ficamos de ver uma forma
   automática de limpar as configs do projeto após os testes pra deixarmos tudo
   certo"*
-- **Estado:** **CURA APLICADA** para o `/tmp`, com testes que mordem; o `$HOME`
-  já estava limpo e agora tem um segundo instrumento (aviso); o que sobra está
-  listado em *O que fica ABERTO*
+- **Estado:** **CURA APLICADA** para o `/tmp` e, desde 24/08/2026, para a
+  CAUDA do `$HOME` (a fixture `_hefesto_fake_env` agora isola `HOME`, não só
+  os quatro `XDG_*` — ver *"A cauda do `$HOME`, fechada em 24/08/2026"*
+  abaixo). O que sobra está listado em *O que fica ABERTO*
 - **Gravidade:** MÉDIA para o disco (2 MB e 906 diretórios acumulados), **ALTA
   para o diagnóstico** — a medição desta sprint achou a suíte fazendo o daemon
   VIVO dela escrever e mexer em `/dev/hidraw2`
@@ -330,6 +331,69 @@ execução em que o lixo é removido, precisa sair intacto —
 
 ---
 
+## A cauda do `$HOME`, fechada em 24/08/2026
+
+A frente 17 (Portão e teste) do `SPRINT_ORDER.md` §0.12 apontava esta sprint
+como tendo "só a cauda" em aberto: *"utils/i18n.py e core/system_check.py
+continuam lendo o `$HOME` real sob teste, e o `HOME` continua não isolado no
+autouse"*.
+
+**MEDIDO em 24/08/2026, contra a árvore de hoje** (não era hipótese — os dois
+pontos foram lidos linha a linha antes de qualquer código):
+
+- `utils/i18n._candidate_locale_dirs()` cai para `Path.home()/.local/share/
+  locale` sempre que o candidato `XDG_DATA_HOME` isolado (vazio) não tem
+  catálogo. Num source-install real, `_find_locale_dir()` encontraria o
+  catálogo `.mo` DELA, e `init_locale()` travaria esse resultado num flag de
+  módulo pela sessão de pytest inteira.
+- `core/system_check._wireplumber_hijacks_mic()` lê `Path.home()/.local/
+  state/wireplumber/default-nodes` direto, ignorando `XDG_STATE_HOME`. Todo
+  teste que sobe o daemon passa por `_check_system_on_boot()`, que chama esta
+  função — o aviso resultante dependia do WirePlumber real da máquina, não do
+  que o teste exercitava.
+
+As duas são LEITURA, por isso o CANARIO-FS-01 (que só vigia escrita) ficava
+calado — é uma classe de defeito irmã do BUG-TEST-CONFIG-LEAK-01, em leitura
+em vez de escrita.
+
+**A cura** é a mesma dos quatro `XDG_*`: `_hefesto_fake_env`
+(`tests/conftest.py`) agora isola `HOME` também, num diretório vazio
+(`<tmp_path>/.xdg/home`) por teste. Sem escotilha própria — nenhuma suíte
+depende do `$HOME` real; os 7 arquivos que já faziam
+`monkeypatch.setenv("HOME", ...)` continuam livres, e vencem por rodarem
+depois desta fixture.
+
+**A mordida**, em `tests/unit/
+test_home_tambem_vazava_01_a_cauda_do_berco_de_tmp.py` (4 casos): com a linha
+de isolamento comentada, os quatro reprovam — e a mensagem de erro **nomeia o
+`$HOME` real da máquina** (`/home/vitoriamaria/.local/share/locale` e
+`/home/vitoriamaria/.local/state/wireplumber/default-nodes`), confirmando que
+os dois arquivos realmente alcançariam o disco dela. Com a linha devolvida, os
+quatro passam. GRAU: MEDIDO.
+
+**Validação mais ampla**, respeitando a regra desta casa de não rodar a suíte
+inteira num agente executor: mais de 1000 testes rodados em lotes — todo
+arquivo de teste que toca um `Path.home()` de produção (i18n, system_check,
+storm_doctor, emulation_actions, proton_pin, camadas_vulkan, sentinela_do_
+wrapper, steam_launch_options, button_glyph, tray, daemon_actions), mais 199
+testes de boot do daemon (onde `system_warnings()` é chamado a cada subida) —
+zero regressão. Um vermelho pré-existente apareceu em
+`portao_a_casa_sabe_e_o_produto_nao_faz.py`
+(`app/ipc_bridge.py::machine_declare`, `utils/maquina.py::gravar_maquina` sem
+chamador) — confirmado, por `git stash`, que reproduz IDÊNTICO sem esta
+mudança; não é desta sprint.
+
+Dois comentários que citavam "`HOME` não isolado" como fato corrente ficaram
+desatualizados por esta cura e foram corrigidos no lugar (regra "fato errado
+se substitui"): o docstring de `test_conftest_canario_fs.py` e o de
+`test_carona_do_wrapper_01_salvar_repoe_o_que_a_steam_comeu.py`. O
+`HEFESTO_CARONA_WRAPPER=0` da fixture **continua desligado por padrão** — não
+por causa do vazamento de `$HOME` (que fechou), mas como segunda camada
+deliberada: carona é opt-in sob teste, não ruído incidental nas dezenas de
+testes de GUI que só clicam "Salvar" por outro motivo.
+
+---
+
 ## O que fica ABERTO
 
 - **Os 17 teclados uinput com o NOME DE PRODUÇÃO** continuam nascendo a cada
@@ -345,8 +409,9 @@ execução em que o lixo é removido, precisa sair intacto —
   de sessões concorrentes. A faxina só RELATA;
 - **o canário continua sem ver LEITURA** — o limite estrutural registrado na
   CANÁRIO-FS-01 não mudou;
-- **`utils/i18n.py` e `core/system_check.py` continuam lendo o `$HOME` real sob
-  teste**, e o `HOME` continua não isolado no autouse;
+- ~~`utils/i18n.py` e `core/system_check.py` continuam lendo o `$HOME` real sob
+  teste, e o `HOME` continua não isolado no autouse~~ — **FECHADO em
+  24/08/2026**, ver *"A cauda do `$HOME`, fechada em 24/08/2026"* abaixo;
 - **rodar a faxina com `--apagar`** no `/tmp` dela: 911 alvos, 2,0 MB. É dela a
   palavra.
 
