@@ -1173,7 +1173,7 @@ por causa desta correção.
 
 - **as mensagens dos commits `a68c04e` e `6b1cb62`** afirmam o erro e **não têm
   conserto** — histórico publicado não se reescreve. Ficam registradas aqui;
-- **`docs/process/agentes/2026-08-06/decisoes/candidatas-cruas.md` (contexto da
+- **`docs/process/arquivo/agentes-2026-08-06/decisoes/candidatas-cruas.md` (contexto da
   candidata 23) e `.../painel-de-decisoes.md`** repetem a leitura errada e
   **não foram tocados de propósito**: `docs/process/agentes/README.md` declara
   aquele diretório como **matéria-prima** — *"o que um agente devolveu, como

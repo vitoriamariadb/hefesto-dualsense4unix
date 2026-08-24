@@ -35,7 +35,9 @@ quando entra · exemplo real. Escaneie, não leia corrido.
   escopo, medir na bancada se ela não estiver medindo.
 - **Não pode:** editar `src/`, rodar a suíte inteira, tocar aba ou arquivo
   alheio, fotografar (`retratar_abas.py` é de quem coordena — R4 de
-  [COMO-REGER-AGENTES.md](COMO-REGER-AGENTES.md)).
+  [COMO-REGER-AGENTES.md](COMO-REGER-AGENTES.md)). Desde 24/08/2026 isso é
+  portão, não combinado: o `pre-commit` recusa commit de `app/`, `gui/` ou
+  `scripts/gui-captura` sem foto junto (`scripts/check_fotos_da_tela.py`).
 - **Quando:** fase 1 de toda leva de medição, em paralelo, um por fatia.
 - **Exemplo:** `wf_d6b6fa3f-38b`, label "batedor da aba Status"
   (`agent-a0cdb6641a79f7dad`): achou o rótulo de Hz do giroscópio nunca

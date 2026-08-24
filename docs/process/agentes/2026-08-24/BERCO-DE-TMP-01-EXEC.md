@@ -46,9 +46,9 @@ FAILED ...::test_home_isolado_nao_e_o_home_do_dono_do_processo
 FAILED ...::test_home_isolado_vive_dentro_do_tmp_da_sessao
 FAILED ...::test_system_check_nunca_alcanca_o_wireplumber_real
   AssertionError: `_wireplumber_hijacks_mic()` leria
-  /home/vitoriamaria/.local/state/wireplumber/default-nodes, fora do HOME isolado
+  ~/.local/state/wireplumber/default-nodes, fora do HOME isolado
 FAILED ...::test_i18n_fallback_de_home_fica_dentro_do_isolamento
-  AssertionError: o candidato de fallback de i18n é /home/vitoriamaria/.local/share/locale,
+  AssertionError: o candidato de fallback de i18n é ~/.local/share/locale,
   fora do HOME isolado
 4 failed in 0.17s
 ```

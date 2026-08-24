@@ -80,9 +80,18 @@ de **ver uma coisa a fundo**, é agente único.
 
 ## A integração das árvores em voo
 
-`scripts/despachar-agente.sh --listar` é a fonte de verdade — ele só lê
-`git worktree list`, que o git mantém sozinho e nenhum agente pode esquecer de
-atualizar:
+`scripts/despachar-agente.sh --listar` diz o que EXISTE, não o que está em voo —
+ele só lê `git worktree list`, que o git mantém sozinho e nenhum agente pode
+esquecer de atualizar, **e que é cego a merge**. Medido em 24/08: as nove
+branches da Onda 0 apareciam como "EM VOO" com as nove já integradas há menos de
+uma hora. Quem parar no `--listar` redespacha uma sprint entregue. **A pergunta
+"ainda tem commit por integrar?" tem um comando só:**
+
+```bash
+for b in $(git branch --list 'voo/*' | tr -d ' *+'); do
+  echo "$b ahead=$(git rev-list --count dev..$b)"
+done          # ahead=0 significa INTEGRADA — worktree residual, não voo
+```
 
 ```
 $ scripts/despachar-agente.sh --listar
@@ -161,7 +170,12 @@ Nesta ordem, parando quando já souber o bastante:
 3. **`docs/data/decisoes-dela.csv`** — o que já foi decidido não se
    repropõe; o que está `aberta` é o que espera a palavra dela;
 4. **`scripts/despachar-agente.sh --listar`** — o que já está em voo, para
-   não despachar duas vezes a mesma sprint;
+   não despachar duas vezes a mesma sprint. **Ele sozinho não responde isso:**
+   rode o laço de `ahead=` da seção "A integração das árvores em voo" — `ahead=0`
+   é worktree residual de sprint já entregue;
+   e **`git log --since=midnight --format='%h %s'`**, que é a única fonte de
+   "o que fechou hoje" (nenhum documento guarda isso, e a auditoria do `/clear`
+   de 24/08 mediu que só o `git log` responde);
 5. **COMO-REGER-AGENTES.md** e **COMO-EXECUTAR-UMA-SPRINT.md**, se ainda não
    internalizados nesta sessão;
 6. **COMO-OLHAR-A-TELA.md**, só se o trabalho toca a tela.
@@ -173,19 +187,40 @@ Nesta ordem, parando quando já souber o bastante:
 1. `git add -A` — os portões são cegos a arquivo novo;
 2. a suíte inteira (`pytest -q`) e os portões da lista do `CLAUDE.md`, com a
    leva **parada** (R2/R4 de COMO-REGER-AGENTES.md — nenhum agente rodando);
-3. `scripts/gui-captura/retratar_abas.py`, se alguma mudança tocou a tela;
+3. `scripts/gui-captura/retratar_abas.py`, se alguma mudança tocou a tela — e
+   **`git add docs/usage/assets` depois dele**, senão a foto fica de fora do
+   commit. Este item deixou de ser promessa em 24/08/2026: o `pre-commit`
+   BLOQUEIA commit que mexe em `app/`, `gui/` ou `scripts/gui-captura` sem
+   levar foto junto (`scripts/check_fotos_da_tela.py`, ~25 ms). Ele nasceu
+   porque a integração da Onda 0 furou a ordem desta lista — commitou no passo
+   5 antes de fotografar aqui, e nove branches de interface entraram em `dev`
+   sem ninguém abrir a tela — por **merge**, onde o git não roda `pre-commit`.
+   Por isso o gancho faz duas perguntas: os merges passam, e a **dívida é
+   cobrada no primeiro commit depois deles**, que é este passo 5. O gancho se
+   cala em worktree de agente (fotografar é seu, não dele) e não vê `rebase`
+   nem `--no-verify`; ali quem cobra continua sendo a suíte;
 4. `scripts/gerar-painel.py --completo` — o estado do projeto, medido agora,
    não herdado de um cache velho;
 5. commit;
 6. **o que fica registrado para a próxima sessão**, porque um `/clear` apaga
    o que só está na sua cabeça: `SPRINT_ORDER.md` com o que fechou marcado,
    `decisoes-dela.csv` com toda decisão nova que ficou aberta, e um
-   `ONDE-PARAMOS` novo se o dia mudou o suficiente para merecer um.
+   `ONDE-PARAMOS` novo se o dia mudou o suficiente para merecer um;
+7. `git worktree remove` de toda árvore com `ahead=0` — enquanto ela ficar, o
+   `--listar` da próxima leva chama sprint entregue de "em voo" (o `--limpar`
+   **não** faz isso hoje: `git worktree prune` só remove diretório inexistente);
+8. `python3 scripts/sanitizar_saida_de_agente.py --check docs/process/agentes/<data>/*.md`
+   — `check_anonymity.sh` isenta `docs/process/**` de propósito, então este é o
+   **único** guarda daquela pasta, e em 24/08 um relatório entrou com o `$HOME`
+   real por ninguém o ter rodado.
 
 ---
 
 ## Ver também
 
+- [2026-08-24-O-PROCESSO-AGUENTA-UM-CLEAR.md](2026-08-24-O-PROCESSO-AGUENTA-UM-CLEAR.md)
+  — quatro lentes medindo este papel: o que funcionou, os cinco itens de
+  checklist furados por quem os escreveu, e a conta do que não virou nada.
 - [COMO-REGER-AGENTES.md](COMO-REGER-AGENTES.md) — as quatro regras e as seis
   armadilhas que valem para todo agente.
 - [COMO-EXECUTAR-UMA-SPRINT.md](COMO-EXECUTAR-UMA-SPRINT.md) — o protocolo de

@@ -72,12 +72,17 @@ lados: `test_a_mesa_cheia_na_foto.py` roda a montagem inteira com **toda porta
 de IPC do pacote `app` minada**, e `test_retrato_das_abas_nao_vaza_dado_real.py`
 exige que todo dado de entrada more em `tests/fixtures/`.
 
-**Duas fotos que só este modo produz, e que nenhuma foto desta casa tinha:**
+**A foto que só este modo produz:**
 
 | foto | o que ela responde |
 |---|---|
 | `mesa_cheia_status_inteira.png` | a aba Status na altura que ela **pede** (2055 px) em vez da que **recebe** (1080). É a medida do problema de empilhar quatro cards |
-| `mesa_cheia_cabecalho.png` | a **fita do alvo** ("Ajustes vão para: …"), que mora no `header_bar` e que **nenhuma foto de aba alcança** — o `main` fotografa o `main_notebook`, e o cabeçalho fica fora do recorte |
+
+As **duas fotos do cabeçalho** (`readme_cabecalho.png` e
+`readme_cabecalho_alvo_inativo.png`) saem em **todos** os modos desde
+24/08/2026 — a segunda é a fita do alvo **esmaecida**, o estado que a Z2-8
+levou a seis abas de uma vez. Nos modos de mesa elas ganham o prefixo do modo
+(`mesa_cheia_cabecalho.png`, `mesa_de_cinco_cabecalho.png`).
 
 ## O logo e os ícones
 
@@ -178,11 +183,11 @@ Seja honesto sobre isto ao usá-la:
 
 - **não passa pelo compositor** — não há sombra, canto arredondado nem o tema de
   janela do COSMIC;
-- **não mostra o cabeçalho** (14/08/2026): as fotos de aba são do `main_notebook`,
-  que o script arranca do `root_box` — o `header_bar` fica **fora do recorte**.
-  A fita "Ajustes vão para: …" e o selo "Editando: …" moram lá, e por isso
-  nunca apareceram em foto nenhuma desta casa. Quem precisa delas usa o
-  `--mesa-cheia`, que fotografa o cabeçalho à parte;
+- **a foto de ABA não mostra o cabeçalho**: ela é do `main_notebook`, que o
+  script arranca do `root_box` — o `header_bar` fica **fora daquele recorte**.
+  A fita "Ajustes vão para: …" e o selo "Editando: …" moram lá, e desde
+  24/08/2026 têm **duas fotos próprias em todos os modos** (a fita viva e a
+  fita esmaecida). Não procure nenhuma das duas dentro de uma foto de aba;
 - **não prova que a janela abre** — prova o que tem dentro dela;
 - **não substitui o olho dela.** A regra da casa
   ([PROVA-DE-TELA-01](sprints/2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md))

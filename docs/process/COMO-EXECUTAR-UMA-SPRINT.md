@@ -125,7 +125,10 @@ mediram **398 s como piso**.
 - **a suíte inteira.** Cria nós `uinput` de verdade — 1.289 num dia derrubaram o
   fullscreen dela. Rode **o seu escopo**;
 - **`scripts/gui-captura/retratar_abas.py`** — reescreve as onze fotos de uma
-  vez. Quem fotografa é quem coordena, depois que a leva fecha;
+  vez. Quem fotografa é quem coordena, depois que a leva fecha. Desde
+  24/08/2026 há gancho cobrando a foto (`scripts/check_fotos_da_tela.py`), e
+  ele **se cala na sua worktree** justamente por isto: você commita `app/` à
+  vontade, sem foto, e a cobrança cai na árvore de quem integra;
 - **qualquer portão que reescreva artefato compartilhado** (`gerar-mapa.py` sem
   `--check`, o retrato de diálogos). Use a forma `--check`;
 - **`python3` pelado** onde o portão importa dependência do projeto:

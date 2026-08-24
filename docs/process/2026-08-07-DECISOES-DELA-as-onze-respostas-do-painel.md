@@ -212,6 +212,6 @@ verificação adversarial — na maioria, porque **ela já tinha respondido** e 
 resposta estava no repositório ou numa fala registrada.
 
 A lista das derrubadas, com o `grep` que provou cada uma, está em
-[docs/process/agentes/2026-08-06/decisoes/](agentes/2026-08-06/decisoes/).
+[docs/process/arquivo/agentes-2026-08-06/decisoes/](agentes/2026-08-06/decisoes/).
 Quem quiser reabrir uma delas: leia o motivo antes, porque quase sempre a
 pergunta já tem dona.

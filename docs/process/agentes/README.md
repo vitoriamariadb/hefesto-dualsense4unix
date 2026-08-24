@@ -81,8 +81,19 @@ A árvore está limpa; o passado, não.
 |---|---|
 | `2026-08-06/subagentes/` | o relatório final de cada subagente, com a tarefa que recebeu |
 | `2026-08-06/workflows/` | o resultado completo de cada workflow, com custo e fases |
+| `2026-08-24/` | os relatórios de quatro cabeçalhos da frente 17 (`TESTE-HONESTO-01`, `AUDITORIA-DE-PERDA-01`, `BERCO-DE-TMP-01`) e das frentes Z0, Z2, Z5 e Z6 da Onda 0 |
 
 O `INDICE.md` de cada leva diz quem foi cada agente.
+
+**A leva de 24/08 não tem `INDICE.md`, e esta linha existe no lugar dele.** Os
+sete arquivos estavam com **zero citações pelo nome** em todo o repositório
+(medido em 24/08 com `git grep -l -F` por basename): existiam no disco e eram
+inalcançáveis por navegação. Só o `AUDITORIA-DE-PERDA-01-exec.md` guarda coisa
+que não está em nenhuma mensagem de commit — os dois vermelhos pré-existentes que
+ele mediu e decidiu não consertar, com as duas rotas honestas. As **cinco outras
+frentes da Onda 0** (Z1, Z3, Z4, Z7 e CONFIGURACOES-FECHA) integraram **sem
+relatório nenhum**, contra o item 1 de "confira, não confie" de
+[COMO-COORDENAR-UMA-LEVA.md](../COMO-COORDENAR-UMA-LEVA.md).
 
 ## O que NÃO entra aqui
 
