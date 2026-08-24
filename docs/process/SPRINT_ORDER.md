@@ -540,9 +540,27 @@ também nunca teve essa trava, por não tocar código de produto.
 | **14** | **Co-op e ciclo de vida do jogador** (dono único `coop.py`) | Ordem interna fixa (censo 24/08, ordem por reuso de bancada): `COOP-QUE-NÃO-DESMONTA-01` → `BORDA-DE-QUEDA-01` → `QUATRO-NA-MESA-01` → `DUAS-CONTABILIDADES-01` (resíduo — o achado central já foi curado por `cb46bd8`/`eef9853` fora do ciclo de sprint; só registra o que sobra, sem sprint dona) → `PARTIDA-PICOTADA-01` (**já entregue**, confere e risca) → `JOGADOR-3-FANTASMA-01` → `LUGAR-À-MESA-01` (trava em `MASCARA-01`, Onda 5, por decisão dela — se Onda 5 já fechou, destravada). `MONITOR-QUE-VENCE-01` **fora**: concluída, não toca `coop.py` | Onda 13 (gamepad/vpad estáveis antes do ciclo de vida do jogador pousar em cima) — **NÃO VERIFICADO por colisão de arquivo, é dependência lógica** | nenhuma das frentes 15-18 declara tocar `coop.py`, exceto `ÁRVORE-DIVERGENTE-01` (frente 16) | 7 sprints abertas, dono único, 1 agente sequencial |
 | **15** | **Identidade de aparelho** | `IDENT-01`, `IDENTIDADE-DUPLA-01` (E1 é dela — 2 min, MAC do 8BitDo por modo), `UMA-FAIXA-NÃO-É-UM-FABRICANTE-01`, `N-IGUAL-A-UM-01` (E1 já entrou; resto é dela) | **Onda 14 fechada** — `QUATRO-NA-MESA-01` (frente 14) já reivindica `daemon/subsystems/identity.py`, mesmo arquivo desta frente | Onda 16 e 17 | 4 sprints |
 | **16** | **Instalação e empacotamento** (dono único, mesmo grupo de arquivo) | Ordem interna fixa (censo 24/08): `CURA-QUE-FERE-01` (portão do padrão) → `BT-AGENT-TRAVA-O-RESTART-01` → `RADIO-ABERTO-01` → `BONDS-QUE-SOBREVIVEM-01` (ressalva: reconferir os 4 defeitos contra o código de hoje — commits de 15/08 e 22/08 não citados na sprint) → `DROPIN-AMBIGUO-01` → `SIMETRIA-INSTALL-02` → `IDENTIDADE-01` → `ÁRVORE-DIVERGENTE-01` (**ressalva forte**: cita por nome `STATUS-SIMETRIA-01`/`MIC-USB-01` como abertas quando a §0.6 já as classifica "entregue, só falta o olho dela" — **re-medir a lista inteira antes de sequenciar**; é a única sprint do balde que toca `coop.py` diretamente) | **Onda 14 fechada** (`led_control.py` reivindicado por `LUGAR-À-MESA-01`, e `ÁRVORE-DIVERGENTE-01` toca `coop.py` direto — colisão só confirmada por grep, não linha a linha). **Não depende mais de fechar a Onda 11** (24/08: a alegação que a prendia lá era falsa, ver nota acima) — respeita só `install.sh:3504` | Onda 11, Onda 15 e 17 | 8 sprints, dono único, 1 agente sequencial |
-| **17** | **Portão e teste** | `TESTE-HONESTO-01` (planejamento, zero código), `AUDITORIA-DE-PERDA-01` (= item 18 da fila §1 — mesma sprint), cauda de `BERÇO-DE-TMP-01` (a parte do `$HOME`, a parte de `/tmp` já está curada) | nenhuma (toca `scripts/check_*.py` e fixtures de teste — **NÃO VERIFICADO** colisão fina com `check_packaging_parity.sh` da frente 16, mas os arquivos-alvo declarados são outros) | tudo, inclusive Z0..Z7 e as ondas de aba — pode começar no dia 1 | 3 sprints |
+| **17** | **Portão e teste** — **FECHADA em 24/08** (as três sprints, relatórios em `docs/process/agentes/2026-08-24/`) | `TESTE-HONESTO-01` (E2 + seis coletas de teste salvas), `AUDITORIA-DE-PERDA-01` (E1-E4, os três portões que não mediam), `BERCO-DE-TMP-01` (a cauda do `$HOME` vazando, fechada) | nenhuma (toca `scripts/check_*.py` e fixtures de teste — **NÃO VERIFICADO** colisão fina com `check_packaging_parity.sh` da frente 16, mas os arquivos-alvo declarados são outros) | tudo, inclusive Z0..Z7 e as ondas de aba — pode começar no dia 1 | 3 sprints |
 | **18** | **Documentação** (sem sprint própria — três fatos soltos) | `LEIA-PRIMEIRO.md` (47→49 colunas, 696.546→701.611 bytes), `README.md:219` ("~40% do sinal", já caduco no CSV), `docs/usage/interface.md` (linha morta da aba Status desde 17/08) | **Onda 0 + Ondas 1-11 fechadas** — regra do próprio balde (§0.6): documentar antes é documentar o produto de ontem | pode rodar depois de fechar, em paralelo com 13-17 se elas ainda estiverem de pé, mas nunca antes da leva de aba | 3 fatos, ~1 h |
 | — | **Clean-room** — **DECLARADAMENTE FORA da 0.9.5** (decisão D-J, §0.9) | `CR-03` → `CR-04` → `CR-06` → `CR-SEQUENCIA-01` (ordem já fixada no §0.6). `CR-01`, `CR-02`, `CR-05`, `METODO-01` já entregues — fecham sem executar | é 1.0, não sequenciar aqui | — | não entra na conta da 0.9.5 |
+
+**O que a integração da frente 17 achou, fora do escopo das três sprints —
+suíte completa rodada em 24/08 depois do merge, 5 vermelhos, 3 consertados na
+hora** (toolchain do Rust sem default, fotos da aba Configurações atrasadas
+do commit `0e12780`, e um bug real em `_handle_machine_declare` que reusava a
+variável `resultado` e derrubava o "Aplicar" do microfone — os três
+commitados). **Os dois que sobraram, registrados e não consertados:**
+`tests/unit/test_migracao_bluez_depreciados.py::TestLinkPolicyDoModoAtivoNintendo`
+(as duas). Causa: `_bt_adaptadores()` (`scripts/doctor.sh:2636`) lê
+`/sys/class/bluetooth/hci*` sem parâmetro de override — ao contrário do
+padrão já usado no mesmo arquivo para `/sys/class/hidraw` (`local
+sysroot="${2:-/sys/class/hidraw}"`, ver `_hid_*`), então numa bancada com
+Bluetooth físico de verdade conectado (como esta, hoje) o sandbox de PATH do
+teste (`sandbox_sem_velhas`) não tem efeito nenhum — a função enxerga os
+adaptadores REAIS, não os fakes do teste. Conserto sugerido: dar a
+`_bt_adaptadores()` o mesmo parâmetro opcional de raiz sysfs que as funções
+de hidraw já têm, e o teste passa um diretório vazio. Não é dívida desta
+leva; é mais velha, só ficou invisível em máquina sem BT físico plugado.
 
 **Os dois baldes que a tabela acima não nomeia, por já tecidos noutro
 lugar — registrados aqui para a seção valer sozinha, sem depender do §0.6/§0.9
