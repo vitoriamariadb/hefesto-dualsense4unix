@@ -8,6 +8,21 @@ export const meta = {
   ],
 }
 
+// O DIRETÓRIO DOS JOURNALS é por MÁQUINA e por SESSÃO — nunca cravado no
+// script. Passe-o via `args` na chamada do Workflow:
+//   Workflow({ scriptPath: "scripts/workflows/rastreabilidade.js",
+//              args: { jornaisDir: "<caminho até .../subagents/workflows>" } })
+// Sem `args.jornaisDir`, o script recusa rodar — é preferível parar cedo a
+// varrer um diretório vazio e reportar "nada achado" como se fosse conclusão.
+if (!args || !args.jornaisDir) {
+  throw new Error(
+    "faltou args.jornaisDir — passe o caminho até .../subagents/workflows " +
+    "desta sessão (ele muda por máquina e por sessão, por isso não é cravado " +
+    "aqui). Ex.: Workflow({scriptPath, args: {jornaisDir: '/home/.../subagents/workflows'}})"
+  )
+}
+const JORNAIS = args.jornaisDir
+
 const CASA = `
 PROJETO: /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix (branch dev). Responda SEMPRE em português do Brasil, com acentuação correta — há portão que reprova.
 
@@ -23,14 +38,14 @@ E antes:
 Achado que ficou em relatório é token queimado. Achado que virou sprint é trabalho pago. Sua tarefa é separar os dois, com prova.
 
 ## ONDE O MATERIAL ESTÁ, e como ler sem estourar
-Os transcritos somam 81 MB — **NÃO os leia**. Os achados moram nos \`journal.jsonl\` de cada workflow, que somam de 16 KB a 784 KB:
+Os transcritos somam dezenas de MB — **NÃO os leia**. Os achados moram nos \`journal.jsonl\` de cada workflow, tipicamente de 16 KB a 800 KB cada:
 
-    /home/vitoriamaria/.claude/projects/-mnt-Apate-Desenvolvimento-hefesto-dualsense4unix/4600370d-f128-44eb-a185-c7cd80717bab/subagents/workflows/wf_*/journal.jsonl
+    ${JORNAIS}/wf_*/journal.jsonl
 
 Cada linha \`{"type":"result",...}\` traz o retorno de um agente. Use \`jq\` para extrair. **Comece medindo o tamanho antes de abrir**, e prefira \`jq -r 'select(.type=="result") | .result' | head -c N\` a despejar o arquivo.
 
 ## REGRAS
-- **Você AUDITA. Não conserte código, não edite \`src/\`, não edite teste.** Há três frentes escrevendo agora.
+- **Você AUDITA. Não conserte código, não edite \`src/\`, não edite teste.** Pode haver outras frentes escrevendo ao mesmo tempo — confira \`scripts/despachar-agente.sh --listar\` antes de mexer em qualquer coisa fora de \`docs/\`.
 - **Prove o que afirmar**, com o comando colado. "NÃO VERIFICADO" é MUITO preferível a chute.
 - **Não invente achado.** Se um agente mediu algo e você não acha o registro, diga que não achou — pode ser que esteja lá com outro nome.
 - **Menos verboso.** Escreva o que morde.
