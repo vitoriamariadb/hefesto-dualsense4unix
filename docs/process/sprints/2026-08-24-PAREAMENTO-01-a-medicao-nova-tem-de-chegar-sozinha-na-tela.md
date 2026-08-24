@@ -657,7 +657,7 @@ conferidas para 0** — toda cópia restante é conferida por portão. E o tempo
 8. **Os dois portões que comparam com o passado reprovam num clone raso**, em
    vez de sair 0: `git clone --depth 1` da árvore, rodar os dois, ver reprovar.
    E os dois jobs do `ci.yml` que os rodam têm `fetch-depth: 0`.
-9. A bateria completa do [CLAUDE.md](../../../CLAUDE.md) verde, com
+9. A bateria completa do `CLAUDE.md` verde, com
    `scripts/gui-captura/retratar_abas.py` rodado antes de commitar e as onze
    fotos no mesmo commit que toca `app/` ou `gui/`.
 

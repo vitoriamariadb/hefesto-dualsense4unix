@@ -344,7 +344,7 @@ R1 do [COMO-REGER-AGENTES](../COMO-REGER-AGENTES.md) proíbe manter separado.
 | **A3** | **Portão da fala** | Z6-04, Z6-11 — o validador por AST, três modos, e a fila publicada | `scripts/validar-fala-de-tela.py` e o teste dele; `scripts/gerar-painel.py` **só** no bloco da fila | as **seis mordidas**, cada uma arrancada, vista reprovar e devolvida, com a saída colada | <!-- ref-externa: arquivo A CRIAR nesta leva; a ausência é o assunto -->
 | **A4** | **O mapa** | Z6-05, Z6-07 — `o-aparelho-recusa`, a medição de 23/08 na linha da cor, e o `id` que não pode sumir | `docs/data/mapa-controles.csv`, `docs/data/ensaios.csv`, `scripts/check_paridade_transporte.py` | os diffs + o portão **reprovando antes** da correção |
 | **A5** | **Números e caducos** | Z6-08, Z6-09 — as duas curas próprias da Onda 0 | `docs/data/caducos.csv`, `scripts/validar-caducos.py`, `README.md`, `src/hefesto_dualsense4unix/integrations/dualsense_bt_audio.py`, `src/hefesto_dualsense4unix/integrations/radio_da_mesa.py` | as duas varreduras, a **segunda passada limpa**, e as mordidas | <!-- ref-externa: arquivo A CRIAR nesta leva; a ausência é o assunto -->
-| **A6** | **Tela e costura** | Z6-06, Z6-10, Z6-12 — a frase que mente, o censo com a régua de hoje, o CI, a bateria e o commit | `src/hefesto_dualsense4unix/app/widgets/external_card.py`, `.github/workflows/ci.yml`, as fotos, o commit | as fotos antes/depois, a saída dos onze comandos do [CLAUDE.md](../../../CLAUDE.md), o commit |
+| **A6** | **Tela e costura** | Z6-06, Z6-10, Z6-12 — a frase que mente, o censo com a régua de hoje, o CI, a bateria e o commit | `src/hefesto_dualsense4unix/app/widgets/external_card.py`, `.github/workflows/ci.yml`, as fotos, o commit | as fotos antes/depois, a saída dos onze comandos do `CLAUDE.md`, o commit |
 
 **Ordem: quatro em paralelo, dois em série.**
 
@@ -578,7 +578,7 @@ ESTRUTURAL, **uma vez** — e ela nasce na Z6-03 junto com o tipo, não aqui.)
 
 **O conserto.** As três edições do `ci.yml` aplicadas de uma vez, na ordem
 `fetch-depth` → `gerar-fatos --check` → `validar-fala --all`. A bateria completa
-do [CLAUDE.md](../../../CLAUDE.md), com `git add -A` **antes** (os portões são
+do `CLAUDE.md`, com `git add -A` **antes** (os portões são
 cegos a arquivo novo). `scripts/gui-captura/retratar_abas.py` rodado com a leva
 parada, e as onze fotos no mesmo commit que tocar `app/` ou `gui/`.
 **A mordida.** Não tem cura própria — a prova é a saída dos onze comandos e a
@@ -691,7 +691,7 @@ quem fechar cada uma confere pelo registro `Fala`, não por `grep`.
     foto antes/depois foi vista **por ela**.
 11. `Pendencia` com valor numérico ou booleano **não constrói** — e arrancar a
     recusa do `__post_init__` faz o teste reprovar.
-12. A bateria completa do [CLAUDE.md](../../../CLAUDE.md) verde, com `git add -A`
+12. A bateria completa do `CLAUDE.md` verde, com `git add -A`
     antes, `scripts/gui-captura/retratar_abas.py` rodado com a leva parada, e as
     onze fotos no mesmo commit que tocar `app/` ou `gui/`.
 
