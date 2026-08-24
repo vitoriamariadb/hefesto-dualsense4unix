@@ -545,22 +545,19 @@ também nunca teve essa trava, por não tocar código de produto.
 | — | **Clean-room** — **DECLARADAMENTE FORA da 0.9.5** (decisão D-J, §0.9) | `CR-03` → `CR-04` → `CR-06` → `CR-SEQUENCIA-01` (ordem já fixada no §0.6). `CR-01`, `CR-02`, `CR-05`, `METODO-01` já entregues — fecham sem executar | é 1.0, não sequenciar aqui | — | não entra na conta da 0.9.5 |
 
 **O que a integração da frente 17 achou, fora do escopo das três sprints —
-suíte completa rodada em 24/08 depois do merge, 5 vermelhos, 3 consertados na
-hora** (toolchain do Rust sem default, fotos da aba Configurações atrasadas
-do commit `0e12780`, e um bug real em `_handle_machine_declare` que reusava a
-variável `resultado` e derrubava o "Aplicar" do microfone — os três
-commitados). **Os dois que sobraram, registrados e não consertados:**
-`tests/unit/test_migracao_bluez_depreciados.py::TestLinkPolicyDoModoAtivoNintendo`
-(as duas). Causa: `_bt_adaptadores()` (`scripts/doctor.sh:2636`) lê
-`/sys/class/bluetooth/hci*` sem parâmetro de override — ao contrário do
-padrão já usado no mesmo arquivo para `/sys/class/hidraw` (`local
-sysroot="${2:-/sys/class/hidraw}"`, ver `_hid_*`), então numa bancada com
-Bluetooth físico de verdade conectado (como esta, hoje) o sandbox de PATH do
-teste (`sandbox_sem_velhas`) não tem efeito nenhum — a função enxerga os
-adaptadores REAIS, não os fakes do teste. Conserto sugerido: dar a
-`_bt_adaptadores()` o mesmo parâmetro opcional de raiz sysfs que as funções
-de hidraw já têm, e o teste passa um diretório vazio. Não é dívida desta
-leva; é mais velha, só ficou invisível em máquina sem BT físico plugado.
+suíte completa rodada em 24/08 depois do merge, 5 vermelhos, todos
+consertados.** Toolchain do Rust sem default; fotos da aba Configurações
+atrasadas do commit `0e12780`; um bug real em `_handle_machine_declare` que
+reusava a variável `resultado` e derrubava o "Aplicar" do microfone; e os
+dois de `tests/unit/test_migracao_bluez_depreciados.py::TestLinkPolicyDoModoAtivoNintendo`
+— `_bt_adaptadores()` (`scripts/doctor.sh`) lia `/sys/class/bluetooth/hci*`
+sem override, então numa bancada com Bluetooth físico de verdade conectado
+(como esta, hoje) o sandbox de PATH do teste (`sandbox_sem_velhas`) não tinha
+efeito nenhum — a função enxergava os adaptadores REAIS, não os fakes.
+Curado com `HEFESTO_BT_SYSFS_ROOT` (env var, não parâmetro posicional: quem
+chama `_bt_adaptadores()` em produção não tem root nenhum para repassar) e
+um `_sysfs_bt_hci0()` novo no teste. Não era dívida desta leva — mais velha,
+só ficou invisível em máquina sem BT físico plugado.
 
 **Os dois baldes que a tabela acima não nomeia, por já tecidos noutro
 lugar — registrados aqui para a seção valer sozinha, sem depender do §0.6/§0.9
