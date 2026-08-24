@@ -49,7 +49,7 @@ Declarados por quem os criou, e são sistemáticos:
 
 Os agentes corrigiram quem coordenava **várias vezes** em 23/08 — a taxonomia
 duplicada, as fotos, a ordem das abas, o `114` que era régua falsa, o `mtime`
-que media a coisa errada.
+que apontava para a coisa errada.
 
 **Todas as correções foram sobre FATOS. Nenhuma sobre o ENQUADRAMENTO.**
 
