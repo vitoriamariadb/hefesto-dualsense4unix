@@ -11,7 +11,7 @@ coordenou — e um `/clear` apaga isso. Cada linha abaixo é um defeito real des
 leva, com a cicatriz ao lado. Preferência sem defeito por trás não entrou.
 
 O estado daquela leva — o que foi entregue, o que ficou aberto — está em
-[2026-08-23-ONDE-PARAMOS](2026-08-23-ONDE-PARAMOS-os-doze-defeitos-de-forma-e-a-regencia.md).
+[2026-08-23-ONDE-PARAMOS](2026-08-23-ONDE-PARAMOS-os-defeitos-de-forma-e-a-regencia.md).
 Este arquivo não repete: cuida do **método**.
 
 ---
@@ -90,9 +90,18 @@ numeradas pela ordem errada apontam para a aba errada.
 **A causa raiz não foi desatenção:** cinco abas não tinham host no
 `retratar_abas.py` e o README publicava o glade cru — **a foto mentia**, e a
 regra da casa manda olhar a foto primeiro. Os cinco hosts entraram no script no
-fim do mesmo dia (P10, 23/08/2026); **as fotos ainda não foram refeitas** — as
-de `docs/usage/assets/` são das 18h15 e o script mudou às 20h57, então elas
-continuam mentindo até alguém rodar o `retratar_abas.py` com a leva parada.
+fim do mesmo dia (**F14**, 23/08/2026).
+
+> **Fato errado, SUBSTITUÍDO em 24/08/2026.** Este parágrafo dizia *"as fotos
+> ainda não foram refeitas"*. **Elas foram:** `git show --stat 3de95ff` traz
+> **sete PNGs** no mesmo commit dos hosts, e `docs/usage/assets/PROVA-DA-FOTO.txt`
+> carimba `ensaio: 2026-08-23 21:12`. A diferença de mtime que sustentava a
+> afirmação era edição do script **posterior** ao ensaio, não ensaio que não
+> aconteceu. O que sobrou do F14 é outra coisa, e está medido na
+> [Z0](sprints/2026-08-24-ONDA0-Z0-A-REGUA-E-A-FOTO-01-cinco-abas-publicam-o-xml-cru.md):
+> o instrumento foi curado e a **régua que o vigia** não — `CODIGO_DA_TELA` não
+> inclui `scripts/gui-captura/`, então mexer no retrato não torna foto nenhuma
+> suspeita.
 
 **A lição: valide o briefing contra a fonte antes de multiplicá-lo por N
 agentes.** Para a ordem das abas a fonte é o `<child type="tab">` do
@@ -195,7 +204,7 @@ correção de fato é token queimado — a conclusão tem de virar arquivo em
 
 - [COMO-OLHAR-A-TELA.md](COMO-OLHAR-A-TELA.md) — a foto, os instrumentos, e as
   armadilhas de medição que este projeto já pagou.
-- [2026-08-23-ONDE-PARAMOS](2026-08-23-ONDE-PARAMOS-os-doze-defeitos-de-forma-e-a-regencia.md)
+- [2026-08-23-ONDE-PARAMOS](2026-08-23-ONDE-PARAMOS-os-defeitos-de-forma-e-a-regencia.md)
   — o estado da leva que originou este documento.
 - [agentes/README.md](agentes/README.md) — onde a saída bruta mora, e o que a
   impede de vazar.

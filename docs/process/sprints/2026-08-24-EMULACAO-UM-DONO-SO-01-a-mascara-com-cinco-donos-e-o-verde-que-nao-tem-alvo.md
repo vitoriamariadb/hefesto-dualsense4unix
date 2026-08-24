@@ -1,9 +1,12 @@
 # EMULAÇÃO — UM DONO SÓ-01 — a máscara com cinco donos, e o verde que não tem alvo
 
-**24/08/2026.** Onda 6 da leva das onze abas ([SPRINT_ORDER §0.3](../SPRINT_ORDER.md)).
+**24/08/2026.** **Onda 5 · Emulação** da leva das onze abas ([SPRINT_ORDER §0.3](../SPRINT_ORDER.md)).
 Aba **Emulação** — a **9ª** da tira, não a 8ª: a ordem real do `main_notebook` é
 Início, Status, No jogo, Gatilhos, Lightbar, Rumble, Perfis, Sistema,
 **Emulação**, Navegação, Configurações.
+
+
+> **Cabeçalho corrigido em 24/08/2026.** Ele dizia "Onda 6" — número da fila das 19h30 de 23/08, anterior à renumeração das 22h. A ordem viva é a da §0.2/§0.3 do [SPRINT_ORDER](../SPRINT_ORDER.md), e a regra de lá vale aqui: **o número vale pelo NOME DA ABA**.
 
 | | |
 |---|---|
@@ -546,7 +549,7 @@ olho dela.
   (`external_mask.py`, **lido e nunca escrito**). O segundo e o primeiro se
   desfazem mutuamente, e o mais velho vence calado. **E1.**
 - **INTERRUPTOR DO TECLADO.** Desenha na Navegação, mora aqui (`:1416`).
-  **E14 — e é o motivo desta onda vir antes da Onda 7.**
+  **E14 — e é o motivo desta onda vir antes da Onda 10 · Navegação.**
 - **"TIRAR O QUE FAZ ENGASGAR".** `on_camadas_engasgo` mora aqui (`:1823`) e o
   botão desenha na aba **Sistema**. Não é defeito, é armadilha — e é por isso
   que a Onda 11 **não roda em paralelo com esta**.

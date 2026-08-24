@@ -1,9 +1,12 @@
 # RUMBLE — POR JOGADOR-01 — grava na peça e manda na mesa
 
-**24/08/2026.** Onda 10 da fila da leva das onze abas ([SPRINT_ORDER](../SPRINT_ORDER.md),
+**24/08/2026.** **Onda 9 · Rumble** da fila da leva das onze abas ([SPRINT_ORDER](../SPRINT_ORDER.md),
 §0.3). Aba **Rumble** — a **6ª** da tira. A ordem real do `main_notebook`,
 conferida no `main.glade` e na foto de hoje, é Início, Status, No jogo, Gatilhos,
 Lightbar, **Rumble**, Perfis, Sistema, Emulação, Navegação, Configurações.
+
+
+> **Cabeçalho corrigido em 24/08/2026.** Ele dizia "Onda 10" — número da fila das 19h30 de 23/08, anterior à renumeração das 22h. A ordem viva é a da §0.2/§0.3 do [SPRINT_ORDER](../SPRINT_ORDER.md), e a regra de lá vale aqui: **o número vale pelo NOME DA ABA**.
 
 | | |
 |---|---|
@@ -409,7 +412,7 @@ uniq)` — com `uniq=None` significando "a mesa toda", que é o que o gesto
 "Todos" quer dizer. Quem arma passa o dono congelado no gesto
 (`uniq_do_alvo_de_output`, `daemon/ipc_rumble_policy.py:75`, que já existe e já é
 usado pelo rumble por dono). É o Defeito 1 da POSSE-POR-CONTROLE-01, na fatia de
-vibração — **só a de vibração**: LED e gatilho são das ondas 8 e 9, e cada uma
+vibração — **só a de vibração**: LED e gatilho são das Ondas 7 · Lightbar e 8 · Gatilhos, e cada uma
 carrega a sua.
 
 **A mordida:** o teste arma a trava de vibração no Controle 2, muda a janela em

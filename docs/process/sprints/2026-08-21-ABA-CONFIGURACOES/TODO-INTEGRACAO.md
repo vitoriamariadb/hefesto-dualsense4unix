@@ -59,7 +59,7 @@ real por trás do pedido do `--json`.
 | ~~`scripts/doctor.sh`~~ **feito, pelo caminho inverso** | `check_exame_da_mesa()` roda o módulo da aba e publica o que ele concluiu | Ver a nota do item 6: quem viaja nos pacotes é o módulo, não o script |
 | `scripts/doctor.sh` | `hci0` fixo em `:2555`, `:2563`, `:2823` | Mente numa mesa de dois ou três adaptadores, que é o caso desta leva |
 | `scripts/ensaios/cor_do_plastico.py` | A leitura sai de `ensaios/` e entra no produto | Hoje a cor só existe fora do app |
-| `scripts/validar-palavra-de-tela.py` | Roda sobre os rótulos novos | Portão de pré-commit; a aba tem ~110 textos novos |
+| ~~`scripts/validar-palavra-de-tela.py`~~ **feito em 23/08/2026** | Varre `app/**/*.py` por AST, além do `.glade` | **A linha anterior era falsa: ele NÃO rodava sobre os rótulos novos.** Lia um arquivo só, o `main.glade` — 212 rótulos vistos, ZERO em `app/`. Jargão banido num título de tela real de `app/` mantinha o portão verde. Agora ele vê 294 textos / 242 únicos em `app/`, com a regra do jargão; a da maiúscula não atravessa (49 reprovações e nenhum defeito — em Python o escoadouro recebe pedaço, não rótulo inteiro). Quem confere maiúscula no texto composto é `tests/unit/test_config_a_palavra_de_tela_da_aba_montada.py` |
 
 **Uma armadilha do ambiente, registrada:** `retratar_abas.py` morre com
 `Failed to load ... image-missing.svg` quando o terminal é um snap — ele exporta

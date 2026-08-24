@@ -1,9 +1,11 @@
 # PERFIS — ABRE O QUE GUARDA-01 — o perfil removido que ressuscita, e a ponte que não aparece
 
-**24/08/2026.** Onda de aba nº 5 da fila do [SPRINT_ORDER](../SPRINT_ORDER.md)
-(6ª contando a Onda 0). Aba **Perfis** — a **7ª** da tira, conferido na foto de
+**24/08/2026.** **Onda 6 · Perfis** da fila do [SPRINT_ORDER](../SPRINT_ORDER.md)
+(7ª contando a Onda 0). Aba **Perfis** — a **7ª** da tira, conferido na foto de
 hoje: Início · Status · No jogo · Gatilhos · Lightbar · Rumble · **Perfis** ·
 Sistema · Emulação · Navegação · Configurações.
+
+> **Cabeçalho corrigido em 24/08/2026.** Ele dizia **"Onda de aba nº 5"** — número da fila das 19h30 de 23/08, anterior à renumeração das 22h. A ordem viva é a da §0.2/§0.3 do [SPRINT_ORDER](../SPRINT_ORDER.md), e a regra de lá vale aqui: **o número vale pelo NOME DA ABA**.
 
 | | |
 |---|---|

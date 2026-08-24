@@ -1,4 +1,4 @@
-# ONDE PARAMOS — os doze defeitos de forma, e como reger o resto
+# ONDE PARAMOS — os defeitos de forma, e como reger o resto
 
 - **Escrito em:** 23/08/2026, ao fim do dia, na branch `dev`.
 - **O que esta página é:** a **porta de entrada**. Ela sucede o
@@ -16,20 +16,31 @@
 
 Treze batedores mediram as onze abas da GUI em paralelo. A conclusão:
 
-> **O produto não tem onze problemas de aba. Tem DOZE defeitos de FORMA que
-> aparecem onze vezes — e por isso consertar aba por aba seria pagar doze vezes
-> o mesmo preço.**
+> **O produto não tem onze problemas de aba. Tem um punhado de defeitos de
+> FORMA que aparecem onze vezes — e por isso consertar aba por aba seria pagar
+> N vezes o mesmo preço.**
 
-> **Correção de 23/08, à noite:** esta linha dizia "NOVE" e a seção lista
-> **doze** (P1 a P12). O número errado é o que alguém citaria ao planejar as
-> ondas — e planejar nove quando são doze deixa três defeitos sem agente.
-> Achado pelo auditor de completude do próprio dia.
+> **A CONTAGEM NÃO MORA AQUI, e isso é conserto de 24/08/2026.** Esta página
+> numerava os defeitos de **P1 a P12** e dizia "DOZE"; a §0.1 do
+> [SPRINT_ORDER](SPRINT_ORDER.md) — mais nova e mais medida — numerava os
+> **mesmos** defeitos de **F1 a F11** e dizia "dez". **Duas numerações do mesmo
+> produto obrigam a próxima pessoa a escolher entre elas**, e a escolha errada
+> aponta um agente para o defeito errado: a Z4 chegou a escrever `F5/P5` no
+> cabeçalho, e F5 e P5 eram defeitos DIFERENTES.
+>
+> Sobreviveu o **F**, porque é o que a fila executável usa (§0.2 e §0.3) e o que
+> as oito sprints da Onda 0 citam. As seções abaixo foram **renomeadas** para o
+> F correspondente; a tabela de correspondência e a razão estão na
+> **§0.1 do SPRINT_ORDER**, que passou a ser a **dona única da lista e da
+> contagem**. Nenhuma medição foi apagada: os três defeitos que só esta página
+> tinha (o perfil, o pulso, a foto) e o quarto (verde que não protege) viraram
+> **F12, F13, F14 e F15** lá.
 
 É a lei que ela mesma formulou, aplicada ao código: *achar a causa raiz apaga N
 gambiarras*. A história dela do storm — em que a descoberta de que o kernel AMD
 não lida com áudio num único USB apagou milhares de tentativas — é o precedente.
 
-### P1 — "aplicado" é uma palavra sem prova, em seis abas
+### F1 — "aplicado" é uma palavra sem prova, em seis abas
 
 `_call_checked`/`_safe_call` (`app/ipc_bridge.py`) terminam em `return True,
 None`: **a ponte joga fora a resposta do daemon.** O daemon JÁ calcula a verdade
@@ -41,7 +52,7 @@ Modo Nativo; o `errors: 1 if status=="erro"` do Proton, que faz o botão anuncia
 
 **Não são seis defeitos: é um contrato de resposta que não existe.**
 
-### P2 — a cura escrita e nunca ligada, em forma de censo
+### F2 — a cura escrita e nunca ligada, em forma de censo
 
 O daemon publica no `state_full` e nenhuma superfície lê: `mascara_divergente`
 (medido em 18→19/08; três abas deveriam ler, zero leem), `bateria_no_jogo`,
@@ -54,7 +65,7 @@ pergunta que a aba Sistema faz a cada clique, e **não tem um chamador**. Mais
 `_home_flavor_pedido`, que nunca é escrito — e por isso a Início acusa *"você
 escolheu"* sobre gesto que ninguém deu.
 
-### P3 — o alvo tem um escritor e sete leitores
+### F3 — o alvo tem um escritor e sete leitores
 
 `_edit_target_uniq` nasce só em `status_actions._sync_edit_target`, no tique de
 2 Hz da aba Status, **que sai cedo enquanto qualquer popup de combo estiver
@@ -64,7 +75,7 @@ Rumble, Configurações, o escritor do perfil e os textos do rodapé.
 **Se a Status não montar, quatro abas caem em edição GLOBAL em silêncio** — a
 pessoa edita a mesa inteira achando que edita um controle.
 
-### P4 — grava na peça, manda na mesa
+### F4 — grava na peça, manda na mesa
 
 Um clique em "Economia" grava 30% no Controle 2 no perfil e **manda o comando
 para os quatro**. E o inverso, pior: **alvo que sai da mesa vira broadcast**
@@ -73,7 +84,7 @@ outros três vibram na mão dos outros jogadores.
 
 É co-op, com gente segurando os controles. É o mais grave pela lente do uso.
 
-### P5 — o perfil não guarda tudo, e cada aba tem seu buraco
+### F12 — o perfil não guarda tudo, e cada aba tem seu buraco
 
 A decisão dela de 18/08 não foi executada. Faltam: touch, giroscópio e
 acelerômetro (Status); o liga/desliga do teclado, que mora em flag global
@@ -81,7 +92,7 @@ enquanto o mouse ao lado é por jogo (Navegação); microfone, Steam Input e
 teclado (Emulação); o preset de gatilho (Gatilhos); os sete gestos da Sistema.
 E o inverso: o campo `coop` do schema é aceito, logado e **ignorado**.
 
-### P6 — só duas abas têm pulso
+### F13 — só duas abas têm pulso
 
 Início e Status se atualizam sozinhas. As outras nove dependem do gancho de
 entrada na aba, **e vários faltam**. A lista de perfis não relê o disco; o
@@ -96,7 +107,28 @@ que é onde a própria frase manda ir. E o laço do switch-page chama `fn()` **s
 > reais). O portão que impede a volta é
 > `test_config_01_a_aba_nasce_vazia.py::test_os_tres_refreshers_da_aba_estao_no_mapa`.
 
-### P7 — o ambiente presumido tem sempre a mesma forma
+### F6 e F7 — a raiz dos pares, e o vazio que parece bom
+
+**F6 — três réguas do MESMO daemon discordam sobre quem está na mesa.** Medido em
+23/08 às 20h45, com ZERO DualSense no sistema: `daemon.status` diz
+`connected:true, bt, 75%`; o topo do `state_full` diz o mesmo; `controllers[0]`
+diz `connected:false`; e `controller.list` concorda com o último. **Duas fontes
+distintas no MESMO payload**, ambas estagnadas no último estado bom. É a raiz do
+F5, e é por isso que **nenhuma aba pode ser consertada antes dela** — toda aba lê
+a mesa.
+
+**F7 — o estado vazio é indistinguível do estado bom, em seis abas.** Gatilhos
+com a mesa vazia é IDÊNTICA à mesa cheia (38 botões clicáveis). Rumble mostra
+verde *"o JOGO controla a vibração"*. Emulação pinta *"Microfone: Ligado"* com
+zero placa de áudio. Início AFIRMA *"Nenhum controle conectado"* com dois acesos
+na frente dela. **É o que quebra a 0.999 para quem não é ela:** quem instala e
+abre antes de ligar o controle vê um produto que se declara são.
+
+> Um caso do F7 já FECHOU: a aba Configurações dizia "Folgada" em verde com o
+> daemon desligado, e hoje diz "Não sei", com três estados (commit `0fd0a33`).
+> Serve de molde para os outros cinco.
+
+### F8 — o ambiente presumido tem sempre a mesma forma
 
 `storm_doctor` ignora `XDG_CONFIG_HOME` (o cartão lê um arquivo, o botão escreve
 outro). A **Steam só é procurada em `~/.steam/steam`** — Flatpak, Snap e
@@ -109,7 +141,7 @@ que em caso de falha manda "tente pela aba Sistema" — que usa o mesmo mecanism
 **Funciona na casa dela porque a casa dela é a exceção nos cinco casos.** Este é
 o defeito que mais separa o produto da 0.999 liberável.
 
-### P8 — o léxico é um trabalho só, não onze
+### F11 — o léxico é um trabalho só, não onze
 
 "Microfone" nomeia três coisas em três abas e nenhuma diz de qual não fala. Dois
 botões "Silenciar" idênticos a 60 px um do outro no mesmo card. "Vibração
@@ -117,7 +149,7 @@ leve/forte" lê como escala e são dois MOTORES — escolhe-se um lado sem saber
 E frases que a medição já derrubou seguem na tela: o enquadramento de Steam
 Input que ela matou em 09/08 está sendo pintado agora.
 
-### P9 — o portão do specs é cego à tela
+### F9 e F10 — o portão do specs é cego à tela, e o elo não existe
 
 `scripts/check_paridade_transporte.py` cruza CSV × testes × `specs.html` e **não
 olha uma linha de `main.glade` nem de `app/`**. Toda divergência entre o que a
@@ -127,7 +159,7 @@ O mapa também tem buracos de censo: nada da aba Sistema, nada da intensidade de
 vibração (o card mais visível da Rumble), nada do teclado emulado, nada da
 MÁSCARA (o gesto mais consequente da Início).
 
-### P10 — a foto mente para a documentação
+### F14 — a foto mente para a documentação
 
 **Cinco abas fotografavam o glade cru**, e o README publicava isso: a Emulação
 afirmava *"Device: Microsoft X-Box 360 pad"* — mentira que o código já parou de
@@ -138,25 +170,35 @@ pelo olho dela**.
 > **CURADO PELA METADE, em 23/08/2026.** Os cinco hosts existem agora —
 > `_montar_aba_lightbar`, `_rumble`, `_sistema`, `_emulacao` e `_navegacao`
 > (`scripts/gui-captura/retratar_abas.py:1410-1737`, chamados a partir de
-> `:2201`), +486 linhas escritas hoje. **Mas eles nunca rodaram:** o script tem
-> mtime de 21h04 e as fotos em `docs/usage/assets/` são de 18h15. Enquanto o
-> retrato não rodar com a leva parada, o README continua publicando as fotos
-> velhas — e a documentação segue mentindo com a cura já escrita ao lado.
-> **O que fecha:** rodar `scripts/gui-captura/retratar_abas.py` com nenhum
-> agente mexendo na árvore, e olhar as cinco fotos novas.
+> `:2201`), +486 linhas escritas hoje.
+>
+> **Fato errado, SUBSTITUÍDO em 24/08/2026.** Este trecho dizia *"mas eles
+> nunca rodaram"*, com base na diferença de mtime entre o script e as fotos.
+> **Eles rodaram:** `git show --stat 3de95ff` traz **sete PNGs** no mesmo commit
+> dos hosts, e `docs/usage/assets/PROVA-DA-FOTO.txt` carimba
+> `ensaio: 2026-08-23 21:12`. O mtime maior do script é edição **posterior** ao
+> ensaio. A régua era falsa, e a afirmação forte que ela sustentava mandaria
+> alguém refazer trabalho já pago.
+>
+> **O que sobrou do F14, e é o que a Z0 fecha:** o instrumento foi curado e a
+> **régua que o vigia** não — `CODIGO_DA_TELA`
+> (`tests/unit/test_as_fotos_acompanham_a_versao.py:72-75`) cobre `app/` e
+> `gui/` e **não** `scripts/gui-captura/`, então mexer no retrato não torna foto
+> nenhuma suspeita. Detalhe e mordida na
+> [Z0](sprints/2026-08-24-ONDA0-Z0-A-REGUA-E-A-FOTO-01-cinco-abas-publicam-o-xml-cru.md).
 
 **Custo composto, e ele já se realizou:** o próximo agente lê a foto errada e
 planeja a aba que não existe. Aconteceu hoje — a ordem de abas passada a treze
 batedores estava errada, e três deles corrigiram.
 
-### P11 — verde que não protege
+### F15 — verde que não protege
 
 O padrão é sempre o mesmo: a função pura tem oito testes e o fio que a chama não
 tem nenhum. Sete arquivos medem um card que a aba não constrói desde 02/08.
 **Nenhum teste abre um perfil real pela porta da janela** — e é por isso que dois
 perfis dela não abrem há semanas com a suíte verde.
 
-### P12 — os pares que disputam o mesmo estado
+### F5 — os pares que disputam o mesmo estado
 
 - **Status ↔ No jogo:** moram no MESMO arquivo de 2917 linhas e importam o mesmo
   widget. **Não podem ser duas ondas paralelas** — é colisão garantida.
@@ -311,7 +353,8 @@ quem coordena fotografa depois que a leva fecha.
    reescrever a dica que promete um estado inalcançável.
 
 ### Do produto
-- Os doze defeitos de forma acima, na ordem da §1.
+- Os defeitos de forma acima, na ordem da §1 — a lista completa e a
+  contagem são da §0.1 do [SPRINT_ORDER](SPRINT_ORDER.md).
 - A `NO-JOGO-SEM-FALSO-VERDE-01` sem âncoras.
 - 11 curas da aba Configurações arrancáveis sem nada ficar vermelho.
 - 24 de 27 dicas invisíveis por falta de afordância.
