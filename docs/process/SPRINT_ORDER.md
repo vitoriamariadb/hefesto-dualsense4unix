@@ -361,7 +361,7 @@ que seja o PRIMEIRO gesto dela, antes até das decisões da §0.9.**
 | **daemon e desempenho** | ESCONDE-SÓ-O-HIDRAW-01, VPAD-SUSPENSO-MORTO-01, DAEMON-ACORDADO-01, ENGASGO-VULKAN-01, ESPELHO-QUE-NÃO-NASCEU-01 | **três são pré-requisito de TEXTO** de Início, Emulação e Perfis: sem elas, três abas entregam frase provisória. O ENGASGO-VULKAN-01 segue na posição 1 da seção 1 e o A/B é DELA |
 | **co-op e ciclo de vida do jogador (NOVO, 8 sprints, UM mecanismo)** | COOP-QUE-NAO-DESMONTA-01, PARTIDA-PICOTADA-01, JOGADOR-3-FANTASMA-01, BORDA-DE-QUEDA-01, DUAS-CONTABILIDADES-01, QUATRO-NA-MESA-01, LUGAR-À-MESA-01, MONITOR-QUE-VENCE-01 — todas sobre `daemon/subsystems/coop.py` e o ciclo do vpad | **dono único, sequencial: sem este balde, oito agentes de oito ondas tocam o mesmo arquivo.** Carrega dois registros medidos: o co-op **não existe no Modo Nativo** (`coop.py:307-313` exige `_gamepad_device`) — "co-op sempre ligado" é verdade no Modo Gamepad e falso na Conexão Nativa, e **nenhuma tela diz isso**; e a GUI escreve um teto de 4 jogadores (`status_actions.py:1289`) que o daemon não tem (com cinco na mesa, o quinto card não tem lugar — **NÃO VERIFICADO** com cinco) |
 | **identidade de aparelho (NOVO, 4)** | IDENT-01, IDENTIDADE-DUPLA-01, UMA-FAIXA-NÃO-É-UM-FABRICANTE-01, N-IGUAL-A-UM-01 | um controle com dois MACs come slot de co-op e faz a numeração dançar. **Uma medição de 2 minutos dela (ligar o 8BitDo em cada modo e anotar o MAC) destrava as quatro** |
-| **instalação e empacotamento (7+1, MESMO ARQUIVO — dono único)** | CURA-QUE-FERE-01 (é o portão do padrão e vem antes), BT-AGENT-TRAVA-O-RESTART-01, BONDS-QUE-SOBREVIVEM-01, DROPIN-AMBIGUO-01, RADIO-ABERTO-01, SIMETRIA-INSTALL-02, ARVORE-DIVERGENTE-01, IDENTIDADE-01 | **nada disto aparece em aba nenhuma e sem isto não há 0.999.x** — inclusive os dois scripts que o botão "Aplicar correções" executa e que **não viajam em pacote nenhum** (provado para o PKGBUILD e o `install.sh`; **forte suspeita, não provado, para o `.deb`**) |
+| **instalação e empacotamento (7+1, MESMO ARQUIVO — dono único)** | CURA-QUE-FERE-01 (é o portão do padrão e vem antes), BT-AGENT-TRAVA-O-RESTART-01, BONDS-QUE-SOBREVIVEM-01, DROPIN-AMBIGUO-01, RADIO-ABERTO-01, SIMETRIA-INSTALL-02, ARVORE-DIVERGENTE-01, IDENTIDADE-01 | **nada disto aparece em aba nenhuma e sem isto não há 0.999.x** — inclusive os dois scripts que o botão "Aplicar correções" executa. **MEDIDO em 24/08/2026, e a suspeita sobre o `.deb` caiu:** o `.deb` é o ÚNICO dos sete empacotadores que leva `doctor.sh` E `bluez_config.sh` (`scripts/build_deb.sh:234`); Fedora, Arch, Nix, Flatpak e os dois AppImage não levam nenhum dos dois — e **`check_packaging_parity.sh:882` pula os seis em silêncio** pelo `|| continue`, então testa 1 de 7 e passa `[ OK ]`. A prova está na O-QUE-FICOU-FORA-01, §3.2(d) |
 | **portão e teste** | TESTE-HONESTO-01, AUDITORIA-DE-PERDA-01, PORTAO-VIVO-01, CADERNO-QUE-NAO-ESCREVE-01, SUITE-QUE-SUJA-O-JORNAL-01, BERCO-DE-TMP-01, GATE-EMOJI-01 | o MECANISMO vem para cá; as mordidas de cada aba ficam nas ondas. **Três buracos nomeados:** o portão de timers promete cobrir `painel_no_jogo.py` e lê outros dois arquivos (4 linhas, 15 min — e um laço posto ali nasce UMA VEZ POR CONTROLE); `validar-palavra-de-tela.py` é cego a aba montada em Python **e é onde vivem TODAS as promessas de transporte**; sete arquivos de teste da Status medem um card que a aba não constrói desde 02/08 |
 | **documentação** | os fatos errados medidos: `LEIA-PRIMEIRO.md` diz 47 colunas (são **49**) e 696.546 bytes (são **701.611**); `README.md:219` publica "~40% do sinal" que o próprio CSV declara caduco; `docs/usage/interface.md` descreve uma linha da aba Status que não existe desde 17/08 | **só DEPOIS da Z0 e das onze ondas** — antes disso documentaria o produto de ontem. O par que falta na conta das colunas é exatamente `cabo_por_que_nao_aciona`/`radio_por_que_nao_aciona`: 41 células da resposta mais cara de produzir, **sem um consumidor sequer** |
 | **clean-room — FORA da 0.999.x** | CR-01 a CR-06, CR-SEQUENCIA-01, METODO-01 | pela **D-J** é 1.0. Ordem interna dura quando chegar: CR-03 → CR-04 → CR-06 |
@@ -466,6 +466,29 @@ arquivos que a noite acrescentou, e as duas contagens não foram casadas uma
 contra a outra. **Divergências que EU vi e não resolvi:** `CR-01`, `CR-02`,
 `CR-05` e `CONTINUACOES-01` aparecem na minha lista de órfãs e não na triagem
 das 61.
+
+### 0.11 A conferência de cobertura — o que ficou fora da fila (24/08)
+
+**As 22 sprints de aba e de onda de 24/08 estão TODAS citadas neste arquivo**,
+conferidas uma a uma pelo nome de arquivo em 24/08. O que ficou fora não foi
+sprint: foi o resto da leva. Os três ponteiros que faltavam:
+
+| Entra na fila | O que é | Por que estava fora |
+|---|---|---|
+| [O-QUE-FICOU-FORA-01](sprints/2026-08-24-O-QUE-FICOU-FORA-01-o-que-sessenta-agentes-mediram-e-o-repositorio-nao-guardou.md) | a conferência de cobertura: o que sessenta agentes mediram em 23/08 e o disco não guardou, separado em medição, defeito e decisão dela — com o que **não** vale materializar, e por quê | nasce agora |
+| [INFRA-DE-EXECUCAO-01](sprints/2026-08-24-INFRA-DE-EXECUCAO-01-o-registro-do-que-esta-em-voo.md) | a infra que executa as outras vinte e duas: isolamento por árvore de git, para o `git add -A` de um agente não engolir o vizinho | era a única sprint de 24/08 sem linha nesta fila |
+| `docs/process/COMO-EXECUTAR-UMA-SPRINT.md` <!-- ref-externa: 240 linhas existem na árvore e NÃO estão no git; a ausência é o assunto desta linha --> | o protocolo do agente executor, 240 linhas, escrito a partir das três falhas de processo de 23/08 | **existe na árvore e não está no git** — os portões são cegos a arquivo novo, e ninguém rodou `git add`. **Pré-requisito da execução: sem ele os executores começam sem protocolo** |
+
+Junto, **um documento órfão de ENTRADA**:
+[onde-a-porta-usb-mora.md](../protocol/onde-a-porta-usb-mora.md) é rastreado,
+traz a medição ACPI de 23/08 e tinha **zero** referências em toda a árvore — a
+`PORTAS-DA-CASA-01` depende dele e não o apontava. `validar-referencias-docs.py`
+reprova quem CITA arquivo inexistente e é estruturalmente cego ao inverso.
+
+**E o defeito de forma sem dono:** cruzando F1..F15 contra as 23 sprints de
+24/08, todo F aparece em pelo menos uma — **o F11 (o léxico) aparece em zero.**
+Enquanto ele estiver só na §0.1 "para não se perder", as onze ondas escrevem
+onze léxicos em paralelo, que é o motivo de a Onda 0 existir.
 
 ---
 
