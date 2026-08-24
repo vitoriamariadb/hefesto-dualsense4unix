@@ -490,6 +490,62 @@ reprova quem CITA arquivo inexistente e é estruturalmente cego ao inverso.
 Enquanto ele estiver só na §0.1 "para não se perder", as onze ondas escrevem
 onze léxicos em paralelo, que é o motivo de a Onda 0 existir.
 
+### 0.12 A ONDA 12 VIRA OITO — a linha do tempo até a 0.9.5, fundida (24/08)
+
+Pedido dela: fundir a Onda 0 + as onze ondas de aba (§0.2-0.3, **já em voo**,
+não mexidas aqui) com o resto do repositório (§0.6, antigo balde único) numa
+**única sequência executável** onde fechar a última onda == critério de 0.9.5
+cumprido. O que segue substitui o rótulo "Onda 12" por oito frentes numeradas,
+ordenadas pela mesma régua que já rege a Onda 0: **posse de arquivo**, medida
+por censo de dois agentes independentes (não confiar no rótulo dos arquivos —
+vários mentem sobre si mesmos, achado central do censo de hoje).
+
+**A descoberta que decide a ordem geral:** os quatro baldes que tocam código de
+produto (daemon, co-op, identidade, instalação) colidem em arquivo com a leva
+de 24/08 **já em voo** — `daemon/lifecycle.py`, `daemon/subsystems/gamepad.py`,
+`daemon/launch_env.py`, `core/led_control.py`, `install.sh`, `scripts/doctor.sh`
+e `scripts/build_deb.sh` — e nenhuma dessas oito colisões está declarada em
+sprint nenhuma hoje (tabela "Cruzamentos com a leva de 24/08" do censo,
+24/08/2026). A mais cara: `SISTEMA-O-VIGIA-VIVO-01` (Onda 11 · Sistema, em
+voo) já reescreve `install.sh` em **~19 pontos**. Regra desta seção, e ela
+vale para todo executor: **nenhuma das oito frentes abre em código antes de a
+Onda 0 + as onze ondas de aba fecharem** — a única exceção é a Onda 12
+("o olho dela"), que não toca código de produto.
+
+| # | Frente | Conteúdo (sprints reais, censo 24/08) | Depende de | Paralelizável com | Tamanho |
+|---|---|---|---|---|---|
+| **12** | **O olho dela** (baixíssimo custo — recomendação: primeiro gesto dela) | As **14** "só falta o olho": `ABAS-01`, `MIC-USB-01`, `PLAYER-01`, `UI-SELETOR-01`, `STATUS-SIMETRIA-01`, `STATUS-SIMETRIA-02`, `SOM-01`, `SOM-02`, `VAO-01`, `ALINHA-DUAS-LINHAS-01`, `APPLET-MONOCROMATICO-01`, `ESTADO-VISIVEL-01`, `JANELA-QUE-RESPIRA-01`, `ESCRITOR-CRU-01` (§0.6). Junto, sem custo de agente: fechar por escrito as **sete/oito sprints MORTAS** nomeadas no §0.6 (a própria contagem do balde diverge — 7 no texto, 8 nomeadas; `VAO-01` está nas duas listas, morta E nesta onda — ela decide olhando a foto, não precisa resolver a duplicata antes) | roda **`retratar_abas.py`** depois da Z0 (precisa da foto de hoje) | tudo — Z0..Z7, as onze ondas de aba, e todas as frentes 13-19 abaixo | 14 decisões + 7-8 fechamentos, zero código de agente |
+| **13** | **Daemon e desempenho** | `ESCONDE-SÓ-O-HIDRAW-01` (parcial — E2 é dela), `VPAD-SUSPENSO-MORTO-01`, `DAEMON-ACORDADO-01` (E1 livre, 10 s de `strace`), `ENGASGO-VULKAN-01` (parcial — A/B de 10 min é dela), `SINAL-NO-NASCIMENTO-01` (E2/E4, sem onda própria até hoje — entra aqui por afinidade, §censo). **Gap a materializar, não sprint nova:** "arbitrar o hidraw" (item 7 da fila §1) não tem sprint — aceitar o risco antes é dela | **Onda 0 + Ondas 1-11 fechadas** (colisão não declarada com Z1/Z2/Z4/Z5 em `lifecycle.py`, Z3/Onda 5 em `gamepad.py`, Onda 5/11 em `launch_env.py`) | Onda 17 (portão e teste) | 5 sprints, ~1 agente |
+| **14** | **Co-op e ciclo de vida do jogador** (dono único `coop.py`) | Ordem interna fixa (censo 24/08, ordem por reuso de bancada): `COOP-QUE-NÃO-DESMONTA-01` → `BORDA-DE-QUEDA-01` → `QUATRO-NA-MESA-01` → `DUAS-CONTABILIDADES-01` (resíduo — o achado central já foi curado por `cb46bd8`/`eef9853` fora do ciclo de sprint; só registra o que sobra, sem sprint dona) → `PARTIDA-PICOTADA-01` (**já entregue**, confere e risca) → `JOGADOR-3-FANTASMA-01` → `LUGAR-À-MESA-01` (trava em `MASCARA-01`, Onda 5, por decisão dela — se Onda 5 já fechou, destravada). `MONITOR-QUE-VENCE-01` **fora**: concluída, não toca `coop.py` | Onda 13 (gamepad/vpad estáveis antes do ciclo de vida do jogador pousar em cima) — **NÃO VERIFICADO por colisão de arquivo, é dependência lógica** | nenhuma das frentes 15-18 declara tocar `coop.py`, exceto `ÁRVORE-DIVERGENTE-01` (frente 16) | 7 sprints abertas, dono único, 1 agente sequencial |
+| **15** | **Identidade de aparelho** | `IDENT-01`, `IDENTIDADE-DUPLA-01` (E1 é dela — 2 min, MAC do 8BitDo por modo), `UMA-FAIXA-NÃO-É-UM-FABRICANTE-01`, `N-IGUAL-A-UM-01` (E1 já entrou; resto é dela) | **Onda 14 fechada** — `QUATRO-NA-MESA-01` (frente 14) já reivindica `daemon/subsystems/identity.py`, mesmo arquivo desta frente | Onda 16 e 17 | 4 sprints |
+| **16** | **Instalação e empacotamento** (dono único, mesmo grupo de arquivo) | Ordem interna fixa (censo 24/08): `CURA-QUE-FERE-01` (portão do padrão) → `BT-AGENT-TRAVA-O-RESTART-01` → `RADIO-ABERTO-01` → `BONDS-QUE-SOBREVIVEM-01` (ressalva: reconferir os 4 defeitos contra o código de hoje — commits de 15/08 e 22/08 não citados na sprint) → `DROPIN-AMBIGUO-01` → `SIMETRIA-INSTALL-02` → `IDENTIDADE-01` → `ÁRVORE-DIVERGENTE-01` (**ressalva forte**: cita por nome `STATUS-SIMETRIA-01`/`MIC-USB-01` como abertas quando a §0.6 já as classifica "entregue, só falta o olho dela" — **re-medir a lista inteira antes de sequenciar**; é a única sprint do balde que toca `coop.py` diretamente) | **Onda 0 + Ondas 1-11 fechadas** (mesmo motivo da frente 13: `install.sh`/`doctor.sh`/`build_deb.sh` reivindicados por `SISTEMA-O-VIGIA-VIVO-01` em voo) **e Onda 14 fechada** (`led_control.py` reivindicado por `LUGAR-À-MESA-01`, e `ÁRVORE-DIVERGENTE-01` toca `coop.py` direto) | Onda 15 e 17 | 8 sprints, dono único, 1 agente sequencial |
+| **17** | **Portão e teste** | `TESTE-HONESTO-01` (planejamento, zero código), `AUDITORIA-DE-PERDA-01` (= item 18 da fila §1 — mesma sprint), cauda de `BERÇO-DE-TMP-01` (a parte do `$HOME`, a parte de `/tmp` já está curada) | nenhuma (toca `scripts/check_*.py` e fixtures de teste — **NÃO VERIFICADO** colisão fina com `check_packaging_parity.sh` da frente 16, mas os arquivos-alvo declarados são outros) | tudo, inclusive Z0..Z7 e as ondas de aba — pode começar no dia 1 | 3 sprints |
+| **18** | **Documentação** (sem sprint própria — três fatos soltos) | `LEIA-PRIMEIRO.md` (47→49 colunas, 696.546→701.611 bytes), `README.md:219` ("~40% do sinal", já caduco no CSV), `docs/usage/interface.md` (linha morta da aba Status desde 17/08) | **Onda 0 + Ondas 1-11 fechadas** — regra do próprio balde (§0.6): documentar antes é documentar o produto de ontem | pode rodar depois de fechar, em paralelo com 13-17 se elas ainda estiverem de pé, mas nunca antes da leva de aba | 3 fatos, ~1 h |
+| — | **Clean-room** — **DECLARADAMENTE FORA da 0.9.5** (decisão D-J, §0.9) | `CR-03` → `CR-04` → `CR-06` → `CR-SEQUENCIA-01` (ordem já fixada no §0.6). `CR-01`, `CR-02`, `CR-05`, `METODO-01` já entregues — fecham sem executar | é 1.0, não sequenciar aqui | — | não entra na conta da 0.9.5 |
+
+**O buraco sem sprint, registrado e não materializado (achado 4 do censo):**
+"co-op não existe no Modo Nativo" (`coop.py:307-313` exige `_gamepad_device`) —
+nenhuma das sete sprints da frente 14 toca isso. Não proponho sprint nova; fica
+nomeado aqui para a frente 14 não fechar sem alguém decidir se materializa.
+
+**O critério de 0.9.5, verificável por comando — hoje não existe portão que o
+meça (achado do censo, §c).** Composição de duas réguas já existentes mais uma
+a escrever:
+
+1. `python3 scripts/gerar-painel.py` → `censo_de_sprints()`: `diz_aberta` menos
+   as exceções nomeadas (as 6 de cabeçalho preservado + as 3 da régua velha,
+   §0.10) deve ser **0** — hoje **102** brutas.
+2. A contagem de pendência do mapa de canais por inferência (`aceita∈{sim,
+   parcial}` E `aciona≠sim` E motivo fora de `{nada-a-acionar, decisao-tomada,
+   so-ela-decide}`) deve ser **0** na união cabo/rádio — hoje **61**, e
+   depende das sete perguntas de Bluetooth dela (§0.7) estarem respondidas E
+   os canais construídos.
+3. Onda 0 + Ondas 1-11 + frentes 12 a 18 fechadas nesta tabela.
+4. Local sugerido, fora do escopo desta sprint (só mede): novo
+   `scripts/check_prontidao_0_9_5.py` <!-- ref-externa: não existe ainda; a ausência é o assunto do parágrafo -->,
+   chamado no bloco "Antes de fechar qualquer leva" do `CLAUDE.md`, verde só
+   quando (1) e (2) zerarem.
+
 ---
 
 ## 1. A FILA DE AGORA — 23/08/2026, madrugada
