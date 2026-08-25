@@ -574,3 +574,46 @@ que ela pede existe em `src/`?* — e nunca com o cabeçalho.
 - **o helper global de captura de tela dela** (fora deste repositório, em
   `/usr/local/bin`) fotografa a tela inteira e imprime o caminho do PNG. Serve
   para ver o que está na frente dela agora — não para percorrer abas.
+
+---
+
+## Quando desenhar ANTES de codar — o mockup desta casa
+
+Escrito em 25/08/2026, depois de duas rodadas de mockup jogadas fora por não
+haver regra escrita.
+
+**Quando vale.** Quando a tela vai mudar de forma, não de detalhe — e quando a
+pergunta é *"isso resolve o que eu preciso?"*, que ela responde **vendo**, nunca
+lendo. Um mockup em HTML custa horas; uma aba refeita custa dias.
+
+**As cinco regras, e cada uma nasceu de um defeito da mesma noite:**
+
+1. **HTML standalone, aberto por duplo clique.** Sem rede, sem servidor, sem
+   fonte web. Ela recusou o artefato publicado com uma frase: *"html standalone
+   por favor"*. É o mesmo motivo do `specs.html` e do `painel.html` — instrumento
+   que só funciona com rede não serve para depurar rádio.
+2. **A paleta tem dono único: `scripts/paleta_da_casa.py`**, copiada byte a byte.
+   *"O artefato tem de parecer parte do Hefesto, não um site sobre ele."*
+3. **Ponha o dado REAL da máquina dela dentro**, medido no dia — não um exemplo.
+   Foi o que fez o mapa de entradas virar conversa: ela reconheceu a própria mesa
+   e apontou o erro em segundos.
+4. **A tela mostra o AGORA.** O mockup abria numa leitura antiga do barramento e
+   ela viu o Wi-Fi numa entrada de onde já o tinha tirado. **Estado velho como
+   padrão é o F7 desta casa** — a tela afirmando com confiança o que deixou de
+   ser verdade. O "antes" é relatório; nunca estado.
+5. **Se ele vira especificação de sprint, ele é VERSIONADO** — em
+   `docs/process/sprints/<SPRINT>/mockup/`, nunca em `novo-layout/`, que é
+   `.gitignore:108`. O precedente é de 21/08
+   (`2026-08-21-ABA-CONFIGURACOES/mockup/`). Um `git clean -xdf` não pode apagar
+   a única descrição de um motor de 1058 linhas.
+
+**E a régua do mockup: `node --check` NÃO é teste.** Ele valida sintaxe e é cego
+a referência inexistente. Um `ReferenceError` na última linha da função de
+desenho deixou uma seção inteira — que carregava três decisões dela — sem
+aparecer em **todas** as versões entregues, e nenhuma conferência acusou. A régua
+que serve monta um DOM falso e **roda**, em todo estado alcançável:
+
+```bash
+node docs/process/sprints/2026-08-24-ABA-CONEXOES/mockup/fumaca.js
+# 29/29 estados pintaram — nenhum erro de execução
+```
