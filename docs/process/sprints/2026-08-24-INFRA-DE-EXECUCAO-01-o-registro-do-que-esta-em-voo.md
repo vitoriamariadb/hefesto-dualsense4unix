@@ -625,7 +625,7 @@ que o sanitizador existe.
 coisa — que a obra dele entre. **Gatilho no desejo, não na disciplina.** É a
 resposta direta à M6: a pasta não apodreceu por desleixo, nasceu sem gatilho.
 
-**A mordida, e ela é de segurança:** plante `AC:A7:F1:23:45:67` numa entrega
+**A mordida, e ela é de segurança:** plante `AC:A7:F1:23:45:67` numa entrega <!-- endereco-de-mentira: fixture da mordida de segurança; OUI de fabricante com sufixo inventado, não é aparelho de ninguém -->
 dublê. A costura tem de **recusar** — não mascarar, **recusar**, como o
 sanitizador já faz com segredo. Arranque a chamada do sanitizador e
 `test_saida_de_agente_sanitizada.py` reprova.
@@ -1030,7 +1030,7 @@ git worktree list          # só a principal, mais os voos abertos de propósito
 4. **I7/I8** — dois processos costurando: **sem** `flock`, 1 de 3 sobrevive;
    **com**, 3 de 3. E conflito add/add em `fatos_do_mapa.py` → rc=1 nomeando o  <!-- ref-externa: nasce nesta sprint, ainda não existe -->
    arquivo. *(A serialização já foi reproduzida — M4.)*
-5. **I9** — `AC:A7:F1:23:45:67` numa entrega dublê faz a costura **recusar**.
+5. **I9** — `AC:A7:F1:23:45:67` numa entrega dublê faz a costura **recusar**. <!-- endereco-de-mentira: fixture da mordida de segurança; OUI de fabricante com sufixo inventado, não é aparelho de ninguém -->
 6. **I12** — ponha `validar-acentuacao.py --all` (37,03 s) na camada 1: o teste
    reprova nomeando o portão que estourou o teto de 15 s.
 7. **I15** — arranque o campo `cria:`: o par PAREAMENTO×Z6 **desaparece**.

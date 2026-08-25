@@ -394,6 +394,19 @@ tela** até a medição existir.
 | gatilho e analógico movem o cursor por rádio? (a observação DELA de 11/08 diz que não) | Navegação (a tabela de Mapeamento) | NAVEGA-PELO-CONTROLE-01 |
 | existe fonte de captura do microfone por rádio? (medido em 23/08: **NÃO** — zero sources com dois controles no rádio) | Status, Emulação, Configurações | MIC-BT-01, QUATRO-MICROFONES-01 |
 
+**E uma OITAVA, que entra DEPOIS das sete** — pedido dela em 24/08/2026:
+*"mapeia isso pra quando terminarmos de medir tudo no bt"*.
+
+| Pergunta que falta medir | O que ela destrava | Onde a pergunta mora |
+|---|---|---|
+| gatilho, vibração e barra de luz custam quanta BATERIA? (**zero** dos 178 ensaios cronometrou consumo por feature) | o interruptor de liga/desliga das três, em Gatilhos, Rumble e Lightbar — hoje ele existe por senso comum, não por medição | [O-PRECO-EM-BATERIA-01](sprints/2026-08-24-O-PRECO-EM-BATERIA-01-o-botao-que-ninguem-sabe-se-serve.md) |
+
+Ela não trava aba nenhuma e não disputa o enlace — mede o controle, não o rádio.
+Entra depois por decisão dela, para não disputar a bancada. **E o instrumento
+óbvio não serve:** a carga tem onze degraus (~10 pontos cada), então medir carga
+em tempo fixo sai cego; a sprint inverte para **tempo até cair três degraus**, o
+que torna a medição passiva — o `battery_journal.py` já sonda a cada 30 s.
+
 **A ordem recomendada de medir é a das ABAS, não a do protocolo** — é o que faz
 cada medição destravar uma tela, e não só uma linha do mapa. A tabela acima está
 nessa ordem: vibração primeiro (destrava quatro abas de uma vez), depois a conta
@@ -586,6 +599,14 @@ para fechar o quadro:**
 nenhuma das sete sprints da frente 14 toca isso. Não proponho sprint nova; fica
 nomeado aqui para a frente 14 não fechar sem alguém decidir se materializa.
 
+> **24/08/2026 — este critério virou uma escada de cinco degraus.**
+> [A ESCADA DE RELEASES](2026-08-24-A-ESCADA-DE-RELEASES.md) parte o critério
+> abaixo em degraus de **um eixo cada**, porque juntar mapa, canais e sprints faz
+> qualquer um atrasar os outros dois. Os três itens numerados a seguir continuam
+> valendo — eles são o critério do degrau **0.9.5** (rádio) e do **0.9.6**
+> (sprints), agora separados e com portão nomeado para cada um. Leia a escada
+> antes de usar a lista abaixo como régua de release.
+
 **O critério de 0.9.5, verificável por comando — hoje não existe portão que o
 meça (achado do censo, §c).** Composição de duas réguas já existentes mais uma
 a escrever:
@@ -614,6 +635,72 @@ a escrever:
 
 ---
 
+### 0.13 A ABA CONEXÕES — quatro sprints novas, 25/08/2026
+
+A **Onda 1 · Configurações** fechou em 24/08 (`cf78346`) e **reabriu na mesma
+noite**, maior. O motivo não é retrabalho: é que ela olhou a aba ao vivo, pela
+primeira vez com o ambiente no estado definitivo de uso diário, e o veredito foi
+*"da forma como a aba está hoje, não entrega nada disso e tá poluída e pouco
+elegante"*.
+
+O que ela pediu, na palavra dela, é que a aba deixe de ser painel e vire
+**checkpoint**: *"tudo estando mapeado e ok aqui, irá servir pro user chegar nas
+mesmas configs que queremos pra que ele possa usar o controle no ultra mesmo que
+4 controles ao mesmo tempo"*.
+
+| # | Sprint | O que fecha | Depende de |
+|---|---|---|---|
+| A | [CONEXOES-MAPA-2D-01](sprints/2026-08-24-CONEXOES-MAPA-2D-01-o-gabinete-que-o-produto-nao-enxerga.md) | o mapa 2D das entradas do gabinete, declarado uma vez | nada |
+| B | [ORDEM-DE-SERVICO-01](sprints/2026-08-24-ORDEM-DE-SERVICO-01-o-exame-que-viu-e-nao-mandou.md) | o exame que MANDA, com selo de procedência em cada linha | **A** (precisa do número da entrada) |
+| C | [DESEMPENHO-A-CONTA-DE-SLOTS-01](sprints/2026-08-24-DESEMPENHO-A-CONTA-DE-SLOTS-01-o-numero-que-o-specs-mediu-e-a-tela-nao-gasta.md) | a conta de 1600 vezes de falar, por adaptador | nada (menos a DESEMP-6, que espera B) |
+| D | [CONFIGURACOES-O-LEXICO-01](sprints/2026-08-24-CONFIGURACOES-O-LEXICO-01-a-aba-que-fala-barramento-com-quem-ve-gabinete.md) | o léxico, as dicas e o enxugamento | **A, B, C e E** |
+
+**A ordem, resolvida pelo cético da leva:** `A` e `C` em paralelo → `B` e `E` →
+`C·DESEMP-6` → `D` por último. **`D` é a dona final de TODO texto de tela da
+aba**, inclusive dentro dos arquivos de A, B e C — inclusive a varredura
+`porta → entrada` da `D-A-PALAVRA-ENTRADA`, que **não deve ser feita nas outras
+três**, ou duas frentes editam a mesma frase.
+
+**As colisões que nenhuma delas declarava**, e que quem reger resolve ANTES:
+
+| arquivo | quem reivindica | resolução |
+|---|---|---|
+| `app/actions/config/secao_mesa.py` | A (dona) × D (LEX-6, LEX-7, LEX-11) | colisão de FUNÇÃO, não de arquivo: D entra por último e é dona do texto |
+| `app/ipc_bridge.py:799-803` (`_CAMPOS_DA_MAQUINA`) | D × C × **A sem saber** | o campo `mapa` da A nasce DENTRO de `MesaDeclarada`, não no topo de `MaquinaConfig` — no topo ele reprova `test_descartados_chegam_ao_rodape.py:373-378` |
+| `app/actions/config/secao_orcamento.py` | C (calcula) × D (texto) | C é dona do que CALCULA, D do que se LÊ |
+| `utils/maquina.py` | A × B (`ordens_dispensadas`) × PORTAS-DA-CASA-01 | A escreve os dois campos, como as duas já combinaram |
+| `integrations/mesa_de_radio.py::vizinhancas_apertadas` | A (MAPA-6) × PORTAS-DA-CASA-01 (PORTA-03) | complementares: PORTA-03 filtra quem entra no par, MAPA-6 filtra qual par conta. A absorve |
+| `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py` | **NINGUÉM declarava, e as quatro o alimentam** | território de **quem coordena**; cada frente devolve a lista de símbolos no relatório |
+
+**`PORTAS-DA-CASA-01` é absorvida quase inteira:** PORTA-01 → B (mesmo conserto),
+PORTA-03 → A (MAPA-6), PORTA-04/05/06 → B, PORTA-07/09 → A. A **PORTA-08 morreu
+pela medição**: ela mandava *"ler `physical_location` primeiro"*, e medido em
+24/08 esse campo responde em **1 das 11 entradas** desta máquina. Sobrevive só a
+PORTA-02.
+
+**E uma quinta, que não é da aba e espera a trilha de BT:**
+[O-PRECO-EM-BATERIA-01](sprints/2026-08-24-O-PRECO-EM-BATERIA-01-o-botao-que-ninguem-sabe-se-serve.md)
+— o custo em bateria de gatilho, vibração e barra de luz, que **zero dos 178
+ensaios** mediu. É a oitava pergunta da §0.7.
+
+| **E** | [MOTOR-DO-ARRANJO-01](sprints/2026-08-25-MOTOR-DO-ARRANJO-01-o-calculo-que-so-existe-num-mockup.md) | **o motor**: o planejador, os quatro arranjos, o reconhecimento por serial, e a conta dos controles por adaptador | **A** (o campo `mapa`) |
+
+**O motor era o maior buraco da leva, e fechou em 25/08.** O cálculo existia só
+em JavaScript, dentro de um mockup em `novo-layout/`, que o git ignora
+(`.gitignore:108`): um `git clean -xdf` apagava a peça que ela pediu para levar
+à GUI. Duas coisas o resgataram:
+
+1. **o mockup foi VERSIONADO** em
+   [`2026-08-24-ABA-CONEXOES/mockup/`](sprints/2026-08-24-ABA-CONEXOES/mockup/LEIA.md),
+   com a fumaça que o exercita em 29 estados — o precedente é da própria casa
+   (`2026-08-21-ABA-CONFIGURACOES/mockup/`);
+2. **a MOTOR-DO-ARRANJO-01 o descreve** como módulo Python puro, e a mordida
+   dela é **paridade**: o Python e o JavaScript têm de produzir a MESMA receita
+   sobre as mesmas fixtures. É o que torna *"a mesma lógica na GUI"* verificável
+   em vez de prometida.
+
+---
+
 ## 1. A FILA DE AGORA — 23/08/2026, madrugada
 
 > **A madrugada de 23/08 acrescentou três sprints e fechou uma.** A
@@ -626,6 +713,34 @@ a escrever:
 `git log --oneline 985b41a..HEAD | wc -l` contra o HEAD `4272438`. O que fechou está resumido depois da
 fila; o detalhe de cada um está no commit e no `CHANGELOG.md`, e não se repete
 aqui — esta seção é fila do que falta, não registro do que se achou.
+
+### Duas linhas curtas que não são de sprint nenhuma — 25/08
+
+**1. Tirar `"steam"` e `"Steam"` do `navegacao.json` dela.** Decidida por ela em
+**22/08** (`D-STEAM-SAI-DA-NAVEGACAO`), **não executada** três dias depois. É uma
+linha, sem código. O daemon reclama a cada sessão:
+
+```
+perfil_casa_com_a_loja  arquivo=navegacao.json  classes=['steam','Steam']
+efeito='a janela invisível do steamwebhelper ativa este perfil no meio da partida'
+```
+
+Adiada de propósito na noite de 24/08 para não mexer na configuração viva durante
+a medição de BT dela. **"Depois da bancada" só existe se estiver escrito** — está
+aqui. Faz junto o renome do perfil, se a `D-PERFIL-NAVEGACAO` fechar antes.
+
+**2. A aba "No jogo" existe no código e NÃO aparece na janela dela.** Medido em
+24/08: o `main.glade` define **onze** abas pelos `<child type="tab">` e a janela
+viva mostra **dez** — falta a "No jogo", que é a 3ª. `grep` por `tab_no_jogo` em
+`app/` devolve só a constante `ABA_NO_JOGO` de `status_actions.py:112`; **nada no
+código a esconde**, e nenhum `remove_page` a alcança.
+
+Isto importa mais do que parece: **a §0.2 e a §0.3 deste arquivo, e seis sprints
+da leva das onze abas, apontam para uma aba que a pessoa não vê.** Antes de
+executar a Onda 4, alguém confere se é a janela dela que está velha, se é defeito
+de montagem, ou se o glade e o produto divergiram. Vai para a
+[NO-JOGO-SEM-FALSO-VERDE-01](sprints/2026-08-24-NO-JOGO-SEM-FALSO-VERDE-01-a-palavra-verde-que-nao-prova-que-chegou.md),
+que já era a sprint sem âncoras.
 
 ### O que a próxima sessão pega primeiro
 
@@ -944,7 +1059,33 @@ invoca fora dali.
 
 ---
 
-## 5. O QUE PRECISA DELA — são SEIS, não 84
+## 5. O QUE PRECISA DELA — eram seis, e **ela já respondeu cinco**
+
+> **CORREÇÃO DE 25/08/2026, e ela custou três dias.** Esta seção dizia *"são
+> SEIS"* e a [escada de releases](2026-08-24-A-ESCADA-DE-RELEASES.md) somava
+> *"6 decisões, de 29 a 39 minutos"* como custo dela para a 0.9.6. **Cinco das
+> seis já estavam respondidas** — ela marcou as caixas no `DECISOES.md` no
+> commit `4272438`, de **22/08**, e em duas delas escreveu à mão. A resposta
+> nunca foi colhida para o `decisoes-dela.csv`, e por isso a casa continuou
+> cobrando dela um trabalho já feito.
+>
+> **Colhidas em 25/08** (`docs/data/decisoes-dela.csv`): `D-LARGURA-APROVADA`,
+> `D-E9-LACO-DE-ESCRITA`, `D-VIGIA-DO-STEAM-INPUT`, `D-STEAM-SAI-DA-NAVEGACAO`,
+> `D-SEMEAR-SO-OS-QUE-FALTAM`. **Sobra UMA:** a pergunta 1 — *"a janela depois
+> dos sete consertos de largura está boa?"*, que é olho na tela e não decisão
+> de mesa.
+>
+> **E a nota manuscrita dela na pergunta 5 abriu uma decisão NOVA**, que estava
+> pendurada sem resposta desde 22/08: `D-PERFIL-NAVEGACAO`. Medido em 24/08 —
+> o `navegacao.json` não tem seção `mouse` nem `key_bindings`; ele não navega
+> nada. É homônimo da aba, não redundante com ela. E a intuição dela achou um
+> buraco real: **não existe perfil que transforme o controle em mouse/teclado
+> ao sair do jogo**, embora o esquema permita.
+>
+> **A lição, e ela vale mais que a correção:** o `DECISOES.md` é onde ela
+> responde, e o `decisoes-dela.csv` é onde a casa lê. **Sem alguém carregando de
+> um para o outro, a resposta dela não existe.** Colher o `DECISOES.md` é passo
+> obrigatório de quem coordena, e agora está escrito.
 
 **O documento é [`DECISOES.md`](../../DECISOES.md), na raiz.** Ele tem o print, as
 opções e o custo de cada uma. Esta seção não repete o conteúdo dele.
