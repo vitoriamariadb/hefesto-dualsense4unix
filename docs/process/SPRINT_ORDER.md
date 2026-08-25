@@ -729,6 +729,21 @@ em JavaScript, dentro de um mockup em `novo-layout/`, que o git ignora
 fila; o detalhe de cada um está no commit e no `CHANGELOG.md`, e não se repete
 aqui — esta seção é fila do que falta, não registro do que se achou.
 
+### A LEVA QUE LIGA OS MÓDULOS À TELA — 25/08, o que vem primeiro
+
+**[LIGAR-OS-MODULOS-A-TELA](sprints/2026-08-25-LIGAR-OS-MODULOS-A-TELA-INDICE-dez-frentes-em-quatro-ondas.md)**
+— dez frentes em quatro ondas, com a posse resolvida arquivo por arquivo e as
+sete decisões que são dela separadas do que agente executa.
+
+**O defeito que ela fecha:** a madrugada de 25/08 entregou **cinco módulos** com
+teste verde que nenhuma linha de tela chama — `A-CASA-SABE-E-O-PRODUTO-NÃO-FAZ`
+cinco vezes, e o maior deles são as 1.157 linhas do motor do arranjo, portadas
+do mockup a pedido dela. **A aba "Conexões" ainda não existe**: a 11ª continua
+sendo "Configurações".
+
+A **G7** é a MOTOR-7 — o único pedido dela para o install que não virou linha de
+código: *"não podemos deixar isso passar"*.
+
 ### Duas linhas curtas que não são de sprint nenhuma — 25/08
 
 **1. ~~Tirar `"steam"` e `"Steam"` do `navegacao.json` dela.~~ FEITA em 25/08.**
