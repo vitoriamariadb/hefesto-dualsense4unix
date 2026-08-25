@@ -731,18 +731,30 @@ aqui — esta seção é fila do que falta, não registro do que se achou.
 
 ### Duas linhas curtas que não são de sprint nenhuma — 25/08
 
-**1. Tirar `"steam"` e `"Steam"` do `navegacao.json` dela.** Decidida por ela em
-**22/08** (`D-STEAM-SAI-DA-NAVEGACAO`), **não executada** três dias depois. É uma
-linha, sem código. O daemon reclama a cada sessão:
+**1. ~~Tirar `"steam"` e `"Steam"` do `navegacao.json` dela.~~ FEITA em 25/08.**
+Decidida por ela em 22/08 (`D-STEAM-SAI-DA-NAVEGACAO`), executada três dias
+depois. O daemon reclamava a cada sessão:
 
 ```
 perfil_casa_com_a_loja  arquivo=navegacao.json  classes=['steam','Steam']
 efeito='a janela invisível do steamwebhelper ativa este perfil no meio da partida'
 ```
 
-Adiada de propósito na noite de 24/08 para não mexer na configuração viva durante
-a medição de BT dela. **"Depois da bancada" só existe se estiver escrito** — está
-aqui. Faz junto o renome do perfil, se a `D-PERFIL-NAVEGACAO` fechar antes.
+**Saiu de DOIS lugares, e o segundo é o que importa para quem não é ela:** o
+arquivo vivo dela (com backup ao lado) e **`assets/profiles_default/navegacao.json`,
+a FÁBRICA** — que ninguém tinha notado que também listava as duas classes. Curar
+só o arquivo dela deixaria toda instalação nova nascendo com o defeito.
+
+A mordida é `tests/unit/test_a_fabrica_nao_casa_com_a_loja.py`: roda a régua **do
+produto** (`perfis_que_casam_com_o_cliente_steam`) sobre o diretório de fábrica,
+e foi provada arrancando a cura e vendo reprovar. Sem ela a correção é uma linha
+de JSON, e uma linha de JSON volta na próxima edição do preset.
+
+O aviso `perfil_casa_com_a_loja` **continua no produto de propósito** — a fábrica
+curada só protege quem nasce hoje; perfil escrito à mão, herdado de instalação
+antiga ou copiado de outra máquina continua alcançando o defeito.
+
+Falta ainda o renome do perfil, se a `D-PERFIL-NAVEGACAO` fechar.
 
 **2. A aba "No jogo" existe no código e NÃO aparece na janela dela.** Medido em
 24/08: o `main.glade` define **onze** abas pelos `<child type="tab">` e a janela
