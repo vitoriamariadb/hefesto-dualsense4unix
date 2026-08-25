@@ -78,6 +78,45 @@ de **ver uma coisa a fundo**, é agente único.
 
 ---
 
+## A ÁRVORE DELA FICA EM `dev`. Sempre.
+
+**Regra dela, 25/08/2026, e ela nasceu de um estrago que ela viu acontecer.**
+
+No meio de uma leva de vinte e duas frentes, quem coordenava trocou a branch de
+`/mnt/Apate/Desenvolvimento/hefesto-dualsense4unix` para `onda/atual` — a árvore
+principal, a que ela usa. **O mockup que ela ia abrir sumiu do disco na frente
+dela**, porque aquele arquivo só existia no `dev`. Ela avisou: *"não consegui
+abrir isso"*.
+
+Trocar de branch não muda "o repositório": muda **o que está no disco da mesa
+dela**. Enquanto a leva corre, ela está usando o produto, abrindo mockup,
+fotografando tela. A árvore dela não é espaço de trabalho de quem coordena.
+
+**Como se faz, e é uma linha:**
+
+```bash
+git worktree add ../hefesto-voo/_integra onda/atual
+```
+
+A integração ganha árvore própria, com o mesmo `.git`, os mesmos objetos e
+nenhum toque na dela. Todo merge de `voo/*`, todo portão e toda suíte rodam ali.
+
+**E a árvore dela recebe tudo no FIM, de uma vez, pelo merge em `dev`** — que é
+o que ela pediu com todas as letras:
+
+> *"isso localmente traz o que ficar após o merge de tudo em dev. bota isso como
+> regra no projeto."*
+
+**O que isso garante, e é o ponto:** enquanto a leva corre, ela tem um `dev`
+estável para abrir, olhar e usar. Quando a leva fecha, ela recebe o resultado
+inteiro num gesto, e não vinte estados intermediários que ninguém validou.
+
+**Vale para `git checkout`, `git switch`, `git stash`, `git reset` e `git clean`
+na árvore dela.** Se você precisa de outro estado no disco, o lugar é um
+worktree novo — nunca o dela.
+
+---
+
 ## A integração das árvores em voo
 
 `scripts/despachar-agente.sh --listar` diz o que EXISTE, não o que está em voo —
