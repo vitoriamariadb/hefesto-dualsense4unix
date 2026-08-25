@@ -15,6 +15,51 @@ nao_toca:
 ---
 # GATILHO-NÃO-PERDIDO-01 — a régua perguntou pelo campo errado
 
+> ## FECHADA — nota datada de 25/08/2026 (E4)
+>
+> **A cura de código desta sprint entrou no MESMO commit que criou este
+> documento**, `4fd14bb` (23/08/2026 03:35). Não há defeito de código a
+> consertar aqui, e o que resta é bancada dela. Conferido hoje, três medições:
+>
+> 1. **A régua falsa nunca foi versionada.** O `.get("trigger")` era medição
+>    de mesa, feita à mão e jogada fora. Varri `src/`, `tests/` e `scripts/`
+>    por `"trigger"`/`'trigger'` no singular: **toda ocorrência é a CATEGORIA
+>    do relatório de ativação** (`relatorio["trigger"]`, `state_store`,
+>    `mark_manual_trigger_active`, o subcomando `test trigger` da CLI) — o
+>    nome certo no lugar certo. **Nada a consertar.**
+> 2. **A cura da ELO-MUDO-02 está inteira e morde.** O
+>    `_RESULTADO_PARA_RELATORIO` (`profiles/manager.py:106`) traduz
+>    `registrado` → `adiado_sem_controle`, e o portão
+>    `tests/unit/test_o_relato_do_gatilho_nao_promete_byte_que_nao_saiu.py`
+>    passa 10/10 nesta árvore. O `setdefault(categoria, "aplicado")` não
+>    existe mais.
+> 3. **A conta dos perfis foi refeita**, com o mesmo instrumento declarado da
+>    seção abaixo (`json.load` do disco, sem camada do produto). **Os números
+>    de 23/08 continuam certos para 23/08 — e a mesa dela andou desde então**,
+>    o que é a razão desta nota e não de uma substituição:
+>
+>    | medida | 23/08 | **25/08** |
+>    |---|---|---|
+>    | perfis no disco | 34 | **33** |
+>    | `d.get("trigger") is None` | 34 de 34 | **33 de 33** |
+>    | chave `"trigger"` no JSON | 0 | **0** |
+>    | chave `"triggers"` no JSON | 34 | **33** |
+>    | com efeito de verdade | 15 | **15** |
+>    | `Off/Off` | 19 | **18** |
+>
+>    O perfil do Sackboy, que é o do centro da queixa, **hoje grava
+>    `SemiAutoGun` na esquerda e `AutoGun` na direita** — ela mexeu nele depois
+>    de 23/08, e o `Feedback [5, 4]` citado adiante é o retrato daquele dia.
+>    **Isso é a prova mais forte que esta sprint podia ganhar:** o disco
+>    guardou uma edição posterior da aba Gatilhos, campo a campo. O caminho de
+>    gravação não só estava inteiro — ele continuou funcionando.
+>
+> **O que fica ABERTO é a seção "O que continua ABERTO, e é dela"**, e nada
+> nela se mexeu: o gatilho continua sem reafirmação depois da rajada da Steam,
+> e ninguém mediu se a rajada o derruba. É bancada, e a bancada estava
+> indisponível em 25/08 (o hub USB dela saiu do barramento às 02:36 levando os
+> três adaptadores Bluetooth).
+
 **23/08/2026.** Uma frente inteira nasceu para curar isto:
 
 > *"Os 34 perfis dela em `~/.config/hefesto-dualsense4unix/profiles/*.json` têm
