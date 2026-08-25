@@ -1,3 +1,32 @@
+---
+sprint: CONEXOES-MAPA-2D-01
+posse:
+  MAPA-A: [src/hefesto_dualsense4unix/utils/maquina.py]
+  MAPA-B: [src/hefesto_dualsense4unix/integrations/mesa_de_radio.py]
+  MAPA-C: [src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py]
+cria:
+  - src/hefesto_dualsense4unix/integrations/mapa_das_portas.py
+  - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
+  - tests/unit/test_mapa_da_mesa_sobrevive_a_versao.py
+  - tests/unit/test_mapa_da_mesa_fala_a_mesma_lingua.py
+  - tests/unit/test_mapa_das_portas_responde_pela_porta.py
+  - tests/unit/test_a_janela_do_mapa_coloca_o_aparelho.py
+  - tests/unit/test_conexoes_nao_engorda_com_o_mapa.py
+  - tests/unit/test_o_hub_de_dois_barramentos_nao_e_incoerencia.py
+  - tests/unit/test_a_porta_dela_chega_na_frase.py
+bancada: false
+depois_de: []
+nao_toca:
+  - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
+  - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_controles.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_janela.py
+  - src/hefesto_dualsense4unix/app/actions/config/secoes.py
+  - src/hefesto_dualsense4unix/app/actions/footer_actions.py
+  - docs/data/decisoes-dela.csv
+---
+
 # CONEXÕES · MAPA 2D 01 — o gabinete que o produto não enxerga
 
 **24/08/2026. GRAU: MEDIDO**, exceto onde a linha diz **DESENHO** ou
@@ -726,33 +755,10 @@ esconder.
 
 ## 11. A posse
 
-```yaml
-posse:
-  MAPA-A: [src/hefesto_dualsense4unix/utils/maquina.py]
-  MAPA-B: [src/hefesto_dualsense4unix/integrations/mesa_de_radio.py]
-  MAPA-C: [src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py]
-cria:
-  - src/hefesto_dualsense4unix/integrations/mapa_das_portas.py
-  - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
-  - tests/unit/test_mapa_da_mesa_sobrevive_a_versao.py
-  - tests/unit/test_mapa_da_mesa_fala_a_mesma_lingua.py
-  - tests/unit/test_mapa_das_portas_responde_pela_porta.py
-  - tests/unit/test_a_janela_do_mapa_coloca_o_aparelho.py
-  - tests/unit/test_conexoes_nao_engorda_com_o_mapa.py
-  - tests/unit/test_o_hub_de_dois_barramentos_nao_e_incoerencia.py
-  - tests/unit/test_a_porta_dela_chega_na_frase.py
-bancada: false
-depois_de: []
-nao_toca:
-  - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
-  - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_controles.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_janela.py
-  - src/hefesto_dualsense4unix/app/actions/config/secoes.py
-  - src/hefesto_dualsense4unix/app/actions/footer_actions.py
-  - docs/data/decisoes-dela.csv
-```
+O contrato de posse desta sprint é o **frontmatter no topo deste
+arquivo** — é lá que `scripts/check_colisao_de_sprints.py` o lê, e é ele
+que o `despachar-agente.sh` exige antes de criar a árvore de qualquer
+agente. Ficava aqui embaixo, num bloco de código que a máquina não lia.
 
 ### Colisões declaradas — as quatro frentes correm juntas
 

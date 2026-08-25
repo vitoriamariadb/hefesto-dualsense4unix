@@ -1,3 +1,39 @@
+---
+sprint: MOTOR-DO-ARRANJO-01
+posse:
+  # O motor e o censo. Traduzido em 25/08/2026 do bloco em prosa da §9, que
+  # `check_colisao_de_sprints.py` não conseguia ler — o formato dele é o
+  # frontmatter, e sem isto `despachar-agente.sh` recusa criar a árvore.
+  MOTOR-CORE:
+    - src/hefesto_dualsense4unix/integrations/arranjo_da_mesa.py
+    - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
+    - tests/unit/test_arranjo_da_mesa_bate_com_o_mockup.py
+    - tests/unit/test_arranjo_invariantes.py
+    - tests/unit/test_censo_do_gabinete.py
+    - install.sh
+  # A MOTOR-5 é a ÚNICA parte desta sprint que abre `app/`, e só para
+  # IMPORTAR. Os dois arquivos são de MAPA-C (Frente A) e da Frente C: a
+  # colisão é REAL, está declarada, e o `depois_de` a serializa em vez de
+  # proibi-la. Se a MOTOR-5 precisar de mais que o import, ela RELATA (R1).
+  MOTOR-5:
+    - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
+    - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
+cria:
+  # MEDIDO em 25/08/2026: o motor e os dois testes dele JÁ NASCERAM (commit
+  # da madrugada). O que continua sem existir no disco é o censo do gabinete
+  # — a MOTOR-7, que é o pedido dela para o install e não virou código.
+  - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
+  - tests/unit/test_censo_do_gabinete.py
+nao_toca:
+  - src/hefesto_dualsense4unix/daemon/
+  - src/hefesto_dualsense4unix/core/
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - docs/data/mapa-controles.csv
+depois_de:
+  - CONEXOES-MAPA-2D-01
+bancada: false
+---
+
 # MOTOR DO ARRANJO-01 — o cálculo que só existe num mockup
 
 **25/08/2026. GRAU: MEDIDO** onde a linha traz âncora; **DESENHO** onde diz.

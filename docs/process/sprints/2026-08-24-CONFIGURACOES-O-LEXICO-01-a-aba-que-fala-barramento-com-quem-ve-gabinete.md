@@ -1,6 +1,5 @@
-# CONFIGURAÇÕES-O-LÉXICO-01 — a aba que fala barramento com quem vê gabinete
-
-```yaml
+---
+sprint: CONFIGURACOES-O-LEXICO-01
 posse:
   LEXICO-01:
     - src/hefesto_dualsense4unix/app/actions/config/moldura.py
@@ -31,7 +30,14 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/mesa_de_radio.py
   - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
   - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
-```
+---
+
+# CONFIGURAÇÕES-O-LÉXICO-01 — a aba que fala barramento com quem vê gabinete
+
+O contrato de posse desta sprint é o **frontmatter no topo deste
+arquivo** — é lá que `scripts/check_colisao_de_sprints.py` o lê, e é ele
+que o `despachar-agente.sh` exige antes de criar a árvore de qualquer
+agente. Ficava aqui embaixo, num bloco de código que a máquina não lia.
 
 **24/08/2026. GRAU: MEDIDO**, exceto onde a linha diz DESENHO ou NÃO VERIFICADO.
 Frente D da leva das quatro. Escopo: **só o DualSense** (decisão dela, hoje).

@@ -1,3 +1,28 @@
+---
+sprint: CALIBRAR-AS-ENTRADAS-01
+posse:
+  CAL-A: [src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py]
+  CAL-B: [src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py]
+cria:
+  - src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py
+  - src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py
+  - tests/unit/test_entradas_do_gabinete.py
+  - tests/unit/test_a_calibracao_grava_com_o_daemon_morto.py
+  - tests/unit/test_a_fase_sentada_resolve_o_hub.py
+  - tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py
+  - tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py
+  - tests/unit/test_a_marreta_respeita_o_silencio.py
+  - tests/unit/test_o_laudo_confessa_o_que_nao_mede.py
+depois_de:
+  - CONEXOES-MAPA-2D-01   # o esquema `mapa` e o campo `nos`
+nao_toca:
+  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - docs/data/decisoes-dela.csv
+bancada: true    # só a volta completa; tudo o mais roda sem aparelho
+---
+
 # CALIBRAR AS ENTRADAS-01 — a entrada vazia que só a mão dela ensina
 
 **25/08/2026. GRAU: MEDIDO** onde a linha traz âncora ou comando; **DESENHO**
@@ -545,29 +570,10 @@ virar promessa.
 
 ## 10. Posse
 
-```yaml
-posse:
-  CAL-A: [src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py]
-  CAL-B: [src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py]
-cria:
-  - src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py
-  - src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py
-  - tests/unit/test_entradas_do_gabinete.py
-  - tests/unit/test_a_calibracao_grava_com_o_daemon_morto.py
-  - tests/unit/test_a_fase_sentada_resolve_o_hub.py
-  - tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py
-  - tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py
-  - tests/unit/test_a_marreta_respeita_o_silencio.py
-  - tests/unit/test_o_laudo_confessa_o_que_nao_mede.py
-depois_de:
-  - CONEXOES-MAPA-2D-01   # o esquema `mapa` e o campo `nos`
-nao_toca:
-  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - docs/data/decisoes-dela.csv
-bancada: true    # só a volta completa; tudo o mais roda sem aparelho
-```
+O contrato de posse desta sprint é o **frontmatter no topo deste
+arquivo** — é lá que `scripts/check_colisao_de_sprints.py` o lê, e é ele
+que o `despachar-agente.sh` exige antes de criar a árvore de qualquer
+agente. Ficava aqui embaixo, num bloco de código que a máquina não lia.
 
 ## 11. O mockup
 

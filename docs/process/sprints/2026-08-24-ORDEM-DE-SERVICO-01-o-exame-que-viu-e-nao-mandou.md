@@ -1,3 +1,32 @@
+---
+sprint: ORDEM-DE-SERVICO-01
+posse:
+  # A chave é o código do agente — o portão recusa lista solta, e com razão:
+  # posse sem dono é o defeito que o formato existe para matar.
+  ORDEM-B:
+    - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
+    - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
+cria:
+  - src/hefesto_dualsense4unix/integrations/ordens_da_mesa.py
+  - src/hefesto_dualsense4unix/integrations/portas_do_barramento.py
+  - tests/unit/test_ordens_da_mesa.py
+  - tests/unit/test_o_selo_de_procedencia_nunca_falta.py
+  - tests/unit/test_a_ordem_confirma_que_ela_moveu.py
+  - tests/unit/test_o_estado_bom_nao_e_o_estado_vazio.py
+  - docs/protocol/por-que-usb3-atrapalha-24ghz.md
+nao_toca:
+  - src/hefesto_dualsense4unix/integrations/mesa_de_radio.py
+  - src/hefesto_dualsense4unix/integrations/censo_do_barramento.py
+  - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
+  - docs/data/mapa-controles.csv
+  - GUIA-RADIO-DA-SALA.md
+depois_de:
+  - PORTAS-DA-CASA-01
+  - CONEXOES-MAPA-2D-01
+bancada: false
+---
 
 > **▲ DUAS DECISÕES FECHARAM DEPOIS QUE ESTA SPRINT FOI ESCRITA, e elas mandam
 > nela.** Leia antes de executar qualquer tarefa — o corpo abaixo ainda não foi
@@ -18,31 +47,6 @@
 >    Eu escolho.
 
 
----
-frente: ORDEM-DE-SERVIÇO (Frente B da leva Configurações · 0.9.5)
-posse:
-  - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
-cria:
-  - src/hefesto_dualsense4unix/integrations/ordens_da_mesa.py
-  - src/hefesto_dualsense4unix/integrations/portas_do_barramento.py
-  - tests/unit/test_ordens_da_mesa.py
-  - tests/unit/test_o_selo_de_procedencia_nunca_falta.py
-  - tests/unit/test_a_ordem_confirma_que_ela_moveu.py
-  - tests/unit/test_o_estado_bom_nao_e_o_estado_vazio.py
-  - docs/protocol/por-que-usb3-atrapalha-24ghz.md
-nao_toca:
-  - src/hefesto_dualsense4unix/integrations/mesa_de_radio.py
-  - src/hefesto_dualsense4unix/integrations/censo_do_barramento.py
-  - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
-  - docs/data/mapa-controles.csv
-  - GUIA-RADIO-DA-SALA.md
-depois_de:
-  - PORTAS-DA-CASA-01 · PORTA-03 (o par só conta se os dois lados irradiarem)
-  - Frente A · o mapa 2D (só ela dá número de porta ao texto da ordem)
----
 
 # ORDEM-DE-SERVIÇO-01 — o exame que viu e não mandou
 
