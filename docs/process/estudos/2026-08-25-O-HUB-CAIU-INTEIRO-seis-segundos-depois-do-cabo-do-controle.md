@@ -61,26 +61,30 @@ raiz diferente** — `4-4`, não no hub. Dois aparelhos, dois caminhos, o mesmo
 segundo, o mesmo erro. `over_current_count` continua zero nas 22 entradas, então
 **o kernel não viu excesso de corrente em entrada nenhuma.**
 
-**HIPÓTESE, e ela precisa da bancada dela:** foi um evento da controladora
-`0000:0c:00.3`, não do hub. O que sustenta: o Wi-Fi não pende do hub e mesmo
-assim falhou no mesmo segundo; e os dois lados do hub (2.0 em `usb3`, 3.0 em
-`usb4`) caíram juntos, o que é o esperado quando o problema é a montante, não no
-plástico.
+**RESOLVIDO POR ELA, 25/08 às 03h05, e a palavra dela fecha a questão:** *"pera
+o hub tá desconectado de fato."* **O cabo do hub está fora.** Foi desencaixe
+físico, não evento de controladora — as duas hipóteses que este documento
+carregava por quinze minutos morrem aqui, e a mais simples era a certa.
 
-**A hipótese concorrente, e ela é mais simples:** ela puxou o cabo do hub ao
-mexer no cabo do controle. Contra ela: um desencaixe físico não faz a escrita de
-registrador do Wi-Fi falhar com `-71`. A favor: os dois cabos estão a poucos
-centímetros um do outro, e o `clear tt` de um hub que some é o que o kernel
-imprime **também** quando alguém puxa o cabo no meio de uma transação.
+**O que sobra a explicar, e a explicação é barata:** por que o Wi-Fi, que NÃO
+pende do hub, falhou uma escrita de registrador com `-71` no mesmo segundo. A
+resposta provável é colateral, não causa — o desencaixe de uma árvore inteira no
+meio de uma transação faz o `xhci` engasgar, e as duas raízes (`usb3` e `usb4`)
+são da MESMA controladora `0000:0c:00.3` que hospeda o `4-4`. O kernel resolveu
+sozinho: `reset SuperSpeed USB device` e o Wi-Fi voltou. **NÃO VERIFICADO** que
+seja essa a mecânica; o que está medido é que aconteceu uma vez, se curou
+sozinho, e não voltou.
 
-**NÃO diz** que o arranjo dela é a causa. A conta de corrente do
-`CONEXOES-MAPA-2D-01` §2.1 registra três UB500 pedindo 500 mA cada num hub que
-**tem** fonte de 30 W — o orçamento cabia.
+**O que NÃO era:** a conta de corrente do `CONEXOES-MAPA-2D-01` §2.1 registra
+três UB500 pedindo 500 mA cada num hub que **tem** fonte de 30 W — o orçamento
+cabia, e `over_current_count` é zero nas 22 entradas. O arranjo dela não é o
+culpado.
 
 ## 5. O que fazer, e por que eu não fiz
 
-**O conserto é físico e é dela:** reencaixar o cabo do hub. Nenhum comando traz
-de volta um aparelho que saiu do barramento.
+**O conserto é físico e é dela:** reencaixar o cabo do hub — ela confirmou às
+03h05 que ele está fora. Nenhum comando traz de volta um aparelho que saiu do
+barramento.
 
 O único caminho por software seria forçar a re-enumeração desligando e religando
 a controladora (`unbind`/`bind` do `xhci_hcd` em `0000:0c:00.3`). **Não fiz, e a
@@ -88,14 +92,10 @@ razão não é zelo:** o Wi-Fi dela mora nessa mesma controladora, e derrubá-lo
 derruba a rede — inclusive a leva de agentes que está rodando agora. O risco é
 concreto e o ganho é incerto.
 
-**Quando ela voltar, na ordem:**
-
-1. conferir se o cabo do hub está encaixado — é a explicação mais provável e a
-   mais barata;
-2. `ls /sys/class/bluetooth/` — se voltar a listar `hci0`…`hci2`, acabou;
-3. se o hub voltar e os `-71` reaparecerem, aí sim é a controladora, e a próxima
-   medição é mover o Wi-Fi para a **outra** controladora (`0000:02:00.0`), que é
-   o que curou o incidente de 23/08.
+**O que resta, agora que ela confirmou o desencaixe:** reencaixar o cabo do hub e
+conferir com `ls /sys/class/bluetooth/` que os três `hciN` voltaram. Enquanto
+isso não acontecer, **toda tarefa de rádio desta madrugada está bloqueada por
+ausência de aparelho** — não por decisão e não por defeito.
 
 ## 6. O que este evento prova sobre o produto
 
