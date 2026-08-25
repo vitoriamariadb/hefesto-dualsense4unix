@@ -133,10 +133,12 @@ era o defeito.
 | `scripts/bancada.sh` | **existe** (I4/I5) | o semáforo do aparelho, com PID vivo E teto de tempo — duas provas de vida independentes |
 | `scripts/portoes.sh` | **existe** (I14) | uma lista de portão só, conferida contra o `ci.yml` por um teste |
 | `scripts/check_colisao_de_sprints.py` | **existe** (I15) | a posse num formato só, e a duplicata em arquivo que ainda não existe |
-| `scripts/costurar.sh` <!-- ref-externa: nasce em INFRA-DE-EXECUCAO-01, ainda não existe --> | **ainda não** (I7-I9) | o merge sob `flock`, com a entrega como condição |
+| `scripts/costurar.sh` | **existe** (I7/I8/I9) | o merge sob `flock`, com a entrega e os portões como condição, e conflito que sai barulhento |
 
-Enquanto o `costurar.sh` <!-- ref-externa: nasce em INFRA-DE-EXECUCAO-01, ainda não existe --> não chega, **a costura é sua, à mão**, com os três
-passos acima. `bancada.sh status` responde de qualquer worktree, e a **R2 de
+O `costurar.sh` roda **no worktree do agente**, e é ele quem exige a entrega,
+chama o sanitizador e funde em `onda/atual` sob trava. Você continua podendo
+costurar à mão com os três passos acima — e vai querer, enquanto ele for novo.
+`bancada.sh status` responde de qualquer worktree, e a **R2 de
 COMO-REGER-AGENTES.md deixou de valer ao pé da letra**: a árvore de cada agente
 parou de se mexer, então a suíte do escopo dele voltou a ser dele. A completa
 continua sendo sua, uma vez, na integração. Confira
@@ -233,8 +235,8 @@ Nesta ordem, parando quando já souber o bastante:
 - [COMO-OLHAR-A-TELA.md](COMO-OLHAR-A-TELA.md) — a foto, os instrumentos, e
   as armadilhas de medição já pagas.
 - [INFRA-DE-EXECUCAO-01](sprints/2026-08-24-INFRA-DE-EXECUCAO-01-o-registro-do-que-esta-em-voo.md)
-  — as peças da infra de execução (`bancada.sh` e `portoes.sh` já existem;
-  `costurar.sh` <!-- ref-externa: ainda não existe --> ainda não) e o que cada uma resolve.
+  — as peças da infra de execução (`bancada.sh`, `portoes.sh`, `costurar.sh`,
+  `check_colisao_de_sprints.py`) e o que cada uma resolve.
 - [PRE-REGISTRO-VIES-01](PRE-REGISTRO-VIES-01-o-teste-contra-o-nosso-proprio-trabalho.md)
   e o [RESULTADO](2026-08-24-RESULTADO-DO-TESTE-DE-VIES-01.md) — o molde de
   como pré-registrar um experimento sobre o próprio processo.
