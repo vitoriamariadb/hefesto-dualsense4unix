@@ -1,11 +1,44 @@
 # SINAL-NO-NASCIMENTO-01 — o veredito existe, e o hotplug não pergunta
 
+```yaml
+posse:
+  D1:
+    - src/hefesto_dualsense4unix/integrations/sinal_da_barra.py
+    - src/hefesto_dualsense4unix/daemon/connection.py       # só o bloco do carimbo
+    - src/hefesto_dualsense4unix/daemon/ipc_handlers.py     # só `_nascimento_para`
+    - src/hefesto_dualsense4unix/app/actions/config/secao_controles.py
+cria:
+  - tests/unit/test_a_porta_do_veredito_de_nascimento.py
+bancada: false        # nenhuma medição de rádio; o sysfs do cabo basta
+depois_de: [BARRA-MUDA-01]
+nao_toca:
+  - src/hefesto_dualsense4unix/integrations/mesa_de_radio.py
+  - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
+  - src/hefesto_dualsense4unix/app/widgets/external_card.py
+  - src/hefesto_dualsense4unix/daemon/lifecycle.py
+  - docs/data/decisoes-dela.csv
+```
+
+<!-- 25/08/2026: o bloco acima NÃO existia quando esta frente foi despachada, e
+     o recado da leva dizia que existia. Escrito aqui pelo executor, com a posse
+     REAL do trabalho que ele fez. -->
+
 **22/08/2026.** Continuação direta da
 [BARRA-MUDA-01](2026-08-22-BARRA-MUDA-01-a-lampada-nao-se-le-o-nascimento-sim.md),
 que entregou o módulo e declarou o que faltava ligar. Metade foi ligada no mesmo
 dia, algumas horas depois — esta sprint é a outra metade.
 
-**Estado:** E1 e E3 ENTREGUES (22/08, à noite). E2 e E4 continuam ABERTAS.
+**Estado:** E1, E2 e E3 ENTREGUES; a E4 ENTREGUE PELA METADE, com a outra
+metade declarada aberta e o motivo abaixo.
+
+> **▲ 25/08/2026 — A E1 ESTAVA ENTREGUE E NÃO RODAVA.** O filtro de "só os
+> controles NOSSOS" comparava o `uniq` do sysfs (`aa:bb:cc:…`, COM os
+> dois-pontos) com a chave do backend (`aabbcc…`, sem — `_key_to_uniq` passa por
+> `norm_mac`). A comparação não casa nunca: a lista de instâncias saía vazia e o
+> tique devolvia **zero carimbos**, de 22/08 até hoje. MEDIDO no `uevent` do
+> DualSense que está no cabo desta máquina. O que escondia era o fixture, que
+> falava a grafia do sysfs onde o produto lê a do backend. Curado em `116525b`;
+> a régua nova está em `TestOEnderecoCasaAsDuasGrafias`.
 
 ---
 
@@ -166,7 +199,7 @@ Mesa parada = **zero** subprocessos, tique após tique. Conexão nova = uma
 leitura de 0,12 s, e no máximo mais uma no tique seguinte (a janela de
 nascimento é de 5 s e o tique online é de 30 s).
 
-### E2 — o veredito aparece na tela — **ABERTA**
+### E2 — o veredito aparece na tela — **ENTREGUE (25/08)**
 
 O card de cada controle já tem o botão "A luz não acende". Falta a **razão**:
 enquanto o veredito diz que aquela instância nasceu condenada, o card pode dizer
@@ -209,6 +242,29 @@ DIAGNÓSTICO (*"esta conexão nasceu condenada"* — vira a razão no card) e
 o botão desde `8b167cc`). Confundi-las é o defeito que a BARRA-MUDA-01 §5
 descreve.
 
+#### O que foi ligado em 25/08
+
+| onde | o quê |
+|---|---|
+| `daemon/ipc_handlers.py::_nascimento_para` | a porta: o carimbo vira o campo `nascimento` do payload por controle |
+| `daemon/ipc_handlers.py::_enrich_controllers_per_controller` | a chamada, ao lado do `lightbar_disputada` |
+| `app/actions/config/secao_controles.py::frase_do_nascimento` | a frase pura — e ela SÓ fala quando o veredito condena |
+| `app/actions/config/secao_controles.py::_BlocoDaLuz` | a linha da razão, debaixo do botão que ela explica |
+| `app/actions/config/secao_controles.py::_PainelDosControles._aplicar` | o veredito sai do payload e chega ao card, por `uniq` |
+
+**A metade do PROGNÓSTICO já estava ligada** e não precisou de nada: o
+`AVISO_DA_MESA_SUJA` entra ANEXADO à dica do botão desde 22/08, e a regra dela
+("sempre visível, só acionável no rádio") continua literal — a mesa suja avisa,
+nunca trava.
+
+**Os três silêncios são desenho, não omissão.** Sem carimbo, `limpa` e `nao_sei`
+não escrevem nada no card: ausência não é inocência E não é acusação; "nasceu
+bem" em todo card é ruído crônico; e alarme sem medição atrás treina a pessoa a
+ignorar alarmes.
+
+**AGUARDA O OLHO DELA.** Nenhuma foto de aba foi tirada nesta leva, por ordem de
+quem coordena. A `PROVA-DE-TELA-01` continua devendo aqui.
+
 ### E3 — o portão que impede o módulo de virar enfeite — **ENTREGUE**
 
 O `portao_a_casa_sabe_e_o_produto_nao_faz.py` passou a medir alcance por GRAFO
@@ -238,7 +294,7 @@ que `ler_a_mesa` não estava sendo acusado apesar de ter zero chamadores: o
 nome da E4 — é uma regra do portão. Quem for endurecer o portão tem aqui o caso
 de teste pronto.
 
-### E4 — a colisão de nome sai — **ABERTA**
+### E4 — a colisão de nome sai — **METADE ENTREGUE (25/08)**
 
 `integrations/mesa_de_radio.py` e `integrations/radio_da_mesa.py` coexistem, e
 `ler_a_mesa` existe em `mesa_de_radio` e em `sinal_da_barra`. É a colisão de
@@ -247,6 +303,20 @@ nome que o portão A-CASA-SABE passou a pegar hoje — aqui ela está no produto
 O trabalho é escolher UM nome por conceito e renomear, com nota datada no que
 sair. Não é cosmético: foi essa colisão que fez a primeira varredura desta
 sprint parecer dizer que o veredito já estava ligado.
+
+**FEITO em 25/08 — a função.** `sinal_da_barra.ler_a_mesa` virou
+`veredito_do_nascimento`: ela nunca leu mesa nenhuma, lê o DIÁRIO e dá um
+veredito. A de `mesa_de_radio` fica com o nome, porque nela ele descreve o que a
+função faz. **Sem alias de compatibilidade**, de propósito: um manteria a
+colisão viva. A nota datada de por que o nome saiu está no docstring do módulo.
+
+**ABERTO — os dois módulos.** `integrations/mesa_de_radio.py` e
+`integrations/radio_da_mesa.py` continuam coexistindo com as palavras trocadas.
+Não é desta frente resolver HOJE: os dois são posse declarada de outras frentes
+nesta leva (`mesa_de_radio` é da CONEXOES-MAPA-2D-01/MAPA-B; `radio_da_mesa`
+está no `nao_toca` da DESEMPENHO-A-CONTA-DE-SLOTS-01), e renomear módulo alheio
+no meio de uma leva é colisão garantida. Quem for fazer: são 2 arquivos de
+`src/` renomeados e 14 citações a reapontar (`grep -rln "mesa_de_radio\|radio_da_mesa" src/ tests/ scripts/ docs/`).
 
 ---
 
@@ -276,7 +346,20 @@ Uma armadilha, registrada porque ela quase deixou uma mordida passar em branco:
 um teste-bomba (`raise AssertionError` dentro de uma dependência) passa verde.
 As mordidas que precisam provar que algo NÃO foi chamado usam contador, não bomba.
 
-## O que ficou aberto depois da E1 e da E3
+## O que ficou aberto depois da E1, da E2, da E3 e de meia E4 (25/08)
+
+1. **A prova de tela.** O código e o teste estão de pé; o olho dela não passou
+   por cima. `PROVA-DE-TELA-01`, e ninguém tirou foto de aba nesta leva;
+2. **Os dois módulos homônimos** (E4, acima) — posse de outras frentes hoje;
+3. **A `BARRA-MUDA-01` §7 tem uma linha caduca**: ela diz que o carimbo no
+   nascimento estava por fazer. Está feito desde 22/08 — e desde HOJE está
+   funcionando, que não é a mesma coisa;
+4. **O `hw_version` viaja no payload e ninguém o lê.** Ele entrou porque o
+   contrato de leitura desta sprint o declara, e a tela não usa. Quem for cortar
+   verbosidade um dia: é uma chave por controle por segundo, e o motivo de estar
+   lá é diagnóstico de suporte, não a tela.
+
+## O que ficou aberto depois da E1 e da E3 (22/08, o registro da época)
 
 1. **A E2 e a E4**, pelas razões acima. O contrato de leitura da E2 está escrito;
 2. **A BARRA-MUDA-01 §1.1 carrega um fato derrubado:** *"o MAC da instância
