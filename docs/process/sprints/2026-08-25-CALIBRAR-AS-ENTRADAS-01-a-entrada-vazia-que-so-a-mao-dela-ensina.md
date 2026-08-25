@@ -461,11 +461,11 @@ muda e o teste reprova imprimindo a frase que a tela mostraria.
 
 ### CAL-3 — a fase sentada: `[Onde fica?]` em cada aparelho
 
-**Arquivo:** `src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py` (novo)
+**Arquivo:** `src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py` (novo) <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 **O que faz:** o cartão do §4.1, o caso do hub, a gravação imediata. ~260 linhas.
 **Carimbo D3: precisa do olho dela ANTES de fechar.**
 
-**A MORDIDA:** `tests/unit/test_a_fase_sentada_resolve_o_hub.py`
+**A MORDIDA:** `tests/unit/test_a_fase_sentada_resolve_o_hub.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_um_toque_no_hub_coloca_tudo_que_pende_dele` — mesa com hub e três
 aparelhos; um toque em "Num hub" e afirma que os **quatro** ganharam lugar.
 **Arrancada a cura** (colocando só o hub): três ficam sem lugar e o teste
@@ -477,7 +477,7 @@ reprova listando quais.
 **O que faz:** a volta do §4.2, com os dois relógios do §2.5 na tela. ~200 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py`
+**A MORDIDA:** `tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_entrada_ocupada_nao_entra_na_caminhada` — mesa com 8 ocupadas e 7 vazias;
 afirma que a lista da volta tem **7** e que nenhuma delas tem `device`.
 **Arrancada a cura** (listando todas): a lista vai a 15 e o teste reprova
@@ -491,7 +491,7 @@ segundo nó do mesmo `uniq` por rádio e o cabo inerte, a tela **não** confirma
 **O que faz:** o F-3 — enquanto a janela tem foco, os botões que ela usa não
 chegam ao gamepad virtual. ~60 linhas.
 
-**A MORDIDA:** `tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py`
+**A MORDIDA:** `tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_com_a_janela_em_foco_o_despacho_para` — com jogo simulado, afirma zero
 eventos no vpad. **Arrancada a cura:** o evento aparece no vpad e o teste reprova
 dizendo qual botão vazou.
@@ -505,7 +505,7 @@ Sequência de quadros por `GLib.timeout_add` — a casa já usa esse caminho e n
 carrega dependência nova. ~70 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_a_marreta_respeita_o_silencio.py`
+**A MORDIDA:** `tests/unit/test_a_marreta_respeita_o_silencio.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_com_animacao_desligada_zero_quadros` — com `gtk-enable-animations=False`,
 afirma zero quadros e o cartão **igualmente** legível.
 **Arrancada a cura** (animando sempre): conta quadros > 0 e reprova.
@@ -523,7 +523,7 @@ afirma zero quadros e o cartão **igualmente** legível.
 em 22/08 e **sem consumidor até hoje**). ~120 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_o_laudo_confessa_o_que_nao_mede.py`
+**A MORDIDA:** `tests/unit/test_o_laudo_confessa_o_que_nao_mede.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_o_quarto_bloco_nunca_some` — mesa perfeita, e afirma que "O que eu não
 meço" **continua na tela**. **Arrancada a cura** (escondendo o bloco quando está
 tudo bem): o bloco some e o teste reprova — porque é ele que impede o exame de
