@@ -39,10 +39,11 @@ Os dois últimos papéis não são luxo:
 
 ---
 
-## As CINCO regras
+## As SEIS regras
 
-> A quinta nasceu em 25/08/2026, medida ao vivo. As quatro primeiras são de
-> 23/08 e continuam valendo palavra por palavra.
+> A quinta e a sexta nasceram em 25/08/2026, as duas medidas ao vivo na mesma
+> madrugada. As quatro primeiras são de 23/08 e continuam valendo palavra por
+> palavra.
 
 ### R1 — posse de arquivo, sempre
 
@@ -132,6 +133,34 @@ na MESMA.
 3. **Quem chegar numa árvore e achar trabalho que não é seu PARA e avisa** — não
    sobrescreve para seguir em frente. Foi isso que tornou o estrago reparável
    naquele dia: o agente mediu, relatou e não commitou por cima.
+
+> **NOTA DE 25/08/2026, medida na mesma madrugada, e ela AMPLIA a R2.** A regra
+> diz que a suíte inteira é de quem coordena, e a razão escrita era o risco dos
+> nós uinput. Há uma segunda razão, medida: **com seis frentes em voo a suíte
+> completa não TERMINA.** Ela parou duas vezes por volta dos 13%, com `load
+> average` em 6,7 — cada agente roda o subconjunto dele, e a soma satura a
+> máquina. Não é defeito nem da suíte nem dos agentes.
+>
+> O que se faz em vez disso, e foi o que valeu nesta leva: **os 24 portões do
+> `portoes.sh` rodam em ~2 min e são o que decide a integração**; a suíte inteira
+> roda **depois** que a última frente fecha, com a máquina livre. Quem coordena
+> confere a saúde da sessão dela antes e depois (`ls /dev/input/event* | wc -l` e
+> o nome dos nós): nesta noite, 30 nós e um vpad legítimo, com a sessão dela
+> intacta o tempo todo.
+
+### R6 — a árvore DELA fica em `dev`; quem integra usa árvore própria
+
+**Regra dela, 25/08/2026.** Trocar a branch da árvore principal troca **o que
+está no disco da mesa dela** — e no meio da leva de vinte e duas frentes isso
+fez um mockup sumir na frente dela, porque o arquivo só existia no `dev`.
+
+Nenhum agente tem por que tocar a árvore principal (a R1 já o proíbe), e **quem
+coordena também não**: a integração vai para um worktree próprio
+(`git worktree add ../hefesto-voo/_integra onda/atual`), e a árvore dela recebe
+o resultado **no fim, de uma vez, pelo merge em `dev`**.
+
+Vale para `checkout`, `switch`, `stash`, `reset` e `clean`. O ganho é dela:
+enquanto a leva corre, ela tem um `dev` estável para abrir, olhar e usar.
 
 ---
 
