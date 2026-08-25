@@ -315,3 +315,241 @@ limpa, mesmo resultado antes e depois):
 - **a redação de nove frases** é dela: a da pausa, a do quarto veredito da
   ponte, a do detector cego, as duas da divergência por perfil, as três do
   desfecho da máscara e a da conta da mesa mista.
+
+---
+
+# SEGUNDA RODADA — 25/08/2026, manhã
+
+Despachado por quem coordena com um destravamento e um endereço exato: a
+`VPAD-SUSPENSO-MORTO-01` fechou e o **I6, ramo 2** deixou de estar bloqueado; a
+`ESCONDE-SÓ-O-HIDRAW-01` fechou e o **texto do aviso de grab (I9)** deixou de
+depender de medição que não existia. As duas fecharam nesta rodada.
+
+**Commits:** `30bfa22`, `f341133`, `b136aab`, na branch `voo/INICIO-NAO-MENTE-A3`.
+**Portões:** `bash scripts/portoes.sh` → **TODOS VERDES — 24 portões**.
+
+## O que mudou
+
+### I6, ramo 2 — e por que NÃO fechei pela saída recomendada
+
+A D2 deixou o endereço (`home_actions.py:1112-1116`) e duas saídas: **A**
+apagar o ramo, **B** (recomendada para o par) trocar a condição por
+`excecao_ativa` sozinho, *"sem inventar texto novo"*.
+
+**Fechei pela A, e a razão é medição.** A frase do ramo dizia *"pelo Steam
+Input — neste jogo a Steam entrega os botões"*. Ela é do mundo de **06/08**, em
+que a exceção suspendia o vpad. Esse mundo acabou em **09/08**, por decisão
+dela (`ESCONDER-EM-VEZ-DE-SAIR-01`: *a allowlist do Steam Input NÃO tira o
+Hefesto da frente*): a exceção passou a **esconder o físico** e a **manter o
+vpad de pé**. E há medição EM JOGO, não só leitura de código —
+[pilha-steam-input-xpad-sdl.md](../../../protocol/pilha-steam-input-xpad-sdl.md),
+§2.4-bis, **11/08**, com um appid da allowlist DELA em sessão: **zero
+espelhos** da Steam no sistema, os dois vpads do Hefesto de pé, quatro
+controles com jogador e vibração, e o aceite dela.
+
+Ou seja: a Saída B publicaria na **primeira tela** uma frase que a medição
+derruba — que é o defeito que esta sprint inteira existe para fechar. Com a
+exceção ativa, a resposta verdadeira é a que a aba já dá ("pelo Hefesto"), e
+quem tem a fita da exceção é a aba Emulação.
+
+**A ordem das perguntas caiu de cinco para quatro.** A bifurcação da mesa vazia
+continua DENTRO da pergunta do gamepad.
+
+**Duas réguas, porque são dois modos de a frase voltar:** o TEXTO (três testes
+de render) e a FORMA — `test_a_aba_nao_le_uma_flag_que_so_anda_para_um_lado`,
+que pergunta ao **AST** se a aba voltou a ler `vpad_suspenso`. A régua por AST
+não é preciosismo: a primeira versão dela, por linha de texto, acusou a própria
+lápide que explica o defeito.
+
+**A foto acompanha.** O estado `steam_input` do instrumento trazia
+`vpad_suspenso: True` e `gamepad_emulation.enabled: False` — um payload que o
+daemon de hoje **não produz**. Passou a trazer o de hoje, e com isso a foto sai
+**igual** à do caminho feliz. Em vez de tirá-lo da régua da I10, ele entrou em
+`ESTADOS_SEM_EFEITO_NA_ABA` (no próprio instrumento, com razão datada) e ganhou
+a **régua contrária**: se a aba um dia distinguir a exceção, o teste reprova e
+manda devolver o nome à régua da diferença. Sem essa segunda régua, a
+declaração seria a porta por onde a foto volta a não provar nada.
+
+### I9, segunda metade — o aviso de duplicação fala com ela
+
+*"Grab falhou — input pode dobrar no jogo"* contava o que aconteceu com o
+KERNEL. A troca estava presa porque a consequência não estava medida. Agora
+está, nos dois pedaços de que a frase precisa:
+
+- **o que acontece** — `ESCONDE-SÓ-O-HIDRAW-01`, medido em 25/08: o `hide` age
+  em UMA superfície (`/dev/hidraw*`) e o mesmo controle mora em TRÊS; `event*`
+  e `js*` seguem alcançáveis. O `EVIOCGRAB` é o que impede o físico de produzir
+  entrada nessas duas — com ele recusado, a duplicação não é hipótese;
+- **o que fazer** — `GRAB-DOBRADO-01`, medido em 15/08: as quatro recusas do
+  journal são `Errno 16` (outro leitor já tem o dispositivo), o daemon retoma
+  sozinho a cada 2 s (`GRAB_RECONCILE_SEC`, `daemon/lifecycle.py:84`), e o que
+  curou naquele dia foi reiniciar o Hefesto.
+
+Linha: **"O jogo pode receber cada botão duas vezes"**. O porquê vai no
+**hover** — mesmo desenho da fita apagada do cabeçalho (`f475b2a`, do mesmo
+dia), e pela mesma razão: a fileira tem até quatro cards e o aviso mora DENTRO
+de um deles.
+
+**A frase NÃO acusa a Steam.** A `GRAB-DOBRADO-01` registra por escrito que
+**quem** segura o dispositivo não está provado — a Steam é candidata sem prova.
+Mandar ela fechar o programa por onde joga seria pior que calar. Há teste que
+trava isso.
+
+A condição (`is_primary and gamepad_on and grab_state == "failed"`) saiu do
+montador de widgets para `aviso_de_grab`, função pura: ela já estava certa, e
+fora do GTK é testável.
+
+### A premissa de 06/08 que sobrevivia ao mecanismo de 09/08
+
+Dois comentários do meu próprio arquivo ainda contavam o mundo anterior — *"com
+a exceção ativa o vpad é suspenso, a emulação cai para False, o modo vira
+Controlar o PC"*. Foi essa premissa velha que quase me fez fechar a I6 pela
+saída errada. Substituída, com a medição de 06/08 citada com a data (ela
+descreve o mecanismo DAQUELE dia, e é o que explica a frase banida).
+
+**Nada muda no código:** o gate da divergência sempre foi `mode_of_state`.
+
+## Qual mordida prova
+
+**I6 — a mordida é a SAÍDA RECOMENDADA reposta** (é ela que os testes
+precisam distinguir da certa):
+
+```
+# CURA ARRANCADA (a Saída B literal: condição `excecao_ativa` sozinha)
+E   assert 'pelo Hefesto' in 'Ponte com o jogo: <span foreground="#50fa7b">pelo
+    Steam Input</span> — neste jogo a Steam entrega os botões, ...'
+E   AssertionError: assert 'entrega os botões' not in ...
+E   assert '#50fa7b' not in ...
+FAILED ...::test_com_a_excecao_ativa_a_ponte_continua_sendo_o_hefesto
+FAILED ...::test_a_aba_nao_diz_que_a_steam_entrega_os_botoes
+FAILED ...::test_com_a_excecao_ativa_e_a_mesa_vazia_a_ponte_nao_acende
+3 failed, 20 passed
+```
+
+E a **segunda direção** — o ramo ORIGINAL de volta (`excecao_ativa AND
+vpad_suspenso`), que é a "saída zero" de não fazer nada:
+
+```
+E   AssertionError: a aba Início voltou a LER `vpad_suspenso`, e ela só anda
+    para False desde 09/08/2026 (VPAD-SUSPENSO-MORTO-01/E1):
+    ["linha 1169: literal 'vpad_suspenso'"]
+FAILED ...::test_a_aba_nao_le_uma_flag_que_so_anda_para_um_lado
+FAILED ...::test_a_aba_nao_diz_que_a_steam_entrega_os_botoes
+2 failed, 21 passed
+```
+
+devolvida: `23 passed`.
+
+**I10/foto — a régua contrária mordeu**, com a aba voltando a distinguir a
+exceção:
+
+```
+E   AssertionError: estes estados foram DECLARADOS sem efeito na aba e a foto
+    mostra outra coisa: ['steam_input']. A aba passou a distingui-los — mova o
+    nome para `_ESTADOS_QUE_TEM_DE_DIFERIR` e apague a declaração
+FAILED ...::test_os_estados_declarados_iguais_saem_iguais
+1 failed, 5 passed
+```
+
+devolvida: `6 passed`.
+
+**I9 — duas arrancadas, uma por metade da frase.** O jargão de volta:
+
+```
+E   AssertionError: a linha do card voltou a dizer 'grab'. É o nome da peça do
+    sistema que falhou — e o card é a primeira tela de quem quer jogar:
+    'Grab falhou — input pode dobrar no jogo'
+FAILED ...::test_a_linha_nao_fala_a_lingua_do_kernel
+1 failed, 16 passed, 1 xfailed
+```
+
+e o hover fora (`warn.set_tooltip_text(porque)` arrancado):
+
+```
+E   AssertionError: o card mostra a linha e não carrega o porquê. Sem o hover,
+    a frase diz o que aconteceu e não diz o que fazer.
+E   assert None == 'Outro programa pegou este controle antes e não solta, ...'
+FAILED ...::test_o_card_leva_a_linha_e_o_porque_no_hover
+1 failed, 16 passed, 1 xfailed
+```
+
+devolvidas: `17 passed, 1 xfailed`. O `__pycache__` foi apagado entre arrancar e
+devolver em todas.
+
+## O que NÃO verifiquei
+
+1. **A prova de tela (D3).** Nem a linha nova do aviso de grab, nem o hover, nem
+   o silêncio da ponte sob a exceção foram vistos por ela. Tudo marcado
+   `PROVISÓRIO — decisão dela` no código.
+2. **A exceção de Steam Input EM JOGO, hoje.** A conclusão de que a aba não deve
+   dizer nada é leitura de código + a medição de 11/08 de outra pessoa. Não
+   abri um jogo da allowlist para ver a tela nesse estado — é bancada, e o
+   daemon vivo é dela.
+3. **Se o hover é legível na tela dela.** `set_tooltip_text` num `Gtk.Label`
+   dentro de um card: medi que o produto o entrega, não que ele apareça bem.
+4. **Nada de rádio.** `/sys/class/bluetooth/` continua vazio.
+
+## O que sobrou para o próximo
+
+### Um vermelho que EU criei, e ele é o D3 desta noite
+
+`tests/unit/test_as_fotos_acompanham_a_versao.py::test_as_fotos_nao_ficam_atras_do_codigo_da_tela`
+**estava verde e ficou vermelho no meu primeiro commit**: mudei código de tela e
+as fotos de `docs/usage/assets` são de `f475b2a`. A cura é rodar o
+`retratar_abas.py` — proibido nesta madrugada, e **com razão**, porque medi o
+que aconteceria:
+
+- rodei o script para um destino temporário e comparei: **as 14 fotos do
+  `docs/usage/assets` saem DIFERENTES das versionadas**, inclusive as de abas
+  que ninguém tocou;
+- duas execuções seguidas, mesmo ambiente: **idênticas** — não é ruído de
+  execução;
+- e achei um motivo estrutural: o script aplica o tema com a **escala de fonte
+  DELA, lida do disco vivo** (`~/.config/hefesto-dualsense4unix/gui_preferences.json`,
+  `escala_fonte: 6`). Rodando com um `HOME` limpo o log diz `escala=3` e as
+  fotos mudam de novo. **A foto do repositório depende de uma preferência viva
+  da máquina de quem roda** — então "se saírem iguais, ótimo, custou dez
+  segundos" não vale entre ambientes.
+
+Com o `HOME` limpo elas TAMBÉM diferem das versionadas, então a escala não
+explica tudo: sobra que o conjunto versionado foi feito num ambiente que esta
+árvore não reproduz. **Quem for rodar o lote da Rodada 3 precisa saber disso
+antes**, ou vai commitar 14 PNGs achando que documentou uma mudança de duas
+telas.
+
+### A premissa de 06/08 vive em mais QUATRO lugares, e são de outras frentes
+
+Mesmo fato errado do meu terceiro commit — *"na exceção o Hefesto solta o grab
+e derruba o vpad"* —, que a `ESCONDER-EM-VEZ-DE-SAIR-01` substituiu em 09/08.
+Não toquei: são de outras frentes nesta leva, e meia correção deixa as duas
+versões vivas, que é o defeito que a regra existe para matar.
+
+| Endereço | O que diz de errado |
+|---|---|
+| `tests/unit/test_a_frase_refutada_da_allowlist.py:9-11` | é a **premissa do portão**: *"o Hefesto entrega a ENTRADA — solta o grab, desfaz o esconde-esconde do hidraw e recolhe o gamepad virtual"*. O portão continua CERTO (a frase "sai da frente" segue banida); o mecanismo descrito é que caducou |
+| `app/actions/daemon_actions.py:859` | docstring do toast "Este jogo não funciona": *"solta o grab e derruba o gamepad virtual"* |
+| `app/actions/profiles_actions.py:957` | docstring do toast da caixinha do Steam Input, o mesmo texto |
+| `daemon/lifecycle.py:2217` e `:4703` | *"a exceção do Steam Input derruba o vpad DE PROPÓSITO"* |
+
+**Os toasts que essas docstrings governam já dizem a coisa CERTA** (o de
+`profiles_actions` diz *"o controle físico fica escondido e ele passa a ver só o
+controle do Hefesto"*). O estrago é na razão de registro: foi ela que quase me
+fez fechar a I6 pela saída errada.
+
+### O que continua aberto, e de quem é
+
+- **I13 — BANCADA, dela.** Sem adaptador de rádio nesta casa desde 02:36;
+- **A frase da Emulação** (`emulation_actions.py:408`) — a gêmea da minha, e a
+  D2 aponta o mesmo endereço. **Cuidado:** aquela frase diz *"o controle
+  virtual foi recolhido"*, que é exatamente a metade que a 09/08 derrubou.
+  Fechá-la pela Saída B, sem trocar o texto, publica um fato errado — a mesma
+  conta que fiz aqui;
+- **I9, as outras três superfícies** (`external_controllers.transport_label`,
+  `config/secao_mesa.py`, a Status) — o `xfail(strict=True)` é o gatilho, e a
+  aba Configurações tem sprint própria de léxico nesta leva;
+- **A palavra "primário"** no subtítulo do card — o outro jargão que a I9
+  nomeia. **Não troquei, e é decisão dela:** o card já mostra o número do
+  jogador, então qualquer substituto ou repete o que está ali ou inventa um
+  conceito novo na primeira tela;
+- **Se a Início deve NOMEAR a exceção de Steam Input** (algo como "…e a Steam
+  está no meio neste jogo"). É texto novo na primeira tela — palavra dela.

@@ -1,5 +1,20 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
+> **A LEVA DA MADRUGADA DE 25/08 FECHOU, e este arquivo ainda não a reflete
+> linha a linha.** Vinte e duas frentes entraram em 164 commits; dez das onze
+> abas receberam trabalho. **A porta de entrada é
+> [2026-08-25-ONDE-PARAMOS](2026-08-25-ONDE-PARAMOS-a-madrugada-de-vinte-e-duas-frentes.md)**
+> — o que fechou, o que espera o olho dela, as três regras novas e os erros de
+> quem coordenou. A tabela §0.3 abaixo dá dez das onze abas como abertas; elas
+> estão **PARCIAIS**, e o relatório de cada frente está em
+> `docs/process/agentes/2026-08-25/`.
+>
+> O que continua **inteiramente aberto**, e é dela: a bancada (o hub USB estava
+> desconectado a noite toda, e `/sys/class/bluetooth/` ficou vazio — **nenhuma
+> medição de rádio foi possível**) e o carimbo D3 das quarenta e três mudanças
+> de texto de tela.
+
+
 Este é o arquivo único e de caminho fixo (`docs/process/SPRINT_ORDER.md`) que
 diz o que está aberto, em que ordem, e o que espera a palavra dela. Ele existiu
 até a faxina de 24/07 (`a639e0d`), foi apagado, e ela o pediu de volta em

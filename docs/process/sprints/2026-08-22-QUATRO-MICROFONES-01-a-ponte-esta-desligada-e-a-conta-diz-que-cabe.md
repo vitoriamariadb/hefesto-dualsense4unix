@@ -2,9 +2,10 @@
 sprint: QUATRO-MICROFONES-01
 posse:
   E3:
-    - src/hefesto_dualsense4unix/integrations/bt_mic.py
     - src/hefesto_dualsense4unix/cli/cmd_mic.py
 cria:
+  - tests/unit/test_o_mic_bt_nao_sobe_em_cima_do_daemon.py
+  - tests/unit/test_portao_a_ponte_do_mic_espera_a_arbitragem.py
 bancada: true
 depois_de: []
 nao_toca:
@@ -68,6 +69,13 @@ casa dela enquanto ela não está é o gesto que este módulo existe para recusa
 >
 > **Fica na fila** como item próprio: arbitrar o hidraw, ou ela decidir que
 > aceita o risco sabendo qual é.
+>
+> **NOTA DATADA — 25/08/2026.** Esta nota deixou de ser só uma nota: o portão
+> `tests/unit/test_portao_a_ponte_do_mic_espera_a_arbitragem.py` MEDE a
+> arbitragem no comportamento do broker real e congela em duas as portas de
+> produção que sobem a ponte. **O 5.a continua não existindo**, e a decisão de
+> gastar bancada para destravá-lo continua sendo dela. Ver o fim deste
+> documento.
 
 ---
 
@@ -442,3 +450,66 @@ próximo ensaio de taxa tem de usar o carimbo do sensor.
 O que **não** serve: ler os quatro nós em paralelo no mesmo processo Python (o
 laço vira o gargalo e inventa desigualdade), e contar `read()` sem conferir se
 os carimbos são únicos (um duplicador engana as duas primeiras réguas juntas).
+
+---
+
+## O que foi ENTREGUE — 25/08/2026 (E3, o que não precisa de bancada)
+
+A E3 continua **DELA**: sem adaptador Bluetooth na máquina — `/sys/class/bluetooth/`
+vazio desde as 02h36 — o ensaio dos quatro microfones não é executável. O que
+saiu hoje é o que estava embaixo dele.
+
+### 1. O CENSO HONESTO — o `bt_mic_enabled` não tem mais três leitores, tem ZERO
+
+**FATO SUBSTITUÍDO.** A frase *"`bt_mic_enabled` é lido por três lugares e
+escrito por nenhum"* descreve **22/08**, e a entrega de 23/08 a derrubou: o
+campo **não existe em `src/`**. Sobrou só em nota datada — o cabeçalho de
+`daemon/subsystems/bt_mic.py:41` e o de
+`app/actions/config/secao_controles.py:383`, que explicam por que o `bool` saiu.
+Onde a frase ainda aparece no PRESENTE, ela está errada: `SPRINT_ORDER.md:760` e
+`:970`.
+
+O gate de hoje é outro, e tem escritor:
+
+| papel | onde, com linha |
+|---|---|
+| **o valor** | `utils/maquina.py:462` — `ControleDeclarado.microfone: bool \| None` |
+| **escritor 1/2** | `app/actions/config/secao_controles.py:1017` `_ao_alternar_o_microfone` → `_ao_declarar` (rascunho; quem grava é o "Aplicar") |
+| **escritor 2/2** | `daemon/ipc_handlers.py:4941` `_handle_machine_declare` — grava o `maquina.json`, rebinda `daemon._maquina` e chama `reconciliar_bt_mic` (`:5034`) |
+| leitor | `daemon/lifecycle.py:804` — fia `DaemonConfig.bt_mic_uniqs = lambda: uniqs_declarados(self._maquina)` |
+| leitor | `daemon/subsystems/bt_mic.py:142` `uniqs_pedidos` · `:175` `alvos()` — o filtro que faz o "por controle" |
+| leitor | `daemon/lifecycle.py:3658` `_start_bt_mic` (`is_enabled`) · `:3702` `reconciliar_bt_mic` |
+| leitor | `daemon/ipc_handlers.py:3047` — publica `bt_mic.{enabled,running,uniqs}` |
+| leitor | `app/actions/config/secao_mesa.py:825` e `secao_orcamento.py:660` — a barra do rádio |
+
+### 2. A ARBITRAGEM QUE FALTAVA, na porta que dava para fechar
+
+**O achado:** a ponte tem **duas portas de produção**, em **dois processos**, e
+nenhuma sabia da outra — `cli/cmd_mic.py::_mic_bt` e
+`daemon/subsystems/bt_mic.py::BtMicSubsystem`. Cada `PonteMicBluetooth` carrega o
+próprio contador de sequência do `0x32`: as duas no mesmo controle reproduzem o
+quadro do `O-PS-PRESO` **sem kernel nenhum no meio**.
+
+`mic bt` passou a ler `daemon.state_full` → `bt_mic.uniqs` (a chave que a E2
+publica desde 23/08) e **não sobe ponte em cima de quem já tem uma** — na
+entrada e a cada volta do laço. Daemon que não diz de quem são as pontes vira
+recusa, não silêncio.
+
+**O limite, declarado:** fecha o sentido CLI → daemon. O daemon não sabe que o
+CLI existe, então o outro sentido continua aberto — e ele é o **5.a**, a
+arbitragem do nó no broker (`_cmd_open`: *"`open` NÃO altera lease/refcount"*).
+
+### 3. O PORTÃO 5.b, que o `O-QUE-FICOU-ABERTO-01` tabelou e ninguém escreveu
+
+`tests/unit/test_portao_a_ponte_do_mic_espera_a_arbitragem.py`. Ele **não**
+reprova a entrega de 22/08 — mantê-la é decisão dela, e portão vermelho todo dia
+é portão que alguém apaga. Ele **congela a dívida**: enquanto a arbitragem não
+existir, as portas são exatamente as duas declaradas, a janela não pode importar
+quem abre o hidraw, e o dia em que o 5.a chegar o portão reprova para o registro
+sair de lá.
+
+### O que continua ABERTO, e é dela
+
+* **o 5.a** — arbitrar o nó no broker, ou ela decidir que aceita o risco;
+* **o ensaio dos quatro microfones** — precisa dos adaptadores de volta, do
+  daemon reiniciado sobre a árvore fechada, e dela na sala.
