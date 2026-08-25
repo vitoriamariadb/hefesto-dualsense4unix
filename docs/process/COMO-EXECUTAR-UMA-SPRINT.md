@@ -81,9 +81,15 @@ ou toque em `systemctl`. **rc=1 significa esperar e DIZER que está esperando**
 na entrega — nunca contornar por outro caminho.
 
 Se a bancada estiver livre e você precisar dela, reserve com teto curto
-(`--horas 1`) e libere ao terminar. **O teto é a rede, não o `liberar`**: o que
-não volta sozinho trava a casa para sempre — é a lição do `btmgmt` sem
-adaptador.
+(`--horas 1`, que é o padrão) e libere ao terminar. **O teto é a rede, não o
+`liberar`**: o que não volta sozinho trava a casa para sempre — é a lição do
+`btmgmt` sem adaptador.
+
+**Você não precisa liberar nada se morrer no meio.** Duas provas de vida
+independentes respondem por você: o kernel (o PID do detentor sumiu) e o relógio
+(passou de `expira_em`). Basta uma dizer "não" para a bancada ficar livre na
+próxima leitura. Se a liberação dependesse de um `finally` seu, o desenho estaria
+errado.
 
 ---
 
@@ -150,6 +156,24 @@ um `git add -A` engoliu sete arquivos do vizinho no mesmo commit.
 - **português do Brasil com acentuação** — há portão;
 - **`git add -A` antes de rodar portão**: portão é cego a arquivo novo;
 - o gancho global dela corta linha de co-autoria. **Não readicione.**
+
+**Os portões são um comando só, e a lista é uma só:**
+
+```bash
+git add -A                      # os portões são cegos a arquivo novo
+bash scripts/portoes.sh         # a lista inteira
+bash scripts/portoes.sh --rapido  # só a camada de ~5 s, enquanto você trabalha
+```
+
+**Não monte a sua própria lista de portão.** A que existe é conferida contra o
+`.github/workflows/ci.yml` por `tests/unit/test_portao_a_lista_de_portoes_e_uma_so.py`,
+e reprova nomeando o que ficou de fora — em qualquer das duas direções. Foi uma
+segunda lista à mão que deixou o `validar-caducos.py` atravessar uma leva inteira
+e só aparecer no vermelho do CI.
+
+O script **declara qual python está usando** na primeira linha da saída. Se o
+`PYTHONPATH` aparecer vazio, você esqueceu o `source .envrc-voo` e está prestes
+a medir a árvore do vizinho (§1).
 
 Não commitar **não** é a alternativa segura: em 05/08 uma leva ficou horas no
 índice e morreu com a sessão.

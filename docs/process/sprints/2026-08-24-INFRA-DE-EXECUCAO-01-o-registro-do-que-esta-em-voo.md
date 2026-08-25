@@ -1,3 +1,31 @@
+---
+sprint: INFRA-DE-EXECUCAO-01
+posse:
+  A1:
+    - scripts/despachar-agente.sh
+    - scripts/bancada.sh
+    - scripts/portoes.sh
+    - scripts/costurar.sh
+    - scripts/check_colisao_de_sprints.py
+    - docs/process/COMO-EXECUTAR-UMA-SPRINT.md
+    - docs/process/COMO-REGER-AGENTES.md
+    - docs/process/COMO-COORDENAR-UMA-LEVA.md
+cria:
+  - scripts/bancada.sh
+  - scripts/portoes.sh
+  - scripts/costurar.sh
+  - scripts/check_colisao_de_sprints.py
+bancada: false
+depois_de: []
+nao_toca:
+  - src/hefesto_dualsense4unix/
+  - main.glade
+  - .github/workflows/ci.yml
+  - scripts/gerar-painel.py
+  - scripts/hooks/pre-commit
+  - .pre-commit-config.yaml
+---
+
 # INFRA DE EXECUÇÃO · 01 — o registro do que está em voo
 
 **24/08/2026.** Não é sprint de produto: é a **infra que executa as outras
