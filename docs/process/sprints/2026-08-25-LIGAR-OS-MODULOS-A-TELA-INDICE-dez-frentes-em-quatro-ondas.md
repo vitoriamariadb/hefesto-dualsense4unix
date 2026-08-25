@@ -56,8 +56,15 @@ menos** — pelo fecho de import são **cinco órfãos totais, não três**.
 
 **A G7 é o pedido dela que não virou código:** *"manda isso tudo pro nosso
 install viu. não podemos deixar isso passar."* Medido hoje contra o disco:
-`censo_do_gabinete.py` **não existe**, `install_censo_do_gabinete_host()` **não
-existe**, `test_censo_do_gabinete.py` **não existe**.
+`censo_do_gabinete.py` **não existe**, <!-- ref-externa: nasce NA G7; a ausência é o assunto -->
+`install_censo_do_gabinete_host()` **não existe**,
+`test_censo_do_gabinete.py` **não existe**. <!-- ref-externa: nasce NA G7; a ausência é o assunto -->
+
+O portão de referências acusou estas duas linhas assim que elas nasceram, e
+estava certo em acusar: ele não tem como distinguir *"citei um arquivo que não
+existe por engano"* de *"o arquivo não existir é o meu ponto"*. A isenção acima
+é a resposta que o próprio portão oferece, e ela é de linha — some sozinha no
+dia em que os dois arquivos nascerem.
 
 E ela tem uma armadilha que a própria sprint já mediu: **a BIOS desta placa
 mente.** Declara 5 conectores USB onde a traseira tem 8, e inventa um USB-C que
