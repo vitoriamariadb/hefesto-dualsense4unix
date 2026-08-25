@@ -98,7 +98,22 @@ mesmo controle e responde por transporte: hidraw escondido **e** evdev/joydev
 alcançáveis = *"o físico continua visível por evdev"*.
 
 **Como morde:** esconder os quatro hidraw e deixar o evdev aberto — o estado de
-agora — tem de sair de `pass` para `warn` com o motivo. Hoje sai `pass`.
+agora — tem de sair de `pass` para `warn` com o motivo.
+
+**FEITO em 25/08/2026 (`eb2711c`).** A frase *"Hoje sai `pass`"* era o estado
+até então e **caducou**: `_veredito_do_hide` mede as três superfícies por
+controle e a cena de hoje sai `warn`, nomeando os nós alcançáveis. A régua é
+`tests/unit/test_esconde_so_o_hidraw_veredito_das_tres_superficies.py`.
+
+**MEIA-ENTREGA, e a metade que falta está nomeada** (conferência da frente C4,
+25/08): o denominador é *"o que o broker escondeu"*, não *"o que está na
+mesa"* — um DualSense físico que o broker **nunca escondeu** é invisível para
+a função, e a cena do item 3.1 do `O-QUE-FICOU-ABERTO-01` (dois físicos, um
+escondido) continua saindo verde. O 3.1 **não fechou**, apesar de o commit
+dizer que sim. O que falta é barato: o bloco python de `check_hidraw_broker`
+já monta o censo de Sony físicos varrendo `/sys/class/hidraw/*/device/uevent`
+por `054C` e só o usa para o teste do `cmd open` — publicar essa lista e
+comparar os conjuntos fecha o item. **Exige DualSense na bancada para medir.**
 
 ### E2 — decidir o que fazer com evdev e joydev — **É DELA**
 
