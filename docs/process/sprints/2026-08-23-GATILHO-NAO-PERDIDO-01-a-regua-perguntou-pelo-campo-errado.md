@@ -1,3 +1,18 @@
+---
+sprint: GATILHO-NAO-PERDIDO-01
+posse:
+  E4:
+    - src/hefesto_dualsense4unix/app/actions/trigger_specs.py
+    - src/hefesto_dualsense4unix/core/trigger_curves.py
+cria:
+bancada: false
+depois_de: [GATILHOS-APLICADO-COM-PROVA-01]
+nao_toca:
+  - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - src/hefesto_dualsense4unix/profiles/schema.py
+  - docs/data/decisoes-dela.csv
+---
 # GATILHO-NÃO-PERDIDO-01 — a régua perguntou pelo campo errado
 
 **23/08/2026.** Uma frente inteira nasceu para curar isto:

@@ -1,3 +1,19 @@
+---
+sprint: NAVEGACAO-UM-CONTROLE-SO-01
+posse:
+  E2:
+    - src/hefesto_dualsense4unix/app/actions/mouse_actions.py
+    - src/hefesto_dualsense4unix/app/actions/input_actions.py
+    - src/hefesto_dualsense4unix/daemon/subsystems/
+cria:
+bancada: false
+depois_de: [EMULACAO-UM-DONO-SO-01, PERFIS-ABRE-O-QUE-GUARDA-01]
+nao_toca:
+  - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - src/hefesto_dualsense4unix/app/actions/status_actions.py
+  - docs/data/decisoes-dela.csv
+---
 # NAVEGAÇÃO — UM CONTROLE SÓ-01 — o teclado que jura despachar e os atalhos que somem
 
 - **Escrita em:** 23/08/2026, ~21h, na `dev`, sobre `f0632cf`.
