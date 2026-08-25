@@ -115,6 +115,21 @@ def le_frontmatter(texto: str, onde: str = "<texto>") -> dict | None:
     for n, linha in enumerate(linhas[1:fim], start=2):
         if not linha.strip() or linha.lstrip().startswith("#"):
             continue
+        # COMENTÁRIO INLINE, e a ausência disto cegava o portão INTEIRO —
+        # medido em 25/08/2026. A linha de comentário SOZINHA já era pulada
+        # acima; o `# dona: A` no fim de um caminho, não. O caminho entrava no
+        # conjunto COM o comentário grudado, nunca casava com o mesmo arquivo
+        # declarado por outra sprint, e a colisão que este script existe para
+        # achar ficava invisível. O verde era falso: com quatro caminhos assim
+        # na CONFIGURACOES-O-LEXICO-01 — os quatro que ela CEDE, que são
+        # exatamente os disputados — o portão dizia "nenhuma colisão não
+        # declarada" enquanto duas sprints reivindicavam `secao_mesa.py`.
+        #
+        # Exige espaço antes do `#`: caminho de arquivo com `#` colado é
+        # esquisito mas legal, e recusá-lo seria trocar um erro por outro.
+        linha = re.sub(r"\s+#.*$", "", linha)
+        if not linha.strip():
+            continue
         recuo = len(linha) - len(linha.lstrip())
 
         if recuo == 0:

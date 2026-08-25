@@ -23,9 +23,18 @@ cria:
   - tests/unit/test_o_lexico_da_aba_configuracoes.py
 bancada: false
 depois_de:
-  - 2026-08-24-CONEXOES-MAPA-2D-01        # frente A
-  - 2026-08-24-ORDEM-DE-SERVICO-01        # frente B
-  - 2026-08-24-DESEMPENHO-A-CONTA-DE-SLOTS-01  # frente C
+  # Os identificadores são os do campo `sprint:` de cada uma, e NÃO o nome do
+  # arquivo — o portão casa por identificador, e com o nome datado aqui a
+  # serialização não era vista: as três colisões abaixo saíam como "não
+  # declaradas". Medido em 25/08/2026, junto com o conserto do comentário
+  # inline que cegava o parser.
+  - CONEXOES-MAPA-2D-01
+  - ORDEM-DE-SERVICO-01
+  - DESEMPENHO-A-CONTA-DE-SLOTS-01
+  # MOTOR-DO-ARRANJO-01 disputa `secao_mesa.py` e `secao_orcamento.py` com esta
+  # sprint pela MOTOR-5, e não estava aqui. Esta é a dona final do TEXTO de
+  # tela da aba, então ela é sempre a última.
+  - MOTOR-DO-ARRANJO-01
 nao_toca:
   - src/hefesto_dualsense4unix/integrations/mesa_de_radio.py
   - src/hefesto_dualsense4unix/integrations/radio_da_mesa.py
