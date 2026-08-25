@@ -19,6 +19,14 @@ gabinete:
 E, no mesmo turno: *"vê a questão de acessibilidade e tudo mais."* A §6 é a
 resposta, e ela é a maior seção deste documento de propósito.
 
+> **APROVADA POR ELA em 25/08/2026, às ~03h55**, vendo o mockup da §11 —
+> palavra dela: *"aprovado"*. O **desenho** está fechado: as duas fases, a
+> pergunta única do hub, os dois relógios ditos na tela, o `[Não alcanço]`
+> como saída de primeira classe, a marreta batendo uma vez em 0,82 s e as
+> palavras das faces. **O que isso NÃO aprova:** as telas GTK reais, que
+> pedem foto antes e depois quando existirem. Aprovar o desenho não é
+> aprovar a tela.
+
 **Decisão que a autoriza:** `D-CALIBRAR-AS-ENTRADAS` (`docs/data/decisoes-dela.csv`).
 Ela **substitui a metade** *"recusou o assistente"* da `D-MAPA-2D-DAS-PORTAS` —
 por decisão dela mesma, um dia depois. **A outra metade daquela decisão continua
