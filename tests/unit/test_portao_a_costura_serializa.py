@@ -280,3 +280,31 @@ def test_a_costura_recusa_branch_que_nao_e_de_agente(casa: Path, tmp_path: Path)
     )
     assert r.returncode == 1
     assert "não é branch de agente" in r.stderr
+
+
+def test_costura_usa_a_arvore_onde_o_alvo_ja_esta_em_check_out(
+    casa: Path, tmp_path: Path
+) -> None:
+    """O git recusa a mesma branch em duas árvores — e é essa recusa que protege
+    a árvore de quem coordena. Se `onda/atual` já estiver em check-out em algum
+    lugar, é lá que se costura; criar uma segunda falharia no meio."""
+    ja = tmp_path / "ja-em-check-out"
+    _git("worktree", "add", str(ja), "onda/atual", cwd=casa)
+    wt = _agente(casa, tmp_path, "REUSO-A1")
+    r = _costura(wt, casa)
+    assert r.returncode == 0, r.stdout + r.stderr
+    assert _entrou(casa, "voo/REUSO-A1")
+    assert not (casa.parent / "arvore-onde-a-costura-funde").exists(), (
+        "criou uma segunda árvore para o alvo em vez de usar a que já existia"
+    )
+
+
+def test_costura_recusa_arvore_de_integracao_suja(casa: Path, tmp_path: Path) -> None:
+    ja = tmp_path / "ja-em-check-out"
+    _git("worktree", "add", str(ja), "onda/atual", cwd=casa)
+    (ja / "trabalho-de-quem-coordena.txt").write_text("no meio de algo\n", encoding="utf-8")
+    wt = _agente(casa, tmp_path, "SUJA-A1")
+    r = _costura(wt, casa)
+    assert r.returncode == 1, r.stdout + r.stderr
+    assert "não commitada" in r.stderr
+    assert not _entrou(casa, "voo/SUJA-A1")

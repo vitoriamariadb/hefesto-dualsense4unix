@@ -206,12 +206,33 @@ git -C "$PRINCIPAL" rev-parse --verify -q "$ALVO" >/dev/null \
 
 # A worktree de integração é DEDICADA: `onda/atual` em check-out aqui e em
 # nenhum outro lugar, e a árvore dela nunca é tocada por agente nenhum.
-INTEGRACAO="${HEFESTO_INTEGRACAO:-$(dirname "$PRINCIPAL")/hefesto-voo/_costura}"
-if [ ! -d "$INTEGRACAO" ]; then
-  mkdir -p "$(dirname "$INTEGRACAO")"
-  git -C "$PRINCIPAL" worktree add "$INTEGRACAO" "$ALVO" >/dev/null
+#
+# SE O ALVO JÁ ESTIVER EM CHECK-OUT EM ALGUM LUGAR, é lá que se costura. O git
+# recusa a mesma branch em duas árvores, e essa recusa é a garantia de que a
+# árvore de quem coordena nunca é duplicada. Medido em 25/08/2026, às 03h50:
+# quem coordenava estava com `onda/atual` em check-out na árvore principal, e
+# criar uma segunda teria falhado no meio de uma costura.
+JA_EM="$(git -C "$PRINCIPAL" worktree list --porcelain \
+  | awk -v alvo="refs/heads/$ALVO" '/^worktree /{w=$2} $0=="branch "alvo{print w}')"
+if [ -n "${JA_EM:-}" ]; then
+  INTEGRACAO="$JA_EM"
+else
+  INTEGRACAO="${HEFESTO_INTEGRACAO:-$(dirname "$PRINCIPAL")/hefesto-voo/_costura}"
+  if [ ! -d "$INTEGRACAO" ]; then
+    mkdir -p "$(dirname "$INTEGRACAO")"
+    git -C "$PRINCIPAL" worktree add "$INTEGRACAO" "$ALVO" >/dev/null
+  fi
+  git -C "$INTEGRACAO" checkout -q "$ALVO"
 fi
-git -C "$INTEGRACAO" checkout -q "$ALVO"
+
+if [ -n "$(git -C "$INTEGRACAO" status --porcelain)" ]; then
+  {
+    echo "ERRO: a árvore de integração (${INTEGRACAO}) tem coisa não commitada."
+    echo "  Costurar por cima disso mistura o trabalho de quem coordena com o seu."
+    git -C "$INTEGRACAO" status --short | sed 's/^/  /'
+  } >&2
+  exit 1
+fi
 
 if git -C "$INTEGRACAO" merge --no-ff --no-edit "$BRANCH" >/dev/null 2>&1; then
   echo "COSTURADO: ${BRANCH} entrou em ${ALVO}."
