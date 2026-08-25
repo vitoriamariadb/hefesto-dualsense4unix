@@ -1,3 +1,20 @@
+---
+sprint: EMULACAO-UM-DONO-SO-01
+posse:
+  E1:
+    - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
+    - src/hefesto_dualsense4unix/gui/main.glade
+    - src/hefesto_dualsense4unix/profiles/schema.py
+cria:
+bancada: false
+depois_de: [ONDA0-Z1, ONDA0-Z2, ONDA0-Z5, ONDA0-Z6, ONDA0-Z7, VPAD-SUSPENSO-MORTO-01]
+nao_toca:
+  - src/hefesto_dualsense4unix/app/actions/status_actions.py
+  - src/hefesto_dualsense4unix/app/actions/home_actions.py
+  - src/hefesto_dualsense4unix/app/actions/config/
+  - src/hefesto_dualsense4unix/app/app.py
+  - docs/data/decisoes-dela.csv
+---
 # EMULAÇÃO — UM DONO SÓ-01 — a máscara com cinco donos, e o verde que não tem alvo
 
 **24/08/2026.** **Onda 5 · Emulação** da leva das onze abas ([SPRINT_ORDER §0.3](../SPRINT_ORDER.md)).

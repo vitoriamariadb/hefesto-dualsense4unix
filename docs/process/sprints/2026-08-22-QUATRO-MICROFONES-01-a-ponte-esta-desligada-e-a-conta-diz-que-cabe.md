@@ -1,3 +1,18 @@
+---
+sprint: QUATRO-MICROFONES-01
+posse:
+  E3:
+    - src/hefesto_dualsense4unix/integrations/bt_mic.py
+    - src/hefesto_dualsense4unix/cli/cmd_mic.py
+cria:
+bancada: true
+depois_de: []
+nao_toca:
+  - src/hefesto_dualsense4unix/app/actions/status_actions.py
+  - src/hefesto_dualsense4unix/app/actions/config/
+  - docs/data/mapa-controles.csv
+  - docs/data/decisoes-dela.csv
+---
 # QUATRO-MICROFONES-01 — a ponte está desligada, e a conta diz que cabe
 
 **22/08/2026.** A mesa dela tem três adaptadores desde esta semana, e foi
