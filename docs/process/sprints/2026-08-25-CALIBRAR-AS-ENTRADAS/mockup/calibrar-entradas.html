@@ -1,0 +1,517 @@
+<meta charset="utf-8">
+<title>Calibrar as entradas — Hefesto</title>
+<style>
+:root {
+  /* Paleta Drácula — a mesma que o produto usa em 82 lugares no código.
+     Copiada byte a byte de scripts/paleta_da_casa.py. */
+  --color-paper:      #282a36;
+  --color-paper-2:    #21222c;
+  --color-paper-3:    #343746;
+  --color-rule:       #44475a;
+  --color-ink:        #f8f8f2;
+  --color-ink-quiet:  #a8b0c8;
+  --color-ink-faint:  #6272a4;
+  --color-accent:     #bd93f9;
+  --color-ok:         #50fa7b;
+  --color-lacuna:     #ffb86c;
+  --color-nulo:       #6272a4;
+  --color-alerta:     #ff5555;
+  --color-frio:       #8be9fd;
+
+  --font-corpo: ui-sans-serif, system-ui, "Cantarell", "Segoe UI", Roboto, sans-serif;
+  --font-dado:  ui-monospace, "JetBrains Mono", "Fira Mono", "DejaVu Sans Mono", monospace;
+
+  --space-3xs: .25rem; --space-2xs: .5rem;  --space-xs: .75rem;
+  --space-sm:  1rem;   --space-md:  1.5rem; --space-lg: 2.5rem;
+  --space-xl:  4rem;
+
+  --text-xs: .75rem;  --text-sm: .8125rem; --text-base: .9375rem;
+  --text-lg: 1.125rem; --text-xl: 1.5rem;  --text-2xl: 2rem;
+
+  --radius-sm: 3px; --radius-md: 6px;
+}
+
+body { margin:0; background:var(--color-paper-2); color:var(--color-ink);
+       font-family:var(--font-corpo); font-size:var(--text-base); line-height:1.55; }
+.folha { max-width: 1180px; margin: 0 auto; padding: var(--space-lg) var(--space-md) var(--space-xl); }
+
+h1 { font-size: var(--text-2xl); margin:0 0 var(--space-2xs); font-weight:650; }
+h1 small { display:block; font-size:var(--text-sm); color:var(--color-ink-quiet); font-weight:400; margin-top:var(--space-3xs); }
+h2 { font-size: var(--text-lg); color: var(--color-accent); margin: var(--space-lg) 0 var(--space-2xs);
+     border-bottom: 1px solid var(--color-rule); padding-bottom: var(--space-3xs); }
+h2 .n { color: var(--color-ink-faint); font-family:var(--font-dado); font-size:var(--text-sm); margin-right:var(--space-2xs); }
+p { margin: var(--space-2xs) 0; }
+.legenda { color: var(--color-ink-quiet); font-size: var(--text-sm); max-width: 76ch; }
+code, .dado { font-family: var(--font-dado); font-size: .9em; color: var(--color-frio); }
+
+/* ---- a moldura que imita a janela do produto ---- */
+.janela { background: var(--color-paper); border:1px solid var(--color-rule); border-radius: var(--radius-md);
+          overflow:hidden; margin: var(--space-sm) 0 var(--space-md); }
+.janela > .titulo { background: var(--color-paper-3); padding: var(--space-2xs) var(--space-sm);
+          font-size: var(--text-sm); color: var(--color-ink-quiet); border-bottom:1px solid var(--color-rule);
+          display:flex; justify-content:space-between; align-items:center; gap: var(--space-sm); }
+.janela > .corpo { padding: var(--space-sm); }
+
+/* ---- botões, no estilo do produto ---- */
+.botao { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2xs);
+         min-height:30px; padding: var(--space-2xs) var(--space-sm);
+         background: var(--color-paper-3); color: var(--color-ink);
+         border:1px solid var(--color-rule); border-radius: var(--radius-sm);
+         font: inherit; font-size: var(--text-sm); cursor:pointer; }
+.botao:hover { border-color: var(--color-accent); }
+.botao.primario { border-color: var(--color-accent); color: var(--color-ink); }
+.botao.discreto { background: transparent; color: var(--color-ink-quiet); }
+.botao.pequeno { min-height:24px; padding: 2px var(--space-2xs); font-size: var(--text-xs); }
+.linha-botoes { display:flex; gap: var(--space-2xs); flex-wrap:wrap; margin-top: var(--space-xs); }
+
+/* ---- a lista da aba Conexões ---- */
+table.mesa { width:100%; border-collapse: collapse; font-size: var(--text-sm); }
+table.mesa th { text-align:left; color: var(--color-ink-quiet); font-weight:500; font-size: var(--text-xs);
+                border-bottom:1px solid var(--color-rule); padding: var(--space-3xs) var(--space-2xs); }
+table.mesa td { padding: var(--space-2xs); border-bottom:1px solid var(--color-paper-3); vertical-align:middle; }
+table.mesa tr:last-child td { border-bottom:none; }
+.jargao { color: var(--color-lacuna); font-family: var(--font-dado); font-size: .85em; }
+.resolvido { color: var(--color-ok); font-weight:600; }
+
+/* ---- o cartão de uma pergunta só ---- */
+.cartao { background: var(--color-paper-3); border:1px solid var(--color-rule); border-radius: var(--radius-md);
+          padding: var(--space-md); max-width: 640px; }
+.cartao .cabeca { display:flex; justify-content:space-between; align-items:baseline; gap: var(--space-sm);
+          margin-bottom: var(--space-sm); }
+.cartao .pergunta { font-size: var(--text-lg); font-weight:600; }
+.contador { font-family: var(--font-dado); font-size: var(--text-xs); color: var(--color-ink-quiet); white-space:nowrap; }
+.quem { margin: var(--space-2xs) 0 var(--space-sm); }
+.quem .nome { font-weight:600; }
+.quem .especie { color: var(--color-ink-quiet); font-size: var(--text-sm); }
+.barra-progresso { height:4px; background: var(--color-paper-2); border-radius:2px; overflow:hidden; margin-top: var(--space-2xs); }
+.barra-progresso i { display:block; height:100%; background: var(--color-accent); }
+
+/* ---- estados de entrada: cor NUNCA sozinha (R17) ---- */
+.selo { display:inline-flex; align-items:center; gap: var(--space-3xs); font-size: var(--text-xs);
+        font-weight:600; letter-spacing:.01em; }
+.selo .glifo { font-family: var(--font-dado); font-size: 1.05em; }
+.selo.ok      { color: var(--color-ok); }
+.selo.espera  { color: var(--color-frio); }
+.selo.lacuna  { color: var(--color-lacuna); }
+.selo.nada    { color: var(--color-ink-quiet); }
+.selo.ruim    { color: var(--color-alerta); }
+
+/* ---- a fileira de entradas de uma face ---- */
+.face { margin: var(--space-sm) 0; }
+.face .nome-da-face { font-size: var(--text-sm); color: var(--color-ink-quiet); margin-bottom: var(--space-3xs); }
+.fileira { display:flex; gap: var(--space-2xs); flex-wrap:wrap; }
+.buraco { width:64px; min-height:64px; border:1px solid var(--color-rule); border-radius: var(--radius-sm);
+          background: var(--color-paper-2); display:flex; flex-direction:column; align-items:center;
+          justify-content:center; gap:2px; padding: var(--space-3xs); }
+.buraco .num { font-family: var(--font-dado); font-size: var(--text-lg); font-weight:650; }
+.buraco .pal { font-size: 10px; color: var(--color-ink-quiet); text-align:center; line-height:1.2; }
+.buraco.confirmada { border-color: var(--color-ok); }
+.buraco.confirmada .num { color: var(--color-ok); }
+.buraco.vaga       { border-style: dashed; }
+.buraco.vaga .num  { color: var(--color-ink-quiet); }
+.buraco.agora      { border-color: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent) inset; }
+.buraco.fantasma   { opacity:.45; border-style: dotted; }
+
+/* ---- a marreta (R35/R36: <= 3 Hz, e some com animação desligada) ---- */
+.marreta { display:inline-block; color: var(--color-lacuna); vertical-align:-6px;
+           transform-origin: 72% 88%; }
+@keyframes bater {
+  0%   { transform: rotate(-38deg); }
+  38%  { transform: rotate(8deg); }
+  52%  { transform: rotate(0deg); }
+  70%  { transform: rotate(-38deg); }
+  100% { transform: rotate(-38deg); }
+}
+.marreta.batendo { animation: bater .82s ease-out 1; }   /* 0,82 s = a cadência que ela escolheu */
+@media (prefers-reduced-motion: reduce) { .marreta.batendo { animation: none; } }
+
+/* ---- caixas de nota ---- */
+.nota { border-left:3px solid var(--color-rule); padding: var(--space-2xs) var(--space-sm);
+        margin: var(--space-xs) 0; background: var(--color-paper); font-size: var(--text-sm); }
+.nota.medido  { border-left-color: var(--color-ok); }
+.nota.furo    { border-left-color: var(--color-alerta); }
+.nota.dela    { border-left-color: var(--color-accent); }
+.nota .rotulo { display:block; font-size: var(--text-xs); text-transform:uppercase; letter-spacing:.06em;
+        color: var(--color-ink-quiet); margin-bottom: 2px; }
+
+/* ---- o laudo ---- */
+.laudo { display:grid; gap: var(--space-2xs); }
+.laudo .bloco { border:1px solid var(--color-rule); border-radius: var(--radius-sm); padding: var(--space-xs) var(--space-sm); }
+.laudo .bloco > h4 { margin:0 0 var(--space-3xs); font-size: var(--text-sm); }
+.laudo .bloco ul { margin: 0; padding-left: 1.1rem; font-size: var(--text-sm); color: var(--color-ink-quiet); }
+.laudo .bloco li { margin: 2px 0; }
+.laudo .bloco li b { color: var(--color-ink); font-weight:600; }
+
+.dois { display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 900px) { .dois { grid-template-columns: 1fr; } }
+.rolar { overflow-x:auto; }
+</style>
+
+<div class="folha">
+
+<h1>Calibrar as entradas
+  <small>Mockup da tela · 25/08/2026 · a mesa aqui dentro é a leitura REAL da sua máquina às 03h20 de hoje</small>
+</h1>
+
+<div class="nota dela">
+  <span class="rotulo">a ideia, palavra sua</span>
+  “uma tela de calibração de portas usb (na aba configuração)… vai servir pra
+  desculpa de olharmos a saúde do seu computador… pedir pro user validar as portas
+  uma a uma… falar se esse jogo de porta é frontal ou traseiro… animação do martelo
+  do Hefesto batendo e dando o sinal de ok.”
+</div>
+
+<div class="nota medido">
+  <span class="rotulo">o que a medição mudou no seu desenho</span>
+  <b>Entrada que já tem aparelho não precisa de caminhada nenhuma.</b> O aparelho
+  que está nela já diz qual entrada é — <code>&lt;dispositivo&gt;/port</code> é um
+  symlink que o censo <b>já atravessa</b> hoje. Só falta você dizer <i>onde</i>.
+  Isso divide a tela em duas fases com preços muito diferentes: a de baixo custo
+  (sentada) paga primeiro, e a caminhada fica só para as <b>vazias</b> — que é o
+  que nenhuma leitura alcança.
+</div>
+
+
+<h2><span class="n">1</span>Por onde começa — sem tela de boas-vindas</h2>
+<p class="legenda">Nada de assistente que pede para você “começar”. O botão nasce
+na linha do aparelho, onde você já está olhando. Começar é o passo mais difícil;
+o primeiro toque já é trabalho útil.</p>
+
+<div class="janela">
+  <div class="titulo"><span>Configurações · Conexões</span><span class="dado">como está HOJE</span></div>
+  <div class="corpo rolar">
+    <table class="mesa">
+      <tr><th>Aparelho</th><th>Onde está</th><th></th></tr>
+      <tr><td>Receptor sem fio 2,4&nbsp;GHz <span class="especie">(teclado)</span></td>
+          <td class="jargao">Barramento 1, porta 3 · Direita</td><td></td></tr>
+      <tr><td>Receptor sem fio 2,4&nbsp;GHz <span class="especie">(mouse)</span></td>
+          <td class="jargao">Barramento 1, porta 6 · Direita</td><td></td></tr>
+      <tr><td>DualSense <span class="especie">(por cabo)</span></td>
+          <td class="jargao">Barramento 1, porta 4 · Direita</td><td></td></tr>
+      <tr><td>Adaptador Wi-Fi</td>
+          <td class="jargao">Barramento 4, porta 4 · Não sei</td><td></td></tr>
+    </table>
+    <p class="legenda" style="margin-top:var(--space-xs)">
+      Quatro linhas, quatro jargões. “Direita” é o que a tabela da placa diz —
+      e ela <b>nunca</b> diz “frente” nem “traseira”. Nas duas entradas da frente
+      do seu gabinete a resposta dela é <i>idêntica</i>, byte a byte.</p>
+  </div>
+</div>
+
+<div class="janela">
+  <div class="titulo"><span>Configurações · Conexões</span><span class="dado">com a calibração</span></div>
+  <div class="corpo rolar">
+    <table class="mesa">
+      <tr><th>Aparelho</th><th>Onde está</th><th></th></tr>
+      <tr><td>Receptor sem fio 2,4&nbsp;GHz <span class="especie">(teclado)</span></td>
+          <td class="jargao">Barramento 1, porta 3 · Direita</td>
+          <td style="text-align:right"><button class="botao pequeno">Onde fica?</button></td></tr>
+      <tr><td>Receptor sem fio 2,4&nbsp;GHz <span class="especie">(mouse)</span></td>
+          <td class="resolvido">Entrada 1, na frente do gabinete</td>
+          <td style="text-align:right"><button class="botao pequeno discreto">mudar</button></td></tr>
+      <tr><td>DualSense <span class="especie">(por cabo)</span></td>
+          <td class="jargao">Barramento 1, porta 4 · Direita</td>
+          <td style="text-align:right"><button class="botao pequeno">Onde fica?</button></td></tr>
+      <tr><td>Adaptador Wi-Fi</td>
+          <td class="resolvido">Entrada 4, atrás do gabinete</td>
+          <td style="text-align:right"><button class="botao pequeno discreto">mudar</button></td></tr>
+    </table>
+  </div>
+</div>
+
+
+<h2><span class="n">2</span>A fase sentada — um toque por aparelho</h2>
+
+<div class="dois">
+  <div>
+    <div class="cartao">
+      <div class="cabeca">
+        <div class="pergunta">Onde fica esta entrada?</div>
+        <div class="contador">1 de 4 · sem sair da cadeira</div>
+      </div>
+      <div class="quem">
+        <div class="nome">O seu teclado está aqui.</div>
+        <div class="especie">Receptor sem fio 2,4&nbsp;GHz · pede 100&nbsp;mA</div>
+      </div>
+      <div class="linha-botoes">
+        <button class="botao">Frente do gabinete</button>
+        <button class="botao">Atrás do gabinete</button>
+        <button class="botao">Num hub ou extensão</button>
+      </div>
+      <div class="barra-progresso" style="margin-top:var(--space-sm)"><i style="width:25%"></i></div>
+      <div class="linha-botoes" style="justify-content:space-between">
+        <button class="botao discreto pequeno">Não sei onde fica</button>
+        <button class="botao discreto pequeno">Já chega por hoje</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="cartao">
+      <div class="cabeca">
+        <div class="pergunta"><svg class="marreta batendo" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M13.5 3.2 8.9 7.8l1.9 1.9 1.1-1.1 1.6 1.6-6.9 6.9a1.6 1.6 0 0 0 0 2.3l.6.6a1.6 1.6 0 0 0 2.3 0l6.9-6.9 1.6 1.6-1.1 1.1 1.9 1.9 4.6-4.6-1.9-1.9-1.1 1.1-5.2-5.2 1.1-1.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg> Pronto.</div>
+        <div class="contador">2 de 4</div>
+      </div>
+      <p>O seu teclado está <b>na frente do gabinete</b> — eu chamo essa de
+         <b>Entrada 1 da frente</b>.</p>
+      <p class="legenda">Se você numera diferente, toque no número e escreva o seu.</p>
+      <div class="linha-botoes">
+        <button class="botao primario">Próximo aparelho</button>
+        <button class="botao discreto">Entrada 1 · mudar o número</button>
+      </div>
+      <div class="nota medido" style="margin-top:var(--space-sm)">
+        <span class="rotulo">gravado</span>
+        A resposta foi para o disco <b>agora</b> — não espera o “Aplicar” do rodapé,
+        e funciona com o Hefesto desligado.
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><span class="n">3</span>A pergunta que mais paga: o hub</h2>
+<div class="cartao">
+  <div class="cabeca">
+    <div class="pergunta">Onde fica o hub?</div>
+    <div class="contador">3 de 4</div>
+  </div>
+  <p>Este hub tem <b>7 entradas</b> e está plugado na sua máquina. Tem
+     <b>3 aparelhos</b> pendurados nele.</p>
+  <div class="linha-botoes">
+    <button class="botao">Frente do gabinete</button>
+    <button class="botao">Atrás do gabinete</button>
+    <button class="botao">Em cima da mesa</button>
+    <button class="botao discreto">Outro nome…</button>
+  </div>
+  <div class="nota medido" style="margin-top:var(--space-sm)">
+    <span class="rotulo">um toque, quatro aparelhos</span>
+    Quem pende do hub <b>está no hub</b> — isso o barramento já diz sozinho. Você
+    responde uma vez e o hub, os dois adaptadores Bluetooth e o teclado ganham
+    lugar juntos.
+  </div>
+</div>
+
+
+<h2><span class="n">4</span>O fim da fase sentada é um fim de verdade</h2>
+<div class="cartao">
+  <div class="cabeca"><div class="pergunta">Acabou a parte sem levantar.</div></div>
+  <p><b>Quatro respostas, sete aparelhos com lugar.</b> A partir de agora eu digo
+     “atrás do gabinete” no lugar de “Barramento 4, porta 4”.</p>
+  <div class="linha-botoes"><button class="botao primario">Fechar — já me serviu</button></div>
+
+  <div class="nota" style="margin-top:var(--space-md)">
+    <span class="rotulo">e só então, com peso menor</span>
+    Falta o que está <b>vazio</b>, e essa parte eu não consigo adivinhar. O sistema
+    me lista <b>22 entradas</b> e o seu gabinete tem <b>8 buracos</b> — as que
+    sobram são conectores internos que ninguém alcança. Se você me mostrar quais
+    existem de verdade, eu paro de contar as que não existem.
+    <div class="linha-botoes">
+      <button class="botao">Vou mostrar agora</button>
+      <button class="botao discreto">Deixar para quando eu precisar</button>
+    </div>
+  </div>
+</div>
+
+
+<h2><span class="n">5</span>A fase em pé — e ela nunca te manda a um buraco ocupado</h2>
+<p class="legenda">Aqui você está atrás do gabinete, com um cabo na mão, sem ver a
+tela e sem alcançar o teclado. Tudo nesta fase foi desenhado para isso.</p>
+
+<div class="dois">
+  <div>
+    <div class="cartao">
+      <div class="cabeca"><div class="pergunta">Encaixe onde quiser.</div>
+        <div class="contador">entrada 3 de 7 vazias</div></div>
+      <p>Pegue o DualSense e o cabo e encaixe numa entrada <b>vazia</b>.
+         <b>Qualquer aparelho que o computador reconheça serve</b> — o DualSense é
+         o melhor porque ele avisa na sua mão.</p>
+      <p><span class="selo espera"><span class="glifo">◐</span> PROCURANDO</span></p>
+      <div class="nota">
+        <span class="rotulo">os dois relógios, e eles são honestos</span>
+        A entrada aparece para mim em <b>~3,4 s</b>. O controle só consegue vibrar
+        por volta de <b>10 a 15 s</b> — e essa demora é uma correção que o
+        <b>próprio Hefesto</b> instala para ele não falhar. Não é você, e não é o
+        seu cabo.
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="cartao">
+      <div class="cabeca"><div class="pergunta"><svg class="marreta batendo" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M13.5 3.2 8.9 7.8l1.9 1.9 1.1-1.1 1.6 1.6-6.9 6.9a1.6 1.6 0 0 0 0 2.3l.6.6a1.6 1.6 0 0 0 2.3 0l6.9-6.9 1.6 1.6-1.1 1.1 1.9 1.9 4.6-4.6-1.9-1.9-1.1 1.1-5.2-5.2 1.1-1.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg> Senti você.</div>
+        <div class="contador">entrada 4 de 7</div></div>
+      <p><span class="selo ok"><span class="glifo">●</span> ENTRADA NOVA</span> — guardei.
+         Você pode ir para a próxima.</p>
+      <p class="legenda">Na sua mão: <b>um pulso curto</b> e a barra em verde.
+         Dois pulsos e azul quer dizer “essa eu já conhecia”.</p>
+      <div class="nota furo">
+        <span class="rotulo">o que o pulso quer dizer, e o que ele NÃO quer</span>
+        “Senti você” — <b>nunca</b> “a entrada é boa”. Se este controle também
+        estiver pareado por Bluetooth, o pulso chega na sua mão pelo rádio mesmo
+        que o cabo não tenha feito nada. <b>Quem dá o veredito é o sistema, não a
+        sua mão.</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cartao" style="max-width:none">
+  <div class="cabeca"><div class="pergunta">Quando não vem nada</div></div>
+  <p>Nunca a palavra “falhou”. Três causas, três saídas — e a do meio é a que
+     apaga as entradas fantasma.</p>
+  <div class="linha-botoes">
+    <button class="botao">Vou encaixar de novo</button>
+    <button class="botao">Aqui não tem buraco nenhum</button>
+    <button class="botao">Tem buraco, e não funcionou</button>
+    <button class="botao discreto">Não alcanço essa</button>
+  </div>
+  <p class="legenda" style="margin-top:var(--space-2xs)">
+    <b>“Não alcanço”</b> tem o mesmo peso de confirmar e <b>tira</b> a entrada da
+    conta — uma entrada que você não alcança também não vai receber aparelho
+    nenhum. Não vira dívida, não vira aviso, não volta a perguntar.</p>
+</div>
+
+
+<h2><span class="n">6</span>O caderno — cor nunca sozinha</h2>
+<p class="legenda">Verde e âmbar têm razão de contraste <b>1,24:1</b> entre si:
+para daltonismo de tipo deuteranopia ou protanopia eles são a <i>mesma</i> cor.
+Por isso todo estado carrega <b>glifo + palavra</b>, e a cor é só o reforço.</p>
+
+<div class="janela">
+  <div class="titulo"><span>A minha mesa</span><span class="dado">leitura de 25/08, 03h20</span></div>
+  <div class="corpo">
+    <div class="face">
+      <div class="nome-da-face">Frente do gabinete — 2 entradas</div>
+      <div class="fileira">
+        <div class="buraco confirmada"><span class="num">1</span><span class="pal">mouse</span></div>
+        <div class="buraco vaga"><span class="num">2</span><span class="pal">livre</span></div>
+      </div>
+    </div>
+    <div class="face">
+      <div class="nome-da-face">Atrás do gabinete — 6 entradas</div>
+      <div class="fileira">
+        <div class="buraco vaga"><span class="num">3</span><span class="pal">livre</span></div>
+        <div class="buraco confirmada"><span class="num">4</span><span class="pal">Wi-Fi</span></div>
+        <div class="buraco confirmada"><span class="num">5</span><span class="pal">teclado</span></div>
+        <div class="buraco agora"><span class="num">6</span><span class="pal">DualSense</span></div>
+        <div class="buraco vaga"><span class="num">7</span><span class="pal">livre</span></div>
+        <div class="buraco vaga"><span class="num">8</span><span class="pal">livre</span></div>
+      </div>
+    </div>
+    <div class="face">
+      <div class="nome-da-face">O seu hub — <span class="selo ruim"><span class="glifo">▲</span> NÃO ESTÁ NA MÁQUINA AGORA</span></div>
+      <div class="fileira">
+        <div class="buraco fantasma"><span class="num">9</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">10</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">11</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">12</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">13</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">14</span><span class="pal">—</span></div>
+        <div class="buraco fantasma"><span class="num">15</span><span class="pal">extensão</span></div>
+      </div>
+    </div>
+
+    <div class="nota furo" style="margin-top:var(--space-sm)">
+      <span class="rotulo">isto é o AGORA, e é o seu agora de verdade</span>
+      O seu hub saiu do barramento às <b>02:36:43</b> de hoje, levando junto os
+      <b>três adaptadores Bluetooth</b>. Enquanto ele não voltar,
+      <b>nenhum controle conecta por rádio</b> — só cabo. O mapa guarda o
+      <i>lugar</i>; o que está lá é a leitura de agora, e por isso a tela consegue
+      dizer “sumiu” em vez de mentir.
+    </div>
+  </div>
+</div>
+
+
+<h2><span class="n">7</span>O exame — a sua “desculpa”, e ela é o que faz voltar</h2>
+<p class="legenda">O laudo aparece <b>antes</b> de você encaixar qualquer coisa.
+Quatro blocos, sempre nesta ordem — e o quarto nunca some.</p>
+
+<div class="laudo">
+  <div class="bloco">
+    <h4><span class="selo ok"><span class="glifo">●</span> O QUE ESTÁ BEM</span></h4>
+    <ul>
+      <li>Economia de energia <b>desligada</b> nas quatro entradas com aparelho — é o que evita desconexão aleatória.</li>
+      <li>Nenhuma entrada registrou <b>excesso de corrente</b>: zero em 22.</li>
+      <li>O adaptador Wi-Fi está numa entrada <b>rápida</b>, a 5000&nbsp;Mb/s.</li>
+    </ul>
+  </div>
+  <div class="bloco">
+    <h4><span class="selo lacuna"><span class="glifo">▲</span> O QUE MERECE ATENÇÃO</span></h4>
+    <ul>
+      <li><b>Os seus três adaptadores Bluetooth sumiram juntos</b>, às 02:36:43, junto com o hub. Sem eles, nenhum controle conecta por rádio.</li>
+      <li>Quando o hub voltar: três adaptadores pedindo <b>500&nbsp;mA cada</b> num hub sem fonte estouram o orçamento da entrada que o alimenta. O seu tem fonte de 30&nbsp;W — <b>por isso funciona</b>.</li>
+    </ul>
+  </div>
+  <div class="bloco">
+    <h4><span class="selo nada"><span class="glifo">○</span> O QUE EU NÃO CONSEGUI CONFERIR</span></h4>
+    <ul>
+      <li><b>7 entradas</b> nunca receberam aparelho nenhum enquanto eu olhava. Não sei se existem no metal ou se são conectores internos.</li>
+      <li>A tabela da sua placa não responde nada sobre a controladora onde o Wi-Fi mora — <b>0 de 8</b> entradas.</li>
+    </ul>
+  </div>
+  <div class="bloco">
+    <h4><span class="selo nada"><span class="glifo">·</span> O QUE EU NÃO MEÇO</span></h4>
+    <ul>
+      <li>Se um rádio está <b>atrapalhando</b> o outro. Eu vejo quem divide caminho; interferência eu não meço, e não vou fingir que meço.</li>
+      <li>Quanto de <b>bateria</b> cada ajuste custa. Ninguém mediu ainda nesta casa.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="nota">
+  <span class="rotulo">por que o quarto bloco nunca some</span>
+  Ele é o que impede o exame de virar promessa. Um laudo que só fala do que sabe
+  ensina você a confiar nele para tudo — inclusive para o que ele nunca mediu.
+</div>
+
+
+<h2><span class="n">8</span>O que decide o desenho, em números</h2>
+<div class="rolar">
+<table class="mesa">
+  <tr><th>o quê</th><th>medido</th><th>consequência na tela</th></tr>
+  <tr><td>as duas entradas da <b>frente</b> do seu gabinete</td>
+      <td class="dado">panel=right · h=left · v=lower — <b>idênticas</b></td>
+      <td>só você pode dizer qual é a 1 e qual é a 2</td></tr>
+  <tr><td>a tabela da placa na outra controladora</td>
+      <td class="dado">0 de 8 entradas respondem</td>
+      <td>metade da máquina não tem palpite nenhum</td></tr>
+  <tr><td>nó da entrada com a entrada <b>vazia</b></td>
+      <td class="dado">state = not attached</td>
+      <td>é o que torna a calibração possível sem root</td></tr>
+  <tr><td>entradas no sistema × buracos no gabinete</td>
+      <td class="dado">22 × ~8</td>
+      <td>a calibração também <b>apaga as fantasmas</b></td></tr>
+  <tr><td>varrer as 38 entradas</td>
+      <td class="dado">6,87 ms</td>
+      <td>tique de 2 Hz na janela custa ~1,4% de um núcleo</td></tr>
+  <tr><td>até o nó USB aparecer</td>
+      <td class="dado">~3,4 s (p50 3,396 · máx 3,488)</td>
+      <td>é quando a tela pode dizer “achei”</td></tr>
+  <tr><td>até o controle poder <b>vibrar</b></td>
+      <td class="dado">~10,3 s de mediana · 15,6 s no pior</td>
+      <td>qualquer teto de 8 s declararia falha no caso normal</td></tr>
+  <tr><td>verde × âmbar, contraste entre si</td>
+      <td class="dado">1,24 : 1</td>
+      <td>cor nunca sozinha: glifo + palavra sempre</td></tr>
+</table>
+</div>
+
+<h2><span class="n">9</span>O que ainda espera você</h2>
+<div class="nota dela">
+  <span class="rotulo">três coisas, e nenhuma dá para eu decidir</span>
+  <b>1.</b> A marreta: ela bate <b>uma vez</b> por entrada reconhecida, em 0,82 s —
+  a mesma cadência que você escolheu em 19/08 para a piscada de aviso. Ver e dizer
+  se é isso.<br>
+  <b>2.</b> As palavras das faces: “Frente do gabinete”, “Atrás do gabinete”,
+  “Num hub ou extensão”, “Em cima da mesa”. Você disse “frontal ou traseiro” e eu
+  não sei se prefere assim.<br>
+  <b>3.</b> Se a fase sentada deve mesmo terminar <b>sem</b> empurrar você para a
+  fase em pé. Eu desenhei que sim — mas é a sua tela.
+</div>
+
+<p class="legenda" style="margin-top:var(--space-lg)">
+  Mockup autocontido: sem rede, sem servidor, sem fonte web. A paleta é a Drácula
+  de <code>scripts/paleta_da_casa.py</code>, copiada byte a byte.
+  A sprint que este arquivo especifica é a
+  <code>2026-08-25-CALIBRAR-AS-ENTRADAS-01</code>.
+</p>
+
+</div>
