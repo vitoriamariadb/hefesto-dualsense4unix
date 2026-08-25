@@ -62,12 +62,35 @@ só o próprio escopo** (`pytest tests/unit/test_isso.py`), e o prompt diz qual 
 None`, coleta contra arquivos que mudavam debaixo dela. **Medir árvore em
 movimento não mede nada.** A suíte roda uma vez, no fim, com a leva parada.
 
+> **Nota datada — 25/08/2026: a metade "árvore em movimento" desta regra
+> CADUCOU.** Cada agente passou a trabalhar num `git worktree` próprio
+> (`scripts/despachar-agente.sh`), e a árvore dele não se mexe mais debaixo
+> dele: **a suíte do escopo dele voltou a ser dele.** O que continua valendo é a
+> outra metade — **a suíte INTEIRA continua sendo de quem coordena**, uma vez,
+> na integração, porque os nós `uinput` são do sistema e o worktree não os
+> divide. Quem quiser rodar o próprio escopo: `bash scripts/portoes.sh` roda a
+> lista de portão sem tocar na suíte, e `--suite` a acrescenta de propósito.
+
 ### R3 — a bancada é dela durante a medição
 
 Os agentes usam daemon e controles; a medição de Bluetooth dela também.
 **Enquanto ela mede, nenhum agente para o daemon nem escreve no aparelho.** Um
 agente que precise disso **espera e diz que está esperando** — não improvisa
 outro caminho, que é como se inventa medição falsa.
+
+Desde 25/08/2026 esta regra tem uma máquina, e ela é `scripts/bancada.sh`:
+
+```bash
+scripts/bancada.sh reservar "medição de BT" --horas 4   # ela, antes de medir
+scripts/bancada.sh status                               # qualquer um, de qualquer worktree
+scripts/bancada.sh exigir                               # rc=1 -> o agente NÃO passa
+```
+
+**Ninguém precisa lembrar de liberar.** Duas provas de vida independentes
+respondem: o kernel (o PID do detentor morreu) e o relógio (passou de
+`expira_em`). Basta uma dizer "não" para a bancada ficar livre — e é assim de
+propósito: se a liberação dependesse de um `finally` do detentor, o desenho
+estaria errado, e o `btmgmt` sem adaptador já mostrou o preço disso.
 
 ### R4 — foto e portão no fim, não no meio
 

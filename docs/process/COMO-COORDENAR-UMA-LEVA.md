@@ -125,19 +125,26 @@ nomeando os arquivos, e é você quem decide o lado. Barulho é o produto
 desejado (é a F3 de 23/08 deixando de ser silenciosa); sobrescrita silenciosa
 era o defeito.
 
-**O que falta, com nome.** `scripts/costurar.sh` <!-- ref-externa: nasce em INFRA-DE-EXECUCAO-01, ainda não existe --> —
-o que automatiza os três
-passos acima sob `flock`, e move o alvo de merge para `onda/atual` em vez de
-`dev` direto — é tarefa **I7-I9 de
-[INFRA-DE-EXECUCAO-01](sprints/2026-08-24-INFRA-DE-EXECUCAO-01-o-registro-do-que-esta-em-voo.md)**,
-ainda **aberta**. `scripts/bancada.sh` <!-- ref-externa: nasce em INFRA-DE-EXECUCAO-01, ainda não existe -->
-(I4/I5/I6, o semáforo com PID vivo e
-teto de tempo) também não existe ainda — até lá, R2 e R3 de
-COMO-REGER-AGENTES.md continuam valendo ao pé da letra: você roda a suíte
-inteira uma vez, no fim, com a leva parada, e checa a bancada à mão antes de
-qualquer agente tocar o daemon. Confira `scripts/despachar-agente.sh --help`
-e `ls scripts/*.sh` antes de assumir que uma peça chegou — se o comando não
-existir na árvore, ele ainda não foi costurado.
+**O que já chegou, e o que ainda falta — 25/08/2026.**
+
+| peça | estado | o que ela resolve |
+|---|---|---|
+| `scripts/despachar-agente.sh` | **existe** | uma árvore por agente, o preâmbulo gerado do disco, e a recusa de sprint sem posse |
+| `scripts/bancada.sh` | **existe** (I4/I5) | o semáforo do aparelho, com PID vivo E teto de tempo — duas provas de vida independentes |
+| `scripts/portoes.sh` | **existe** (I14) | uma lista de portão só, conferida contra o `ci.yml` por um teste |
+| `scripts/check_colisao_de_sprints.py` | **existe** (I15) | a posse num formato só, e a duplicata em arquivo que ainda não existe |
+| `scripts/costurar.sh` | **existe** (I7/I8/I9) | o merge sob `flock`, com a entrega e os portões como condição, e conflito que sai barulhento |
+
+O `costurar.sh` roda **no worktree do agente**, e é ele quem exige a entrega,
+chama o sanitizador e funde em `onda/atual` sob trava. Você continua podendo
+costurar à mão com os três passos acima — e vai querer, enquanto ele for novo.
+`bancada.sh status` responde de qualquer worktree, e a **R2 de
+COMO-REGER-AGENTES.md deixou de valer ao pé da letra**: a árvore de cada agente
+parou de se mexer, então a suíte do escopo dele voltou a ser dele. A completa
+continua sendo sua, uma vez, na integração. Confira
+`scripts/despachar-agente.sh --help` e `ls scripts/*.sh` antes de assumir que
+uma peça chegou — se o comando não existir na árvore, ele ainda não foi
+costurado.
 
 ---
 
@@ -228,7 +235,8 @@ Nesta ordem, parando quando já souber o bastante:
 - [COMO-OLHAR-A-TELA.md](COMO-OLHAR-A-TELA.md) — a foto, os instrumentos, e
   as armadilhas de medição já pagas.
 - [INFRA-DE-EXECUCAO-01](sprints/2026-08-24-INFRA-DE-EXECUCAO-01-o-registro-do-que-esta-em-voo.md)
-  — a peça que falta (`bancada.sh`, `costurar.sh` <!-- ref-externa: ainda não existem --> ) e o que cada uma resolve.
+  — as peças da infra de execução (`bancada.sh`, `portoes.sh`, `costurar.sh`,
+  `check_colisao_de_sprints.py`) e o que cada uma resolve.
 - [PRE-REGISTRO-VIES-01](PRE-REGISTRO-VIES-01-o-teste-contra-o-nosso-proprio-trabalho.md)
   e o [RESULTADO](2026-08-24-RESULTADO-DO-TESTE-DE-VIES-01.md) — o molde de
   como pré-registrar um experimento sobre o próprio processo.

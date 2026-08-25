@@ -37,6 +37,28 @@ _listar() {
 
 _limpar() {
   git -C "$RAIZ" worktree prune
+
+  # E o que JÁ FOI COSTURADO sai também. Um worktree cuja branch já está inteira
+  # dentro de `onda/atual` não guarda trabalho nenhum que o git não tenha: ele é
+  # 59 MB e um nome na lista. `--merged` é quem responde, não a nossa memória.
+  local integrada wt br
+  if git -C "$RAIZ" rev-parse --verify -q onda/atual >/dev/null; then
+    while read -r br; do
+      case "$br" in refs/heads/voo/*) ;; *) continue ;; esac
+      wt="$(git -C "$RAIZ" worktree list --porcelain \
+            | awk -v alvo="$br" '/^worktree /{w=$2} $0=="branch "alvo{print w}')"
+      [ -n "${wt:-}" ] || continue
+      # Trabalho não commitado NUNCA é descartado por este comando: em 05/08 uma
+      # leva inteira ficou horas no índice e morreu com a sessão. Sujo fica.
+      if [ -n "$(git -C "$wt" status --porcelain 2>/dev/null)" ]; then
+        echo "  mantido (tem coisa não commitada): $wt"
+        continue
+      fi
+      echo "  já em onda/atual, removendo: $wt"
+      git -C "$RAIZ" worktree remove "$wt" 2>/dev/null || true
+    done < <(git -C "$RAIZ" for-each-ref --format='%(refname)' --merged onda/atual refs/heads/voo)
+  fi
+
   echo "worktrees órfãos podados. O que resta:"
   _listar
 }
@@ -52,13 +74,52 @@ esac
 SPRINT="$1"
 AGENTE="${2:?falta o nome do agente}"
 
-# O caminho da sprint tem de EXISTIR. Um caminho morto que passa em silêncio é
-# a cicatriz do `validar-acentuacao.py --check-file`, que devolvia zero contra
-# arquivo inexistente — portão cego é pior que portão nenhum.
-ARQ_SPRINT="$(find "$RAIZ/docs/process/sprints" -maxdepth 2 -name "*${SPRINT}*.md" | head -1)"
+# O caminho da sprint tem de EXISTIR, e a recusa tem de NOMEAR ONDE PROCUROU.
+# Um caminho morto que passa em silêncio é a cicatriz do
+# `validar-acentuacao.py --check-file`, que devolvia rc=0 contra arquivo
+# inexistente — portão cego é pior que portão nenhum. E "não achei" sem dizer
+# onde procurou faz a próxima pessoa procurar de novo, no mesmo lugar.
+#
+# A ORDEM IMPORTA: a recusa vem ANTES do `git worktree add`. Criar a árvore e
+# só depois descobrir que a sprint não existe custa 59 MB, um nome na lista e um
+# agente que descobre sozinho, tarde.
+PROCUREI="$RAIZ/docs/process/sprints (maxdepth 2, casando *${SPRINT}*.md)"
+ARQ_SPRINT="$(find "$RAIZ/docs/process/sprints" -maxdepth 2 -name "*${SPRINT}*.md" 2>/dev/null | head -1)"
 if [ -z "$ARQ_SPRINT" ]; then
-  echo "ERRO: nenhuma sprint casa com '${SPRINT}' em docs/process/sprints/" >&2
+  {
+    echo "ERRO: nenhuma sprint casa com '${SPRINT}'."
+    echo "  procurei em: ${PROCUREI}"
+    echo "  nenhum worktree foi criado."
+    echo "  para ver o que existe: ls ${RAIZ}/docs/process/sprints/"
+  } >&2
   exit 1
+fi
+
+# E A SPRINT TEM DE DECLARAR O QUE POSSUI. A pressão fica AQUI, no despacho, e
+# não numa reprovação de portão: é o momento em que alguém já ia ler aquela
+# sprint de qualquer jeito, e uma sprint por vez em vez de vinte e três de uma
+# vez -- que seria um portão desligado na segunda-feira.
+#
+# Sem isto o agente nasce sem saber o que possui, que é a Falha 3 de 23/08
+# (quatro colisões de posse, nenhuma declarada) com o desperdício de um worktree
+# por cima. `HEFESTO_SEM_POSSE=1` existe só para o dublê do portão.
+if [ -z "${HEFESTO_SEM_POSSE:-}" ] && [ -x "$RAIZ/scripts/check_colisao_de_sprints.py" ]; then
+  if ! python3 "$RAIZ/scripts/check_colisao_de_sprints.py" --exigir "$SPRINT" >/dev/null 2>&1; then
+    {
+      echo "ERRO: '${SPRINT}' não declara posse no topo do arquivo."
+      echo "  sprint:   ${ARQ_SPRINT}"
+      echo "  o formato está no cabeçalho de scripts/check_colisao_de_sprints.py"
+      echo "  nenhum worktree foi criado."
+      python3 "$RAIZ/scripts/check_colisao_de_sprints.py" --exigir "$SPRINT" 2>&1 | sed 's/^/  /'
+    } >&2
+    exit 1
+  fi
+elif [ -z "${HEFESTO_SEM_POSSE:-}" ]; then
+  # Ausência NÃO passa em silêncio: portão que some sem dizer é portão cego, e a
+  # casa já pagou por um (`validar-acentuacao.py --check-file`, rc=0 contra
+  # arquivo inexistente).
+  echo "AVISO: scripts/check_colisao_de_sprints.py não está nesta árvore;" >&2
+  echo "       a posse desta sprint NÃO foi conferida." >&2
 fi
 
 BRANCH="voo/${SPRINT}-${AGENTE}"
@@ -91,9 +152,15 @@ _EXCLUDE="$(git -C "$WT" rev-parse --git-path info/exclude)"
 mkdir -p "$(dirname "$_EXCLUDE")"
 grep -qxF '.envrc-voo' "$_EXCLUDE" 2>/dev/null || echo '.envrc-voo' >> "$_EXCLUDE"
 
-BANCADA="livre"
-if [ -r "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/hefesto-bancada.json" ]; then
-  BANCADA="OCUPADA — leia o arquivo antes de tocar no daemon ou no aparelho"
+# O ESTADO DA BANCADA QUEM RESPONDE É O SEMÁFORO, não este script lendo o
+# arquivo por conta própria. Ler o arquivo direto foi o que este bloco fazia
+# até 25/08/2026, e era ERRADO: um arquivo de reserva cujo dono morreu continua
+# existindo, e o preâmbulo dizia "OCUPADA" para uma bancada livre. Quem sabe
+# ligar PID vivo e teto de tempo é `bancada.sh`, e ele é a única boca.
+if [ -x "$RAIZ/scripts/bancada.sh" ]; then
+  BANCADA="$(bash "$RAIZ/scripts/bancada.sh" status 2>/dev/null | head -1)"
+else
+  BANCADA="DESCONHECIDO — scripts/bancada.sh não existe nesta árvore; não toque no aparelho sem perguntar"
 fi
 
 cat <<PREAMBULO
@@ -124,8 +191,24 @@ docs/process/COMO-EXECUTAR-UMA-SPRINT.md.
 ## A BANCADA
 Estado agora: ${BANCADA}
 
-Se estiver OCUPADA, você NÃO para o daemon, NÃO escreve no aparelho e NÃO roda
-comando de Bluetooth. Ela está medindo, e a bancada é dela.
+Antes de todo caminho que pare o daemon, escreva no aparelho ou chame
+\`systemctl\`, rode:
+
+    bash ${WT}/scripts/bancada.sh exigir
+
+rc=1 significa ESPERAR e DIZER na entrega que está esperando — nunca contornar
+por outro caminho, que é como se inventa medição falsa. A bancada é dela.
+
+## AO FECHAR: OS PORTÕES SÃO UM COMANDO SÓ
+
+    cd ${WT} && source .envrc-voo
+    git add -A                      # os portões são cegos a arquivo novo
+    bash scripts/portoes.sh         # a lista inteira, e ela é a mesma do CI
+
+\`--rapido\` roda só a camada de 5 s enquanto você trabalha. Não monte a sua
+própria lista de portão: a que existe é conferida contra o \`ci.yml\` por
+\`tests/unit/test_portao_a_lista_de_portoes_e_uma_so.py\`, e foi uma segunda
+lista à mão que deixou o \`validar-caducos.py\` atravessar uma leva inteira.
 
 ## AO TERMINAR
 Commite NA SUA BRANCH (${BRANCH}). Não faça merge, não toque em dev.
