@@ -11,7 +11,7 @@
 >
 > O que continua **inteiramente aberto**, e é dela: a bancada (o hub USB estava
 > desconectado a noite toda, e `/sys/class/bluetooth/` ficou vazio — **nenhuma
-> medição de rádio foi possível**) e o carimbo D3 das quarenta e três mudanças
+> medição de rádio foi possível**) e o carimbo D3 das **sessenta** mudanças (o número publicado era 43, e o relatório que a lista citava nunca existiu — ver [2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA](2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA.md))
 > de texto de tela.
 
 

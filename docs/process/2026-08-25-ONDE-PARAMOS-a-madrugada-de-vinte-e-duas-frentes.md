@@ -22,6 +22,16 @@ hub tá desconectado de fato."* O cabo está fora.
 **nenhuma medição de rádio foi executável**, em nenhuma frente. Toda tarefa que
 dependia disso está registrada com o comando exato que ela roda.
 
+> **O HUB VOLTOU — medido às 17h30 de 25/08.** `ls /sys/class/bluetooth/`
+> devolve `hci0` e `hci1`, e os dois adaptadores reapareceram na aba
+> Configurações como "Sala" (`0a12:0001`, Barramento 1 porta 1 · Trás) e
+> "Extra" (`0bda:8771`, Barramento 1 porta 2.1 · Em hub). Foi essa volta que
+> mudou duas das catorze fotos entre o ensaio das 14h29 e o das 18h32.
+>
+> **Eram TRÊS adaptadores e agora são DOIS** — a bancada de rádio destravou,
+> mas não voltou inteira. E não havia DualSense conectado às 17h30, então a
+> medição de rádio continua dependendo dela pôr controle na mesa.
+
 O relato completo, com as duas hipóteses concorrentes e o que as derrubou, está
 em [2026-08-25-O-HUB-CAIU-INTEIRO](estudos/2026-08-25-O-HUB-CAIU-INTEIRO-seis-segundos-depois-do-cabo-do-controle.md).
 
@@ -35,20 +45,49 @@ em [2026-08-25-O-HUB-CAIU-INTEIRO](estudos/2026-08-25-O-HUB-CAIU-INTEIRO-seis-se
 
 ### 1.3 Uma decisão que eu tomei errado, e voltou a ser dela
 
-**`D-O-MIC-LIGADO-VALE-NO-RADIO` está ABERTA de novo.** Decidi por delegação que
-"microfone ligado por padrão vale igual nos dois transportes" — e **não li as
-specs antes**. O mapa de canais registra, medido, que ele *"nasce desligado por
-opt-in: privacidade e banda"*, e a prova dela é um print do **cabo**.
+Decidi por delegação que "microfone ligado por padrão vale igual nos dois
+transportes" — e **não li as specs antes**. O mapa de canais registra, medido,
+que ele *"nasce desligado por opt-in: privacidade e banda"*, e a prova dela é um
+print do **cabo**.
 
 **A delegação cobre o que as specs sustentam. Aqui elas diziam o contrário.**
+
+> **FECHADA POR ELA em 25/08, e o desfecho não é nenhum dos dois lados.** Nem o
+> meu erro ("vale igual", sem dizer o custo), nem a minha correção ("desligado
+> no rádio, como o mapa mede"): **ligado sempre, com a tela dizendo o preço**.
+>
+> A diferença não é de meio-termo, é de método — o preço vai À TELA antes, em
+> vez de o padrão ser escolhido por default sem ela ver a conta. A conta que a
+> tela passa a mostrar: 260,4 relatórios/s sem microfone; 170,5 de input mais
+> 106,2 de áudio = 276,7 com ele, porque o áudio não abre canal novo, divide a
+> fila. O input cai 35%, e quatro controles no rádio ocupam 1.107 das 1.600
+> fatias.
+>
+> O que CADUCA no mapa é só o PADRÃO "nasce desligado"; a medição de custo
+> continua valendo, e é justamente ela que vai para a tela.
 
 ---
 
 ## 2. O que espera o olho dela
 
-**Quarenta e três mudanças de texto de tela**, em dez das onze abas. A lista
-completa, aba por aba, com a frase que saiu e a que entrou, está no relatório do
-conferente da leva (`docs/process/agentes/2026-08-25/`).
+**São SESSENTA mudanças de texto de tela, em ONZE abas** — e o número que esta
+linha publicava era **quarenta e três**, em dez abas.
+
+**Fato errado, SUBSTITUÍDO em 25/08/2026.** Este parágrafo mandava buscar *"a
+lista completa, aba por aba"* no **relatório do conferente da leva**. Medido:
+**esse relatório não existe.** Os 27 arquivos de `docs/process/agentes/2026-08-25/`
+estão no disco, nenhum é do conferente, e a string "quarenta e três" não aparece
+em nenhum deles. O 43 nunca foi enumerado — logo não havia lista contra a qual
+reconciliar, e quem chegasse aqui procuraria um arquivo que nunca existiu.
+
+A enumeração agora existe, e é esta: [2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA](2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA.md).
+Ela traz as sessenta com a frase que saiu, a que entrou, o porquê, e a marca de
+quais precisam de conferência no código. Traz também as quatro causas da
+diferença — a principal é que aqui a unidade é a FRASE e lá parecia ser o ITEM
+de relatório. **E o piso real é maior:** cinco entradas são pacotes (as oito
+frases do `./install.sh`, as 38 dicas dos 19 modos de gatilho, as quatro de
+política de vibração, os quatro estados da dica do microfone e os quatro botões
+da janela do mapa). Frase por frase, passa de cem.
 
 **As oito que mais mudam o que ela vê:**
 
@@ -139,7 +178,7 @@ Ficam escritos porque o processo é a entrega tanto quanto o código.
 ### É dela
 
 - **A bancada inteira** — reencaixar o hub e conferir `ls /sys/class/bluetooth/`.
-- **O carimbo D3** das quarenta e três mudanças de texto.
+- **O carimbo D3** das SESSENTA mudanças de texto — a lista é [2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA](2026-08-25-AS-FRASES-DE-TELA-QUE-ESPERAM-ELA.md).
 - **`D-O-MIC-LIGADO-VALE-NO-RADIO`**, reaberta.
 - **O orçamento de altura da aba Emulação:** os 20px vieram de uma frase que
   **substitui um fato errado**. Encurtá-la desfaz a correção; e para caber na
