@@ -221,6 +221,16 @@ fora do teste.
   botões (Economia 0,3× / Balanceado 0,7× / Máximo / Auto), o multiplicador em régua, e
   `docs/usage/interface.md:74` documenta os valores. A tela diz, e trocar é um clique. Se
   ainda assim quiser outro padrão de fábrica, é uma palavra — não gastei um número com isso.
+  <!-- 25/08/2026: os NÚMEROS acima caducaram em 11/08/2026, quando ela trocou a
+       escada para 0,3 / 1,0 / 1,5 (`daemon/subsystems/rumble.py`,
+       `RUMBLE_POLICY_MULT`). Eles ficam porque o que se registra aqui é a
+       DERRUBADA de "nasce a 70% sem avisar" — apagá-los apagaria o argumento
+       que a derrubou, e a régua da casa é essa. Quem quer o número de hoje lê o
+       dono, nunca esta linha. -->
+
+  > **Nota de 25/08/2026 — a escada mudou.** Balanceado vale **1,0×** e Máximo
+  > **1,5×** desde 11/08/2026, por decisão dela. Os números do parágrafo acima
+  > são os de 07/08 e ficam pelo argumento, não pelo valor.
 - **A licença das curvas (CR-06) virou parte da decisão 5**, porque a opção "a mesma do
   projeto" já responde as duas. Uma pergunta a menos, mesma substância.
 - **A caixinha do Steam Input** aparecia em duas fontes; é a decisão 1, uma vez só.
