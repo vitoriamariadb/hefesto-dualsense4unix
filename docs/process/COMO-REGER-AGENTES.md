@@ -39,7 +39,10 @@ Os dois últimos papéis não são luxo:
 
 ---
 
-## As quatro regras
+## As CINCO regras
+
+> A quinta nasceu em 25/08/2026, medida ao vivo. As quatro primeiras são de
+> 23/08 e continuam valendo palavra por palavra.
 
 ### R1 — posse de arquivo, sempre
 
@@ -76,6 +79,36 @@ Dois agentes rodando isso em paralelo gravam por cima um do outro, e o `git
 status` fica ilegível. Nenhum agente fotografa; quem coordena fotografa depois
 que a leva fecha, e só então roda os portões da lista do `CLAUDE.md` — depois do
 `git add -A`, que é o que os torna capazes de ver arquivo novo.
+
+### R5 — a mordida é destrutiva enquanto dura, e por isso a árvore tem UM escritor
+
+**Medido em 25/08/2026, ao vivo, e custou um commit quebrado.**
+
+O protocolo da mordida manda **arrancar a cura, ver reprovar, devolver**. Entre o
+arrancar e o devolver, **a árvore de trabalho está inválida** — o produto sem a
+cura, os testes citando o que não existe. São segundos, e é de propósito.
+
+Naquele dia, dois agentes dividiam a mesma árvore por engano de quem coordenava
+(a rede caiu, um workflow foi interrompido no nível de quem coordena, os agentes
+dele **continuaram vivos**, e a leva foi redisparada sem matar o primeiro). Um
+arrancou a cura para medir; o outro rodou `git add -A && git commit` **naquele
+exato segundo**. O commit saiu com os dois arquivos de teste e **zero linhas de
+produto**.
+
+**O worktree isola o ÍNDICE do git, não a árvore de trabalho.** Dois processos no
+mesmo diretório enxergam os mesmos bytes. O isolamento que o `despachar-agente.sh`
+dá vale contra `git add -A` de árvores DIFERENTES; não vale contra dois escritores
+na MESMA.
+
+**As três regras que saem disto:**
+
+1. **Uma árvore, um agente.** Sem exceção, e a conferência é de quem despacha:
+   `git worktree list` diz o que existe, não quem está dentro.
+2. **Quem interrompe um workflow tem de MATAR o workflow** (`TaskStop`), não só
+   parar de olhar. Agente de workflow interrompido continua escrevendo.
+3. **Quem chegar numa árvore e achar trabalho que não é seu PARA e avisa** — não
+   sobrescreve para seguir em frente. Foi isso que tornou o estrago reparável
+   naquele dia: o agente mediu, relatou e não commitou por cima.
 
 ---
 
@@ -208,36 +241,3 @@ correção de fato é token queimado — a conclusão tem de virar arquivo em
   — o estado da leva que originou este documento.
 - [agentes/README.md](agentes/README.md) — onde a saída bruta mora, e o que a
   impede de vazar.
-
----
-
-## R5 — A MORDIDA É DESTRUTIVA ENQUANTO DURA, e por isso a árvore tem UM escritor
-
-**Medido em 25/08/2026, ao vivo, e custou um commit quebrado.**
-
-O protocolo da mordida manda **arrancar a cura, ver reprovar, devolver**. Entre o
-arrancar e o devolver, **a árvore de trabalho está inválida** — o produto sem a
-cura, os testes citando o que não existe. São segundos, e é de propósito.
-
-Naquele dia, dois agentes dividiam a mesma árvore por engano de quem coordenava
-(a rede caiu, um workflow foi interrompido no nível de quem coordena, os agentes
-dele **continuaram vivos**, e a leva foi redisparada sem matar o primeiro). Um
-arrancou a cura para medir; o outro rodou `git add -A && git commit` **naquele
-exato segundo**. O commit saiu com os dois arquivos de teste e **zero linhas de
-produto**.
-
-**O worktree isola o ÍNDICE do git, não a árvore de trabalho.** Dois processos no
-mesmo diretório enxergam os mesmos bytes. O isolamento que o `despachar-agente.sh`
-dá vale contra `git add -A` de árvores DIFERENTES; não vale contra dois escritores
-na MESMA.
-
-**As três regras que saem disto:**
-
-1. **Uma árvore, um agente.** Sem exceção, e a conferência é de quem despacha:
-   `git worktree list` diz o que existe, não quem está dentro.
-2. **Quem interrompe um workflow tem de MATAR o workflow** (`TaskStop`), não só
-   parar de olhar. Agente de workflow interrompido continua escrevendo.
-3. **Quem chegar numa árvore e achar trabalho que não é seu PARA e avisa** — não
-   sobrescreve para seguir em frente. Foi isso que tornou o estrago reparável
-   naquele dia: o agente mediu, relatou e não commitou por cima.
-
