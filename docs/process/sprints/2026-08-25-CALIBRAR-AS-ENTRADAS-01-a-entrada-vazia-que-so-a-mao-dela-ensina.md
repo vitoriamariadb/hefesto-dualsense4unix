@@ -432,14 +432,14 @@ arrancar a cura.
 
 ### CAL-1 — o leitor de entradas, e ele é o dono único
 
-**Arquivo:** `src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py` (novo) <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**Arquivo:** `src/hefesto_dualsense4unix/integrations/entradas_do_gabinete.py` (novo)
 **O que faz:** funções puras, sem GTK, sem IPC, sem `/dev`: `listar_entradas()`
 (os nós de entrada com `state`, `connect_type`, `panel`, `peer`),
 `entrada_de(caminho)` (o readlink do §2.3), `vazias()`, `furos()` (agrupa nós
 pelo `peer`). Raiz de `/sys` **injetável** — o `CANARIO-FS-01` reprova constante
 de módulo. ~150 linhas.
 
-**A MORDIDA:** `tests/unit/test_entradas_do_gabinete.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_entradas_do_gabinete.py`
 ::`test_o_par_2_0_e_3_0_e_um_furo_so` — sobre uma raiz de mentira com
 `usb1-port5 peer-> usb2-port1`, afirma **um** furo com **dois** nós.
 **Arrancada a cura** (ignorando `peer`): saem dois furos e o teste reprova
@@ -453,7 +453,7 @@ lista encolhe e o teste reprova.
 **Arquivo:** `src/hefesto_dualsense4unix/utils/maquina.py` (só o chamador) e a janela
 **O que faz:** liga `gravar_rascunho_da_mesa` (§2.6). ~15 linhas.
 
-**A MORDIDA:** `tests/unit/test_a_calibracao_grava_com_o_daemon_morto.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_a_calibracao_grava_com_o_daemon_morto.py`
 ::`test_grava_sem_ipc` — com o IPC recusando tudo, responde uma entrada e afirma
 que o `maquina.json` do `tmp_path` mudou.
 **Arrancada a cura** (voltando a gravar por `machine.declare`): o arquivo não
@@ -461,11 +461,11 @@ muda e o teste reprova imprimindo a frase que a tela mostraria.
 
 ### CAL-3 — a fase sentada: `[Onde fica?]` em cada aparelho
 
-**Arquivo:** `src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py` (novo) <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**Arquivo:** `src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py` (novo) <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 **O que faz:** o cartão do §4.1, o caso do hub, a gravação imediata. ~260 linhas.
 **Carimbo D3: precisa do olho dela ANTES de fechar.**
 
-**A MORDIDA:** `tests/unit/test_a_fase_sentada_resolve_o_hub.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_a_fase_sentada_resolve_o_hub.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_um_toque_no_hub_coloca_tudo_que_pende_dele` — mesa com hub e três
 aparelhos; um toque em "Num hub" e afirma que os **quatro** ganharam lugar.
 **Arrancada a cura** (colocando só o hub): três ficam sem lugar e o teste
@@ -477,7 +477,7 @@ reprova listando quais.
 **O que faz:** a volta do §4.2, com os dois relógios do §2.5 na tela. ~200 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_a_volta_so_visita_o_que_esta_vazio.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_entrada_ocupada_nao_entra_na_caminhada` — mesa com 8 ocupadas e 7 vazias;
 afirma que a lista da volta tem **7** e que nenhuma delas tem `device`.
 **Arrancada a cura** (listando todas): a lista vai a 15 e o teste reprova
@@ -491,7 +491,7 @@ segundo nó do mesmo `uniq` por rádio e o cabo inerte, a tela **não** confirma
 **O que faz:** o F-3 — enquanto a janela tem foco, os botões que ela usa não
 chegam ao gamepad virtual. ~60 linhas.
 
-**A MORDIDA:** `tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_o_botao_de_calibrar_nao_chega_no_jogo.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_com_a_janela_em_foco_o_despacho_para` — com jogo simulado, afirma zero
 eventos no vpad. **Arrancada a cura:** o evento aparece no vpad e o teste reprova
 dizendo qual botão vazou.
@@ -505,7 +505,7 @@ Sequência de quadros por `GLib.timeout_add` — a casa já usa esse caminho e n
 carrega dependência nova. ~70 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_a_marreta_respeita_o_silencio.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_a_marreta_respeita_o_silencio.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_com_animacao_desligada_zero_quadros` — com `gtk-enable-animations=False`,
 afirma zero quadros e o cartão **igualmente** legível.
 **Arrancada a cura** (animando sempre): conta quadros > 0 e reprova.
@@ -523,7 +523,7 @@ afirma zero quadros e o cartão **igualmente** legível.
 em 22/08 e **sem consumidor até hoje**). ~120 linhas.
 **Carimbo D3: precisa do olho dela ANTES.**
 
-**A MORDIDA:** `tests/unit/test_o_laudo_confessa_o_que_nao_mede.py` <!-- ref-externa: nasce nesta sprint, ainda não existe -->
+**A MORDIDA:** `tests/unit/test_o_laudo_confessa_o_que_nao_mede.py` <!-- ref-externa: nasce na leva das telas, ainda não existe -->
 ::`test_o_quarto_bloco_nunca_some` — mesa perfeita, e afirma que "O que eu não
 meço" **continua na tela**. **Arrancada a cura** (escondendo o bloco quando está
 tudo bem): o bloco some e o teste reprova — porque é ele que impede o exame de
