@@ -133,6 +133,20 @@ na MESMA.
    sobrescreve para seguir em frente. Foi isso que tornou o estrago reparável
    naquele dia: o agente mediu, relatou e não commitou por cima.
 
+> **NOTA DE 25/08/2026, medida na mesma madrugada, e ela AMPLIA a R2.** A regra
+> diz que a suíte inteira é de quem coordena, e a razão escrita era o risco dos
+> nós uinput. Há uma segunda razão, medida: **com seis frentes em voo a suíte
+> completa não TERMINA.** Ela parou duas vezes por volta dos 13%, com `load
+> average` em 6,7 — cada agente roda o subconjunto dele, e a soma satura a
+> máquina. Não é defeito nem da suíte nem dos agentes.
+>
+> O que se faz em vez disso, e foi o que valeu nesta leva: **os 24 portões do
+> `portoes.sh` rodam em ~2 min e são o que decide a integração**; a suíte inteira
+> roda **depois** que a última frente fecha, com a máquina livre. Quem coordena
+> confere a saúde da sessão dela antes e depois (`ls /dev/input/event* | wc -l` e
+> o nome dos nós): nesta noite, 30 nós e um vpad legítimo, com a sessão dela
+> intacta o tempo todo.
+
 ---
 
 ## As armadilhas medidas em 23/08
