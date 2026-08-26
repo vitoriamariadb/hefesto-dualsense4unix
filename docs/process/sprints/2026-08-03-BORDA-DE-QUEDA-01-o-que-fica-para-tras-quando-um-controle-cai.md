@@ -1,3 +1,20 @@
+---
+sprint: BORDA-DE-QUEDA-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-01b:
+    - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
+cria:
+bancada: false
+nao_toca:
+depois_de:
+  - COOP-QUE-NAO-DESMONTA-01
+  - NAVEGACAO-UM-CONTROLE-SO-01
+---
+
 # BORDA-DE-QUEDA-01 — o que fica para trás quando um controle cai
 
 - **Status:** PROPOSTA, escrita em 03/08/2026. Nenhuma linha de código tocada

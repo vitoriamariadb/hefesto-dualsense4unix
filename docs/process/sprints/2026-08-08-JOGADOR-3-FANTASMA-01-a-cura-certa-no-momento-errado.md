@@ -1,3 +1,21 @@
+---
+sprint: JOGADOR-3-FANTASMA-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-01d:
+    - src/hefesto_dualsense4unix/daemon/subsystems/gamepad.py
+cria:
+bancada: false
+nao_toca:
+depois_de:
+  - VPAD-SUSPENSO-MORTO-01
+  - COOP-QUE-NAO-DESMONTA-01
+  - NAVEGACAO-UM-CONTROLE-SO-01
+---
+
 # JOGADOR-3-FANTASMA-01 — a cura certa no momento errado
 
 - **Escrito em:** 08/08/2026, tarde, na branch `restauro/inicio-da-sessao`

@@ -1,3 +1,20 @@
+---
+sprint: DAEMON-ACORDADO-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-03:
+    - src/hefesto_dualsense4unix/core/escritor_cru.py
+    - src/hefesto_dualsense4unix/integrations/steam_launch_options.py
+cria:
+bancada: false
+nao_toca:
+  - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
+depois_de:
+---
+
 # DAEMON-ACORDADO-01 — quinze por cento de um núcleo sem ninguém jogando
 
 **23/08/2026.** Achado lateral da investigação do engasgo do Sackboy: ao medir

@@ -1,3 +1,27 @@
+---
+sprint: COOP-QUE-NAO-DESMONTA-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-01:
+    - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
+    - src/hefesto_dualsense4unix/core/backend_pydualsense.py
+    - src/hefesto_dualsense4unix/core/evdev_reader.py
+    - src/hefesto_dualsense4unix/integrations/uhid_gamepad.py
+    - src/hefesto_dualsense4unix/daemon/connection.py
+    - tests/unit/test_subsystem_coop.py
+    - tests/unit/test_coop_numeracao_sem_colisao.py
+cria:
+bancada: false
+nao_toca:
+  - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
+depois_de:
+  - NAVEGACAO-UM-CONTROLE-SO-01
+---
+
 # COOP-QUE-NÃO-DESMONTA-01 — o Jogador 2 que dura dois segundos
 
 - **Status:** PROPOSTA, escrita em 03/08/2026. Nenhuma linha de código tocada

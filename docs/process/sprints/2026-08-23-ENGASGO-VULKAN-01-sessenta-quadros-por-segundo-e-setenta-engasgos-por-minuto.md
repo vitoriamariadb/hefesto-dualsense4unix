@@ -1,3 +1,19 @@
+---
+sprint: ENGASGO-VULKAN-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-03b:
+    - src/hefesto_dualsense4unix/daemon/launch_env.py
+cria:
+bancada: false
+nao_toca:
+  - install.sh
+depois_de:
+---
+
 # ENGASGO-VULKAN-01 — sessenta quadros por segundo, setenta engasgos por minuto
 
 **23/08/2026.** Ela relatou que o Sackboy engasga **e que mexer no controle não

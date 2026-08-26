@@ -1,3 +1,20 @@
+---
+sprint: QUATRO-NA-MESA-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-01c:
+    - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
+cria:
+bancada: false
+nao_toca:
+depois_de:
+  - COOP-QUE-NAO-DESMONTA-01
+  - NAVEGACAO-UM-CONTROLE-SO-01
+---
+
 # QUATRO-NA-MESA-01 — o que só quebra quando são quatro
 
 - **Status:** PROPOSTA, escrita em 03/08/2026. Nenhuma linha de código tocada

@@ -1,3 +1,19 @@
+---
+sprint: VPAD-SUSPENSO-MORTO-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-06b:
+    - src/hefesto_dualsense4unix/daemon/subsystems/gamepad.py
+cria:
+bancada: false
+nao_toca:
+depois_de:
+  - NAVEGACAO-UM-CONTROLE-SO-01
+---
+
 # VPAD-SUSPENSO-MORTO-01 — metade da cura está ligada
 
 **22/08/2026.** Achado da auditoria de 228 sprints, por um cético que conferia

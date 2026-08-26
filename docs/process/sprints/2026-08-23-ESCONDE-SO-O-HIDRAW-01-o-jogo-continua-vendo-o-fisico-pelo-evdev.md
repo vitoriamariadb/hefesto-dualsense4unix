@@ -1,3 +1,19 @@
+---
+sprint: ESCONDE-SO-O-HIDRAW-01
+posse:
+  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
+  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
+  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
+  # contra o disco, não citados de memória.
+  BG-06c:
+    - scripts/doctor.sh
+cria:
+bancada: false
+nao_toca:
+  - install.sh
+depois_de:
+---
+
 # ESCONDE-SÓ-O-HIDRAW-01 — o jogo continua vendo o físico pelo evdev
 
 **23/08/2026.** Nasceu de uma pergunta errada. A investigação da madrugada
