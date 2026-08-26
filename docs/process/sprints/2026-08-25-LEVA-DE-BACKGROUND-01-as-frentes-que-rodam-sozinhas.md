@@ -72,7 +72,7 @@ três está na seção "é dela" do censo e **não** nesta sprint.
 
 ## O que esta sprint NÃO cobre
 
-A janela da calibração (`app/widgets/calibrar_entradas.py`) está **fora por
+A janela da calibração (`app/widgets/calibrar_entradas.py`) <!-- ref-externa: não existe de propósito; a ausência É o assunto --> está **fora por
 decisão dela** — é dela e de quem coordena, juntos, depois.
 
 E `install.sh`, `main.glade`, `coop.py`, `conftest.py`, `maquina.py`,

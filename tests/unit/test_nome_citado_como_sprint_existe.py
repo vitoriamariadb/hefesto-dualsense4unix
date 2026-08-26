@@ -71,11 +71,27 @@ def _nomes_com_arquivo() -> set[str]:
         d = _raiz() / pasta
         if not d.is_dir():
             continue
-        for f in d.glob("*.md"):
-            # `2026-08-09-ROTULOS-DE-SPRINT-01-entregue...` -> `ROTULOS-DE-SPRINT-01`
+        # `rglob`, e não `glob` — PONTO CEGO MEDIDO em 25/08/2026.
+        #
+        # Com `glob("*.md")` a régua via só o primeiro nível, e as DEZESSETE
+        # sprints de `2026-08-21-ABA-CONFIGURACOES/` ficavam invisíveis. Efeito:
+        # citar `CONFIG-07` — que existe, está no disco e tem conteúdo — era
+        # acusado como "documento que não existe". A régua reprovava a citação
+        # CORRETA, que é a pior forma de portão: ele treina quem lê a
+        # desconfiar dele, e o próximo vermelho de verdade é ignorado.
+        for f in d.rglob("*.md"):
+            # Duas formas convivem nesta casa, e as duas são legítimas:
+            #   1. `2026-08-09-ROTULOS-DE-SPRINT-01-entregue…` — o nome traz a data;
+            #   2. `2026-08-21-ABA-CONFIGURACOES/CONFIG-07-a-janela.md` — a data
+            #      está na PASTA, e o arquivo começa direto no apelido.
             achado = re.search(r"\d{4}-\d{2}-\d{2}-([A-Z][A-Z0-9-]*-\d{2})", f.name)
             if achado:
                 nomes.add(achado.group(1).upper())
+                continue
+            if re.match(r"\d{4}-\d{2}-\d{2}-", f.parent.name):
+                achado = re.match(r"([A-Z][A-Z0-9-]*-\d{2})", f.name)
+                if achado:
+                    nomes.add(achado.group(1).upper())
     return nomes
 
 
