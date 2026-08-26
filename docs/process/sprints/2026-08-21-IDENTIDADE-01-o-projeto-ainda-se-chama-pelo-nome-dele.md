@@ -1,3 +1,41 @@
+---
+sprint: IDENTIDADE-01
+posse:
+  # Declarado em 25/08/2026, quando ela CONFIRMOU o id decidido em 21/08 e as
+  # Fases 2 e 3 saíram do bloqueio. A posse é larga porque a migração é larga:
+  # `br.andrefarias` aparece em 62 arquivos, medido com
+  # `grep -rl br.andrefarias . --exclude-dir=.git --exclude-dir=.venv | wc -l`.
+  ID:
+    - flatpak/
+    - packaging/
+    - assets/
+    - install.sh
+    - uninstall.sh
+    - NOTICE
+    - LICENSES/
+    - .github/workflows/flatpak.yml
+    - src/hefesto_dualsense4unix/app/app.py
+    - src/hefesto_dualsense4unix/app/main.py
+    - src/hefesto_dualsense4unix/utils/xdg_paths.py
+cria:
+bancada: false
+nao_toca:
+  # Estes têm dono em outra frente ou são de quem coordena.
+  - src/hefesto_dualsense4unix/integrations/mapa_das_portas.py
+  - src/hefesto_dualsense4unix/integrations/arranjo_da_mesa.py
+  - src/hefesto_dualsense4unix/utils/maquina.py
+  - tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py
+  - tests/conftest.py
+depois_de:
+  # As duas JÁ FECHARAM e estão em `dev` (BG-04 e G7, 25/08). Declarar o
+  # `depois_de` não adia nada — registra que esta frente escreve POR CIMA do
+  # que elas deixaram, e não ao lado. Quem migrar o app-id vai encontrar os
+  # cinco scripts que a BG-04 acrescentou aos manifestos e a função de censo
+  # do gabinete que a G7 pôs no install: as duas coisas têm de sobreviver.
+  - LEVA-DE-BACKGROUND-01
+  - MOTOR-DO-ARRANJO-01
+---
+
 # IDENTIDADE-01 — o projeto ainda se chama pelo nome dele
 
 **21/08/2026.** O repositório mudou de dono: saiu de uma conta pessoal e passou
