@@ -271,6 +271,45 @@ def carrega(pasta: Path) -> tuple[dict[Path, dict], list[Path], list[str]]:
     return anotadas, divida, erros
 
 
+def _imprime_divida(divida: list[Path]) -> None:
+    if not divida:
+        return
+    print(f"DÍVIDA — {len(divida)} sprint(s) ainda sem frontmatter de posse:")
+    for p in divida:
+        print(f"  {p}")
+    print("  (dívida NÃO reprova: ela é paga uma a uma, no despacho de cada sprint)")
+
+
+def _imprime_falha(titulo: str, linhas: list[str], rodape: str = "") -> None:
+    """Escreve o bloco de falha de modo que ``grep '^FALHA'`` o encontre.
+
+    O DEFEITO, medido em 26/08/2026: a dívida ia para o ``stdout`` e a falha para
+    o ``stderr``. Redirecionados para o mesmo lugar (``> arquivo 2>&1``, que é o
+    que o CI e o gancho fazem), o ``stdout`` fica com buffer de bloco e o
+    ``stderr`` não: o ``FALHA:`` era escrito no meio de uma descarga parcial do
+    buffer e saía **colado no fim de um nome de arquivo** -- linha 269, no meio
+    de 276 linhas de dívida. ``grep -c '^FALHA'`` devolvia **zero** sobre uma
+    saída que reprovava com rc=1, e o achado era invisível para quem lia a saída.
+
+    As duas metades da cura, e as duas são necessárias:
+
+    1. **descarregar o ``stdout`` antes** de escrever no ``stderr``, para que a
+       ordem no arquivo fundido seja a ordem em que se mandou imprimir;
+    2. **um ``\\n`` na frente do título**, que garante começo de linha mesmo se
+       alguém escrever em ``stdout`` sem terminar a linha.
+
+    E a chamadora imprime a dívida **depois** da falha, nunca em volta dela:
+    achado no fim de 276 linhas de contexto é achado que ninguém lê.
+    """
+    sys.stdout.flush()
+    print(f"\nFALHA: {titulo}", file=sys.stderr)
+    for linha in linhas:
+        print(f"  {linha}", file=sys.stderr)
+    if rodape:
+        print(f"\n{rodape}", file=sys.stderr)
+    sys.stderr.flush()
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__ and __doc__.splitlines()[0])
     ap.add_argument("--divida", action="store_true", help="só a lista de dívida")
@@ -303,32 +342,35 @@ def main(argv: list[str] | None = None) -> int:
         print(f"OK: {args.exigir} declara posse.")
         return 0
 
-    if divida:
-        print(f"DÍVIDA — {len(divida)} sprint(s) ainda sem frontmatter de posse:")
-        for p in divida:
-            print(f"  {p}")
-        print("  (dívida NÃO reprova: ela é paga uma a uma, no despacho de cada sprint)")
-        print()
     if args.divida:
+        _imprime_divida(divida)
         return 0
 
+    achou = False
     if erros:
-        print(f"FALHA: {len(erros)} frontmatter(s) que não consegui ler:", file=sys.stderr)
-        for e in erros:
-            print(f"  {e}", file=sys.stderr)
-        return 1
-
-    queixas = confere(anotadas)
-    if queixas:
-        print(f"FALHA: {len(queixas)} colisão(ões) de posse não declarada(s):", file=sys.stderr)
-        for q in queixas:
-            print(f"  {q}", file=sys.stderr)
-        print(
-            "\nO conserto é UM dos três: mover o arquivo para uma sprint só; "
-            "declarar `depois_de:` para serializar; ou declarar `nao_toca:` em "
-            "quem não é dona dele.",
-            file=sys.stderr,
+        _imprime_falha(
+            f"{len(erros)} frontmatter(s) que não consegui ler:",
+            erros,
         )
+        achou = True
+    else:
+        queixas = confere(anotadas)
+        if queixas:
+            _imprime_falha(
+                f"{len(queixas)} colisão(ões) de posse não declarada(s):",
+                queixas,
+                rodape=(
+                    "O conserto é UM dos três: mover o arquivo para uma sprint só; "
+                    "declarar `depois_de:` para serializar; ou declarar `nao_toca:` em "
+                    "quem não é dona dele."
+                ),
+            )
+            achou = True
+
+    # A DÍVIDA VEM DEPOIS DA FALHA, NUNCA EM VOLTA DELA. Ver _imprime_falha().
+    _imprime_divida(divida)
+
+    if achou:
         return 1
 
     print(f"OK: {len(anotadas)} sprint(s) anotada(s), nenhuma colisão não declarada.")
