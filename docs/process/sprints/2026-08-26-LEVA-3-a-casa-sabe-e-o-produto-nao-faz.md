@@ -52,6 +52,7 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-3-a-casa-sabe-e-o-produto-nao-faz.md
 bancada: false
 depois_de:
+  - LEVA-2  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - LEVA-1  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo

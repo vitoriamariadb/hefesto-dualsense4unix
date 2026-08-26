@@ -45,6 +45,7 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-4-fechamento.md
 bancada: false
 depois_de:
+  - LEVA-3  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - INFRA-DE-EXECUCAO-01  # já fechou: a posse chegou antes, e a serialização é nominal
