@@ -263,3 +263,35 @@ apaguei símbolo, só acrescentei um parâmetro opcional):
 $ python -m pytest tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py -q
 35 passed in 55.65s
 ```
+
+## A costura RECUSOU, e o motivo não é meu — leia isto primeiro
+
+```
+$ bash scripts/costurar.sh
+  ... 25 portões ok (shellcheck, referencias-docs, anonimato, acentuacao, mypy inclusos)
+  ruff                   VERMELHO rc=1
+REPROVOU: 1 vermelho(s) de 26 -> ruff
+ERRO: portão vermelho. A costura não passa por cima de portão.
+```
+
+**Os 26 portões rodaram. Vinte e cinco verdes; o vermelho é o `ruff`, e ele é
+ANTERIOR a toda a LEVA-3.** Os três `E501` estão nos dois arquivos citados acima,
+que eu não toquei (`git status` desta árvore lista só os meus três), e nascem do
+commit `c165485c`, que é a **base comum das sete branches** `voo/LEVA-3-*` e
+**já está em `onda/atual`**:
+
+```
+$ git branch -a --contains c165485c
+onda/atual · voo/LEVA-3-A · voo/LEVA-3-B · voo/LEVA-3-C
+voo/LEVA-3-D · voo/LEVA-3-E · voo/LEVA-3-F · voo/LEVA-3-G
+```
+
+Ou seja: **nenhuma das sete frentes desta leva consegue costurar** enquanto isso
+não for consertado, e o conserto é de uma linha em cada um dos três pontos —
+quebrar a linha para caber em 100 colunas (o `# noqa: acentuacao —` empurrou
+todas as três para além do limite, e o `ruff` ainda avisa que essa diretiva não é
+válida para ele).
+
+**Não consertei porque não é minha posse** (R-A: relata e para). O trabalho está
+COMMITADO em `voo/LEVA-3-A` (`86ccc767` a cura + mordida, `fcc776bd` esta
+entrega) e a branch funde limpo assim que o `ruff` voltar ao verde.
