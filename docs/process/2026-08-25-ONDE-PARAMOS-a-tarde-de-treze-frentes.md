@@ -102,6 +102,16 @@ do 8BitDo.
 
 ```bash
 git log --since=midnight --oneline | wc -l      # os commits do dia
-bash scripts/portoes.sh                          # os 25 portões
+bash scripts/portoes.sh                          # os portões — o NÚMERO muda, o dono não
+bash scripts/portoes.sh --listar | grep -c '^PORTAO|rapido'   # 19 em 26/08/2026
+bash scripts/portoes.sh --listar | grep -c '^PORTAO|completo' #  7 em 26/08/2026
 ls docs/process/agentes/2026-08-25/              # os relatórios de cada frente
 ```
+
+**FATO SUBSTITUÍDO — 26/08/2026.** A primeira linha dizia *"os 25 portões"*, e
+o disco dizia 26 (19 rápidos + 7 completos, mais a camada `suite`). Três
+lugares desta casa escreveram três números diferentes para a mesma lista — 24
+no `CLAUDE.md`, 25 aqui, 26 no disco. **O número não se escreve à mão:** ele é
+uma contagem, o `scripts/portoes.sh` é o dono único da lista, e um número
+copiado envelhece na primeira leva que acrescenta um portão. Por isso as duas
+linhas acima CONTAM em vez de afirmar.
