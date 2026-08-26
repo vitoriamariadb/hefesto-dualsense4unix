@@ -502,3 +502,91 @@ O mais caro, por último, e cada um é código novo do esquema ao backend:
 ---
 
 **Um lembrete de processo:** interface só fecha com o olho dela. `scripts/gui-captura/retratar_abas.py` roda **antes e depois** de cada onda — e, a partir da Onda 0, com a máscara de MAC na captura.
+
+---
+
+## 7. As respostas dela — 26/08/2026, no chat
+
+Vinte e uma das vinte e três perguntas da §2 foram respondidas. **Duas delas ela não
+respondeu: redesenhou.** As seis que viraram decisão datada estão em
+`docs/data/decisoes-dela.csv`.
+
+### O que ela redesenhou em vez de escolher
+
+**D2 — "Aplica a" vira "Funciona em qual ambiente?"** (`D-APLICA-A-VIRA-AMBIENTE`)
+
+As três opções oferecidas eram: mostrar sempre, apagar, ou só-leitura. Ela recusou as
+três e reescreveu o seletor:
+
+| Hoje | Passa a ser |
+|---|---|
+| Qualquer | **Todos** |
+| Steam | **Steam** (independente do jogo aberto) |
+| Navegador | **Navegador** — lista os navegadores, como já se faz com jogos |
+| Editor | **SAI** |
+| — | **Estilo de Jogo** — os presets de gênero entram aqui |
+| Jogo | **Jogo** (escolhe o jogo em si) |
+| Jogo da Steam | **Jogo da Steam** |
+
+**Por que resolve o que a pergunta não resolvia:** os seis perfis de gênero dela (Ação,
+Aventura, Corrida, Esportes, FPS, point_and_click) só existiam por causa dos três
+campos técnicos. Virando **Estilo de Jogo** eles não ficam órfãos — mudam de lugar. E
+aí o Modo avançado sai inteiro, que era o pedido original.
+
+**D18 — a interface é multi-jogador** (`D-CADA-JOGADOR-NAVEGA-COM-O-SEU`)
+
+Perguntei o que "e sempre ficará disponível" queria dizer sobre a borda colorida. A
+resposta abriu um conceito que não estava em lugar nenhum do to-do:
+
+> *"as bordas de ambos os controles devem aparecer marcados na tela como se fossem
+> personagem de jogo. to com o controle red e o irmão com o blue. Com o meu controle eu
+> navego a interface e apertando x eu seto a informação no meu (borda red) e o meu irmão
+> x seta a config dele no blue."*
+
+**O controle que aperta é o que recebe o ajuste.** A borda colorida não é enfeite: é
+como cada jogador se reconhece na tela, ao mesmo tempo. É a origem da dupla seleção
+quando há dois controles com "Todos" ativo — e é o que amarra `LIGHTBAR-6`,
+`GATILHOS-3` e a proposta ONDE-A-COR-MORA-01, que **convivem** por decisão dela.
+
+### Duas falhas que ela nomeou, e que o to-do não tinha visto
+
+1. **`PS + R3` nunca chegou à tela.** Ela pediu o combo em 19/08 (*"segurar o botão ps e
+   o start faz ele pular de modo de sincronização"*), ele foi implementado como
+   `DEFAULT_COMBO_PONTE = ("ps", "r3")` em `hotkey_daemon.py:142`, e **só existe em
+   comentário de código**. O quadro da Emulação lista três atalhos e esconde justamente
+   este. Palavra dela: *"Duas falhas grotescas então."*
+2. **A Status e a Emulação não sincronizam** — nem elas, nem nenhuma outra informação
+   repetida entre abas. Virou regra do produto (`D-AS-ABAS-CONVERSAM`).
+
+### As respostas diretas
+
+| # | O que ela decidiu |
+|---|---|
+| **D1** | A fita do topo é o **único** lugar onde se escolhe o alvo. *"Não temos que duplicar isso em canto algum."* O card mostra o estado; nunca escolhe. |
+| **D3** | O texto de diagnóstico vivo **vira tooltip também** — sem exceção. |
+| **D4** | **Ícone "?"** ao lado de cada título de quadro, e é onde todo texto longo passa a morar. |
+| **D5** | O checkbox sai, e o "(Automático)" **religa** o automático além de limpar a cor. |
+| **D7** | **O editor trava no perfil ativo**: quando o Hefesto troca sozinho, o editor segue a troca. |
+| **D8** | **Risco = some. Caixa azul = vira tooltip.** Vale para ler os doze desenhos. |
+| **D9** | **Três botões separados**: [Giroscópio] [Acelerômetro] [Calibrar sensores]. |
+| **D9b** | A calibração **vai funcionar no Modo Nativo também** — ver `D-CALIBRAR-SENSORES-NO-NATIVO`. |
+| **D10** | O nome é **modelo + plástico**: "DualSense Edge — Cosmic Red". |
+| **D11** | ID Bluetooth **inteiro na tela, mascarado na foto**. |
+| **D13** | A "Luminosidade (%)" vira **slicer largo**, como o pedido da Navegação. |
+| **D14** | A cor no rádio: **as três saídas juntas** — grava do cabo, campo manual, e correção. *"+ vamos descobrir como descobrir via bt tmb e aí resolvemos na raiz."* |
+| **D15** | As duas abas circuladas são a **origem** do que vai para a Lightbar **e para as Configurações**. |
+| **D16a** | No Rumble, o desalinhado é **o bloco inteiro**. |
+| **D16b** | "Mudar nome" = **tirar o que está entre parênteses** dos títulos. |
+| **D16c** | O SVG **pinta o lado que vibra**, por dentro ou por fora. |
+| **D17** | O **"Reconciliar jogadores" FICA**, subindo junto com os botões do Sistema. |
+| **D19** | Os glifos **acendem** quando o botão é apertado de verdade. |
+| **D21** | **As duas tabelas** da Navegação viram configuráveis. |
+| **D22** | A regra de desempate **fica como rede de segurança**. |
+| **D23** | SVG, borda e anel **convivem** — ver a decisão do multi-jogador. |
+
+### O que ainda espera ela
+
+- **D6** — as nove sprints "aguardando a palavra dela": ela pediu para **ver a lista com
+  as imagens** antes de decidir.
+- **D12** — quando "Editando:" e "Número deste controle" descerem para a Lightbar, eles
+  somem do cabeçalho comum às onze abas?
