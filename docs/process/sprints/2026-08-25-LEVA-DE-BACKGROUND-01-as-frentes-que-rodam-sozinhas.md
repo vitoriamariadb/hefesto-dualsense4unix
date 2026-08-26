@@ -18,7 +18,10 @@ posse:
     - scripts/build_appimage_gui.sh
     - scripts/check_packaging_parity.sh
   BG-05:
-    - src/hefesto_dualsense4unix/utils/repo_files.py
+    # CORRIGIDO no despacho, 25/08: o censo apontou `utils/repo_files.py`, que
+    # NÃO EXISTE. `_find_repo_file` mora em DOIS lugares — e são duas cópias,
+    # que é o defeito de fundo desta frente.
+    - src/hefesto_dualsense4unix/cli/cmd_doctor.py
   BG-06:
     - scripts/doctor.sh
   BG-07:
