@@ -118,6 +118,23 @@ $ pytest tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py -q
 35 passed in 57.01s
 ```
 
+### Os portões
+
+```
+$ bash scripts/portoes.sh
+REPROVOU: 1 vermelho(s) de 26 -> ruff
+```
+
+**O `ruff` já estava vermelho antes de mim, e provei:** `git stash` na minha
+árvore, `portoes.sh --rapido` de novo, e o mesmo vermelho com os mesmos três
+`E501`. São três linhas de comentário `# noqa: acentuacao` que passaram de 100
+colunas no commit `c165485c`, em dois arquivos que **não são da minha posse**:
+`tests/unit/test_match_sem_caixa_e_sentinel_manual.py:275` e
+`tests/unit/test_o_preset_nao_escolhe_a_mascara.py:63` e `:85`. Não consertei
+(R-A). `ruff check` nos meus três arquivos passa limpo.
+
+Os outros 25 portões estão verdes.
+
 ### As outras duas réguas do mesmo arquivo
 
 - `test_a_isencao_declarada_nao_vira_cemiterio` — a direção contrária: isenção
@@ -220,7 +237,23 @@ estado NOVO na tela (controle insensível com a dica, para separar "sem fonte"
 de "daemon offline"), e isso é **desenho** — foto antes e depois, e a palavra é
 dela.
 
-### 4. Nada de texto de tela nesta frente
+### 4. O `ruff` vermelho de `c165485c` — três linhas, dono nenhum
+
+`E501` em `tests/unit/test_match_sem_caixa_e_sentinel_manual.py:275` e em
+`tests/unit/test_o_preset_nao_escolhe_a_mascara.py:63` e `:85`. Os três
+comentários `# noqa: acentuacao` que entraram naquele commit empurraram a linha
+para além de 100 colunas. Quebrar o comentário em duas linhas resolve; não é
+meu, e **derruba o único vermelho dos 26 portões**.
+
+### 5. Não rodei `scripts/costurar.sh`
+
+Ele exige a camada de portões verde, e o `ruff` acima o faria RECUSAR por um
+vermelho que não é meu. Some-se a isso os sete testes vermelhos do item 1, que
+pedem decisão de quem coordena sobre um arquivo sem dono. A branch
+`voo/LEVA-3-C` está commitada e pronta; a costura é chamada quando esses dois
+estiverem resolvidos.
+
+### 6. Nada de texto de tela nesta frente
 
 Nenhuma palavra nova apareceu na interface: a poda é toda interna à ponte.
 Nada para marcar `PROVISÓRIO — decisão dela`.
