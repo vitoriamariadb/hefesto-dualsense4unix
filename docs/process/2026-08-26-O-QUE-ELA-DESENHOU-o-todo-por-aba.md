@@ -588,5 +588,23 @@ quando há dois controles com "Todos" ativo — e é o que amarra `LIGHTBAR-6`,
 
 - **D6** — as nove sprints "aguardando a palavra dela": ela pediu para **ver a lista com
   as imagens** antes de decidir.
-- **D12** — quando "Editando:" e "Número deste controle" descerem para a Lightbar, eles
-  somem do cabeçalho comum às onze abas?
+**D12 — RESPONDIDA**, e o motivo dela é de layout, não de organização
+(`D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR`):
+
+> *"hoje ao clicar no controle conectado, tipo o player 1, ele sobe a área pra eu escolher
+> qual o player daquele controle... a ideia é removermos essa seção que surge ali e
+> trazermos essa escolha do player pra ocupar toda essa seção dentro de lightbar (desenho
+> das cinco luzes) seção absolutamente inútil. vamos evitar o problema do layout que fica
+> super feio ao se deslocar pra baixo."*
+
+**Medido e confirmado:** `status_actions.py:1903-1937` cria a faixa com
+`set_no_show_all(True)` + `hide()`, e ela *"só aparece com um controle escolhido E dois ou
+mais na mesa"* — junto com o `Editando: Controle N`. São **duas linhas que brotam** e
+empurram as abas e todo o conteúdo para baixo. As fotos dela provam: na da Status (com
+"Todos") as duas não existem; na da Lightbar (com "Sony 1") estão lá.
+
+**A troca fecha sozinha:** sai um painel de **285 linhas** de glade que ela chamou de
+*"absolutamente inútil"* — e ele é mesmo, porque o daemon já acende o padrão do número
+sozinho e o co-op sobrescreve — e entra no lugar a escolha do player, agora com **espaço
+fixo**, sem nada pular. No cabeçalho fica só a fita "Ajustes vão para", que é o único
+lugar onde se escolhe o alvo (`D-A-FITA-E-O-UNICO-ALVO`).
