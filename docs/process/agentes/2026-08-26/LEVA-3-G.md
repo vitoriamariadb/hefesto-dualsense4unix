@@ -196,6 +196,17 @@ acentuação empurrando a linha além de 100 colunas), mais `N818` em
 `scripts/gerar-frases-de-tela.py:238`. Nenhum é meu e nenhum está na minha posse.
 Os outros 18 portões da camada rápida estão verdes.
 
+**E É ELE QUE IMPEDE A COSTURA.** Rodei `scripts/costurar.sh --seco`: **25 dos 26
+portões passam** — inclusive `mypy`, `shellcheck`, `acentuacao`, `anonimato` e
+`referencias-docs` —, e a costura recusa com *"ERRO: portão vermelho. A costura
+não passa por cima de portão."* O único vermelho é o `ruff` herdado. **Não
+costurei**, porque destravá-lo é editar dois arquivos de teste que não são meus,
+e a regra R-A manda relatar em vez de escrever. **É conserto de um minuto para
+quem coordena:** quebrar em duas linhas o `# noqa: acentuacao` de
+`tests/unit/test_match_sem_caixa_e_sentinel_manual.py:275` e de
+`tests/unit/test_o_preset_nao_escolhe_a_mascara.py:63` e `:85`. A branch
+`voo/LEVA-3-G` está pronta, com um commit, árvore limpa.
+
 **4. O `_PODADOS` da mordida é uma lista, e quem podar depois deve ACRESCENTAR
 nela.** A régua vale para a próxima poda de graça — é só somar o nome. Se ela
 ficar vazia, `test_a_lista_de_podados_nao_e_vazia` reprova, porque régua que mede
