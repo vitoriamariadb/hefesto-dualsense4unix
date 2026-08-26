@@ -168,8 +168,9 @@ previu.
   inventar um seria medição falsa. Consequência concreta: os endereços que
   corrigi por medição manual (`:1999`, `:2091`, `:2774-2775`, `:1026`) **passam
   hoje e passariam se estivessem errados por poucas dezenas de linhas** — a
-  régua só os pega quando saem do bloco do símbolo. Não sei quantas das 199
-  citações de `src/` estão nesse ponto cego.
+  régua só os pega quando saem do bloco do símbolo. A régua resolve **184**
+  citações em `src/` e acusa **31**; das 153 que ela deixa passar, **não sei
+  quantas estão certas e quantas estão no ponto cego**.
 * **As 31 pendências não foram classificadas uma a uma.** Medi que cada uma
   reprova e por qual das três réguas; **não** medi, para cada uma, qual é o
   número certo. Duas famílias eu identifiquei por amostra
