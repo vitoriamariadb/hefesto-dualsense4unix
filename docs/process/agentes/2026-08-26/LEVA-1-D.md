@@ -157,6 +157,25 @@ $ pytest tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py -q
 35 passed in 52.87s
 ```
 
+### E uma lição de processo, paga aqui
+
+**`--rapido` (19 portões) não é o portão.** Ele saiu verde com duas violações de
+acentuação nos MEUS arquivos; quem as pegou foi a camada inteira (26 portões,
+via `costurar.sh --seco`):
+
+```
+acentuacao             VERMELHO rc=1 44966 ms
+2 violação(es) de acentuação PT-BR encontrada(s).
+scripts/doctor.sh:3998:media -> sugestão média
+tests/unit/test_esconde_so_o_hidraw_veredito_das_tres_superficies.py:273:media -> sugestão média
+```
+
+O imperfeito de *medir* colide com o substantivo *média* na régua. Consertado
+trocando o verbo (commit `99bdd429`) — brigar com o portão seria o defeito.
+`acentuacao`, `anonimato` e `mypy` só existem na camada completa: **quem
+despachar um agente com "`--rapido` verde antes de fechar" está pedindo menos
+do que a costura cobra.**
+
 ---
 
 ## O que NÃO verifiquei
@@ -257,3 +276,31 @@ $ pytest tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py -q
    aberta`** e o `docs/process/sprints/` não é da minha posse. E1, E2, E3 e E4
    fecharam aqui; E5 não. Quem coordena decide se vira "parcial" com nota
    datada.
+
+---
+
+## O estado em que a frente fecha
+
+```
+$ bash scripts/portoes.sh            # a camada INTEIRA, 26 portões
+REPROVOU: 1 vermelho(s) de 26 -> colisao-de-sprints
+```
+
+`acentuacao ok`, `mypy ok`, `anonimato ok`, `shellcheck ok`, `casa-sabe ok`
+(o portão de lápides, 56 s), `ruff ok`. O único vermelho é o
+`colisao-de-sprints`, **que já estava vermelho no `HEAD` desta árvore antes de
+qualquer commit meu** — 16 colisões entre a `LEVA-1` recém-declarada e sprints
+abertas antigas. Está no item 3 acima.
+
+Quatro commits em `voo/LEVA-1-D`, e nenhum arquivo fora da posse:
+
+```
+99bdd429 fix(acentuação): "media" onde o portão pede "média" — troco o verbo
+c48630a1 docs(LEVA-1-D): a entrega da frente, com as duas mordidas coladas
+1e5b16f4 fix(broker): o veredito do hide mede a MESA, não só o que ele escondeu
+96e3c4a1 fix(mic): a marca do gesto substitui a ausência do drop-in 51 (DROPIN-AMBIGUO-01)
+```
+
+**A costura NÃO foi rodada** (só `--seco`, que recusou pelo vermelho
+pré-existente). Quem coordena decide: ou o `colisao-de-sprints` é pago antes,
+ou a integração desta branch entra por fora dele.
