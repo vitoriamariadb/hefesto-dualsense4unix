@@ -10,6 +10,11 @@ posse:
     - docs/process/COMO-EXECUTAR-UMA-SPRINT.md
     - docs/process/COMO-REGER-AGENTES.md
     - docs/process/COMO-COORDENAR-UMA-LEVA.md
+  # ACRESCENTADO em 25/08/2026: o berço que vaza é infra de execução, não
+  # produto. Sem dono declarado, o despacho recusa a árvore.
+  G8:
+    - tests/conftest.py
+    - scripts/check_faixa_sintetica.py
 cria:
   - scripts/bancada.sh
   - scripts/portoes.sh

@@ -4,11 +4,14 @@ posse:
   # O motor e o censo. Traduzido em 25/08/2026 do bloco em prosa da §9, que
   # `check_colisao_de_sprints.py` não conseguia ler — o formato dele é o
   # frontmatter, e sem isto `despachar-agente.sh` recusa criar a árvore.
-  MOTOR-CORE:
+  # SEPARADO em duas mãos em 25/08/2026: eram um bloco só, e dois agentes na
+  # mesma posse se atropelam (R1). O motor e o censo não dividem um arquivo.
+  G4:
     - src/hefesto_dualsense4unix/integrations/arranjo_da_mesa.py
-    - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
     - tests/unit/test_arranjo_da_mesa_bate_com_o_mockup.py
     - tests/unit/test_arranjo_invariantes.py
+  G7:
+    - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
     - tests/unit/test_censo_do_gabinete.py
     - install.sh
   # A MOTOR-5 é a ÚNICA parte desta sprint que abre `app/`, e só para

@@ -4,6 +4,15 @@ posse:
   MAPA-A: [src/hefesto_dualsense4unix/utils/maquina.py]
   MAPA-B: [src/hefesto_dualsense4unix/integrations/mesa_de_radio.py]
   MAPA-C: [src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py]
+  # ACRESCENTADOS em 25/08/2026, e o primeiro era ÓRFÃO DE SPRINT: medido, o
+  # `lugar_declarado.py` não aparecia em `posse`, `cria` nem `nao_toca` de
+  # NENHUMA das dez sprints anotadas — nasceu na madrugada sem dono, e sem dono
+  # o gate de despacho recusa a árvore de quem for consertá-lo.
+  # O `footer_actions.py` é o outro caso do mesmo mal: `DONOS=NINGUEM` na
+  # máquina, e "sem dono" aqui significa SEM PROTEÇÃO, não território livre.
+  MAPA-D:
+    - src/hefesto_dualsense4unix/integrations/lugar_declarado.py
+    - src/hefesto_dualsense4unix/app/actions/footer_actions.py
 cria:
   - src/hefesto_dualsense4unix/integrations/mapa_das_portas.py
   - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
