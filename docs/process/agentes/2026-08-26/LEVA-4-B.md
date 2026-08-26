@@ -159,7 +159,20 @@ $ python -m pytest tests/unit/test_p2_… tests/unit/test_ambiente_presumido_01_
 `portao_a_casa_sabe_e_o_produto_nao_faz.py` sozinho: **35 passed**, como a ordem
 previu.
 
-`bash scripts/portoes.sh --rapido` → **TODOS VERDES — 19 portões.**
+```
+$ bash scripts/portoes.sh --rapido
+TODOS VERDES — 19 portões.
+
+$ bash scripts/portoes.sh
+  casa-sabe              ok       55968 ms
+  acentuacao             ok       47373 ms
+  mypy                   ok         180 ms
+TODOS VERDES — 26 portões.
+```
+
+Um vermelho apareceu na primeira passada e era MEU: `acentuacao` pegou
+*"ultima"* sem acento numa docstring que eu acabara de escrever. Corrigido
+antes de commitar.
 
 ## O que NÃO verifiquei
 
@@ -178,9 +191,14 @@ previu.
   `utils/repo_files.py`, onde o código citado morreu com a própria cura), mas
   **não conferi as 31**.
 * **Não rodei a suíte inteira** (regra da casa) nem `pytest` fora do meu escopo.
-  Os portões `completo` (`mypy`, `shellcheck`, `acentuacao`, `anonimato`,
-  `referencias-docs`, `casa-sabe`, `portao-tem-chamador`) rodaram pelo
-  `portoes.sh` — ver o resultado colado no fim desta seção.
+  Os 26 portões rodaram e estão verdes; o que está fora deles eu não medi.
+* **`tests/unit/test_as_fotos_acompanham_a_versao.py` está VERMELHO, e já
+  estava** antes de eu tocar em nada — medido com `git stash -u`: *"a interface
+  mudou em `47a1af6` e as fotos são de `ab4faaf`"*, e `47a1af6` é o merge da
+  LEVA-3-E. É o caso da R-C: quem coordena fotografa uma vez, no fim. **Não
+  consertei** — rodar `retratar_abas.py` reescreveria 16 PNGs versionados.
+* **Não rodei `scripts/costurar.sh`.** A branch `voo/LEVA-4-B` está commitada e
+  a árvore limpa; a costura em `onda/atual` fica com quem coordena.
 * **Não toquei a bancada nem a tela.** Nenhuma foto, nenhum
   `retratar_abas.py` (R-C), nenhuma linha em `portoes.sh` ou `ci.yml` (R-D).
 * **Não escrevi texto novo de tela**, então não há nada marcado
