@@ -130,7 +130,7 @@ Nove documentos dizem "ENTREGUE EM CÓDIGO — AGUARDANDO A PALAVRA DELA". Você
 
 Ordem real da tira, medida em `main.glade`: **Início · Status · No jogo · Gatilhos · Lightbar · Rumble · Perfis · Sistema · Emulação · Navegação · Configurações.** Três abas não foram desenhadas — **No jogo**, **Sistema** e **Configurações** — mas duas delas recebem trabalho por tabela (o Sistema empresta seus botões à Início; a Configurações é a fonte da cor e do ID).
 
-Legenda: ****SAI**** = tira coisa da tela · **?** = precisa de decisão.
+Legenda: **SAI** = tira coisa da tela · **?** = precisa de decisão.
 
 ---
 
