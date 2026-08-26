@@ -139,8 +139,8 @@ global.document = { getElementById:function(id){ return alvos[id]||(alvos[id]=no
         + "é lugar, é conta — <b>cada adaptador tem 1600 vezes de falar por segundo</b>, e todo controle ligado "
         + "nele divide isso.",
       conta: { titulo: "A conta de um adaptador", linhas: [
-        "1 controle com mic ....  277 / 1600", "2 controles com mic ...  554 / 1600",
-        "4 controles com mic ... 1108 / 1600", "5 controles com mic ... 1385 / 1600"] } },
+        "1 controle com mic ....  276,7 / 1600", "2 controles com mic ...  553,4 / 1600",
+        "4 controles com mic ... 1106,8 / 1600", "5 controles com mic ... 1383,5 / 1600"] } },
     wifi: { texto: "Ele quer uma <b>entrada USB 3.0</b> para ter velocidade — e é o tráfego dele em 3.0 que vira "
         + "ruído para os dongles Bluetooth por perto. O bom lugar é uma entrada azul <b>direta do PC</b>, longe de "
         + "onde as antenas de rádio moram.", conta: null },
@@ -577,12 +577,14 @@ global.document = { getElementById:function(id){ return alvos[id]||(alvos[id]=no
      funciona. O produto sabe onde cada controle está: o `HID_PHYS` do uevent
      do nó hidraw publica o MAC do adaptador, e abre como uid 1000, sem sudo.
 
-     A CONTA, medida (`daemon/subsystems/bt_mic.py`, A/B de 25/07/2026):
+     A CONTA, medida (`integrations/dualsense_bt_audio.py:76-78`, A/B de 25/07/2026):
        sem microfone .. 260,4 relatórios por segundo
        com microfone .. 276,7  (o áudio NÃO abre canal novo: divide a fila)
      Gatilho, vibração, barra de luz, giroscópio e touch andam no MESMO canal
      HID — eles não somam pacote. **Só o microfone muda a conta.**            */
-  var CUSTO_SEM_MIC = 260, CUSTO_COM_MIC = 277, SLOTS = 1600;
+  /* os números exatos do dono (`integrations/radio_da_mesa.py`), não a cópia
+     arredondada. D-OS-NUMEROS-DO-RADIO-TEM-UM-DONO-SO, 25/08/2026. */
+  var CUSTO_SEM_MIC = 260.4, CUSTO_COM_MIC = 276.7, SLOTS = 1600;
 
   /* ══ O PERFIL DE DESEMPENHO ══════════════════════════════════════════
      Substitui os CINCO degraus do "Orçamento" de hoje, dos quais QUATRO não
@@ -949,7 +951,7 @@ global.document = { getElementById:function(id){ return alvos[id]||(alvos[id]=no
       + '<div class="linha-mic"><b>Microfone</b>'
       + '<button class="escolha" data-mic="nenhum" aria-pressed="' + (!micLigado) + '">Desligado</button>'
       + '<button class="escolha" data-mic="todos" aria-pressed="' + micLigado + '">Ligado</button>'
-      + '<span class="mic-porque">Fica fora do perfil de propósito: ele é o único que <b>capta a sala</b>, e é o único que muda a conta do rádio — <b>277</b> em vez de 260 vezes de falar por segundo. Nasce desligado, e só você o liga.</span>'
+      + '<span class="mic-porque">Fica fora do perfil de propósito: ele é o único que <b>capta a sala</b>, e é o único que muda a conta do rádio — <b>276,7</b> em vez de 260,4 vezes de falar por segundo. Nasce desligado, e só você o liga.</span>'
       + "</div>";
 
     pc.ads.forEach(function (a) {
