@@ -166,9 +166,35 @@ ruff  VERMELHO rc=1
 ```
 
 Conferido com `git stash -u` (a árvore sem uma linha minha): **já estava
-vermelho antes de eu chegar**, e o arquivo é posse da **frente B** desta mesma
-leva. Não toquei — a regra é relatar, não consertar arquivo alheio. Meus três
-arquivos passam `ruff` limpos.
+vermelho antes de eu chegar**. Não toquei — a regra é relatar, não consertar
+arquivo alheio. Meus três arquivos passam `ruff` limpos.
+
+**E isto NÃO é problema só meu — é da leva inteira.** Rastreado:
+
+```
+git log -S"PAYLOAD_REAL" -- tests/unit/test_ambiente_presumido_01_o_que_a_maquina_nao_tem.py
+9fb987b2 docs(ambiente): a medição derruba a ordem de pendurar as frases do ambiente...
+git branch -a --contains 9fb987b2
+  onda/atual · voo/LEVA-3-D · voo/LEVA-4-A · voo/LEVA-4-B · voo/LEVA-4-C · voo/LEVA-4-D · voo/LEVA-4-E
+```
+
+O vermelho entrou pela **LEVA-3-D**, já está em `onda/atual`, e por isso está na
+base das CINCO frentes da leva 4. Consequência medida:
+
+```
+$ bash scripts/costurar.sh --seco
+REPROVOU: 1 vermelho(s) de 26 -> ruff
+ERRO: portão vermelho. A costura não passa por cima de portão.
+```
+
+**A costura recusa qualquer frente da leva 4 enquanto isso não cair.** O arquivo
+é posse declarada da **frente B**; se ela não o consertar, quem coordena precisa
+consertá-lo em `onda/atual` antes de costurar qualquer uma das cinco. A cura é
+uma linha: `PAYLOAD_REAL: ClassVar[dict] = {...}`.
+
+Por isso **não rodei `scripts/costurar.sh` de verdade** — só o `--seco`. A minha
+branch `voo/LEVA-4-D` está commitada, verde no que é meu, e pronta para a
+costura no minuto em que o vermelho alheio cair.
 
 `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py`: 35 passados (R-B — não
 editei nenhuma entrada dele; `motivo_de_o_pytest_nao_coletar` continua com
@@ -222,3 +248,6 @@ chamador, agora dentro de `motivo_de_a_mordida_nao_morder`).
 6. **`html/specs.html`** era citado na raiz. Corrigi **no meu arquivo**; se o
    endereço antigo aparecer em outro documento, é a mesma correção pela metade
    que a casa proíbe — não varri os outros, por posse.
+7. **O `ruff` vermelho da LEVA-3-D bloqueia a costura das CINCO frentes da leva
+   4.** Detalhe e rastreio na seção "Os portões". É o item mais urgente desta
+   entrega, e não é meu para consertar.
