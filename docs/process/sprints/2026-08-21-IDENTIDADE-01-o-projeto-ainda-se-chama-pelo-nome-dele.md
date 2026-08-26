@@ -174,6 +174,16 @@ escreve.
 
 ## O roteiro
 
+> **EXECUTADO em 25/08/2026 (frente ID).** As Fases 1, 2 e 3 estão feitas. O que
+> mudou em relação ao roteiro abaixo: a Fase 3 ganhou duas peças que ele não
+> previa — o manifesto precisa da permissão `--filesystem=~/.var/app/
+> br.andrefarias.Hefesto:ro`, sem a qual a migração é código morto dentro do
+> sandbox; e o `uninstall.sh` apagava a casa do sandbox INTEIRA, sempre,
+> contradizendo a própria promessa de "configs preservadas por padrão" e
+> destruindo a origem que a migração precisa ler. Régua:
+> `tests/unit/test_identidade_do_aplicativo_01.py`.
+
+
 ### Fase 1 — o que não depende da decisão (barato, pode ir agora)
 
 Trocar as 8 ocorrências de `AndreBFarias` que ainda apontam para a conta

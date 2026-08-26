@@ -36,7 +36,7 @@ entrega o MAC: medido em 22/08/2026, kernel 7.0.11-76070011-generic,
 `/sys/class/bluetooth/hci0/` não tem arquivo `address`, e
 `broker/hidraw_broker.py:165` (`_adapter_addresses`) devolve `set()` sobre
 `/sys`. O endereço existe pelo BlueZ no D-Bus de sistema, que o produto não
-abre em lugar nenhum e que o `flatpak/br.andrefarias.Hefesto.yml` não permite
+abre em lugar nenhum e que o `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml` não permite
 (sem `--socket=system-bus`).
 
 Isso não é uma perda: VID:PID mais barramento, porta e painel cumpre o aceite
