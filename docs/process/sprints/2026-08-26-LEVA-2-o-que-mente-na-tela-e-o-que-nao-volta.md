@@ -58,29 +58,40 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-2-o-que-mente-na-tela-e-o-que-nao-volta.md
 bancada: false
 depois_de:
-  - LEVA-1
+  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - COOP-NA-CONEXAO-NATIVA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - COOP-QUE-NAO-DESMONTA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - EMULACAO-UM-DONO-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - ESCONDE-SO-O-HIDRAW-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - IDENTIDADE-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - LEVA-4  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - NAVEGACAO-UM-CONTROLE-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - ORDEM-DE-SERVICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - RESERVA-DO-POSTO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
-  - app/actions/config/*
-  - app/actions/config/secao_exame.py
-  - app/actions/config/secao_mesa.py
-  - app/actions/daemon_actions.py
-  - app/actions/emulation_actions.py
-  - app/actions/footer_actions.py
-  - app/widgets/mapa_da_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/daemon_actions.py
+  - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
+  - src/hefesto_dualsense4unix/app/actions/footer_actions.py
+  - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
   - assets/profiles_default/fallback.json
   - assets/profiles_default/meu_perfil.json
   - assets/profiles_default/navegacao.json
-  - daemon/lifecycle.py
-  - daemon/subsystems/coop.py
-  - daemon/subsystems/game_signal.py
-  - daemon/subsystems/hotkey.py
+  - src/hefesto_dualsense4unix/daemon/lifecycle.py
+  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
+  - src/hefesto_dualsense4unix/daemon/subsystems/game_signal.py
+  - src/hefesto_dualsense4unix/daemon/subsystems/hotkey.py
   - docs/usage/assets/
-  - gui/main.glade
-  - integrations/apelido_do_dongle.py
-  - integrations/desktop_notifications.py
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - src/hefesto_dualsense4unix/integrations/apelido_do_dongle.py
+  - src/hefesto_dualsense4unix/integrations/desktop_notifications.py
   - packaging/debian/control
-  - profiles/sanidade.py
-  - utils/repo_files.py
+  - src/hefesto_dualsense4unix/profiles/sanidade.py
+  - src/hefesto_dualsense4unix/utils/repo_files.py
 ---
 
 # LEVA 2 — o que mente na tela, e o que não volta

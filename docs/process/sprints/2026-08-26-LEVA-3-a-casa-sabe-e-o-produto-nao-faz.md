@@ -52,22 +52,26 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-3-a-casa-sabe-e-o-produto-nao-faz.md
 bancada: false
 depois_de:
-  - LEVA-2
+  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - LEVA-1  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - NAVEGACAO-UM-CONTROLE-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
-  - app/actions/
-  - app/actions/config/*
-  - app/actions/config/secao_mesa.py
-  - app/actions/config/secao_orcamento.py
-  - app/widgets/external_card.py
+  - src/hefesto_dualsense4unix/app/actions/
+  - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
+  - src/hefesto_dualsense4unix/app/widgets/external_card.py
   - assets/profiles_default/
-  - cli/cmd_doctor.py
-  - daemon/ipc_handlers.py
-  - daemon/launch_env.py
-  - daemon/lifecycle.py
-  - daemon/subsystems/rumble.py
-  - gui/main.glade
-  - integrations/hotkey_daemon.py
-  - integrations/window_detect.py
+  - src/hefesto_dualsense4unix/cli/cmd_doctor.py
+  - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
+  - src/hefesto_dualsense4unix/daemon/launch_env.py
+  - src/hefesto_dualsense4unix/daemon/lifecycle.py
+  - src/hefesto_dualsense4unix/daemon/subsystems/rumble.py
+  - src/hefesto_dualsense4unix/gui/main.glade
+  - src/hefesto_dualsense4unix/integrations/hotkey_daemon.py
+  - src/hefesto_dualsense4unix/integrations/window_detect.py
   - packaging/cosmic-applet/
 ---
 

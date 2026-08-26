@@ -45,7 +45,25 @@ cria:
   - tests/unit/test_as_duas_reguas_do_arranjo_divergem_onde.py
   - docs/process/sprints/2026-08-26-LEVA-1-o-que-doi-enquanto-ela-joga.md
 bancada: false
-depois_de: []
+depois_de:
+  - BORDA-DE-QUEDA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - CALIBRAR-AS-ENTRADAS-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - COOP-NA-CONEXAO-NATIVA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - COOP-QUE-NAO-DESMONTA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - EMULACAO-UM-DONO-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - ESCONDE-SO-O-HIDRAW-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - IDENTIDADE-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - INFRA-DE-EXECUCAO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - JOGADOR-3-FANTASMA-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - LEVA-3  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-4  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - NAVEGACAO-UM-CONTROLE-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - QUATRO-MICROFONES-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - RESERVA-DO-POSTO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - VPAD-SUSPENSO-MORTO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - scripts/portoes.sh

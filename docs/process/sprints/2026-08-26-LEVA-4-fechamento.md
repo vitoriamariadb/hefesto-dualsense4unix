@@ -45,18 +45,24 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-4-fechamento.md
 bancada: false
 depois_de:
-  - LEVA-3
+  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - INFRA-DE-EXECUCAO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - LEVA-1  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-2  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
+  - LIGAR-OS-MODULOS-A-TELA  # já fechou: a posse chegou antes, e a serialização é nominal
+  - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
+  - ORDEM-DE-SERVICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
   - .github/workflows/ci.yml
-  - app/actions/config/*
-  - app/actions/daemon_actions.py
-  - app/actions/profiles_actions.py
-  - app/widgets/mapa_da_mesa.py
+  - src/hefesto_dualsense4unix/app/actions/daemon_actions.py
+  - src/hefesto_dualsense4unix/app/actions/profiles_actions.py
+  - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
   - docs/data/caducos.csv
   - docs/data/mapa-controles.csv
-  - gui/main.glade
+  - src/hefesto_dualsense4unix/gui/main.glade
   - html/specs.html
-  - scripts/gerar-*
   - scripts/portoes.sh
   - src/hefesto_dualsense4unix/gui/main.glade
   - tests/unit/test_docs_mac_anonimato.py
