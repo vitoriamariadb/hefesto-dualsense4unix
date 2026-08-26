@@ -69,7 +69,7 @@ não descoberto por quem for usar.
 
 ### 2. ESCONDE-SÓ-O-HIDRAW-01, item 3.1 — o denominador do veredito do hide
 
-`_veredito_do_hide` recebia em `$4..` os nós que o **broker escondeu**, media as
+`_veredito_do_hide` recebia em `$4..` os nós que o **broker escondeu**, olhava as
 três superfícies só neles e fechava com `pass "… o jogo só vê o vpad"` — uma
 afirmação sobre a **mesa**. Um DualSense físico que o broker nunca escondeu era
 invisível para a régua, e a cena de 16/08 (dois físicos, um escondido) saía
