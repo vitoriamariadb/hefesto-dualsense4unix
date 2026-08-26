@@ -515,7 +515,7 @@ entre boots — VID:PID mais barramento/porta mais painel ("0489:e0e4, barrament
 painel traseiro") —, o que cumpre o espírito do aceite ("nunca por `hciN`, que inverte entre
 boots") melhor do que o MAC porque também responde "onde está"; ou **(b)** ler o MAC do BlueZ
 pelo D-Bus de sistema com `Gio` (PyGObject já é dependência, não é subprocess), aceitando que
-HOJE isso não funciona no Flatpak — `flatpak/br.andrefarias.Hefesto.yml:24-47` não tem
+HOJE isso não funciona no Flatpak — `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml:24-47` não tem
 `--socket=system-bus` nem `--system-talk-name=org.bluez`. Recomendação do relatório: (a) como
 nome, (b) como enriquecimento que degrada calado.
 
@@ -3277,7 +3277,7 @@ sempre foi de escopo de sprint (ver 6.30). Isso governa CONFIG-06 inteira.
 Nomear pela **identidade física** (VID:PID mais barramento/porta mais painel, tudo do sysfs, tudo
 estável entre boots) ou ler o **MAC do BlueZ pelo D-Bus de sistema**? A segunda opção exige
 `--socket=system-bus` e `--system-talk-name=org.bluez` em
-`flatpak/br.andrefarias.Hefesto.yml:24-47`, abre a primeira porta de D-Bus do produto e traz risco
+`flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml:24-47`, abre a primeira porta de D-Bus do produto e traz risco
 de regressão no Flatpak. É decisão de produto, não de implementação, e tem de estar escrita antes
 de a sprint começar.
 

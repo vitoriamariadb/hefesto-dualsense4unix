@@ -65,7 +65,7 @@ duas conclusões precisaram de reenquadramento**, e é por isso que a regra exis
 | `constants.py:34-38` | **ajustado** | o aviso é `:34-36` e `ROOT_DIR` é `:37` |
 | `install.sh:1162` (instala `-e`) | **sim** | `-e "${ROOT_DIR}[${_extras}]"` está em `:1049` |
 | "o .deb não embala `profiles_default`" | **REFUTADO** | `scripts/build_deb.sh:133` faz `cp -r assets/. .../usr/share/hefesto-dualsense4unix/assets/` — o `profiles_default` **vai junto**, e cai exatamente no terceiro candidato do loader |
-| "morto no AppImage e no Flatpak" | **REFUTADO como causa** | `scripts/build_appimage_gui.sh:112-117` e `flatpak/br.andrefarias.Hefesto.yml:170-183` (FIX-FLATPAK-PRESET-SEED-01, de 30/07) instalam o `profiles_default` **de propósito**, no segundo candidato do loader. O botão morre mesmo assim — mas por causa do resolvedor, não do pacote |
+| "morto no AppImage e no Flatpak" | **REFUTADO como causa** | `scripts/build_appimage_gui.sh:112-117` e `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml:170-183` (FIX-FLATPAK-PRESET-SEED-01, de 30/07) instalam o `profiles_default` **de propósito**, no segundo candidato do loader. O botão morre mesmo assim — mas por causa do resolvedor, não do pacote |
 
 E uma nota de método que vale para a próxima leva: as âncoras de linha do
 `main.glade` **andaram** desde 29/07. A LARGURA-01 cita `profiles_paned` em
@@ -89,7 +89,7 @@ Quatro reenquadramentos. Em cada um, o que vale é o que eu medi hoje.
    acusadas **já embalam** o `assets/profiles_default`, e nos lugares certos: o
    `.deb` em `/usr/share/...` (`build_deb.sh:133`), o AppImage e o Flatpak em
    `sys.prefix/share/...` (`build_appimage_gui.sh:112-117`,
-   `flatpak/br.andrefarias.Hefesto.yml:182-183`). Quem não acha o arquivo é o
+   `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml:182-183`). Quem não acha o arquivo é o
    **rodapé**, que duplicou o caminho com um candidato só em vez de usar o
    resolvedor que a casa já tem. A entrega encolhe para uma troca de import — e
    a mudança de empacotamento sai do escopo.

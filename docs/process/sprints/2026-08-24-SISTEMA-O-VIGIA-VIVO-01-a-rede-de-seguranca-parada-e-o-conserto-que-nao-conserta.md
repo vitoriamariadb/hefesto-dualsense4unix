@@ -98,7 +98,7 @@ Os dois botões de topo do cartão rodam dois scripts de shell
 
 ```sh
 $ for a in disable_steam_input.sh fix_wireplumber_default_source.sh; do
-    for f in scripts/build_deb.sh flatpak/br.andrefarias.Hefesto.yml \
+    for f in scripts/build_deb.sh flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml \
              scripts/build_appimage_gui.sh scripts/build_appimage.sh \
              packaging/arch/PKGBUILD packaging/fedora/*.spec packaging/nix/*.nix; do
       printf '%-34s %-46s %s\n' "$a" "$f" "$(grep -c "$a" "$f")"; done; done
@@ -108,7 +108,7 @@ $ for a in disable_steam_input.sh fix_wireplumber_default_source.sh; do
 |---|---|---|
 | checkout (`install.sh`) | sim (é a própria árvore) | funciona |
 | **.deb** (`build_deb.sh:234`) | **sim** — o laço `for _s in doctor.sh bluez_config.sh disable_steam_input.sh fix_wireplumber_default_source.sh dsx_recover.sh` | funciona |
-| **Flatpak** (`flatpak/br.andrefarias.Hefesto.yml`) | **não** — leva `dkms_lib.sh` e os sete `bt_*.sh`, e **nenhum destes dois** | perde a perna do script |
+| **Flatpak** (`flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml`) | **não** — leva `dkms_lib.sh` e os sete `bt_*.sh`, e **nenhum destes dois** | perde a perna do script |
 | **AppImage** (as duas receitas) | **não** — `scripts/` não é copiado em nenhuma das duas | perde a perna do script |
 | **Arch / Fedora / Nix** | **não** — `grep` devolve zero nos três | perde a perna do script |
 
@@ -384,7 +384,7 @@ Carimbo de tela (D3): **[COSMÉTICA]** = pré-aprovada, foto depois em lote ·
 
 ### T-02 — os dois scripts não viajam em cinco dos seis formatos
 
-* **Onde:** `flatpak/br.andrefarias.Hefesto.yml`, `scripts/build_appimage.sh`,
+* **Onde:** `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml`, `scripts/build_appimage.sh`,
   `scripts/build_appimage_gui.sh`, `packaging/arch/PKGBUILD`,
   `packaging/fedora/*.spec`, `packaging/nix/package.nix`;
   `app/actions/daemon_actions.py:822-837` (`_find_repo_file`);

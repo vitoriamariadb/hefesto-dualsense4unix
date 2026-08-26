@@ -230,7 +230,7 @@ udev. O `scripts/build_deb.sh:176-183` copia todas as regras de `assets/` para
 `/usr/lib/udev/rules.d/` dentro do pacote, e ainda embala o
 `install-host-udev.sh` (`scripts/build_deb.sh:192`) e os fontes DKMS
 (`scripts/build_deb.sh:267`, `:285`). Quem fica sem udev é
-**flatpak e appimage** — conferido: `flatpak/br.andrefarias.Hefesto.yml` não
+**flatpak e appimage** — conferido: `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml` não
 menciona regra nenhuma, e nem poderia (sandbox não escreve em `/etc`).
 
 **Consequência medida no doctor**, num flatpak/appimage recém-instalado:

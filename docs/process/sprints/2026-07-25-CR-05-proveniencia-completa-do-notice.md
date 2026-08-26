@@ -109,7 +109,7 @@ O que a medição de 31/07 encontrou, alvo por alvo:
 | sdist `.tar.gz` | **Sim, os 36 arquivos** | lista de arquivos pedida ao próprio `hatchling` (`SdistBuilder.recurse_included_files`) |
 | tarball de fonte da tag `v0.4.0` | **Sim, os 36** | `git archive v0.4.0 \| tar -t` |
 | `.deb` | **Sim** | `scripts/build_deb.sh:246-262`, publicado por `release.yml:155` e `:416-421` |
-| `.flatpak` | **Sim** | `flatpak/br.andrefarias.Hefesto.yml:256-263` |
+| `.flatpak` | **Sim** | `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml:256-263` |
 | `PKGBUILD` (Arch) | **Sim** | `packaging/arch/PKGBUILD:156-169` |
 | `.spec` (Fedora) | **Sim** | `packaging/fedora/hefesto-dualsense4unix.spec:158-171` |
 | wheel | Não | alvo `tool.hatch.build.targets.wheel` empacota só `src/` — zero arquivos, medido |
@@ -174,7 +174,7 @@ Os cinco alvos que carregam `assets/dkms/` passaram a carregar `LICENSES/`:
 |---|---|
 | sdist `.tar.gz` | automático (o `hatchling` inclui o que está versionado) — **medido** com `SdistBuilder.recurse_included_files` |
 | `.deb` | `scripts/build_deb.sh` |
-| `.flatpak` | `flatpak/br.andrefarias.Hefesto.yml` |
+| `.flatpak` | `flatpak/io.github.hefesto_team.hefesto_dualsense4unix.yml` |
 | Arch | `packaging/arch/PKGBUILD` |
 | Fedora | `packaging/fedora/hefesto-dualsense4unix.spec` |
 
