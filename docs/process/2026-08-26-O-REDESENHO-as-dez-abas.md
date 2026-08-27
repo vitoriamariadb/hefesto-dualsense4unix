@@ -123,13 +123,13 @@ Widget que brota empurra a tira de abas para baixo; a solução é **espaço res
 | **Detectar o jogo que está aberto** | Olha a janela que está na frente e cria o perfil daquele jogo, venha ele de onde vier | **NOVO** (D-A-INTERFACE-E-UNIVERSAL-NAO-SO-STEAM) |
 | **Não trocar de perfil sozinho ao abrir um jogo** | Congela a troca automática: o perfil que ela deixou ativo continua valendo | *existe hoje* |
 | **Reconciliar jogadores** | Traz de volta quem caiu do co-op e arruma a numeração para 1..N | *existe hoje* |
-| **Desligar Hefesto (voltar ao Linux puro)**  **Ligar o Hefesto** | Desliga o produto de verdade — o controle vira um controle comum do Linux — e não ressuscita ao reabrir a janela. Pergunta antes, dizendo o que se perde | *existe hoje* (o mesmo gesto também mora na Sistema) |
+| **Desligar Hefesto (voltar ao Linux puro)** ⇄ **Ligar o Hefesto** | Desliga o produto de verdade — o controle vira um controle comum do Linux — e não ressuscita ao reabrir a janela. Pergunta antes, dizendo o que se perde | *existe hoje* (o mesmo gesto também mora na Sistema) |
 | **Continuar (sair da pausa)** | Despausa o Hefesto pelo clique | *existe no código e nunca teve tela* — `daemon/ipc_server.py:121` (`daemon.resume`), handler `daemon/ipc_handlers.py:2293`. Hoje a pausa **persiste em disco** e renasce pausada no boot, e o único jeito de sair é `hefesto-dualsense4unix daemon resume` no terminal |
 | *(rodapé)* **Aplicar** | É ele que manda os dois seletores desta aba ao produto — clicar aqui só anota a escolha | *vem do rodapé* (D-APLICAR-NAO-SALVA) |
 
 **O que fica na tela e o que vira dica**
 
-Hoje: **32 textos fixos** para 6 widgets. Ficam visíveis: os dois títulos de seletor, os rótulos dos botões (~12 no total) e os **estados** — modo vigente, máscara vigente, a linha " vai mudar para:" quando há escolha pendente (é a prova de que o Aplicar ainda deve), "2 controles = 2 jogadores", a linha **Ponte com o jogo** com o veredito colorido, e por card: número, jogador, transporte em português e bateria em %.
+Hoje: **32 textos fixos** para 6 widgets. Ficam visíveis: os dois títulos de seletor, os rótulos dos botões (~12 no total) e os **estados** — modo vigente, máscara vigente, a linha "● vai mudar para:" quando há escolha pendente (é a prova de que o Aplicar ainda deve), "2 controles = 2 jogadores", a linha **Ponte com o jogo** com o veredito colorido, e por card: número, jogador, transporte em português e bateria em %.
 
 Vão para o "?" ou para a dica do widget: a descrição de cada um dos três modos, o custo da máscara Xbox (perde giro/acelerômetro/touchpad), a ressalva do Reconciliar, a frase do cadeado, o aviso do "Controlar o PC" calado e a linha de divergência. Sobram cerca de doze frases visíveis das trinta e duas.
 
@@ -147,7 +147,7 @@ Vão para o "?" ou para a dica do widget: a descrição de cada um dos três mod
 - Transporte em português ("cabo", "rádio", "não sei por onde") — **fica**.
 - Os três banners do topo — **ficam**, numa área única de espaço reservado, e a cascata de quatro frases passa a dizer quantos avisos existem em vez de esconder três.
 - Frase do cadeado, custo da máscara Xbox, ressalva do Reconciliar, aviso do "Controlar o PC" calado — **viram dica** (D-TUDO-QUE-EXPLICA-VIRA-DICA).
-- Linha " vai mudar para:" e o toast "Anotado. Clique em Aplicar…" — **ficam**: são as provas de que a escolha está pendente.
+- Linha "● vai mudar para:" e o toast "Anotado. Clique em Aplicar…" — **ficam**: são as provas de que a escolha está pendente.
 - A escolha de máscara recusada (`_home_flavor_pedido`, gravada pelo rodapé desde 25/08) — **fica**: a recusa não some calada em 2 s.
 - Fita "Ajustes vão para" — **continua esmaecida aqui**, porque nada nesta aba ajusta por controle; os cards são leitura. O motivo em `app/app.py:1231` permanece "não se aplica" (D-A-FITA-E-O-UNICO-ALVO).
 - Texto da pausa (`home_actions.py:208`) — **sai como está e é reescrito**: as duas saídas que ele manda usar são falsas (PS + Options é *suppress*, não *resume*; e a aba Emulação deixou de existir). No lugar entra o botão **Continuar**.
@@ -455,7 +455,7 @@ Hoje a aba tem **26 textos fixos** para 11 controles. Ficam visíveis: o título
 | **Adicionar** | Cria linha para o próximo botão sem tecla, começando em "Espaço" | existe hoje |
 | **Remover** | Apaga a linha selecionada | existe hoje |
 | **Voltar ao padrão** | Devolve todos os atalhos aos de fábrica — agora perguntando antes | existe hoje (hoje não pergunta) |
-| **Mapeamento** (8 pares: X/L2 → botão esquerdo, /R2 → direito, R3 → meio,  → Enter,  → Esc, D-pad → setas, analógicos → cursor e rolagem) | Mostra o que o controle faz de mouse — e passa a avisar quando um atalho de teclado disputa o mesmo botão | existe hoje como texto fixo (`gui/main.glade:3861`), vira tabela viva |
+| **Mapeamento** (8 pares: X/L2 → botão esquerdo, △/R2 → direito, R3 → meio, ○ → Enter, □ → Esc, D-pad → setas, analógicos → cursor e rolagem) | Mostra o que o controle faz de mouse — e passa a avisar quando um atalho de teclado disputa o mesmo botão | existe hoje como texto fixo (`gui/main.glade:3861`), vira tabela viva |
 | **PS + Options** — no SVG, acendendo | Suspende mouse e teclado enquanto ela joga; e você troca o que o combo faz | vem da aba Emulação (quadro dos combos) |
 | **PS + ↑ / PS + ↓** — no SVG, acendendo | Próximo perfil / perfil anterior; reconfiguráveis | vem da aba Emulação |
 | **PS + R3** — no SVG, acendendo | Sobe um degrau na roda de pontes: DualSense do Hefesto → Xbox 360 → Conexão Nativa (Sony) → DualSense + Steam Input → **Teclado+Mouse** | existe no código e nunca teve tela (`integrations/hotkey_daemon.py:142`; a escada em `integrations/ponte_escada.py:253`, o quinto degrau é o `KIND_DESKTOP` que ficou de fora) |
