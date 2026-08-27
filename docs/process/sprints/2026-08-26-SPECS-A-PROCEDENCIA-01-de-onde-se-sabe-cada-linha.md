@@ -13,6 +13,9 @@ cria:
 bancada: true
 depois_de:
   - REDESENHO-DA-INTERFACE  # o gatilho: as dez abas construídas e funcionando como o mockup
+  - A-CASA-ARRUMADA-01      # scripts/gerar-mapa.py: ela chegou antes, e já fechou
+  - COOP-NA-CONEXAO-NATIVA-01  # os dois CSV: ela mede, esta sprint só anota de onde se sabe
+  - RESERVA-DO-POSTO-01     # idem — medição vem antes de procedência
 nao_toca:
   - src/hefesto_dualsense4unix/
   - html/specs.html
