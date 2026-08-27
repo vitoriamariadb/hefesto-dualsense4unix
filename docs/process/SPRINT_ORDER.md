@@ -716,7 +716,63 @@ em JavaScript, dentro de um mockup em `novo-layout/`, que o git ignora
 
 ---
 
-## 1. A FILA DE AGORA — 23/08/2026, madrugada
+## 1. A FILA DE AGORA
+
+### O REDESENHO DA INTERFACE — 26/08/2026, e ele vem antes de tudo
+
+**[2026-08-26-O-REDESENHO-as-dez-abas.md](2026-08-26-O-REDESENHO-as-dez-abas.md)**
+— o desenho novo da janela inteira, com as **30 decisões dela** de 26/08 e o
+inventário completo do que existe hoje (145 widgets, 372 textos fixos).
+
+**Por que ele vem primeiro, e o motivo é dela:** *"acredito de verdade que esse
+redesenho da interface vai ser muito mas muito rápido de fazermos... e que tá
+tudo praticamente pronto."* Medido e confirmado: só **3 botões** estão mortos no
+produto inteiro; **18** features estão escritas, testadas e sem nenhuma tela; e
+dos 29 widgets que nascem, **18 são só ligar o que já existe**. Trabalho
+realmente novo: onze.
+
+A ordem de execução, decidida com ela:
+
+```
+1. MOCKUPS      HTML standalone em novo-layout/, aba por aba, ela corrige antes da próxima
+2. SPRINTS      agentes LEEM as velhas, EXTRAEM a medição, ESCREVEM as novas
+3. APAGAR       as velhas saem depois de lidas e absorvidas — não antes
+4. SPECS        só então a SPECS-A-PROCEDENCIA-01 abre
+```
+
+A tira passa de onze abas para dez: **JOGAR** (ex-Início) · **CONTROLES**
+(ex-Status, absorve a No jogo) · **GATILHOS** · **ILUMINAÇÃO** (ex-Lightbar) ·
+**VIBRAÇÃO** (ex-Rumble) · **NAVEGAÇÃO** · **SISTEMA** · **CONEXÕES**
+(ex-Configurações) · **PERFIS** · **LANÇADORES** (a Emulação renasce com sentido
+novo: de onde vêm os seus jogos).
+
+### PODE RODAR JÁ — não espera o redesenho
+
+**[BATERIA-PARADA-01](sprints/2026-08-26-BATERIA-PARADA-01-o-numero-que-nunca-muda.md)**
+— queixa dela de 26/08, medida no mesmo minuto e confirmada: *"o percentual de
+bateria do controle nunca é atualizado enquanto o controle tá conectado"*.
+
+São **dois defeitos**: o `status` do sysfs (`Charging`/`Full`) chega **vazio** ao
+produto, então a tela nunca diz "carregando" — e há **quatro nós de bateria para
+dois controles**, porque os gamepads virtuais do próprio Hefesto criam nó falso
+que diz `Charging` para sempre.
+
+Não depende do redesenho: aqui o dado passa a existir; lá ele ganha forma.
+
+### DEPOIS DO REDESENHO — com o gatilho escrito
+
+**[SPECS-A-PROCEDENCIA-01](sprints/2026-08-26-SPECS-A-PROCEDENCIA-01-de-onde-se-sabe-cada-linha.md)**
+— **62 das 72** afirmações do mapa sobre o cabo não dizem de onde se sabe, e a
+coluna `ponte` está vazia em **178 de 178** ensaios. É o que trava o
+`specs.html` de fechar.
+
+O gatilho é dela, com as palavras dela: *"a interface ficou igual nos mockups e
+tudo tá funcionando. Aí agora falta concluirmos o specs.html? aí é hora de
+executar tal sprint."*
+
+---
+
+## 1.1 A fila de 23/08/2026 — madrugada
 
 > **A madrugada de 23/08 acrescentou três sprints e fechou uma.** A
 > ENGASGO-VULKAN-01 nasceu da queixa do Sackboy; a ESCONDE-SÓ-O-HIDRAW-01 e a
