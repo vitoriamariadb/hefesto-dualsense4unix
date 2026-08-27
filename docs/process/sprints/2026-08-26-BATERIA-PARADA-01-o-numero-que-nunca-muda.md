@@ -14,6 +14,7 @@ bancada: true
 depois_de:
   - LEVA-1                   # ela fechou hoje e tocou os dois arquivos
   - LEVA-2                   # idem
+  - LEVA-4                   # lifecycle.py: fechou hoje, na mesma leva
   - COOP-QUE-NAO-DESMONTA-01 # backend_pydualsense: chegou antes
   - RESERVA-DO-POSTO-01      # idem
 nao_toca:
