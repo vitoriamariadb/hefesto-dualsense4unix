@@ -19,7 +19,7 @@
 | 2 | [INDICE — o que falta depois da v0.3.0](../sprints/2026-07-29-INDICE-o-que-falta-depois-da-v030.md) | *Quais sprints continuam de pé, o que ficou pela metade nesta sessão, e o que ainda nem tem documento* |
 | 3 | [SENSOR-VIVO-01 — touchpad, giroscópio, microfone e som dentro do jogo](../sprints/2026-07-29-SENSOR-VIVO-01-touchpad-giroscopio-microfone-e-som-dentro-do-jogo.md) | *Dos quatro sensores, quais já chegam ao jogo hoje e o que falta para os outros* |
 | 4 | [SOM-02 — o alto-falante que funciona](../sprints/2026-07-29-SOM-02-o-alto-falante-que-funciona.md) | *Como fazer o alto-falante funcionar na janela, e qual é o preço exato de assumir o volume* |
-| 5 | [LARGURA-01 — a mesma largura em todas as abas](../sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | *O que a aba Status ganhou serve para as outras oito? Aba por aba, com número* |
+| 5 | [LARGURA-01 — a mesma largura em todas as abas](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | *O que a aba Status ganhou serve para as outras oito? Aba por aba, com número* |
 | 6 | [GATILHO-PALAVRA-01 — os dezenove modos em português](../sprints/2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) | *Como chamar cada um dos dezenove modos de gatilho, com três opções e uma recomendação para ela riscar* |
 
 ## Em que ordem ler

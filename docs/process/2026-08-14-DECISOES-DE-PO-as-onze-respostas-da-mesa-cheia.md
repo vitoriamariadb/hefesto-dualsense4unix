@@ -118,7 +118,7 @@ largura mínima. A tela dela tem **1920** e o piso da janela é **760**
 
 Fica **B com C**: um painel, com a marca `■N` colorida em cima da opção que cada
 jogador escolheu — e **clicar na marca de um jogador o torna o alvo** (é a
-[MESA-CHEIA-04](sprints/2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md), que usa
+[MESA-CHEIA-04](sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md), que usa
 `_sync_edit_target`, já existente).
 
 **Por que as duas juntas, e não uma:** o pedido dela tem duas metades. *"sem

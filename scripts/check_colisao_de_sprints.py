@@ -78,7 +78,13 @@ RAIZ = Path(__file__).resolve().parents[1]
 SPRINTS = RAIZ / "docs" / "process" / "sprints"
 
 _CAMPOS_LISTA = ("cria", "depois_de", "nao_toca")
-_CAMPOS_CONHECIDOS = ("sprint", "posse", "bancada", *_CAMPOS_LISTA)
+# `onda` nasceu em 27/08/2026, com a decisão dela de organizar o trabalho em ondas
+# por aba: "onda e as Sprints terão quantas necessárias para concluirmos toda a
+# aba". Ele agrupa, não restringe — o portão o LÊ e o ignora no cruzamento de
+# posse. Entrou aqui porque a recusa a campo desconhecido é por desenho ("RECUSA
+# o que não entende, dizendo a linha") e um campo novo cegava o portão inteiro:
+# uma sprint com `onda:` derrubava a análise das outras 96.
+_CAMPOS_CONHECIDOS = ("sprint", "posse", "bancada", "onda", *_CAMPOS_LISTA)
 
 
 class FormatoInvalido(Exception):

@@ -420,7 +420,7 @@ hoje uma a uma — o que fez três delas corrigirem o próprio achado de origem
 
 | Sprint | O que fecha |
 |---|---|
-| [CARD-OCUPA-01](../sprints/2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md) | o pedido dela de 01h34: os desenhos ocuparem o vão lateral |
+| [CARD-OCUPA-01](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | o pedido dela de 01h34: os desenhos ocuparem o vão lateral |
 | [CR-SEQUÊNCIA-01](../sprints/2026-07-31-CR-SEQUENCIA-01-o-que-avanca-sem-a-mao-dela-e-o-que-nao.md) | a dúvida dela sobre a sala limpa: o que avança sem a mão dela, e o que não |
 | [SINAL-DE-JOGO-01](../sprints/2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | o `display_authority` e a linha `healthy` × `seeing` |
 | [JANELA-FIEL-01](../sprints/2026-07-31-JANELA-FIEL-01-a-janela-que-para-de-reconciliar-e-o-botao-morto-no-pacote.md) | os cinco defeitos da GUI |

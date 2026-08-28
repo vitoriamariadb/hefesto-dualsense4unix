@@ -572,7 +572,7 @@ roteiro para revalidar depois de qualquer mexida vizinha, na ordem em que a
 - **O frame "Estado" não cresce com a janela** — só o piso subiu. O motivo está
   na sprint [SOM-01](../sprints/2026-07-28-SOM-01-o-alto-falante-tem-lugar.md), e
   o miolo dele foi medido depois pela
-  [LARGURA-01](../sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md),
+  [LARGURA-01](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
   entrega E2: a coluna de valores recebe 1242px para no máximo 112px de tinta.
 - **O alto-falante continua sem controle de volume.** É leitura, e é decisão
   escrita: o DualSense não devolve o volume, e inventar um controle que não lê

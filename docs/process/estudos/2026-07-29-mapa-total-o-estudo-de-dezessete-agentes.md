@@ -1411,7 +1411,7 @@ Explícito, para ninguém tomar leitura por prova.
 | **Catálogos `.mo` três commits atrás dos `.po`, sem gate** | **SEM DONO AINDA.** A tradução do commit "a janela fala a língua dela" nunca chegou a nenhuma instalação |
 | Código morto que importa limpo (`integrations/xlib_window.py`) | CODIGO-MORTO-01, **sem documento** |
 | Os dezenove rótulos de gatilho com inglês entre parênteses | [GATILHO-PALAVRA-01](../sprints/2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) — escrita em 29/07, **sem uma linha de código** |
-| A largura da aba Status nas outras oito abas | [LARGURA-01](../sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) — idem |
+| A largura da aba Status nas outras oito abas | [LARGURA-01](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) — idem |
 | Alto-falante e sensores dentro do jogo | [SOM-02](../sprints/2026-07-29-SOM-02-o-alto-falante-que-funciona.md) e [SENSOR-VIVO-01](../sprints/2026-07-29-SENSOR-VIVO-01-touchpad-giroscopio-microfone-e-som-dentro-do-jogo.md) — idem |
 | As curvas próprias de gatilho | CR-01 a CR-06 — **fora de escopo por decisão dela** |
 

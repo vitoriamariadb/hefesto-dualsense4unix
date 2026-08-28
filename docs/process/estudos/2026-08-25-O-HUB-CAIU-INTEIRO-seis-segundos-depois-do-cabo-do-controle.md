@@ -111,6 +111,6 @@ ausência de aparelho** — não por decisão e não por defeito.
    Bluetooth"* nasce errado. O que sobrevive é o modelo do mockup: **a entrada 9
    É o caminho `3-1.2`**, e o que está lá é derivado da leitura de agora.
 
-Ver: [CONEXOES-MAPA-2D-01](../sprints/2026-08-24-CONEXOES-MAPA-2D-01-o-gabinete-que-o-produto-nao-enxerga.md),
-[PORTAS-DA-CASA-01](../sprints/2026-08-24-PORTAS-DA-CASA-01-o-produto-sabe-onde-cada-radio-mora-e-nao-diz.md),
+Ver: [CONEXOES-MAPA-2D-01](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
+[PORTAS-DA-CASA-01](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 [ORDEM-DE-SERVICO-01](../sprints/2026-08-24-ORDEM-DE-SERVICO-01-o-exame-que-viu-e-nao-mandou.md).

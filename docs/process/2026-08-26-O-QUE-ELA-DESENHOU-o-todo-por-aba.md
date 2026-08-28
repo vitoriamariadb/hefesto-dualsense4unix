@@ -397,23 +397,23 @@ Ela pediu simplificação. Esta é a entrega mais direta desse pedido: **23 bloc
 | Sprint | Por quê |
 |---|---|
 | `sprints/2026-08-16-TRES-MODOS-DO-SOM-01-o-que-sai-onde-e-quem-escolhe.md` | O que restava eram as cinco decisões P-1 a P-5. `STATUS-1/2/3` decidem as cinco. |
-| `sprints/2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md` | Pedia a cor nos chips das onze abas. `GATILHOS-3` pede o mesmo numa aba — mesma entrega, um décimo do escopo. |
-| `sprints/2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md` | Era ela que "dá o formato da marca". `GATILHOS-3` dá: borda na cor do plástico. |
-| `sprints/2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar.md` | Pedia a marca "nos seis presets". `LIGHTBAR-1` apaga os seis presets — o alvo deixa de existir. |
-| `sprints/2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md` | `GATILHOS-3` diz literalmente "e continuam clicáveis". |
-| `sprints/2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md` | Aberta há 25 dias (E0–E4). `LIGHTBAR-1+2` entregam apagando o painel e pondo o número no lugar. |
-| `sprints/2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido.md` | Era proposta para o olho dela. O desenho é a resposta: SVG, não borda+anel. **Sujeita a D23.** |
-| `sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md` | O que restava é o wrap quebrando parágrafos longos. Vinte e poucos parágrafos saem da tela — o defeito perde o corpo. |
-| `sprints/2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md` | Idem: medir a largura agora é medir uma tela que vai deixar de existir. |
+| `2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um` | Pedia a cor nos chips das onze abas. `GATILHOS-3` pede o mesmo numa aba — mesma entrega, um décimo do escopo. |
+| `2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos` | Era ela que "dá o formato da marca". `GATILHOS-3` dá: borda na cor do plástico. |
+| `2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar` | Pedia a marca "nos seis presets". `LIGHTBAR-1` apaga os seis presets — o alvo deixa de existir. |
+| `2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto` | `GATILHOS-3` diz literalmente "e continuam clicáveis". |
+| `2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador` | Aberta há 25 dias (E0–E4). `LIGHTBAR-1+2` entregam apagando o painel e pondo o número no lugar. |
+| `2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido` | Era proposta para o olho dela. O desenho é a resposta: SVG, não borda+anel. **Sujeita a D23.** |
+| `2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas` | O que restava é o wrap quebrando parágrafos longos. Vinte e poucos parágrafos saem da tela — o defeito perde o corpo. |
+| `2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel` | Idem: medir a largura agora é medir uma tela que vai deixar de existir. |
 | `sprints/2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md` | `PERFIS-2/3` + `RUMBLE-9` + `STATUS-2` dão o desenho final e mais simples. |
-| `sprints/2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md` | Faltava só a E4, que **é a palavra dela**. As fotos 01/02 são a aba maximizada, e ela não pediu nada dos vãos. |
-| `sprints/2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md` | Faltava o aceite dela. `NAVEG-1` é o aceite, com a correção junto. |
+| `2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu` | Faltava só a E4, que **é a palavra dela**. As fotos 01/02 são a aba maximizada, e ela não pediu nada dos vãos. |
+| `2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido` | Faltava o aceite dela. `NAVEG-1` é o aceite, com a correção junto. |
 
 ### Já fechadas — 9 ganham nota datada e param de parecer abertas
 
 Todas dizem "ENTREGUE EM CÓDIGO — AGUARDANDO A PALAVRA DELA". **Só fecham se a resposta a D6 for "aceito".**
 
-`sprints/2026-07-26-STATUS-SIMETRIA-01-a-aba-que-era-pra-mexer.md` · `sprints/2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md` · `sprints/2026-08-01-ALINHA-DUAS-LINHAS-01-a-aba-status-que-ela-chamou-de-feia.md` · `sprints/2026-08-01-PAINEL-DA-VERDADE-01-a-aba-status-diz-o-que-chega-ao-jogo.md` · `sprints/2026-08-01-CARD-UNICO-01-o-estado-entra-no-card-e-o-l3-vira-marca-dagua.md` · `sprints/2026-07-27-VAO-01-a-tela-sobra-e-o-conteudo-aperta.md` · `sprints/2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e-o-alfabeto.md` *(atenção: `PERFIS-4` **reabre** o tema com pedido novo — é trabalho novo, não esta sprint)* · `sprints/2026-08-10-PERFIL-ATUAL-01-a-linha-dela-tem-cor-e-o-primeiro-lugar.md` · `sprints/2026-07-25-PLAYER-01-um-numero-de-jogador.md`
+`sprints/2026-07-26-STATUS-SIMETRIA-01-a-aba-que-era-pra-mexer.md` · `sprints/2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md` · `sprints/2026-08-01-ALINHA-DUAS-LINHAS-01-a-aba-status-que-ela-chamou-de-feia.md` · `sprints/2026-08-01-PAINEL-DA-VERDADE-01-a-aba-status-diz-o-que-chega-ao-jogo.md` · `sprints/2026-08-01-CARD-UNICO-01-o-estado-entra-no-card-e-o-l3-vira-marca-dagua.md` · `sprints/2026-07-27-VAO-01-a-tela-sobra-e-o-conteudo-aperta.md` · `sprints/2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e-o-alfabeto.md` *(atenção: `PERFIS-4` **reabre** o tema com pedido novo — é trabalho novo, não esta sprint)* · `sprints/2026-08-10-PERFIL-ATUAL-01-a-linha-dela-tem-cor-e-o-primeiro-lugar.md` · `2026-07-25-PLAYER-01-um-numero-de-jogador`
 
 ### As oito donas de aba sobrevivem reduzidas
 

@@ -7,7 +7,7 @@
   controles**, que este texto só passou a usar na 3ª rodada; os três estão
   citados onde tocam. O que anda depressa (endereço de linha, contagem de
   testes) foi trocado por símbolo e por critério
-- **É a entrega E1 da** [MESA-CHEIA-07](../sprints/2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md)
+- **É a entrega E1 da** [MESA-CHEIA-07](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
   (item **1.1** do [índice da mesa cheia](../sprints/2026-08-13-INDICE-a-mesa-cheia-cada-jogador-na-cor-dele.md))
 - **Status:** **MEDIÇÃO** — nenhuma linha de código de produto foi alterada por
   este documento
@@ -307,7 +307,7 @@ Não há um `if` de aba no caminho.
 > `grep -n _edit_target_uniq` e `grep -n _set_target_strip_visible`.
 
 **Isto confirma a linha "No jogo" da tabela da
-[MESA-CHEIA-10](../sprints/2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md),
+[MESA-CHEIA-10](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 que a tinha marcado como falsa sem que ninguém tivesse medido a aba.** E a cura
 já está decidida: pela **D-2**, a fita **se requalifica** aqui em vez de sumir.
 

@@ -282,7 +282,7 @@ pediu. *Grau: lido-no-código.*
 > "escreve direto no controller, que é broadcast", e a §7 propunha "mecanismo novo no
 > backend". As duas são **falsas**, e a régua que as derrubou foi o censo das dez abas do mesmo
 > dia — ver [o censo](2026-08-13-o-censo-das-dez-abas-o-que-a-janela-faz-com-quatro-controles.md)
-> e [MESA-CHEIA-05](../sprints/2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md),
+> e [MESA-CHEIA-05](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 > que carrega a cadeia degrau a degrau. O "mecanismo novo" também já existia:
 > `set_rumble_for(uniq, weak, strong)` está em `core/backend_pydualsense.py:3642` desde antes
 > de `cc768d4`, e é usado por `daemon/subsystems/coop.py:571` e
@@ -817,7 +817,7 @@ Ordenado por "o que impede a próxima regressão de voltar".
   existe no produto, basta passar `com_endereco=False`
   (`app/actions/status_actions.py:1857-1861` e `:1959-1962`). A regra da casa é informar antes
   de corrigir o que ela escolheu. **5 min para decidir.** O desenho das duas saídas está em
-  [MESA-CHEIA-05](../sprints/2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md).
+  [MESA-CHEIA-05](../sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
 - **O P1 da caixinha ainda vale?** Hoje há três vocabulários para o mesmo arquivo e nenhuma nota
   datada dizendo qual venceu. **5 min.**
 - **O histórico de perfis vira tela** (uma linha "o que este perfil era ontem", com Restaurar), ou

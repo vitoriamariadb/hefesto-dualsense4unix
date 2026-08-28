@@ -408,11 +408,11 @@ mudou de dono.
 |---|---|---|
 | **O sinal da barra só está ligado pela metade** | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | o botão consulta `limpo_para_conectar`; o tique de hotplug não carimba nada, e `sinal_da_barra.ler_a_mesa` não é chamada nem pelo daemon nem pela janela (tinha um chamador: o `main()` da CLI do próprio módulo — dizer "zero chamadores" era endurecer o número). **Fechado em 22/08 à noite:** `daemon/connection.py:1031` passou a chamá-la |
 | **A fábrica do `ProfileManager` tem UM cliente** | [A-FABRICA-COM-UM-CLIENTE-01](sprints/2026-08-22-A-FABRICA-COM-UM-CLIENTE-01-a-saida-do-modo-nativo-perde-um-applier.md) | `gerente_do_daemon` é chamada em 1 lugar; 12 construções diretas de `ProfileManager` seguem em `src/`, e **a saída do Modo Nativo passa 6 dos 7 appliers** |
-| **Mover um controle de adaptador continua sendo terminal** | [CENTRAL-SEM-TELA-01](sprints/2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | as E1 e E3 fecharam às 21h48 (`49797f8`), 48 min depois de a sprint ser escrita; o helper privilegiado segue com 7 verbos e **nenhum chamador Python** |
+| **Mover um controle de adaptador continua sendo terminal** | [CENTRAL-SEM-TELA-01](sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | as E1 e E3 fecharam às 21h48 (`49797f8`), 48 min depois de a sprint ser escrita; o helper privilegiado segue com 7 verbos e **nenhum chamador Python** |
 | E3 a E7 da ELO-MUDO-01 | [ELO-MUDO-01](sprints/2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | a tela do que está valendo, o appid do wrapper como fonte de match, o Proton por jogo, e o portão da família |
 | E2 a E5 da N-IGUAL-A-UM-01, E1 a E7 da NO-MEU-FUNCIONA-01, E2 a E4 da UMA-FAIXA | as três sprints da auditoria | o `head -1` que sobrou, a Steam Flatpak, a bandeja fora do COSMIC, o XWayland |
 | E3, E4, E6 e E8 da LUZ-CEGA-01 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) | inclui tirar quatro MACs de fixture do `controllers.json` vivo dela |
-| E1 a E4 da VPAD-SUSPENSO-MORTO-01 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) | existe quem retoma e não existe quem suspende |
+| E1 a E4 da VPAD-SUSPENSO-MORTO-01 | [VPAD-SUSPENSO-MORTO-01](sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | existe quem retoma e não existe quem suspende |
 
 ### 4.2 Decisão DELA — não decido por ela
 

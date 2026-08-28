@@ -13,17 +13,17 @@ O que restava em cada uma é exatamente a pergunta que o desenho responde, e res
 | Sprint | Por quê |
 |---|---|
 | `sprints/2026-08-16-TRES-MODOS-DO-SOM-01-o-que-sai-onde-e-quem-escolhe.md` | O que restava eram as cinco decisões P-1 a P-5 ("o que sai onde e quem escolhe"). O texto dela decide as cinco: mic ATIVO no máximo, alto-falante 100% em "Sons do jogo", e o gesto dela na Status prevalece (STATUS-1/2/3). A medição por rádio já tem dono na trilha BT. |
-| `sprints/2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md` | Pedia a linguagem de cor nos chips das ONZE abas. GATILHOS-3 pede a mesma coisa numa aba só, com borda na cor do plástico real — mesma entrega, um décimo do escopo. |
-| `sprints/2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md` | Era ela que "dá o formato da marca". GATILHOS-3 dá o formato: borda na cor do plástico, chips clicáveis. |
-| `sprints/2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar.md` | Pedia a marca "nos seis presets" da Lightbar. LIGHTBAR-1 apaga os seis presets. O alvo deixa de existir. |
-| `sprints/2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md` | "A marca vira gesto" = clicar o chip escolhe o alvo. GATILHOS-3 diz literalmente "e continuam clicáveis". |
-| `sprints/2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md` | ABERTA há 25 dias, E0 a E4: fazer a cor ser consequência do número do jogador. LIGHTBAR-1+2 entregam isso apagando o painel e pondo o seletor de número no lugar — o `player_led_pattern(slot)` já faz sozinho. |
-| `sprints/2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido.md` | É uma **proposta para o olho dela** (~190 linhas de borda+anel). O desenho é a resposta: ela quer o SVG do DualSense pintado (LIGHTBAR-6), não a metáfora de borda e anel. |
-| `sprints/2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md` | O que restava (E5–E8) é o `_WRAP_COLUNAS` fixo quebrando parágrafos longos. Vinte e poucos parágrafos saem da tela pelos itens de tooltip. O defeito perde o corpo. |
-| `sprints/2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md` | Idem: "o lugar dos analógicos e a largura a 1180x830" tem de ser **remedido depois** das remoções — medir agora é medir uma tela que vai deixar de existir. |
+| `2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um` | Pedia a linguagem de cor nos chips das ONZE abas. GATILHOS-3 pede a mesma coisa numa aba só, com borda na cor do plástico real — mesma entrega, um décimo do escopo. |
+| `2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos` | Era ela que "dá o formato da marca". GATILHOS-3 dá o formato: borda na cor do plástico, chips clicáveis. |
+| `2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar` | Pedia a marca "nos seis presets" da Lightbar. LIGHTBAR-1 apaga os seis presets. O alvo deixa de existir. |
+| `2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto` | "A marca vira gesto" = clicar o chip escolhe o alvo. GATILHOS-3 diz literalmente "e continuam clicáveis". |
+| `2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador` | ABERTA há 25 dias, E0 a E4: fazer a cor ser consequência do número do jogador. LIGHTBAR-1+2 entregam isso apagando o painel e pondo o seletor de número no lugar — o `player_led_pattern(slot)` já faz sozinho. |
+| `2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido` | É uma **proposta para o olho dela** (~190 linhas de borda+anel). O desenho é a resposta: ela quer o SVG do DualSense pintado (LIGHTBAR-6), não a metáfora de borda e anel. |
+| `2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas` | O que restava (E5–E8) é o `_WRAP_COLUNAS` fixo quebrando parágrafos longos. Vinte e poucos parágrafos saem da tela pelos itens de tooltip. O defeito perde o corpo. |
+| `2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel` | Idem: "o lugar dos analógicos e a largura a 1180x830" tem de ser **remedido depois** das remoções — medir agora é medir uma tela que vai deixar de existir. |
 | `sprints/2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md` | E5/E6, "salvei todas as abas e só parte ficou". PERFIS-2/3 + RUMBLE-9 + STATUS-2 dão o desenho final e mais simples: Aplicar e Salvar viram um gesto só, no perfil ativo, honrando a fita. |
-| `sprints/2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md` | Só faltava a **E4, que É a palavra dela**: a aba Estado maximizada e ela dizer se os elementos ocuparam os vãos. As duas fotos de 26/08 são a aba Estado maximizada — e ela não pediu nada dos vãos; pediu a remoção de "Ouvir no controle". |
-| `sprints/2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md` | ENTREGUE, faltava "o aceite dela na janela real". NAVEG-1 é o aceite, com a correção junto: as barras esticam até a largura do cartão em vez de parar em 400px. |
+| `2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu` | Só faltava a **E4, que É a palavra dela**: a aba Estado maximizada e ela dizer se os elementos ocuparam os vãos. As duas fotos de 26/08 são a aba Estado maximizada — e ela não pediu nada dos vãos; pediu a remoção de "Ouvir no controle". |
+| `2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido` | ENTREGUE, faltava "o aceite dela na janela real". NAVEG-1 é o aceite, com a correção junto: as barras esticam até a largura do cartão em vez de parar em 400px. |
 
 ---
 
@@ -41,7 +41,7 @@ Todas dizem "ENTREGUE EM CÓDIGO — AGUARDANDO A PALAVRA DELA" (ou "CONCLUÍDA"
 | `sprints/2026-07-27-VAO-01-a-tela-sobra-e-o-conteudo-aperta.md` | ENTREGUE 27/07 (E1 a E4); E5 fora por decisão. |
 | `sprints/2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e-o-alfabeto.md` | CONCLUÍDA (`profiles_actions.py:240`/`:245`, `manager.py:1055`). **Atenção:** PERFIS-4 REABRE o tema com pedido novo — escala 0–100 e empate IMPEDIDO, não desempatado. É trabalho novo, não esta sprint. |
 | `sprints/2026-08-10-PERFIL-ATUAL-01-a-linha-dela-tem-cor-e-o-primeiro-lugar.md` | CONCLUÍDA, mordida em `test_perfil_atual_01...py:293`, commit `90d77d2`; o `Status:` abaixo pedia o olho dela. |
-| `sprints/2026-07-25-PLAYER-01-um-numero-de-jogador.md` | ENTREGUE desde `14cd31b`. LIGHTBAR-2/11 são a palavra dela sobre esse seletor: ele funciona, e ela quer o MESMO gesto replicado dentro da Lightbar. |
+| `2026-07-25-PLAYER-01-um-numero-de-jogador` | ENTREGUE desde `14cd31b`. LIGHTBAR-2/11 são a palavra dela sobre esse seletor: ele funciona, e ela quer o MESMO gesto replicado dentro da Lightbar. |
 
 ---
 
@@ -53,10 +53,10 @@ O desenho apaga uma parte de cada uma e deixa o mecanismo de pé. Estas viram o 
 |---|---|
 | `sprints/2026-08-24-STATUS-DIZ-O-QUE-VE-01-o-hertz-que-sumiu-e-os-cards-fora-de-ordem.md` | STATUS-1/2/3 decidem o bloco de som (default e persistência). **Fica:** o hertz do giroscópio e a ordem dos cards. |
 | `sprints/2026-08-24-PERFIS-ABRE-O-QUE-GUARDA-01-...md` | PERFIS-7 tira o carimbo da ponte da tela → tooltip. **Fica:** o perfil removido que ressuscita. |
-| `sprints/2026-08-24-LIGHTBAR-COR-DE-CADA-UM-01-a-aba-mais-vazia-e-o-aceso-agora-que-nao-volta.md` | LIGHTBAR-1..11 redesenham a aba inteira. **Fica:** "o aceso agora que não volta" e o `_edit_uniq`. |
+| `2026-08-24-LIGHTBAR-COR-DE-CADA-UM-01-a-aba-mais-vazia-e-o-aceso-agora-que-nao-volta` | LIGHTBAR-1..11 redesenham a aba inteira. **Fica:** "o aceso agora que não volta" e o `_edit_uniq`. |
 | `sprints/2026-08-24-GATILHOS-APLICADO-COM-PROVA-01-...md` | GATILHOS-2 é o mesmo pedido, dito por ela. **Fica inteira** — é o mecanismo que GATILHOS-2 exige. |
-| `sprints/2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md` | RUMBLE-9 é o título da sprint. **Fica inteira, e CRESCE:** RUMBLE-4/5/6/7 são pedidos novos. |
-| `sprints/2026-08-24-INICIO-NAO-MENTE-01-a-ponte-que-nao-acende-e-a-escolha-que-ela-nao-fez.md` | INICIO-2 tira a linha da ponte da tela; INICIO-4 apaga o frame Sessão. **Fica:** a ponte que não acende (agora no tooltip) e INICIO-5/7 (trazer os botões do Sistema). |
+| `2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa` | RUMBLE-9 é o título da sprint. **Fica inteira, e CRESCE:** RUMBLE-4/5/6/7 são pedidos novos. |
+| `2026-08-24-INICIO-NAO-MENTE-01-a-ponte-que-nao-acende-e-a-escolha-que-ela-nao-fez` | INICIO-2 tira a linha da ponte da tela; INICIO-4 apaga o frame Sessão. **Fica:** a ponte que não acende (agora no tooltip) e INICIO-5/7 (trazer os botões do Sistema). |
 | `sprints/2026-08-24-EMULACAO-UM-DONO-SO-01-a-mascara-com-cinco-donos-e-o-verde-que-nao-tem-alvo.md` | EMU-5 tira o parágrafo de nove linhas (`main.glade:3445`); EMU-6 tira a linha do Steam Input. **Fica:** o dono único da máscara e o verde sem alvo. |
 | `sprints/2026-08-24-NAVEGACAO-UM-CONTROLE-SO-01-...md` | NAVEG-2/3/4/5 esvaziam a aba; NAVEG-6 reordena. **Fica:** os atalhos que somem, e **NAVEG-7 (tabela configurável) é entrega NOVA e GRANDE**. |
 
@@ -69,7 +69,7 @@ Sobrevivem porque medem mecanismo, aparelho ou rádio, e o desenho é sobre a te
 **Mecanismo que os desenhos dela EXIGEM** (não substituem — *dependem*):
 - `sprints/2026-08-22-QUATRO-MICROFONES-01-...md` — o interruptor que `bt_mic_enabled` nunca teve. Sem ele, STATUS-1 não existe.
 - `sprints/2026-08-15-SOM-DE-CADA-JOGADOR-01-...md` — a E2 nunca ligada no botão. É o que STATUS-2/3 precisam para gravar por controle.
-- `sprints/2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md` — a cor do plástico chegar ao produto fora da aba Configurações. É pré-requisito de LIGHTBAR-5 e LIGHTBAR-6.
+- `2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e` — a cor do plástico chegar ao produto fora da aba Configurações. É pré-requisito de LIGHTBAR-5 e LIGHTBAR-6.
 - `sprints/2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-...md` — `rumble_active` virar mapa por uniq. É pré-requisito de RUMBLE-9.
 - `sprints/2026-08-24-ONDA0-Z4-O-PERFIL-GUARDA-TUDO-01-...md` — reforçada por STATUS-2, PERFIS-2/3 e RUMBLE-9 ao mesmo tempo.
 - `sprints/2026-08-24-ONDA0-Z2-O-ALVO-GANHA-DONO-01-...md` — GATILHOS-2 e STATUS-3 são casos dela.
