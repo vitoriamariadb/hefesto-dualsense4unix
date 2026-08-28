@@ -670,7 +670,7 @@ mora — ou o parágrafo do §5 que explica por que ele não merece uma.
   — dona da rota de alvo; recebe a T6
 * [CONFIGURACOES-FECHA-01](2026-08-24-CONFIGURACOES-FECHA-01-o-aplicar-que-nao-responde-e-o-campo-que-apaga-o-arquivo.md)
   — dona do rodapé da aba; recebe a T5
-* [PORTAS-DA-CASA-01](2026-08-24-PORTAS-DA-CASA-01-o-produto-sabe-onde-cada-radio-mora-e-nao-diz.md)
+* [PORTAS-DA-CASA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
   — recebe a T2
 * [ONDA0-Z6-COMUNHAO-COM-O-SPECS-01](2026-08-24-ONDA0-Z6-COMUNHAO-COM-O-SPECS-01-a-medicao-chega-a-tela-por-alguem-lembrar.md)
   — dona do elo medição→CSV→tela; recebe a T12

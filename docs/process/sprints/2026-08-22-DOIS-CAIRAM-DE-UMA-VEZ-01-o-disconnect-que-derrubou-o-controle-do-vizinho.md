@@ -30,7 +30,7 @@ Três coisas do produto passam a depender desta resposta:
    Se ele pode derrubar um segundo controle, o botão que existe para curar um
    jogador tira outro do jogo — e o produto não avisa, porque não sabe.
 2. **A migração de controle entre adaptadores** (E2 da
-   [CENTRAL-SEM-TELA-01](2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md))
+   [CENTRAL-SEM-TELA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md))
    é uma sequência que começa derrubando o controle. Se a queda vaza para o
    vizinho, o gesto de arrumar a sala derruba a sala.
 3. **Se o efeito atravessa adaptador**, uma premissa que a casa vem usando cai

@@ -74,7 +74,7 @@ abas"*.
 
 **Isto continua sendo decisão dela.** Se ela quiser escolha marcada nas sete
 restantes, o preço não é tela: é reabrir decisões que ela mesma tomou em 10/08.
-A [MESA-CHEIA-06](2026-08-13-MESA-CHEIA-06-o-portao-contra-a-marca-que-mente.md)
+A [MESA-CHEIA-06](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
 existe para que a leva não invente esse alcance por descuido.
 
 ---
@@ -94,7 +94,7 @@ rótulo em `:685` — montada por `install_no_jogo_tab`
 
 **Nenhum dos agentes a mediu, porque a lista que eu entreguei tinha nove nomes.**
 É lacuna declarada, não achado. Virou a
-[MESA-CHEIA-07](2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md), e é
+[MESA-CHEIA-07](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md), e é
 o primeiro item da onda 1: medir antes de planejar.
 
 ### 2.2 A aba Status não é problema — é o MOLDE, e a casa já o copiou uma vez
@@ -161,7 +161,7 @@ alvo das ações (lightbar, gatilhos, LEDs, rumble)"* —, a lista está **certa
 é tooltip.
 
 Virou a
-[MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md),
+[MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 e ela anda colada na 01: **pintar uma promessa falsa a torna mais convincente,
 não mais verdadeira.**
 
@@ -220,18 +220,18 @@ daemon vivo dela.
 
 | # | Entrega | Sprint | Por que aqui | Custo |
 |---|---|---|---|---|
-| 1.1 | **Medir a aba "No jogo"** — a décima, que nenhum agente viu | [MESA-CHEIA-07/E1](2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md) | planejar a leva sem ela é planejar contra um mapa incompleto | 60 min |
+| 1.1 | **Medir a aba "No jogo"** — a décima, que nenhum agente viu | [MESA-CHEIA-07/E1](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | planejar a leva sem ela é planejar contra um mapa incompleto | 60 min |
 | 1.2 | **O "Desligar" que RE-ARMA a trava**, e o dublê que precisa passar a emitir | [MESA-CHEIA-08](2026-08-13-MESA-CHEIA-08-o-desligar-que-re-arma-a-trava.md) | é regressão de cura, e ela sente como *"a config que eu deixo não fica"* | 40 min |
 | 1.3 | **`apply_output_for` para de ser silencioso** | [MESA-CHEIA-09/E1](2026-08-13-MESA-CHEIA-09-aplicado-sem-byte-nenhum.md) | é a raiz das quatro mentiras de "aplicado" | 45 min |
 | 1.4 | **`trigger.set`/`trigger.reset` devolvem `aplicado_em`**, como o `led.set` do mesmo arquivo já devolve | [MESA-CHEIA-09/E2](2026-08-13-MESA-CHEIA-09-aplicado-sem-byte-nenhum.md) | é copiar o padrão do arquivo ao lado (`daemon/ipc_handlers.py:1061`) | 30 min |
 | 1.5 | **Os toasts honestos da Lightbar** — alvo desconectado e co-op ligado | [MESA-CHEIA-09/E3](2026-08-13-MESA-CHEIA-09-aplicado-sem-byte-nenhum.md) | mata a tela que se contradiz sozinha (`app/actions/lightbar_actions.py:986` × `:163-167`) | 60 min |
-| 1.6 | **O rumble deixa de MIGRAR de dono** | [MESA-CHEIA-05/E0](2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md) | é conserto de defeito sob **qualquer** resposta à D-4 — não espera decisão | ≈ 2 h |
+| 1.6 | **O rumble deixa de MIGRAR de dono** | [MESA-CHEIA-05/E0](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é conserto de defeito sob **qualquer** resposta à D-4 — não espera decisão | ≈ 2 h |
 | 1.7 | **`native_bt_fragil` por controle** | [MESA-CHEIA-11/E1](2026-08-13-MESA-CHEIA-11-a-janela-conta-um-quando-sao-quatro.md) | falso negativo: com o P1 no cabo, o aviso cala para os três frágeis | 55 min |
 | 1.8 | **O banner do co-op nomeia o jogador** | [MESA-CHEIA-11/E2](2026-08-13-MESA-CHEIA-11-a-janela-conta-um-quando-sao-quatro.md) | o daemon já sabe qual (`daemon/subsystems/gamepad.py:1206`); a janela diz *"um dos jogadores"* | 20 min |
 | 1.9 | **`check_snd_audio_healthy` conta em vez de `re.search`** | [MESA-CHEIA-11/E3](2026-08-13-MESA-CHEIA-11-a-janela-conta-um-quando-sao-quatro.md) | *"áudio presente em 3 de 4"* com zero aparelho — o `cards_text` já é injetável | 60 min |
 | 1.10 | **Guarda do card sem MAC na Status** — desligar o bloco de áudio quando o card não tem endereço, e dizer por quê | *(neste índice, §7)* | hoje escreve no **primário** com o título de outro controle | 30 min |
 | 1.11 | **As oito frases no singular** | [MESA-CHEIA-11/E4](2026-08-13-MESA-CHEIA-11-a-janela-conta-um-quando-sao-quatro.md) | a correção mais barata e mais honesta do censo | 65 min |
-| 1.12 | **O portão contra a marca que mente** | [MESA-CHEIA-06](2026-08-13-MESA-CHEIA-06-o-portao-contra-a-marca-que-mente.md) | é teste sobre código-fonte: ninguém precisa estar presente. **Mas SAI por último** — ver a ordem abaixo | 3 h |
+| 1.12 | **O portão contra a marca que mente** | [MESA-CHEIA-06](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é teste sobre código-fonte: ninguém precisa estar presente. **Mas SAI por último** — ver a ordem abaixo | 3 h |
 
 **Ordem sugerida dentro da onda 1:** 1.1 primeiro (é medição, e o resto se
 planeja melhor com ela); depois 1.2 (regressão de cura, e a mais barata com dano
@@ -261,16 +261,16 @@ Cada item só vira commit com foto antes e depois, pela regra da
 
 | # | Entrega | Sprint | O que ela precisa fazer | Depende de | Custo |
 |---|---|---|---|---|---|
-| 2.1 | **A FITA COLORIDA** — o chip de cada controle ganha o swatch com a cor viva da barra dele | [MESA-CHEIA-01](2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md) | olhar as quatro cores lado a lado na TV e dizer se são distinguíveis | **D-1** | 90 min |
-| 2.2 | **A FITA CALAR** nas seis abas em que não vale | [MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md) | escolher entre **esconder** e **requalificar** | **D-2** | 60 min |
-| 2.3 | **A "No jogo" ganha cor** — terminar a cópia do molde | [MESA-CHEIA-07/E2](2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md) | é a aba que ela olha **durante a partida**; com quatro e sem cor são quatro painéis iguais | 1.1 + **D-1** | 45 min |
+| 2.1 | **A FITA COLORIDA** — o chip de cada controle ganha o swatch com a cor viva da barra dele | [MESA-CHEIA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | olhar as quatro cores lado a lado na TV e dizer se são distinguíveis | **D-1** | 90 min |
+| 2.2 | **A FITA CALAR** nas seis abas em que não vale | [MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | escolher entre **esconder** e **requalificar** | **D-2** | 60 min |
+| 2.3 | **A "No jogo" ganha cor** — terminar a cópia do molde | [MESA-CHEIA-07/E2](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é a aba que ela olha **durante a partida**; com quatro e sem cor são quatro painéis iguais | 1.1 + **D-1** | 45 min |
 | 2.4 | **Os cards da Início ganham cor** — `lightbar_rgb` já chega no mesmo payload e é descartado em `_render_home_controllers` (`app/actions/home_actions.py:1646`); mais `Gtk.FlowBox` no lugar da `Gtk.Box` homogênea | *(neste índice, §7)* | ver se quatro cards cabem sob o tiling do COSMIC | **D-1** | 70 min |
-| 2.5 | **A Gatilhos DIZ o alvo dentro dela** — rótulo do controle corrente + swatch ao lado de cada moldura L2/R2, e o toast nomeando o controle | [MESA-CHEIA-02](2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md) §1.1 | hoje **o botão aceso muda ao trocar de alvo, e nada na tela diz de quem ele é** | 1.4 + **D-1** | 125 min |
-| 2.6 | **"Quem comanda o PC agora: Controle N"** na Navegação, com a cor dele, e o aviso quando o comando troca de dono | *(neste índice, §7; medido na [MESA-CHEIA-04](2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md) §2)* | é a informação que explica por que o controle do P2 *"não faz nada"* fora do jogo | **D-10** | 105 min |
+| 2.5 | **A Gatilhos DIZ o alvo dentro dela** — rótulo do controle corrente + swatch ao lado de cada moldura L2/R2, e o toast nomeando o controle | [MESA-CHEIA-02](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) §1.1 | hoje **o botão aceso muda ao trocar de alvo, e nada na tela diz de quem ele é** | 1.4 + **D-1** | 125 min |
+| 2.6 | **"Quem comanda o PC agora: Controle N"** na Navegação, com a cor dele, e o aviso quando o comando troca de dono | *(neste índice, §7; medido na [MESA-CHEIA-04](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) §2)* | é a informação que explica por que o controle do P2 *"não faz nada"* fora do jogo | **D-10** | 105 min |
 | 2.7 | **Marcar no card da Status qual é o alvo de edição** | *(neste índice, §7)* | com quatro cards e quatro chips, nada diz qual as outras abas estão editando | 2.1 | 45 min |
-| 2.8 | **AS QUATRO MARCAS na aba Gatilhos** — a grade mostra onde cada jogador está | [MESA-CHEIA-02](2026-08-13-MESA-CHEIA-02-a-marca-de-quem-escolheu-na-aba-gatilhos.md) | **é a aba em que ela estava olhando quando pediu** | 2.5 + **D-3** | 6 h |
-| 2.9 | **A FAIXA DOS QUATRO na Lightbar** — uma prévia por jogador, com o número dentro, e a verdade sobre "cores automáticas" | [MESA-CHEIA-03](2026-08-13-MESA-CHEIA-03-a-mesma-marca-na-aba-lightbar.md) | **é a leitura literal do pedido dela** | 2.8 + **D-11** | 390 min |
-| 2.10 | **A marca vira gesto** — clicar na marca de um jogador o torna o alvo | [MESA-CHEIA-04](2026-08-13-MESA-CHEIA-04-a-marca-vira-gesto.md) | é o que transforma a tela em escolha de personagem — e tem um NÃO medido dentro | 2.8 + **D-3** | 3 h |
+| 2.8 | **AS QUATRO MARCAS na aba Gatilhos** — a grade mostra onde cada jogador está | [MESA-CHEIA-02](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | **é a aba em que ela estava olhando quando pediu** | 2.5 + **D-3** | 6 h |
+| 2.9 | **A FAIXA DOS QUATRO na Lightbar** — uma prévia por jogador, com o número dentro, e a verdade sobre "cores automáticas" | [MESA-CHEIA-03](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | **é a leitura literal do pedido dela** | 2.8 + **D-11** | 390 min |
+| 2.10 | **A marca vira gesto** — clicar na marca de um jogador o torna o alvo | [MESA-CHEIA-04](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é o que transforma a tela em escolha de personagem — e tem um NÃO medido dentro | 2.8 + **D-3** | 3 h |
 | 2.11 | **`rumble_ff.per_vpad` por jogador** na linha de estado da Rumble — mostra **quem pediu** vibração, sem uma linha de daemon nova | *(neste índice, §7)* | responde *"por que o meu não vibra?"* sem esperar a D-4 | 2.1 | 90 min |
 | 2.12 | **A vitrine das faces na Perfis** — *"este perfil tem ajustes próprios para N controles"*, com N chips coloridos. O mecanismo está **100% pronto e invisível** | *(neste índice, §7)* | é onde as quatro faces já MORAM: `grep -c uniq` em `profiles_actions.py` é **0** em 3357 linhas, e o mapa só atravessa a aba | 2.1 | 150 min |
 | 2.13 | **Os quatro cards da Status CABEREM** | *(neste índice, §7)* | **reabre uma decisão dela** — ver a nota abaixo | 2.7 | 120 min |
@@ -366,7 +366,7 @@ responder e a mais cara de responder tarde.
 | **D-1** | **Que cor é "a cor dele"?** | **tudo o que é colorido** nas ondas 1 e 2 | 0 — é escolha. Escolher errado cria o segundo dono da verdade |
 | **D-2** | A fita **esconde** ou se **requalifica** nas seis abas globais? | 2.2 | 0 |
 | **D-3** | **Quatro painéis lado a lado** × **um painel com quatro marcas** × **híbrido** | 2.5, 2.8, 2.10, 2.13 e todo o desenho | é a pergunta que decide 500+ min de tela |
-| **D-4** | A **intensidade** da vibração é da PEÇA ou da MÁQUINA? | [MESA-CHEIA-05/E1](2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md) | 660 min |
+| **D-4** | A **intensidade** da vibração é da PEÇA ou da MÁQUINA? | [MESA-CHEIA-05/E1](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | 660 min |
 | **D-5** | A **máscara do gamepad** é do JOGO ou do JOGADOR? | Início e Emulação | 480 min — e metade já está escrita e desligada |
 | **D-6** | O **MODO** é da máquina ou do jogador? | o quadro "Quando o jogo abrir" | 480 min, ou o item cai inteiro |
 | **D-7** | *"Cada player escolhe o seu"* inclui quem **não é DualSense**? | a faixa dos quatro | 120 min |

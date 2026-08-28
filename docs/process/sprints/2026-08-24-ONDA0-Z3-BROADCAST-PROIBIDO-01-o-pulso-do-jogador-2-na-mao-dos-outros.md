@@ -8,7 +8,7 @@ manda em três delas — Lightbar, Gatilhos e Rumble.
 |---|---|
 | **Grau** | **MEDIDO** em tudo que tem comando ao lado: quatro medições novas de hoje, três delas **por mordida** (arrancar a cura e ver reprovar), com a saída literal copiada no §2.1. **DESENHO** na coreografia, nas tarefas e no custo. **NÃO VERIFICADO** está separado no §2.4, e é curto de propósito. |
 | **Fecha** | A invariante *"alvo escolhido que sai da mesa não vira todo mundo"* nas **três** rotas que hoje a violam ou a contradizem: o rumble **do jogo** (`gamepad.py`), o fan-out do **daemon** (`ipc_handlers.py`, onde o broadcast voltou por outra porta e está **vivo hoje**) e a **palavra** que o daemon devolve (`aplicado_em` nomeando três controles que não receberam nada). Fecha também o portão que impede a volta, os dois testes verdes que hoje **travam** o broadcast, e a família que falta no teste da invariante (gatilho). |
-| **NÃO faz** | Não escreve texto de aba. As frases de Lightbar, Gatilhos e Rumble são das Ondas 7, 8 e 9 — esta frente entrega o **contrato** para elas terem o que dizer. Não mede rádio (D2, §6). Não mexe no alcance por peça do rumble (é a **D-G** dela, na [RUMBLE-POR-JOGADOR-01](2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md)). Não toca no seletor da aba Status nem no dono do alvo — isso é a **Z2**. |
+| **NÃO faz** | Não escreve texto de aba. As frases de Lightbar, Gatilhos e Rumble são das Ondas 7, 8 e 9 — esta frente entrega o **contrato** para elas terem o que dizer. Não mede rádio (D2, §6). Não mexe no alcance por peça do rumble (é a **D-G** dela, na [RUMBLE-POR-JOGADOR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)). Não toca no seletor da aba Status nem no dono do alvo — isso é a **Z2**. |
 | **Defeito de forma que cura** | **F4** — *"grava na peça, manda na mesa"* ([SPRINT_ORDER](../SPRINT_ORDER.md) §0.1). E, no caminho, uma instância de **F1** (palavra sem prova) e uma de **F2** (cura escrita e nunca ligada). |
 | **Depende de** | **Z2** — o alvo ganha dono próprio. Transitivamente, da **Z5** (a régua da mesa), de que a Z2 depende. Nada aqui pode ser fechado antes de o alvo ter um escritor só. |
 | **Quem depende** | **Onda 7 · Lightbar**, **Onda 8 · Gatilhos** e **Onda 9 · Rumble** (dura). Detalhe no §7. |
@@ -461,7 +461,7 @@ fez"* de *"fez e não contou"*. Arranque a consulta e ele volta a dizer `ok`.
 **Carimbo:** **ESTRUTURAL** — o motivo é texto novo. Vai no lote da Onda 9.
 
 > **Colisão declarada, e a recomendação.** Esta tarefa é a **RUM-2** da
-> [RUMBLE-POR-JOGADOR-01](2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md).
+> [RUMBLE-POR-JOGADOR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
 > Pela regra da §0.5 (*dona é quem MEXE NO CÓDIGO*), e porque a Z3 roda **antes**
 > da Onda 9, **recomendo que a RUM-2 seja marcada como absorvida por esta
 > tarefa** e que a Onda 9 fique só com a palavra da tela. Quem rege decide — eu
@@ -698,7 +698,7 @@ onda de aba que a consome.
 | item | o que é |
 |---|---|
 | **A redação de Z3-5** | *"O Controle 2 não está na mesa — nada foi enviado."* — provisória desde 23/08, escrita pelo F4 no docstring do backend. Vai no **lote da Onda 9**, com as frases de RUM-1 e RUM-2, nunca sozinha |
-| **D-G — vibração por peça: agora ou na 1.0?** | Esta frente **não** decide. Ela garante que, sem destinatário, ninguém recebe; o alcance por peça continua sendo a E1 da [MESA-CHEIA-05](2026-08-13-MESA-CHEIA-05-o-rumble-por-mac-a-rota-que-ninguem-ligou.md), ~11 h medidas |
+| **D-G — vibração por peça: agora ou na 1.0?** | Esta frente **não** decide. Ela garante que, sem destinatário, ninguém recebe; o alcance por peça continua sendo a E1 da [MESA-CHEIA-05](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md), ~11 h medidas |
 | **O `_registrar_em_todos` com alvo escolhido: recusar ou nivelar?** | Z3-3 propõe **respeitar o seletor**, e o argumento é que a rota por-`uniq` da GUI já faz isso desde a R-14. Mas quem chama sem `uniq` hoje é a **CLI**, e talvez `hefesto test lightbar` queira mesmo dizer *"pinte todos"*. **Se quiser, ele tem de dizer isso explicitamente** (`--todos`), não por omissão. A palavra é dela |
 
 **Da bancada dela, e só ela fecha:**

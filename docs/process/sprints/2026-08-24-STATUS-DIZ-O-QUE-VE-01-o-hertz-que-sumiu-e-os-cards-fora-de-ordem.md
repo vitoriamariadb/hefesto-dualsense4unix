@@ -683,7 +683,7 @@ contra o specs — e é exatamente o buraco que a PAREAMENTO-01 fecha.
 | sprint | o que ela contribui | morre ao fim desta? |
 |---|---|---|
 | [PAINEL-DA-VERDADE-01](2026-08-01-PAINEL-DA-VERDADE-01-a-aba-status-diz-o-que-chega-ao-jogo.md) | a linha do que chega ao jogo, e o hertz dentro dela — é a origem do defeito de T1/T2 | **sim**, com T2 |
-| [MESA-CHEIA-01](2026-08-13-MESA-CHEIA-01-a-fita-do-alvo-ganha-a-cor-de-cada-um.md) | a fita do alvo por cor; é a metade que T4 tem de casar com os cards | **sim**, com T4 |
+| [MESA-CHEIA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | a fita do alvo por cor; é a metade que T4 tem de casar com os cards | **sim**, com T4 |
 | [SOM-DE-CADA-JOGADOR-01](2026-08-15-SOM-DE-CADA-JOGADOR-01-o-botao-que-nunca-funcionou-com-a-mesa-cheia.md) | o botão de som com a mesa cheia — o berço da T9 | **sim**, com T9 |
 | [QUATRO-MICROFONES-01](2026-08-22-QUATRO-MICROFONES-01-a-ponte-esta-desligada-e-a-conta-diz-que-cabe.md) | a ponte de mic por rádio desligada — hoje `bt_mic.enabled=false` | **não**: a ponte é medição dela (D2). Fica a barreira de tela (T6) |
 | [TRES-MODOS-DO-SOM-01](2026-08-16-TRES-MODOS-DO-SOM-01-o-que-sai-onde-e-quem-escolhe.md) | as três rotas e quem escolhe — o seletor "Sons do jogo"/"Todo o som do PC" | **não**: a rota 2 nunca foi exercida (ressalva do CSV). Fica aberta em §9 |
@@ -693,7 +693,7 @@ contra o specs — e é exatamente o buraco que a PAREAMENTO-01 fecha.
 | [STATUS-SIMETRIA-01](2026-07-26-STATUS-SIMETRIA-01-a-aba-que-era-pra-mexer.md) | o lugar do microfone à direita dos analógicos | **sim** |
 | [STATUS-SIMETRIA-02](2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md) | a moldura por assunto, e o "distanciar não é organizar" que T1 obedece | **sim** |
 | [ALINHA-DUAS-LINHAS-01](2026-08-01-ALINHA-DUAS-LINHAS-01-a-aba-status-que-ela-chamou-de-feia.md) | as duas metades nomeadas e o alinhamento do giroscópio — o desenho que T1 não pode quebrar | **sim** |
-| [PLAYER-01](2026-07-25-PLAYER-01-um-numero-de-jogador.md) | `_por_numero_de_identidade`, a ordenação que **só a fita usa** | **sim**, com T4 |
+| [PLAYER-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | `_por_numero_de_identidade`, a ordenação que **só a fita usa** | **sim**, com T4 |
 
 ---
 

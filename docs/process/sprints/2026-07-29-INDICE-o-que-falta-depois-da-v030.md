@@ -40,7 +40,7 @@ detector de janela passou a poder adoecer. Publicada a **v0.3.0**
 
 | Sprint | O que falta | Evidência no código | Impacto para ela |
 |---|---|---|---|
-| [LIGHTBAR-JOGADOR-01](2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | E0 a E5 inteiras: a aba parte do rascunho e não do que está aceso; o painel "Desenho das 5 luzes" continua sendo caixa própria | `gui/main.glade:957` ainda rotula o painel; `app/actions/lightbar_actions.py:907` (`on_player_led_toggled`) segue vivo e registrado em `app/app.py:271` | A aba de cor é a que ela mais abre depois da Status, e ainda mostra intenção em vez de realidade |
+| [LIGHTBAR-JOGADOR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | E0 a E5 inteiras: a aba parte do rascunho e não do que está aceso; o painel "Desenho das 5 luzes" continua sendo caixa própria | `gui/main.glade:957` ainda rotula o painel; `app/actions/lightbar_actions.py:907` (`on_player_led_toggled`) segue vivo e registrado em `app/app.py:271` | A aba de cor é a que ela mais abre depois da Status, e ainda mostra intenção em vez de realidade |
 | **CONTAGEM-E-COOP-01** (sem documento) | o número único na janela inteira e o aviso antes de derrubar o co-op | três denominadores vivos e divergentes: `app/actions/status_actions.py:1063` soma `conectados + externals`, `:1391` e `:1504` usam só `len(conectados)`, e `app/actions/home_actions.py:340` usa `len(controllers)`; `daemon/subsystems/gamepad.py:473-475` chama `coop.disable()` sem perguntar nada antes | Com dois DualSense e dois externos a mesma tela diz números diferentes; e entrar na exceção de um jogo derruba três jogadores em silêncio |
 | [STEAM-INPUT-01](2026-07-26-STEAM-INPUT-01-ela-nunca-mais-precisa-decidir.md) | o item 0 (medir se a Steam honra a exceção por jogo), a frase da regra padrão e o desfazer **dentro da janela** | `grep` por "entrada Steam fica desligada" no `gui/main.glade` e nas actions devolve zero; `remove_appid_from_steam_input_allowlist` já tem chamador, mas em `cli/cmd_steam.py:215` — terminal, não janela | Toda noite ela recomeça a decisão do zero. O guarda, esse sim, voltou a ter próximo disparo (`hefesto-steam-input-guard.timer`, medido hoje com disparo em 12 minutos) |
 | [BOTÃO-QUE-NÃO-MENTE-01](2026-07-26-BOTAO-QUE-NAO-MENTE-01-clico-e-nao-acontece-nada.md) | entregas 5 (menos superfície) e 6 (o terceiro teste, o que morde) | o handler `on_emulation_open_toml` continua registrado em `app/app.py:320` e implementado em `app/actions/emulation_actions.py:274`, embora `gui/main.glade:2374` registre que o botão saiu | Não morde hoje; é dívida de limpeza que vira armadilha quando alguém religar o botão |
@@ -190,7 +190,7 @@ continuam sendo só identificador. Duas sprints que este índice não previu tam
 nasceram nesta rodada, a pedido dela, e estão no
 [índice da documentação da v0.3.0](../estudos/2026-07-29-INDICE-a-documentacao-da-v030.md):
 a [GATILHO-PALAVRA-01](2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md),
-a [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) e a
+a [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) e a
 [SENSOR-VIVO-01](2026-07-29-SENSOR-VIVO-01-touchpad-giroscopio-microfone-e-som-dentro-do-jogo.md).
 
 | Identificador | Escopo, em uma linha |

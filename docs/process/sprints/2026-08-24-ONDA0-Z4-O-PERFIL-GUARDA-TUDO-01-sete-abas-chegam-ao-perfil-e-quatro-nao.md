@@ -35,7 +35,7 @@ real pela porta da janela*). O diagnóstico está em
   lá está na seção 7.
 - **Não mexe na aba Perfis.** O editor, o perfil removido que ressuscita e a
   caixinha do Steam Input são da
-  [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-24-PERFIS-ABRE-O-QUE-GUARDA-01-o-perfil-removido-que-ressuscita-e-a-ponte-que-nao-aparece.md)
+  [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
   (Onda 6). Z4 é a INVARIANTE: o que o perfil guarda e o que sobrevive ao ciclo
   fechar/reabrir. A aba é dela.
 - **Não desenha widget novo em aba nenhuma.** Onde falta gesto (touch, giro,
@@ -805,8 +805,8 @@ mesa cheia, meça de novo.
 
 | onda | o quê |
 |---|---|
-| **Onda 6 · Perfis** | **dura**. A [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-24-PERFIS-ABRE-O-QUE-GUARDA-01-o-perfil-removido-que-ressuscita-e-a-ponte-que-nao-aparece.md) declara Z4 como primeira dependência |
-| **Onda 8 · Gatilhos** | **dura — o conversor** (T4). A [GATILHOS-APLICADO-COM-PROVA-01](2026-08-24-GATILHOS-APLICADO-COM-PROVA-01-dois-perfis-dela-nao-abrem-e-a-tela-diz-aplicado.md) traz "dois perfis dela não abrem" **no próprio título** |
+| **Onda 6 · Perfis** | **dura**. A [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) declara Z4 como primeira dependência |
+| **Onda 8 · Gatilhos** | **dura — o conversor** (T4). A [GATILHOS-APLICADO-COM-PROVA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) traz "dois perfis dela não abrem" **no próprio título** |
 | **Onda 3 · Status** | T12 — o que touch/giro/acelerômetro guardam, se guardam |
 | **Onda 10 · Navegação** | T14 — o campo do teclado emulado |
 

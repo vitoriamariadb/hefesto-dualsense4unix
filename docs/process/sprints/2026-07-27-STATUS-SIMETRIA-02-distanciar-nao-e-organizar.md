@@ -7,9 +7,9 @@
   `VAO_MAXIMO_ENTRE_BLOCOS = 200` em `:65` — linhas reconferidas em
   21/08/2026). **Duas heranças continuam abertas em
   outras sprints, e não aqui:** o miolo do frame Estado (E2 da
-  [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md)) e os
+  [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)) e os
   desenhos que não cresceram junto com o teto
-  ([CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md),
+  ([CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
   pedido dela em 31/07)
 - **Prioridade:** ALTA — é a avaliação dela, de olho, sobre a entrega da
   STATUS-SIMETRIA-01

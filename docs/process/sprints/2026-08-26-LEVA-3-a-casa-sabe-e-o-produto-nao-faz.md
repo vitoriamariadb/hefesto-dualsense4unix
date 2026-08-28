@@ -52,13 +52,11 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-3-a-casa-sabe-e-o-produto-nao-faz.md
 bancada: false
 depois_de:
+  # A faxina de 27/08 apagou daqui: CONEXOES-MAPA-2D-01, CONFIGURACOES-O-LEXICO-01, NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - LEVA-2  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
-  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - CONFIGURACOES-O-LEXICO-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - LEVA-1  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - NAVEGACAO-UM-CONTROLE-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
   - src/hefesto_dualsense4unix/app/actions/
   - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py

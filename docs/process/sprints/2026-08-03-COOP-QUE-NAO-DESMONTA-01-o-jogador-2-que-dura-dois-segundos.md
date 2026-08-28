@@ -19,7 +19,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
 depois_de:
-  - NAVEGACAO-UM-CONTROLE-SO-01
+  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
 ---
 
 # COOP-QUE-NÃO-DESMONTA-01 — o Jogador 2 que dura dois segundos

@@ -592,7 +592,7 @@ que promete onze e é desligado.
 |---|---|---|
 | 1 | `docs/data/ensaios.csv` | as duas linhas de bancada, com e sem suspeito |
 | 2 | `docs/data/mapa-controles.csv` | as células `radio_*` da linha da cor |
-| 3 | `docs/process/sprints/2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md` | a narrativa, com a linha que diz "e em 23/08/2026 pela causa" |
+| 3 | `2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e` | a narrativa, com a linha que diz "e em 23/08/2026 pela causa" |
 | 4 | `docs/process/2026-08-16-ONDE-PARAMOS-a-sessao-de-vinte-horas.md` | uma linha de tabela |
 | 5 | `docs/process/estudos/2026-08-15-SEMPRE-IDENTIFICADO-a-resposta-e-o-MAC-e-onde-ela-falha.md` | o estudo |
 | 6 | `tests/unit/test_o_mapa_separa_divida_de_decisao.py` | a dívida nomeada em comentário |

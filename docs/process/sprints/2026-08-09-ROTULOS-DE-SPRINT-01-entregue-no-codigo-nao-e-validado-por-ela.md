@@ -142,7 +142,7 @@ não estão nesta tabela; o rótulo, medido depois, é o mesmo.
 |---|---|
 | [ABAS-01](2026-07-25-ABAS-01-as-abas-brigam-pelo-mesmo-estado.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela |
 | [MIC-USB-01](2026-07-25-MIC-USB-01-tres-mutes-empilhados.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela |
-| [PLAYER-01](2026-07-25-PLAYER-01-um-numero-de-jogador.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela |
+| [PLAYER-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela |
 | [UI-SELETOR-01](2026-07-25-UI-SELETOR-01-ordem-dos-controles-no-seletor.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela (absorvida pela PLAYER-01) |
 | [STATUS-SIMETRIA-01](2026-07-26-STATUS-SIMETRIA-01-a-aba-que-era-pra-mexer.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela |
 | [SOM-02](2026-07-29-SOM-02-o-alto-falante-que-funciona.md) | ENTREGUE EM CÓDIGO — aguardando a palavra dela (sprint inteira) |
@@ -151,8 +151,8 @@ não estão nesta tabela; o rótulo, medido depois, é o mesmo.
 | [EMULAÇÃO-NO-JOGO-01](2026-07-29-EMULACAO-NO-JOGO-01-o-r1-troca-de-app-em-vez-de-jogar.md) | PARCIAL — E1, E1(b) e E2 entregues; E3 e E5 abertas |
 | [PERFIL-SALVA-TUDO-01](2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md) | PARCIAL — E3 entregue; E1, E2, E4, E5 e E6 abertas |
 | [GATILHO-PALAVRA-01](2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) | PARCIAL — a mecânica entregue; as dezenove palavras são escolha dela |
-| [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | PARCIAL — E1 a E4 e E9 entregues; E5 a E8 abertas |
-| [CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md) | PARCIAL — E1 a E3 entregues; **a E4 É a prova de tela dela** |
+| [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | PARCIAL — E1 a E4 e E9 entregues; E5 a E8 abertas |
+| [CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | PARCIAL — E1 a E3 entregues; **a E4 É a prova de tela dela** |
 | [JANELA-FIEL-01](2026-07-31-JANELA-FIEL-01-a-janela-que-para-de-reconciliar-e-o-botao-morto-no-pacote.md) | PARCIAL — E1 a E4 entregues; E5 e E6 abertas |
 | [DOC-VERDADE-02](2026-07-31-DOC-VERDADE-02-a-recontagem-e-as-quatro-mentiras-novas.md) | PARCIAL — E10 entregue (portão); E1 a E9 abertas |
 | [RADAR-01](2026-07-31-RADAR-01-as-tres-superficies-que-ninguem-nunca-olhou.md) | PARCIAL — E4 entregue (portão); E1 a E3 e o D1 abertos |

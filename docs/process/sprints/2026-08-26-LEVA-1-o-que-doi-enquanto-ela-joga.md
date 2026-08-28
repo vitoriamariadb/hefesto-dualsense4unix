@@ -46,9 +46,8 @@ cria:
   - docs/process/sprints/2026-08-26-LEVA-1-o-que-doi-enquanto-ela-joga.md
 bancada: false
 depois_de:
+  # A faxina de 27/08 apagou daqui: CALIBRAR-AS-ENTRADAS-01, CONEXOES-MAPA-2D-01, NAVEGACAO-UM-CONTROLE-SO-01, VPAD-SUSPENSO-MORTO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - BORDA-DE-QUEDA-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - CALIBRAR-AS-ENTRADAS-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - CONEXOES-MAPA-2D-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - COOP-NA-CONEXAO-NATIVA-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - COOP-QUE-NAO-DESMONTA-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - EMULACAO-UM-DONO-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
@@ -60,10 +59,8 @@ depois_de:
   - LEVA-4  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - LEVA-DE-BACKGROUND-01  # leva desta mesma encomenda: correm em SÉRIE, nunca em paralelo
   - MOTOR-DO-ARRANJO-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - NAVEGACAO-UM-CONTROLE-SO-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - QUATRO-MICROFONES-01  # já fechou: a posse chegou antes, e a serialização é nominal
   - RESERVA-DO-POSTO-01  # já fechou: a posse chegou antes, e a serialização é nominal
-  - VPAD-SUSPENSO-MORTO-01  # já fechou: a posse chegou antes, e a serialização é nominal
 nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - scripts/portoes.sh

@@ -444,7 +444,7 @@ Carimbo de tela (D3): **[COSMÉTICA]** = pré-aprovada, foto depois em lote ·
   está registrada: **esmaecer, sem rótulo**, para o cabeçalho não pular de
   altura.
 * **Escopo travado:** só a Sistema. A
-  [MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md)
+  [MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
   já classificou esta aba (*"Sistema | daemon_actions.py | NÃO"*); as outras
   cinco esperam a **D-2** dela.
 * **A mordida:** teste que troca para `daemon_box` e exige `set_alvo_inativo(True)`.
@@ -687,7 +687,7 @@ o transporte ou cala. **Não invente "funciona nos dois".**
 | [TRES-CONTROLES-01](2026-08-10-TRES-CONTROLES-01-o-espelho-do-espelho-no-pragmata.md) | **CONCLUÍDA em código** (`PAR_STEAM_INPUT_VIRTUAL` em `daemon/launch_env.py:140`), aguardando só ela contar os controles no Pragmata | **Não** — o que falta é a contagem dela, não código |
 
 **Também tocadas, e que NÃO morrem aqui:**
-[MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md)
+[MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
 (T-05 fecha **uma** das seis abas; a D-2 segue dela),
 [MESA-CHEIA-11](2026-08-13-MESA-CHEIA-11-a-janela-conta-um-quando-sao-quatro.md),
 [ELO-MUDO-01](2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) (T-04 é um

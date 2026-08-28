@@ -33,7 +33,7 @@ Documento: [EMPATE-01](2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e
 |---|---|
 | [STATUS-SIMETRIA-02](2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md) | os cinco defeitos que ela nomeou olhando a aba Status: títulos com número de linhas diferente, touchpad sem bloco próprio, botões mal distribuídos, vazios, e falta o som |
 | [MIC-PRESENTE-01](2026-07-27-MIC-PRESENTE-01-o-microfone-nao-pode-sumir-da-faixa.md) | o microfone some da faixa e faz o layout inteiro pular. Entra junto com a de cima, porque muda a distribuição |
-| [LIGHTBAR-JOGADOR-01](2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | a aba mostra o rascunho, não o que está aplicado; o jogador vira protagonista; o painel das cinco luzes sai |
+| [LIGHTBAR-JOGADOR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | a aba mostra o rascunho, não o que está aplicado; o jogador vira protagonista; o painel das cinco luzes sai |
 | [PALAVRA-01](2026-07-27-PALAVRA-01-a-janela-fala-a-lingua-de-quem-joga.md) | 24 textos em minúscula, jargão, 188 controles sem tooltip, e o DSX sai do nome da aba |
 
 ## O que ficou incompleto dentro do que foi entregue

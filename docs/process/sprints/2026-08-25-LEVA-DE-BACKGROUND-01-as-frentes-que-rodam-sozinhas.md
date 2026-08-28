@@ -38,11 +38,11 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/arranjo_da_mesa.py
   - tests/conftest.py
 depois_de:
+  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - ESCONDE-SO-O-HIDRAW-01
   # A NAVEGACAO-UM-CONTROLE-SO-01 também reivindica
   # `mouse_actions.py` (a frente E2 dela, que JÁ FECHOU no merge da
   # madrugada). Serializar é honesto: ela chegou antes.
-  - NAVEGACAO-UM-CONTROLE-SO-01
 ---
 
 # LEVA DE BACKGROUND · 01 — as frentes que rodam sozinhas

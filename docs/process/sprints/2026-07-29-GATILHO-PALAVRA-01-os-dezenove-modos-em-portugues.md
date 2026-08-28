@@ -24,7 +24,7 @@
   que definiu a grade de três colunas onde estes nomes vivem, e
   [INDICE-o-que-ficou-pelo-caminho](2026-07-27-INDICE-o-que-ficou-pelo-caminho.md)
 - **Cuidado de ordem, com a
-  [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md):** a
+  [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md):** a
   entrega E8 daquela sprint propõe fazer `_WRAP_COLUNAS`
   (`app/widgets/segmented_selector.py:33`) deixar de ser 3 fixo e depender da
   largura recebida — a MESMA grade que dá o limite de 22 caracteres medido aqui.

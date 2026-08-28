@@ -23,7 +23,7 @@
     alcance, ou ligar o encanamento) porque não sabia qual delas era a dela.
     Esta sprint executa a terceira, que só ela podia escolher: **assumir o que
     o produto já é**;
-  - [JANELA-QUE-RESPIRA-01](2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md)
+  - [JANELA-QUE-RESPIRA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
     — mediu que `scripts/i18n_extract.sh` **destrói** tradução manual ao
     reextrair. É defeito do encanamento, continua **ABERTO**, e continua valendo:
     esta decisão não o cura nem o dispensa;
@@ -248,7 +248,7 @@ que anuncia esta decisão.
 ## O que fica ABERTO
 
 1. **`scripts/i18n_extract.sh` destrói tradução manual** — medido na
-   [JANELA-QUE-RESPIRA-01](2026-08-01-JANELA-QUE-RESPIRA-01-os-consertos-de-largura-que-a-casa-ja-tinha-decidido.md):
+   [JANELA-QUE-RESPIRA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md):
    rodar o caminho documentado custou 37 traduções, das quais 34 eram de levas
    anteriores. **Continua aberto.** Esta decisão não o cura, e é bom que se diga:
    se um dia o encanamento for ligado às telas, este defeito é o primeiro

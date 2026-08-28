@@ -28,6 +28,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
   - install.sh
 depois_de:
+  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
   - BORDA-DE-QUEDA-01
   - EMULACAO-UM-DONO-SO-01
@@ -35,7 +36,6 @@ depois_de:
   # A NAVEGACAO-UM-CONTROLE-SO-01 reivindica a PASTA
   # `daemon/subsystems/` inteira; a colisão com `coop.py` é real e fica
   # serializada, como já fazem as outras quatro sprints de co-op.
-  - NAVEGACAO-UM-CONTROLE-SO-01
 bancada: true
 ---
 

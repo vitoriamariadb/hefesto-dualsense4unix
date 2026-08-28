@@ -73,7 +73,7 @@ bandeja.
 Nenhuma bloqueia a leva; todas melhoram o que a aba consegue afirmar.
 
 1. ~~Cor do plástico por rádio nesta bancada~~ — **MEDIDA em 23/08 e o aparelho recusa.** Ver o item 1 acima e a nota nova em
-   [UNIDADE-COR-01](../2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md).
+   [UNIDADE-COR-01](../2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
 2. O modelo do 8BitDo desta casa: SN30 Pro ou SN30 Pro+.
 3. Default da Steam para `SteamController_SwitchSupport` quando a chave não existe.
 4. Se o Hefesto enxerga o controle em modo D-input.

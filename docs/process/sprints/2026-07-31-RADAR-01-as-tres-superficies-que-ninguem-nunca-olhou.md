@@ -19,9 +19,9 @@
   achou três superfícies de interface fora de todo levantamento
 - **Sucede:** as cinco sprints de janela —
   [PALAVRA-01](2026-07-27-PALAVRA-01-a-janela-fala-a-lingua-de-quem-joga.md),
-  [LEGIBILIDADE-01](2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md),
+  [LEGIBILIDADE-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
   [VÃO-01](2026-07-27-VAO-01-a-tela-sobra-e-o-conteudo-aperta.md),
-  [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) e
+  [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) e
   [STATUS-SIMETRIA-02](2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md).
   As cinco mediram a MESMA superfície: a janela GTK. Esta pega as outras três
 - **Relacionada:**

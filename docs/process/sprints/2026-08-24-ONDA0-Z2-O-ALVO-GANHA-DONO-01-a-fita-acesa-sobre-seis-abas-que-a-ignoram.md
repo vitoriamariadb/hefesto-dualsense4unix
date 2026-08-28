@@ -53,7 +53,7 @@ output_target_index: None
 1. **CORREÇÃO AO BRIEFING DESTA LEVA.** Ele diz *"2 DualSense no rádio"*. Não
    há **nenhum**: o único nó de DualSense em `/sys/class/hidraw` é o vpad que o
    próprio produto cria. É a mesma correção que a
-   [LIGHTBAR-COR-DE-CADA-UM-01](2026-08-24-LIGHTBAR-COR-DE-CADA-UM-01-a-aba-mais-vazia-e-o-aceso-agora-que-nao-volta.md)
+   [LIGHTBAR-COR-DE-CADA-UM-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
    registrou em 23/08. **Nenhum número desta sprint sobre 2 ou 4 controles é
    medição viva** — o que precisa de mesa cheia está marcado no §8/bloco 3.
 2. **A F6/Z5 está viva nesta janela.** O topo do `state_full` diz `connected` e
@@ -788,7 +788,7 @@ scripts/gui-captura/retratar_abas.py     # e o lote de fotos vai ao olho dela
   esmaecidas porque hoje não leem. Ligar um leitor é de cada onda, com o §5 na
   mão.
 - **O broadcast do backend** (`core/backend_pydualsense.py`) — é a **Z3**, e a
-  [F4](2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md) já
+  [F4](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) já
   tem 14 mordidas prontas sobre ele.
 - **A granularidade por peça da vibração** — é a **D-G**, ramo *"depois da
   0.9.5"*.

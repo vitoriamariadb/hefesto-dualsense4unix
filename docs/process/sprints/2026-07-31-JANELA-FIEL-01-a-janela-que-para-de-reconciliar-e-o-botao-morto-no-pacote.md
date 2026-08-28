@@ -28,8 +28,8 @@
   [PERFIL-SALVA-TUDO-01](2026-07-29-PERFIL-SALVA-TUDO-01-salvei-todas-as-abas-e-so-parte-ficou.md)
   (que escreveu o `to_profile` onde a E4 mora)
 - **Não confundir com**
-  [CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md)
-  nem com [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md):
+  [CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
+  nem com [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md):
   aquelas duas são sobre **onde as coisas ficam na tela**. Esta é sobre **a tela
   dizer a verdade**. Nenhuma entrega daqui move um pixel de lugar
 

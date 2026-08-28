@@ -18,7 +18,7 @@
   - [PROVA-DE-TELA-01](2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md)
     — o regime de validação desta sprint. Isto é interface: foto antes e depois,
     e a palavra final é dela;
-  - [LEGIBILIDADE-01](2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md)
+  - [LEGIBILIDADE-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
     — mesma família: informação de estado do controle que ela não conseguia ler.
     Lá era tamanho de texto; aqui é contraste de widget.
 

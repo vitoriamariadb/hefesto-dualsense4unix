@@ -233,7 +233,7 @@ relatório é parte da tarefa.**
 **O defeito:** com 4 controles ela clica no chip do Jogador 2 no topo, entra
 aqui e muda máscara, modo jogo, Steam Input ou microfone. **Nada disso é do
 Jogador 2** — tudo age na mesa inteira, e o cabeçalho continua prometendo alvo.
-Já medido em [MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md),
+Já medido em [MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 que nomeia a Emulação com **NÃO** na coluna de honra ao alvo.
 **O conserto:** `set_alvo_inativo` passa a valer para a Emulação também, com o
 motivo em texto ao lado. O alvo **por jogador** de verdade é a
@@ -526,7 +526,7 @@ par de estados mente sempre para o mesmo lado: o produto acha que o vpad nunca
 está suspenso.
 **O conserto:** não se conserta daqui. Ou nasce o chamador, ou a frase sai da
 tela com nota datada. **Não deixar as duas metades vivas.** É a
-[VPAD-SUSPENSO-MORTO-01](2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md),
+[VPAD-SUSPENSO-MORTO-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
 ABERTA, dona declarada = **Onda 12, balde do daemon**.
 **Custo:** depende da sprint. Só o lado da tela: ~6 linhas, 30min.
 **Tela:** **estrutural**. Precisa do olho dela.
@@ -611,7 +611,7 @@ mordida.**
 | [BT-E-VPAD-01](2026-08-01-BT-E-VPAD-01-o-que-so-existe-no-cabo-e-os-seis-furos.md) | O furo 1 (o nome do vpad) é a origem do E11 | **Não** — os furos de rádio (o 5, a taxa do Edge) ficam na trilha dela |
 | [CONTAGEM-E-COOP-01](2026-07-31-CONTAGEM-E-COOP-01-o-aviso-antes-de-derrubar-tres-jogadores.md) | O aviso antes de derrubar jogadores — é a forma do E6 com a mesa cheia | **Não** — a metade de 4 controles espera a pergunta de BT nº 4 |
 | [EMULACAO-NO-JOGO-01](2026-07-29-EMULACAO-NO-JOGO-01-o-r1-troca-de-app-em-vez-de-jogar.md) | O modo jogo e a suspensão de mouse/teclado; alimenta E14 | **Não** — fecha com a Onda 7 (Navegação) |
-| [MESA-CHEIA-06](2026-08-13-MESA-CHEIA-06-o-portao-contra-a-marca-que-mente.md) | O portão contra a marca que mente — precedente direto do E5 e do E8 | **Sim**, se a Z6 entregar o portão que olha a tela |
+| [MESA-CHEIA-06](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | O portão contra a marca que mente — precedente direto do E5 e do E8 | **Sim**, se a Z6 entregar o portão que olha a tela |
 | [NO-MEU-FUNCIONA-01](2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) | A forma do vício de bancada; o E7 é a instância desta aba, e ela já foi **em parte curada** em 23/08 | **Não** — cobre cinco abas; aqui morre só a parte da Steam |
 
 **Duas que o briefing desta sprint listava e que o
@@ -627,9 +627,9 @@ esta sprint só toma a fatia de GUI:
   política de privacidade que ela pede não se decide numa sprint de aba.
 
 Relacionadas e **não** absorvidas:
-[VPAD-SUSPENSO-MORTO-01](2026-08-22-VPAD-SUSPENSO-MORTO-01-metade-da-cura-esta-ligada.md) (E15),
+[VPAD-SUSPENSO-MORTO-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) (E15),
 [MASCARA-POR-JOGADOR-01](2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md),
-[MESA-CHEIA-10](2026-08-13-MESA-CHEIA-10-a-fita-que-nao-sabe-em-que-aba-esta.md) (E2),
+[MESA-CHEIA-10](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) (E2),
 [A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01](2026-08-16-A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01-o-jogo-nao-enxerga-e-a-culpa-nao-e-da-pessoa.md),
 [MASCARA-QUE-GRUDA-01](2026-08-22-MASCARA-QUE-GRUDA-01-quatro-perfis-dela-pedem-xbox-e-agora-isso-fica.md),
 [STEAM-INPUT-01](2026-07-26-STEAM-INPUT-01-ela-nunca-mais-precisa-decidir.md),

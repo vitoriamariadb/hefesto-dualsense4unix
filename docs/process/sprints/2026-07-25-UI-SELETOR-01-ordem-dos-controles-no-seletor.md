@@ -2,7 +2,7 @@
 
 **Status:** **ENTREGUE EM CÓDIGO — AGUARDANDO A PALAVRA DELA**, remarcada em
 09/08/2026, e **absorvida pela
-[PLAYER-01](2026-07-25-PLAYER-01-um-numero-de-jogador.md)**: a ordem dos chips
+[PLAYER-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)**: a ordem dos chips
 passou a ser a do número exibido em `14cd31b` (25/07/2026). **Rótulo anterior:
 ABERTA**, preservado aqui. Ver a nota datada no fim.
 **O que falta ela validar, em uma linha:** ligar quatro controles em qualquer
@@ -74,7 +74,7 @@ justificou o conserto, e é por ele que se entende a ordenação de hoje.
 
 **O que está de pé — GRAU: MEDIDO em 09/08/2026 contra a árvore de hoje.** Esta
 sprint não ganhou código próprio: ela foi **absorvida** pela
-[PLAYER-01](2026-07-25-PLAYER-01-um-numero-de-jogador.md), que resolveu o
+[PLAYER-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md), que resolveu o
 número e, com ele, a ordem.
 
 | o que a sprint pedia | onde está hoje |

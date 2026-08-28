@@ -23,8 +23,7 @@ nao_toca:
   - docs/data/mapa-controles.csv
   - GUIA-RADIO-DA-SALA.md
 depois_de:
-  - PORTAS-DA-CASA-01
-  - CONEXOES-MAPA-2D-01
+  # A faxina de 27/08 apagou daqui: PORTAS-DA-CASA-01, CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
 bancada: false
 ---
 
@@ -79,7 +78,7 @@ Frente B da leva Configurações. Só DualSense (escopo do MVP, decisão dela de
 - **Não mede Bluetooth.** Nenhuma ordem afirma ganho de rádio. As medições que
   fechariam os `derivado` estão na §9, com comando pronto, e são DELA.
 - **Não conserta `vizinhancas_apertadas`** — isso é PORTA-03, de
-  [PORTAS-DA-CASA-01](2026-08-24-PORTAS-DA-CASA-01-o-produto-sabe-onde-cada-radio-mora-e-nao-diz.md).
+  [PORTAS-DA-CASA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
   Esta sprint consome o resultado. Ver a colisão na §11.
 - **Não toca o medidor de fatias** (`radio_da_mesa.py`) nem a seção Desempenho —
   é a Frente C. O MODELO de ordem é compartilhado; as REGRAS têm dono (§5.4).

@@ -20,7 +20,7 @@
   (a `main` local que aponta para o repositório de outra pessoa) e
   [PROVA-DE-TELA-01](2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md)
 - **Rodada:** faz parte da leva de sprints de 31/07, junto com a
-  [CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md)
+  [CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
 
 ## Antes de tudo: o motor está bom, e isso muda a leitura das entregas
 

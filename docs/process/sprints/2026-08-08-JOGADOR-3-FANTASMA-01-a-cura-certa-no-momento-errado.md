@@ -11,9 +11,8 @@ cria:
 bancada: false
 nao_toca:
 depois_de:
-  - VPAD-SUSPENSO-MORTO-01
+  # A faxina de 27/08 apagou daqui: VPAD-SUSPENSO-MORTO-01, NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
-  - NAVEGACAO-UM-CONTROLE-SO-01
 ---
 
 # JOGADOR-3-FANTASMA-01 — a cura certa no momento errado

@@ -37,15 +37,15 @@ distintos, e o segundo é pior.**
 Três leituras do daemon vivo, com sete segundos entre elas:
 
 ```
-21:38:21  444648e64203  bat=100  status=None  usb
-21:38:29  444648e64203  bat=100  status=None  usb
-21:38:36  444648e64203  bat=100  status=None  usb
+21:38:21  444648000003  bat=100  status=None  usb
+21:38:29  444648000003  bat=100  status=None  usb
+21:38:36  444648000003  bat=100  status=None  usb
 ```
 
 E o kernel, no mesmo instante, **sabe**:
 
 ```
-/sys/class/power_supply/ps-controller-battery-44:46:48:e6:42:03/status  ->  Full
+/sys/class/power_supply/ps-controller-battery-44:46:48:00:00:03/status  ->  Full
 /sys/class/power_supply/ps-controller-battery-02:fe:00:00:00:01/status  ->  Charging
 ```
 
@@ -64,8 +64,8 @@ estado.
 ```
 02:fe:00:00:00:01   Charging   <- gamepad VIRTUAL do Hefesto
 02:fe:00:00:00:02   Charging   <- gamepad VIRTUAL do Hefesto
-44:46:48:e6:42:03   Full       <- controle dela
-d4:2f:4b:48:46:d8   Full       <- controle dela
+44:46:48:00:00:03   Full       <- controle dela
+d4:2f:4b:00:00:d8   Full       <- controle dela
 ```
 
 **Os dois `02:fe:*` são os gamepads virtuais que o próprio Hefesto cria**, e o

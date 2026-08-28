@@ -339,7 +339,7 @@ lote · **[EST]** estrutural, precisa do olho dela ANTES · **[—]** não toca 
   `core/led_control.py:147`, azul/vermelho/verde/rosa) e nenhum texto, nenhuma
   ordem e nenhuma seção muda. Foto depois, em lote
 - **A mordida:** as três já estão escritas na
-  [MESA-CHEIA-07](2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md),
+  [MESA-CHEIA-07](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md),
   §3 — identidade byte a byte contra o card, o `strict=True` do
   `zip(keys, conectados)`, e o timer novo. **Não as reescreva aqui**
 - **Trava:** a **D-1** do índice de 14/08 (a cor é a viva ou a da paleta?) é
@@ -451,7 +451,7 @@ o CSV.
 
 | sprint | o que ela contribui | morre ao fim desta? |
 |---|---|---|
-| [MESA-CHEIA-07](2026-08-13-MESA-CHEIA-07-a-decima-aba-que-ninguem-mediu.md) | a E1 (medir a aba) está feita por esta sprint; a **E2 é a T5 inteira**, com as três mordidas já escritas lá | **SIM**, quando T5 fechar |
+| [MESA-CHEIA-07](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | a E1 (medir a aba) está feita por esta sprint; a **E2 é a T5 inteira**, com as três mordidas já escritas lá | **SIM**, quando T5 fechar |
 | [PARIDADE-SONY-01](2026-08-01-PARIDADE-SONY-01-o-que-o-jogo-manda-ao-alto-falante.md) | o carimbo `audio_do_jogo` e a refutação de 02/08 (*"quem escreve os bytes de áudio é o SISTEMA, não um jogo"*), que é a raiz da T2 | **NÃO.** A E2 (replicar o áudio ao controle) continua trancada pelo portão dela, e o rádio é `não` no mapa |
 | [ESTADO-DA-NOITE-01](2026-08-10-ESTADO-DA-NOITE-01-o-que-ela-achou-com-o-controle-na-mao.md) | o PERFIL-MUDO-01 (o aviso amarelo que já está na aba) e a regra que sustenta a §3: a observação dela é fonte primária | **NÃO** — é ponto de retomada, não dívida |
 | [SENSOR-VIVO-01](2026-07-29-SENSOR-VIVO-01-touchpad-giroscopio-microfone-e-som-dentro-do-jogo.md) | as quatro medições que deram origem às linhas do giroscópio, touchpad e som; já CONCLUÍDA | **NÃO** — já morreu em 21/08 |

@@ -97,7 +97,7 @@ Não foi azar. São três buracos medidos, e os três têm o mesmo formato.
 3. **O desenho exato que você pediu para a aba Status não está escrito em lugar
    nenhum.** Medido: `grep -rn -iE "direita dos anal|desalinhamento|triangulo"
    docs/` devolve **zero** linhas. O mais próximo é um parágrafo genérico em
-   [`2026-07-25-LEGIBILIDADE-01`](2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md)
+   [`2026-07-25-LEGIBILIDADE-01`](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md)
    (linhas 116-126) que pede para *agrupar* microfone, lightbar e analógicos — e
    a madrugada fez o contrário, **separou**, mandando o microfone para o rodapé
    (`CHANGELOG.md:70-72`). A caixa 138 do checklist ficou pedindo uma coisa que o

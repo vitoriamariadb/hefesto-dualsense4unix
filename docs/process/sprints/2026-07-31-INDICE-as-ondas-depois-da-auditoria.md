@@ -100,16 +100,16 @@ Cada item aqui só vira commit com print antes e depois, pela regra da
 
 | # | Item | Sprint | O que ela precisa fazer |
 |---|---|---|---|
-| 2.1 | **Os desenhos ocuparem o vão lateral** — touchpad, lightbar, microfone e alto-falante | [CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md) | é **pedido dela de hoje, 01h34**; olhar a aba Status maximizada e dizer se o tamanho ficou bom |
-| 2.2 | **O teto elástico nas seis abas** (E4 e E5) | [LARGURA-01](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | é o *"a mesma largura em todas as abas"* dela; passar pelas nove com Ctrl+PageDown |
-| 2.3 | **O miolo do frame Estado** — a barra de bateria com 1242px para dois dígitos | [LARGURA-01/E2](2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md) | maior retorno por linha, e é a aba que ela mais olha |
+| 2.1 | **Os desenhos ocuparem o vão lateral** — touchpad, lightbar, microfone e alto-falante | [CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é **pedido dela de hoje, 01h34**; olhar a aba Status maximizada e dizer se o tamanho ficou bom |
+| 2.2 | **O teto elástico nas seis abas** (E4 e E5) | [LARGURA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | é o *"a mesma largura em todas as abas"* dela; passar pelas nove com Ctrl+PageDown |
+| 2.3 | **O miolo do frame Estado** — a barra de bateria com 1242px para dois dígitos | [LARGURA-01/E2](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | maior retorno por linha, e é a aba que ela mais olha |
 | 2.4 | **A linha `healthy` → `seeing`** | [SINAL-DE-JOGO-01](2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | **Atenção: entra SOZINHA**, com ela olhando a lightbar — a transição repinta o controle |
 | 2.5 | **O experimento do sinal de jogo** — reproduzir a queda com jogo comprovadamente vivo | [SINAL-DE-JOGO-01/E1](2026-07-31-SINAL-DE-JOGO-01-o-daemon-desiste-do-jogo-antes-do-jogo-acabar.md) | abrir um jogo e deixar rodando; **ninguém nunca mediu isso** |
 | 2.6 | **O aviso antes de derrubar o co-op** | [CONTAGEM-E-COOP-01](2026-07-31-CONTAGEM-E-COOP-01-o-aviso-antes-de-derrubar-tres-jogadores.md) | o fato já é emitido pelo daemon; falta a janela mostrar |
 | 2.7 | **O radar das outras três superfícies** — applet, bandeja, janela compacta | [RADAR-01](2026-07-31-RADAR-01-as-tres-superficies-que-ninguem-nunca-olhou.md) | olhar o applet na barra e dizer se ele contradiz a janela |
 | 2.8 | **EMPATE-01/E2** — a aba mostrar que há disputa | [EMPATE-01](2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e-o-alfabeto.md) | cinco perfis dela dizem "Sempre" e um vence sem explicação |
 | 2.9 | **PERFIL-JOGO-01** — a mais cara e a de maior impacto | [PERFIL-JOGO-01](2026-07-26-PERFIL-JOGO-01-as-configs-somem-ao-abrir-o-jogo.md) | **Atenção:** a entrega 1 (o experimento) vem antes de qualquer código, e as E3/E4 precisam ser **reescritas** contra as duas portas |
-| 2.10 | **LIGHTBAR-JOGADOR-01** — as seis entregas | [LIGHTBAR-JOGADOR-01](2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | só **depois** da 2.9: as duas mexem em quem manda na cor |
+| 2.10 | **LIGHTBAR-JOGADOR-01** — as seis entregas | [LIGHTBAR-JOGADOR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | só **depois** da 2.9: as duas mexem em quem manda na cor |
 
 > **NOTA DATADA (09/08/2026) — o item 2.6 caducou, e caducou em três minutos.**
 > A linha acima diz *"o fato já é emitido pelo daemon; falta a janela mostrar"*.

@@ -893,7 +893,7 @@ um:**
 |---|---|---|
 | **(a) não fazer** | **zero risco.** Você escolhe a cor de cada controle na interface **uma vez**, e ela fica salva por MAC (D-16 já decidiu que é da PEÇA) | a tela pinta certo hoje à noite, e nunca escreve nada no aparelho |
 | **(b) fazer POR CABO, um de cada vez** | é o **caminho provado**, e ainda assim é escrita na família de fábrica. Um controle no cabo por vez, com o daemon parado ou pelo broker | a cor sai do próprio aparelho, sem você digitar nada — inclusive para controle que você comprar depois |
-| ~~**(c) tentar POR RÁDIO**~~ **MEDIDO em 23/08: o aparelho recusa** | O `SET_REPORT` sai inteiro no canal L2CAP e o CONTROLE responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense, com e sem CRC | **nada — não funciona.** Ver [UNIDADE-COR-01](2026-08-15-UNIDADE-COR-01-o-controle-sabe-de-que-cor-ele-e.md) |
+| ~~**(c) tentar POR RÁDIO**~~ **MEDIDO em 23/08: o aparelho recusa** | O `SET_REPORT` sai inteiro no canal L2CAP e o CONTROLE responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense, com e sem CRC | **nada — não funciona.** Ver [UNIDADE-COR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) |
 
 **A minha recomendação é (a) agora e (b) depois**, nesta ordem e por este
 motivo: (a) entrega a tela hoje e não toca no aparelho; (b) vira melhoria

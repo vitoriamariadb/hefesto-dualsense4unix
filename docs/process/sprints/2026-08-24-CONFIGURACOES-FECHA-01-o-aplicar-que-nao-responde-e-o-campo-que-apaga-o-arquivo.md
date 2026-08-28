@@ -637,9 +637,9 @@ Quem for medir mesa cheia, meça de novo.
 | [CONFIG-09](2026-08-21-ABA-CONFIGURACOES/CONFIG-09-esta-tudo-certo.md) | o exame da mesa, a fonte única e a doutrina de cor. É o hospedeiro da T3 — e a proibição *"o exame não roda na montagem"* continua valendo palavra por palavra | **sim** |
 | [DECISÕES-ABERTAS](2026-08-21-ABA-CONFIGURACOES/DECISOES-ABERTAS.md) | D-A1 ("não sei" é resposta, feito em `68befc9`) e D-A4 (diferida). O que resta em aberto vira D-M (T7) | **sim** |
 | [ELO-MUDO-01](2026-08-22-ELO-MUDO-01-o-ok-que-nao-sabe-dizer-nao.md) | o contrato "a ponte sabe dizer não". **Esta aba já o implementa** (2.7) e vira o molde da Z1 para as outras sete | **não** — vive na Z1 |
-| [CENTRAL-SEM-TELA-01](2026-08-22-CENTRAL-SEM-TELA-01-o-censo-e-o-apelido-nasceram-sem-porta.md) | o censo dos rádios e o apelido do dongle, que a seção "A mesa" consome. O apelido tem porta hoje; o que falta é o consumidor de `RadioDeclarado.tipo` fora da própria seção (T1) | **sim** |
-| [PORTAS-DA-CASA-01](2026-08-24-PORTAS-DA-CASA-01-o-produto-sabe-onde-cada-radio-mora-e-nao-diz.md) | "o produto sabe onde cada rádio mora e não diz" — é a mesma família da T3: dado calculado, tela calada | **não** — a metade fora desta aba fica com ela |
-| [CARD-OCUPA-01](2026-07-31-CARD-OCUPA-01-o-desenho-ocupa-o-vao-que-o-teto-devolveu.md) | o precedente de vão vertical devolvido pelo teto. É o que a T12 tem de não repetir: `moldura_de_secao` já fixa `vexpand=False` por causa exatamente disto (`moldura.py:87`) | **não** — é referência, não pendência |
+| [CENTRAL-SEM-TELA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | o censo dos rádios e o apelido do dongle, que a seção "A mesa" consome. O apelido tem porta hoje; o que falta é o consumidor de `RadioDeclarado.tipo` fora da própria seção (T1) | **sim** |
+| [PORTAS-DA-CASA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | "o produto sabe onde cada rádio mora e não diz" — é a mesma família da T3: dado calculado, tela calada | **não** — a metade fora desta aba fica com ela |
+| [CARD-OCUPA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | o precedente de vão vertical devolvido pelo teto. É o que a T12 tem de não repetir: `moldura_de_secao` já fixa `vexpand=False` por causa exatamente disto (`moldura.py:87`) | **não** — é referência, não pendência |
 
 ---
 

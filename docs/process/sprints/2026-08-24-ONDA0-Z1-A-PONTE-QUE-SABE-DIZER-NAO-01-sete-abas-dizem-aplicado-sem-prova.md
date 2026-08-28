@@ -337,13 +337,13 @@ vocabulário desta frente em T6/T7). O que muda em cada uma:
 | onda | o que ela NÃO pode escrever antes desta frente |
 |---|---|
 | 1 · [Configurações](2026-08-24-CONFIGURACOES-FECHA-01-o-aplicar-que-nao-responde-e-o-campo-que-apaga-o-arquivo.md) | a frase do rodapé sobre a declaração gravada precisa saber o que o daemon descartou |
-| 2 · [Início](2026-08-24-INICIO-NAO-MENTE-01-a-ponte-que-nao-acende-e-a-escolha-que-ela-nao-fez.md) | o toast da troca de modo, que hoje comemora a recusa do R-04 (2.5a) |
+| 2 · [Início](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | o toast da troca de modo, que hoje comemora a recusa do R-04 (2.5a) |
 | 3 · [Status](2026-08-24-STATUS-DIZ-O-QUE-VE-01-o-hertz-que-sumiu-e-os-cards-fora-de-ordem.md) | o estado do controle deslizante de microfone com `sem_fonte` |
 | 4 · [No jogo](2026-08-24-NO-JOGO-SEM-FALSO-VERDE-01-a-palavra-verde-que-nao-prova-que-chegou.md) | a palavra verde inteira — o nome da onda É este defeito |
 | 5 · [Emulação](2026-08-24-EMULACAO-UM-DONO-SO-01-a-mascara-com-cinco-donos-e-o-verde-que-nao-tem-alvo.md) | "o verde que não tem alvo": o `_res` descartado de `:1313` |
-| 6 · [Perfis](2026-08-24-PERFIS-ABRE-O-QUE-GUARDA-01-o-perfil-removido-que-ressuscita-e-a-ponte-que-nao-aparece.md) | o toast de ativação "reaplicado no controle" sem saber em quais |
-| 8 · [Gatilhos](2026-08-24-GATILHOS-APLICADO-COM-PROVA-01-dois-perfis-dela-nao-abrem-e-a-tela-diz-aplicado.md) | **o nome da onda é o aceite desta frente** — é a mais dura das nove |
-| 9 · [Rumble](2026-08-24-RUMBLE-POR-JOGADOR-01-grava-na-peca-e-manda-na-mesa.md) | a política EFETIVA contra a pedida, e a recusa do Modo Nativo |
+| 6 · [Perfis](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | o toast de ativação "reaplicado no controle" sem saber em quais |
+| 8 · [Gatilhos](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | **o nome da onda é o aceite desta frente** — é a mais dura das nove |
+| 9 · [Rumble](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | a política EFETIVA contra a pedida, e a recusa do Modo Nativo |
 | 11 · [Sistema](2026-08-24-SISTEMA-O-VIGIA-VIVO-01-a-rede-de-seguranca-parada-e-o-conserto-que-nao-conserta.md) | o toast do Proton (2.5b) e o do vigia |
 
 **A conta do retrabalho evitado, e ela é o motivo da D1 dela.** Cada uma dessas

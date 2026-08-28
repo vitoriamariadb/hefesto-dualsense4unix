@@ -141,7 +141,7 @@ nome sem ser ele mesmo**:
 
 | documento | linhas | quem o citava antes desta seção |
 |---|---|---|
-| [ONDE A COR MORA-01](2026-08-15-ONDE-A-COR-MORA-01-a-borda-diz-quem-e-e-o-anel-diz-o-que-esta-escolhido.md) | 393 | **ninguém** |
+| [ONDE A COR MORA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | 393 | **ninguém** |
 | [NAVEGA-PELO-CONTROLE-01](2026-08-15-NAVEGA-PELO-CONTROLE-01-quem-tem-o-foco-decide-o-que-o-R1-faz.md) | 564 | **ninguém** |
 | [NAVEGAR ESTA JANELA-01](2026-08-15-NAVEGAR-ESTA-JANELA-01-a-decisao-ja-esta-tomada-e-o-dado-ja-esta-no-fio.md) | 410 | **só a página irmã** (NAVEGA-PELO-CONTROLE-01) — nenhum índice |
 | [MÁSCARA-POR-JOGADOR-01](2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | 474 | três páginas de `docs/process/`, e **índice nenhum** |

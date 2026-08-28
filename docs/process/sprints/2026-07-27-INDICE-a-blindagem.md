@@ -83,7 +83,7 @@ defeitos nomeados. Cada um virou documento:
 | Sprint | O que ataca |
 |---|---|
 | [**EMPATE-01**](2026-07-27-EMPATE-01-tres-perfis-empatados-e-quem-ganha-e-o-alfabeto.md) | **CRÍTICA** — o controle sem cor: `fallback` cinza vencendo `vitoria` pelo alfabeto, e o cinza é semente do projeto |
-| [**LIGHTBAR-JOGADOR-01**](2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md) | a aba mostra o rascunho e não o que está aplicado; o jogador vira protagonista |
+| [**LIGHTBAR-JOGADOR-01**](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) | a aba mostra o rascunho e não o que está aplicado; o jogador vira protagonista |
 | [**PALAVRA-01**](2026-07-27-PALAVRA-01-a-janela-fala-a-lingua-de-quem-joga.md) | 24 textos em minúscula, jargão, 188 controles sem tooltip, e o DSX sai do nome da aba |
 | [**STATUS-SIMETRIA-02**](2026-07-27-STATUS-SIMETRIA-02-distanciar-nao-e-organizar.md) | *"distanciar não é organizar"* — títulos com número de linhas diferente, touchpad sem bloco próprio, vazios |
 | [**MIC-PRESENTE-01**](2026-07-27-MIC-PRESENTE-01-o-microfone-nao-pode-sumir-da-faixa.md) | o microfone some da faixa e faz o layout inteiro pular |

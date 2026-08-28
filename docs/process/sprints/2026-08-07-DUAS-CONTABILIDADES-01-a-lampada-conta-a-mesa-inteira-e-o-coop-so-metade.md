@@ -32,7 +32,7 @@
   - [IDENTIDADE-DUPLA-01](2026-08-04-IDENTIDADE-DUPLA-01-o-8bitdo-ocupa-dois-lugares-na-fila.md)
     — mede o **mesmo fenômeno pelo outro lado**: o mesmo plástico com dois
     endereços. O protocolo do cabo, aqui embaixo, encosta nele de graça;
-  - [PLAYER-01](2026-07-25-PLAYER-01-um-numero-de-jogador.md) e
+  - [PLAYER-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) e
     [IDENT-01](2026-07-25-IDENT-01-um-controle-duas-identidades.md)
     — as duas que fundaram a fila de identidade e o número único. O desenho que
     ela descreve na pergunta é, em boa medida, o que essas duas entregaram;

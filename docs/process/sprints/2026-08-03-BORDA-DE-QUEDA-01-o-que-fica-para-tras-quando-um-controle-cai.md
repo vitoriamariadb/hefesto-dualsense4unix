@@ -11,8 +11,8 @@ cria:
 bancada: false
 nao_toca:
 depois_de:
+  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
-  - NAVEGACAO-UM-CONTROLE-SO-01
 ---
 
 # BORDA-DE-QUEDA-01 — o que fica para trás quando um controle cai

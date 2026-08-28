@@ -33,7 +33,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - docs/data/mapa-controles.csv
 depois_de:
-  - CONEXOES-MAPA-2D-01
+  # A faxina de 27/08 apagou daqui: CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
 bancada: false
 ---
 

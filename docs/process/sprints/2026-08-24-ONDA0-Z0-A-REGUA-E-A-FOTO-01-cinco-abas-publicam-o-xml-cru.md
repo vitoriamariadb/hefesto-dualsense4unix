@@ -689,4 +689,4 @@ segunda de Perfis e as da mesa vazia, num pedido só, com a pergunta explícita 
 - [COMO-REGER-AGENTES](../COMO-REGER-AGENTES.md) — R1 a R4 e as armadilhas A1 a A6; esta sprint é a cura da A1.
 - [COMO-OLHAR-A-TELA](../COMO-OLHAR-A-TELA.md) — como fotografar e medir sem sofrer.
 - [COMO-EXECUTAR da aba Configurações](2026-08-21-ABA-CONFIGURACOES/COMO-EXECUTAR.md) — o molde de receita desta casa.
-- [LIGHTBAR-COR-DE-CADA-UM-01](2026-08-24-LIGHTBAR-COR-DE-CADA-UM-01-a-aba-mais-vazia-e-o-aceso-agora-que-nao-volta.md), [SISTEMA-O-VIGIA-VIVO-01](2026-08-24-SISTEMA-O-VIGIA-VIVO-01-a-rede-de-seguranca-parada-e-o-conserto-que-nao-conserta.md), [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-24-PERFIS-ABRE-O-QUE-GUARDA-01-o-perfil-removido-que-ressuscita-e-a-ponte-que-nao-aparece.md) — três das cinco ondas que declaram depender desta frente.
+- [LIGHTBAR-COR-DE-CADA-UM-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md), [SISTEMA-O-VIGIA-VIVO-01](2026-08-24-SISTEMA-O-VIGIA-VIVO-01-a-rede-de-seguranca-parada-e-o-conserto-que-nao-conserta.md), [PERFIS-ABRE-O-QUE-GUARDA-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) — três das cinco ondas que declaram depender desta frente.
