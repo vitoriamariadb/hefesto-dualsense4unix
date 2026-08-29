@@ -139,6 +139,16 @@ Nenhum deles foi procurado: apareceram porque a aba obrigou a olhar.
    fora. Passthrough somente-leitura, mais um carimbo no rodapé para o caso de
    salvar por cima de OUTRO perfil, mais a regra de que quem estreia nasce sem
    carimbo (o "Duplicar" herdava, e o gesto seguinte é repontar a cópia).
+   > **Nota de 28/08/2026 — a cura pegou pela METADE.** O passthrough é uma
+   > FOTOGRAFIA tirada quando a janela abre, e quem carimba é o daemon,
+   > escrevendo direto no arquivo. Carimbo nascido DEPOIS dessa fotografia
+   > seguia morrendo no "Salvar" seguinte da aba Perfis, que só perguntava ao
+   > disco quando o perfil estreava. Medido no histórico dela: o Sackboy foi
+   > carimbado em 26/08 às 03:49:47 (`origem=ponte_confirmada` no journal) e
+   > apagado às 03:54:01 — 1238 B com `ponte`, 1053 B sem. O rodapé nunca teve
+   > o buraco: lá o degrau de disco vem de um `load_all_profiles()` fresco.
+   > Fechado pela PONTE-SOBREVIVE-A-CORRIDA-01, com a escada dos dois botões
+   > virando função de um dono só (`profile_writer.carimbo_que_o_save_leva`).
 2. **O gate do microfone era por SEÇÃO e devia ser por CAMPO** (`d0e7a0e`).
    Mexer no volume levava junto um flag de botão de mic que nenhuma superfície
    escreve — viajava o default de fábrica, e do outro lado ele derrubava calado

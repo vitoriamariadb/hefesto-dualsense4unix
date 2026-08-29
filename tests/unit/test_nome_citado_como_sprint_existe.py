@@ -115,9 +115,42 @@ def test_o_registro_de_divergencias_existe():
     )
 
 
+#: OS MANIFESTOS DE CORTE — a terceira fonte de nome legítimo (29/08/2026).
+#:
+#: Esta casa PODA sprints, e a poda é decisão dela: a faxina de 27/08 apagou 28,
+#: e o corte do clean-room de 29/08 apagou 3. Quando isso acontece, o nome
+#: continua sendo citado — por retratos do dia, por índices, por estudos que
+#: contam o que se pensava naquele dia. E histórico NÃO se reescreve: é regra
+#: escrita no `CLEAN-ROOM.md`.
+#:
+#: Sem esta fonte, toda poda futura acende este portão em vermelho, e a única
+#: saída seria mentir sobre o passado ou apagar o registro. Foi o que aconteceu
+#: com `UNIDADE-COR-01`, citada por um retrato de 15/08 e apagada em 27/08.
+#:
+#: **NÃO AFROUXA**, e é por isso que a régua é o MANIFESTO e não o nome solto:
+#: o manifesto é o documento que diz *o que a sprint pedia* e *quem tomou o
+#: lugar dela*. Um nome só entra por aqui se alguém escreveu para onde ele foi.
+#: Nome inventado, que nunca teve arquivo nem manifesto, continua reprovando.
+_SUFIXO_DE_MANIFESTO = "-o-que-saiu-e-por-que.md"
+
+
+def _nomes_sepultados_em_manifesto() -> set[str]:
+    """Os nomes que um manifesto de corte declara ter apagado, com destino."""
+    achados: set[str] = set()
+    for manifesto in (_raiz() / "docs/process/sprints").glob(f"*{_SUFIXO_DE_MANIFESTO}"):
+        texto = manifesto.read_text(encoding="utf-8", errors="replace")
+        for nome in re.findall(r"\b([A-ZÁÉÍÓÚÂÊÔÃÕÇ][A-ZÁÉÍÓÚÂÊÔÃÕÇ0-9-]{3,}-\d{2})\b", texto):
+            achados.add(nome.upper())
+    return achados
+
+
 def test_todo_nome_citado_como_documento_existe():
     """Nenhuma citação de 'sprint X' ou 'estudo X' pode apontar para o nada."""
-    conhecidos = _nomes_com_arquivo() | _nomes_registrados_como_divergencia()
+    conhecidos = (
+        _nomes_com_arquivo()
+        | _nomes_registrados_como_divergencia()
+        | _nomes_sepultados_em_manifesto()
+    )
     violacoes: list[str] = []
 
     for doc in (_raiz() / "docs").rglob("*.md"):
@@ -137,8 +170,10 @@ def test_todo_nome_citado_como_documento_existe():
     assert not violacoes, (
         "nome citado como sprint ou estudo, e não existe arquivo nem entrada em "
         f"{REGISTRO}.\n"
-        "Duas saídas: escreva o documento, ou registre como divergência nomeada "
-        "e cite dizendo que é.\n" + "\n".join(sorted(set(violacoes))[:25])
+        "Três saídas: escreva o documento; registre como divergência nomeada e\n"
+        "cite dizendo que é; ou, se a sprint foi PODADA, declare-a no manifesto\n"
+        "do corte (`*-o-que-saiu-e-por-que.md`) dizendo o que ela pedia e quem\n"
+        "tomou o lugar dela.\n" + "\n".join(sorted(set(violacoes))[:25])
     )
 
 
