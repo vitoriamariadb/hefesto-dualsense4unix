@@ -16,6 +16,32 @@
 - **Reordena:** CR-01 a CR-06, que estão fora de escopo por decisão dela desde
   25/07 (*"essas não faremos hoje"*), mantida em 26, 29 e 30/07
 
+> **LÁPIDE DATADA — 29/08/2026. Metade desta sprint caducou.** Ela mandou cortar
+> a corrente do clean-room: **CR-03, CR-04 e CR-06 saíram do disco**
+> (`D-A-CORRENTE-DO-CLEAN-ROOM-SAI`, `docs/data/decisoes-dela.csv`). Com elas
+> saem a **E3** (a bancada), a **E4** (a parte dela) e a pergunta 1 de *"Como
+> você valida"* (*reabrir o trilho CR?* — reaberto e encerrado no mesmo
+> movimento). Para onde foi cada uma, veja
+> [o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
+>
+> **A razão dela:** as três só faziam sentido juntas — sem a bancada de medir
+> (CR-03) não há efeitos da casa (CR-04), e sem eles não há o que devolver ao
+> ecossistema (CR-06). O Hefesto passa a viver com o catálogo de efeitos que já
+> tem.
+>
+> **O que continua vivo, e é por isso que este documento fica:** a medição do que
+> de DSX existe no repositório (os 133 arquivos, e o `DSX_CANNED_TRIGGER_MODES`
+> que existe só para falhar alto), a colisão literal do nome `Rigid`, e a **E5** —
+> a decisão dela sobre o `(Rigid)`, o `(Bow)` e o `(Galloping)` nos rótulos,
+> ABERTA, amarrada à
+> [GATILHO-PALAVRA-01](2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md).
+> A E1 fechou em 31/07 pela CR-05; a E2, em 07/08.
+>
+> **O corte NÃO derruba a seção *"Por que a CR-04 não avança sem ela"*.** Ela
+> explica por que um número inventado por mim não tem defesa, e isso continua
+> sendo doutrina desta casa para qualquer curva futura. Caducou a sprint que ia
+> produzi-las, não a razão.
+
 ## A resposta curta
 
 **A premissa está certa, e a conclusão é meio certa.** O material que o processo
@@ -92,10 +118,10 @@ sala limpa, não de vocabulário.
 |---|---|---|
 | **CR-01** | posição jurídica registrada, com data | **Sim** — é documento |
 | **CR-02** | formato que recusa valor sem proveniência | **Sim** — schema, guarda e teste |
-| **CR-03** | **a bancada de medição** | **Sim, inteira** — é a maior peça de código do trilho |
-| **CR-04** | **os efeitos da casa** | **Não. E o "não" é do processo, não meu** |
+| **CR-03** | a bancada de medição | **SAIU do disco em 29/08/2026 — decisão dela** |
+| **CR-04** | os efeitos da casa | **SAIU do disco em 29/08/2026 — decisão dela** |
 | **CR-05** | o `NOTICE` declarando toda proveniência de terceiros | **Sim** — e está atrasada (ver abaixo) |
-| **CR-06** | curvas publicadas como material livre | **Sim**, depois da CR-04 |
+| **CR-06** | curvas publicadas como material livre | **SAIU do disco em 29/08/2026 — decisão dela** |
 
 ### Por que a CR-04 não avança sem ela — e por que isso é o ponto, não o obstáculo
 
@@ -171,7 +197,7 @@ antes das duas**, por regra escrita.
 **Mordida da CR-02:** um efeito com `medido_por` vazio tem de **reprovar**. Teste
 que aceita a tabela sem proveniência não testa nada.
 
-### E3. CR-03, a bancada, sozinha — e é a maior peça
+### E3. ~~CR-03, a bancada, sozinha — e é a maior peça~~ — CADUCOU em 29/08/2026
 
 Todas as cinco entregas da CR-03 são código: os sete parâmetros ao vivo na aba
 Gatilhos, a leitura de L2/R2 ao lado (o widget já existe na aba Status), o salvar
@@ -190,12 +216,38 @@ a bancada precisa de posse **explícita** enquanto estiver aberta — não pode
 depender de quem está ganhando a disputa de exibição naquele segundo, ou o
 gatilho muda de sensação no meio da medição e contamina a proveniência.
 
-### E4. CR-04 — a parte dela, e só a parte dela
+### E4. ~~CR-04 — a parte dela, e só a parte dela~~ — CADUCOU em 29/08/2026
 
 Depois da bancada: ela senta, sente, nomeia e salva. Cada efeito com a nota do
 que sentiu. Nada mais.
 
-### E5. A decisão que a GATILHO-PALAVRA-01 não pode tomar sozinha
+### E5. A decisão que a GATILHO-PALAVRA-01 não pode tomar sozinha — **RESPONDIDA em 29/08/2026**
+
+> **ELA DECIDIU: o inglês SAI do rótulo.** `D-ARCO-DE-FLECHA-SEM-O-INGLES`
+> (`docs/data/decisoes-dela.csv`). O modo passa a se chamar só **"Arco de
+> flecha"**.
+>
+> **A pergunta foi feita a ela com DOIS fatos errados, e a medição derrubou os
+> dois** — fica registrado porque é o tipo de erro que se repete:
+>
+> 1. quem coordena disse *"é o único dos dezenove"*. São **dois**:
+>    `app/actions/trigger_specs.py` traz **"Arco de flecha (Bow)"** e
+>    **"Disparo (Weapon)"**. O `(Rigid)` e o `(Galloping)` desta E5, de 31/07,
+>    **já não existem** — o rótulo mudou desde então;
+> 2. quem coordena disse que estava no mockup. **O mockup já está limpo** desde
+>    que ela o aprovou: `novo-layout/_ferramentas/aba03.py:146` e `:152` dizem
+>    "Arco de flecha" e "Disparo", sem parêntese.
+>
+> **Onde a decisão se aplica, portanto:** no **produto**, no transplante, e ela
+> cobre os dois pela FORMA — o inglês entre parênteses sai do rótulo de tela.
+> O preço foi medido antes de perguntar: uma linha por rótulo, e **nenhum perfil
+> deixa de abrir**, porque o nome na tela não é a chave gravada no disco.
+>
+> O contra-argumento abaixo — o parêntese ajudar a reconhecer o modo que um guia
+> chama em inglês — **foi posto na mesa e ela escolheu contra**. Fica escrito,
+> porque é a razão que alguém vai querer reabrir um dia.
+
+
 
 O `(Rigid)`, o `(Bow)` e o `(Galloping)` dos rótulos: ficam, saem, ou viram outra
 coisa? A R2 recomenda que saiam. O contra-argumento é real e precisa estar na

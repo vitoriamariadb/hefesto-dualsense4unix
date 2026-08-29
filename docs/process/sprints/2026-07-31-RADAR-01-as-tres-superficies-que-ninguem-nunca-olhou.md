@@ -792,9 +792,8 @@ frase nova nunca aparece e a validação reprova por engano.
   a sprint em levantamento sem fim.
 - **A geometria do popover.** Largura, vão, comprimento de linha — tudo o que a
   VÃO-01 e a LARGURA-01 mediram na janela. O popover é desenhado pelo
-  `cosmic-panel` com o tema do sistema, `Gtk.OffscreenWindow` não o alcança, e a
-  bancada de medição desta casa (CR-03) não cobre `libcosmic`. Fica para quando
-  houver régua.
+  `cosmic-panel` com o tema do sistema, `Gtk.OffscreenWindow` não o alcança, e
+  esta casa não tem régua que meça `libcosmic`. Fica para quando houver uma.
 - **O deferimento de 1500 ms e o probe de três tentativas da bandeja.** São
   decisão registrada contra uma queixa dela (`tray.py:196-203`), e esta sprint
   não os discute.

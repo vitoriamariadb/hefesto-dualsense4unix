@@ -81,14 +81,30 @@ As sprints em `docs/process/sprints/` estão numeradas e são **sequenciais**.
 |---|---|---|
 | **CR-01** | posição jurídica registrada, com data | — |
 | **CR-02** | formato que recusa valor sem proveniência | CR-01 |
-| **CR-03** | a bancada de medição | CR-02 |
-| **CR-04** | os efeitos da casa | CR-03 |
+| ~~**CR-03**~~ | ~~a bancada de medição~~ — **CANCELADA em 29/08/2026** | — |
+| ~~**CR-04**~~ | ~~os efeitos da casa~~ — **CANCELADA em 29/08/2026** | — |
 | **CR-05** | `NOTICE` declara toda a proveniência de terceiros | CR-01 |
-| **CR-06** | curvas publicadas como material livre | CR-04 |
+| ~~**CR-06**~~ | ~~curvas publicadas como material livre~~ — **CANCELADA em 29/08/2026** | — |
 
 Nenhum valor de curva entra no repositório antes de CR-01 e CR-02 concluídas.
 A CR-05 corre em paralelo às demais — é higiene documental, não bloqueia
 medição.
+
+> **Nota datada de 29/08/2026 — grau: DECISÃO DELA.** As três linhas riscadas saíram
+> do disco (`docs/data/decisoes-dela.csv`, `D-A-CORRENTE-DO-CLEAN-ROOM-SAI`). A razão
+> dela: as três só faziam sentido juntas — sem a bancada de medir não há efeitos da
+> casa, e sem eles não há o que devolver ao ecossistema. O Hefesto vive com o catálogo
+> de efeitos que já tem. O manifesto do corte está em
+> [sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM](sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md),
+> e o texto inteiro das três continua no git:
+> `git log --diff-filter=D --oneline -- docs/process/sprints/`.
+>
+> **As quatro regras acima continuam normativas, e não por inércia.** O que caiu foi o
+> *plano de medir*, não a *regra de como entra o que for medido*: qualquer valor de
+> curva que chegue a este repositório, com bancada ou sem, entra por R1, R2, R3 e R4.
+> As três entregues ficam de pé e com régua viva —
+> `tests/unit/test_cr02_curva_propria_proveniencia.py` e
+> `tests/unit/test_cr05_licencas_de_terceiros_viajam.py`.
 
 ## Sobre reescrever o histórico
 

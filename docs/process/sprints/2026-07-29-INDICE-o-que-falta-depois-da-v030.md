@@ -63,7 +63,7 @@ detector de janela passou a poder adoecer. Publicada a **v0.3.0**
 | [MÁSCARA-01](2026-07-25-MASCARA-01-como-este-controle-aparece-nos-jogos.md) | aberta, depende da IDENT-01 |
 | [PLAYER-LED-01](2026-07-25-PLAYER-LED-01-o-numero-do-jogo-chega-ao-controle.md) | metade da entrega 4 continua declarada em aberto no próprio documento |
 | [CONTAGEM-01](2026-07-25-CONTAGEM-01-a-tela-diz-dois-com-quatro-na-mesa.md) e [UI-SELETOR-01](2026-07-25-UI-SELETOR-01-ordem-dos-controles-no-seletor.md) | absorvidas pela CONTAGEM-E-COOP-01, que continua sem documento |
-| [CR-01](2026-07-25-CR-01-posicao-juridica.md) a [CR-06](2026-07-25-CR-06-devolver-ao-ecossistema.md) | fora de escopo por decisão dela, mantida |
+| [CR-01](2026-07-25-CR-01-posicao-juridica.md) a CR-06 ([o corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md)) | fora de escopo por decisão dela, mantida — **e em 29/08/2026 a CR-03, a CR-04 e a CR-06 saíram do disco** |
 
 ## O que ficou PARCIAL nesta sessão — exatamente o que sobrou
 

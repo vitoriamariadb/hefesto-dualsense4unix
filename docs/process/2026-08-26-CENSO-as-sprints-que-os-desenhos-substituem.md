@@ -78,6 +78,15 @@ Sobrevivem porque medem mecanismo, aparelho ou rádio, e o desenho é sobre a te
 
 **Preservadas por ordem dela (specs e bancada) — nenhuma tocada:** `docs/data/mapa-controles.csv` + `specs.html`, `docs/protocol/*`, e as 35 da Faixa 5 + as 12 da Faixa 6, incluindo PROVA-NO-PLASTICO-01, O-QUE-PRECISA-DE-VOCE, A-CADEIA-DE-BLOCOS-01, O-ALTO-FALANTE-POR-RADIO-01, ESCADA-QUE-RESPONDE-01, A-PONTE-UNIVERSAL-01, CANETA-NA-MAO-01, MAPA-QUE-VIRA-PORTAO-02, CR-03/04/06, CHECKLIST-validacao-em-hardware, e todo o balde de BT da Onda 12.
 
+> **Nota datada de 29/08/2026 — DECISÃO DELA, e ela SUBSTITUI a ordem acima na parte
+> das curvas.** A corrente `CR-03 → CR-04 → CR-06` saiu do disco
+> (`docs/data/decisoes-dela.csv`, `D-A-CORRENTE-DO-CLEAN-ROOM-SAI`): perguntada sobre
+> a consequência de cortar só a CR-03, respondeu *"Corta a corrente inteira"*. A fala
+> mais recente vence, e o git guarda o histórico — ver
+> [o manifesto do corte](sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
+> O resto desta linha continua valendo — specs, `docs/protocol/*` e o balde de BT
+> seguem intocados.
+
 **PROVA-DE-TELA-01 sobrevive sempre** (`sprints/2026-07-27-PROVA-DE-TELA-01-...md`): é o processo pelo qual estes desenhos existem.
 
 ---

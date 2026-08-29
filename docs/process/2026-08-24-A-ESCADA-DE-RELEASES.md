@@ -326,9 +326,12 @@ release presta.
 **Quem destrava: ela, usando.** Custo de agente: **zero por construção** — se um
 agente precisa trabalhar, a janela reiniciou.
 
-**E depois da 1.0?** O clean-room (`CR-01` a `CR-06`, `CR-SEQUENCIA-01`,
-`METODO-01`), que a **D-J** já pôs declaradamente fora da 0.9.5. Ele é 1.x, e não
-entra nesta escada.
+**E depois da 1.0?** O que sobrou do clean-room: `CR-SEQUENCIA-01` (só a E5, a
+decisão dos rótulos `(Rigid)`/`(Bow)`/`(Galloping)`) e `METODO-01`, que a **D-J**
+já pôs declaradamente fora da 0.9.5. São 1.x, e não entram nesta escada. As
+sprints CR-01, CR-02 e CR-05 foram entregues; a corrente `CR-03 → CR-04 → CR-06`
+**saiu em 29/08** (`D-A-CORRENTE-DO-CLEAN-ROOM-SAI`) e não volta como release
+nenhum.
 
 ---
 

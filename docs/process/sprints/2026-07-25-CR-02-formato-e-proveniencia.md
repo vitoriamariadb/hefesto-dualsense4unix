@@ -3,7 +3,8 @@
 **Status:** ENTREGUE em 2026-07-31 — o formato existe, recusa, e a recusa está
 provada por arrancamento
 **Depende de:** CR-01
-**Bloqueia:** CR-03, CR-04
+**Bloqueia:** nada mais. A corrente CR-03 → CR-04 → CR-06 saiu do disco em
+29/08/2026, por decisão dela; quem herda o formato é a ONDA-GATILHOS-05
 **Processo:** [CLEAN-ROOM.md](../CLEAN-ROOM.md)
 
 ## Objetivo
@@ -47,7 +48,7 @@ disso uma propriedade do formato, não uma promessa.
 - [x] **`docs/protocol/curvas-proprias.md`** — a função
       `gerar_tabela_markdown(catalogo)` produz a tabela a partir do dado.
       Catálogo vazio devolve exatamente a linha que o documento tem hoje, para
-      que ele siga legível antes da CR-04. **O documento continua sem nenhum
+      que ele siga legível antes de existir a primeira curva. **O documento continua sem nenhum
       valor**, e há teste cobrando isso: se alguém colar uma curva ali sem
       passar pela medição, o portão avisa.
 - [x] **Teste** que prova a recusa —
@@ -99,9 +100,15 @@ Atendido: gravar um efeito sem proveniência, ou com nome do DSX, falha com
 mensagem clara — e a tabela de `curvas-proprias.md` sai da função, não da mão de
 ninguém.
 
-## O que fica para a CR-03
+## Quem preenche o formato
 
-O formato existe, mas ainda **não tem quem o preencha**: quem grava e lê o
-catálogo em disco é a bancada de medição (CR-03, terceira entrega — "o salvar
-com nome e nota"). Enquanto ela não existe, o formato é um portão sem porta, e
-está certo assim: nenhum valor pode entrar antes da mão dela no gatilho.
+O formato existe, e quem lhe dá porta é a
+[ONDA-GATILHOS-05](2026-08-27-ONDA-GATILHOS-05-meus-efeitos-ganham-tela.md):
+ela grava e lê o catálogo no disco da usuária e abre o diálogo que pede os
+quatro campos de proveniência. Enquanto ela não fechar, o formato é um portão
+sem porta — e está certo assim: nenhum valor entra antes da mão dela no gatilho.
+
+**Nota datada de 29/08/2026:** esta seção se chamava *"O que fica para a CR-03"*
+e apontava para a bancada de medição. A CR-03 saiu do disco com a corrente do
+clean-room, por decisão dela — ver
+[o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).

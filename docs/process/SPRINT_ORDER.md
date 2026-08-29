@@ -5,7 +5,8 @@
 executáveis em dez ondas**, uma onda por aba, mais dez índices. Foram 87 pela
 manhã; a medição da cor por rádio daquela noite acrescentou três à onda Conexões
 (11, 12 e 13) — ver a nota do §1.5. A faxina apagou
-as **28** sprints que elas substituem e reteve três — o manifesto, linha a linha,
+as **28** sprints que elas substituem e reteve três, das quais uma (a CR-03) caiu
+dois dias depois com a corrente do clean-room — o manifesto, linha a linha,
 está em [A FAXINA](sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
 
 Retrato do dia:
@@ -260,15 +261,17 @@ e barra de luz custam quanta bateria?** — zero dos 178 ensaios cronometrou
 consumo por feature
 ([O-PRECO-EM-BATERIA-01](sprints/2026-08-24-O-PRECO-EM-BATERIA-01-o-botao-que-ninguem-sabe-se-serve.md)).
 
-### 2.2 As três sprints antigas que a faxina RETEVE
+### 2.2 As sprints antigas que a faxina reteve — eram três, são duas
 
 O censo mandou apagar; a conferência recusou, com o teste da casa (*se apagar
 isto faria alguém repetir um trabalho ou pagar um custo já pago?*). O manifesto
-tem a prova de cada uma; em resumo:
+tem a prova de cada uma; em resumo. A terceira, a CR-03, saiu em 29/08 com a
+corrente inteira do clean-room (`D-A-CORRENTE-DO-CLEAN-ROOM-SAI`) — a palavra
+dela de 29/08 substitui a de 26/08 que a preservava; ver
+[o manifesto do corte](sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
 
 | Sprint | Por que fica |
 |---|---|
-| [CR-03 — bancada de medição](sprints/2026-07-25-CR-03-bancada-de-medicao.md) | preservada **por ordem dela**, e é elo de corrente: `CR-03 → CR-04 → CR-06`, fora da 0.9.5 pela D-J. A ONDA-GATILHOS-05 entrega o catálogo em disco, **não** os sete parâmetros ao vivo nem o A/B |
 | [SISTEMA-O-VIGIA-VIVO-01](sprints/2026-08-24-SISTEMA-O-VIGIA-VIVO-01-a-rede-de-seguranca-parada-e-o-conserto-que-nao-conserta.md) | seis das quinze tarefas são `[SEM TELA]`, e redesenho de interface não substitui o que não toca a interface: `install.sh:3504` usa `enable --now`, que não re-arma timer parado; e os dois scripts do botão "Aplicar correções" não viajam em **cinco dos seis** formatos de pacote, com `scripts/check_packaging_parity.sh:8` ignorando `scripts/` em bloco — o portão sai **verde** sobre o buraco |
 | [CONFIGURACOES-FECHA-01](sprints/2026-08-24-CONFIGURACOES-FECHA-01-o-aplicar-que-nao-responde-e-o-campo-que-apaga-o-arquivo.md) | dez tarefas `[SEM TELA]`. A ONDA-CONEXOES-09 absorve o `maquina.json`; ficam sem dono as constantes de rádio declararem a célula do CSV, os números caducos saírem de **todos** os lugares, o censo das curas arrancáveis e o portão *"existe chamador de PRODUÇÃO?"* |
 
@@ -295,7 +298,9 @@ Herdados da fila de 23/08 e **não absorvidos** pelas dez ondas:
   `SUITE-QUE-SUJA-O-JORNAL-01`, `BERCO-DE-TMP-01`, `GATE-EMOJI-01`.
 - **documentação** — só **depois** das dez ondas; antes disso documentaria o
   produto de ontem.
-- **clean-room (CR-01 a CR-06, METODO-01)** — **fora da 0.9.5** pela D-J.
+- **clean-room (CR-01, CR-02, CR-05 entregues; METODO-01 aberta)** — a corrente
+  `CR-03 → CR-04 → CR-06` **saiu em 29/08** (`D-A-CORRENTE-DO-CLEAN-ROOM-SAI`).
+  Sobra o METODO-01, **fora da 0.9.5** pela D-J.
 
 ---
 
@@ -310,7 +315,7 @@ que só custa tempo da próxima pessoa.
 
 ---
 
-## 4. O QUE ESTÁ ABERTO — 123 sprints, e nenhuma é de aba
+## 4. O QUE ESTÁ ABERTO — 120 sprints, e nenhuma é de aba
 
 > **27/08: saíram daqui as 17 linhas das sprints que a faxina apagou** — o que
 > cada uma pedia e quem tomou o lugar dela está no
@@ -417,7 +422,7 @@ que só custa tempo da próxima pessoa.
 | [GATILHO-PALAVRA-01](sprints/2026-07-29-GATILHO-PALAVRA-01-os-dezenove-modos-em-portugues.md) | **→ Onda 8 · Gatilhos.** A escolha das dezenove palavras, que é dela por construção. Amarrada à decisão irmã da CR-SEQUENCIA-01/E5 | DELA |
 | [NO-MEU-FUNCIONA-01](sprints/2026-08-22-NO-MEU-FUNCIONA-01-o-ambiente-que-o-produto-presume-sem-medir.md) | **→ Onda 5 · Emulação.** NOVA em 22/08. E1 a E7: a Steam Flatpak, a bandeja fora do COSMIC, a janela que não abre sem XWayland, o backend escolhido pela presença de `DISPLAY` | parte DELA |
 
-### Faixa 5 — o aparelho: luz, som, gatilho, rádio (34)
+### Faixa 5 — o aparelho: luz, som, gatilho, rádio (31)
 
 A maioria destas destranca com a bancada de 22/08 e o controle na mão dela.
 
@@ -446,10 +451,7 @@ A maioria destas destranca com a bancada de 22/08 e o controle na mão dela.
 | [BT-E-VPAD-01](sprints/2026-08-01-BT-E-VPAD-01-o-que-so-existe-no-cabo-e-os-seis-furos.md) | **→ Onda 5 · Emulação.** Furo 5 (a taxa declarada do Edge), não medido e sem nada na árvore que o meça. O furo 4 tem decisão registrada de não fazer | |
 | [RADIO-BOMBARDEADO-01](sprints/2026-08-04-RADIO-BOMBARDEADO-01-quarenta-mil-frames-corrompidos-em-meia-hora.md) | **→ Onda 12 · BT, trilha DELA.** ABERTA. O bloco F inteiro e o A/B de dez minutos. ATENÇÃO: a fixture de 20/08 cortou o amplificador citado, e isso muda a linha de base | |
 | [BUSCA-QUE-ESTOURA-01](sprints/2026-08-07-BUSCA-QUE-ESTOURA-01-o-sdp-que-nao-responde-a-tempo.md) | ABERTA. A escolha entre os cinco desenhos é dela. Houve movimento lateral em `7c2fb92`, que não é nenhum dos cinco | DELA |
-| [CR-03](sprints/2026-07-25-CR-03-bancada-de-medicao.md) | ABERTA. A sprint inteira. Bloqueia a CR-04, que bloqueia a CR-06 | |
-| [CR-04](sprints/2026-07-25-CR-04-os-efeitos-da-casa.md) | ABERTA. Todos os efeitos medidos na bancada. Não começa antes da CR-03 | |
-| [CR-06](sprints/2026-07-25-CR-06-devolver-ao-ecossistema.md) | ABERTA. A publicação inteira. Não começa antes de CR-03 e CR-04 | |
-| [CR-SEQUENCIA-01](sprints/2026-07-31-CR-SEQUENCIA-01-o-que-avanca-sem-a-mao-dela-e-o-que-nao.md) | E3 (a bancada, com posse explícita do hidraw), E4 (a parte dela), E6 e a decisão E5. O cabeçalho ABERTA é enganoso: metade do trilho já fechou | DELA |
+| [CR-SEQUENCIA-01](sprints/2026-07-31-CR-SEQUENCIA-01-o-que-avanca-sem-a-mao-dela-e-o-que-nao.md) | **Sobra a E5, e só ela**: o `(Rigid)`, o `(Bow)` e o `(Galloping)` dos rótulos ficam, saem ou viram outra coisa — a decisão irmã da GATILHO-PALAVRA-01. E1 (CR-05) e E2 (CR-01/CR-02) fecharam; E3 (a bancada) e E4 caíram com a corrente em 29/08. **Não existe E6** — esta linha o citava, e ele nunca esteve no arquivo | DELA |
 | [BARRA-MUDA-01](sprints/2026-08-22-BARRA-MUDA-01-a-lampada-nao-se-le-o-nascimento-sim.md) | **→ Onda 7 · Lightbar.** ENTREGUE, menos o experimento da §6 — o único que fecha a célula do mapa, e só o olho dela o faz | DELA |
 | [SINAL-NO-NASCIMENTO-01](sprints/2026-08-22-SINAL-NO-NASCIMENTO-01-o-veredito-existe-e-o-hotplug-nao-pergunta.md) | NOVA em 22/08. E1 a E4: o tique de hotplug carimbar o veredito, a razão aparecer no card, o portão, e a colisão de nome entre `mesa_de_radio` e `sinal_da_barra` | |
 | [LUZ-CEGA-01](sprints/2026-08-22-LUZ-CEGA-01-a-barra-apagada-e-o-exame-que-nao-olha-o-radio.md) | **→ Onda 7 · Lightbar.** E1, E2, E7 e metade da E5 fecharam. Faltam E3, E4, E6 e a **E8** — quatro MACs de fixture no `controllers.json` vivo dela | E8 parte DELA |

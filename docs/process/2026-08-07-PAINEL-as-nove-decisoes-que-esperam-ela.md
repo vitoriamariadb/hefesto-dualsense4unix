@@ -245,6 +245,15 @@ Nada abaixo toca as nove perguntas.
 
 - **A bancada de medição inteira (CR-03)**, a maior peça de código do trilho — a própria
   CR-01 escreve que a licença **não é pré-requisito das demais sprints**.
+
+  > **Nota datada de 29/08/2026 — grau: DECISÃO DELA.** Esta linha **caducou**: a
+  > corrente `CR-03 → CR-04 → CR-06` saiu do disco (`docs/data/decisoes-dela.csv`,
+  > `D-A-CORRENTE-DO-CLEAN-ROOM-SAI`). Não há bancada a construir — ver
+  > [o manifesto do corte](sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
+  > A **decisão 5 acima continua valendo** e não depende disso: MIT no código, CC0 nas
+  > curvas — o que mudou é que nenhuma curva será medida por esta série, e o registro de
+  > proveniência (`docs/protocol/curvas-proprias.md`) fica de pé para o dia em que
+  > alguém medir uma.
 - **A CR-05**: criar `LICENSES/` com o texto canônico e a linha em cada um dos cinco
   alvos. A sprint escreve o remédio inteiro; é trabalho com resposta certa.
 - **E0a** — `coop status` passa a imprimir os dois números nomeados ("jogadores pelo

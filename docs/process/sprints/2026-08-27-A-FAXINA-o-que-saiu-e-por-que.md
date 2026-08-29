@@ -60,6 +60,24 @@ trabalho ou pagar um custo já pago?* Nestas três, sim.
 
 ### 1. `2026-07-25-CR-03-bancada-de-medicao.md`
 
+> **NOTA DATADA — 29/08/2026: esta retenção CADUCOU, e com ela a corrente
+> inteira.** Ela mandou cortar: **CR-03, CR-04 e CR-06 saíram do disco**
+> (`D-A-CORRENTE-DO-CLEAN-ROOM-SAI`, `docs/data/decisoes-dela.csv`). A ordem de
+> 26/08 citada no primeiro bullet (*"Preservadas por ordem dela … CR-03/04/06"*)
+> foi **substituída** pela fala de 29/08 — a mais recente vence, e o git guarda
+> o histórico, que é a mesma regra que este manifesto aplicou em 27/08.
+>
+> **A razão dela:** as três só faziam sentido juntas — sem a bancada de medir
+> (CR-03) não há efeitos da casa (CR-04), e sem eles não há o que devolver ao
+> ecossistema (CR-06). O Hefesto passa a viver com o catálogo de efeitos que já
+> tem. O terceiro bullet abaixo continua verdadeiro e virou o **preço**: os sete
+> parâmetros ao vivo, o A/B e a leitura de L2/R2 na mesma tela ficam sem dono.
+>
+> **Os três bullets abaixo ficam como estão** — são o registro do que foi
+> decidido em 27/08. Para onde foram as três, veja
+> [o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
+> As outras duas retidas desta seção **continuam retidas**; nada aqui as toca.
+
 - **Ela mandou preservar, por escrito.** `docs/process/2026-08-26-CENSO-as-sprints-que-os-desenhos-substituem.md:79`:
   *"Preservadas por ordem dela (specs e bancada) — nenhuma tocada: … CR-03/04/06 …"*.
 - **É elo de uma corrente que fica.** `CR-04` diz *"Depende de: CR-03"* (`:4`);

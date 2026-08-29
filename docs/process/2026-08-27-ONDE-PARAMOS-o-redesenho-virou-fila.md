@@ -84,6 +84,15 @@ alguém repetir um trabalho ou pagar um custo já pago?*
 
 - **CR-03** — preservada por ordem sua, e é elo de corrente (`CR-03 → CR-04 →
   CR-06`).
+
+  > **Nota datada de 29/08/2026.** A CR-03 **saiu** dois dias depois, e por decisão
+  > sua: posta na mesa a consequência de cortar um elo de uma corrente de três, você
+  > mandou cortar a corrente inteira (`docs/data/decisoes-dela.csv`,
+  > `D-A-CORRENTE-DO-CLEAN-ROOM-SAI`) — ver
+  > [o manifesto do corte](sprints/2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).
+  > O raciocínio acima não estava errado — a CR-03 era mesmo elo de corrente; o que
+  > mudou foi a corrente deixar de ser trabalho desta casa. As outras duas retidas
+  > continuam de pé.
 - **SISTEMA-O-VIGIA-VIVO-01** — seis tarefas `[SEM TELA]`: redesenho de interface
   não substitui o que não toca a interface. O `install.sh:3504` usa
   `enable --now`, que não re-arma timer parado; e os dois scripts do botão

@@ -4,8 +4,10 @@
 pela CR-05, e sobrava **uma** caixa — decisão da mantenedora, não trabalho
 pendente. Ela respondeu em 07/08/2026: **MIT no código, CC0-1.0 nas curvas**
 (grau: DECISÃO DELA). Nada mais está aberto aqui.
-**Bloqueia:** CR-02, CR-03, CR-04 — nenhum valor de curva entra no repositório
-antes desta sprint e da CR-02 estarem concluídas.
+**Bloqueia:** CR-02 — nenhum valor de curva entra no repositório antes desta
+sprint e da CR-02 estarem concluídas. (A CR-03 e a CR-04, que esta linha também
+bloqueava, saíram do disco em 29/08/2026 com a corrente do clean-room — ver
+[o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md).)
 **Processo:** [CLEAN-ROOM.md](../CLEAN-ROOM.md)
 
 ## Objetivo
@@ -68,9 +70,11 @@ necessariamente vir antes, porque é o que datará a intenção.
       delas. Publicar as nossas sob dado restritivo reproduziria a parede com
       outro tijolo. CC0 elimina a dúvida sobre atribuição de dado factual —
       é o que faz a curva ser usável por qualquer projeto Linux sem advogado
-      no meio. O desdobramento está na
-      [CR-06](2026-07-25-CR-06-devolver-ao-ecossistema.md), e o registro em voz
-      alta ficou no `NOTICE`, seção "A LICENÇA DAS CURVAS PRÓPRIAS".
+      no meio. **O desdobramento era a CR-06, que saiu do disco em 29/08/2026
+      com a corrente do clean-room**
+      ([o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md));
+      a decisão dela continua valendo, e o registro em voz alta ficou no
+      `NOTICE`, seção "A LICENÇA DAS CURVAS PRÓPRIAS".
 
       **Estado em 31/07 (nota histórica — não se apaga decisão medida):** a
       decisão continuava dela e continuava aberta. O que tinha mudado é que o
