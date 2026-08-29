@@ -18,7 +18,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/ordens_da_mesa.py
 ---
 
-# ONDA CONEXÕES · 03 — o exame em três colunas
+# ONDA CONEXÕES · 03 — o exame em duas colunas
 
 **O defeito, numa frase:** quem lê o `[WARN]` encontra o conserto trezentos
 pixels abaixo, e a explicação de cada ordem — três linhas por card — ocupa a
@@ -38,9 +38,26 @@ pergunta**:
 
 | coluna | o que fica | de onde vem |
 |---|---|---|
-| **o que eu vi** | as cinco linhas do exame, com selo e glifo, mais `[Examinar de novo]` e `[Ver as ordens caladas]` | já existe — `secao_exame.py:268`, `:530` |
+| **o que eu vi** | as cinco linhas do exame, com selo e glifo, mais `[Examinar de novo]` e `[Ver as ordens ignoradas]` | já existe — `secao_exame.py:268`, `:530` |
 | **o que fazer** | os cards de ordem: imperativo, receita (ONDA-CONEXOES-04) e ganho, com `[Já movi — reexaminar]` e `[Ignorar]` | já existe — `:273`, `:677`, `:731` |
-| **o que só você sabe** | as duas perguntas de rádio, com o "?" que explica por que elas mudam o rádio | **vem da seção da mesa** |
+
+> **A TERCEIRA COLUNA SAIU — decisão dela, 29/08/2026**
+> (`D-AS-PERGUNTAS-DA-SALA-MORAM-NO-MAPEAR-ENTRADAS`).
+> *"Ficam na pop-up, e eu corrijo a sprint."* As duas perguntas de rádio — a
+> altura do dongle e se há gente entre ele e o sofá — moram **dentro do
+> "Mapear Entradas"**, a janela que desenha o gabinete. A razão é o assunto,
+> não o espaço: quem está dizendo onde cada aparelho mora é quem sabe se o
+> dongle fica acima da cabeça.
+>
+> **O exame fica em DUAS colunas**, e a sprint economiza os 110px que a
+> terceira custava — a aba já esconde 286px de miolo.
+>
+> **A procedência importa, e é a lição:** o mockup já as tinha movido em
+> 27/08, mas quem decidira era um **comentário de gerador**, com razão de
+> ALTURA. Ninguém tinha perguntado a ela, e esta sprint continuou pedindo a
+> coluna. O cético das pop-ups achou a divergência medindo o mockup contra a
+> fila — e a divergência viveu dois dias entre a especificação aprovada e o
+> trabalho enfileirado.
 
 E mais três coisas:
 

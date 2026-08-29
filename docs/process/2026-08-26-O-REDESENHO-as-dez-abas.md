@@ -51,7 +51,7 @@ Os 38 que faltam para os 372 são a "No jogo" e a moldura da janela (cabeçalho 
 
 | # | Aba | Como se chamava | O que mudou de dono |
 |---|---|---|---|
-| 1 | **JOGAR** | Início | ganha o Automático da máscara e o Detectar o jogo; a faixa do player desce para a Iluminação |
+| 1 | **JOGAR** | Início | ganha o Detectar o jogo; a faixa do player desce para a Iluminação. ~~o Automático da máscara~~ — **caducou em 29/08**, ver a linha abaixo |
 | 2 | **CONTROLES** | Status + No jogo | as duas viram uma; o que o jogo recebe entra na faixa de cada card |
 | 3 | **GATILHOS** | Gatilhos | ganha "Meus efeitos"; os dois "Aplicar" viram um |
 | 4 | **ILUMINAÇÃO** | Lightbar | perde o desenho das cinco luzes; ganha a escolha do número do controle |
@@ -105,7 +105,19 @@ Widget que brota empurra a tira de abas para baixo; a solução é **espaço res
 **O que muda**
 
 - **É a primeira aba e chama-se Jogar** — "Início" saiu com as duas palavras em inglês da tira (D-AS-DEZ-ABAS-E-SEUS-NOMES).
-- **A máscara ganha o Automático, e ele nasce ligado**: [Xbox 360] [DualSense] [Automático]. Hoje ela escolhe no escuro; o produto já sabe quais APIs de entrada estão dentro do executável do jogo e nunca contou isso a ninguém (D-A-MASCARA-GANHA-O-AUTOMATICO).
+> **A MÁSCARA NÃO GANHA O AUTOMÁTICO — decisão dela, 29/08/2026**
+> (`D-A-MASCARA-GANHA-O-AUTOMATICO`, com lápide datada). A medição derrubou a
+> promessa: a heurística prometida **erra em 13 dos 14 jogos dela**
+> (`integrations/api_de_entrada.py:12-49`). Um "Automático" que erra quase
+> sempre é pior que escolher à mão, porque **erra em silêncio**. A aba Jogar já
+> registrava isso (`novo-layout/01-jogar.html:2311`); a Perfis ainda o anunciava
+> como entrega, e a divergência entre os dois mockups aprovados foi o que
+> levou a pergunta a ela.
+>
+> **Atenção ao homônimo:** o "Automático" do **Modo de conexão** na aba Jogar
+> é outra coisa e **fica** — ele escolhe a ponte, não a máscara.
+>
+> O texto original, preservado: **A máscara ganha o Automático, e ele nasce ligado**: [Xbox 360] [DualSense] [Automático]. Hoje ela escolhe no escuro; o produto já sabe quais APIs de entrada estão dentro do executável do jogo e nunca contou isso a ninguém (D-A-MASCARA-GANHA-O-AUTOMATICO).
 - **Nasce o "Detectar o jogo que está aberto"**: abre o jogo de onde for — Heroic, Lutris, emulador, Flathub —, volta e clica, e o perfil nasce. O motor já é universal (casa por `process_name` e `window_class`); só a tela dizia "Steam" 689 vezes (D-A-INTERFACE-E-UNIVERSAL-NAO-SO-STEAM).
 - **Os três botões de modo passam a existir só aqui.** A Emulação tinha os gêmeos ("Desligado / DualSense (PS) / Xbox 360") chamando o mesmo `apply_mode`, com outro vocabulário — e a Emulação morreu (D-A-EMULACAO-MORRE).
 - **A tela para de pular.** Oito widgets aparecem e somem sozinhos hoje, e o cabeçalho empilha até cinco faixas. A faixa do player e o crachá "Editando: Controle N" descem para a Iluminação, e o que resta reserva o próprio espaço (D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR).

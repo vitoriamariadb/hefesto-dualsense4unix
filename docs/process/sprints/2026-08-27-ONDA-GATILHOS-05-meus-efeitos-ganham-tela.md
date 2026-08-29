@@ -65,6 +65,15 @@ registram as duas como dívida:
 > gatilho e produz a primeira curva; enquanto não houver curva, não há de onde
 > carregar o catálogo."*
 
+**A lápide citada acima muda em 29/08/2026, e esta sprint é a razão.** A CR-04
+saiu do disco com a corrente do clean-room, por decisão dela
+([o manifesto do corte](2026-08-29-O-CORTE-DO-CLEAN-ROOM-o-que-saiu-e-por-que.md))
+— não há mais sprint futura esperando pela primeira curva. O texto de
+`tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py:1557` perde o "O QUE
+FECHA: a CR-04" e passa a nomear **esta** sprint, **no mesmo commit** em que as
+três saem; esta sprint declara aquele arquivo em `nao_toca:` e por isso não o
+conserta sozinha.
+
 Esta sprint **é** o que fecha as duas: dá à mão dela o caminho de produzir a
 primeira curva. As duas lápides saem daqui — e não à mão: quem as tira é
 `test_nenhuma_lapide_sobreviveu_a_propria_cura`, reprovando se ficarem.
