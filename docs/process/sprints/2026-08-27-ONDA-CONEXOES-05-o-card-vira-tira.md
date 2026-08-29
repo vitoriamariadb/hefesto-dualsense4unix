@@ -137,7 +137,7 @@ proibido**.
 `scripts/` — `gerar-mapa.py`, `migrar-mapa-v2.py` e os dois de 27/08. Quem o
 abre primeiro é a **ONDA-VIBRACAO-01**, que o parte ao meio para acender cada
 lado com o seu motor (`D-O-SVG-VIBRA-POR-LADO`) e cria
-`app/widgets/desenho_do_controle.py`.
+`app/widgets/desenho_do_controle.py`.  <!-- ref-externa: nasce na ONDA-VIBRACAO-01, ainda não executada -->
 
 **Esta sprint é o segundo consumidor, não o primeiro** — e é por isso que ela
 vem `depois_de: [ONDA-VIBRACAO-01]`. Dois módulos abrindo o mesmo SVG seriam

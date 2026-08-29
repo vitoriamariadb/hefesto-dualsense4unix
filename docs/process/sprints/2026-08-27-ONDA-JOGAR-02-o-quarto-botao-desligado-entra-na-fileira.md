@@ -59,7 +59,7 @@ O texto do modo é dica do `?` do quadro, não rótulo na tela:
 
 ## O que esta sprint entrega
 
-1. **`seletor_de_modo.py` com quatro itens.** O quarto (`off`) não vira `kind`
+1. **`seletor_de_modo.py` com quatro itens.** O quarto (`off`) não vira `kind`  <!-- ref-externa: nasce na ONDA-JOGAR-01, ainda não executada -->
    de perfil: ele chama o mesmo caminho que o botão de Sessão chamava hoje —
    `_on_home_power_clicked` — e nada é inventado no backend.
 2. **O botão reflete o estado real.** Com o daemon parado ou o opt-out gravado

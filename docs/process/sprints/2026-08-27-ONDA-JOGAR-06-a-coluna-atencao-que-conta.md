@@ -74,7 +74,7 @@ Título, **contador**, e um item por aviso — cada um com selo e frase curta.
 
 ## O que esta sprint entrega
 
-1. **`atencao.py` — um agregador PURO** que recebe o `state` e devolve a lista
+1. **`atencao.py` — um agregador PURO** que recebe o `state` e devolve a lista  <!-- ref-externa: nasce na ONDA-JOGAR-01, ainda não executada -->
    de avisos, cada um com selo, frase e severidade. **Ele chama as onze
    funções puras que já existem** e não reescreve nenhuma frase: o texto tem um
    dono só (P5).

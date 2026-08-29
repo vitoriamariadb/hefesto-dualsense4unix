@@ -131,7 +131,7 @@ prática.
 |---|---|---|
 | "A janela" (tamanho do texto, ambiente do desktop) | CONEXÕES-01 | onda **Sistema** |
 | o gesto do microfone e os widgets do Glade | **ONDA-SISTEMA-02** solta primeiro | CONEXÕES-06 pega depois |
-| `desenho_do_controle.py` (o SVG na cor do plástico) | **ONDA-VIBRACAO-01** cria | CONEXÕES-05 é o segundo consumidor |
+| `desenho_do_controle.py` (o SVG na cor do plástico) | **ONDA-VIBRACAO-01** cria | CONEXÕES-05 é o segundo consumidor |  <!-- ref-externa: nasce na ONDA-VIBRACAO-01, ainda não executada -->
 | a escolha do número de jogador | CONEXÕES-05 (vira leitura) | onda **Iluminação** |
 | bateria, entradas ao vivo, glifos do card | CONEXÕES-05 (saem daqui) | onda **Controles** |
 | a borda com o tom do plástico nas telas das outras abas | CONEXÕES-08 entrega o dono único e o portão | cada onda fecha a sua tela |

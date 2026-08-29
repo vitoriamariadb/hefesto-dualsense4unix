@@ -116,7 +116,7 @@ rastro.
 
 ## O que esta sprint entrega
 
-1. **`pecas_na_mesa.py`** — uma peça por controle da mesa, DualSense e
+1. **`pecas_na_mesa.py`** — uma peça por controle da mesa, DualSense e  <!-- ref-externa: nasce na ONDA-JOGAR-01, ainda não executada -->
    externos, com o SVG de `assets/control-svg/`, borda grossa por
    `tom_para_a_borda`, e o rótulo no formato dela. **O corpo a peça NÃO pinta:**
    ela só escolhe o colorway (`data-colorway`, com o slug da coluna `id` de

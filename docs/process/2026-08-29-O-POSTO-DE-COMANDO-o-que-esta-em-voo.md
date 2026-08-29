@@ -11,16 +11,23 @@ morrer, **quem assumir lê isto e continua sem perguntar nada a ela.**
 
 ---
 
-## 1. O QUE ESTÁ EM VOO NESTE MOMENTO
+## 1. AS TRÊS LEVAS ATERRISSARAM — 29/08, 18h30
 
-Três levas de agentes, todas em background. Os resultados chegam por notificação;
-se elas não chegarem, o trabalho está nos diretórios abaixo.
-
-| Leva | O que faz | Como achar o resultado |
+| Leva | O que entregou | Onde |
 |---|---|---|
-| **A aba Controles viva** | o **PILOTO** do transplante: a aba nasce dos controles reais dela, com dado ao vivo | `scratchpad/controles-viva/` |
-| **Materializar a migração** | 10 censos + 10 ondas de sprints + a ordem | os arquivos nascem em `docs/process/sprints/2026-08-29-MIGRA-*` |
-| **O caminho até a conclusão** | as 6 faixas da fila + o documento do projeto inteiro | `docs/process/2026-08-29-O-CAMINHO-ATE-A-CONCLUSAO.md` |
+| **A aba Controles viva** | **O PILOTO, e ele RODA.** A aba nasce da mesa dela — dois controles, bateria, giroscópio lendo, cor do plástico. Custa **1,0% do orçamento do tique** | `novo-layout/_ferramentas/controles_vivos.py` |
+| **Materializar a migração** | **109 sprints** em dez ondas, dez índices, uma por aba | `docs/process/sprints/2026-08-29-MIGRA-*` |
+| **O caminho até a conclusão** | as 6 faixas da fila medidas contra o disco | `docs/process/2026-08-29-O-CAMINHO-ATE-A-CONCLUSAO.md` |
+| **A ordem entre as dez abas** | a espinha que nenhuma onda podia escrever (cada uma só via a sua) | `docs/process/sprints/2026-08-29-MIGRA-A-ORDEM-das-dez-abas.md` |
+
+**A mordida do piloto foi rodada e ela morde:** com `--sem-ponte`, **nenhum** valor
+escrito; com a ponte, **125 valores e 30 voltas** em 3 segundos.
+
+**Como ela vê:**
+
+```bash
+novo-layout/_ferramentas/controles_vivos.py     # a aba Controles, com a mesa dela
+```
 
 **Se um workflow morreu sem entregar:** o transcrito de cada agente fica em
 `~/.claude/projects/*/subagents/workflows/wf_*/journal.jsonl`, uma linha por

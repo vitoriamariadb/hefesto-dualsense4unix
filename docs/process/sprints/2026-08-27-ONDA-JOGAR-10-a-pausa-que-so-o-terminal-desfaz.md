@@ -56,7 +56,7 @@ Sai, e sai de todos os lugares onde aparece.
 
 ## O que esta sprint entrega
 
-1. **`pausa.py` — o aviso de pausa como item da coluna Atenção**, com **ação**.
+1. **`pausa.py` — o aviso de pausa como item da coluna Atenção**, com **ação**.  <!-- ref-externa: nasce na ONDA-JOGAR-01, ainda não executada -->
    O texto novo diz o que está parado (nem luz, nem vibração, nem os ajustes
    dela) e oferece a saída: **Continuar**.
 2. **O botão chama `daemon.resume`** — o verbo que já existe — e, no sucesso,

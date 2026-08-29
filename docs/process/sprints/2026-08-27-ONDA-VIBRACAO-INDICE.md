@@ -64,7 +64,7 @@ serializa uma colisão em vez de proibi-la.
 
 ## O aviso que quem coordena precisa ler
 
-**`src/hefesto_dualsense4unix/app/widgets/desenho_do_controle.py` (ONDA-VIBRACAO-01)
+**`src/hefesto_dualsense4unix/app/widgets/desenho_do_controle.py` (ONDA-VIBRACAO-01)  <!-- ref-externa: nasce na ONDA-VIBRACAO-01, ainda não executada -->
 não é desta onda só.** O mesmo desenho é pedido pela Iluminação
 (`O-REDESENHO:347`), pela Navegação (`:299`) e, em aberto, pelos cards da
 Controles (`:237`). Se outra onda declarar o mesmo `cria:`, **serialize** — dois

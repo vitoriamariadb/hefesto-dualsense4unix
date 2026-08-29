@@ -78,7 +78,7 @@ atalhos pedem que a pessoa digite `Alt + Tab` sem errar.
    e a mesma altura de linha; as duas colunas da aba com a mesma altura, como ela
    exigiu nas outras abas ("Altura e largura dos blocos ... são iguais").
 5. **Linha em disputa em laranja**, nas duas tabelas ao mesmo tempo, lendo
-   `core/disputa_de_botao.py` (ONDA-NAVEGACAO-04) — nunca uma segunda régua.
+   `core/disputa_de_botao.py` (ONDA-NAVEGACAO-04) — nunca uma segunda régua.  <!-- ref-externa: nasce na ONDA-NAVEGACAO-04, ainda não executada -->
 6. **"Voltar ao padrão" pergunta antes.** Hoje apaga direto
    (`input_actions.py:518` `on_key_binding_restore_defaults`).
 

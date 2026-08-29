@@ -53,7 +53,7 @@ mesma que atravessa esta onda inteira:
 
 **01 e 02 correm em paralelo**: uma é a tela vazia, a outra é o módulo que não
 importa nada da janela. Da 03 em diante todas escrevem no mesmo
-`app/actions/lancadores_actions.py` — a serialização está declarada em
+`app/actions/lancadores_actions.py` — a serialização está declarada em  <!-- ref-externa: nasce na ONDA-LANCADORES-01, ainda não executada -->
 `depois_de`, que é o que o `check_colisao_de_sprints.py` aceita como decisão em
 vez de descuido.
 
