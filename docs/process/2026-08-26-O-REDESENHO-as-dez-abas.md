@@ -632,7 +632,7 @@ Vai para o "?" ou para a dica: o parágrafo de ajuda de cada botão, o "o que eu
 | Já movi — reexaminar | Ela diz que mexeu no cabo; o exame compara o antes e o depois | existe hoje |
 | Ignorar | Cala aquele conselho naquele arranjo de cabos | existe hoje |
 | Mover para a entrada N | A ordem de serviço diz **o que mover para onde** e o que se ganha, não só o juízo | existe no código e nunca teve tela — `integrations/arranjo_da_mesa.py:877` (`receita`), `:1063` (`consequencias`) |
-| Cor: (busca das 21 cores) | Declara a cor do plástico quando o aparelho não respondeu (rádio) | existe hoje |
+| Cor: (busca das cores de fábrica) | Declara a cor do plástico. **NOTA DATADA 29/08/2026:** são 21 HOJE e o dado conhece 28 — o número não é requisito, e fechá-lo é a `ONDA-CONEXOES-12`. E o parêntese "(rádio)" caducou: medido em 29/08, o aparelho não responde por CABO nenhum tampouco, porque o produto não pergunta pela porta certa | existe hoje |
 | Corrigir (na linha Cor) | Discorda da cor que o aparelho respondeu pelo cabo | existe hoje |
 | Diga a cor (campo livre) | Escreve a cor com as palavras dela quando nada da lista serve | existe hoje |
 | A luz não acende | Derruba o controle do rádio para ela apertar PS e a barra voltar a obedecer | existe hoje |
@@ -667,7 +667,9 @@ Vai para o "?": as linhas "o que eu vi" e "por que importa" de cada ordem de ser
 - Cards "O que fazer" (ordem de serviço) — **ficam**, e ganham a receita "mova daqui para ali".
 - Ver / Já movi — reexaminar / Ignorar — **ficam**.
 - Cor lida do aparelho + selo + borda com o tom do plástico — **fica**, e a regra da borda vale agora em toda a interface.
-- Cor: busca das 21 cores · Corrigir · campo livre — **ficam**.
+- Cor: busca das cores de fábrica · Corrigir · campo livre — **ficam**. (São 21
+  hoje contra 28 no dado; ver a `ONDA-CONEXOES-12`. O número aqui descreve o
+  hoje e **não é requisito de desenho**.)
 - "A luz não acende" e "Cancelar" — **ficam**.
 - Microfone pelo rádio (opt-in por controle) — **fica**.
 - Jogador: 1 2 3 4 5 — **vai para a Iluminação**, que passa a ser o lugar único de escolher o jogador; aqui o número vira leitura.

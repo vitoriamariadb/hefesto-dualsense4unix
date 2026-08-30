@@ -130,8 +130,10 @@ legenda."*
   em quatro cartões não ensinam nada.
 
 **E há uma pergunta maior atrás desta, que NÃO é desta aba e trava a de lá:** a
-escolha por controle é cura escrita e nunca ligada. Medido em 29/08 pelo censo
-da aba Jogar: `integrations/virtual_pad.py:150-162` **não tem parâmetro
-`identity`**, e `daemon/subsystems/coop.py:972` chama `make_virtual_pad` com o
-sabor **do jogo**, tendo `player.identity` na linha logo acima. Esta aba
-**lê**; quem **escolhe** é a onda da aba Jogar, e é lá que essa conta se paga.
+escolha por controle era cura escrita e nunca ligada. **SUBSTITUÍDO na tarde de
+29/08/2026** (`A-MASCARA-POR-CONTROLE-01`): esta passagem dizia que
+`virtual_pad.py` não tinha `identity` e que `coop.py` chamava com o sabor do
+jogo. **Os dois foram curados** — `virtual_pad.py:153` recebe `identity` e
+resolve `mascara_efetiva` antes do backend; `coop.py:990` e `gamepad.py:2108`
+passam o MAC. Esta aba **lê**; quem **escolhe** é a onda da aba Jogar, e lá o que
+sobra é o vpad não ser RECRIADO ao aplicar.

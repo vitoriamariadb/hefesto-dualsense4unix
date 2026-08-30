@@ -46,7 +46,8 @@ as sprints eram escritas:
   disputando `install.sh`.
 * **−1 e +1 — o fato errado do mapa NÃO virou sprint.**
   `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`,
-  ainda diz `radio_aciona=não` com motivo `o-aparelho-recusa`, e a medição de
+  diz `radio_aciona=não` e, desde 29/08/2026, com motivo `divida` — a célula foi
+  corrigida; era `o-aparelho-recusa`. A medição de
   27/08 derrubou isso: quem recusava era a semente do **nosso** CRC (`0x53`, não
   `0xA3` — `docs/protocol/dualsense-referencia-canonica.md:1645-1659`). Medido em
   29/08: `grep -c '0x53' docs/data/mapa-controles.csv` devolve **0**. **Mas a

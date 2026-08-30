@@ -80,7 +80,7 @@ perfil"*) sai da mesma leitura, nunca de um número fixo.
 ### 1. A cor do plástico não chega pelo rádio, e metade da mesa dela é rádio
 
 `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`:
-`cabo_aciona = sim`, **`radio_aciona = não`**, motivo `o-aparelho-recusa`. O
+`cabo_aciona = sim` (o produto passou a ler pelo cabo em 29/08/2026, pela porta do broker) e **`radio_aciona = não`** com motivo `divida` — era `o-aparelho-recusa` até 29/08, e a recusa era do nosso CRC, não do aparelho. O
 filtro está no código: `_e_dualsense_no_cabo` (`integrations/cor_do_plastico.py:369`)
 exige barramento USB.
 

@@ -68,7 +68,8 @@ dela (`O-REFINAMENTO-DE-ALINHAMENTO-QUE-ELA-EXIGE`).
 ## A cor pelo rádio, e por que ela não se inventa
 
 `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`:
-**`radio_aciona = não`**, `radio_por_que_nao_aciona = o-aparelho-recusa`.
+**`radio_aciona = não`**, `radio_por_que_nao_aciona = divida` (era
+`o-aparelho-recusa` até 29/08/2026 — a recusa era do nosso CRC, não do aparelho).
 
 O mockup mostra **P2 Starlight Blue • BT** e **P3 Galactic Purple • BT**, com a
 cor pintada na borda, na moldura e nas dez zonas do desenho. **Metade da mesa

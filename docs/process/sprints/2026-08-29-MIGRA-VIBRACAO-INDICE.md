@@ -206,7 +206,8 @@ aberta que nenhuma das oito herdou.
    tem de valer para o jogo, e entra em `apply_game_rumble`. Se for bancada,
    custa um terço.
 5. **A cor do plástico pelo RÁDIO.** (**03**) O mapa diz `radio_aciona = não`,
-   `o-aparelho-recusa`, e duas colunas do mockup são BT. Declaração dela, ou
+   `divida` desde 29/08/2026 (era `o-aparelho-recusa` — a recusa era do nosso CRC),
+   e duas colunas do mockup são BT. Declaração dela, ou
    "Não sei" com a borda neutra? **É a mesma pergunta das dez abas.**
 6. **Os 12 filtros mortos desta aba.** (**02**) 12 `filter: url()` contra 12
    `<filter>` — nenhum casa. O Chrome ignora e desenha; **o WebKit segue o SVG

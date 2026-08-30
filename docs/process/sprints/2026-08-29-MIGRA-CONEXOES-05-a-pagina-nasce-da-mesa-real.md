@@ -73,7 +73,8 @@ do "jogador 3 fantasma".
    CSS, e a razão está na tela — o `?` do quadro já diz *"pelo rádio ele ainda
    não pergunta"*. **Esta regra tem um espinho vivo**, e ele não é desta sprint:
    `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`,
-   ainda diz `radio_aciona=não` com motivo `o-aparelho-recusa` — e a medição
+   diz `radio_aciona=não`, e desde 29/08/2026 com motivo `divida`, não
+   `o-aparelho-recusa` — e a medição
    desta bancada em 27/08 derrubou isso (quem recusava era a semente do **nosso**
    CRC, `0x53` e não `0xA3`; `docs/protocol/dualsense-referencia-canonica.md:1645-1659`).
    Medido em 29/08: `grep -c '0x53' docs/data/mapa-controles.csv` devolve **0**.

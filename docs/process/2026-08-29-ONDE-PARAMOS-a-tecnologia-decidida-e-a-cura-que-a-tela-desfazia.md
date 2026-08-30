@@ -1,5 +1,9 @@
 # ONDE PARAMOS — 29/08/2026: a tecnologia decidida, e a cura que a tela desfazia
 
+> **O estado medido do projeto cabe em cinco minutos:**
+> [O QUE É VERDADE HOJE](2026-08-29-O-QUE-E-VERDADE-HOJE.md). Leia-o antes deste arquivo se o que você
+> precisa é o que é fato, o que é dívida e o que já foi curado.
+
 **A porta de entrada de agora.** Quinze horas seguidas, e três coisas que valem
 mais que o resto:
 

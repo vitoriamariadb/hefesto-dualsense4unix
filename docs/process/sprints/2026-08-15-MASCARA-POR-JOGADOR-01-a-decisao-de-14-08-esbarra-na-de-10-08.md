@@ -6,7 +6,14 @@
   valer só para o `mode`"*
   ([AS-DECISOES-RESPONDIDAS](../2026-08-15-AS-DECISOES-RESPONDIDAS.md), linha
   23). É a **resposta B** da tabela da seção 4. O código foi escrito e commitado
-  (`95fffdd`); o que falta é o **último degrau**, e ele está na seção 7.
+  (`95fffdd`); faltava o **último degrau**, da seção 7. **ELE ENTROU em
+  29/08/2026** (`A-MASCARA-POR-CONTROLE-01`): `make_virtual_pad` recebe
+  `identity` (`integrations/virtual_pad.py:153`) e resolve a máscara efetiva
+  ANTES de escolher o backend; `daemon/subsystems/gamepad.py:2108` e
+  `daemon/subsystems/coop.py:990` passam o MAC; o `xfail(strict=True)` que este
+  documento previu em 15/08 **XPASSOU**. O que sobra é o vpad não ser RECRIADO
+  ao aplicar. **As tabelas das seções 7 e 8 abaixo são o PLANO de 15/08 e seus
+  endereços apodreceram — não as execute sem remedir.**
 - **Escrito em:** 15/08/2026. **Atualizado em 15/08/2026** com a resposta dela,
   com o que virou código, e com o veredito do ensaio de mordida (seção 8).
 - **Grau:** **MEDIDO no código** (todas as linhas citadas foram abertas e lidas

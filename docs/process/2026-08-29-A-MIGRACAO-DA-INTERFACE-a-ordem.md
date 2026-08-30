@@ -279,7 +279,9 @@ do índice da sua onda.
   todas as dez abas.
 - **A cor do plástico nos cartões do rádio.** O mapa é portão e diz **não**
   (`mapa-controles.csv`, `identidade.cor_do_aparelho@dualsense`,
-  `radio_aciona=não`, `o-aparelho-recusa`). Metade da mesa dela é BT. Três
+  `radio_aciona=não`, e desde 29/08/2026 a causa é `divida`, NÃO `o-aparelho-recusa`:
+  em 27/08 mediu-se que a recusa era a semente do nosso CRC, e o aparelho
+  responde por rádio). Metade da mesa dela é BT. Três
   saídas, com preços diferentes, na `MIGRA-JOGAR-01` e na `MIGRA-CONTROLES-12`.
 - **O quinto degrau da escada de modos.** O código tem **quatro**
   (`ponte_escada.py:294`), o mockup desenha **cinco**. E o quarto degrau não é

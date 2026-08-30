@@ -36,8 +36,13 @@ casa — a cura escrita e nunca ligada — e este é o exemplar vivo.
   `UinputGamepad.for_flavor(..., identity=...)` (`uinput_gamepad.py:395-427`) e
   `UhidDualSense.for_flavor(..., identity=...)` (`uhid_gamepad.py:987-1030`).
 
-**O que falta são três degraus, e o próprio cabeçalho do módulo os nomeia**
-(`external_mask.py:46-58`). Medido em 29/08:
+> **PREMISSA SUPERADA em 29/08/2026, mais tarde no mesmo dia** (`A-MASCARA-POR-CONTROLE-01`): `make_virtual_pad` **ganhou** `identity` (`integrations/virtual_pad.py:153`) e resolve `mascara_efetiva(identity, flavor)` ANTES de escolher o backend; os dois chamadores passam o MAC (`daemon/subsystems/gamepad.py:2108`, `daemon/subsystems/coop.py:990`). Régua: `tests/unit/test_mascara_por_controle_manda_no_vpad.py`, 13 testes. **Não refaça este degrau** — o que sobra é o vpad não ser RECRIADO ao aplicar.
+>
+> Os três degraus abaixo ficam como REGISTRO do que foi medido pela manhã —
+> os endereços deles apodreceram no mesmo dia.
+
+**O que faltava eram três degraus, e o próprio cabeçalho do módulo os nomeia**
+(`external_mask.py:46-58`). Medido na MANHÃ de 29/08:
 
 1. **`integrations/virtual_pad.py:150-162` — `make_virtual_pad` não tem parâmetro
    `identity`.** `grep -c identity` no arquivo inteiro devolve **0**. As duas

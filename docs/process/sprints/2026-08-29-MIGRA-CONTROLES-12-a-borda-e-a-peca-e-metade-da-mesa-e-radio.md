@@ -60,8 +60,12 @@ seguintes**, e nenhuma das duas está escrita em sprint nenhuma:
 ### 1. Metade da mesa dela é rádio, e pelo rádio a cor não chega
 
 `docs/data/mapa-controles.csv`, `identidade.cor_do_aparelho@dualsense`:
-`cabo_aciona = sim`, **`radio_aciona = não`**, com `radio_por_que_nao_aciona =
-o-aparelho-recusa`. O filtro está no código: `_e_dualsense_no_cabo`
+**`cabo_aciona = sim`, `radio_aciona = não`** — e a causa do rádio é `divida`
+desde 29/08/2026, não `o-aparelho-recusa`. **As duas células mudaram nesse dia,
+e em direções opostas:** o cabo esteve algumas horas em `não` (mediu-se que o
+produto abria o nó com `os.open` direto e morria em EACCES) e voltou a `sim`
+quando a cura entrou, na mesma leva. No rádio, o filtro está no código:
+`_e_dualsense_no_cabo`
 (`integrations/cor_do_plastico.py:369`) exige `_BUS_USB` (`:378`) e reprova o nó
 em `:445`.
 
@@ -69,12 +73,19 @@ O mockup pinta os **quatro** cartões, e dois deles são BT (P2 Starlight Blue,
 P3 Galactic Purple). **Sem memória, esses dois nascem cinzentos no produto** —
 e a mesa dela hoje tem **dois** controles.
 
-**Nota, e ela muda o tamanho do problema:** a lápide *"é o aparelho que
-recusa"* **caiu** em 28/08 — não era o aparelho, era o CRC desta casa (a semente
-`0x53`, e o conserto já está em `dev`, commit `8da72018`). A célula do mapa
-ainda diz `o-aparelho-recusa`, e quem a corrige é a
+**Nota, e ela muda o tamanho do problema — ATUALIZADA em 29/08/2026:** a
+lápide *"é o aparelho que recusa"* **caiu** em 27/08 (não era o aparelho, era o
+CRC desta casa — a semente `0x53`; o conserto do código entrou em `dev` no
+commit `8da72018`), e **a célula do mapa já foi corrigida**: hoje diz `divida`.
+Quem tira os três portões que ainda recusam o rádio é a
 [ONDA-CONEXOES-11](2026-08-27-ONDA-CONEXOES-11-a-cor-se-le-no-radio-e-a-semente-e-0x53.md).
-**Enquanto ela não fechar, esta aba tem de saber viver sem a cor no rádio.**
+**E o cabo passou perto de ser o mesmo problema:** medido na manhã de
+29/08/2026, `ler_pelo_cabo` devolvia `None` nos DOIS controles dela — o nó está
+`0600 root:root` pelo BROKER-01 e o leitor abria com `os.open` direto. **A cura
+entrou no mesmo dia** (`A-COR-PELA-PORTA-DO-BROKER-01`), e pelo cabo a cor
+agora chega.
+**Enquanto a do rádio não fechar, esta aba tem de saber viver sem a cor nos
+cartões de BT — e a mesa dela é metade BT.**
 
 ### 2. A leitura não sobrevive à janela
 

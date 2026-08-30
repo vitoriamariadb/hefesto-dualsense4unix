@@ -251,6 +251,22 @@ migrá-los é de outra leva, porque quatro daquelas abas estão com outras frent
 | Regressão de i18n | `mixin.py` saiu do piso, com prova de zero textos de tela |
 
 ### A medição de rádio que fechou um item de sprint
+
+> **NOTA DATADA — 29/08/2026: a CONCLUSÃO deste bloco foi refutada, a MEDIÇÃO
+> não.** A captura `btmon` abaixo é real e continua valendo. O que caiu é a
+> causa: **não era o firmware, era a semente do nosso CRC.** O `SET_REPORT` ia
+> assinado com a de `DATA|FEATURE` (`0xA3`) quando a que sai é
+> `SET_REPORT|FEATURE` (`0x53`); medido em 27/08/2026, no mesmo controle e no
+> mesmo comando, o `0x53` foi ACEITO e o aparelho devolveu a cor **por rádio**.
+> O item de sprint que este bloco diz ter fechado foi REABERTO
+> (`ONDA-CONEXOES-11`).
+>
+> **A lição de processo fica, e é maior que o erro:** a frase *"não é o BlueZ,
+> não é o uhid, não é o kernel"* eliminou três suspeitos e concluiu o quarto por
+> exclusão — sem nunca testar a hipótese *"o pedido está malformado"*. Eliminar
+> suspeitos não é o mesmo que provar o que sobrou, quando a lista de suspeitos
+> foi escrita por quem já tinha um favorito.
+
 **A cor do plástico por rádio NÃO funciona, e a causa é o firmware.** Captura
 `btmon` do canal de controle: o `SET_REPORT` sai inteiro (TX 65 bytes no L2CAP) e
 o **controle** responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos
@@ -259,6 +275,9 @@ régua foi validada antes: `GET_FEATURE 0x20` no mesmo canal responde em ~6 ms c
 três âncoras batendo.
 
 **A hipótese de 15/08 virou medida, e o fato errado saiu de oito arquivos.**
+(E em 29/08/2026 o novo fato errado saiu de outros tantos — ver a nota acima.
+Os "oito arquivos" daquele dia estavam sendo alinhados com uma conclusão que
+duraria quatro dias.)
 
 ### Instrumentos novos
 - `scripts/gerar-painel.py` → `painel.html`: estado do projeto, autocontido, sem

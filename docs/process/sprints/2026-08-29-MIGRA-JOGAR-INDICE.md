@@ -141,7 +141,7 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
 |---|---|
 | 01 | **A fita fica em quantos lugares?** O produto a desenha na `Gtk.HeaderBar` (`app/actions/status_actions.py:1702`) e o desenho a desenha dentro da página (`novo-layout/01-jogar.html:567`). Com o enxerto as duas ficam na tela ao mesmo tempo — o mesmo defeito que ela viu em um segundo quando a tira apareceu duas vezes |
 | 04 | **Zero controles.** O desenho não tem esse estado. O que a tela diz quando não há nada na mesa é dela |
-| 04 | **A cor do plástico nos cartões do rádio.** O mapa é portão e diz **não** (`docs/data/mapa-controles.csv:111`, `radio_aciona=não`, `o-aparelho-recusa`). Três saídas, de preços diferentes: **lembrar** o que se leu no cabo (`ControleDeclarado.cor`, `utils/maquina.py:551`), **nascer sem cor**, ou **ela declarar à mão**, que é o que o produto já permite |
+| 04 | **A cor do plástico nos cartões do rádio.** O mapa é portão e diz **não** (`docs/data/mapa-controles.csv:111`, `radio_aciona=não`, motivo `divida` desde 29/08/2026, quando a lápide `o-aparelho-recusa` caiu; `cabo_aciona=sim`, e a leitura pelo cabo só passou a acontecer de verdade em 29/08, com a porta do broker). Três saídas, de preços diferentes: **lembrar** o que se leu no cabo (`ControleDeclarado.cor`, `utils/maquina.py:551`), **nascer sem cor**, ou **ela declarar à mão**, que é o que o produto já permite |
 | 06 | **O quarto botão "Desligado" vale no clique ou espera o `Aplicar`?** E de quem é o gesto — a Jogar ou a Sistema? (`SPRINT_ORDER.md` §0.2, "Ligar/Desligar o Hefesto em dois lugares") |
 | 07 | **O quinto degrau: "Teclado + Mouse" (desenho) ou "Controlar o PC" (`home_actions.py:154`)?** E antes disso: se ele é o modo desktop, a escada ganha um degrau novo; se é outra coisa, é **escada nova** e a ordem inteira volta à mesa |
 | 09 | **O despausar tem botão nesta aba?** O desenho não o desenha. Três sprints já o batizaram de três jeitos — "Continuar", "Retomar", e um gesto na Navegação (`SPRINT_ORDER.md` §0.2) |
@@ -152,7 +152,7 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
 
 | O quê | Quem |
 |---|---|
-| As 28 cores e as 10 zonas chegarem ao produto (hoje são 21 contra 28, com sete de divergência) | **ONDA-CONEXOES-12** |
+| As 28 cores e as 10 zonas chegarem ao produto. **RECONTADO em 29/08/2026: não são "sete de divergência", são sete AUSÊNCIAS mais três NOMES divergentes (`Z1` Ragnarok/Ragnarök, `Z2` Spider-Man 2/Marvel's Spider-Man 2, `ZB` Limited/Special) e os 21 hexas divergindo 21 de 21, quatro deles invertendo claro e escuro** | **ONDA-CONEXOES-12** |
 | A cor se ler pelo rádio (a semente `0x53`, e os três portões que hoje recusam) | **ONDA-CONEXOES-11** |
 | O módulo de enxerto (`webview_de_aba`) | **MIGRA-CONTROLES-01** |
 | As duas pontes (`run_javascript` e `register_script_message_handler`) | **MIGRA-CONTROLES-03** |

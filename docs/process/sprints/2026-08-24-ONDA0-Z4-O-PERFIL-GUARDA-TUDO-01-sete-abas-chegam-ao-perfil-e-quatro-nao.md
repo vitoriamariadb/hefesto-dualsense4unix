@@ -23,8 +23,22 @@ real pela porta da janela*). O diagnóstico está em
    emite `controllers: None` e o applier pula seção `None`.
 4. A decisão dela de 18/08 (mic, som, touch, giro, acelerômetro no perfil) foi
    executada **pela metade**: mic e som entraram; touch, giro e acelerômetro
-   dependem da máscara, que só existe no perfil dentro de `mode`, que 22 perfis
-   não têm.
+   ainda não.
+
+   > **FATO ERRADO, SUBSTITUÍDO em 29/08/2026.** Este item dizia que *"touch,
+   > giro e acelerômetro dependem da máscara, que só existe no perfil dentro de
+   > `mode`"*. **Não dependem** — não para chegar à INTERFACE. O giroscópio já
+   > chega hoje, sem máscara nenhuma: `daemon/sensor_hub.py`, `leitura`, monta a
+   > chave `gyro` a partir do nó evdev `Motion Sensors`, e o acelerômetro sai do
+   > **mesmo nó** (`ABS_X/Y/Z`, `resolution = 8192`, medido ao vivo em
+   > 29/08/2026: |v| = 0,9936 g e 0,9972 g nos dois controles dela).
+   >
+   > A dependência da máscara é real, mas do caminho para o **JOGO** — o vpad e
+   > o que ele expõe —, não do caminho para a tela e o perfil. Confundir os dois
+   > fez este item orçar como "preso atrás do `mode`" o que está a uma chave de
+   > distância, e foi um dos argumentos que tiraram o acelerômetro do desenho
+   > antes de ela o devolver (*"não era pra ele sair. era pra ele funcionar"*,
+   > 29/08).
 5. O portão que existe hoje mede **campo do esquema → escritor**. Falta a direção
    inversa — **widget de escolha → depósito** — e é nela que moram os quatro
    buracos por aba.

@@ -874,7 +874,10 @@ cor do plástico"*.
    `[1, 1]` **reseta o controle** e `[12, 1, ...]` **grava calibração na NVS**.
    O par `[1, 19]` é leitura pura — mas **byte errado no payload escreve onde
    não devia**, e não há desfazer.
-3. **Funciona POR CABO, e o APARELHO recusa por rádio.** O `dualshock-tools`
+3. **Funciona POR CABO — e o "o APARELHO recusa por rádio" que estava escrito aqui CAIU.**
+   **FATO ERRADO, SUBSTITUÍDO EM 29/08/2026 — não era o aparelho, era o nosso CRC.** A captura de 23/08 é real e fica; a CONCLUSÃO dela caiu em 27/08/2026. O `SET_REPORT` ia assinado com a semente de `DATA|FEATURE` (`0xA3`) quando a que SAI é `SET_REPORT|FEATURE` (`0x53`); com a semente certa o controle respondeu PELO RÁDIO e devolveu a cor. Ver `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`, cuja causa hoje é `divida`.
+   O texto original de 23/08 segue abaixo, porque a captura é real e o que
+   caducou foi a leitura dela. O `dualshock-tools`
    **recusa Bluetooth de saída**, e em 23/08/2026 se mediu por quê: o
    `SET_REPORT` sai inteiro no canal de controle L2CAP e o CONTROLE responde
    `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense,
@@ -893,7 +896,7 @@ um:**
 |---|---|---|
 | **(a) não fazer** | **zero risco.** Você escolhe a cor de cada controle na interface **uma vez**, e ela fica salva por MAC (D-16 já decidiu que é da PEÇA) | a tela pinta certo hoje à noite, e nunca escreve nada no aparelho |
 | **(b) fazer POR CABO, um de cada vez** | é o **caminho provado**, e ainda assim é escrita na família de fábrica. Um controle no cabo por vez, com o daemon parado ou pelo broker | a cor sai do próprio aparelho, sem você digitar nada — inclusive para controle que você comprar depois |
-| ~~**(c) tentar POR RÁDIO**~~ **MEDIDO em 23/08: o aparelho recusa** | O `SET_REPORT` sai inteiro no canal L2CAP e o CONTROLE responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense, com e sem CRC | **nada — não funciona.** Ver [UNIDADE-COR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) |
+| **(c) tentar POR RÁDIO — REABERTO em 29/08/2026** (dizia *"MEDIDO em 23/08: o aparelho recusa"*; era o nosso CRC, e o `0x53` foi aceito em 27/08) | O `SET_REPORT` sai inteiro no canal L2CAP e o CONTROLE responde `HANDSHAKE 0x04` (`ERR_INVALID_PARAMETER`) em ~5 ms, nos dois DualSense, com e sem CRC | **funciona, e a cura é nossa** — `ONDA-CONEXOES-11`. Ver [UNIDADE-COR-01](2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) |
 
 **A minha recomendação é (a) agora e (b) depois**, nesta ordem e por este
 motivo: (a) entrega a tela hoje e não toca no aparelho; (b) vira melhoria
@@ -1385,7 +1388,7 @@ publicou a tentativa por rádio. Com dois no cabo e dois no rádio, o mesmo
 braços no mesmo minuto, e há três resultados possíveis — **os três úteis**:
 
 - **funciona nos dois** -> a leitura de cor não precisa de cabo, e a alínea (c)
-  da D-15 deixa de ser território não demonstrado — **e em 23/08 deixou: o aparelho recusa o comando por rádio**, medido com `btmon`;
+  da D-15 deixa de ser território não demonstrado — **e em 23/08 pareceu deixar: "o aparelho recusa o comando por rádio", medido com `btmon`. REFUTADO em 27/08/2026 — era a semente do nosso CRC, e por rádio o aparelho devolve a cor**;
 - **só no cabo** -> a casa passa a poder escrever *"medido: o serial de fábrica
   não atravessa o rádio"*, com data e amostra, em vez de repetir a leitura de
   terceiro;

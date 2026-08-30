@@ -63,13 +63,19 @@ E é **filtrada por barramento**: `_e_dualsense_no_cabo`
 em `:445`.
 
 `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho`:
-`cabo_aciona = sim`, `radio_aciona = não`, `o-aparelho-recusa`.
+`cabo_aciona = sim` (o produto passou a ler pelo cabo em 29/08/2026, pela porta do broker) e **`radio_aciona = não`** com motivo `divida` — era `o-aparelho-recusa` até 29/08, e a recusa era do nosso CRC, não do aparelho.
 
-**Essa lápide é FALSA, e a casa já sabe.** Não era o aparelho: era o nosso CRC —
+**Essa lápide era FALSA, e o mapa já foi corrigido (29/08/2026).** Não era o aparelho: era o nosso CRC —
 a semente do feature que SAI é `0x53` (`SET_REPORT|FEATURE`), não `0xA3`
-(`DATA|FEATURE`), e assinar com a errada devolve `errno 5`. Com a certa, **os
-quatro DualSense desta bancada responderam pelo rádio**
-(`docs/protocol/dualsense-referencia-canonica.md:1630-1663`).
+(`DATA|FEATURE`), e assinar com a errada devolve `errno 5`. Com a certa, **o aparelho respondeu pelo rádio e devolveu a cor** —
+`hidraw8`, 27/08/2026 (`docs/protocol/dualsense-referencia-canonica.md`).
+**A amostra por rádio é UMA unidade**, não quatro: a segunda medição daquele
+dia foi pelo cabo. Corrigido em 29/08/2026, aqui e no docstring do módulo.
+
+**O CABO chegou a não ler**, e por poucas horas: mediu-se em 29/08/2026 que o
+nó está `0600 root:root` pelo BROKER-01 e que o leitor abria com `os.open`
+direto. A cura entrou no mesmo dia (`A-COR-PELA-PORTA-DO-BROKER-01`) e pelo cabo
+a cor voltou a chegar — pelo rádio, não.
 
 **Mas o conserto é sprint FORA desta onda** — `ONDA-CONEXOES-11` (a semente e os
 filtros de barramento) e `ONDA-CONEXOES-12` (as 28 cores e as 10 zonas chegando

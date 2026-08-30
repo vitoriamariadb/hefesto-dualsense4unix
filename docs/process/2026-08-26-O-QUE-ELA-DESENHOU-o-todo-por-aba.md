@@ -174,7 +174,7 @@ Legenda: **SAI** = tira coisa da tela · **?** = precisa de decisão.
 **Quem executar precisa saber:**
 - **Ela tem razão sobre o botão:** não é bug de fiação — o handler existe e está conectado. `status_actions.py:1018-1048` devolve alvo vazio assim que há dois sinks distintos, e `audio_saida.py` traduz alvo vazio em insensível. É a regra "com dois controles a janela não escolhe por ela".
 - **O mudo do mic não sobrevive a reconectar o controle.** `MIC-GRAVACAO-01` só deixa `muted` passar em `origin="manual"`; reconexão e boot vão com `origin="system"`. O alto-falante tem gancho de reconexão próprio (`manager.py:1020-1049`); **o microfone não tem nenhum.** O "MUDO" da foto 02 morre no próximo replug.
-- **O acelerômetro não existe do lado dela** em ponto nenhum: nem tela, nem perfil, nem IPC. Só como bytes 21-26 do report físico.
+- **O acelerômetro não chega do lado dela** em ponto nenhum: nem tela, nem perfil, nem IPC. **FATO ERRADO, SUBSTITUÍDO em 29/08/2026** — esta linha dizia *"não existe (...) só como bytes 21-26 do report físico"*, e isso mede o CAMINHO DO JOGO, não o da interface. Ele existe também **decodificado pelo kernel**, no nó evdev `Motion Sensors` que o produto **já abre** para o giroscópio: `ABS_X/Y/Z` com `resolution = 8192` (`= DS_ACC_RES_PER_G`) ao lado de `ABS_RX/RY/RZ` com `1024`. Os seis eixos, no mesmo nó. Remedido em 29/08/2026 nos dois controles dela, leitura passiva: |v| = 0,9936 g e 0,9972 g. **A distância até a tela é uma chave em `daemon/sensor_hub.py` (`leitura` monta `gyro` e não monta `accel`) e três códigos no laço de `evdev_reader`** — não é feature nova. Dono: `ONDA-CONTROLES-04`, e ela decidiu em 29/08: *"não era pra ele sair. era pra ele funcionar."*
 - **Não existe calibração de sensores.** O único `calibrar` do produto é `calibrar_entradas.py`, sobre entradas USB do gabinete. O que ela pediu é código novo do zero, incluindo decidir para onde a correção vai.
 
 **Decisões pendentes:** D1, D9.
@@ -492,7 +492,7 @@ O SVG já tem os 32 ids e as 5 colorways: `#corpo` pela cor do plástico, `#ligh
 
 O mais caro, por último, e cada um é código novo do esquema ao backend:
 
-- `STATUS-5` — giroscópio, acelerômetro e calibração. Nenhum dos 40 métodos do IPC toca sensor; o `Profile` não tem os campos; o acelerômetro não existe do lado dela.
+- `STATUS-5` — giroscópio, acelerômetro e calibração. Nenhum dos 40 métodos do IPC toca sensor e o `Profile` não tem os campos — **mas o acelerômetro NÃO é código novo do zero** (corrigido em 29/08/2026, ver a nota da aba Controles): o dado já chega ao produto no mesmo nó evdev do giroscópio, e o que falta é publicá-lo. O `STATUS-5` é caro pela CALIBRAÇÃO, não pela leitura.
 - `RUMBLE-7` — motor único in-game. O par tem de nascer no esquema, atravessar o applier e virar par no backend, onde hoje há **um float** para os dois motores.
 - `LIGHTBAR-10` — "Deixar o jogo escolher". Exige tri-estado no `LedsConfig` e o desligamento por controle do GATILHO-DA-COR-01.
 - `NAVEG-7` — tabela configurável (média ou grande, conforme D21).

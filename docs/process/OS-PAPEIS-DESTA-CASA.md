@@ -229,3 +229,50 @@ coordena**. Detalhe completo, com as cicatrizes que o definem, em
   verificador cego, a réplica cega e o advogado do diabo.
 - `scripts/workflows/teste-de-vies.js` e `rastreabilidade.js` — os prompts
   exatos de cada papel medido neste catálogo.
+
+---
+
+## O PAPEL QUE VALE PARA TODOS: quem mexe na tela, abre a tela
+
+**Regra dela, 29/08/2026, e ela é sobre o AGENTE, não sobre a ferramenta:**
+
+> *"o que eu quero é que **o Claude faça isso**"* — sobre dirigir a interface,
+> clicar e validar se o problema foi resolvido ou se a mudança traz regressão.
+
+**Este documento é versionado e viaja em worktree; o `CLAUDE.md` não** (é
+`.gitignore`, e `git worktree add` não copia arquivo ignorado). Por isso a regra
+mora aqui: é o único lugar onde o agente despachado vai encontrá-la.
+
+A interface nova é o mockup HTML dentro de um `WebKit2.WebView`, e isso a torna
+**dirigível por dentro** — `run_javascript` clica, lê o DOM, mede geometria e
+espera o tempo passar, sem tocar no mouse dela.
+
+**Se o seu trabalho toca a interface, o relatório sem estas três coisas está
+incompleto:**
+
+| | O que é | Por quê |
+|---|---|---|
+| **A foto** | antes e depois, sempre `--oculta` | ela tem UMA tela; janela na frente dela quebra o que ela está fazendo |
+| **O clique** | você acionou o que mudou e mostrou a resposta | botão acrescentado e nunca clicado não está entregue |
+| **A mordida** | você quebrou a própria cura e viu reprovar | régua que passa com a cura arrancada não mede nada |
+
+```bash
+novo-layout/_ferramentas/controles_vivos.py --oculta --segundos 3 --foto /tmp/x.png
+novo-layout/_ferramentas/controles_vivos.py --oculta --segundos 5 --prova-gesto
+novo-layout/_ferramentas/controles_vivos.py --oculta --sem-ponte          # a mordida
+novo-layout/_ferramentas/controles_vivos.py --oculta --arranca-enderecos  # a outra
+```
+
+**O caso que prova a regra, e é de 29/08:** o `--prova-gesto` **nunca clicava** o
+botão do microfone nem o do alto-falante. Dava **verde sobre dois botões mortos**,
+e ninguém viu até alguém ampliar a régua de propósito. *Uma validação de interface
+que não cobre o botão novo é uma validação que mente.*
+
+**E a régua tem de viver no TEMPO.** Uma que roda o tique uma vez mede um
+INSTANTE, não um comportamento: em 29/08 uma leva introduziu regressão visível só
+aos **181 segundos**, com 67 testes verdes.
+
+**O Playwright não substitui isto.** Ele dirige o mockup num Chrome headless
+(`novo-layout/_ferramentas/olhar.py`) — serve para layout, `:hover` e fotografar o
+DESENHO. Ele **não alcança o WebKitGTK**. A ponte JS testa o motor que ela vai
+usar, com o daemon vivo.

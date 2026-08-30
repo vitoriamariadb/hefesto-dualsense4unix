@@ -11,7 +11,7 @@ fazer hoje. Esta lista é a diferença entre os dois.
 
 | # | O quê | Onde está hoje | O que falta |
 |---|---|---|---|
-| 1 | ~~**Cor do plástico por rádio**~~ **FECHADO — o firmware recusa** | A leitura por cabo entrou no produto em 22/08 (`integrations/cor_do_plastico.py`), e é ela que pinta a borda dos cards | **Nada. Medido em 23/08**, nos dois DualSense, com e sem CRC: o `SET_REPORT` sai inteiro no ar e o CONTROLE responde `HANDSHAKE 0x04` em ~5 ms. Não tem conserto do nosso lado; o caminho é o item 12 (ela escolher a cor) |
+| 1 | **Cor do plástico por rádio — REABERTO em 29/08/2026** (estava "FECHADO — o firmware recusa") | A leitura por cabo entrou no produto em 22/08 (`integrations/cor_do_plastico.py`), e é ela que pinta a borda dos cards | **Nada. Medido em 23/08**, nos dois DualSense, com e sem CRC: o `SET_REPORT` sai inteiro no ar e o CONTROLE responde `HANDSHAKE 0x04` em ~5 ms. **TEM conserto do nosso lado, e ele é nosso desde sempre:** em 27/08/2026, mudando SÓ a semente do CRC (`0x53` em vez de `0xA3`), o mesmo comando foi ACEITO por rádio e o controle devolveu a cor. Este item não estava fechado: estava mal diagnosticado. Dono: `ONDA-CONEXOES-11`. O item 12 (ela escolher) continua valendo como caminho de hoje |
 | 2 | **Borda na cor do plástico** | Desenhado em `ONDE-A-COR-MORA-01` (D-16, D-17, D-18); custo estimado ~120 linhas em `status_actions.py`, ~30 no `theme.css` | Executar. A aba Configurações **consome** essa borda, não a implementa |
 | 3 | **O tom de cada cor** | O aparelho entrega `05`, a tabela entrega *Starlight Blue*, e **ninguém entrega um RGB** | Definir os seis tons. É pergunta aberta da própria `ONDE-A-COR-MORA-01` |
 | 4 | **Número de jogador fixo por controle** | `identity.number.set` existe, funciona nos dois registros | A GUI nunca oferece para controles externos |
@@ -72,7 +72,7 @@ bandeja.
 
 Nenhuma bloqueia a leva; todas melhoram o que a aba consegue afirmar.
 
-1. ~~Cor do plástico por rádio nesta bancada~~ — **MEDIDA em 23/08 e o aparelho recusa.** Ver o item 1 acima e a nota nova em
+1. Cor do plástico por rádio nesta bancada — **REABERTA em 29/08/2026.** Esta linha dizia *"MEDIDA em 23/08 e o aparelho recusa"*; **FATO ERRADO, SUBSTITUÍDO EM 29/08/2026 — não era o aparelho, era o nosso CRC.** A captura de 23/08 é real e fica; a CONCLUSÃO dela caiu em 27/08/2026. O `SET_REPORT` ia assinado com a semente de `DATA|FEATURE` (`0xA3`) quando a que SAI é `SET_REPORT|FEATURE` (`0x53`); com a semente certa o controle respondeu PELO RÁDIO e devolveu a cor. Ver `docs/data/mapa-controles.csv`, linha `identidade.cor_do_aparelho@dualsense`, cuja causa hoje é `divida`. Ver o item 1 acima e a nota nova em
    [UNIDADE-COR-01](../2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md).
 2. O modelo do 8BitDo desta casa: SN30 Pro ou SN30 Pro+.
 3. Default da Steam para `SteamController_SwitchSupport` quando a chave não existe.

@@ -7,6 +7,11 @@ posse:
     - docs/data/cores-do-plastico.md
 cria:
   - tests/unit/test_as_cores_do_produto_saem_do_csv.py
+  # Acrescentados em 29/08/2026 pelo buraco A (o CSV não viaja no pacote):
+  # o dado tem de chegar ao wheel como MÓDULO GERADO, no molde do
+  # `app/fatos_do_mapa.py`, senão toda instalação real lê "Não sei".
+  - scripts/gerar-cores-do-produto.py
+  - src/hefesto_dualsense4unix/integrations/cores_de_fabrica.py
 bancada: false
 depois_de:
   # SÉRIE, por R5: divide `integrations/cor_do_plastico.py` com as três abaixo.
@@ -123,6 +128,101 @@ quatro saídas.
    `MEDIDO` com uma foto sob luz constante, e é o primeiro trabalho a fazer"*.
    Isso é foto **da peça**, não do aparelho respondendo, e não precisa de escrita
    nenhuma — mas precisa da mesa dela.
+
+## OS QUATRO BURACOS, medidos em 29/08/2026 — leia antes de executar
+
+> **E há um SEGUNDO documento para esta mesma cura**, escrito na leva de
+> 29/08/2026 sem ver esta sprint:
+> [UMA-LISTA-DE-COR-SÓ-01](2026-08-29-UMA-LISTA-DE-COR-SO-01.md). Ele acrescenta
+> o desenho do portão e os três nomes divergentes; esta sprint tem as dez zonas
+> e os quatro buracos abaixo. **Uma das duas tem de virar ponteiro para a outra
+> antes de qualquer execução** — duas sprints para o mesmo trabalho é o defeito
+> "dois donos" que a própria cura existe para matar.
+
+Nada aqui muda o objetivo da sprint. São quatro coisas que ela, do jeito que
+está escrita, **não fecha** — e as quatro foram medidas contra o disco.
+
+### A · O CSV NÃO VIAJA NO PACOTE, e a entrega nº 1 depende dele
+
+A sprint manda `NOMES_DE_FABRICA` e `TONS` saírem do CSV, *"lido uma vez no
+import"*. **Medido:** `pyproject.toml`, `[tool.hatch.build.targets.wheel]`,
+inclui só `gui/*.glade`, `gui/assets/*.png` e `locale/**/*.mo`. **`docs/data/`
+não entra no wheel, e o `MANIFEST.in` está vazio**; `build_deb.sh`,
+`build_appimage.sh` e `build_flatpak.sh` não citam `docs/data`. A própria casa já
+mediu isto para o irmão: `scripts/gerar-fatos-de-tela.py` diz, no cabeçalho, que
+*"`docs/data/mapa-controles.csv` não viaja no pacote — medido em 24/08/2026"*.
+
+**Consequência:** no checkout dela funciona; **em qualquer instalação real toda
+cor vira "Não sei"** — que é o fato 9 na forma exata, a régua é qualquer mesa.
+
+**A cura tem precedente dentro de casa** — o mesmo desenho de
+`app/fatos_do_mapa.py`: um **módulo Python gerado** que mora em `src/` (logo
+viaja), com gerador e portão `--check`:
+
+| peça | onde | como morde |
+|---|---|---|
+| gerador | `scripts/gerar-cores-do-produto.py`, irmão de `scripts/gerar-fatos-de-tela.py` | escreve `src/hefesto_dualsense4unix/integrations/cores_de_fabrica.py` a partir do CSV |
+| portão | linha nova em `scripts/portoes.sh`, ao lado da do `fatos-de-tela` | reprova quando o gerado no disco não é o que o CSV gera |
+| teste que morde | `tests/unit/test_as_cores_do_produto_saem_do_csv.py` (que a sprint já cria) | apague `ZC` do gerado e a asserção reprova nomeando `Ghost of Yōtei` |
+
+**Não** ponha isso no `check_cores_do_dualsense.py`: aquele é o dono do caminho
+CSV → DESENHO e a régua 2 dele sobe o Chrome. CSV → PRODUTO é outro dono.
+
+### B · TRÊS NOMES DIVERGEM, e nenhuma asserção da sprint compara nome
+
+Não é só "faltam sete". Nos 21 códigos que os dois JÁ têm:
+
+| código | produto (`NOMES_DE_FABRICA`) | CSV |
+|---|---|---|
+| `Z1` | `God of War Ragnarok` | `God of War Ragnarök` |
+| `Z2` | `Spider-Man 2` | `Marvel's Spider-Man 2` |
+| `ZB` | `Icon Blue Limited Edition` | `Icon Blue Special Edition` |
+
+As asserções da sprint são **códigos** e **hex**. O nome passa livre — e é
+justamente o que ela LÊ e o que ela DIGITA: `cores_para_busca()` lista os nomes e
+a busca casa por eles. **Quem procurar "Ragnarök" com trema não acha o
+controle.** Falta uma quarta asserção, comparando o NOME nos dois sentidos.
+
+**O desempate precisa de fonte, não de moeda, e esta sprint NÃO o resolve:**
+`docs/data/cores-do-plastico.md` concorda com o **produto** nos três e traz URL
+por linha; a coluna `fonte` do CSV é `pesquisa-externa-27-08` em **todas as 233
+linhas**, sem endereço. Quem executar leva os três a ela ou acha a fonte — não
+escolhe no braço.
+
+### C · EXISTE UMA QUARTA CÓPIA, e um teste a prende
+
+`scripts/ensaios/cor_do_plastico.py` tem `CORES`, com as mesmas 21 entradas, e
+`tests/unit/test_config_06_declaracao_nasce_em_nao_sei.py` afirma, **por AST**,
+`do_ensaio == NOMES_DE_FABRICA` — exatamente para a cópia não virar segunda
+verdade. **Ir para 28 no produto deixa esse teste VERMELHO** se o ensaio não for
+junto. O bloco `posse:` desta sprint não lista nem o ensaio nem esse teste.
+
+E a linha vizinha, `set(TONS) == set(NOMES_DE_FABRICA)`, precisa de tratamento
+explícito quando `TONS` virar zonas.
+
+### D · O `TONS` CONFLITA COM UMA MEDIÇÃO DELA — e é a pior armadilha das quatro
+
+**Medido: os 21 códigos de `TONS` divergem dos 21 `casca_esq` do CSV. Todos.**
+Não é "quase igual": é 21 de 21. O que importa:
+
+* **`05` Starlight Blue: `TONS = #B5CED4` é MEDIÇÃO DELA, grau `medido`,
+  21/08/2026** (`docs/data/cores-do-plastico.md`, e a conferência contra duas
+  bases externas logo abaixo). O CSV traz `#7EB8D4`, grau `FOTO`, fonte
+  `pesquisa-externa-27-08`. **A fonte declarada "da verdade" carrega, NESSE
+  código, o grau MAIS FRACO** — e "os dois saem do CSV" apagaria a única medição
+  de aparelho que a tabela de tons tem. Isto é apagar decisão medida, que é a
+  regra que esta casa não quebra;
+* **quatro invertem claro e escuro**, e um deles pinta a borda do card com a cor
+  oposta ao plástico: `Z1` `#D9DEE3` (claro) vs `#2C3A6E` (azul escuro); `Z2`
+  `#A8232B` (vermelho) vs `#1A1A1C` (preto); `Z4` `#DDD8EC` (claro) vs `#1A1A1C`;
+  `Z6` `#C3C6C2` (claro) vs `#1A1A1C`;
+* **`06`, `10`, `11` e `12` são `SEM-HEX` no CSV** e têm hex aproximado em
+  `TONS`. A entrega nº 3 já devolve `None` — mas alguém precisa dizer o que a
+  borda do card faz com `None` nesses quatro.
+
+**Nenhum documento desta casa registrava a divergência de hex antes de
+29/08/2026.** Ela não é detalhe de acabamento: é a diferença entre a borda do
+card mostrar a cor do controle e mostrar o oposto dela.
 
 ## O que fica combinado com quem coordena
 

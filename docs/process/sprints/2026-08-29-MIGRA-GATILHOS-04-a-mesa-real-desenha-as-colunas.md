@@ -137,6 +137,7 @@ honesto, e **não** abre `cor_do_plastico.py` nem o CSV — os dois estão em
 
 **E há um agravante de transporte:** `identidade.cor_do_aparelho@dualsense` no
 `docs/data/mapa-controles.csv` é `cabo_aciona=sim` / `radio_aciona=não`
-(`o-aparelho-recusa`). Metade da mesa dela é rádio. A ONDA-CONEXÕES-11 já mediu
+(hoje `divida`; dizia `o-aparelho-recusa` até 29/08/2026). Metade da mesa dela
+é rádio. A ONDA-CONEXÕES-11 já mediu
 que a lápide *"é o aparelho que recusa"* era falsa — era o CRC desta casa,
 semente `0x53` e não `0xA3` —, e essa cura é dela, não desta onda.

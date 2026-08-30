@@ -67,9 +67,13 @@ formate. **Não reescreva nenhum.**
 
    - **o mapa é portão e desmente dois dos quatro cartões do desenho.**
      `docs/data/mapa-controles.csv:111`, `identidade.cor_do_aparelho@dualsense`:
-     `cabo_aciona=sim`, `radio_aciona=não`, `radio_por_que_nao_aciona=o-aparelho-recusa`.
-     O mockup mostra P2 (Starlight Blue, BT) e P3 (Galactic Purple, BT) **com
-     cor**. Quem muda isso é a **ONDA-CONEXOES-11**;
+     `cabo_aciona=sim`, `radio_aciona=não` com motivo `divida` (29/08/2026 — era
+     `o-aparelho-recusa`, e a recusa era do nosso CRC). **O mapa desmente os
+     DOIS cartões de BT**: o mockup mostra P2 (Starlight Blue) e P3 (Galactic
+     Purple) com cor, e pelo rádio não há leitura. Quem muda isso é a
+     **ONDA-CONEXOES-11**. (Pelo CABO a leitura passou a funcionar em
+     29/08/2026, quando o produto adotou a porta do broker — antes disso ela
+     estava escrita como `sim` e não acontecia.);
    - **a leitura que existe não persiste.** `app/actions/config/secao_controles.py:646`
      guarda em `self._cores`, dict de instância, e `:930` pula tudo que não seja
      `transporte == "usb"`. Fechou a janela, a cor do cabo se perde. O campo de

@@ -1,5 +1,9 @@
 # O POSTO DE COMANDO — o que está em voo, e o que fazer se o contexto sumir
 
+> **O estado medido do projeto cabe em cinco minutos:**
+> [O QUE É VERDADE HOJE](2026-08-29-O-QUE-E-VERDADE-HOJE.md). Leia-o antes deste arquivo se o que você
+> precisa é o que é fato, o que é dívida e o que já foi curado.
+
 **29/08/2026, escrito com a conversa em 99% do contexto.** Pedido dela:
 
 > *"salvar nossa conversa no novo repo pq agora por exemplo tá em 99% do contexto,
@@ -15,7 +19,7 @@ morrer, **quem assumir lê isto e continua sem perguntar nada a ela.**
 
 | Leva | O que entregou | Onde |
 |---|---|---|
-| **A aba Controles viva** | **O PILOTO, e ele RODA.** A aba nasce da mesa dela — dois controles, bateria, giroscópio lendo, cor do plástico. Custa **1,0% do orçamento do tique** | `novo-layout/_ferramentas/controles_vivos.py` |
+| **A aba Controles viva** | **O PILOTO, e ele RODA.** A aba nasce da mesa dela — dois controles, bateria, giroscópio lendo. Custa **1,0% do orçamento do tique**. **CORRIGIDO em 29/08/2026, e as duas correções são de quem coordenou:** (a) esta linha dizia *"cor do plástico"* entre o que a aba lê da mesa, e a foto que a sustentava foi tirada com `--cor-duble` — um dublê que não manda byte nenhum (`controles_vivos.py`, `--cor-duble`). No instante daquela foto o produto NÃO lia a cor: `ler_pelo_cabo` devolvia `None` nos dois controles, por permissão de nó (BROKER-01). A cura entrou mais tarde no mesmo dia (`A-COR-PELA-PORTA-DO-BROKER-01`) e pelo cabo a leitura passou a acontecer — **mas o piloto continua sem prova disso, porque a foto que existe é a do dublê.** Refotografar com a leitura viva é trabalho, não conclusão. (b) "a aba nasce da mesa dela" é a AMOSTRA MAIS FAVORÁVEL que existe, e a régua desta casa é `D-A-REGUA-E-QUALQUER-MESA-NAO-A-DELA` (decidida por ela em 29/08): o piloto só está provado quando passar com 0, 1, 3 e 5 controles, e com um controle SEM MAC de 12 hex — que é o usuário para quem `identity.py` dá slot volátil e a memória por identidade nunca funciona | `novo-layout/_ferramentas/controles_vivos.py` |
 | **Materializar a migração** | **109 sprints** em dez ondas, dez índices, uma por aba | `docs/process/sprints/2026-08-29-MIGRA-*` |
 | **O caminho até a conclusão** | as 6 faixas da fila medidas contra o disco | `docs/process/2026-08-29-O-CAMINHO-ATE-A-CONCLUSAO.md` |
 | **A ordem entre as dez abas** | a espinha que nenhuma onda podia escrever (cada uma só via a sua) | `docs/process/sprints/2026-08-29-MIGRA-A-ORDEM-das-dez-abas.md` |

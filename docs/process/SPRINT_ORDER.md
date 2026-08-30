@@ -1,5 +1,10 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
+> **Antes de executar qualquer linha daqui, leia
+> [O QUE É VERDADE HOJE](2026-08-29-O-QUE-E-VERDADE-HOJE.md)** — cinco minutos.
+> Ele lista o que já foi curado e não deve ser reaberto, e as armadilhas de
+> leitura. Uma fila é uma lista de premissas, e premissa envelhece.
+
 **27/08/2026 — o redesenho virou fila.** As dez abas de
 [O REDESENHO](2026-08-26-O-REDESENHO-as-dez-abas.md) viraram **90 sprints
 executáveis em dez ondas**, uma onda por aba, mais dez índices. Foram 87 pela
@@ -342,7 +347,7 @@ que só custa tempo da próxima pessoa.
 | [POSSE-POR-CONTROLE-01](sprints/2026-08-03-POSSE-POR-CONTROLE-01-a-trava-de-um-controle-congela-os-quatro.md) | **→ Onda 9 · Rumble.** E1 inteira (trava indexada por MAC), o fallback broadcast do rumble em E3, e as quatro bancadas de E4 | DELA |
 | [A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01](sprints/2026-08-16-A-MASCARA-QUE-O-PRODUTO-ESCOLHE-01-o-jogo-nao-enxerga-e-a-culpa-nao-e-da-pessoa.md) | **→ Onda 2 · Início.** Os dois ensaios que a seção 8 exige antes de qualquer linha não têm bruto | DELA |
 | [MASCARA-01](sprints/2026-07-25-MASCARA-01-como-este-controle-aparece-nos-jogos.md) | **→ Onda 5 · Emulação.** E2, E4 e metade da E3. Pré-requisito da E3/E4 da LUGAR-À-MESA-01, por decisão dela de 07/08 | |
-| [MASCARA-POR-JOGADOR-01](sprints/2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | **→ Onda 2 · Início.** O último degrau da 7.2: `make_virtual_pad` resolver a máscara ANTES de escolher o backend, e o lado da escrita no IPC | |
+| [MASCARA-POR-JOGADOR-01](sprints/2026-08-15-MASCARA-POR-JOGADOR-01-a-decisao-de-14-08-esbarra-na-de-10-08.md) | **→ Onda 2 · Início. SUBSTITUÍDO em 29/08/2026:** o degrau do `make_virtual_pad` ENTROU (`virtual_pad.py:153`, `gamepad.py:2108`, `coop.py:990`, régua com 13 testes). Sobram o **lado da escrita no IPC** e o **vpad não ser recriado ao aplicar** | |
 | [LUGAR-A-MESA-01](sprints/2026-08-06-LUGAR-A-MESA-01-tres-controles-ligados-e-um-jogador-so.md) | **→ Onda 2 · Início.** E3 e E4, presas atrás da MASCARA-01. O grab mais FF em aparelho não-Sony continua sem prova | DELA |
 | [JOGO-01](sprints/2026-07-25-JOGO-01-o-jogo-enxerga-quatro-controles.md) | A E2: a frase que distingue os dois estados do opt-in na aba Emulação | |
 | [O-WRAPPER-QUE-SUMIU-01](sprints/2026-08-16-O-WRAPPER-QUE-SUMIU-01-uma-variavel-nova-apaga-a-ponte-em-silencio.md) | **→ Onda 11 · Sistema.** E2 (o guard de `LaunchOptions` por merge, no instalador e simétrico no uninstall) e E3 (a fração na aba Sistema) | |
@@ -527,7 +532,7 @@ quatro `SO_LIGAR` não são "só ligar":
 | PROMESSA-NAO-CUMPRIDA-01 | `SO_LIGAR` | faxina cara | O item que a sustentava (C1, métricas sem chave) está **fechado desde 01/08**, com código, teste, doc e nota de ADR. A página acusa nove coisas já feitas |
 | JOGO-01 | `SO_LIGAR` | **caducada** | `vpad_suspenso` **nunca fica `True`** num daemon de hoje. O dado que se mandaria "ligar" está morto, e o vocabulário foi invertido por decisão dela depois da sprint |
 | PERFIL-NASCE-CERTO-01 | `SO_LIGAR` | aberta e cara | O botão existe desde 06/08, mas o **gesto que ele dispara ficou inerte** quando a E2 entrou — e a própria E2 escreveu isso |
-| MASCARA-POR-JOGADOR-01 | `SO_LIGAR` | **escolha** | As peças existem; o que falta é decidir, não ligar |
+| MASCARA-POR-JOGADOR-01 | `SO_LIGAR` | **o código entrou; sobra recriar o vpad** | **SUBSTITUÍDO em 29/08/2026.** Esta célula dizia *"as peças existem; o que falta é decidir, não ligar"* — e o MESMO arquivo, na §4, já dizia o contrário (*"o último degrau da 7.2: `make_virtual_pad` resolver a máscara ANTES de escolher o backend"*). Duas versões vivas no mesmo documento. **O CÓDIGO ENTROU em 29/08/2026, mais tarde no mesmo dia** (`A-MASCARA-POR-CONTROLE-01`): `make_virtual_pad` ganhou `identity` (`integrations/virtual_pad.py:153`) e resolve `mascara_efetiva(identity, flavor)` ANTES de escolher o backend; os dois chamadores passam o MAC (`daemon/subsystems/gamepad.py:2108`, `daemon/subsystems/coop.py:990`). Régua com 13 testes em `tests/unit/test_mascara_por_controle_manda_no_vpad.py`. **O que sobra é o vpad não ser RECRIADO ao aplicar** — ver `sprints/2026-08-29-A-MASCARA-POR-CONTROLE-01-*`. **E a decisão CAIU em 29/08:** `D-A-MASCARA-POR-CONTROLE-VALE-NO-APLICAR` e `D-DOIS-VPADS-COM-MASCARAS-DIFERENTES-JA-FUNCIONOU`, as duas `decidida` em `docs/data/decisoes-dela.csv`. Não há escolha pendente |
 | DOC-VERDADE-01 | `JA_FECHADA` | aberta | A régua da classificação estava errada: grepou nome velho e achou zero |
 | ORDEM-DE-CHEGADA-01 | `JA_FECHADA` | aberta | Existe **decisão datada de NÃO ligar**, dentro da própria lápide usada como prova a favor |
 

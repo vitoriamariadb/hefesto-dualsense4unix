@@ -267,7 +267,8 @@ O índice antigo (`2026-08-27-ONDA-ILUMINACAO-INDICE.md`) as listava como aberta
    Reconfira no dia da execução.**
 2. **A cor do plástico não chega pelo rádio, e metade da mesa desenhada é
    rádio.** `docs/data/mapa-controles.csv`, `identidade.cor_do_aparelho`:
-   `cabo_aciona=sim`, `radio_aciona=não`, `o-aparelho-recusa`. **A lápide é
+   `cabo_aciona=sim`, `radio_aciona=não`, com `divida` no rádio (29/08/2026; dizia
+   `o-aparelho-recusa`). **A lápide era
    falsa** — não era o aparelho, era o nosso CRC (semente `0x53`, não `0xA3`) —,
    **mas o conserto é sprint fora desta onda**, e a 10 depende dele.
 3. **O brilho da tela não é o brilho do aparelho.** `luz.lightbar.brilho`:

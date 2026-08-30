@@ -9,7 +9,14 @@
 > paralelo."*
 
 **A dor é de ontem.** Em 23/08 a bancada mediu que a cor do plástico **não** se
-lê por rádio: o controle responde `HANDSHAKE 0x04` ao pedido de feature,
+lê por rádio. (**NOTA DATADA — 29/08/2026:** o exemplo desta sprint envelheceu.
+Ela usa a cor por rádio como caso-padrão de *"o aparelho recusa"*, e em 27/08/2026
+isso foi REFUTADO: a recusa era a semente do nosso CRC, e a célula do mapa hoje diz
+`divida`. **O que a sprint ensina continua inteiro** — separar "o aparelho recusa" de
+"ninguém escreveu o código" é a razão de o valor `o-aparelho-recusa` existir, e o
+fato de o exemplo ter mudado de lado é a melhor prova de que a distinção era
+necessária. Leia daqui para baixo como o raciocínio de 24/08, não como estado de
+hoje.) O controle respondia `HANDSHAKE 0x04` ao pedido de feature,
 capturado com `btmon`. O fato foi substituído à mão em **oito** arquivos.
 Nenhum portão teria acusado se um deles ficasse para trás — e dois ficaram:
 
