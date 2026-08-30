@@ -50,8 +50,8 @@ os quatro cartões da mesa não têm nome nenhum.
 **Segundo defeito, e é de motor.** O WebKitGTK relata as cores do autor e
 desenha o **tema do sistema** nos `<select>`: eles saem como caixa **branca**
 com texto quase invisível. A cura (`select{appearance:none}`) existe e é
-aplicada **por fora**, numa folha de usuário do `ver.py`
-(`novo-layout/_ferramentas/ver.py`, o segundo `UserStyleSheet`). Uma cura que
+aplicada **por fora**, numa folha de usuário do `ver.py`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+(`novo-layout/_ferramentas/ver.py`, o segundo `UserStyleSheet`). Uma cura que  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 mora no visualizador não viaja com a página. **Esta aba tem 60 dos 117 selects
 das dez** — 51% da dívida — e nunca foi exercitada nessa densidade: as duas
 pop-ups têm 21 selects cada, dentro de um corpo com rolagem interna.
@@ -144,7 +144,7 @@ gerado, sem abrir motor nenhum:
   mesma decisão que trava as outras quatro abas com o defeito — decidir uma vez
   serve para as cinco.
 - **A regra `select{appearance:none}` é do desenho ou do visualizador?** A
-  proposta é **do desenho**, porque a página tem de funcionar sem o `ver.py`.
+  proposta é **do desenho**, porque a página tem de funcionar sem o `ver.py`.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   `PROVISÓRIO — decisão dela` se ela preferir a folha de usuário.
 
 ## O que esta sprint NÃO faz
@@ -152,4 +152,4 @@ gerado, sem abrir motor nenhum:
 Não muda uma palavra, um número, uma cor ou uma posição. **Atributo não é
 pixel** — mas é mudança no gerador, e por isso está declarada. As duas exceções
 que MUDAM pixel estão nomeadas acima (a cura do select, que é a que ela já vê no
-`ver.py`) e a que **não** é aplicada aqui (os doze filtros).
+`ver.py`) e a que **não** é aplicada aqui (os doze filtros).  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->

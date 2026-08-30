@@ -33,7 +33,7 @@ rota que emitia GTK, que decidiu a tecnologia
 ## O defeito
 
 **Não existe canal nenhum entre o Python e a página.**
-`novo-layout/_ferramentas/ver.py` (147 linhas) é só **visor**: os quatro pinos
+`novo-layout/_ferramentas/ver.py` (147 linhas) é só **visor**: os quatro pinos  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 (`:28-31`), duas folhas de estilo de usuário (`:68`, `:82`) e `load_uri`
 (`:92`). Nenhum `register_script_message_handler`, nenhum `run_javascript`.
 

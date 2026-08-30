@@ -158,7 +158,7 @@ isso quase vazias no XML.
 | sprint | por que aqui |
 |---|---|
 | `MIGRA-CONTROLES-01/02/03` | **o piloto e a moldura**: o módulo de enxerto (`gui/webview_de_aba.py`), a casa das dez páginas (`gui/telas/`, `scripts/telas/`, `install.sh`, `pyproject.toml`) e as duas pontes (`gui/ponte_da_tela.py`). Nada mais existe sem elas | <!-- ref-externa: os dois nascem na onda do PILOTO, e a ausência deles é o assunto -->
-| `MIGRA-GATILHOS-01` | **bancada, zero código, e pode DERRUBAR o desenho.** O produto já tirou o popup de escolha desta janela uma vez: `app/widgets/segmented_selector.py:1-6` diz que o cosmic-comp *"rouba o foco no clique e FECHA o popup do combo na hora"*. O desenho traz `<select>` de volta — **16 nesta aba, 117 nas dez**. Se o popup do WebKitGTK morrer igual, o gesto principal da aba não existe. Ela roda com o `ver.py`, que já está no disco |
+| `MIGRA-GATILHOS-01` | **bancada, zero código, e pode DERRUBAR o desenho.** O produto já tirou o popup de escolha desta janela uma vez: `app/widgets/segmented_selector.py:1-6` diz que o cosmic-comp *"rouba o foco no clique e FECHA o popup do combo na hora"*. O desenho traz `<select>` de volta — **16 nesta aba, 117 nas dez**. Se o popup do WebKitGTK morrer igual, o gesto principal da aba não existe. Ela roda com o `ver.py`, que já está no disco |  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 | `MIGRA-JOGAR-02` | a aba 01 **não tem gerador** — `regerar.py:10` diz com todas as letras: *"A Jogar não tem gerador: ela é o esqueleto de referência, mantido à mão."* Escrever o `aba01.py` não toca a bancada e não depende do ok | <!-- ref-externa: o gerador da aba 01 é o que falta, e a falta é o assunto -->
 
 > ## ⟶ A PORTA: **o ok dela sobre o piloto.** Nada abaixo começa antes.
@@ -262,7 +262,7 @@ do índice da sua onda.
 
 | pergunta | trava | por que não dá para decidir por ela |
 |---|---|---|
-| **A fita de alvo em UM lugar só** | as **dez** abas | com o enxerto a fita passa a existir **duas vezes**: o produto a desenha na `Gtk.HeaderBar` (`status_actions.py:1702`) e a página a desenha no HTML. É o mesmo defeito que ela pegou em um segundo quando a tira apareceu duplicada no `ver.py` |
+| **A fita de alvo em UM lugar só** | as **dez** abas | com o enxerto a fita passa a existir **duas vezes**: o produto a desenha na `Gtk.HeaderBar` (`status_actions.py:1702`) e a página a desenha no HTML. É o mesmo defeito que ela pegou em um segundo quando a tira apareceu duplicada no `ver.py` |  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 | **Os 117 `<select>` sobrevivem na COSMIC?** | Gatilhos (16), Navegação (60), Conexões (16) | o produto já os tirou uma vez desta janela por defeito do compositor. `MIGRA-GATILHOS-01` mede |
 | **Os 84 filtros mortos** | as cinco abas que os têm (36 na Iluminação, 12 na Vibração, 0 na Gatilhos) | a cura está pronta e **muda 1,09% do desenho que ela aprovou** (o contorno do touchpad, que **nunca apareceu em motor nenhum**) |
 | **Troca ou rodízio** (Iluminação) | `MIGRA-ILUMINACAO-11` | a tela promete **troca** em 16 tooltips, o daemon faz **rodízio** (`ipc_handlers.py:1812-1814`), e o contrato diz uma **terceira** coisa. Muda o daemon, não a tela |
@@ -332,7 +332,7 @@ cinco coisas que só existem neste arquivo.
    voltaram "sem título" para quem mediu assim.
 4. **Os `<select>` saem como caixa BRANCA** — o WebKitGTK relata as cores do
    autor e desenha o tema do sistema. A cura é `select{appearance:none}` e já
-   está no `ver.py:83-86`. **E o `<input type=range>` tem o mesmo problema.**
+   está no `ver.py:83-86`. **E o `<input type=range>` tem o mesmo problema.**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 
 ### 5.2 O `novo-layout/` não viaja
 

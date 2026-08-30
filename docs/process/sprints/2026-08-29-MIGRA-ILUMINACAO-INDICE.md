@@ -348,7 +348,7 @@ reprovando**.
   `novo-layout/_ferramentas/aba04.py`, esqueleto `novo-layout/_ferramentas/monta.py`;
 - **correção literal dela:** `novo-layout/_ferramentas/CORRECOES-DELA.md`, aba
   Iluminação — **"— FEITA"**;
-- **o motor:** `novo-layout/_ferramentas/ver.py` (a janela que ela já abriu e
+- **o motor:** `novo-layout/_ferramentas/ver.py` (a janela que ela já abriu e  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   olhou) e `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`;
 - **o mapa de canais:** `docs/data/mapa-controles.csv` — as cinco linhas que
   mordem esta aba são `luz.lightbar.cor`, `luz.lightbar.brilho`,

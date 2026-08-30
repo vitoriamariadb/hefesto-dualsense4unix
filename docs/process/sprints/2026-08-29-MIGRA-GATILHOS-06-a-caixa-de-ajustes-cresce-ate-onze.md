@@ -79,7 +79,7 @@ sabe que existe — é a razão do teto existir.
 | **(c) a coluna cresce e as outras acompanham** | a grade passa a ter altura por LINHA calculada do maior modo escolhido nas N colunas | nada some. Perde: escolher *Vibração por posição* numa coluna empurra as outras três para baixo, e o quadro passa dos 454px |
 
 **Esta sprint não escolhe.** Ela mede as três, desenha a que ela apontar, e
-regenera o `03-gatilhos.html` para ela ver no `ver.py`.
+regenera o `03-gatilhos.html` para ela ver no `ver.py`.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 
 ## Como se prova (a mordida)
 

@@ -247,7 +247,7 @@ aberta que nenhuma das oito herdou.
    título chega depois (`notify::title`).
 6. **Os `<select>` saem como caixa BRANCA** no WebKitGTK — ele relata as cores
    do autor e desenha o tema do sistema. A cura é `select{appearance:none}`, já
-   aplicada no `ver.py`. **Esta aba não tem `<select>`**, mas a moldura carrega
+   aplicada no `ver.py`. **Esta aba não tem `<select>`**, mas a moldura carrega  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    a regra para as dez.
 7. **A vibração por RÁDIO nunca foi medida no aparelho.**
    `vibracao.rumble.passthrough@dualsense`: `radio_de_onde_sei =

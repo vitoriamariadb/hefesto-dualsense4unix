@@ -27,7 +27,7 @@ depois_de:
   #   2. ONDE O HTML PASSA A MORAR, e como ele entra no pacote. `novo-layout/`
   #      é `.gitignore:108` e o wheel inclui só `gui/*.glade` e
   #      `gui/assets/*.png` (`pyproject.toml:84-91`). Enquanto isso não fechar,
-  #      esta aba roda no `ver.py` e em lugar nenhum.
+  #      esta aba roda no `ver.py` e em lugar nenhum.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   - ONDA-PERFIS-01   # o que esta sprint substitui: a casca reescrita em GTK
   # A FILA DA BANCADA — `gui/main.glade` e `app/app.py`, os dois recursos que a
   # leva inteira disputa. O XML é único e sem seções nomeadas: conflito de merge

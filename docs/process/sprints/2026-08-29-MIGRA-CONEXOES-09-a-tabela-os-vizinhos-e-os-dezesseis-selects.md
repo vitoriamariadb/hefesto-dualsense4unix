@@ -71,7 +71,7 @@ cosmic-comp. E esta é **a aba com mais `<select>` das dez**: medido em 29/08, *
 comentários. A régua desta sprint conta **tags**, nunca a palavra — é o mesmo
 defeito que reprovou onze réguas desta casa em 26/08.
 
-Sinal de que a família já dói: o `ver.py` já precisou de
+Sinal de que a família já dói: o `ver.py` já precisou de  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 `select{appearance:none}` porque o WebKitGTK pintava caixa branca com texto quase
 invisível.
 

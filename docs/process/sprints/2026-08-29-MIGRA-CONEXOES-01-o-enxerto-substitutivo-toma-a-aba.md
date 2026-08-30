@@ -130,7 +130,7 @@ mantém esta onda fora da fila de vinte sprints que disputam o `main.glade`.
    devolve **vazio** — o título chega depois; quem quiser conferir a página
    confere pelo DOM, não pelo título.
 5. **A folha do `<select>`.** `select{appearance:none;-webkit-appearance:none}`
-   como `UserStyleSheet`, pelo motivo medido em `novo-layout/_ferramentas/ver.py:77-90`:
+   como `UserStyleSheet`, pelo motivo medido em `novo-layout/_ferramentas/ver.py:77-90`:  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    o WebKitGTK relata as cores do autor e desenha o tema do sistema, e o campo
    sai **caixa branca com texto quase invisível**. São **16** `<select>` no miolo
    desta aba — a maior concentração das dez. (O número foi medido **duas vezes**:
@@ -139,7 +139,7 @@ mantém esta onda fora da fila de vinte sprints que disputam o `main.glade`.
    onze réguas de 26/08, e ele quase entrou nesta sprint.)
 6. **A `.nota` não entra.** O caderno de decisões do fim de cada mockup é para
    quem lê o arquivo, não para quem olha a tela: `.nota{display:none}` na mesma
-   folha, como `ver.py` e `olhar.py` já fazem.
+   folha, como `ver.py` e `olhar.py` já fazem.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 7. **A fita continua inerte.** `set_alvo_inativo(True, MOTIVO_ALVO_NAO_SE_APLICA)`
    (`mixin.py:33`, `:65`) não muda — esta aba se desqualifica do alvo de
    propósito, e o portão da Z2-9 lê exatamente isso para separar "decidiu não

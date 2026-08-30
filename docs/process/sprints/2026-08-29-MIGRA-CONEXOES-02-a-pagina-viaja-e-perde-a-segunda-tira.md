@@ -76,7 +76,7 @@ destino**, não no de origem.
 ### 3. A página traz uma SEGUNDA tira de abas, e ela navega
 
 `08-conexoes.html:1085-1094` — dez `<a class="aba" href="NN-....html">`. Isso é o
-defeito que **ela já viu e nomeou** em 29/08, no `ver.py`: *as abas apareciam
+defeito que **ela já viu e nomeou** em 29/08, no `ver.py`: *as abas apareciam  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 duas vezes*, a tira do GTK em cima e a tira do desenho dentro. No enxerto
 substitutivo o `Gtk.Notebook` do produto continua desenhando a tira; a da página
 seria a segunda.
@@ -144,5 +144,5 @@ o `Gtk.Notebook`. Esta sprint **não escolhe**; ela entrega a página com a tira
 * **A legenda vai instalada?** São 6,6% da página, e é caderno de decisões
   escrito para ela e para quem executa — não para quem joga.
 * **A tira do HTML sai, ou vira gesto?** É uma decisão para as **dez** páginas,
-  e ela já disse o que acha do sintoma quando o viu no `ver.py`: *"as abas
+  e ela já disse o que acha do sintoma quando o viu no `ver.py`: *"as abas  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   apareciam duas vezes"*.

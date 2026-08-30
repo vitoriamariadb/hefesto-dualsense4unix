@@ -148,7 +148,7 @@ executa.
 - **`novo-layout/` continua existindo?** Esta sprint propõe que sim, como
   bancada de desenho, com a página do produto gerada para dentro de `src/`. A
   alternativa — mover tudo e apagar a pasta — é mais limpa e **quebra o
-  `ver.py`**, que é como ela olha a interface nova hoje. É escolha dela.
+  `ver.py`**, que é como ela olha a interface nova hoje. É escolha dela.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 - **As fontes embutidas.** Se ela preferir que a janela use a fonte do sistema
   (COSMIC), o desenho muda de métrica e as onze réguas de layout mudam de
   número. É uma decisão de aparência, e a aparência é dela.

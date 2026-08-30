@@ -38,7 +38,7 @@ a lista de efeitos prontos são dois `SegmentedSelector` por lado
 hoje: `novo-layout/03-gatilhos.html` tem **16 `<select>`** no miolo — 8
 `select.modo` e 8 `select.pronto` —, e o gerador explica por que
 (`aba03.py:101-106`): com quatro colunas a grade de 19 botões pediria 566px numa
-coluna de 447. Nas dez abas são **117** (contados em 29/08, `ver.py:80`).
+coluna de 447. Nas dez abas são **117** (contados em 29/08, `ver.py:80`).  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 
 **O que não foi medido:** se o popup que o **WebKitGTK** abre para um `<select>`
 sobrevive ao cosmic-comp na máquina dela. As duas medições de 29/08 sobre
@@ -46,7 +46,7 @@ sobrevive ao cosmic-comp na máquina dela. As duas medições de 29/08 sobre
 
 | já medido | o quê |
 |---|---|
-| `ver.py:77-90` | a **caixa fechada** sai BRANCA (o WebKitGTK relata a cor do autor e desenha o tema do sistema). Curado com `appearance:none` |
+| `ver.py:77-90` | a **caixa fechada** sai BRANCA (o WebKitGTK relata a cor do autor e desenha o tema do sistema). Curado com `appearance:none` |  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 | `03-gatilhos.html:108-115` | a **lista aberta no Chrome** saía clara sobre clara. Curado na `option`, não no `select` |
 
 Nenhuma das duas responde **se a lista chega a ficar aberta** sob o compositor
@@ -71,7 +71,7 @@ Registrar, em `docs/process/medicoes/2026-08-29-o-popup-do-select-no-webkitgtk-s
 5. **as 19 opções são legíveis** — o `option{background}` de `:114` é uma cura
    do Chrome; sob WebKitGTK o popup é um widget do sistema e a folha pode não o
    alcançar. Fotografar;
-6. **o mesmo, com a janela do produto** — `ver.py` desenha a própria decoração
+6. **o mesmo, com a janela do produto** — `ver.py` desenha a própria decoração  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    (`Gtk.HeaderBar`, `:129`) e o produto não. Se o resultado divergir, o dono
    do defeito é a decoração, não o WebKit.
 

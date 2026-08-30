@@ -170,7 +170,7 @@ tudo isso **por AST**, justamente para não digitar.
 5. **Os `<select>` saem como caixa BRANCA**: o WebKitGTK relata as cores do
    autor e desenha o tema do sistema. Cura: `select{appearance:none}`. **Esta
    aba tem UM `<select>`** (`09-sistema.html:702`) — e a folha vive hoje no
-   instrumento (`ver.py`), **não no produto**.
+   instrumento (`ver.py`), **não no produto**.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 6. **84 filtros mortos no SVG** (`monta.py:439` prefixa os ids e não reescreve o
    `url()`, porque o desenho usa aspas escapadas). **A cura está pronta e NÃO
    foi aplicada** — muda 1,09% do desenho que ela aprovou, e é dela.

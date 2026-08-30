@@ -108,7 +108,7 @@ junto, cada arraste vira uma rajada de IPC por coluna.
 
 Medido em 29/08: o WebKitGTK **relata as cores do autor e desenha o tema do
 sistema** — foi o que fez os `<select>` saírem como caixa branca, e a cura foi
-`select{appearance:none}` (`novo-layout/_ferramentas/ver.py:78-88`; são **117**
+`select{appearance:none}` (`novo-layout/_ferramentas/ver.py:78-88`; são **117**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 `<select>` nas dez abas). **Um `range` tem o mesmo problema, e a mesma cura
 muda o desenho.**
 

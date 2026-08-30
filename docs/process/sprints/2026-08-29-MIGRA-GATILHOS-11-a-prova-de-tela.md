@@ -49,7 +49,7 @@ em 28/08 com o selo ainda colado**, e a própria
 > ainda colado."*
 
 **Nenhuma sprint desta onda deveria executar antes de ela olhar as quatro
-colunas no `ver.py`** — e esta é a que garante que ela olhe de novo **depois**,
+colunas no `ver.py`** — e esta é a que garante que ela olhe de novo **depois**,  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 com a aba viva.
 
 ## O que entrega

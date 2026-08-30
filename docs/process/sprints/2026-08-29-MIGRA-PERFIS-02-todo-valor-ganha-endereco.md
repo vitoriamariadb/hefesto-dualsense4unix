@@ -113,8 +113,8 @@ criaria a décima cópia do mesmo problema.
   portão deu verde sobre uma linha fora da caixa. Fotografe a página inteira,
   não elemento por elemento.
 - **o motor de verdade também**: a mesma comparação no `WebKit2.WebView`, com
-  `select{appearance:none}` e `.nota{display:none}` aplicados como o `ver.py`
-  aplica (`novo-layout/_ferramentas/ver.py:66-90`). O Chrome sozinho não prova
+  `select{appearance:none}` e `.nota{display:none}` aplicados como o `ver.py`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+  aplica (`novo-layout/_ferramentas/ver.py:66-90`). O Chrome sozinho não prova  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   nada sobre a tela dela.
 
 ## O que é dela decidir

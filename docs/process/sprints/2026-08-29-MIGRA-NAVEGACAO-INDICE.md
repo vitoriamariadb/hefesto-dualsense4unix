@@ -241,7 +241,7 @@ existirem.
    script é offscreen por construção. Sem isso, a PROVA-DE-TELA-01 desta aba
    não existe.
 5. **ESTA ABA TEM 60 DOS 117 `<select>` DAS DEZ** — 51% da dívida de estilo do
-   WebKit. A cura `select{appearance:none}` existe e mora **no `ver.py`**, não
+   WebKit. A cura `select{appearance:none}` existe e mora **no `ver.py`**, não  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    na página. E ela nunca foi exercitada nesta densidade: as duas pop-ups têm 21
    selects cada, num corpo com rolagem interna e teto de altura. **A lista aberta
    de um `<select>` é popup do SISTEMA e não respeita o teto da caixa.**

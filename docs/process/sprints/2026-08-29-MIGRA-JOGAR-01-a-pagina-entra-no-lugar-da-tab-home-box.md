@@ -73,7 +73,7 @@ não foi medido, e vai primeiro: o enxerto SUBSTITUTIVO."*
    e a página desenha a dela dentro do HTML
    (`novo-layout/01-jogar.html:566-585`). Com o enxerto as duas ficam na tela ao
    mesmo tempo. É o mesmo defeito que ela viu **em um segundo** quando a
-   primeira versão do `novo-layout/_ferramentas/ver.py` pôs um `Gtk.Notebook`
+   primeira versão do `novo-layout/_ferramentas/ver.py` pôs um `Gtk.Notebook`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    por cima da tira do desenho — *"as abas apareciam duas vezes"*.
 3. **A fita da Jogar está declarada como "ainda não ligada".**
    `app/app.py:1231` — `"tab_home_box": _MOTIVO_ALVO_AINDA_NAO_LIGADO`. O

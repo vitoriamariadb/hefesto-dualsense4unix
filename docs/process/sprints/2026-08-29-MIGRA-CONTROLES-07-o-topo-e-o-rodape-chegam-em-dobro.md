@@ -42,7 +42,7 @@ nao_toca:
 *"Um `WebView`, uma `HeaderBar`, e **nada de `Gtk.Notebook`** — a primeira versão
 punha um por cima e **ela viu as abas duas vezes na hora**."*
 
-O `ver.py` resolveu tirando o `Gtk.Notebook`. **O produto não pode tirar** — o
+O `ver.py` resolveu tirando o `Gtk.Notebook`. **O produto não pode tirar** — o  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 Notebook é como se troca de aba nas outras nove.
 
 ## O defeito
@@ -52,7 +52,7 @@ do enxerto, os dois aparecem juntos:
 
 | o que | onde está no produto | onde está na página |
 |---|---|---|
-| a tira das dez abas | `Gtk.Notebook` do `gui/main.glade` | `<a href="NN-*.html">`, o mesmo elemento que faz o `ver.py` navegar |
+| a tira das dez abas | `Gtk.Notebook` do `gui/main.glade` | `<a href="NN-*.html">`, o mesmo elemento que faz o `ver.py` navegar |  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 | **Perfil ativo** | `header_bar`, ao lado da fita | `scripts/telas/topo.html`, `.perfil-ativo` |
 | a fita **Ajustes vão para:** | `app/actions/status_actions.py:1678-1702` — montada e **empacotada no `header_bar`**, não na página | `topo.html`, `.fita`, com os chips |
 | a contagem "N controles: X USB · Y BT" | `app/mesa.py:83` (`contagem_de_controles`) e `:91` (`texto_de_contagem`) | `topo.html`, `.conectado` |
@@ -145,7 +145,7 @@ escolher 'Todos' — é ainda não saber"*.
 - **Quem fica com a moldura: o GTK ou o HTML?** Esta sprint propõe o GTK, pelo
   caminho mais curto e porque os três avisos já moram lá. A escolha oposta —
   a janela virar uma casca com uma `HeaderBar` e o HTML desenhando tira, fita e
-  rodapé, como o `ver.py` que ela já olhou — **é a que deixa a janela igual ao
+  rodapé, como o `ver.py` que ela já olhou — **é a que deixa a janela igual ao  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   desenho que ela aprovou**. Custa as dez abas de uma vez e não se decide dentro
   de uma onda.
 - **A fita esmaecida do mockup contra a fita viva do produto.** O `topo.html`

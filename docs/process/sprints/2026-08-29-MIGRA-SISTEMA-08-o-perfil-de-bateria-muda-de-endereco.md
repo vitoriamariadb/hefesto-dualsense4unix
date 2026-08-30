@@ -82,11 +82,11 @@ numa tabela que não tem para onde despachar — o `_ao_escolher` de hoje precis
 de um `SegmentedSelector` vivo (`seletor.get_active_id()`), que a página não
 tem.
 
-**E há um defeito de motor à espreita:** medido em 29/08 no `ver.py`, o
+**E há um defeito de motor à espreita:** medido em 29/08 no `ver.py`, o  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 **WebKitGTK relata as cores do autor e desenha o `<select>` com o tema do
 SISTEMA** — sai caixa **branca** com texto quase invisível. A cura é uma folha
 de usuário com `appearance:none`, e ela **vive hoje no instrumento**
-(`ver.py:76-91`), **não no produto**. Esta aba tem **um** `<select>`
+(`ver.py:76-91`), **não no produto**. Esta aba tem **um** `<select>`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 (`09-sistema.html:702`) — o único da tela. Se a folha não viajar, ele nasce
 ilegível.
 

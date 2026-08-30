@@ -137,7 +137,7 @@ estão em prosa, e não num `depois_de` com um id inventado.
    `gui/assets/*.png` (`pyproject.toml:84-91`). O caminho já resolvido para caso
    análogo é `src/hefesto_dualsense4unix/utils/repo_files.py` mais o `install.sh`
    que copia `assets/glyphs` para `~/.local/share`. **Enquanto isso não fechar,
-   a aba roda no `ver.py` e em lugar nenhum.**
+   a aba roda no `ver.py` e em lugar nenhum.**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 
 ## Colisões com outras ondas — quem coordena serializa
 

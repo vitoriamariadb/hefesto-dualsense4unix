@@ -120,7 +120,7 @@ AUSÊNCIA de dado*.
 2. **Os quatro pinos de versão, na ordem** — `Gtk 3.0`, `Gdk 3.0`,
    `GdkPixbuf 2.0`, `WebKit2 4.1`. Medido em 29/08: com o GTK4 instalado ao
    lado, um `from gi.repository import Gdk` sem pino carrega o 4.0 e mata o
-   Gtk 3.0 com `ImportError` (`ver.py:17-19`). O `Gdk` **depois** do `Gtk`.
+   Gtk 3.0 com `ImportError` (`ver.py:17-19`). O `Gdk` **depois** do `Gtk`.  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 3. **As duas pontes, e elas são 31 linhas UMA VEZ** (medido em 29/08):
    - **pintar** — `view.run_javascript(js)`, e o `js` escreve nos endereços que
      a **02** criou;
@@ -138,7 +138,7 @@ AUSÊNCIA de dado*.
 5. **`select{appearance:none}`** na folha de usuário — são **16** nesta aba
    (117 nas dez). Sem isso os campos saem como caixa BRANCA com texto quase
    invisível: o WebKitGTK relata as cores do autor e desenha o tema do sistema
-   (`ver.py:77-90`). **Se a 01 tiver reprovado o popup, esta linha vira a saída
+   (`ver.py:77-90`). **Se a 01 tiver reprovado o popup, esta linha vira a saída  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    que ela escolheu.**
 6. **`install_triggers_tab` sai do arranque** (`app.py:1496`) junto com a
    página, no **mesmo commit**. E o `_signal_handlers` (`app.py:361-364`) perde
