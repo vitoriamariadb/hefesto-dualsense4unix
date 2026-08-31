@@ -399,7 +399,7 @@ O cabeçalho de `.github/workflows/anonymity-check.yml:7-9` promete:
 
 > *"Quando marcado como required check em branch protection, falha do job
 > bloqueia merge no main mesmo que o commit tenha sido criado com `--no-verify`
-> localmente. Defesa server-side ultima."*
+> localmente. Defesa server-side última."*
 
 Medido por mim em 31/07, no fork:
 

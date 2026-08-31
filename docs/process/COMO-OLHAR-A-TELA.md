@@ -374,7 +374,7 @@ controles; é o que não consegue entrar. A retratação está na
 Vale a mesma advertência de data completa da armadilha seguinte: `--since
 "21:34:39"` **sem data** também devolve zero em qualquer janela.
 
-Esta foi a **segunda** vez no mesmo dia em que o instrumento enganou quem media.
+Esta foi a **segunda** vez no mesmo dia em que o instrumento enganou quem media. <!-- noqa-acento: verbo medir, imperfeito -->
 A primeira é a armadilha logo acima, do nome de `sysfs`.
 
 ### O medidor pode estar INERTE — e inerte é indistinguível de "não houve nada"

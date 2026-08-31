@@ -1115,7 +1115,7 @@ d. **Não medi o gancho da camada 1 montado.** Os dezesseis portões estão
    não medi junto. O teto de 15 s do I12 existe justamente para que essa
    diferença apareça na primeira vez em vez da décima.
 
-e. **A árvore andou debaixo de mim enquanto eu media.** Comecei em `f0632cf` e
+e. **A árvore andou debaixo de mim enquanto eu media.** Comecei em `f0632cf` e <!-- noqa-acento: verbo medir, imperfeito -->
    terminei em `f143bb7` — três commits de outra sessão entraram no meio, e um
    deles é o que deixou a acentuação vermelha (M7). **Esta sprint foi escrita
    sob a falha que ela cura**, e isso vale como a última prova de que ela é

@@ -149,7 +149,7 @@ tem de ser **uma linha**, não uma leva.
    (`format_game_broken_result`, o toast do botão da aba Sistema) e o docstring
    de `cli/cmd_steam.py:8-12`. **Grau: MEDIDO** (a contagem por `grep`).
 2. **`docs/usage/assets/perfis-jogo-da-steam.png` está órfã** — nenhuma página a
-   referencia. É a foto de estado que mostra a caixinha nova.
+   referencia. É a foto de estado que mostra a caixinha nova. <!-- noqa-acento: verbo referenciar — "nenhuma página A REFERENCIA"; o substantivo "referência" falsificaria a frase. -->
 3. **Três rótulos quebram na janela encolhida** (acima). Nenhum quebra em 1920.
 4. **O `README.md` e o `docs/usage/modos.md`** ganharam notas datadas sobre os
    externos "entrarem na contagem"; a varredura pode ter deixado irmãos.

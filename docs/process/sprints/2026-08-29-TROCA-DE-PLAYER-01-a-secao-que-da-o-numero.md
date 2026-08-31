@@ -175,7 +175,7 @@ de botão de número e a legenda *"Os dois trocam, os outros não se mexem"*
 
 **Por que atravessou um mês com a suíte verde:** rodízio e troca dão o **mesmo
 resultado** quando o salto é de **um** número (vizinhos) — que é o único caso
-desenhado no mockup e o único que a suíte de 25/07 media. Divergem de dois em
+desenhado no mockup e o único que a suíte de 25/07 media. Divergem de dois em <!-- noqa-acento: verbo medir, imperfeito -->
 diante: medido em 55 casos (mesas de 1 a 5), coincidem em 35, divergem em 20, e
 as 20 são todas de salto ≥ 2.
 

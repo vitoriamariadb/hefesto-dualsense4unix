@@ -1,0 +1,12 @@
+tem que olhar aba a aba. principalmente as linhas horizontais. Esse slicer do personalizados a falta de centralização na primeira coluna.
+as cors do led em cada parte na lightbar
+
+em navegação. a parte As opções de ativação
+ coloca na mesma cor que o Navegação e dive em dois blocos o superior e o As opções de ativação
+
+
+em conexões a parte do [Image #23] está tudo certo, aparece como primeiro bloco na página e mudamos o nome pra Check-up em sistema temos esse bloco que tá estranho [Image #24]. e é claro o
+1. O acelerômetro na Controles — o dado está vivo no IPC (medi: |v| = 0,996 g), falta desenhar o bloco
+2. Modo do Mic: Virtual · Desativado · Nativo — não existe na tela
+3. Tirar o "Liberar" — e agora com o seu argumento, que é melhor que a minha medição: "o botão do controle sempre controla a interface, por isso não faz sentido o liberar ali". Isso não é sobre o IPC existir, é sobre a posse nunca sair do aparelho. Aceito e removo.
+4. Iluminação/Gatilhos — você disse que regrediram; agora que está na pasta certa, quero que olhe antes de eu mexer mais faz vc mesmo e navega no navegador pra validar.

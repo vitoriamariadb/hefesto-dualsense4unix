@@ -1,0 +1,4 @@
+[Image #16] tá igual
+
+[Image #17] sobre essa aba vamos lá.  tá faltando ainda o acelerometro[Image #18]
+e o botão liberar sequer faz sentido tá faltando o Modo do Mic, Virtual, Desativado e Nativo. O botão do Controle sempre controla a interface por isso não faz sentido o liberar ali.  [Image #19] não tem as divisórias e tá faltando os controles aqui.  os textos não estão verdes. Isso regrediu.[Image #20] mesma coisa. na real não foi feito nada aqui.[Image #21] na real sinto que nada foi feito.[Image #22]
