@@ -342,6 +342,19 @@ Veio do olho dela **em 31/08** e está no mockup:
 | Gatilhos | os glifos **L2** e **R2** de volta |
 | Sistema | a aba diz **serviço**, e o verbo é **Parar** |
 
+# DEPOIS QUE ESTA LISTA FECHAR
+
+O desenho concluído vira interface **usável** pelo plano de uma hora:
+`docs/process/sprints/2026-08-31-A-INTERFACE-LIGADA-PLANO-DE-UMA-HORA.md`
+
+Ele **não roda antes** desta lista fechar — ligar um desenho que ainda vai mudar
+é pagar duas vezes. E a notícia boa está medida lá: o buraco é **muito menor**
+que as 120 sprints `MIGRA-*`. O `controles_vivos.py` já é o piloto genérico —
+ele cria a janela, sobrevive à troca de aba e instala o interruptor em *"QUALQUER
+página que tenha `[data-modo]`"*. Os outros cinco pilotos são **conhecimento**,
+não infraestrutura. O trabalho é **um piloto, dez abas**, e a metade difícil já
+está pronta.
+
 # ONDE OLHAR ANTES DE COMEÇAR
 
 | | |
