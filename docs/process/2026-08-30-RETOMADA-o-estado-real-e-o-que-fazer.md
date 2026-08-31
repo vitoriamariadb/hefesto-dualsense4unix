@@ -29,9 +29,27 @@ Não são preferências. Sete coisas quebraram hoje por não existirem antes.
    refazer do zero**. Um botão inventado entrou na "especificação".
 
 2. **Botão sem dono no produto não vai para a tela.**
-   O bloco do microfone ganhou um "Liberar" que **não existe em lugar nenhum**.
    Ela viu: *"esse botão liberar no microfone não existe."* Se o desenho pede uma
    ação que o produto não tem, relate a lacuna — não desenhe o botão travado.
+
+   **FATO ERRADO, SUBSTITUÍDO em 31/08/2026.** Esta linha dizia que o "Liberar"
+   **"não existe em lugar nenhum"**, e isso é falso: `app/widgets/controller_card.py:490`
+   define `TEXTO_BOTAO_MIC_DEVOLVER = "Liberar"`, a `:2026` o usa com dica
+   própria, e `daemon/ipc_server.py:32` declara `mic.set {muted: bool|null}` —
+   o `null` que devolve a posse ao `hid-playstation` (`ipc_handlers.py:3438`).
+   O botão existe, tem IPC e tem texto.
+
+   **O preço foi pago:** a sprint A-1 mandou tirá-lo, a sessão seguinte tirou, e
+   quatro réguas de tela passaram a reprovar procurando um endereço que ninguém
+   escrevia mais. Levado a ela em 31/08 com a medição, **ela manteve a decisão**
+   — o botão fica fora da tela nova. O que caducou é a JUSTIFICATIVA, não a
+   escolha, e a diferença importa: o princípio do item continua de pé; o exemplo
+   que o ilustrava era o caso errado.
+
+   **A lição que fica é sobre o ENUNCIADO, não sobre o botão:** ela falou do que
+   via na tela, e quem escreveu aqui generalizou para o produto inteiro sem
+   medir. Uma frase dela sobre a TELA não é uma afirmação sobre o CÓDIGO — e
+   `grep` custa dez segundos.
 
 3. **Valor sem fonte fica DECLARADO, nunca inventado.**
    Um número plausível e falso é pior que um traço honesto, porque ela confia no
