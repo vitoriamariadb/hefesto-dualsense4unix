@@ -3,7 +3,7 @@
 > **Leia isto antes de tocar em qualquer coisa.** Ele existe porque a Vitória
 > desligou o PC no meio da migração e pediu, com estas palavras: *"salva tudo e
 > materializa tudo dos agentes que rodaram buscas no projeto e bota um plano
-> pra execução pro proximo claude po e orquestrador executar e seguir o que vc
+> pra execução pro proximo claude po e orquestrador executar e seguir o que vc <!-- noqa-acento: citação literal, a fala dela não se corrige -->
 > sabe fazendo do seu jeito. até a questao da senha sudo. no exato ponto onde
 > estamos."*
 
@@ -191,7 +191,7 @@ Mudança de desenho **só entra no publicado com o OK dela**, aba por aba
 - **Toda janela nasce com `--oculta`.** Ela tem UMA tela. Uma janela na frente
   dela quebra o que ela está fazendo, e o mouse dela quebra o teste. Se
   precisar de janela visível, é no workspace `OS`, via
-  `aurora-claude-workspace.sh`.
+  `~/.config/zsh/scripts/aurora-claude-workspace.sh` (global dela, fora do repo).
 - **MAC real nunca entra em arquivo versionado.** A máscara da casa zera os
   octetos 4 e 5 (`d42f4b4846d8` → `d42f4b0000d8`). Dois portões vigiam isso.
 - **`install.sh` não roda nesta árvore.** Ele declara
