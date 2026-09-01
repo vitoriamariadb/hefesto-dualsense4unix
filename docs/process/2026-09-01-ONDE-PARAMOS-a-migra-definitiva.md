@@ -9,6 +9,49 @@
 
 ---
 
+## 0. O PUSH ESTÁ BLOQUEADO, E POR QUÊ
+
+**Não faça `git push` sem resolver isto primeiro.**
+
+Há **66 commits locais** à frente de `origin/dev`, e **quatro deles carregam o
+MAC real do controle dela** — os octetos 4 e 5 preenchidos, que a máscara da
+casa existe para zerar:
+
+```
+3e587acc  docs(migra): as duas curas do plano…
+511b7ad8  docs(migra): o ponto exato onde paramos…
+93ef6c66  fix(reuso): três camadas do produto…
+d83a752b  feat(piloto): uma janela, as dez abas vivas…
+```
+
+A **árvore de hoje está limpa** — o último foi curado em 01/09. O que sobra é o
+histórico, e histórico publicado não se despublica: esta casa já perdeu essa
+aposta uma vez, com cinco commits que levaram a senha dela para o `origin/main`
+público.
+
+**Nada disso foi publicado ainda.** Enquanto os 66 commits forem só locais, a
+cura é barata:
+
+```bash
+# Confira primeiro que o range é o certo, e que nenhuma outra branch os divide:
+git log --oneline origin/dev..dev | wc -l
+git branch --contains d83a752b
+
+# A cura (reescreve hash — só vale porque NADA foi publicado):
+git filter-repo --replace-text <(echo 'd42f4b4846d8==>d42f4b0000d8') --refs origin/dev..dev
+```
+
+**Por que eu não fiz:** reescrever 66 commits é operação que, se sair errada,
+perde trabalho — e ela tinha acabado de dizer *"nada pode se perder"* e ia
+desligar o PC. Reescrita de histórico é decisão dela, com ela presente. O
+trabalho está salvo em três commits locais; o disco não vai a lugar nenhum.
+
+**Como eu vazei:** escrevendo a máscara neste mesmo documento, como exemplo —
+`d42f4b<reais> → d42f4b0000d8`. O exemplo com os octetos reais **não se
+escreve**, nem para ilustrar a regra que os proíbe.
+
+---
+
 ## 1. O QUE ELA DECIDIU, E QUE NÃO SE REABRE
 
 Estas não são sugestões. São escolhas dela, ditas em 01/09/2026:
@@ -193,7 +236,7 @@ Mudança de desenho **só entra no publicado com o OK dela**, aba por aba
   precisar de janela visível, é no workspace `OS`, via
   `~/.config/zsh/scripts/aurora-claude-workspace.sh` (global dela, fora do repo).
 - **MAC real nunca entra em arquivo versionado.** A máscara da casa zera os
-  octetos 4 e 5 (`d42f4b4846d8` → `d42f4b0000d8`). Dois portões vigiam isso.
+  octetos 4 e 5 (o MAC dela vira `d42f4b0000d8`; o exemplo com os octetos reais NÃO se escreve, nem para ilustrar a máscara — foi assim que eu mesma o vazei em 01/09). Dois portões vigiam isso.
 - **`install.sh` não roda nesta árvore.** Ele declara
   `readonly APP_ID="hefesto-dualsense4unix"` e sequestraria a instalação. O
   instalador desta árvore é o `install-dev.sh` — que, apesar do nome, **é o
