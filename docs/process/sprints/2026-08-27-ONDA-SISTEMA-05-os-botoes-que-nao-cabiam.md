@@ -51,13 +51,13 @@ O que muda de forma:
 | "Detalhes técnicos" abaixo de tudo (`:3057`, `daemon_status_text:3087`) | **à direita dos botões de Avançado**, em grade de duas colunas |
 | "Voltar ao padrão" no rodapé (`:4269`, `btn_footer_restore_default`, handler `on_restore_default`) | **"Restaurar de fábrica"**, no quadro Avançado, com confirmação |
 
-**A palavra dela**, em `novo-layout/_ferramentas/CORRECOES-DELA.md`, aba
+**A palavra dela**, em `layout/_ferramentas/CORRECOES-DELA.md`, aba
 Sistema: *"todos os valores de preparar os jogos ao lado dos botões são
 valores que aparecem se deixarmos o mouse sobre o botão. Em avançado a mesma
 coisa. E subir a detalhes técnicos pra ficar a direita dos botões de avançado.
 Altura e largura dos blocos O Hefesto e Gamepad virtual são iguais"*.
 
-Mockup: `novo-layout/09-sistema.html`; gerador `aba09.py:64` (`item()`, que é
+Mockup: `layout/09-sistema.html`; gerador `aba09.py:64` (`item()`, que é
 literalmente *"o que antes era texto ao lado do botão vira TOOLTIP dele"*),
 CSS `.lista` em `aba09.py:34` e `.avancado` em `:43`.
 

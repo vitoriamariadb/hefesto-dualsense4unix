@@ -23,7 +23,7 @@ Não são preferências. Sete coisas quebraram hoje por não existirem antes.
    Ela desenha ali, e a pasta está fora do git **de propósito** — palavra dela:
    *"não tava trackeado por um motivo ÓBVIO: é só pra referência do
    desenvolvimento."* O produto lê de **`layout/`**, que é versionado.
-   **O que custou:** a interface carregava `novo-layout/02-controles.html`
+   **O que custou:** a interface carregava `layout/02-controles.html`
    direto, e toda leva que "ligava" uma aba editava a especificação junto com o
    produto. Um SVG que ela acabara de desenhar foi sobrescrito e ela **teve de
    refazer do zero**. Um botão inventado entrou na "especificação".

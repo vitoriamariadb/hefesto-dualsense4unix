@@ -34,7 +34,7 @@ gênero. Os catorze estilos são decisão dela (D-CATORZE-ESTILOS-DE-FABRICA) e
 ## O que entrega
 
 O botão **"Aplicar o estilo Retrô/Emulador"** (roxo) na linha de um emulador —
-`novo-layout/07-lancadores.html:528-539`, o cartão do RetroArch, que é onde o
+`layout/07-lancadores.html:528-539`, o cartão do RetroArch, que é onde o
 mockup diz, com todas as letras, que *"este é o lugar do Estilo
 Retrô/Emulador"*.
 
@@ -58,7 +58,7 @@ a mesma família do "Passthrough em emulação", que o redesenho manda sair porq
 
 - **Em qual perfil o estilo cai.** No perfil ativo (o que a fita do topo diz), num
   perfil novo para aquele emulador, ou o botão pergunta? A fita desta aba está
-  **esmaecida** de propósito — aqui não se escolhe alvo (`novo-layout/07-lancadores.html:418-423`),
+  **esmaecida** de propósito — aqui não se escolhe alvo (`layout/07-lancadores.html:418-423`),
   então o alvo deste gesto precisa de nome.
 - **Depende de fora:** esta sprint só fecha cheia quando os catorze estilos
   existirem. Quem coordena acrescenta a `depois_de` a sprint que os cria.

@@ -62,7 +62,7 @@ rádio.
 
 ### E1 — sete features na tela, quatro no perfil
 
-Medido em 29/08 (`profiles/schema.py` contra `novo-layout/02-controles.html`):
+Medido em 29/08 (`profiles/schema.py` contra `layout/02-controles.html`):
 
 | Feature, por controle | No perfil? | Onde |
 |---|---|---|
@@ -162,7 +162,7 @@ controles chegam. O `identity.py` está certo nisso.
 > isso e ela tem que funcionar."*
 
 E está mesmo: a seção **"Selecione o player"** vive na aba **Iluminação**
-(`novo-layout/04-iluminacao.html`) — e o desenho já define a semântica, que não é
+(`layout/04-iluminacao.html`) — e o desenho já define a semântica, que não é
 a de uma fila:
 
 > *"Ele agora **dá o número** — e **dar um número ocupado é uma TROCA, não uma

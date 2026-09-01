@@ -54,7 +54,7 @@ ninguém entende.
 ## O que entrega
 
 Uma página nova no `GtkNotebook`, **entre Conexões e Perfis** (a tira do mockup:
-`novo-layout/07-lancadores.html:437-449`), com id `tab_lancadores`, e **nascendo
+`layout/07-lancadores.html:437-449`), com id `tab_lancadores`, e **nascendo
 `visible=False`**. A visibilidade é a última sprint desta onda (a 10), e o motivo
 é decisão dela:
 
@@ -65,7 +65,7 @@ Uma página nova no `GtkNotebook`, **entre Conexões e Perfis** (a tira do mocku
 Dentro da página, o que o mockup mostra:
 
 - o quadro **"De onde os seus jogos vêm"** com o `?` — o texto exato está em
-  `novo-layout/07-lancadores.html:461-467`; copie de lá, não reescreva;
+  `layout/07-lancadores.html:461-467`; copie de lá, não reescreva;
 - a **conta** do topo à direita (`:468`) — nesta sprint ainda `0 encontrados`;
 - os dois botões do topo: **Detectar o jogo que está aberto** (roxo) e
   **Procurar de novo** (`:472-475`), ambos ligados só na 03 e na 06;
@@ -73,7 +73,7 @@ Dentro da página, o que o mockup mostra:
   ajusta por controle;
 - `CartaoDoLancador`, widget montado **em Python, não no Glade** — a lista é
   dinâmica, um cartão por lançador achado. Estados e cores em
-  `novo-layout/_ferramentas/aba07.py:5-28`: `chega` (borda verde), `impede`
+  `layout/_ferramentas/aba07.py:5-28`: `chega` (borda verde), `impede`
   (borda laranja), `ausente` (opacidade .5); selos `CHEGA` / `NÃO CHEGA` /
   `NÃO ACHEI`; a contagem à direita; a frase; o carimbo; a fileira de botões.
 

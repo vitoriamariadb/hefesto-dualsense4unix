@@ -22,7 +22,7 @@ git show <commit>^:docs/process/sprints/<arquivo>            # o texto inteiro
 
 | Sprint apagada | O que ela pedia | Quem tomou o lugar |
 |---|---|---|
-| `2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md` | Tipografia e realocação da janela antiga — inclusive "os analógicos no Status ao lado do microfone e lightbar". A fonte +3 fechou em 07/08 | `ONDA-CONTROLES-01..09` (mockup `novo-layout/02-controles.html`) |
+| `2026-07-25-LEGIBILIDADE-01-texto-legivel-alvo-clicavel.md` | Tipografia e realocação da janela antiga — inclusive "os analógicos no Status ao lado do microfone e lightbar". A fonte +3 fechou em 07/08 | `ONDA-CONTROLES-01..09` (mockup `layout/02-controles.html`) |
 | `2026-07-25-PLAYER-01-um-numero-de-jogador.md` | O olho dela sobre o seletor "Número deste controle", que existe e é editável desde `14cd31b` | `ONDA-ILUMINACAO-03` — a escolha do número desce do cabeçalho (`D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR`) |
 | `2026-07-27-LIGHTBAR-JOGADOR-01-a-cor-e-consequencia-do-jogador.md` | E0–E4: a cor ser consequência do número do jogador. Queixa dela citada: "área de desenho das 5 luzes é meio nonsense" | `ONDA-ILUMINACAO-01` (o desenho sai das cinco caixas) e `ONDA-ILUMINACAO-03` |
 | `2026-07-29-LARGURA-01-a-mesma-largura-em-todas-as-abas.md` | E5–E8: largura de linha nas abas do layout antigo (E1–E4 e E9 entregues) | `ONDA-JOGAR-09` e `ONDA-CONEXOES-01` — o mockup é a especificação de largura |

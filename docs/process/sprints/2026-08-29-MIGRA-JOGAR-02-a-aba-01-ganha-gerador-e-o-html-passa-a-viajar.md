@@ -3,12 +3,12 @@ sprint: MIGRA-JOGAR-02
 onda: MIGRA-JOGAR
 posse:
   J2:
-    - novo-layout/_ferramentas/aba01.py
-    - novo-layout/_ferramentas/regerar.py
-    - novo-layout/01-jogar.html
+    - layout/_ferramentas/aba01.py
+    - layout/_ferramentas/regerar.py
+    - layout/01-jogar.html
     - src/hefesto_dualsense4unix/gui/telas/01-jogar.html
 cria:
-  - novo-layout/_ferramentas/aba01.py
+  - layout/_ferramentas/aba01.py
   - src/hefesto_dualsense4unix/gui/telas/01-jogar.html
   - tests/unit/test_migra_jogar_02_a_pagina_que_o_produto_carrega.py
 bancada: false
@@ -17,8 +17,8 @@ nao_toca:
   - pyproject.toml
   - install.sh
   - scripts/check_packaging_parity.sh
-  - novo-layout/_ferramentas/monta.py
-  - novo-layout/_ferramentas/fim.html
+  - layout/_ferramentas/monta.py
+  - layout/_ferramentas/fim.html
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
 
@@ -26,11 +26,11 @@ nao_toca:
 
 **O defeito, em três fatos medidos:**
 
-1. **A Jogar é a única das dez sem gerador.** `novo-layout/_ferramentas/` tem
+1. **A Jogar é a única das dez sem gerador.** `layout/_ferramentas/` tem
    `aba02.py` … `aba10.py`. **Não existe `aba01.py`.** As outras nove nascem de
    Python; esta é editada à mão.
 2. **O rodapé dela é cópia gêmea, e o próprio arquivo declara o arranjo.**
-   `novo-layout/01-jogar.html:2294-2296`: *"Esta aba é mantida à MÃO: a cópia
+   `layout/01-jogar.html:2294-2296`: *"Esta aba é mantida à MÃO: a cópia
    gêmea está no `_ferramentas/fim.html`, e as duas mudam juntas."* **Não há
    régua que compare as duas.** Toda mudança de moldura é feita duas vezes, e a
    segunda é a esquecível.
@@ -49,12 +49,12 @@ o arquivo é a **especificação aprovada por ela**.
 
 ## O que entrega
 
-1. **`novo-layout/_ferramentas/aba01.py`**, no molde dos outros nove, emitindo
+1. **`layout/_ferramentas/aba01.py`**, no molde dos outros nove, emitindo
    **byte a byte** a página que ela aprovou. A régua de aceite é essa: gerar e
    comparar com a cópia de hoje. Diferença é defeito do gerador, nunca "melhoria"
    — **interface só fecha com o olho dela**, e esta sprint não tem permissão de
    mudar um pixel.
-2. **O rodapé passa a sair de `novo-layout/_ferramentas/fim.html`**, e a cópia
+2. **O rodapé passa a sair de `layout/_ferramentas/fim.html`**, e a cópia
    gêmea morre. O comentário `:2294-2296` sai junto: ele descreve um arranjo que
    deixa de existir.
 3. **A página chega ao produto.** O endereço é
@@ -79,10 +79,10 @@ passo 4 é quem reprova se ela não estiver lá.
 
 `tests/unit/test_migra_jogar_02_a_pagina_que_o_produto_carrega.py`:
 
-- **o gerador reproduz o aprovado.** Rode `novo-layout/_ferramentas/aba01.py` e
-  compare a saída com `novo-layout/01-jogar.html`. Igualdade byte a byte.
+- **o gerador reproduz o aprovado.** Rode `layout/_ferramentas/aba01.py` e
+  compare a saída com `layout/01-jogar.html`. Igualdade byte a byte.
   **A mordida:** mude uma linha do gerador — o teste reprova, dizendo qual byte;
-- **o rodapé tem UM dono.** Mude `novo-layout/_ferramentas/fim.html` e regenere:
+- **o rodapé tem UM dono.** Mude `layout/_ferramentas/fim.html` e regenere:
   a página tem de mudar junto. **A mordida:** devolva a cópia gêmea ao HTML e
   desligue o gerador do `fim.html` — o teste reprova, porque a mudança no dono
   não chega à página. **Este é o teste que hoje não existe**, e é por isso que a

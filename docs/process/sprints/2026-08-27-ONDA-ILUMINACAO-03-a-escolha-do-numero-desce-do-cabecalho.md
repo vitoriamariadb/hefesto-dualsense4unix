@@ -88,7 +88,7 @@ Um módulo novo, `app/actions/iluminacao_secao_do_player.py`, que monta a seçã
 1. **Quantos números a seção mostra?** O cabeçalho hoje oferece 1..4, o card da
    aba Conexões oferece 1..5, o produto cobre 1..8
    (`core/led_control.py:122` e `:146`). O mockup desenha **quatro**
-   (`novo-layout/04-iluminacao.html:717-718`). *Escrever o provisório em 1..4,
+   (`layout/04-iluminacao.html:717-718`). *Escrever o provisório em 1..4,
    marcado como `PROVISÓRIO — decisão dela`.*
 2. **O número continua também no card da aba Conexões?** As duas telas passam a
    mostrar o mesmo fato, e a regra dela é que fato repetido fica em sincronia
@@ -99,4 +99,4 @@ Um módulo novo, `app/actions/iluminacao_secao_do_player.py`, que monta a seçã
 - decisão: **D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR** — a palavra dela está lá,
   inteira;
 - contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4;
-- mockup: `novo-layout/04-iluminacao.html:703-720`.
+- mockup: `layout/04-iluminacao.html:703-720`.

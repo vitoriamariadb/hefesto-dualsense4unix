@@ -58,7 +58,7 @@ detector de janela estar ou não enxergando alguma coisa agora.
 
 Contrato: tabela dos botões — *"Ver os plugins carregados / Recarregar …
 existe no código e nunca teve tela — `daemon/ipc_server.py:184-185`"*.
-Mockup: `novo-layout/09-sistema.html`, quadro **Avançado**, botão *"Ver os
+Mockup: `layout/09-sistema.html`, quadro **Avançado**, botão *"Ver os
 plugins carregados"*, com a dica *"Lista os plugins do daemon e relê. Hoje só
 o terminal alcança isso."*
 

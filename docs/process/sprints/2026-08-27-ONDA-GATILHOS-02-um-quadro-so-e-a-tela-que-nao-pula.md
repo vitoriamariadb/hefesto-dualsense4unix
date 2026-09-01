@@ -44,7 +44,7 @@ pé — e trocar de modo faz a tela pular.
 A foto de hoje é `docs/usage/assets/readme_gatilhos.png`: dois `GtkFrame` ("L2
 (gatilho esquerdo)" / "R2 (gatilho direito)"), grade de 19 modos em **três**
 colunas, a frase em itálico *"Sem resistência."* numa linha própria, e no pé
-"Aplicar em L2" + "Desligar". O alvo é `novo-layout/03-gatilhos.html`.
+"Aplicar em L2" + "Desligar". O alvo é `layout/03-gatilhos.html`.
 
 **`main.glade` é recurso de bancada** (uma sprint por vez): esta é a **única**
 da onda que o abre. As sprints 03, 04 e 05 só tocam Python, e é por isso que ela
@@ -53,7 +53,7 @@ cria aqui todos os buracos de que elas precisam.
 ## O que entrega
 
 **1 · Um quadro só.** As duas molduras viram um `GtkFrame` com o título que ela
-deu — **"Seleção de Gatilho"** (`novo-layout/_ferramentas/aba03.py:107`) — e
+deu — **"Seleção de Gatilho"** (`layout/_ferramentas/aba03.py:107`) — e
 dentro dele duas colunas separadas por um filete, com os títulos
 *"Gatilho esquerdo `L2`"* e *"Gatilho direito `R2`"* (`aba03.py:78`).
 
@@ -170,7 +170,7 @@ Xvfb não há gerenciador de janelas e ela fica 1x1 para sempre —
 
 1. **A fita, esmaecida ou viva nesta aba?** O comentário do mockup diz
    *"A fita fica ESMAECIDA aqui: nada nesta aba ajusta por controle"*
-   (`novo-layout/03-gatilhos.html:431`), mas o markup logo abaixo (`:435`)
+   (`layout/03-gatilhos.html:431`), mas o markup logo abaixo (`:435`)
    **não** aplica a classe `inerte`, e o produto de hoje já manda o gatilho por
    MAC (`triggers_actions.py:_persist_params_to_draft`, PERFIL-04/05). O
    comentário e o desenho discordam. Esta sprint segue o **markup** (fita viva)

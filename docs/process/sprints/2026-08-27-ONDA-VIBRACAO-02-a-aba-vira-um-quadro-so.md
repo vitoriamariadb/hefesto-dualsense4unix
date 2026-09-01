@@ -39,7 +39,7 @@ E o aceite (`/tmp/coleta/hoje.md`, mensagem 68; `CORRECOES-DELA.md`, seção
 
 > *"ok, foda. Viu esses detalhes que eu pedi? (…) Tá fechado essa."*
 
-**A especificação é `novo-layout/05-vibracao.html`.** Onde o mockup e o contrato
+**A especificação é `layout/05-vibracao.html`.** Onde o mockup e o contrato
 de 26/08 divergirem, **vence o mockup** — ele é de 27/08 e tem o aceite dela.
 
 ## O que esta sprint entrega — a tela, e só a tela
@@ -125,7 +125,7 @@ como XML (sem GTK, roda no CI) e exige:
 ```bash
 scripts/gui-captura/retratar_abas.py
 ```
-A foto da aba, lado a lado com `novo-layout/05-vibracao.html`, e a palavra final
+A foto da aba, lado a lado com `layout/05-vibracao.html`, e a palavra final
 é dela. O `retratar_abas.py:1685-1750` monta esta aba com um host de bancada e
 **cita por nome** os widgets que esta sprint apaga — ele quebra junto, e faz
 parte da posse.

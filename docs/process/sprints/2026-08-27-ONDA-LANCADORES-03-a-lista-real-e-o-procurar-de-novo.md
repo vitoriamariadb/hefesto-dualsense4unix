@@ -29,7 +29,7 @@ nao_toca:
 - **A contagem de jogos.** Só a Steam tem catálogo hoje —
   `jogos_locais.jogos_da_biblioteca_steam()` (`integrations/jogos_locais.py:200`),
   que lê os `appmanifest_*.acf`. Os demais mostram **"—"**, que é o que o mockup
-  mostra (`novo-layout/07-lancadores.html:516-551`). **Nunca "0 jogos":** zero é
+  mostra (`layout/07-lancadores.html:516-551`). **Nunca "0 jogos":** zero é
   uma afirmação, e o produto não a mediu.
 - **A conta do topo** — `N encontrados · N com impedimento` (`:468`).
 - **O carimbo** *"N jogos já sabem por onde entrar"* (`:485`), vindo do veredito
@@ -61,6 +61,6 @@ nao_toca:
    nova**, não é ligar o que existe.
 2. **O carimbo fica aqui?** Ela mandou o `◆ este jogo já sabe por onde entra`
    sair da aba Perfis — *"Isso sai. Isso tá na aba Jogar."*
-   (`novo-layout/_ferramentas/CORRECOES-DELA.md:79-86`). Aqui ele aparece
+   (`layout/_ferramentas/CORRECOES-DELA.md:79-86`). Aqui ele aparece
    **agregado** ("3 jogos já sabem por onde entrar") e ela aprovou a aba inteira
    depois disso. Fica como está, ou o agregado segue o individual?

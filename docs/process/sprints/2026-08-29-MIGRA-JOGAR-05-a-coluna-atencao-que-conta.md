@@ -23,7 +23,7 @@ nao_toca:
 **O defeito:** a janela de hoje tem **doze produtores de aviso** e nenhum lugar
 que os junte. Três banners disputavam a mesma linha e o primeiro escondia os
 outros — é a razão pela qual o desenho reservou espaço e pôs um contador
-(`novo-layout/01-jogar.html:2264`, *"1 aviso"*).
+(`layout/01-jogar.html:2264`, *"1 aviso"*).
 
 **Nenhum dos doze precisa ser reescrito.** Todos já existem, todos já devolvem
 texto pronto, e a coluna só precisa **colhê-los e contá-los**:

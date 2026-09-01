@@ -56,7 +56,7 @@ Verbosidade tem preço em atenção de quem lê **e** em espaço de tela.
    marca `hefesto-ajuda`, sem inventar componente novo: `marcar_afordancias`
    já sabe reconhecê-lo.
 2. **Os quatro `?` que o contrato nomeia**, com o texto que o mockup aprovado já
-   escreveu (`novo-layout/_ferramentas/aba02.py`, os blocos `class="dica"`):
+   escreveu (`layout/_ferramentas/aba02.py`, os blocos `class="dica"`):
    - **Microfone** — *"A barra mostra o som entrando agora. O ícone à direita
      cala no firmware e apaga a luz vermelha do plástico"*;
    - **Som** — a diferença entre "Sons do jogo" e "Todo o som do PC";

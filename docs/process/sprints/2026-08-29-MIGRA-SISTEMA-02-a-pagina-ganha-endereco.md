@@ -3,8 +3,8 @@ sprint: MIGRA-SISTEMA-02
 # onda: MIGRA-SISTEMA (a aba 09, no motor novo)
 posse:
   M2:
-    - novo-layout/_ferramentas/aba09.py
-    - novo-layout/09-sistema.html
+    - layout/_ferramentas/aba09.py
+    - layout/09-sistema.html
 cria:
   - novo-layout/_ferramentas/regua_enderecos09.py
 bancada: false
@@ -13,14 +13,14 @@ depois_de:
 nao_toca:
   - src/
   - tests/
-  - novo-layout/_ferramentas/monta.py
-  - novo-layout/_ferramentas/topo.html
+  - layout/_ferramentas/monta.py
+  - layout/_ferramentas/topo.html
 ---
 
 # MIGRA SISTEMA · 02 — A página ganha endereço
 
 **O defeito:** a página que o `WebView` vai carregar **não tem por onde ser
-alcançada**. Medido hoje em `novo-layout/09-sistema.html`: a página inteira tem
+alcançada**. Medido hoje em `layout/09-sistema.html`: a página inteira tem
 **três** `id=` — `ring`, `flameOut` e `flameIn` (`:565`, `:570`, `:574`), e os
 três são filtros do SVG do logotipo. **Nenhum valor da tela tem endereço.**
 
@@ -87,7 +87,7 @@ A régua:
   pessoa procurar em 800 linhas;
 - **nenhum endereço duplicado.** Dois `data-id` iguais fazem o `run_javascript`
   pintar o primeiro e calar sobre o segundo — sem erro, sem log;
-- **o pixel não mudou.** Foto antes e depois com `novo-layout/_ferramentas/olhar.py`,
+- **o pixel não mudou.** Foto antes e depois com `layout/_ferramentas/olhar.py`,
   no **mesmo** Chrome e no **mesmo** tamanho, e a diferença tem de ser **zero**.
   Se mudou, o `data-` pegou um seletor CSS por acidente. **Atenção:** o
   `scrollIntoViewIfNeeded` do Playwright **rola antes de medir** e cega toda

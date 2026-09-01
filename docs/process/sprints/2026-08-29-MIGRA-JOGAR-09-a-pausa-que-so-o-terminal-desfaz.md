@@ -62,7 +62,7 @@ usuária não precisa fazer.
 
 ## O endereço não existe no desenho, e isso está declarado
 
-`novo-layout/01-jogar.html` **não desenha** botão de despausar. A MIGRA-JOGAR-03
+`layout/01-jogar.html` **não desenha** botão de despausar. A MIGRA-JOGAR-03
 lhe dá endereço (`#jg-despausar`) dentro da linha do aviso, no mesmo molde
 `#jg-modelo-aviso`, para não abrir uma forma nova de botão numa janela que já
 custou uma sprint inteira para ter **uma altura por família**

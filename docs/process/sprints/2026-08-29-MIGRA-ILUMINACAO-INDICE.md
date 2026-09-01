@@ -180,7 +180,7 @@ bancada.
 conclusão que a onda **Controles** já registrou sobre os dois arquivos gigantes
 dela.
 
-**Cinco abrem `novo-layout/_ferramentas/aba04.py`** (03, 04, 08, 09, 10), e aqui
+**Cinco abrem `layout/_ferramentas/aba04.py`** (03, 04, 08, 09, 10), e aqui
 o risco é pior que conflito: **`novo-layout/` é `.gitignore:108`** — conferido
 com `git check-ignore -v`, que reprova `04-iluminacao.html` e `aba04.py`. Duas
 levas editando o mesmo mockup em árvores diferentes **divergem SEM conflito de
@@ -344,11 +344,11 @@ reprovando**.
 
 - **contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4
   (linhas 303-368) — toda linha do *"Nada se perdeu"* é requisito;
-- **especificação visual:** `novo-layout/04-iluminacao.html`, gerador
-  `novo-layout/_ferramentas/aba04.py`, esqueleto `novo-layout/_ferramentas/monta.py`;
-- **correção literal dela:** `novo-layout/_ferramentas/CORRECOES-DELA.md`, aba
+- **especificação visual:** `layout/04-iluminacao.html`, gerador
+  `layout/_ferramentas/aba04.py`, esqueleto `layout/_ferramentas/monta.py`;
+- **correção literal dela:** `layout/_ferramentas/CORRECOES-DELA.md`, aba
   Iluminação — **"— FEITA"**;
-- **o motor:** `novo-layout/_ferramentas/ver.py` (a janela que ela já abriu e  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+- **o motor:** `layout/_ferramentas/ver.py` (a janela que ela já abriu e  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   olhou) e `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`;
 - **o mapa de canais:** `docs/data/mapa-controles.csv` — as cinco linhas que
   mordem esta aba são `luz.lightbar.cor`, `luz.lightbar.brilho`,

@@ -3,15 +3,15 @@ sprint: MIGRA-GATILHOS-02
 onda: MIGRA-GATILHOS
 posse:
   M2:
-    - novo-layout/_ferramentas/aba03.py
+    - layout/_ferramentas/aba03.py
 cria:
   - tests/unit/test_migra_gatilhos_a_pagina_tem_endereco.py
 bancada: false
 depois_de:
   - MIGRA-GATILHOS-01
 nao_toca:
-  - novo-layout/_ferramentas/monta.py
-  - novo-layout/_ferramentas/topo.html
+  - layout/_ferramentas/monta.py
+  - layout/_ferramentas/topo.html
   - src/
 ---
 
@@ -23,7 +23,7 @@ endereço. A página aprovada não tem **nenhum**.
 
 ## A medição
 
-`novo-layout/03-gatilhos.html`, contado em 29/08:
+`layout/03-gatilhos.html`, contado em 29/08:
 
 ```
 id=      3   — e os três são gradientes do SVG da logo (flameIn, flameOut, ring)
@@ -89,7 +89,7 @@ O esquema, e ele é uma escolha de contrato, não de estilo:
 `tests/unit/test_migra_gatilhos_a_pagina_tem_endereco.py`:
 
 1. **A FOTO NÃO MUDA — esta é a mordida principal.** Gere `03-gatilhos.html`
-   antes e depois, fotografe as duas com `novo-layout/_ferramentas/olhar.py` e
+   antes e depois, fotografe as duas com `layout/_ferramentas/olhar.py` e
    compare **pixel a pixel**. Atributo não pinta; se um pixel mudou, o gerador
    mudou mais do que devia. Arranque a cura invertendo uma linha de CSS junto e
    veja a régua reprovar — sem isso ela não está medindo nada.
@@ -119,7 +119,7 @@ Nada de tela — **esta sprint não move um pixel, e a régua 1 é a prova disso
 ## O buraco que esta sprint declara e não fecha
 
 **`novo-layout/` é `.gitignore:108`** (conferido:
-`git check-ignore -v novo-layout/_ferramentas/aba03.py` → reprova). Logo:
+`git check-ignore -v layout/_ferramentas/aba03.py` → reprova). Logo:
 
 - o gerador e a página **não viajam** em `git worktree add`;
 - **não entram no pacote**: o `install.sh` copia `assets/glyphs` (`:3103`) e

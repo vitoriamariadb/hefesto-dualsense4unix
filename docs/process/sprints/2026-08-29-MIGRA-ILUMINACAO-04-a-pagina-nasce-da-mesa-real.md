@@ -3,7 +3,7 @@ sprint: MIGRA-ILUMINACAO-04
 onda: MIGRA-ILUMINACAO
 posse:
   IL4:
-    - novo-layout/_ferramentas/aba04.py
+    - layout/_ferramentas/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_04_a_mesa_real.py
@@ -32,7 +32,7 @@ montamos no `mapa-do-controle.html`."*
 
 **Ela tem dois controles. A página desenha quatro.**
 
-`MESA`, em `novo-layout/_ferramentas/monta.py:138-147`, é uma lista **literal de
+`MESA`, em `layout/_ferramentas/monta.py:138-147`, é uma lista **literal de
 quatro**. Dela saem:
 
 - as quatro colunas (`aba04.py:426`, o laço `coluna(c) for c in MESA`);

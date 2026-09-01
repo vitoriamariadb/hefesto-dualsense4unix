@@ -287,7 +287,7 @@ provou o reparo com md5; o arquivo dela está íntegro.
 **A causa: oito arquivos cravavam o caminho absoluto da árvore dela.**
 
 ```
-novo-layout/_ferramentas/{monta,exportar,aba08,aba09,importar,mapa,regua}.py
+layout/_ferramentas/{monta,exportar,aba08,aba09,importar,mapa,regua}.py
 scripts/check_pecas_do_dualsense.py        ← este é VERSIONADO
 ```
 
@@ -311,7 +311,7 @@ O último item do pedido dela de 28/08: *"Concluir as páginas pop up."* As duas
 telas não existiam — só os botões (`grep -c 'tn-cx' 08-conexoes.html` = 0). Foram
 desenhadas a partir das janelas que **já rodam** no produto (`mapa_da_mesa.py`,
 823 linhas, e `calibrar_entradas.py`) e do mockup de 24/08
-(`novo-layout/mapa-das-portas.html`), de onde **não** veio o bloco do rádio — a
+(`layout/mapa-das-portas.html`), de onde **não** veio o bloco do rádio — a
 aba Conexões já o absorveu.
 
 **O cético reprovou a primeira entrega, e estava certo em quatro pontos.**
@@ -407,7 +407,7 @@ par de dias que um instrumento desta casa mente antes do produto.
 
 - **As duas pop-ups "Mapear Entradas" e "Mapear Entrada a Entrada" não existem**
   no mockup — só os botões. Mas há mockup de 24/08 em
-  `novo-layout/mapa-das-portas.html` (1.412 linhas) que já desenha as faces com
+  `layout/mapa-das-portas.html` (1.412 linhas) que já desenha as faces com
   entradas numeradas, a entrada por extensão (`15a`), os aparelhos sem lugar e o
   painel do que está plugado. O bloco de rádio dele **não vai junto** — a aba
   Conexões já o absorveu.

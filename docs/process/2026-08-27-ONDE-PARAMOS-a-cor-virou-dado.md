@@ -9,7 +9,7 @@ trabalho.
 
 ## O que dá para ver agora, e é o que ela pediu para olhar
 
-**Abra `novo-layout/mapa-do-controle.html`.** No topo nasceu uma barra de provas
+**Abra `layout/mapa-do-controle.html`.** No topo nasceu uma barra de provas
 com três blocos:
 
 | bloco | o que faz |
@@ -35,7 +35,7 @@ erro de JavaScript**, e a linha "Corpo" voltou a caber na caixa.
 
 **Não vivem, e nunca viveram.** O SVG é o desenho que ela fez no editor, e a
 única cor que ele carregava era `fill="#3a3f4b"` como atributo. As cinco cores
-estavam em `novo-layout/_ferramentas/topo.html:295-326` e no `mapa.py`, com uma
+estavam em `layout/_ferramentas/topo.html:295-326` e no `mapa.py`, com uma
 quinta em `04-iluminacao.html`. Quem fosse consertar o hex procuraria no arquivo
 errado. **Substituído** no cabeçalho de `docs/data/cores-do-dualsense.csv`.
 
@@ -138,7 +138,7 @@ abaixo dele. **Path inclinado não se mede por caixa** — é a mesma lição qu
 
 ## O que fica aberto, e não é dela
 
-* **O mockup ainda diz o fato caduco** — `novo-layout/_ferramentas/aba08.py` e o
+* **O mockup ainda diz o fato caduco** — `layout/_ferramentas/aba08.py` e o
   HTML que ele gera afirmam que *"pelo rádio o aparelho recusa a leitura"*, e o
   contrato repete em `2026-08-26-O-REDESENHO-as-dez-abas.md:330,623`. **Os dois
   estão em revisão com ela, e não se tocam sem a palavra dela.**

@@ -100,7 +100,7 @@ os três resultados estruturados, os três journals com cada agente, e
 `refutadas-r1.md` / `r2.md` / `r3.md` — **as refutações com prova**, que é
 conhecimento negativo: *"tentamos, está errado, eis o arquivo:linha"*.
 
-**O que NÃO foi materializado** (o teto de uso cortou): os `fontes-r1/r2/r3.md`
+**O que NÃO foi materializado** (o teto de uso cortou): os `docs/process/pesquisas/2026-08-31-canais-de-radio/fontes-r1.md`, `fontes-r2.md` e `fontes-r3.md`
 saíram vazios ou incompletos, e o `LEIA-PRIMEIRO.md` da pasta **não foi
 escrito**. O bruto está lá; refazer é rodar o workflow salvo em
 `~/.claude/.../workflows/scripts/materializar-a-pesquisa-dos-canais-*.js`.

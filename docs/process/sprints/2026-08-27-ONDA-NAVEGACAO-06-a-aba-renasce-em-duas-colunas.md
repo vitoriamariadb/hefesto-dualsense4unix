@@ -68,7 +68,7 @@ Palavra dela, 27/08 (`/tmp/coleta/hoje.md:262`):
 
 ## O que entrega
 
-A aba do mockup `novo-layout/06-navegacao.html`, na ordem em que ele a desenha:
+A aba do mockup `layout/06-navegacao.html`, na ordem em que ele a desenha:
 
 1. **O quadro "Os gestos do controle"** no topo — a moldura entra aqui; o
    conteúdo dela é a ONDA-NAVEGACAO-08.

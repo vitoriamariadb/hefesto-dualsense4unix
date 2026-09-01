@@ -24,7 +24,7 @@ nao_toca:
 ## O defeito
 
 O mockup desenha **quatro** cartões, e são quatro constantes: a `MESA` de
-`novo-layout/_ferramentas/monta.py:138` — `p1 cosmic-red USB`,
+`layout/_ferramentas/monta.py:138` — `p1 cosmic-red USB`,
 `p2 starlight-blue BT`, `p3 galactic-purple BT`, `p4 white USB`. **Ela tem
 dois.** Palavra dela, 29/08: *"o layout se adapta a medida dos controles que eu
 tenho (…) e se eu comprar outros dualsense eles aparecem também seguindo a

@@ -3,7 +3,7 @@ sprint: MIGRA-PERFIS-02
 onda: PERFIS
 posse:
   MP2:
-    - novo-layout/_ferramentas/aba10.py
+    - layout/_ferramentas/aba10.py
 cria:
   - tests/unit/test_migra_perfis_02_todo_valor_tem_endereco.py
 bancada: false
@@ -15,7 +15,7 @@ nao_toca:
 
 # MIGRA PERFIS · 02 — todo valor ganha endereço
 
-**O defeito:** `novo-layout/10-perfis.html` tem **zero** `id=`, **zero**
+**O defeito:** `layout/10-perfis.html` tem **zero** `id=`, **zero**
 `data-`, **zero** `<script>` — os únicos três ids do arquivo (`flameIn`,
 `flameOut`, `ring`) são do logo da moldura. **Não há por onde o Python alcançar
 nenhum dos dezenove valores da tela**, e os treze gestos são HTML inerte. Um
@@ -63,7 +63,7 @@ seleção do ativo e os quatro campos do editor). É o que torna esta aba barata
 do lado do dado — e cara do lado do gesto, que é a **05**.
 
 O **rodapé** (Aplicar · Salvar Perfil · Importar · Exportar, e o recibo) é da
-**moldura**: ele vive em `novo-layout/_ferramentas/fim.html`, é o mesmo nas dez
+**moldura**: ele vive em `layout/_ferramentas/fim.html`, é o mesmo nas dez
 abas, e tem classe (`r-salvar`, `recibo`) mas nenhum `data-hef`. **Esta sprint
 não o toca** — endereçá-lo uma vez para as dez é da moldura, e endereçá-lo aqui
 criaria a décima cópia do mesmo problema.
@@ -84,7 +84,7 @@ criaria a décima cópia do mesmo problema.
    `Profile.controllers` (`profiles/schema.py:1008`, canonizada em `:1114`).
    Endereço que não é a chave do dado obriga a inventar uma tradução, e a
    tradução é onde nasce a segunda verdade.
-4. **O HTML é regerado** (`novo-layout/_ferramentas/regerar.py`) e a foto do
+4. **O HTML é regerado** (`layout/_ferramentas/regerar.py`) e a foto do
    Chrome é conferida contra a de antes.
 
 ## Como se prova (a mordida)
@@ -114,14 +114,14 @@ criaria a décima cópia do mesmo problema.
   não elemento por elemento.
 - **o motor de verdade também**: a mesma comparação no `WebKit2.WebView`, com
   `select{appearance:none}` e `.nota{display:none}` aplicados como o `ver.py`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
-  aplica (`novo-layout/_ferramentas/ver.py:66-90`). O Chrome sozinho não prova  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+  aplica (`layout/_ferramentas/ver.py:66-90`). O Chrome sozinho não prova  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   nada sobre a tela dela.
 
 ## O que é dela decidir
 
 - **A PRIORIDADE NÃO É EDITÁVEL NO MOCKUP, E ELA PEDIU QUE FOSSE.** Palavra
   dela, 27/08: *"prioridade é slicer"*
-  (`novo-layout/_ferramentas/CORRECOES-DELA.md`). O mockup desenha
+  (`layout/_ferramentas/CORRECOES-DELA.md`). O mockup desenha
   `<span class="trilho"><span class="cheio" style="width:90%">` — um desenho,
   não um controle: **não há como arrastar**. Hoje o produto tem uma
   `Gtk.Scale` de verdade (`profile_priority_scale`, seis `self._get()`), e o

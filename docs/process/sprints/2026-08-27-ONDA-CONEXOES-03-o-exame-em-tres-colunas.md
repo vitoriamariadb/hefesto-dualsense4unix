@@ -24,7 +24,7 @@ nao_toca:
 pixels abaixo, e a explicação de cada ordem — três linhas por card — ocupa a
 altura que fez a aba não caber.
 
-Fonte: `novo-layout/_ferramentas/aba08.py:187-251`;
+Fonte: `layout/_ferramentas/aba08.py:187-251`;
 `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 8, *"O que fica na
 tela e o que vira dica"*. Decisão: `D-TUDO-QUE-EXPLICA-VIRA-DICA`.
 
@@ -102,7 +102,7 @@ veja a de tooltip reprovar. Cole as duas saídas.
 ## O que é dela decidir
 
 1. **O carimbo de idade tem palavra dela em outra aba**: *"Isso sai. Isso tá na
-   aba Jogar"* (`novo-layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis). Ali
+   aba Jogar"* (`layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis). Ali
    ela mandou tirar o carimbo de um perfil; aqui o carimbo é do EXAME, e é ela
    quem confirma que a distinção vale.
 2. **A prova de tela.** Nada disto fecha sem foto antes e depois e a palavra

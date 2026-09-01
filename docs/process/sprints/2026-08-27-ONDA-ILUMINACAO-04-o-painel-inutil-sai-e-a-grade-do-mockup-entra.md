@@ -65,8 +65,8 @@ mandava o mesmo desenho para os quatro controles.
 ## O que entrega
 
 A grade de quatro seções do mockup aprovado
-(`novo-layout/04-iluminacao.html:509-733`, e o CSS em
-`novo-layout/_ferramentas/aba04.py:8-11`):
+(`layout/04-iluminacao.html:509-733`, e o CSS em
+`layout/_ferramentas/aba04.py:8-11`):
 
 ```
 ┌──────────────┬──────────────────────┬─────────────────┐
@@ -81,7 +81,7 @@ A grade de quatro seções do mockup aprovado
 - **"Opções" fica à DIREITA de "Cor e brilho"**, e as outras duas embaixo — é a
   correção literal dela: *"Na real O Opções fica ao lado direito de Cor e brilho
   e abaixo fica os outros dois"*
-  (`novo-layout/_ferramentas/CORRECOES-DELA.md`, Aba Iluminação);
+  (`layout/_ferramentas/CORRECOES-DELA.md`, Aba Iluminação);
 - **os quatro títulos de seção têm o MESMO estilo** — `Cor e brilho · Opções ·
   Selecione o player · Disposição de LEDs`. Também é correção literal dela;
 - **Cor e Brilho na mesma largura**: os dois são a mesma grade de duas colunas
@@ -131,7 +131,7 @@ coordena roda `scripts/gui-captura/retratar_abas.py`; **o agente não roda**.
 
 ## Fontes
 
-- correções literais: `novo-layout/_ferramentas/CORRECOES-DELA.md`, Aba Iluminação
+- correções literais: `layout/_ferramentas/CORRECOES-DELA.md`, Aba Iluminação
   — *"— FEITA"*;
-- mockup: `novo-layout/04-iluminacao.html`, gerador `novo-layout/_ferramentas/aba04.py`;
+- mockup: `layout/04-iluminacao.html`, gerador `layout/_ferramentas/aba04.py`;
 - contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4.

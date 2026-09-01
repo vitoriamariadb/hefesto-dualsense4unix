@@ -16,14 +16,14 @@ nao_toca:
 # MIGRA JOGAR — o índice
 
 **29/08/2026.** A aba **Jogar** (a antiga Início) deixa de ser widget montado em
-Python e passa a ser a **página `novo-layout/01-jogar.html` dentro de um
+Python e passa a ser a **página `layout/01-jogar.html` dentro de um
 `WebKit2.WebView`**, com o Python pintando valor e recebendo gesto.
 `D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`
 (`docs/data/decisoes-dela.csv:119`).
 
 **ONZE sprints** — o censo desta aba contou dez. A décima primeira é a **máscara
 Nintendo Pro**: o desenho aprovado põe o terceiro chip no bloco `.mascara` de
-cada um dos quatro cartões (`novo-layout/01-jogar.html:1076`, `:1469`, `:1862`,
+cada um dos quatro cartões (`layout/01-jogar.html:1076`, `:1469`, `:1862`,
 `:2255`), o catálogo do produto tem **duas** entradas
 (`integrations/uinput_gamepad.py:115`), e uma busca em `docs/` por
 `MÁSCARA-NINTENDO-01` — o nome que o próprio mockup dá à sprint — **não devolve
@@ -72,9 +72,9 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
    depois. Nove de dez abas voltaram "sem título" para quem mediu assim.
 4. **Os `<select>` saem como caixa branca** no WebKitGTK, que relata as cores do
    autor e desenha o tema do sistema. A cura é `select{appearance:none}` e já
-   está no `novo-layout/_ferramentas/ver.py`. São 117 nas dez abas — **nenhum  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+   está no `layout/_ferramentas/ver.py`. São 117 nas dez abas — **nenhum  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    nesta**, e é por isso que a Jogar é barata de moldura.
-5. **84 filtros mortos no SVG** (`novo-layout/_ferramentas/monta.py` prefixa os
+5. **84 filtros mortos no SVG** (`layout/_ferramentas/monta.py` prefixa os
    ids e não reescreve o `url()`, porque o desenho usa aspas escapadas). O
    contorno do touchpad **nunca apareceu, em motor nenhum**. A cura está pronta,
    muda 1,09% do desenho que ela aprovou e **é dela** — não entra em sprint desta
@@ -118,7 +118,7 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
    10 ──► 04          (o cartão só mostra máscara viva depois da 10)
 ```
 
-* **02 antes de 03** — as duas abrem `novo-layout/_ferramentas/aba01.py`, que a  <!-- ref-externa: nasce na MIGRA-JOGAR-03, ainda não executada -->
+* **02 antes de 03** — as duas abrem `layout/_ferramentas/aba01.py`, que a  <!-- ref-externa: nasce na MIGRA-JOGAR-03, ainda não executada -->
   02 cria. Quem divide arquivo executa **em série** (R5).
 * **03 antes de 04, 05, 08 e 09** — sem endereço o Python não alcança valor
   nenhum. A 03 é a que mais destrava por linha escrita.
@@ -139,7 +139,7 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
 
 | # | A pergunta |
 |---|---|
-| 01 | **A fita fica em quantos lugares?** O produto a desenha na `Gtk.HeaderBar` (`app/actions/status_actions.py:1702`) e o desenho a desenha dentro da página (`novo-layout/01-jogar.html:567`). Com o enxerto as duas ficam na tela ao mesmo tempo — o mesmo defeito que ela viu em um segundo quando a tira apareceu duas vezes |
+| 01 | **A fita fica em quantos lugares?** O produto a desenha na `Gtk.HeaderBar` (`app/actions/status_actions.py:1702`) e o desenho a desenha dentro da página (`layout/01-jogar.html:567`). Com o enxerto as duas ficam na tela ao mesmo tempo — o mesmo defeito que ela viu em um segundo quando a tira apareceu duas vezes |
 | 04 | **Zero controles.** O desenho não tem esse estado. O que a tela diz quando não há nada na mesa é dela |
 | 04 | **A cor do plástico nos cartões do rádio.** O mapa é portão e diz **não** (`docs/data/mapa-controles.csv:111`, `radio_aciona=não`, motivo `divida` desde 29/08/2026, quando a lápide `o-aparelho-recusa` caiu; `cabo_aciona=sim`, e a leitura pelo cabo só passou a acontecer de verdade em 29/08, com a porta do broker). Três saídas, de preços diferentes: **lembrar** o que se leu no cabo (`ControleDeclarado.cor`, `utils/maquina.py:551`), **nascer sem cor**, ou **ela declarar à mão**, que é o que o produto já permite |
 | 06 | **O quarto botão "Desligado" vale no clique ou espera o `Aplicar`?** E de quem é o gesto — a Jogar ou a Sistema? (`SPRINT_ORDER.md` §0.2, "Ligar/Desligar o Hefesto em dois lugares") |

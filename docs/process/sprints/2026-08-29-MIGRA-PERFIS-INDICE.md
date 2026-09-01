@@ -16,7 +16,7 @@ nao_toca:
 # MIGRA PERFIS — o índice
 
 **A aba Perfis muda de motor.** Deixa de ser 576 linhas de XML alcançadas por 74
-`self._get()` e passa a ser `novo-layout/10-perfis.html` dentro de um
+`self._get()` e passa a ser `layout/10-perfis.html` dentro de um
 `WebKit2.WebView`, com o Python **pintando valores** e **recebendo gestos** —
 nunca construindo widget.
 
@@ -24,9 +24,9 @@ Decisão: `D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`
 (`docs/data/decisoes-dela.csv:119`, 29/08/2026).
 Contrato da aba: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 9 —
 **toda linha do "Nada se perdeu" é requisito**.
-Especificação visual: `novo-layout/10-perfis.html` e o gerador
-`novo-layout/_ferramentas/aba10.py`.
-Correções literais dela: `novo-layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis.
+Especificação visual: `layout/10-perfis.html` e o gerador
+`layout/_ferramentas/aba10.py`.
+Correções literais dela: `layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis.
 
 ## A EXECUÇÃO ESPERA A PALAVRA DELA
 
@@ -149,7 +149,7 @@ estão em prosa, e não num `depois_de` com um id inventado.
 | `app/actions/profiles_actions.py` | **03**, **04**, **05**, **06** | `ONDA-PERFIS-02/06/08/09` |
 | `app/actions/footer_actions.py` | **ninguém** (está no `nao_toca` da 05) | `ONDA-PERFIS-08`, `ONDA-CONEXOES-09`, `ONDA-GATILHOS-02`, `ONDA-NAVEGACAO-09`, `ONDA-SISTEMA-05` |
 | `integrations/cor_do_plastico.py` | **ninguém** (`nao_toca` da 06) | `ONDA-CONEXOES-08/11/12` |
-| `novo-layout/_ferramentas/aba10.py` | **02** | ninguém — mas ver a nota abaixo |
+| `layout/_ferramentas/aba10.py` | **02** | ninguém — mas ver a nota abaixo |
 
 **A nota do `novo-layout/`, e ela é séria:** a pasta é ignorada pelo git. Duas
 levas editando o mesmo mockup em árvores diferentes **divergem sem conflito de

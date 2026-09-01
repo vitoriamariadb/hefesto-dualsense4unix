@@ -130,7 +130,7 @@ mantém esta onda fora da fila de vinte sprints que disputam o `main.glade`.
    devolve **vazio** — o título chega depois; quem quiser conferir a página
    confere pelo DOM, não pelo título.
 5. **A folha do `<select>`.** `select{appearance:none;-webkit-appearance:none}`
-   como `UserStyleSheet`, pelo motivo medido em `novo-layout/_ferramentas/ver.py:77-90`:  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+   como `UserStyleSheet`, pelo motivo medido em `layout/_ferramentas/ver.py:77-90`:  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    o WebKitGTK relata as cores do autor e desenha o tema do sistema, e o campo
    sai **caixa branca com texto quase invisível**. São **16** `<select>` no miolo
    desta aba — a maior concentração das dez. (O número foi medido **duas vezes**:
@@ -185,7 +185,7 @@ para sempre):
   é melhor no papel: a decisão é olhar a tela. `PROVA-DE-TELA-01`.
 * **A aba não cabe, e o número está medido:** 828 px de aba para 542 px de
   miolo. O WebView herda isso inteiro. O que teria de sair, com preço já medido
-  em `novo-layout/_ferramentas/aba08.py:1247-1253`: **Desempenho** (145 px), a
+  em `layout/_ferramentas/aba08.py:1247-1253`: **Desempenho** (145 px), a
   **tabela dos adaptadores com os dois botões** (130) ou o quadro **"Está tudo
   certo?"** (204). Na TV dela (1080) sobram 3 px; em qualquer janela menor, não.
   Nenhuma sprint desta onda decide isto sozinha.

@@ -51,7 +51,7 @@ mesa inteira.
 2. **"Aplicar no controle" vira "Reenviar ao controle"** — manda de novo cor e
    brilho, para depois de reconectar. O nome existe para não competir com o
    `[Aplicar]` do rodapé. *Onde ele mora na tela é pergunta aberta da ILUM-04.*
-3. **"Apagar" vira "Desligar"** (mockup: `novo-layout/04-iluminacao.html:700`).
+3. **"Apagar" vira "Desligar"** (mockup: `layout/04-iluminacao.html:700`).
 4. **O recado D4 vira linha na própria seção**, não toast que some: aplicar em
    "Todos" desligava as cores automáticas **em silêncio**
    (`_d4_disable_auto_for_single_color`, `lightbar_actions.py:1273`). É
@@ -84,7 +84,7 @@ intacto.
    `_persist_leds_update({"lightbar_rgb": (0,0,0)})`). **São duas promessas
    vivas, e uma está errada** — mas qual é a certa é decisão de produto, não de
    código. Ela reaparece no mockup, na lista "Ainda aberto"
-   (`novo-layout/04-iluminacao.html:767`).
+   (`layout/04-iluminacao.html:767`).
 2. **A caixa "Cores automáticas por controle" fica na aba?** O contrato diz que
    fica (`auto_player_colors_check`, `gui/main.glade:1201`); o mockup aprovado
    não a desenha. Ver a pergunta 1 da ILUM-04 — é a mesma.

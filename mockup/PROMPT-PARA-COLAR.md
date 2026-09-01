@@ -1,7 +1,7 @@
 # O prompt para colar na aba nova
 
 Ela escreveu este arquivo em 31/08/2026 para não ter de reescrever o pedido toda
-vez. **Copie o bloco abaixo inteiro** e cole numa sessão nova de Claude Code
+vez. **Copie o bloco abaixo inteiro** e cole numa sessão nova do assistente
 aberta em `/mnt/Apate/Desenvolvimento/hefesto-dualsense4unix-dev`.
 
 ---

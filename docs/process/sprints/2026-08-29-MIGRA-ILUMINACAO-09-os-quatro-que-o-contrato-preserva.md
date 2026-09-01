@@ -3,7 +3,7 @@ sprint: MIGRA-ILUMINACAO-09
 onda: MIGRA-ILUMINACAO
 posse:
   IL9:
-    - novo-layout/_ferramentas/aba04.py
+    - layout/_ferramentas/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
     - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
 cria:

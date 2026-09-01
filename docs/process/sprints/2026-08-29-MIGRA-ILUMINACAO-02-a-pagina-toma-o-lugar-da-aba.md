@@ -147,7 +147,7 @@ AUSÊNCIA de dado, que ninguém vê.
 
 - **Onde o HTML passa a morar, e esta sprint NÃO decide.** `novo-layout/` é
   `.gitignore:108` (conferido: `git check-ignore -v` reprova
-  `novo-layout/04-iluminacao.html`), logo **não viaja em `git worktree add`, não
+  `layout/04-iluminacao.html`), logo **não viaja em `git worktree add`, não
   está no pacote, e `install.sh` não o copia** — ele copia `assets/glyphs`
   (`install.sh:3103`) e mais nada de desenho. **A rota WebKit inteira depende de
   um arquivo que o repositório não tem.** Isso é da moldura das dez ondas

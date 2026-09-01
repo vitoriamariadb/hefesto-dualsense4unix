@@ -34,8 +34,8 @@ nao_toca:
 aba não existe no repositório.
 
 ```
-$ git check-ignore -v novo-layout/08-conexoes.html
-.gitignore:108:novo-layout/	novo-layout/08-conexoes.html
+$ git check-ignore -v layout/08-conexoes.html
+.gitignore:108:novo-layout/	layout/08-conexoes.html
 ```
 
 Logo ele **não viaja** em `git worktree add`, **não** entra no wheel
@@ -59,7 +59,7 @@ vibração de `app/actions/config/secao_orcamento.py`, e os textos das duas jane
 AST e **nunca por import**, porque `radio_da_mesa` puxa `structlog` e o gerador
 não roda no `.venv` — a mesma disciplina de `scripts/validar-fala-de-tela.py`.
 
-`parents[2]` conta pastas. Em `novo-layout/_ferramentas/` a raiz fica a dois
+`parents[2]` conta pastas. Em `layout/_ferramentas/` a raiz fica a dois
 saltos; em `scripts/telas/`, a dois também — **mas isso é coincidência, não
 garantia**, e o `_constantes()` **levanta `SystemExit`** quando um nome some. A
 sprint confere a raiz resolvida, não a conta de saltos.

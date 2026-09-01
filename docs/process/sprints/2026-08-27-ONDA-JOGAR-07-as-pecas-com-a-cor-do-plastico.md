@@ -246,7 +246,7 @@ rastro.
 
 ## Fontes
 
-- `novo-layout/01-jogar.html`, `.pecas` e `.cartao`.
+- `layout/01-jogar.html`, `.pecas` e `.cartao`.
 - `/tmp/coleta/hoje.md`, falas [8], [31], [34], [48].
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, padrões P2 e P4.
 - `docs/protocol/dualsense-referencia-canonica.md:1574-1663` — a cor nos dois

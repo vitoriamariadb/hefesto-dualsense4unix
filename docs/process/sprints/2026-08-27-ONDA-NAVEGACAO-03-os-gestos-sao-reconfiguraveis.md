@@ -42,7 +42,7 @@ o par de botões cravado no código: nenhum deles pode ser trocado, e um deles
 `HotkeyConfig` (`hotkey_daemon.py:145`) já carrega os quatro combos como campos —
 o que falta é **o par ser escolhido** e **a ação ser escolhida**, e é isso que a
 tela do mockup pede (cada linha de gesto tem um dropdown de ação:
-`novo-layout/_ferramentas/aba06.py`, `ACOES_GESTO` e `GESTOS`).
+`layout/_ferramentas/aba06.py`, `ACOES_GESTO` e `GESTOS`).
 
 Decisão dela: **D-A-AREA-QUE-ENSINA-VAI-PARA-A-NAVEGACAO**
 (`/tmp/coleta/decisoes.md:192`) — *"talvez aquela seção que fica em emulação e
@@ -61,7 +61,7 @@ que o user escolha o que cada conjunto faz."*
    constantes viram o **default do catálogo**, num lugar só.
 3. Dois gestos nascem **travados**, e o mockup já diz o porquê na dica: *"PS + R3
    e PS + Options são fixos de propósito: são as duas saídas de emergência quando
-   o jogo não responde"* (`novo-layout/06-navegacao.html`, dica do quadro
+   o jogo não responde"* (`layout/06-navegacao.html`, dica do quadro
    "Os gestos do controle"). Travado = `disabled` na tela e recusa no daemon.
 4. O **buffer de 0,15 s** deixa de ser um número na tela e vira dica; o
    `Passthrough em emulação` (`gui/main.glade:3311`) **sai** — é decisão travada

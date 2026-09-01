@@ -3,7 +3,7 @@ sprint: A-PORTA-DA-ABA-CONTROLES-01
 onda: A-PORTA-DA-ABA-CONTROLES
 posse:
   P1:
-    - novo-layout/_ferramentas/aba02.py
+    - layout/_ferramentas/aba02.py
 ---
 
 **ESPERA A TRAVA CAIR.** O `aba02.py` estava travado por uma leva em voo em
@@ -11,7 +11,7 @@ posse:
 
 # A PORTA DA ABA CONTROLES — a linha que espera a trava cair
 
-**29/08/2026.** `novo-layout/mapa-do-controle.html` é a **fonte da verdade das
+**29/08/2026.** `layout/mapa-do-controle.html` é a **fonte da verdade das
 peças** — 28 peças com nome, apelido e glifo, 28 modelos de cor, gerador próprio
 (`_ferramentas/mapa.py`) e **dois portões** que o medem
 (`scripts/check_pecas_do_dualsense.py`, `scripts/check_cores_do_dualsense.py`).
@@ -61,7 +61,7 @@ Copiar as três linhas de leitura do `aba06.py:16-18`.
 Depois de rodar `aba02.py`, medir que **nada se moveu**:
 
 ```
-grep -o 'class="porta" href="[^"]*"' novo-layout/02-controles.html
+grep -o 'class="porta" href="[^"]*"' layout/02-controles.html
 ```
 
 e comparar a geometria de antes e depois. Foi assim que a primeira volta desta

@@ -63,7 +63,7 @@ exata do *Plateau central*, a tela abre dizendo "Personalizar".
 **1 · A linha fica sempre no mesmo lugar.** O `trigger_<side>_pronto_slot` que a
 02 criou é **sempre visível**. Nos 17 modos que não têm efeito pronto ela fica
 **insensível**, com o texto que já existe no mockup — `— nenhum —`
-(`novo-layout/_ferramentas/aba03.py:88`). Nada brota, nada empurra.
+(`layout/_ferramentas/aba03.py:88`). Nada brota, nada empurra.
 
 Trava do GTK3 (contrato, P3): **widget insensível não dispara tooltip**. A
 explicação de por que a lista está cinza naquele modo mora no **"?" do quadro**
@@ -118,7 +118,7 @@ perfil não trouxe nome.
 
 1. **Nos 17 modos sem efeito pronto, a lista fica cinza ou some?** O mockup
    desenha a lista **presente e ativa** na coluna do L2 com o modo
-   *Metralhadora* selecionado (`novo-layout/03-gatilhos.html`, coluna esquerda)
+   *Metralhadora* selecionado (`layout/03-gatilhos.html`, coluna esquerda)
    — mas os cinco prontos desenhados ali (*Rampa crescente… Stop macio*) são,
    no código, os do `MultiPositionFeedback`
    (`profiles/trigger_presets.py:55-63`), que **não existem** para

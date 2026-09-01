@@ -76,7 +76,7 @@ cruzado com os campos de `ControllerOverrides`:
   não há campo. *(O pai diz "UMA linha"; a segunda é a própria seção que ele
   acrescentou ao docstring em 29/08. O número mudou; a substância — nenhum campo
   — não.)*
-- **No desenho:** `novo-layout/02-controles.html` cita o touchpad 26 vezes e
+- **No desenho:** `layout/02-controles.html` cita o touchpad 26 vezes e
   **nenhuma é interruptor**. Ele é moldura de leitura viva (`:607`, *"o touchpad
   estica"*; `:620`, `sensor_widgets.TouchpadView` normaliza por fração), e o
   comentário de `:428` diz o que a fileira do topo ganhou: *"os dois

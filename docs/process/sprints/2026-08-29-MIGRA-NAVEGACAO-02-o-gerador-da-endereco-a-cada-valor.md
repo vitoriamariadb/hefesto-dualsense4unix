@@ -3,24 +3,24 @@ sprint: MIGRA-NAVEGACAO-02
 onda: MIGRA-NAVEGACAO
 posse:
   NAV6-GERADOR:
-    - novo-layout/_ferramentas/aba06.py
-    - novo-layout/06-navegacao.html
+    - layout/_ferramentas/aba06.py
+    - layout/06-navegacao.html
 cria:
   - tests/unit/test_migra_navegacao_02_todo_valor_tem_endereco.py
 bancada: false
 depois_de: []
 nao_toca:
   - src/
-  - novo-layout/_ferramentas/monta.py
-  - novo-layout/_ferramentas/aba01.py
-  - novo-layout/_ferramentas/aba02.py
-  - novo-layout/_ferramentas/aba03.py
-  - novo-layout/_ferramentas/aba04.py
-  - novo-layout/_ferramentas/aba05.py
-  - novo-layout/_ferramentas/aba07.py
-  - novo-layout/_ferramentas/aba08.py
-  - novo-layout/_ferramentas/aba09.py
-  - novo-layout/_ferramentas/aba10.py
+  - layout/_ferramentas/monta.py
+  - layout/_ferramentas/aba01.py
+  - layout/_ferramentas/aba02.py
+  - layout/_ferramentas/aba03.py
+  - layout/_ferramentas/aba04.py
+  - layout/_ferramentas/aba05.py
+  - layout/_ferramentas/aba07.py
+  - layout/_ferramentas/aba08.py
+  - layout/_ferramentas/aba09.py
+  - layout/_ferramentas/aba10.py
 ---
 
 # MIGRA NAVEGAÇÃO · 02 — O gerador dá endereço a cada valor, e os sessenta selects param de sair brancos
@@ -51,7 +51,7 @@ os quatro cartões da mesa não têm nome nenhum.
 desenha o **tema do sistema** nos `<select>`: eles saem como caixa **branca**
 com texto quase invisível. A cura (`select{appearance:none}`) existe e é
 aplicada **por fora**, numa folha de usuário do `ver.py`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
-(`novo-layout/_ferramentas/ver.py`, o segundo `UserStyleSheet`). Uma cura que  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+(`layout/_ferramentas/ver.py`, o segundo `UserStyleSheet`). Uma cura que  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 mora no visualizador não viaja com a página. **Esta aba tem 60 dos 117 selects
 das dez** — 51% da dívida — e nunca foi exercitada nessa densidade: as duas
 pop-ups têm 21 selects cada, dentro de um corpo com rolagem interna.
@@ -59,7 +59,7 @@ pop-ups têm 21 selects cada, dentro de um corpo com rolagem interna.
 **Terceiro defeito, e ele é visível.** `06-navegacao.html` traz
 `url(&quot;#outline-filter-1&quot;)` quatro vezes e `url(&quot;#outline-filter-2&quot;)`
 oito — **doze referências mortas** nos quatro desenhos da mesa. A causa está em
-`novo-layout/_ferramentas/monta.py:437`: o prefixador reescreve `url(#id)` e
+`layout/_ferramentas/monta.py:437`: o prefixador reescreve `url(#id)` e
 **não** reescreve a forma com aspas escapadas, que é a que o desenho usa. O
 Chrome ignora e desenha assim mesmo; o WebKit segue o SVG 1.1 e **não desenha**.
 O contorno do touchpad nunca apareceu — em motor nenhum.

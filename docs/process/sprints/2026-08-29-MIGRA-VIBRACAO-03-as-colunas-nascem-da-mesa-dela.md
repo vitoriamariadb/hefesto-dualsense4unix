@@ -3,7 +3,7 @@ sprint: MIGRA-VIBRACAO-03
 onda: MIGRA-VIBRACAO
 posse:
   MV3:
-    - novo-layout/_ferramentas/aba05.py
+    - layout/_ferramentas/aba05.py
     - src/hefesto_dualsense4unix/app/telas/vibracao.py
 cria:
   - tests/unit/test_migra_vibracao_03_a_mesa_e_a_dela.py
@@ -41,7 +41,7 @@ Palavra dela, 29/08:
 
 ## O que está chumbado, e onde
 
-`novo-layout/_ferramentas/aba05.py:76-81` — o dicionário `ESTADO`, com quatro
+`layout/_ferramentas/aba05.py:76-81` — o dicionário `ESTADO`, com quatro
 chaves fixas (`p1`…`p4`), cada uma com a força, o percentual e o par de lados.
 As colunas saem de `monta.MESA`, que é a mesa **de cena**. O comentário do
 próprio arquivo diz que a cena foi escolhida para ensinar (os quatro degraus

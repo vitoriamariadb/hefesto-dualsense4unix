@@ -3,7 +3,7 @@ sprint: MIGRA-VIBRACAO-08
 onda: MIGRA-VIBRACAO
 posse:
   MV8:
-    - novo-layout/_ferramentas/aba05.py
+    - layout/_ferramentas/aba05.py
     - src/hefesto_dualsense4unix/app/telas/vibracao.py
     - src/hefesto_dualsense4unix/app/actions/status_actions.py
 cria:

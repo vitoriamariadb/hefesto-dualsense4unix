@@ -30,7 +30,7 @@ montamos no `mapa-do-controle.html`."*
 ## O defeito
 
 **A mesa está escrita à mão, e ela tem dois controles.** `monta.MESA`
-(`novo-layout/_ferramentas/monta.py:138-147`) é uma lista literal de **quatro**:
+(`layout/_ferramentas/monta.py:138-147`) é uma lista literal de **quatro**:
 Cosmic Red USB, Starlight Blue BT, Galactic Purple BT e White USB, cada um com
 jogador, cor, transporte e máscara digitados.
 
@@ -45,7 +45,7 @@ O produto já sabe a mesa de verdade, e sabe há muito tempo:
 ### E há um teto que ninguém escreveu em prosa: **a mesa para em quatro**
 
 A aritmética do acordeão é um portão dentro do gerador
-(`novo-layout/_ferramentas/aba02.py:803-810`):
+(`layout/_ferramentas/aba02.py:803-810`):
 
 ```
 PARA_O_CARD = 461 − 24 − (N−1)×34 − (N−1)×9  =  437 − 43×(N−1)

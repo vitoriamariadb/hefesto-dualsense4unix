@@ -53,7 +53,7 @@ E o mockup:
 > *"**"Meus efeitos" na mesma lista dos prontos** — `profiles/curva_propria.py`
 > existe desde julho e nunca teve tela."*
 > *"**Só "Guardar esse efeito"** sobrou de botão, como você pediu."*
-> — `novo-layout/_ferramentas/aba03.py:130-131`
+> — `layout/_ferramentas/aba03.py:130-131`
 
 ## A medição
 
@@ -123,7 +123,7 @@ nomes prontos do DSX (`_nomes_recusados_do_dsx`, `:82`). Um botão que só grave
 
 - a lista "Efeito pronto" da sprint 04 ganha, **abaixo dos prontos**, um
   separador `──── Meus efeitos ────` e as curvas do catálogo
-  (`novo-layout/_ferramentas/aba03.py:93-95`);
+  (`layout/_ferramentas/aba03.py:93-95`);
 - escolher uma delas põe modo + sete bytes na coluna e segue o caminho que já
   existe (`_persist_params_to_draft` + live-preview) — nenhuma rota nova para o
   aparelho;
@@ -161,7 +161,7 @@ nomes prontos do DSX (`_nomes_recusados_do_dsx`, `:82`). Um botão que só grave
    alvo da fita e pode pré-preencher. Provisório: **pré-preenche, editável.**
 3. **Escolher "Meu efeito" TROCA o modo da coluna?** O mockup desenha um efeito
    próprio selecionado com o modo *Metralhadora* aceso
-   (`novo-layout/03-gatilhos.html`, coluna esquerda), mas a curva guardada
+   (`layout/03-gatilhos.html`, coluna esquerda), mas a curva guardada
    carrega o **seu** byte de modo. Provisório: **troca o modo**, e a grade
    acende o modo da curva. *PROVISÓRIO — decisão dela.*
 4. **Onde mora o catálogo dela.** Provisório: junto dos perfis

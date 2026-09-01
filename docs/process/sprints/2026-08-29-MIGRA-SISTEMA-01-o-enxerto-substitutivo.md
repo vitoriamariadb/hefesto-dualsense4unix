@@ -84,7 +84,7 @@ A página `daemon_box` é **381 linhas de XML** e **26 ids** de Glade
 (`gui/main.glade:2718` a `:3098`, dentro do `scroll_daemon_box` de `:2709`) — um
 `GtkGrid`, três `GtkBox`, rótulos, e um `GtkScrolledWindow` com o texto do
 `systemctl status` dentro. **Nada disso é a tela que ela aprovou**
-(`novo-layout/09-sistema.html`): um quadro só, quatro faixas rotuladas, o exame
+(`layout/09-sistema.html`): um quadro só, quatro faixas rotuladas, o exame
 em duas colunas, e o registro técnico ao lado do Avançado.
 
 E o custo de trocar essa página é **pequeno e conhecido**, medido hoje:

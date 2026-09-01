@@ -51,8 +51,8 @@ ids no [índice](2026-08-29-MIGRA-CONTROLES-INDICE.md).
 29/08 com `git check-ignore -v`:
 
 ```
-.gitignore:108:novo-layout/	novo-layout/02-controles.html
-.gitignore:108:novo-layout/	novo-layout/_ferramentas/aba02.py
+.gitignore:108:novo-layout/	layout/02-controles.html
+.gitignore:108:novo-layout/	layout/_ferramentas/aba02.py
 ```
 
 Disso saem quatro consequências, e as quatro já cobraram:
@@ -75,7 +75,7 @@ Disso saem quatro consequências, e as quatro já cobraram:
 
 ### E há um segundo buraco no mesmo arquivo: a página depende de rede
 
-`novo-layout/02-controles.html:6-8` carrega
+`layout/02-controles.html:6-8` carrega
 **Space Grotesk** e **JetBrains Mono** de `fonts.googleapis.com` /
 `fonts.gstatic.com`. Sem internet o WebKit cai no `system-ui`, as métricas
 mudam, e **o que ela vê deixa de ser o desenho que ela aprovou** — e qualquer

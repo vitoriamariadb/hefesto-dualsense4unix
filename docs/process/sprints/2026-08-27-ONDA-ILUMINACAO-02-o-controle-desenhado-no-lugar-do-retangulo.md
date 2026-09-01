@@ -64,7 +64,7 @@ Um widget novo, `gui/widgets/desenho_do_controle.py`, que a prévia usa:
 4. **As cinco luzinhas mostram o número**: `player_led_pattern(numero)`
    (`core/led_control.py:122`) acende `led-jogador-N`.
 5. **A linha embaixo do desenho**, como no mockup: `Sony • Player 1 • Cosmic Red
-   • USB` (`novo-layout/04-iluminacao.html:663`).
+   • USB` (`layout/04-iluminacao.html:663`).
 6. **O caminho de instalação**: `install.sh` passa a copiar `assets/control-svg`
    para `~/.local/share/hefesto-dualsense4unix/control-svg`, e o widget resolve
    na mesma ordem de preferência do `button_glyph.py:9-14` (local do usuário →
@@ -100,11 +100,11 @@ Portão do install: um teste que lê `install.sh` e exige a cópia de
    recusa a leitura (o caso comum no Bluetooth), o controle aparece neutro. Vale
    desenhar neutro, ou é melhor não desenhar nada até saber a cor?
 2. **Tamanho**: o mockup dá `max-width: 212px`
-   (`novo-layout/_ferramentas/aba04.py`, `.previa .ds-svg`). Confirmar na tela.
+   (`layout/_ferramentas/aba04.py`, `.previa .ds-svg`). Confirmar na tela.
 
 ## Fontes
 
 - contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4 — "A
   prévia deixa de ser um retângulo e passa a ser o controle desenhado";
-- mockup: `novo-layout/04-iluminacao.html:510-665`;
+- mockup: `layout/04-iluminacao.html:510-665`;
 - decisões: **D-A-BORDA-E-A-IDENTIDADE-DA-PECA**, **D-CADA-JOGADOR-NAVEGA-COM-O-SEU**.

@@ -4,11 +4,11 @@
 o mockup que ela aprovou.
 
 > *"aba gatilhos perfeita. Parabéns."*
-> — `novo-layout/_ferramentas/CORRECOES-DELA.md:27-28`, marcada **FECHADA, não
+> — `layout/_ferramentas/CORRECOES-DELA.md:27-28`, marcada **FECHADA, não
 > tocar**
 
-O alvo é `novo-layout/03-gatilhos.html` (gerador:
-`novo-layout/_ferramentas/aba03.py`). O contrato é a seção 3 de
+O alvo é `layout/03-gatilhos.html` (gerador:
+`layout/_ferramentas/aba03.py`). O contrato é a seção 3 de
 `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md` (linhas 242-303). O antes é
 `docs/usage/assets/readme_gatilhos.png`.
 

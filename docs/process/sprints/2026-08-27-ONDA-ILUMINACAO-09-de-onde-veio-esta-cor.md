@@ -91,7 +91,7 @@ do Controle 2" enquanto o co-op manda.
 
 1. **Esta linha é a mesma do "as luzinhas mostram o número N"?** São dois fatos
    (a cor e o desenho) com a mesma estrutura. O mockup traz a segunda embaixo dos
-   botões de player (`novo-layout/04-iluminacao.html:719`) e **não desenha a
+   botões de player (`layout/04-iluminacao.html:719`) e **não desenha a
    primeira**. Duas linhas ou uma?
 2. **O nome do estilo aparece em itálico**, como no contrato ("Estilo de Jogo
    *Terror*")? Texto de tela é dela.

@@ -92,6 +92,6 @@ palavra de quem programa. Qual é o nome dela?"*:
 
 ## Fontes
 
-- `novo-layout/01-jogar.html`, `.faixa-final`.
+- `layout/01-jogar.html`, `.faixa-final`.
 - `/tmp/coleta/hoje.md`, falas [31] e [33].
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 1 e padrão P8.

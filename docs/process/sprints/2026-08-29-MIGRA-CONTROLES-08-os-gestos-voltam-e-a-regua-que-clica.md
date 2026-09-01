@@ -34,7 +34,7 @@ nao_toca:
 
 ### 1. Metade dos controles da tela é desenho, não controle
 
-Medido em 29/08 sobre `novo-layout/02-controles.html`: a página tem **21
+Medido em 29/08 sobre `layout/02-controles.html`: a página tem **21
 `<button>`** e **cinco `<input>`** — e os cinco são os rádios do acordeão
 (`c-todos`, `c-p1`..`c-p4`). Não há um único `<input type="range">`.
 
@@ -54,7 +54,7 @@ com razão medida em cada uma:
 
 ### 2. Nenhuma régua desta casa clica
 
-`novo-layout/_ferramentas/olhar.py` faz `goto`, espera, e fotografa
+`layout/_ferramentas/olhar.py` faz `goto`, espera, e fotografa
 (`:22-35`). Ele **não clica em nada**. Consequência direta: **o estado "Todos" —
 os quatro cartões abertos — nunca foi fotografado por régua nenhuma**, e é
 justamente o único estado desta aba que rola (o gerador o anuncia:

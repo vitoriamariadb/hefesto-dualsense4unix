@@ -103,6 +103,6 @@ O texto do modo é dica do `?` do quadro, não rótulo na tela:
 
 ## Fontes
 
-- `novo-layout/01-jogar.html`, quadro *Quando o jogo abrir* e a legenda.
+- `layout/01-jogar.html`, quadro *Quando o jogo abrir* e a legenda.
 - `/tmp/coleta/hoje.md`, fala [34].
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 1 e padrão P6.

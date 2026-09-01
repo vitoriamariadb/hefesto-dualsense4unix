@@ -6,14 +6,14 @@ posse:
     - src/hefesto_dualsense4unix/profiles/schema.py
     - src/hefesto_dualsense4unix/app/draft_config.py
     - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
-    - novo-layout/_ferramentas/aba03.py
+    - layout/_ferramentas/aba03.py
 cria:
   - tests/unit/test_migra_gatilhos_o_efeito_pronto_tem_nome.py
 bancada: false
 depois_de:
   - MIGRA-GATILHOS-05
   - MIGRA-GATILHOS-07
-  # SÉRIE, por R5: divide novo-layout/_ferramentas/aba03.py com a 02 e a 04, e
+  # SÉRIE, por R5: divide layout/_ferramentas/aba03.py com a 02 e a 04, e
   # src/hefesto_dualsense4unix/app/actions/triggers_actions.py com a 03 e a 04.
   - MIGRA-GATILHOS-02
   - MIGRA-GATILHOS-03

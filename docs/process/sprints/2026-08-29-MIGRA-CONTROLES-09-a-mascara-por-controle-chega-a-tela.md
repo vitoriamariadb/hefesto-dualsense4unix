@@ -45,7 +45,7 @@ nao_toca:
 A linha de identidade de cada cartão diz **"vê como DualSense"**, e o gerador
 escreve, no `title`, de onde isso vem: *"A escolha é por controle e mora na aba
 Jogar (…) **Aqui é leitura**"*
-(`novo-layout/_ferramentas/aba02.py`, `DE_ONDE_VEM_A_MASCARA`).
+(`layout/_ferramentas/aba02.py`, `DE_ONDE_VEM_A_MASCARA`).
 
 **Não há de onde ler.** Conferido em 29/08:
 

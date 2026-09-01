@@ -36,7 +36,7 @@ ordem em que o produto tenta.**
 | 3 | `Ponte(KIND_NATIVE)` | — |
 | 4 | `Ponte(KIND_GAMEPAD, MASCARA_DUALSENSE, steam_input=True)` | exige fechar a Steam |
 
-**A tela desenha CINCO** (`novo-layout/01-jogar.html:640-646`): *Automático*,
+**A tela desenha CINCO** (`layout/01-jogar.html:640-646`): *Automático*,
 *Hefesto*, *Sony (nativo)*, *Steam Input*, *Teclado + Mouse*. Ou seja, o mockup
 **colapsa os degraus 1 e 2 num só** (*"Hefesto"*) e **acrescenta um que não
 existe** (*"Teclado + Mouse"*).

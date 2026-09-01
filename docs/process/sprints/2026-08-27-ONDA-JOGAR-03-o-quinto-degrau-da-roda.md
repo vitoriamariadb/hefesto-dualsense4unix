@@ -99,5 +99,5 @@ E o mockup desenha exatamente isso:
 ## Fontes
 
 - `/tmp/coleta/decisoes.md:210-211` — D-O-QUINTO-DEGRAU-DA-RODA.
-- `novo-layout/01-jogar.html`, a `escada` do quadro *Modo de conexão*.
+- `layout/01-jogar.html`, a `escada` do quadro *Modo de conexão*.
 - `src/hefesto_dualsense4unix/integrations/ponte_escada.py:167-310`.

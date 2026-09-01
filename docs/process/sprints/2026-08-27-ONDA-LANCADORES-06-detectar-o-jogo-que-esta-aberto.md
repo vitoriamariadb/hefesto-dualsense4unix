@@ -60,7 +60,7 @@ montar a regra do perfil sem ela digitar.
 mesmo `getattr` defensivo das outras (store dublado em teste não precisa
 conhecê-las).
 
-**Frontal:** o botão roxo do topo (`novo-layout/07-lancadores.html:473`) lê o
+**Frontal:** o botão roxo do topo (`layout/07-lancadores.html:473`) lê o
 trio e abre um perfil novo já preenchido — `process_name` do executável,
 `window_class` da classe, e o título só quando os dois primeiros não bastam.
 

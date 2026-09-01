@@ -22,12 +22,12 @@ eles soltam a trava manual — escolher o modo **Desligado** na grade a **arma**
 Palavra dela sobre o mockup:
 
 > *"aba gatilhos perfeita. Parabéns."*
-> — `novo-layout/_ferramentas/CORRECOES-DELA.md:27-28`
+> — `layout/_ferramentas/CORRECOES-DELA.md:27-28`
 
 E o mockup diz o que sai:
 
 > *"**Saiu o "Desligar" de cada coluna** — Desligado é o primeiro dos 19 modos,
-> ali em cima."* — `novo-layout/_ferramentas/aba03.py:145`
+> ali em cima."* — `layout/_ferramentas/aba03.py:145`
 
 ## A medição
 

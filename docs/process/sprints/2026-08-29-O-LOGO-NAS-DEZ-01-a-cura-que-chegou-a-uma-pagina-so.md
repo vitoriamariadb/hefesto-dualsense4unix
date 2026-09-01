@@ -3,8 +3,8 @@ sprint: O-LOGO-NAS-DEZ-01
 onda: O-LOGO-NAS-DEZ
 posse:
   L1:
-    - novo-layout/02-controles.html
-    - novo-layout/04-iluminacao.html
+    - layout/02-controles.html
+    - layout/04-iluminacao.html
 ---
 
 **ESPERA AS TRAVAS CAÍREM.** `aba02.py` e `aba04.py` estavam travados por levas
@@ -31,7 +31,7 @@ $ for f in novo-layout/??-*.html; do
 04-iluminacao.html: 4 09-sistema.html: 4
 05-vibracao.html: 4   10-perfis.html: 4
 
-$ grep -c ... novo-layout/_ferramentas/topo.html
+$ grep -c ... layout/_ferramentas/topo.html
 4
 ```
 
@@ -53,7 +53,7 @@ travados por levas em voo em 29/08. **Oito instâncias** continuam vivas.
 O conserto é uma linha, quando a trava cair:
 
 ```bash
-cd novo-layout/_ferramentas && python3 regerar.py 02 04
+cd layout/_ferramentas && python3 regerar.py 02 04
 ```
 
 Nada mais: o `topo.html` já está certo, e o gerador de cada aba lê dele.
@@ -61,8 +61,8 @@ Nada mais: o `topo.html` já está certo, e o gerador de cada aba lê dele.
 ## A prova
 
 ```bash
-grep -c '<title>Bolinha rosa</title>' novo-layout/02-controles.html   # tem de dar 0
-grep -c '<title>Bolinha rosa</title>' novo-layout/04-iluminacao.html  # tem de dar 0
+grep -c '<title>Bolinha rosa</title>' layout/02-controles.html   # tem de dar 0
+grep -c '<title>Bolinha rosa</title>' layout/04-iluminacao.html  # tem de dar 0
 ```
 
 E o teste que morde é o mesmo de sempre: pôr o `<title>` de volta no `topo.html`,

@@ -17,7 +17,7 @@ nao_toca:
 **27/08/2026.** As seis sprints que levam a aba **Vibração** do que o produto é
 hoje até o que o mockup mostra, do frontal ao backend.
 
-**A especificação é `novo-layout/05-vibracao.html`**, aprovada por ela:
+**A especificação é `layout/05-vibracao.html`**, aprovada por ela:
 
 > *"ok, foda. Viu esses detalhes que eu pedi? Eu quero esse refinamento em todas
 > as demais agora em diante. Tá fechado essa. Excelente trabalho."*

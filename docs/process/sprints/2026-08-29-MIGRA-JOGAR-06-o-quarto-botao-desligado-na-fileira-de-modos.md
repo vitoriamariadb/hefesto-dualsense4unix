@@ -28,7 +28,7 @@ nao_toca:
 - `app/actions/home_actions.py:153` — `_MODE_ITEMS` traz os mesmos três, com os
   rótulos que o desenho já usa: *Controlar o PC*, *Jogar pelo Hefesto*,
   *Conexão Nativa (Sony)*;
-- `novo-layout/01-jogar.html:617-622` — quatro botões, e o primeiro é
+- `layout/01-jogar.html:617-622` — quatro botões, e o primeiro é
   **Desligado**.
 
 **"Desligado" não é modo hoje.** É botão de energia, e tem **dois** caminhos

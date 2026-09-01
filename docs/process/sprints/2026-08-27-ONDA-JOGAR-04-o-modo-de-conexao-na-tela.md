@@ -115,6 +115,6 @@ medido, não veto.
 ## Fontes
 
 - `/tmp/coleta/hoje.md`, falas [30] e [31]; `/tmp/coleta/correcoes.md`, aba Perfis.
-- `novo-layout/01-jogar.html`, `.sub-secao` *Modo de conexão*.
+- `layout/01-jogar.html`, `.sub-secao` *Modo de conexão*.
 - `/tmp/coleta/decisoes.md:210` (D-O-QUINTO-DEGRAU-DA-RODA) e `:213`
   (D-A-MASCARA-GANHA-O-AUTOMATICO — **derrubada pela fala [30]**).

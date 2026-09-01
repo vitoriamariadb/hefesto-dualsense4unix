@@ -134,6 +134,6 @@ cair, que era a informação que faltava e te custou semanas."*
 
 ## Fontes
 
-- `novo-layout/01-jogar.html`: `.cabecalho`, `.fita-linha`, `.rodape`.
+- `layout/01-jogar.html`: `.cabecalho`, `.fita-linha`, `.rodape`.
 - `/tmp/coleta/hoje.md`, falas [30] e [31]; `/tmp/coleta/decisoes.md:229`.
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, padrões P1, P5 e P7.

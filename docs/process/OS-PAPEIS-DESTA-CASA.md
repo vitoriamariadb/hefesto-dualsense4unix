@@ -257,10 +257,10 @@ incompleto:**
 | **A mordida** | você quebrou a própria cura e viu reprovar | régua que passa com a cura arrancada não mede nada |
 
 ```bash
-novo-layout/_ferramentas/controles_vivos.py --oculta --segundos 3 --foto /tmp/x.png
-novo-layout/_ferramentas/controles_vivos.py --oculta --segundos 5 --prova-gesto
-novo-layout/_ferramentas/controles_vivos.py --oculta --sem-ponte          # a mordida
-novo-layout/_ferramentas/controles_vivos.py --oculta --arranca-enderecos  # a outra
+layout/_ferramentas/controles_vivos.py --oculta --segundos 3 --foto /tmp/x.png
+layout/_ferramentas/controles_vivos.py --oculta --segundos 5 --prova-gesto
+layout/_ferramentas/controles_vivos.py --oculta --sem-ponte          # a mordida
+layout/_ferramentas/controles_vivos.py --oculta --arranca-enderecos  # a outra
 ```
 
 **O caso que prova a regra, e é de 29/08:** o `--prova-gesto` **nunca clicava** o
@@ -273,6 +273,6 @@ INSTANTE, não um comportamento: em 29/08 uma leva introduziu regressão visíve
 aos **181 segundos**, com 67 testes verdes.
 
 **O Playwright não substitui isto.** Ele dirige o mockup num Chrome headless
-(`novo-layout/_ferramentas/olhar.py`) — serve para layout, `:hover` e fotografar o
+(`layout/_ferramentas/olhar.py`) — serve para layout, `:hover` e fotografar o
 DESENHO. Ele **não alcança o WebKitGTK**. A ponte JS testa o motor que ela vai
 usar, com o daemon vivo.

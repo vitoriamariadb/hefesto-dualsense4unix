@@ -28,7 +28,7 @@ nao_toca:
 # MIGRA LANÇADORES · 05 — os cartões nascem da máquina
 
 **O defeito:** os seis cartões são **literais no HTML**
-(`novo-layout/07-lancadores.html:586-657`). Numa máquina sem Heroic instalado, a
+(`layout/07-lancadores.html:586-657`). Numa máquina sem Heroic instalado, a
 aba afirma *"Heroic (Epic · GOG) — 28 jogos"*, e o cartão dela é o único laranja
 da tela.
 

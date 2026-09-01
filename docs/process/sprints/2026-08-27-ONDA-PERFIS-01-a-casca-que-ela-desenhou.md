@@ -45,7 +45,7 @@ com três campos de regex crus, dois blocos de tamanhos diferentes e cinco
 gestos que ela mandou tirar — e o desenho aprovado tem **dois blocos iguais,
 cinco campos e três botões de cada lado**.
 
-`main.glade:2119-2695` é a aba inteira. `novo-layout/10-perfis.html:527-627` é
+`main.glade:2119-2695` é a aba inteira. `layout/10-perfis.html:527-627` é
 o alvo.
 
 ## O que ela disse, literal
@@ -56,7 +56,7 @@ o alvo.
 > 3 botões abaixo e 3 abaixo. E equipara a altura e largura dos dois blocos.
 > Esconder os controles físicos neste jogo Remove isso e isso aqui é tooltip: o
 > maior vence a disputa"*
-> — `novo-layout/_ferramentas/CORRECOES-DELA.md:62-68`
+> — `layout/_ferramentas/CORRECOES-DELA.md:62-68`
 
 > *"◆ este jogo já sabe por onde entra — Isso sai. Isso tá na aba Jogar."*
 > — idem, `:79`
@@ -77,7 +77,7 @@ o alvo.
 **FICA e muda de forma:**
 
 - **Um fundo só, dois blocos dentro**, mesma largura e mesma altura, divisória
-  fina no meio — `novo-layout/_ferramentas/aba10.py:11-16`, com o pedido dela
+  fina no meio — `layout/_ferramentas/aba10.py:11-16`, com o pedido dela
   citado ali: *"deixa um só, pra causar a ilusão de um único bloco"*.
 - **Lista com cara de tabela**: cabeçalho fixo, linhas zebradas, o ativo em
   verde com barra na primeira célula, e a contagem `N no disco · role para ver

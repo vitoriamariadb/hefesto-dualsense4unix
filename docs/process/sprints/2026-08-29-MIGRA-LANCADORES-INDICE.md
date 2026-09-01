@@ -20,7 +20,7 @@ nao_toca:
 **29/08/2026.** Dez sprints levam a **aba 07 — Lançadores** do que o produto é
 hoje (a aba "Emulação", sobre uinput) até o mockup que ela aprovou sem ressalva
 — *"lançadores perfeito parabéns"*
-(`novo-layout/_ferramentas/CORRECOES-DELA.md:59`) — **rodando num
+(`layout/_ferramentas/CORRECOES-DELA.md:59`) — **rodando num
 `WebKit2.WebView` dentro da janela GTK3**
 (`D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`,
 `docs/data/decisoes-dela.csv:119`).
@@ -134,7 +134,7 @@ Seis, e o censo mediu cada uma antes de perguntar:
    de `D-OS-OITO-ESTILOS-DE-JOGO-NASCEM-NO-MOCKUP` (`decisoes-dela.csv:117`).
 5. **Lançador ausente some ou fica apagado, e o agrupamento vale sempre?** (04,
    05) O mockup junta os dois ausentes num cartão só —
-   `novo-layout/07-lancadores.html:648`, opacidade 0,5. Com **três** ausentes o
+   `layout/07-lancadores.html:648`, opacidade 0,5. Com **três** ausentes o
    desenho aprovado não diz o que fazer.
 6. **Quando a aba passa a existir na tira** (10). Ela decide **vendo**.
 

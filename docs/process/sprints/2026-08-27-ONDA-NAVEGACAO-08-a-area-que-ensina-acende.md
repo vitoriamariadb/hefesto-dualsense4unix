@@ -64,11 +64,11 @@ tela nenhuma: só um comentário de código o conhecia.
 > — 27/08/2026, `/tmp/coleta/hoje.md:240`
 
 > "Se for pros botões do dualsense acenderem igual temos hoje na aba status ok."
-> — `novo-layout/_ferramentas/CORRECOES-DELA.md`
+> — `layout/_ferramentas/CORRECOES-DELA.md`
 
 ## O que entrega
 
-O quadro "Os gestos do controle" do mockup (`novo-layout/06-navegacao.html`,
+O quadro "Os gestos do controle" do mockup (`layout/06-navegacao.html`,
 bloco `.gestos`), com as duas metades:
 
 1. **À esquerda, o desenho do DualSense** com os botões do gesto marcados —

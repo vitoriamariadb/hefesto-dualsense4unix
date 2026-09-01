@@ -33,7 +33,7 @@ marca em negrito — *"sem nenhum chamador"*.
 ## O que entrega
 
 O botão **"Consertar"** (verde) na linha do lançador impedido
-(`novo-layout/07-lancadores.html:491-503`). Ele roda em thread e:
+(`layout/07-lancadores.html:491-503`). Ele roda em thread e:
 
 - repõe o `hefesto-launch` nas `LaunchOptions` (`_curar_sem_wrapper`) e grava a
   exceção do Steam Input (`_curar_excecao_inerte`) — a tabela `_CURAS`

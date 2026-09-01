@@ -49,7 +49,7 @@ atalhos pedem que a pessoa digite `Alt + Tab` sem errar.
 > "quando eu falei de drop in eu tava falando de todos os campos (coluna da
 > direita das três tabelas ali, pra cada valor de cada linha) e arrumar a largura
 > e disposição dos elementos."
-> — 27/08/2026, `novo-layout/_ferramentas/CORRECOES-DELA.md`, seção Navegação;
+> — 27/08/2026, `layout/_ferramentas/CORRECOES-DELA.md`, seção Navegação;
 > literal em `/tmp/coleta/hoje.md:275`
 
 ## O que está medido
@@ -68,7 +68,7 @@ atalhos pedem que a pessoa digite `Alt + Tab` sem errar.
 1. `app/widgets/tabela_de_navegacao.py` — **um** widget de tabela para as três,
    porque as três têm a mesma forma: glifo do botão à esquerda, `GtkComboBoxText`
    à direita. Três instâncias, um código.
-2. As três listas de valores são as do mockup (`novo-layout/_ferramentas/aba06.py`):
+2. As três listas de valores são as do mockup (`layout/_ferramentas/aba06.py`):
    - **gestos** → `ACOES_GESTO`, oito ações (ONDA-NAVEGACAO-03);
    - **mapeamento** → `ACOES_MOUSE`, nove ações (ONDA-NAVEGACAO-04);
    - **atalhos** → `TECLAS`, a lista de teclas com "— sem tecla —" no fim.

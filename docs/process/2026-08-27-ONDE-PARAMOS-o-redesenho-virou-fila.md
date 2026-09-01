@@ -123,6 +123,6 @@ Tudo, linha a linha, em
 | A fila, a ordem e o que espera você | [SPRINT_ORDER.md](SPRINT_ORDER.md) |
 | O contrato de cada aba (o "Nada se perdeu") | [O REDESENHO](2026-08-26-O-REDESENHO-as-dez-abas.md) |
 | A especificação visual, aprovada por você | `novo-layout/NN-*.html` |
-| As suas correções, literais | `novo-layout/_ferramentas/CORRECOES-DELA.md` |
+| As suas correções, literais | `layout/_ferramentas/CORRECOES-DELA.md` |
 | Como se executa uma sprint desta casa | [COMO-EXECUTAR-UMA-SPRINT.md](COMO-EXECUTAR-UMA-SPRINT.md) |
 | O que a faxina tirou, e por quê | [A FAXINA](sprints/2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md) |

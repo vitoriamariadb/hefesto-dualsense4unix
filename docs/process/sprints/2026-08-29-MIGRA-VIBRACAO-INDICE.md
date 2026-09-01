@@ -26,7 +26,7 @@ como **piloto** do transplante. Palavra dela, 29/08:
 
 **As oito SE ESCREVEM agora; nenhuma se executa antes desse ok.**
 
-**A especificação visual é `novo-layout/05-vibracao.html`**, aprovada por ela
+**A especificação visual é `layout/05-vibracao.html`**, aprovada por ela
 com elogio literal (`_ferramentas/CORRECOES-DELA.md:39`):
 
 > *"ok, foda. Viu esses detalhes que eu pedi? Eu quero esse refinamento em todas
@@ -225,7 +225,7 @@ aberta que nenhuma das oito herdou.
    deixa de ser "um desenho faltando" e passa a ser **a aba não existir, sem um
    erro no log**. Dono: `MIGRA-MOLDURA-01`.
 2. **Divergência viva entre as ondas paralelas:** a `MIGRA-GATILHOS-02` escreve
-   o gerador em `novo-layout/_ferramentas/`; a `MIGRA-LANCADORES-01` já
+   o gerador em `layout/_ferramentas/`; a `MIGRA-LANCADORES-01` já
    reivindica `src/hefesto_dualsense4unix/gui/telas/07-lancadores.html` e um
    gerador em `scripts/telas/`. <!-- ref-externa: os dois caminhos são o que
    aquela sprint VAI criar; a ausência é o assunto. -->

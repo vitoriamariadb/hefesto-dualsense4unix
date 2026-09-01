@@ -58,7 +58,7 @@ barra **quando há algo errado** — silêncio quando está tudo bem
 ## O que entrega
 
 1. **Um "?" por quadro**, com o conteúdo já escrito no mockup aprovado:
-   - o do quadro Iluminação: `novo-layout/04-iluminacao.html:500-507`;
+   - o do quadro Iluminação: `layout/04-iluminacao.html:500-507`;
    - o de "Selecione o player": `:706-714`.
    O padrão de widget já existe nesta casa — `Gtk.Label(label="?")` com dica,
    como em `app/actions/config/secao_mesa.py:692` e
@@ -66,7 +66,7 @@ barra **quando há algo errado** — silêncio quando está tudo bem
    segundo jeito de fazer "?"**.
 2. **Toda explicação recolhida** vira dica do "?" ou `tooltip-text` do próprio
    botão — os textos dos botões do mockup já estão escritos nos `title=`
-   (`novo-layout/04-iluminacao.html:699-700`).
+   (`layout/04-iluminacao.html:699-700`).
 3. **Nenhum texto se perde**: o que sai da tela entra na dica. É a diferença
    entre recolher e apagar.
 
@@ -103,4 +103,4 @@ não estiver no mockup.
 - decisão: **D-TUDO-QUE-EXPLICA-VIRA-DICA**;
 - contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4, "O que
   fica na tela e o que vira dica";
-- mockup: `novo-layout/04-iluminacao.html`.
+- mockup: `layout/04-iluminacao.html`.

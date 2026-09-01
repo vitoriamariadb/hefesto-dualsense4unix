@@ -39,7 +39,7 @@ está escrito.
 
 ## O que entrega
 
-O botão **"Ver o que impede"**, por linha (`novo-layout/07-lancadores.html:491-503`,
+O botão **"Ver o que impede"**, por linha (`layout/07-lancadores.html:491-503`,
 onde o cartão do Heroic mostra a frase do `sem_wrapper` em laranja). Ao clicar:
 o nome do estorvo, o que é, a cura, e **se a cura é automática** — os três campos
 vêm do `_ESTORVOS`, sem reescrita.

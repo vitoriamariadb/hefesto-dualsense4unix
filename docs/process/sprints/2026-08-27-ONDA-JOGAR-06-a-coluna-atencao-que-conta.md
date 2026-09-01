@@ -122,6 +122,6 @@ Título, **contador**, e um item por aviso — cada um com selo e frase curta.
 
 ## Fontes
 
-- `novo-layout/01-jogar.html`, `.col-atencao` e `.conta-avisos`.
+- `layout/01-jogar.html`, `.col-atencao` e `.conta-avisos`.
 - `/tmp/coleta/hoje.md`, falas [30] e [31].
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, padrões P3 e P8.

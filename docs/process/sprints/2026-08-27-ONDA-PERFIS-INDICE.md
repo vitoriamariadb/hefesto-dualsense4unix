@@ -15,10 +15,10 @@ nao_toca:
 # ONDA PERFIS — índice
 
 **Nove sprints** que levam a aba Perfis do que o produto faz hoje até o que o
-mockup aprovado mostra (`novo-layout/10-perfis.html`), do frontal ao backend.
+mockup aprovado mostra (`layout/10-perfis.html`), do frontal ao backend.
 
 Contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md:688-775`.
-Correções literais dela: `novo-layout/_ferramentas/CORRECOES-DELA.md:62-80`.
+Correções literais dela: `layout/_ferramentas/CORRECOES-DELA.md:62-80`.
 
 ## A ordem
 

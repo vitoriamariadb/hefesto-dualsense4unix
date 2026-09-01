@@ -24,7 +24,7 @@ nao_toca:
 ## O defeito
 
 **A página inteira tem oito endereços, e nenhum deles é de um valor.** Medido em
-29/08 sobre `novo-layout/02-controles.html` (1.804 linhas):
+29/08 sobre `layout/02-controles.html` (1.804 linhas):
 
 | o que existe | quantos | quais |
 |---|---|---|
@@ -92,7 +92,7 @@ tem o canal e não tem o destinatário.
   **Ela tem de sair idêntica.** Se sair diferente, a sprint mudou o que ela
   aprovou e vira pergunta dela, não achado do executor;
 - **a fita continua clicável**: `fita_clicavel` (hoje em
-  `novo-layout/_ferramentas/aba02.py:942`) já para com `SystemExit` se a forma
+  `layout/_ferramentas/aba02.py:942`) já para com `SystemExit` se a forma
   do chip mudar — foi assim que a fita viva morreu sem sintoma em 27/08. O
   atributo novo não pode fazer o casamento dela falhar: rode o gerador e afirme
   que os cinco chips viraram `<label for>`.

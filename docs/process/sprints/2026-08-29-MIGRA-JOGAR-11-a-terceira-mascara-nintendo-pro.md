@@ -26,7 +26,7 @@ nao_toca:
 
 **Por que esta sprint existe, e por que ela é a décima primeira de uma onda que o
 censo contou em dez:** o desenho aprovado põe um bloco `.mascara` com **três**
-chips em cada um dos quatro cartões (`novo-layout/01-jogar.html:1073`, `:1466`,
+chips em cada um dos quatro cartões (`layout/01-jogar.html:1073`, `:1466`,
 `:1859`, `:2252`; o terceiro chip está em `:1076`, `:1469`, `:1862` e `:2255`), e
 o catálogo do produto tem **duas** entradas (`integrations/uinput_gamepad.py:115`,
 `FLAVORS`): `dualsense` e `xbox`. Uma busca em `docs/` por `MÁSCARA-NINTENDO-01`

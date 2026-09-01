@@ -135,5 +135,5 @@ soltar**, e o preço aparece no dia em que o desvio precisar agir.
 ## O que é dela decidir
 
 **Nada de tela.** O gesto que solta já existe no mockup aprovado
-(`novo-layout/04-iluminacao.html`, "Voltar ao automático"), e o que esta sprint
+(`layout/04-iluminacao.html`, "Voltar ao automático"), e o que esta sprint
 faz é ligá-lo ao que ele já promete por escrito.

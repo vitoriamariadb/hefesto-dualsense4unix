@@ -27,7 +27,7 @@ parecer o mockup — e nesta casa **interface só fecha com o olho dela**.
 
 > *"Sempre vai validando via navegador."*
 > *"Faça todos os ajustes. Aba a aba valida com calma."*
-> — `novo-layout/_ferramentas/CORRECOES-DELA.md:71,73`
+> — `layout/_ferramentas/CORRECOES-DELA.md:71,73`
 
 Regra da casa, PROVA-DE-TELA-01: foto antes e depois, e **a palavra final é
 dela**.
@@ -80,7 +80,7 @@ mordida das sprints 01 e 03, não o PNG.
 1. `scripts/gui-captura/retratar_abas.py` — uma execução, nenhum clique;
 2. **leia o PNG** (a ferramenta de leitura enxerga imagens; é mais rápido e mais
    fiel que qualquer alternativa) e percorra as 16 linhas;
-3. abra `novo-layout/03-gatilhos.html` ao lado e compare;
+3. abra `layout/03-gatilhos.html` ao lado e compare;
 4. o que divergir vira linha em *"o que sobrou para o próximo"* — **não** vira
    conserto improvisado nesta sprint;
 5. a foto vai para ela, e **a palavra final é dela**.

@@ -45,9 +45,9 @@ Um widget novo, `gui/widgets/guia_de_cores.py`, usado na seção "Cor e brilho":
    (`.guia .tom.on{border-color:var(--fg);border-width:2px}` no mockup).
 2. **O nono é o livre** — abre o seletor de cor de sempre, para o tom que não
    está na guia. O mockup o desenha como quadrado hachurado
-   (`novo-layout/_ferramentas/aba04.py`, `.guia .livre`), e a dica do quadro já
+   (`layout/_ferramentas/aba04.py`, `.guia .livre`), e a dica do quadro já
    explica: *"O último quadradinho da guia é o livre"*
-   (`novo-layout/04-iluminacao.html:503`).
+   (`layout/04-iluminacao.html:503`).
 3. **O hexa à direita**, em fonte monoespaçada: `#FF2D6F`. É um dos três valores
    que o contrato manda ficar visíveis na tela.
 4. **Clicar num tom envia ao controle**, pelo mesmo caminho do
@@ -79,7 +79,7 @@ Arranque o guarda do envio único e o primeiro caso reprova com duas chamadas.
 
 - a do mockup, decorativa, herdada da paleta da janela:
   `#ff2d6f #55bdf8 #50fa7b #f1fa8c #bd93f9 #ffb86c #8be9fd #ff5555`
-  (`novo-layout/_ferramentas/aba04.py`, `TONS`);
+  (`layout/_ferramentas/aba04.py`, `TONS`);
 - a do produto, canônica, uma por número de jogador:
   `azul · vermelho · verde · rosa · amarelo · ciano · laranja · roxo`
   (`core/led_control.py:146-155`).
@@ -91,6 +91,6 @@ que ela viu e aprovou na tela. **É dela.**
 
 ## Fontes
 
-- mockup: `novo-layout/04-iluminacao.html:667-693`;
+- mockup: `layout/04-iluminacao.html:667-693`;
 - correção literal dela: *"a Largura do Brilho deve ser igual a largura da Cor"*
-  (`novo-layout/_ferramentas/CORRECOES-DELA.md`).
+  (`layout/_ferramentas/CORRECOES-DELA.md`).

@@ -45,7 +45,7 @@ que é onde a interface vive.
 
 Esta é a primeira decisão de toda régua nova, e escolher errado dá verde falso.
 
-| | **`olhar.py` e as réguas de `novo-layout/_ferramentas/`** | **`scripts/regua_de_tela.py`** |
+| | **`olhar.py` e as réguas de `layout/_ferramentas/`** | **`scripts/regua_de_tela.py`** |
 |---|---|---|
 | motor | Playwright dirigindo **Chromium** | **WebKitGTK** dentro de uma janela GTK |
 | alvo | o **mockup**, arquivo `file://` | o **motor que ela vai usar**, com o piloto e o daemon vivo |
@@ -386,8 +386,8 @@ e usa a mais nova:
 
 ```
 régua_de_tela: 2 cópias de '02'; uso a mais nova.
-  …/hefesto-dualsense4unix/novo-layout/02-controles.html      (29/08 20:48, 149820 B)
-  …/hefesto-dualsense4unix-dev/novo-layout/02-controles.html  (29/08 03:09, 129354 B)
+  …/hefesto-dualsense4unix/layout/02-controles.html      (29/08 20:48, 149820 B)
+  …/hefesto-dualsense4unix-dev/layout/02-controles.html  (29/08 03:09, 129354 B)
 ```
 
 Para fixar o alvo — e **toda mordida tem de fixar** —, use a variável de

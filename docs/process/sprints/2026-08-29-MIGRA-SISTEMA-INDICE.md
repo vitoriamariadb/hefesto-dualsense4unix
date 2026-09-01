@@ -14,7 +14,7 @@ nao_toca:
 
 # MIGRA SISTEMA — o índice
 
-**A aba 09 no motor novo.** O mockup `novo-layout/09-sistema.html` deixa de ser
+**A aba 09 no motor novo.** O mockup `layout/09-sistema.html` deixa de ser
 desenho e passa a ser **a aba**, rodando num `WebKit2.WebView` dentro da janela
 GTK3 — decisão dela de 29/08,
 `D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`
@@ -32,10 +32,10 @@ GTK3 — decisão dela de 29/08,
 
 - **Contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, §7 Sistema
   (linhas 506-601) — toda linha do "Nada se perdeu" é requisito.
-- **Especificação visual:** `novo-layout/09-sistema.html`, gerado por
-  `novo-layout/_ferramentas/aba09.py`.
+- **Especificação visual:** `layout/09-sistema.html`, gerado por
+  `layout/_ferramentas/aba09.py`.
 - **A palavra dela sobre esta aba:**
-  `novo-layout/_ferramentas/CORRECOES-DELA.md`, seção "Aba Sistema".
+  `layout/_ferramentas/CORRECOES-DELA.md`, seção "Aba Sistema".
 - **Protocolo de quem executa:** `docs/process/COMO-EXECUTAR-UMA-SPRINT.md`.
 
 ## Por que DEZ, e o censo dizia sete
@@ -85,7 +85,7 @@ produto inteiro.
 ```
 
 * **02 é solta e pode correr do primeiro minuto** — ela só toca
-  `novo-layout/_ferramentas/aba09.py`, que nenhuma outra sprint desta casa abre.
+  `layout/_ferramentas/aba09.py`, que nenhuma outra sprint desta casa abre.
   **É a única que não espera nada além do ok dela.**
 * **01 antes de tudo o mais**: enquanto a página for widget, não há onde pintar.
 * **03 antes de 04**: a ponte de gestos repinta pela ponte de leitura. Ligar
@@ -194,7 +194,7 @@ tudo isso **por AST**, justamente para não digitar.
     entra no pacote, e o `install.sh` não o copia. **Enquanto for assim, portão
     nenhum desta casa enxerga a especificação aprovada por ela** — e uma régua
     em `tests/` que a leia passa em branco em toda árvore de agente. É por isso
-    que a régua da 02 vive em `novo-layout/_ferramentas/`.
+    que a régua da 02 vive em `layout/_ferramentas/`.
 11. **O `scrollIntoViewIfNeeded` do Playwright rola antes de medir**, e cega
     toda medição de layout feita depois. Foi assim que um portão deu verde sobre
     uma linha fora da caixa (27/08).

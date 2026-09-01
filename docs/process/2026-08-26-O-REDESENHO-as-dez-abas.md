@@ -110,7 +110,7 @@ Widget que brota empurra a tira de abas para baixo; a solução é **espaço res
 > promessa: a heurística prometida **erra em 13 dos 14 jogos dela**
 > (`integrations/api_de_entrada.py:12-49`). Um "Automático" que erra quase
 > sempre é pior que escolher à mão, porque **erra em silêncio**. A aba Jogar já
-> registrava isso (`novo-layout/01-jogar.html:2311`); a Perfis ainda o anunciava
+> registrava isso (`layout/01-jogar.html:2311`); a Perfis ainda o anunciava
 > como entrega, e a divergência entre os dois mockups aprovados foi o que
 > levou a pergunta a ela.
 >

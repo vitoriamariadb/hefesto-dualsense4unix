@@ -35,7 +35,7 @@ a lista de efeitos prontos são dois `SegmentedSelector` por lado
 (`triggers_actions.py:130-149`), quatro na aba.
 
 **O mockup aprovado desfaz exatamente essa cura.** Medido no arquivo gerado
-hoje: `novo-layout/03-gatilhos.html` tem **16 `<select>`** no miolo — 8
+hoje: `layout/03-gatilhos.html` tem **16 `<select>`** no miolo — 8
 `select.modo` e 8 `select.pronto` —, e o gerador explica por que
 (`aba03.py:101-106`): com quatro colunas a grade de 19 botões pediria 566px numa
 coluna de 447. Nas dez abas são **117** (contados em 29/08, `ver.py:80`).  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
@@ -58,7 +58,7 @@ não existe.
 Uma medição, na máquina dela, com a ferramenta que **já está no disco**:
 
 ```bash
-novo-layout/_ferramentas/ver.py 03      # a aba Gatilhos no WebView, na tela dela
+layout/_ferramentas/ver.py 03      # a aba Gatilhos no WebView, na tela dela
 ```
 
 Registrar, em `docs/process/medicoes/2026-08-29-o-popup-do-select-no-webkitgtk-sob-cosmic.md`:

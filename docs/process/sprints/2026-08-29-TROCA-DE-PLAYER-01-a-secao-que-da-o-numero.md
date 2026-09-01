@@ -48,8 +48,8 @@ depois_de:
   - ONDA-VIBRACAO-06
   - QUATRO-NA-MESA-01
 nao_toca:
-  - novo-layout/_ferramentas/aba02.py
-  - novo-layout/_ferramentas/controles_vivos.py
+  - layout/_ferramentas/aba02.py
+  - layout/_ferramentas/controles_vivos.py
   - src/hefesto_dualsense4unix/integrations/cor_do_plastico.py
   - src/hefesto_dualsense4unix/utils/maquina.py
   - src/hefesto_dualsense4unix/core/evdev_reader.py
@@ -168,7 +168,7 @@ destino**. Quatro na mesa, dar o **1** ao último:
 
 **A tela promete troca em dezessete lugares do mockup aprovado**: os 16 tooltips
 de botão de número e a legenda *"Os dois trocam, os outros não se mexem"*
-(`novo-layout/_ferramentas/aba04.py`). **E a palavra dela de 28/08 é troca:**
+(`layout/_ferramentas/aba04.py`). **E a palavra dela de 28/08 é troca:**
 
 > *"Trocar é TROCA, não fila: pôr o azul no 1 faz quem era 1 virar 2. Ninguém
 > repete número, ninguém fica sem."*
@@ -352,7 +352,7 @@ sendo o que o `identity.renumber` faz), e o que o derrubou.
    staged), e o `JOGADORES = 5` é declarado como vindo do desenho aprovado —
    contestá-lo é decisão, não conserto. **Fica para quem tiver a posse.**
 5. **A seção está na aba errada** em relação ao desenho novo: o mockup põe
-   *"Selecione o player"* na **Iluminação** (`novo-layout/04-iluminacao.html`), e
+   *"Selecione o player"* na **Iluminação** (`layout/04-iluminacao.html`), e
    os dois botões vivos hoje estão na **Status** e na **Controles**. A migração
    da tela é da onda `MIGRA-ILUMINACAO`; **o mecanismo por baixo dela já está de
    pé, e é isso que esta sprint entrega.**

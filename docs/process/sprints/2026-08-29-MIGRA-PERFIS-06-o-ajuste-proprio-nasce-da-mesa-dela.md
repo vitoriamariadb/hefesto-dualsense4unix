@@ -120,7 +120,7 @@ anonimato não varrem imagens"*. **Ele não desvia a mesa, porque hoje esta aba
 não mostra mesa nenhuma.** No motor novo o desvio tem de nascer **junto** com a
 ponte, com a máscara da casa (octetos 4 e 5 zerados: `AA:BB:CC:00:00:FF`) — que
 é exatamente o endereço didático que o próprio gerador do mockup já usa
-(`novo-layout/_ferramentas/aba10.py:61`).
+(`layout/_ferramentas/aba10.py:61`).
 
 ## O que entrega
 

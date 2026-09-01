@@ -95,7 +95,7 @@ Quem executar **confere os números antes de usá-los**: eles são de `dev` em
 A página 6 do `Gtk.Notebook` é `scroll_tab_rumble_box`
 (`gui/main.glade:1704`), com `tab_rumble_box` dentro (`:1713`) — **17 ids**,
 **9 `<signal>`**, e o bloco de widgets que vai de `:1752` a `:2085`. Nada disso
-é a tela que ela aprovou (`novo-layout/05-vibracao.html`, elogio literal dela:
+é a tela que ela aprovou (`layout/05-vibracao.html`, elogio literal dela:
 *"ok, foda. (…) Tá fechado essa."*).
 
 Trocar essa página **não estoura nada**, e é essa a má notícia. Medido no modo

@@ -120,7 +120,7 @@ linha de cada uma.
 
 - **O hexadecimal ao lado da barra de luz: a cor de TABELA ou a cor VIVA?** O
   mockup escreve `player_slot_color(jogador)` — a tabela que acende as cinco
-  lâmpadas (`novo-layout/_ferramentas/aba02.py:380-393`). O produto publica
+  lâmpadas (`layout/_ferramentas/aba02.py:380-393`). O produto publica
   outra coisa e sabe mais: a cor efetiva, de onde ela veio, e se a Steam está
   disputando. **Com a cor de tabela, a tela mostra um hex bonito com a barra
   apagada e ninguém sabe. Com a cor viva, o hex muda quando o jogo escreve.**

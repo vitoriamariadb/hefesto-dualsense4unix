@@ -35,8 +35,8 @@ nao_toca:
 > zero código de produto, e quanto antes correr, melhor, porque ela pode
 > derrubar o desenho desta aba e mais 101 campos das outras nove.
 
-**Alvo:** `novo-layout/03-gatilhos.html` (gerador:
-`novo-layout/_ferramentas/aba03.py`).
+**Alvo:** `layout/03-gatilhos.html` (gerador:
+`layout/_ferramentas/aba03.py`).
 **Contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 3
 (linhas 242-303) — toda linha do "Nada se perdeu" é requisito.
 **O antes:** `docs/usage/assets/readme_gatilhos.png`.
@@ -231,7 +231,7 @@ ondas dividem, e quem coordena serializa.
 | `app/actions/triggers_actions.py` | **04, 07, 08, 09, 10** | nenhuma de fora — é o arquivo mais nosso da casa |
 | `app/app.py` | **03, 07** | ONDA-VIBRACAO-06, ONDA-SISTEMA-02 |
 | `profiles/schema.py`, `app/draft_config.py` | **09** | VIBRAÇÃO 03-06, NAVEGAÇÃO 01 — acréscimo de campo, cada onda no seu bloco: serializar basta |
-| `novo-layout/_ferramentas/aba03.py` | **02, 04, 05, 06, 09, 10** | **nenhuma proteção de merge existe** — o arquivo é ignorado pelo git. Serializar **à mão** é a única defesa |
+| `layout/_ferramentas/aba03.py` | **02, 04, 05, 06, 09, 10** | **nenhuma proteção de merge existe** — o arquivo é ignorado pelo git. Serializar **à mão** é a única defesa |
 | `app/actions/trigger_specs.py` | **05** | nenhuma |
 | `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py` | **10** o declara em `nao_toca` | é leva-wide: cada sprint entrega o **manifesto** e quem coordena aplica todos num commit só |
 

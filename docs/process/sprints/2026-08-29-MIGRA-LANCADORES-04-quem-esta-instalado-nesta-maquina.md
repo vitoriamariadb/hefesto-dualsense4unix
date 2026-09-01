@@ -103,7 +103,7 @@ três perguntas ao mesmo tempo esconde qual delas errou.
 
 - **Lançador ausente some da tela ou fica apagado, e o agrupamento vale sempre?**
   O mockup junta os dois ausentes num cartão só — *"Dolphin · mGBA"*,
-  `novo-layout/07-lancadores.html:648`, com opacidade 0,5. Com **três** ausentes
+  `layout/07-lancadores.html:648`, com opacidade 0,5. Com **três** ausentes
   o desenho aprovado não diz o que fazer. Esta sprint devolve os sete
   separados e deixa o agrupamento para a **05**, que é quem pinta; marcado
   `PROVISÓRIO — decisão dela`.

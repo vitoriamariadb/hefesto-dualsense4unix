@@ -34,7 +34,7 @@ Dolphin e mGBA: **zero**. E o Orpheus dela depende de um emulador nativo de GBC
 `prontuario_dos_jogos.py` (roda no `python3` do sistema, sem venv), **sem rede**.
 
 A lista e a ordem são as do mockup, que ela aprovou (*"lançadores perfeito
-parabéns"* — `novo-layout/_ferramentas/CORRECOES-DELA.md:59-60`):
+parabéns"* — `layout/_ferramentas/CORRECOES-DELA.md:59-60`):
 
     Steam · Heroic (Epic · GOG) · Lutris · Flatpak · RetroArch · Dolphin · mGBA
 
@@ -72,5 +72,5 @@ travava o `install.sh` para sempre em quem não tem Bluetooth.
 ## O que é dela decidir
 
 - O mockup junta os dois ausentes num cartão só (**"Dolphin · mGBA"**,
-  `novo-layout/07-lancadores.html:540`). Ausente agrupado é o desenho aprovado —
+  `layout/07-lancadores.html:540`). Ausente agrupado é o desenho aprovado —
   mas o agrupamento vale sempre, ou só enquanto forem os dois últimos da lista?

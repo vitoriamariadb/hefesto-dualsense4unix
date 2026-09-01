@@ -15,7 +15,7 @@ nao_toca:
 # ONDA JOGAR — o índice
 
 **27/08/2026.** A aba **Jogar** (a antiga Início), do que o produto é hoje até
-o que o mockup `novo-layout/01-jogar.html` mostra. Dez sprints.
+o que o mockup `layout/01-jogar.html` mostra. Dez sprints.
 
 > **O campo `onda:` não está no frontmatter, e não é esquecimento.**
 > `scripts/check_colisao_de_sprints.py:141` recusa campo desconhecido, e

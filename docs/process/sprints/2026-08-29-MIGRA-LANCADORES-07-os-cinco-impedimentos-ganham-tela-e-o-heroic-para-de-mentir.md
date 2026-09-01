@@ -39,7 +39,7 @@ ela é automática**. Um só chega à tela: `ponte_divergente`, por
 `daemon_actions.py:757`, numa linha do cartão "Saúde do sistema" da aba Sistema.
 
 **Segunda metade — o cartão do Heroic carimba uma causa que só a Steam tem.**
-No mockup aprovado (`novo-layout/07-lancadores.html:599-610`) o Heroic é o
+No mockup aprovado (`layout/07-lancadores.html:599-610`) o Heroic é o
 **único cartão laranja da tela**, e a causa é *"Sem wrapper"*. Essa causa nasce
 de `Prontuario.tem_wrapper` (`prontuario_dos_jogos.py:395`), que lê a
 `LaunchOptions` do `localconfig.vdf` — Steam. E `levantar_censo` (`:733`) só abre

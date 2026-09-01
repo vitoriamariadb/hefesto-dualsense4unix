@@ -52,7 +52,7 @@ formate. **Não reescreva nenhum.**
 
 1. **Um cartão por controle presente, clonado do `<template>`.** Zero, um, dois
    ou N. O número do jogador é **campo**, não posição na fila — é o que a legenda
-   do mockup já promete (`novo-layout/01-jogar.html:2340`).
+   do mockup já promete (`layout/01-jogar.html:2340`).
 2. **O cabeçalho conta o que está na mesa.** `#jg-conectado` deixa de dizer
    *"4 controles: 2 USB · 2 BT"* e passa a dizer a repartição real, que é
    aritmética sobre dado já lido.

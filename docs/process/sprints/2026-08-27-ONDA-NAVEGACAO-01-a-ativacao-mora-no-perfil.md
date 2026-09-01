@@ -59,7 +59,7 @@ uma pergunta só.
 
 Um campo só, com cinco estados, dono da pergunta *"quando este controle vira
 mouse e teclado?"*, exatamente os cinco do mockup
-(`novo-layout/06-navegacao.html`, bloco `.ativacao`):
+(`layout/06-navegacao.html`, bloco `.ativacao`):
 
 | valor | o que significa |
 |---|---|

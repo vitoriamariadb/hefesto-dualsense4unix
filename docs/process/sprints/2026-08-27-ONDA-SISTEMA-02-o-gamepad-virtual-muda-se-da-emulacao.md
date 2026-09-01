@@ -56,7 +56,7 @@ Contrato: redesenho, linhas 508-517 e 578-580. Decisão:
 /Gamepads são diagnóstico e vão para a Sistema; 'Testar o controle virtual'
 CRIA E DESTRÓI um gamepad virtual só para ver se dá — é autoteste de
 instalação, vai para a Sistema"*.
-Mockup: `novo-layout/09-sistema.html`, quadro **Gamepad virtual** (4 linhas de
+Mockup: `layout/09-sistema.html`, quadro **Gamepad virtual** (4 linhas de
 estado + 1 botão), ao lado do quadro **O Hefesto**.
 
 ## O que entrega

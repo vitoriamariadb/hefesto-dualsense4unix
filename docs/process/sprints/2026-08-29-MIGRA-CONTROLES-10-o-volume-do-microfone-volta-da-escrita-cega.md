@@ -142,7 +142,7 @@ sprint, porque é ela que possui a linha.
 ## O que é dela decidir
 
 Nada de tela. **O desenho já tem o controle deslizante e o número**
-(`novo-layout/02-controles.html`, bloco Microfone: o trilho com `mic_vol`), e o
+(`layout/02-controles.html`, bloco Microfone: o trilho com `mic_vol`), e o
 que muda é ele passar a dizer a verdade. Se o número que o sistema devolver
 divergir do que o desenho mostra hoje, **é o desenho que está certo e o produto
 que estava calado** — não o contrário.

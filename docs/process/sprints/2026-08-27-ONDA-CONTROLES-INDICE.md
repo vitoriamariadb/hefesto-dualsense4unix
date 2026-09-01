@@ -5,9 +5,9 @@ até o mockup que ela aprovou, do frontal ao backend.
 
 - **Contrato da aba:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`,
   §2 (linhas 166-242).
-- **Mockup aprovado:** `novo-layout/02-controles.html`, gerado por
-  `novo-layout/_ferramentas/aba02.py`. É a especificação visual.
-- **Correções literais dela:** `novo-layout/_ferramentas/CORRECOES-DELA.md`.
+- **Mockup aprovado:** `layout/02-controles.html`, gerado por
+  `layout/_ferramentas/aba02.py`. É a especificação visual.
+- **Correções literais dela:** `layout/_ferramentas/CORRECOES-DELA.md`.
 - **Protocolo de quem executa:** `docs/process/COMO-EXECUTAR-UMA-SPRINT.md`.
 
 ---

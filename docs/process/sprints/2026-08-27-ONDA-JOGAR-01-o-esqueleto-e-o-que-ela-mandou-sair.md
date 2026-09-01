@@ -38,7 +38,7 @@ A aba Início tem **três quadros e oito widgets que brotam e somem**, e o
 mockup que ela aprovou tem **dois quadros de altura fixa** — o esqueleto de
 hoje não comporta o desenho de amanhã.
 
-## O que o mockup manda (`novo-layout/01-jogar.html`)
+## O que o mockup manda (`layout/01-jogar.html`)
 
 Dois quadros, cada um com um ícone `?` ao lado do título — e nada mais:
 
@@ -119,6 +119,6 @@ diagnóstico vivo. Ela muda de lugar em ONDA-JOGAR-10.
 
 ## Fontes
 
-- `novo-layout/01-jogar.html` — o mockup aprovado.
+- `layout/01-jogar.html` — o mockup aprovado.
 - `/tmp/coleta/hoje.md`, falas [30], [31], [33], [38].
 - `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 1 e padrão P8.

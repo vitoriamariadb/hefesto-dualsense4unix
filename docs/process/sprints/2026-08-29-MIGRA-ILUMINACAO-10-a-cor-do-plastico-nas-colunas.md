@@ -4,7 +4,7 @@ onda: MIGRA-ILUMINACAO
 posse:
   IL10:
     - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
-    - novo-layout/_ferramentas/aba04.py
+    - layout/_ferramentas/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_10_a_cor_do_plastico_por_coluna.py

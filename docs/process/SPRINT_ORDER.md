@@ -41,7 +41,7 @@ Estas não são refinamento: a sprint da coluna do meio **não começa**.
 | **Qual régua manda no arranjo** quando o juízo por entrada e a receita discordam (`D-QUAL-REGUA-MANDA-NO-ARRANJO`) | CONEXÕES-04 inteira | [índice CONEXÕES](sprints/2026-08-27-ONDA-CONEXOES-INDICE.md); a medição que ela pediu já existe em `tests/unit/test_as_duas_reguas_do_arranjo_divergem_onde.py` |
 | ~~**As declarações da aba Conexões gravam na hora, com recibo "Guardado."?**~~ | ~~CONEXÕES-09~~ | **RESPONDIDA em 26/08, e o §0 não tinha visto** — `docs/data/decisoes-dela.csv:87`, `D-A-CONEXOES-GRAVA-NA-HORA-E-LEMBRA`: *"aplicar e salvar, além de gravar na hora e lembrar se não salvar."* Sobra a **redação** do recibo, que não trava nada |
 | **O estado do microfone é POR MÁQUINA ou POR PERFIL?** Um jogo em máscara Xbox quer o mic **Emulado**; o de fora quer **Nativo** — o que empurra para *por perfil*, e isso **muda o dono do campo** | CONEXÕES-06 (o seletor de quatro estados) | [ONDA-CONEXOES-06](sprints/2026-08-27-ONDA-CONEXOES-06-o-microfone-muda-de-aba.md); registrada como aberta e dela desde `2026-08-24-EMULACAO-UM-DONO-SO-01`. **Há quatro precedentes medidos e nenhuma regra geral**: o perfil guarda mic/som/touch/giro (`profiles/schema.py:417-424`, palavra dela de 18/08), e a máquina guarda o que é **fato da sala** (`decisoes-dela.csv:87`: *"são fatos da sala, não ajuste de perfil"*) |
-| **"Modo que liga" e "O jogo vê o controle como" ficam na aba Perfis?** A legenda do mockup diz que sim (`novo-layout/10-perfis.html:660`); o mockup **não os desenha** (`:569-618`) | PERFIS-01 e PERFIS-09 | [índice PERFIS](sprints/2026-08-27-ONDA-PERFIS-INDICE.md) |
+| **"Modo que liga" e "O jogo vê o controle como" ficam na aba Perfis?** A legenda do mockup diz que sim (`layout/10-perfis.html:660`); o mockup **não os desenha** (`:569-618`) | PERFIS-01 e PERFIS-09 | [índice PERFIS](sprints/2026-08-27-ONDA-PERFIS-INDICE.md) |
 | **A máscara "Automático": A, B ou C.** O censo dos 24 jogos dela mediu que a heurística prometida **erra em 13 de 14** (`integrations/api_de_entrada.py:12-49`) | PERFIS-09 | idem |
 | **O conteúdo dos oito Estilos de Jogo novos.** Só o FPS tem conteúdo aprovado por escrito — e o formato que funciona com ela é **ver**, não ler | metade da PERFIS-04 | idem |
 | **Como o produto mede "o controle chega lá" por lançador.** Nenhuma linha de código mede isso hoje; sem régua o selo vira instrumento que mente | LANÇADORES-09, e com ela o fim da onda | [índice LANÇADORES](sprints/2026-08-27-ONDA-LANCADORES-INDICE.md) |
@@ -226,7 +226,7 @@ Red `02`) e outro pelo cabo (`hidraw7`, Starlight Blue `05`)
   **Enquanto ela não correr, o estado "Automático" do microfone é palpite.**
 
 **O que NÃO foi tocado, e é decisão dela:** a premissa caduca também está viva no
-mockup (`novo-layout/_ferramentas/aba08.py` e o HTML que ele gera) e no contrato
+mockup (`layout/_ferramentas/aba08.py` e o HTML que ele gera) e no contrato
 (`2026-08-26-O-REDESENHO-as-dez-abas.md:330,623`). **Os dois estão em revisão com
 ela.** E na tela do produto, em `app/widgets/external_card.py:97-103`
 (*"No rádio o controle recusa o pedido da cor"*) — que muda com a CONEXÕES-11,

@@ -103,7 +103,7 @@ exclusivo é a regra desta casa — dois agentes no mesmo arquivo é o defeito q
 `COMO-COORDENAR-UMA-LEVA.md` documenta.
 
 **O que CADA agente entrega, e é o mesmo para os oito:**
-1. `layout/_ferramentas/pacotes/NN_nome.py` — só a função do contrato. **Um
+1. `layout/_ferramentas/pacotes/a01_jogar.py` e os nove irmãos — o plano escrevia um molde com dois dígitos e um nome genérico, e os dez nasceram em 01/09/2026 com nome de verdade — só a função do contrato. **Um
    arquivo novo por agente: zero colisão por construção.**
 2. cada valor da tela com **endereço no produto**, ou dito que não tem dono.
    Endereço inventado é o defeito mais caro desta casa.

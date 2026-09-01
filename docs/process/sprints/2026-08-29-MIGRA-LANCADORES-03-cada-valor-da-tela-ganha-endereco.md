@@ -27,7 +27,7 @@ nao_toca:
 **O defeito:** a página tem **35 valores** e **zero endereços**. O Python não tem
 como alcançar nenhum deles sem contar filhos.
 
-O que está no HTML hoje (`novo-layout/07-lancadores.html:586-593`, o cartão da
+O que está no HTML hoje (`layout/07-lancadores.html:586-593`, o cartão da
 Steam):
 
 ```html
@@ -98,7 +98,7 @@ nasce — o desenho está **selado** por ela e esta sprint não o abre.
    **Mordida:** dê `data-acao="procurar-ausentes"` ao segundo → reprova, com a
    frase do P6.
 4. **O atributo não mudou pixel.** Foto do Chrome antes e depois, pelo
-   `novo-layout/_ferramentas/olhar.py`, comparadas byte a byte.
+   `layout/_ferramentas/olhar.py`, comparadas byte a byte.
    **Mordida:** acrescente junto um `style` qualquer → as fotos divergem e
    reprova. *E a armadilha de 27/08 vale aqui:* o `scrollIntoViewIfNeeded` do
    Playwright **rola antes de medir** e cega toda medição de layout feita

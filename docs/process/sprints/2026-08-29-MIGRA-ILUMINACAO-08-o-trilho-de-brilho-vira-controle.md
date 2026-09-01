@@ -3,7 +3,7 @@ sprint: MIGRA-ILUMINACAO-08
 onda: MIGRA-ILUMINACAO
 posse:
   IL8:
-    - novo-layout/_ferramentas/aba04.py
+    - layout/_ferramentas/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
     - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
 cria:
@@ -45,7 +45,7 @@ nao_toca:
 ### (a) O trilho é um desenho, não um controle
 
 Os `.trilho` do mockup são `<span>` com um `<span class="cheio">` de largura em %
-(`novo-layout/_ferramentas/aba04.py:320`; o CSS em `:195-197`). **Conferido no
+(`layout/_ferramentas/aba04.py:320`; o CSS em `:195-197`). **Conferido no
 HTML gerado: o miolo da aba tem quatro `<input>`, e os quatro são
 `type="color"`.** Não existe um controle de brilho na página — existe o desenho
 de um.
@@ -108,7 +108,7 @@ junto, cada arraste vira uma rajada de IPC por coluna.
 
 Medido em 29/08: o WebKitGTK **relata as cores do autor e desenha o tema do
 sistema** — foi o que fez os `<select>` saírem como caixa branca, e a cura foi
-`select{appearance:none}` (`novo-layout/_ferramentas/ver.py:78-88`; são **117**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+`select{appearance:none}` (`layout/_ferramentas/ver.py:78-88`; são **117**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 `<select>` nas dez abas). **Um `range` tem o mesmo problema, e a mesma cura
 muda o desenho.**
 

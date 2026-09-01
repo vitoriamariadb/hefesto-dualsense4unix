@@ -35,7 +35,7 @@ essa é a única com `so-ela-decide` nos dois lados. Todas as outras 22 dizem
 ### 2.1 Uma frase falsa está na tela de hoje, e ela pode ter decidido por você
 
 Hoje o acelerômetro **saiu da leitura da tela**, por decisão sua, registrada em
-`novo-layout/_ferramentas/aba02.py:6-40`
+`layout/_ferramentas/aba02.py:6-40`
 (`D-A-LEITURA-DO-ACELERÔMETRO-SAI-DA-TELA`), com a sua palavra:
 *"o acelerômetro não funciona"*.
 
@@ -46,8 +46,8 @@ acelerômetro.** O produto não calcula esse número, nunca calculou, e a tela q
 o desenhava mostrava traço.
 
 **Mas o texto que entrou na tela no lugar diz outra coisa** —
-`novo-layout/_ferramentas/aba02.py:821-823`, gerado **quatro vezes** em
-`novo-layout/02-controles.html` (uma por cartão):
+`layout/_ferramentas/aba02.py:821-823`, gerado **quatro vezes** em
+`layout/02-controles.html` (uma por cartão):
 
 > *"O **acelerômetro** não é lido aqui, e não é esquecimento: o aparelho **não
 > o entrega** — nem pelo cabo, nem pelo rádio."*
@@ -307,7 +307,7 @@ core/evdev_reader.py:2146, :2165; daemon/sensor_hub.py:119
 > alimentam o giroscópio — sprint escrita em
 > `docs/process/sprints/2026-08-27-ONDA-CONTROLES-04-o-acelerometro-esta-no-mesmo-node.md`.
 > Em 29/08 a LEITURA saiu do desenho da aba 02
-> (`novo-layout/_ferramentas/aba02.py:6-40`) com uma premissa FALSA no texto de
+> (`layout/_ferramentas/aba02.py:6-40`) com uma premissa FALSA no texto de
 > tela — *"o aparelho não o entrega"* — que esta célula desmente; o
 > INTERRUPTOR de acelerômetro (D9) não foi afetado e continua na linha do
 > controle.
@@ -733,7 +733,7 @@ foi notado.
 
 | # | onde | dizia | é |
 |---|---|---|---|
-| 1 | `novo-layout/_ferramentas/aba02.py:820-823` (+ 4 no HTML gerado) | *"o aparelho não o entrega — nem pelo cabo, nem pelo rádio"* | o aparelho entrega, medido nos dois; **o produto** é que não lê |
+| 1 | `layout/_ferramentas/aba02.py:820-823` (+ 4 no HTML gerado) | *"o aparelho não o entrega — nem pelo cabo, nem pelo rádio"* | o aparelho entrega, medido nos dois; **o produto** é que não lê |
 | 2 | `scripts/ensaios/taxa_de_entrada.py:10-11` | *"o acelerômetro não aparece em célula medida nenhuma do mapa"* | está `medido` nos dois lados desde 15/08 |
 | 3 | `mapa-controles.csv:175`, `cabo_codigo_ref` e `radio_codigo_ref` | `core/evdev_reader.py:1781-1783` | ali está a docstring de `find_dualsense_touchpad_evdev`; o certo é `:2146`, `:2165` e `sensor_hub.py:119` |
 | 4 | enunciado desta leva | acelerômetro do DualSense com ±8 g | **±4 g**; os ±8 g são do Pro (linha 176) |

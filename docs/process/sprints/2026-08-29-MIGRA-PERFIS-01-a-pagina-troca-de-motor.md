@@ -106,7 +106,7 @@ produto não tem como mostrá-lo.
 | o teto elástico | `app/app.py:1365` — `profiles_paned` em `_PAGINAS_COM_TETO_ELASTICO` |
 | a foto da documentação | `scripts/gui-captura/retratar_abas.py:910` (`_montar_aba_perfis`) → `:1039` chama `host.install_profiles_tab()` |
 
-**O alvo:** `novo-layout/10-perfis.html`, carregado num `WebKit2.WebView`
+**O alvo:** `layout/10-perfis.html`, carregado num `WebKit2.WebView`
 (`D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`,
 `docs/data/decisoes-dela.csv:119`).
 

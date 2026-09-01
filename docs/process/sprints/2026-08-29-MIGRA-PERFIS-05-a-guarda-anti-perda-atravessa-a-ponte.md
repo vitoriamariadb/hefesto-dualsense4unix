@@ -89,7 +89,7 @@ que fazer*.
 ## Os dois Salvar, e por que a fusão é obrigatória agora
 
 "Salvar este perfil" **sai da tela por ordem dela**
-(`novo-layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis) enquanto o contrato o
+(`layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis) enquanto o contrato o
 lista como *"fica"*. No motor novo a ordem dela vence por construção: o desenho
 não o tem, logo o produto não o tem, e **o rodapé passa a ser o único Salvar**.
 

@@ -194,9 +194,9 @@ Sete perguntas abertas, na ordem em que doem:
 
 - contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 4
   (linhas 303-368);
-- mockup aprovado: `novo-layout/04-iluminacao.html`, gerador
-  `novo-layout/_ferramentas/aba04.py`;
-- correção literal dela: `novo-layout/_ferramentas/CORRECOES-DELA.md`, Aba
+- mockup aprovado: `layout/04-iluminacao.html`, gerador
+  `layout/_ferramentas/aba04.py`;
+- correção literal dela: `layout/_ferramentas/CORRECOES-DELA.md`, Aba
   Iluminação — **"— FEITA"**;
 - decisões: **D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR**,
   **D-A-BORDA-E-A-IDENTIDADE-DA-PECA**, **D-A-FITA-E-O-UNICO-ALVO**,

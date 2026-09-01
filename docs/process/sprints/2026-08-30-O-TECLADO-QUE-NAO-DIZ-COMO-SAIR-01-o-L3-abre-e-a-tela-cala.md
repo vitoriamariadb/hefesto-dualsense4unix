@@ -70,7 +70,7 @@ antes de medir, e as duas caíram.**
 
 `hotkeys.md:114` diz *"L3 / R3 — Abre / fecha o teclado na tela"*, e o mockup
 aprovado por ela trata as duas como **ações separadas**: o seletor de cada botão
-da aba Navegação (`novo-layout/06-navegacao.html`) oferece **"Abrir o teclado na
+da aba Navegação (`layout/06-navegacao.html`) oferece **"Abrir o teclado na
 tela"** e **"Fechar o teclado na tela"** como itens distintos, e a tabela de
 `Telas Hefesto.dc.html:474-475` dá L3 a um e R3 ao outro.
 

@@ -47,7 +47,7 @@ sabe que o estado "pausado" existe.
 
 Contrato da aba: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, linhas
 519-521 ("Ligar/Desligar passa a ter um dono só", "Nasce Retomar").
-Mockup: `novo-layout/09-sistema.html`, quadro **O Hefesto** — a dica já diz
+Mockup: `layout/09-sistema.html`, quadro **O Hefesto** — a dica já diz
 *"Retomar só aparece quando o Hefesto está pausado. A pausa fica gravada em
 disco e sobrevive a desligar o computador"*.
 
