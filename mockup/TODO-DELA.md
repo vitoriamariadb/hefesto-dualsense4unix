@@ -9,6 +9,32 @@
 > a ponto comigo. Eu ir dando o ok quando ele terminar nos mockups e ele ir me
 > mostrando a to do list atualizada. (…) sem usar agentes e usando o navegador."*
 
+## A LISTA FECHOU — 01/09/2026
+
+**As dez abas e os três avulsos estão no produto.** `mockup/` e `layout/` batem
+byte a byte, e o `check_o_desenho_aprovado.py` guarda isso a cada rodada: o
+desenho aprovado virou a referência contra a qual a interface vai ser medida.
+
+| | |
+|---|---|
+| abas fechadas com ela | **10 de 10** |
+| páginas publicadas | **13** (as dez, os dois mapas e a calibração) |
+| régua de alinhamento | **0 falhas nas dez** |
+| rolagem | nenhuma aba rola, nem vertical nem lateral |
+| portões | 23 verdes |
+
+**O `Selecionar:` fechou o último ponto aberto** (o 8.1): a fita das dez deixou
+de dizer *"Ajustes vão para:"*. O rótulo agora tem dono único — `monta.ROTULO_DA_FITA`.
+
+**O que vem depois está em**
+`docs/process/sprints/2026-08-31-A-INTERFACE-LIGADA-PLANO-DE-UMA-HORA.md`, e ela
+decidiu em 01/09 que **não vai por agentes**: *"se vc achar melhor, ao invés de
+agentes, você mesmo vai conectando tudo aba a aba."* A razão é medida — o plano
+foi escrito ANTES da leva que mudou as dez abas, e os pilotos que os agentes
+leriam apontam endereços que essa leva moveu.
+
+---
+
 ## AS QUATRO REGRAS DELA
 
 1. **UM ponto por vez.** Termine, mostre, **espere o OK dela**. Só então o próximo.
@@ -86,7 +112,7 @@ Ela aprovou o plano e mandou ajustar a aba, em 31/08/2026:
 Está tudo na **bancada** (`mockup/01-jogar.html`). O produto **não recebeu nada**
 — publica com `--publicar 01` quando ela aprovar a aba inteira.
 
-### [ ] 1.1 — o Point And Click saiu da fileira
+### [x] 1.1 — o Point And Click saiu da fileira
 
 > *"nos mockups tira o point and click e deixa só o navegação."*
 
@@ -98,7 +124,7 @@ saiu só o modo, como ela confirmou.
 gramática desta casa para *"botão que aparece e diz que ainda não tem quem o
 atenda"*. Apagá-la faria a próxima fileira que precisar dela reinventá-la.
 
-### [ ] 1.2 — os tooltips foram corrigidos e simplificados
+### [x] 1.2 — os tooltips foram corrigidos e simplificados
 
 > *"independente do modo, todas as features vão funcionar. Então o tooltip
 > falando o contrário é sem nexo."* · *"todos os tooltips tem que ser corrigidos
@@ -120,7 +146,7 @@ giroscópio e áudio valem em todos se diz **uma vez**, na dica do quadro.
 somar **489**. As três dicas grandes da aba (Status, Modo, máscaras) caíram de
 **2.847** para **1.192**.
 
-### [ ] 1.3 — os três rótulos que ela trocou
+### [x] 1.3 — os três rótulos que ela trocou
 
 > *"Hefesto, troca essa palavra pra Status. Quando o jogo abrir, troca pra Modo.
 > Aí remove a palavra Modo abaixo. Conectado agora vira O jogo vê cada controle
@@ -136,7 +162,7 @@ Fundir as dicas segue o precedente da própria aba: quando o `?` dos modos subiu
 para o quadro, em 31/08, foi pela mesma razão — *dois `?` a três linhas um do
 outro dizem a mesma coisa duas vezes*.
 
-### [ ] 1.4 — a mesa tem DOIS conectados e DOIS lugares vazios
+### [x] 1.4 — a mesa tem DOIS conectados e DOIS lugares vazios
 
 > *"Vamos deixar os outros dois controles desconectados, só colocamos algo como
 > `-` nos campos que deveriam ter algo e escurecemos tudo."*
@@ -161,7 +187,7 @@ máscaras da legenda.
 **branco**. A cor do chassi mora em `path.corpo`, não em `.peca` — uma classe
 que régua nenhuma desta aba nomeava. Quem achou foi a ampliação.
 
-### [ ] 1.5 — a frase de pendência contradizia a própria tela
+### [x] 1.5 — a frase de pendência contradizia a própria tela
 
 > *"'Vai mudar para Modo Nativo quando você clicar em Aplicar' essa frase tá
 > errada também. viu?"*
@@ -219,9 +245,9 @@ outra decisão** e o texto muda.
 Ela mandou concluir a aba em 31/08: *"pode ir pra próxima página e concluir os
 controles."* Tudo na bancada; o produto não recebeu nada.
 
-### [ ] 2.1 — `Conectados` virou `Dispositivos Conectados`
+### [x] 2.1 — `Conectados` virou `Dispositivos Conectados`
 
-### [ ] 2.2 — o `Desativado` do Microfone saiu
+### [x] 2.2 — o `Desativado` do Microfone saiu
 
 > *"na aba controle, remove o desligado (fica desligado com slicer no zero)."*
 
@@ -230,9 +256,9 @@ Restam **Virtual** e **Nativo**. Quem desliga é o slider em zero.
 **Os dois botões do alto-falante JÁ estavam abaixo do slider** — a lista dizia
 que estavam ao lado, e isso caducou antes desta leva. Nada a fazer.
 
-### [ ] 2.3 — o `100 % · Acordado` saiu do rótulo do alto-falante
+### [x] 2.3 — o `100 % · Acordado` saiu do rótulo do alto-falante
 
-### [ ] 2.4 — os sensores viraram DUAS seções, e as unidades saíram
+### [x] 2.4 — os sensores viraram DUAS seções, e as unidades saíram
 
 > *"Temos duas seções ali. Um com sensores e a seção de gatilhos. É pra ser 3:
 > um Giroscópio, outra Acelerômetro e outra gatilhos."*
@@ -240,7 +266,7 @@ que estavam ao lado, e isso caducou antes desta leva. Nada a fazer.
 Três molduras: **Giroscópio · Acelerômetro · Gatilhos**, sem o `°/s` e sem o `g`.
 Coube sem custo: a coluna continua nos mesmos 241px.
 
-### [ ] 2.5 — P3 e P4 viram lugar vazio, e não expandem
+### [x] 2.5 — P3 e P4 viram lugar vazio, e não expandem
 
 > *"tiramos o modo p3. p4 (seções expandidas não aparecem)"* ·
 > *"Deixa os outros espaços dos 4 controles a mostra ainda mas cinza igual vc
@@ -253,7 +279,7 @@ proíbe, alguém desfaz sem perceber.
 **E eles pagaram os botões novos:** um lugar vazio mede **24px** em vez de 34 —
 não tem giroscópio para ligar nem bateria para medir. Sem isso, o quadro rolava.
 
-### [ ] 2.6 — os dois botões no fim
+### [x] 2.6 — os dois botões no fim
 
 > *"Temos que ter dois botões no final. O calibrar sensores de movimento, ao
 > invés de mesa. (…) E o botão Mapa do Controle."*
@@ -265,7 +291,7 @@ diz **o que se calibra**, que é o que quem clica precisa saber.
 **Eles ficam FORA do corpo que rola**, e isso é estrutural: ação não rola junto
 com a lista que ela governa.
 
-### [ ] 2.7 — a página nova de calibração
+### [x] 2.7 — a página nova de calibração
 
 > *"Preciso que crie uma nova página que abre e mostra os svgs dos controles
 > conectados e o procedimento igual o da steam pra calibrar os controles. São os
@@ -281,7 +307,7 @@ do interruptor da Jogar — **zero JavaScript**.
 **Provado clicando**, os três: `Parado` → `Medindo…` → `Calibrado`, com o selo, o
 botão e a barra respondendo, e o passo aceso batendo com o clicado nos três.
 
-### [ ] 2.8 — o Mapa do Controle perdeu a linha de instrução
+### [x] 2.8 — o Mapa do Controle perdeu a linha de instrução
 
 > *"passe o mouse num glifo e a peça acende no desenho · passe na peça e o glifo
 > acende só remove isso."*
@@ -293,7 +319,7 @@ Medido: **duas** abas abrem este mapa (a Navegação e agora a Controles), e um
 destino fixo está errado para metade de quem chega. Agora ele volta para de onde
 veio, com a Controles como fallback de quem abre o arquivo com duplo clique.
 
-### [ ] 2.9 — a segunda volta dela, no mesmo turno
+### [x] 2.9 — a segunda volta dela, no mesmo turno
 
 Ela olhou a aba e mandou mais quatro coisas:
 
@@ -315,7 +341,7 @@ para 341, contra os 328 que cabiam — **rolava**. As duas fileiras de escolha
 passaram de 36 para **30px** e as contas fecharam. Elas continuam iguais entre
 si, que é o que ela pediu.
 
-### [ ] 2.10 — a janela cresceu 20px, e a ideia foi dela
+### [x] 2.10 — a janela cresceu 20px, e a ideia foi dela
 
 > *"talvez estender mais verticalmente o Dispositivos Conectados faça caber."*
 
@@ -395,7 +421,7 @@ nasceu o bloco de ações, e o padding de baixo saiu. Refeita, ela agora prevê
 
 ## `03` GATILHOS — **FEITA, espera o OK dela**
 
-### [ ] 3.1 — o L2 e o R2 titulam a seção
+### [x] 3.1 — o L2 e o R2 titulam a seção
 
 > *"o L2 e o R2 deveriam controlar a seção e não ficar do lado esquerdo de
 > gatilho esquerdo ou direito."*
@@ -407,7 +433,7 @@ em cada linha é o que ela nomeia: **Modo · Efeito pronto · Ajustes**.
 
 **Custo de altura: zero.** A célula ocupa trilhas que já existiam.
 
-### [ ] 3.2 — o respiro, e a cura NÃO custou um pixel
+### [x] 3.2 — o respiro, e a cura NÃO custou um pixel
 
 > *"lá precisa de respiro em tudo (…) fora o respiro entre as linhas na questão
 > do espaço vertical."*
@@ -424,7 +450,7 @@ vão. Medido: a divisória sobe **7px** (era 0), e a tabela mede o mesmo pixel.
 **E o passo entre linhas foi de 10 para 14** — 40% mais ar. Ele foi **pago**, não
 raspado: os P3/P4 desligados devolveram 23px e a janela de 777 devolveu o resto.
 
-### [ ] 3.3 — o P3 e o P4 são lugar vazio
+### [x] 3.3 — o P3 e o P4 são lugar vazio
 
 > *"os demais 3 e o 4 ficam lá com os espaços mas tudo com Desligado e Nenhum,
 > fora a borda do P1 e P2."*
@@ -433,7 +459,7 @@ Tudo em **Desligado** e **— Nenhum —**, e a **borda de cor saiu**: num lugar
 vazio não há de quem, e pintar a cor de um plástico que não está na mesa é dizer
 que ele está.
 
-### [ ] 3.4 — o nome das colunas ficou centrado
+### [x] 3.4 — o nome das colunas ficou centrado
 
 > *"temos que centralizar o nome das colunas dos controles ou então colocarmos os
 > SVG de cada controle ao lado direito do nome."*
@@ -491,7 +517,7 @@ A régua acusa **1 desalinhamento**, e ele existe idêntico no produto publicado
 
 ## `04` ILUMINAÇÃO · `05` VIBRAÇÃO
 
-### [ ] 3.5 — as bordas das outras duas
+### [x] 3.5 — as bordas das outras duas
 
 O censo de 31/08, com a Gatilhos já curada:
 
@@ -521,7 +547,7 @@ A Iluminação é a mais pesada das três, com **136 bordas de `--linha`** sozin
 
 ## `08` CONEXÕES
 
-### [ ] 6.1 — os campos que expandem não têm respiro
+### [x] 6.1 — os campos que expandem não têm respiro
 
 > *"o nome dos campos que expandem não tem respiro isso **todas as abas** que tem
 > esses campos que expandem."*
@@ -543,7 +569,7 @@ mesmo sem ser acordeão.
 a próxima aba que ganhar acordeão nasce apertada. O precedente é o `--r-ar` da
 Vibração, de hoje.
 
-### [ ] 6.2 — o vão embaixo, com as seções fechadas
+### [x] 6.2 — o vão embaixo, com as seções fechadas
 
 **Isto não é pedido dela — é o que eu vi na foto e trago para ela decidir.**
 
@@ -558,7 +584,7 @@ pergunte**, antes de mexer.
 
 ## `09` SISTEMA
 
-### [ ] 7.1 — Perfil de Bateria vira três botões
+### [x] 7.1 — Perfil de Bateria vira três botões
 
 > *"perfil da bateria transforma em três botões lado a lado com escolha única e
 > tira o 'O perfil da mesa' pronto isso resolve."*
@@ -607,7 +633,7 @@ imprimir.
 
 # TODAS AS DEZ ABAS
 
-### [ ] 8.1 — "Ajustes vão para:" vira **"Selecionar:"**, e só acende com controle
+### [x] 8.1 — "Ajustes vão para:" vira **"Selecionar:"**, e só acende com controle
 
 > **31/08/2026, o texto exato dela:** *"Ajustes vão para: aqui pode alterar pra
 > colocar o **Selecionar:** em todas as abas."*
