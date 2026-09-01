@@ -397,7 +397,7 @@ inteira e leia as colunas VIZINHAS da mesma linha.* As três caíram por não ol
 **`movimento.giroscopio@dualsense` / `radio_report_id`.** A célula já contém `—` (U+2014) e
 os dois céticos que a derrubaram **não** discutem o travessão: derrubam a **regra** com que a
 proposta o justificou — «report id é endereço de canal `hidraw`/`uhid`; em canal `evdev` a
-coluna não se aplica». O CSV pratica o contrário: das **29 linhas com `radio_canal = evdev`,
+coluna não se aplica». O CSV faz o contrário: das **29 linhas com `radio_canal = evdev`,
 13 têm a célula decidida, e dessas 10 trazem um report id contra 3 que trazem `—`**. Os
 contraexemplos são vizinhos imediatos — `entrada.bruta@dualsense` (mesmo aparelho, `evdev`
 nos dois lados, `0x01`/`0x31`, grau **`medido`**), `movimento.giroscopio@pro`,

@@ -386,7 +386,7 @@ vazias, e é ela quem julga se aceita.**
 | levei a máscara junto com o texto | *a máscara sumiu com o texto — ela FICA, e é o dado* |
 | devolvi o texto `vê como` | *o texto 'vê como' voltou* |
 
-**E uma das réguas nasceu QUEBRANDO em vez de acusar.** Ela media a ordem dos
+**E uma das réguas nasceu QUEBRANDO em vez de acusar.** Ela mediu a ordem dos
 blocos com `index`, e quando a classe sumia estourava com `ValueError` — o
 gerador morria e a mensagem que ele devia imprimir nunca saía. Na mordida isso é
 **indistinguível de uma régua que não pegou nada**. Trocada por `find`.
