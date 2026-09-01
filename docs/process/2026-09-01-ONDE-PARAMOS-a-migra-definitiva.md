@@ -3,7 +3,7 @@
 > **Leia isto antes de tocar em qualquer coisa.** Ele existe porque a Vitória
 > desligou o PC no meio da migração e pediu, com estas palavras: *"salva tudo e
 > materializa tudo dos agentes que rodaram buscas no projeto e bota um plano
-> pra execução pro proximo claude po e orquestrador executar e seguir o que vc <!-- noqa-acento: citação literal, a fala dela não se corrige -->
+> pra execução pro proximo claude po e orquestrador executar e seguir o que vc <!-- noqa-acento: citação literal — a grafia não se corrige; o FATO sim — se caducar, apaga e substitui -->
 > sabe fazendo do seu jeito. até a questao da senha sudo. no exato ponto onde
 > estamos."*
 

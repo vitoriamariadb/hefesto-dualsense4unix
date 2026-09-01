@@ -11,7 +11,7 @@ Este documento é inventário, não cura.
 
 ## A pergunta dela
 
-Citação **literal**, sem correção de acentuação. Citação não se corrige.
+Citação **literal**, sem correção de acentuação — a grafia não se corrige; o FATO sim — se caducar, apaga e substitui.
 
 > *"voce tinha me falado que ja existem solucoes pra muitos dos problemas que eu <!-- noqa-acento -->
 > relato mas eles nao foram integrados a maquina pq nao foram inseridos no <!-- noqa-acento -->

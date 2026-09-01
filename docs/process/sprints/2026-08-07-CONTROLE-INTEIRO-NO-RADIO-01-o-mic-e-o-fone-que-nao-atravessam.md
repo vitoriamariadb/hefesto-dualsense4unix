@@ -1,7 +1,7 @@
 # CONTROLE-INTEIRO-NO-RÁDIO-01 — o mic e o fone que não atravessam
 
 - **Achado em:** 07/08/2026, na máquina dela, sobre `restauro/inicio-da-sessao`
-- **Pedido dela, literal** (citação não se corrige):
+- **Pedido dela, literal** (a grafia não se corrige; o FATO sim — se caducar, apaga e substitui):
   > *"a ideia e usarmos o controle inteiro. pensa num jogo tipo dont scream que* <!-- noqa-acento -->
   > *precisa de Mic ligado, jogar no Bt sem Mic e impossivel."* <!-- noqa-acento -->
 - **Estado:** ABERTA. **Nenhuma linha de código nesta leva** — é o levantamento

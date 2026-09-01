@@ -1,7 +1,7 @@
 # INSTALL-QUE-NÃO-CARREGA-01 — as descobertas que nunca viraram código
 
 - **Aberta e executada em:** 07/08/2026, sobre `restauro/inicio-da-sessao`
-- **Pedido dela, literal** (citação não se corrige):
+- **Pedido dela, literal** (a grafia não se corrige; o FATO sim — se caducar, apaga e substitui):
   > *"alem de atualizarmos o install com as descobertas que fizemos e ate as
   > que nao foram integradas"* <!-- noqa-acento -->
 - **Estado:** **DUAS ENTREGAS APLICADAS** (E1 e E2, com mordida provada por

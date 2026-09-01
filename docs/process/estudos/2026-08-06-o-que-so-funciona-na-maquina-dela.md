@@ -11,7 +11,7 @@ não cura.
 
 Em 06/08/2026 ela perguntou:
 
-Citação **literal**, sem correção de acentuação. Citação não se corrige.
+Citação **literal**, sem correção de acentuação — a grafia não se corrige; o FATO sim — se caducar, apaga e substitui.
 
 > *"to mapeando os meus controles fisicos, mas se por exemplo outro amigo meu
 > com os 4 controles iguais aos meus (deles, nao os meus de fato) — ele vai usar <!-- noqa-acento -->

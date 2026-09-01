@@ -3,7 +3,7 @@
 **01/09/2026.** Ordem dela, com estas palavras:
 
 > *"Não validei no aparelho o caminho de rádio do luz-nao-acende — seu controle
-> está no cabo. Deixa como sprint materializada pro proximo claude orquestrador."* <!-- noqa-acento: citação literal, a fala dela não se corrige -->
+> está no cabo. Deixa como sprint materializada pro proximo claude orquestrador."* <!-- noqa-acento: citação literal — a grafia não se corrige; o FATO sim — se caducar, apaga e substitui -->
 
 ---
 

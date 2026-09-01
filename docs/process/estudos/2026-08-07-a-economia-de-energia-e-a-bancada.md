@@ -12,7 +12,7 @@ medição inteira.
 
 ## A pergunta dela
 
-Citação literal, sem correção de acentuação — citação não se corrige.
+Citação literal, sem correção de acentuação — a grafia não se corrige; o FATO sim — se caducar, apaga e substitui.
 
 > *"mapear o kernel do Linux pra ver se em algum momento ele ativava o modo
 > economia de energia e isso zoava os nossos testes e afins"* <!-- noqa-acento -->
