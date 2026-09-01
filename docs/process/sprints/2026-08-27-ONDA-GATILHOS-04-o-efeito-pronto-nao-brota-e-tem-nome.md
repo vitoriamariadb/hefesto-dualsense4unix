@@ -63,7 +63,7 @@ exata do *Plateau central*, a tela abre dizendo "Personalizar".
 **1 · A linha fica sempre no mesmo lugar.** O `trigger_<side>_pronto_slot` que a
 02 criou é **sempre visível**. Nos 17 modos que não têm efeito pronto ela fica
 **insensível**, com o texto que já existe no mockup — `— nenhum —`
-(`layout/_ferramentas/aba03.py:88`). Nada brota, nada empurra.
+(`src/hefesto_dualsense4unix/interface/aba03.py:88`). Nada brota, nada empurra.
 
 Trava do GTK3 (contrato, P3): **widget insensível não dispara tooltip**. A
 explicação de por que a lista está cinza naquele modo mora no **"?" do quadro**

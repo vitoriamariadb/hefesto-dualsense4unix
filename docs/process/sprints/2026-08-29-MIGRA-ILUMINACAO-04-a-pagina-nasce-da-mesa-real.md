@@ -3,14 +3,14 @@ sprint: MIGRA-ILUMINACAO-04
 onda: MIGRA-ILUMINACAO
 posse:
   IL4:
-    - layout/_ferramentas/aba04.py
+    - src/hefesto_dualsense4unix/interface/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_04_a_mesa_real.py
 bancada: false
 depois_de:
   # A FILA INTEIRA que vem antes desta, e ela é longa de propósito: nove das doze
-  # abrem `app/actions/lightbar_actions.py` e cinco abrem `_ferramentas/aba04.py`.
+  # abrem `app/actions/lightbar_actions.py` e cinco abrem `src/hefesto_dualsense4unix/interface/aba04.py`.
   # Quem divide arquivo executa EM SÉRIE (R5), e o portão de colisão não faz fecho
   # transitivo — por isso a fila se escreve inteira, como na ONDA-SISTEMA-02.
   - MIGRA-ILUMINACAO-01
@@ -32,7 +32,7 @@ montamos no `mapa-do-controle.html`."*
 
 **Ela tem dois controles. A página desenha quatro.**
 
-`MESA`, em `layout/_ferramentas/monta.py:138-147`, é uma lista **literal de
+`MESA`, em `src/hefesto_dualsense4unix/interface/monta.py:138-147`, é uma lista **literal de
 quatro**. Dela saem:
 
 - as quatro colunas (`aba04.py:426`, o laço `coluna(c) for c in MESA`);

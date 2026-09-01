@@ -59,7 +59,7 @@ A cadeia inteira, quatro degraus, cada um no molde do degrau gêmeo do giro:
    em **g** em vez de graus/s (o mockup escreve `+0.9` e `(g)`), mais o stub.
 4. **`controller_card.py`** — `accel_do_inputs`, o bloco no card e o
    `_update_accel`, imediatamente abaixo do giroscópio, como o mockup desenha
-   (`layout/_ferramentas/aba02.py`, `acel_html`).
+   (`src/hefesto_dualsense4unix/interface/aba02.py`, `acel_html`).
 
 **A escala é declarada, não chutada.** O mockup mostra `Y: +1.0 g` com o
 controle parado — que é a gravidade. Se o `absinfo` não trouxer resolução, o

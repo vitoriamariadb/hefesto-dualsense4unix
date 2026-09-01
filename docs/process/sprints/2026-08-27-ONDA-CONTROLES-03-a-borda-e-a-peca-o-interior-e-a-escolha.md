@@ -72,7 +72,7 @@ que duplicar isso em canto algum."* **O card lê o alvo; nunca o escreve.**
    card e no painel "No jogo" —, e o painel morreu na ONDA-CONTROLES-02. Uma
    marca só.
 4. As duas classes CSS no `theme.css`, no molde do mockup
-   (`layout/_ferramentas/aba02.py`, `.card` / `.card.alvo`).
+   (`src/hefesto_dualsense4unix/interface/aba02.py`, `.card` / `.card.alvo`).
 
 ## Como se prova (o teste que morde)
 

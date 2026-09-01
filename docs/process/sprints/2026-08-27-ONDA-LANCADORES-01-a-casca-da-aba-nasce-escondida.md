@@ -73,7 +73,7 @@ Dentro da página, o que o mockup mostra:
   ajusta por controle;
 - `CartaoDoLancador`, widget montado **em Python, não no Glade** — a lista é
   dinâmica, um cartão por lançador achado. Estados e cores em
-  `layout/_ferramentas/aba07.py:5-28`: `chega` (borda verde), `impede`
+  `src/hefesto_dualsense4unix/interface/aba07.py:5-28`: `chega` (borda verde), `impede`
   (borda laranja), `ausente` (opacidade .5); selos `CHEGA` / `NÃO CHEGA` /
   `NÃO ACHEI`; a contagem à direita; a frase; o carimbo; a fileira de botões.
 

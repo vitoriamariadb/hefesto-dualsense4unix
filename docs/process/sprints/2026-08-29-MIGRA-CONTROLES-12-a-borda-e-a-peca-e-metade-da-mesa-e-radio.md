@@ -50,7 +50,7 @@ HTML, e a tela dizer a verdade nos cartões em que a cor não chega.**
 
 O mockup pinta cada cartão com `--plastico`, lido de
 `docs/data/cores-do-dualsense.csv` pelo gerador
-(`layout/_ferramentas/monta.py:172`, `cor_da_zona`). **Nenhuma linha de
+(`src/hefesto_dualsense4unix/interface/monta.py:172`, `cor_da_zona`). **Nenhuma linha de
 `src/` lê esse CSV** — conferido em 29/08: `grep -rn "cores-do-dualsense" src/`
 devolve **zero**. Quem o lê é `scripts/` e o `novo-layout/`.
 

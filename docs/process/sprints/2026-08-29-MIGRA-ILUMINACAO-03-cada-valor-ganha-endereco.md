@@ -3,14 +3,14 @@ sprint: MIGRA-ILUMINACAO-03
 onda: MIGRA-ILUMINACAO
 posse:
   IL3:
-    - layout/_ferramentas/aba04.py
+    - src/hefesto_dualsense4unix/interface/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_03_todo_valor_tem_endereco.py
 bancada: false
 depois_de:
   # A MIGRA-CONTROLES-02 muda a página e o gerador de casa:
-  # `layout/_ferramentas/aba04.py` muda de casa (o novo caminho está na
+  # `src/hefesto_dualsense4unix/interface/aba04.py` muda de casa (o novo caminho está na
   # posse acima, sem crase: ele ainda não existe nesta árvore), e
   # `layout/04-iluminacao.html` vira
   # `src/hefesto_dualsense4unix/gui/telas/04-iluminacao.html`. Dar endereço antes
@@ -52,7 +52,7 @@ e posição muda quando a mesa muda, que é exatamente o que a
 Mudança no gerador da aba. **Nenhum pixel muda** — atributo não pinta. Mas é
 mudança no desenho aprovado, e por isso está declarada.
 
-**Atenção ao endereço:** hoje o gerador é `layout/_ferramentas/aba04.py` e a
+**Atenção ao endereço:** hoje o gerador é `src/hefesto_dualsense4unix/interface/aba04.py` e a
 página é `layout/04-iluminacao.html`. A `MIGRA-CONTROLES-02` os muda de casa
 para `scripts/telas/aba04.py` e <!-- ref-externa: nasce com a MIGRA-CONTROLES-02 -->
 `src/hefesto_dualsense4unix/gui/telas/04-iluminacao.html` — **e é ela que resolve

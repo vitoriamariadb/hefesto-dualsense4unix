@@ -3,7 +3,7 @@ sprint: A-PORTA-DA-ABA-CONTROLES-01
 onda: A-PORTA-DA-ABA-CONTROLES
 posse:
   P1:
-    - layout/_ferramentas/aba02.py
+    - src/hefesto_dualsense4unix/interface/aba02.py
 ---
 
 **ESPERA A TRAVA CAIR.** O `aba02.py` estava travado por uma leva em voo em
@@ -13,7 +13,7 @@ posse:
 
 **29/08/2026.** `layout/mapa-do-controle.html` é a **fonte da verdade das
 peças** — 28 peças com nome, apelido e glifo, 28 modelos de cor, gerador próprio
-(`_ferramentas/mapa.py`) e **dois portões** que o medem
+(`src/hefesto_dualsense4unix/interface/mapa.py`) e **dois portões** que o medem
 (`scripts/check_pecas_do_dualsense.py`, `scripts/check_cores_do_dualsense.py`).
 Ela o fez pensando em todos os usuários, não nos controles dela.
 

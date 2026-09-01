@@ -27,7 +27,7 @@ botão de reexaminar, e desenha os quatro rádios vizinhos como uma tabela de
 205 px que o mockup faz em 108.
 
 Fonte: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 8;
-`layout/_ferramentas/aba08.py:330-372` (o quadro "Conexões" do mockup).
+`src/hefesto_dualsense4unix/interface/aba08.py:330-372` (o quadro "Conexões" do mockup).
 
 ## O que entrega
 

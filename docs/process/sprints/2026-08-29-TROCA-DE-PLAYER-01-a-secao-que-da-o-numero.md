@@ -48,8 +48,8 @@ depois_de:
   - ONDA-VIBRACAO-06
   - QUATRO-NA-MESA-01
 nao_toca:
-  - layout/_ferramentas/aba02.py
-  - layout/_ferramentas/controles_vivos.py
+  - src/hefesto_dualsense4unix/interface/aba02.py
+  - src/hefesto_dualsense4unix/interface/controles_vivos.py
   - src/hefesto_dualsense4unix/integrations/cor_do_plastico.py
   - src/hefesto_dualsense4unix/utils/maquina.py
   - src/hefesto_dualsense4unix/core/evdev_reader.py
@@ -168,7 +168,7 @@ destino**. Quatro na mesa, dar o **1** ao último:
 
 **A tela promete troca em dezessete lugares do mockup aprovado**: os 16 tooltips
 de botão de número e a legenda *"Os dois trocam, os outros não se mexem"*
-(`layout/_ferramentas/aba04.py`). **E a palavra dela de 28/08 é troca:**
+(`src/hefesto_dualsense4unix/interface/aba04.py`). **E a palavra dela de 28/08 é troca:**
 
 > *"Trocar é TROCA, não fila: pôr o azul no 1 faz quem era 1 virar 2. Ninguém
 > repete número, ninguém fica sem."*

@@ -26,7 +26,7 @@ cinco linhas para dizer que **quatro delas não fazem nada**.
 
 Fonte: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 8, *"As duas
 contas do rádio viram uma"* e *"As quatro linhas 'Ainda não tem por onde ser
-limitado'"*; `layout/_ferramentas/aba08.py:376-425`. Decisões:
+limitado'"*; `src/hefesto_dualsense4unix/interface/aba08.py:376-425`. Decisões:
 `D-AS-ABAS-CONVERSAM`, `D-O-MIC-LIGADO-VALE-NO-RADIO`, `D-PERFIL-DE-DESEMPENHO`.
 
 **Depende da ONDA-CONEXOES-02**, que tira as barras "Rádio em uso" da seção da

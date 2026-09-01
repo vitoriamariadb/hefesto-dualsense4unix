@@ -4,11 +4,11 @@
 o mockup que ela aprovou.
 
 > *"aba gatilhos perfeita. Parabéns."*
-> — `layout/_ferramentas/CORRECOES-DELA.md:27-28`, marcada **FECHADA, não
+> — `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:27-28`, marcada **FECHADA, não
 > tocar**
 
 O alvo é `layout/03-gatilhos.html` (gerador:
-`layout/_ferramentas/aba03.py`). O contrato é a seção 3 de
+`src/hefesto_dualsense4unix/interface/aba03.py`). O contrato é a seção 3 de
 `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md` (linhas 242-303). O antes é
 `docs/usage/assets/readme_gatilhos.png`.
 

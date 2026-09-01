@@ -18,7 +18,7 @@ nao_toca:
 mockup aprovado mostra (`layout/10-perfis.html`), do frontal ao backend.
 
 Contrato: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md:688-775`.
-Correções literais dela: `layout/_ferramentas/CORRECOES-DELA.md:62-80`.
+Correções literais dela: `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:62-80`.
 
 ## A ordem
 

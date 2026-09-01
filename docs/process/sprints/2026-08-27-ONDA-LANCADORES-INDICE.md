@@ -19,7 +19,7 @@ nao_toca:
 **27/08/2026.** Dez sprints levam a aba **Lançadores** do que o produto é hoje
 (uma aba "Emulação" sobre uinput) até o que o mockup mostra — o mockup que ela
 aprovou sem ressalva: *"lançadores perfeito parabéns."*
-(`layout/_ferramentas/CORRECOES-DELA.md:59-60`).
+(`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:59-60`).
 
 **A aba nasce escondida e só aparece na 10.** É decisão dela, e a razão é a
 mesma que atravessa esta onda inteira:

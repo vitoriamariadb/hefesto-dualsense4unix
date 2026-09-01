@@ -46,8 +46,8 @@ exatamente as duas velocidades de analógico que a tela mostra).
 **Contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md` §6
 (linhas 443-517) — toda linha do "Nada se perdeu" é requisito.
 **Especificação visual:** `layout/06-navegacao.html` e o gerador
-`layout/_ferramentas/aba06.py`. **Correções literais dela:**
-`layout/_ferramentas/CORRECOES-DELA.md`.
+`src/hefesto_dualsense4unix/interface/aba06.py`. **Correções literais dela:**
+`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`.
 
 ---
 
@@ -144,7 +144,7 @@ de fora da onda:  ONDA-NAVEGACAO-01 ──► 04, 05, 11, 13
 
 **As duas bancadas desta onda**, e as duas são recurso de acesso único:
 `src/hefesto_dualsense4unix/gui/main.glade` (só a **01** o abre) e
-`layout/_ferramentas/aba06.py` (a **02** dá a forma, a **06** entra depois).
+`src/hefesto_dualsense4unix/interface/aba06.py` (a **02** dá a forma, a **06** entra depois).
 
 ---
 

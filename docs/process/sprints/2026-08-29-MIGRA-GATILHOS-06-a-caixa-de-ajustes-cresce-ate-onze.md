@@ -3,13 +3,13 @@ sprint: MIGRA-GATILHOS-06
 onda: MIGRA-GATILHOS
 posse:
   M6:
-    - layout/_ferramentas/aba03.py
+    - src/hefesto_dualsense4unix/interface/aba03.py
 cria:
   - tests/unit/test_migra_gatilhos_a_caixa_de_ajustes_cabe_onze.py
 bancada: false
 depois_de:
   - MIGRA-GATILHOS-02
-  # SÉRIE, por R5: divide layout/_ferramentas/aba03.py com as de baixo.
+  # SÉRIE, por R5: divide src/hefesto_dualsense4unix/interface/aba03.py com as de baixo.
   - MIGRA-GATILHOS-04
   - MIGRA-GATILHOS-05
 nao_toca:

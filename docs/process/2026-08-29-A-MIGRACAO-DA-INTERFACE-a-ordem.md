@@ -494,7 +494,7 @@ se troca os ponteiros nos 42 arquivos ou se ensina o portão a resolver o apelid
 | as duas pontes | `src/hefesto_dualsense4unix/gui/ponte_da_tela.py` | <!-- ref-externa: módulo que a MIGRA-CONTROLES-03 cria -->
 
 Todo número de linha citado nas sprints é do arquivo **de hoje**, com o endereço
-**de hoje** (`novo-layout/_ferramentas/abaNN.py`). Cada sprint manda reconferir <!-- ref-externa: o padrão abaNN.py cobre aba02..aba10, e a 01 é a exceção -->
+**de hoje** (`novo-src/hefesto_dualsense4unix/interface/abaNN.py`). Cada sprint manda reconferir <!-- ref-externa: o padrão abaNN.py cobre aba02..aba10, e a 01 é a exceção -->
 no dia de execução, e as que abrem gerador declaram **os dois** endereços na
 posse.
 

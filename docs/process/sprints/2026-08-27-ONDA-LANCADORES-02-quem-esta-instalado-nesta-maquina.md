@@ -34,7 +34,7 @@ Dolphin e mGBA: **zero**. E o Orpheus dela depende de um emulador nativo de GBC
 `prontuario_dos_jogos.py` (roda no `python3` do sistema, sem venv), **sem rede**.
 
 A lista e a ordem são as do mockup, que ela aprovou (*"lançadores perfeito
-parabéns"* — `layout/_ferramentas/CORRECOES-DELA.md:59-60`):
+parabéns"* — `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:59-60`):
 
     Steam · Heroic (Epic · GOG) · Lutris · Flatpak · RetroArch · Dolphin · mGBA
 

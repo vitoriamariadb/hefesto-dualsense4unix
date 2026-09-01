@@ -216,7 +216,7 @@ desta sprint (`cor_do_plastico.py:382,400-407`, `external_card.py:97-103`, e o
 `docs/data/mapa-controles.csv`); os outros três são de quem coordena, e já foram
 reescritos em 27/08 à noite: a `ONDA-ILUMINACAO-08`, a `ONDA-JOGAR-07` e o
 `ONDA-ILUMINACAO-INDICE`. Restam os do mockup
-(`layout/_ferramentas/aba08.py`, e o HTML que ele gera) e do contrato
+(`src/hefesto_dualsense4unix/interface/aba08.py`, e o HTML que ele gera) e do contrato
 (`docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`) — **os dois estão em
 revisão com ela, e não se tocam sem a palavra dela.**
 

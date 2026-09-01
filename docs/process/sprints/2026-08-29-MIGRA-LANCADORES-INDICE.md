@@ -20,7 +20,7 @@ nao_toca:
 **29/08/2026.** Dez sprints levam a **aba 07 — Lançadores** do que o produto é
 hoje (a aba "Emulação", sobre uinput) até o mockup que ela aprovou sem ressalva
 — *"lançadores perfeito parabéns"*
-(`layout/_ferramentas/CORRECOES-DELA.md:59`) — **rodando num
+(`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:59`) — **rodando num
 `WebKit2.WebView` dentro da janela GTK3**
 (`D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`,
 `docs/data/decisoes-dela.csv:119`).

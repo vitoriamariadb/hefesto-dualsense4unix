@@ -41,7 +41,7 @@ Porque o selo que esta aba carrega **caducou**, e a lição está escrita:
 
 Aquele elogio valia para o desenho de **duas** colunas. **O gerador virou quatro
 em 28/08 com o selo ainda colado**, e a própria
-`layout/_ferramentas/CORRECOES-DELA.md:118-121` registra a lição em 29/08:
+`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:118-121` registra a lição em 29/08:
 
 > *"a lição de 28/08 é que um selo colado sem data acompanha um desenho que muda
 > por baixo: o 'aba gatilhos perfeita' era de 27/08 e valia para o desenho de
@@ -64,7 +64,7 @@ com a aba viva.
    nunca por clique. *"Não tente clicar por coordenada para focar a janela — já
    caiu noutro aplicativo duas vezes."*
 
-3. **O confronto com o mockup.** `layout/_ferramentas/ver.py 03` abre a
+3. **O confronto com o mockup.** `src/hefesto_dualsense4unix/interface/ver.py 03` abre a
    página aprovada na mesma janela GTK3; a aba viva do produto abre ao lado. As
    duas telas, lado a lado, na mesa dela.
 

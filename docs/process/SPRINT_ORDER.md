@@ -226,7 +226,7 @@ Red `02`) e outro pelo cabo (`hidraw7`, Starlight Blue `05`)
   **Enquanto ela não correr, o estado "Automático" do microfone é palpite.**
 
 **O que NÃO foi tocado, e é decisão dela:** a premissa caduca também está viva no
-mockup (`layout/_ferramentas/aba08.py` e o HTML que ele gera) e no contrato
+mockup (`src/hefesto_dualsense4unix/interface/aba08.py` e o HTML que ele gera) e no contrato
 (`2026-08-26-O-REDESENHO-as-dez-abas.md:330,623`). **Os dois estão em revisão com
 ela.** E na tela do produto, em `app/widgets/external_card.py:97-103`
 (*"No rádio o controle recusa o pedido da cor"*) — que muda com a CONEXÕES-11,

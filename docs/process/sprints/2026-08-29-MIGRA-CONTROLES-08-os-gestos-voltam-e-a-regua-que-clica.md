@@ -54,7 +54,7 @@ com razão medida em cada uma:
 
 ### 2. Nenhuma régua desta casa clica
 
-`layout/_ferramentas/olhar.py` faz `goto`, espera, e fotografa
+`src/hefesto_dualsense4unix/interface/olhar.py` faz `goto`, espera, e fotografa
 (`:22-35`). Ele **não clica em nada**. Consequência direta: **o estado "Todos" —
 os quatro cartões abertos — nunca foi fotografado por régua nenhuma**, e é
 justamente o único estado desta aba que rola (o gerador o anuncia:

@@ -3,22 +3,22 @@ sprint: MIGRA-JOGAR-03
 onda: MIGRA-JOGAR
 posse:
   J3:
-    - layout/_ferramentas/aba01.py
+    - src/hefesto_dualsense4unix/interface/aba01.py
     - layout/01-jogar.html
     - src/hefesto_dualsense4unix/gui/telas/01-jogar.html
 cria:
-  - layout/_ferramentas/aba01.py
+  - src/hefesto_dualsense4unix/interface/aba01.py
   - src/hefesto_dualsense4unix/gui/telas/01-jogar.html
   - tests/unit/test_migra_jogar_03_os_enderecos_da_aba.py
 bancada: false
 depois_de:
-  # SÉRIE, por R5: as duas abrem `layout/_ferramentas/aba01.py`, que a 02
+  # SÉRIE, por R5: as duas abrem `src/hefesto_dualsense4unix/interface/aba01.py`, que a 02
   # cria. Ordem: a 02 dá o gerador, a 03 põe os endereços dentro dele.
   - MIGRA-JOGAR-02
 nao_toca:
   - src/
   - tests/unit/test_migra_jogar_02_a_pagina_que_o_produto_carrega.py
-  - layout/_ferramentas/monta.py
+  - src/hefesto_dualsense4unix/interface/monta.py
 ---
 
 # MIGRA JOGAR · 03 — cada valor da tela ganha endereço
@@ -26,7 +26,7 @@ nao_toca:
 **O defeito:** no motor novo o Python **alcança a tela por endereço**, e a página
 não tem nenhum. Uma varredura por `id=` em `layout/01-jogar.html` devolve
 **só** `<linearGradient>`, `<filter>`, `<defs>`, `<pattern>` e `<style>` — todos
-de dentro do SVG, todos gerados pelo `layout/_ferramentas/monta.py`. **Nem
+de dentro do SVG, todos gerados pelo `src/hefesto_dualsense4unix/interface/monta.py`. **Nem
 um id de dado.** Sem esta sprint, as sete que vêm depois não têm por onde pegar.
 
 E há um segundo defeito no mesmo lugar: **o desenho inlina o SVG inteiro por

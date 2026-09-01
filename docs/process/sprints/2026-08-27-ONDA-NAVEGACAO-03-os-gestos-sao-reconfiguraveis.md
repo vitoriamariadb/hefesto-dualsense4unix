@@ -42,7 +42,7 @@ o par de botões cravado no código: nenhum deles pode ser trocado, e um deles
 `HotkeyConfig` (`hotkey_daemon.py:145`) já carrega os quatro combos como campos —
 o que falta é **o par ser escolhido** e **a ação ser escolhida**, e é isso que a
 tela do mockup pede (cada linha de gesto tem um dropdown de ação:
-`layout/_ferramentas/aba06.py`, `ACOES_GESTO` e `GESTOS`).
+`src/hefesto_dualsense4unix/interface/aba06.py`, `ACOES_GESTO` e `GESTOS`).
 
 Decisão dela: **D-A-AREA-QUE-ENSINA-VAI-PARA-A-NAVEGACAO**
 (`/tmp/coleta/decisoes.md:192`) — *"talvez aquela seção que fica em emulação e

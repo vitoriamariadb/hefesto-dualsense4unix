@@ -235,7 +235,7 @@ que sentiu. Nada mais.
 >    **"Disparo (Weapon)"**. O `(Rigid)` e o `(Galloping)` desta E5, de 31/07,
 >    **já não existem** — o rótulo mudou desde então;
 > 2. quem coordena disse que estava no mockup. **O mockup já está limpo** desde
->    que ela o aprovou: `layout/_ferramentas/aba03.py:146` e `:152` dizem
+>    que ela o aprovou: `src/hefesto_dualsense4unix/interface/aba03.py:146` e `:152` dizem
 >    "Arco de flecha" e "Disparo", sem parêntese.
 >
 > **Onde a decisão se aplica, portanto:** no **produto**, no transplante, e ela

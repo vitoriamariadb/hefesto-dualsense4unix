@@ -3,7 +3,7 @@ sprint: MIGRA-GATILHOS-04
 onda: MIGRA-GATILHOS
 posse:
   M4:
-    - layout/_ferramentas/aba03.py
+    - src/hefesto_dualsense4unix/interface/aba03.py
     - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
 cria:
   - tests/unit/test_migra_gatilhos_a_mesa_real_desenha_as_colunas.py

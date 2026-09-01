@@ -3,18 +3,18 @@ sprint: MIGRA-SISTEMA-02
 # onda: MIGRA-SISTEMA (a aba 09, no motor novo)
 posse:
   M2:
-    - layout/_ferramentas/aba09.py
+    - src/hefesto_dualsense4unix/interface/aba09.py
     - layout/09-sistema.html
 cria:
-  - novo-layout/_ferramentas/regua_enderecos09.py
+  - novo-src/hefesto_dualsense4unix/interface/regua_enderecos09.py
 bancada: false
 depois_de:
   - MIGRA-CONTROLES-PILOTO
 nao_toca:
   - src/
   - tests/
-  - layout/_ferramentas/monta.py
-  - layout/_ferramentas/topo.html
+  - src/hefesto_dualsense4unix/interface/monta.py
+  - src/hefesto_dualsense4unix/interface/topo.html
 ---
 
 # MIGRA SISTEMA · 02 — A página ganha endereço
@@ -72,7 +72,7 @@ A régua **não pode viver em `tests/unit/`**, e isso é fato medido, não
 preferência: `novo-layout/` é **`.gitignore:108`**. Um teste em `tests/` que
 lesse a página **passaria em branco** em toda árvore de agente e no CI — a
 régua cega que esta casa já pagou seis vezes em quinze horas. Ela vive em
-`novo-layout/_ferramentas/regua_enderecos09.py`, ao lado do `regua.py` e do
+`novo-src/hefesto_dualsense4unix/interface/regua_enderecos09.py`, ao lado do `regua.py` e do
 `regua_estados.py`, **até a moldura decidir a casa nova do HTML**; no dia em que
 o HTML mudar para dentro de `src/`, ela vira teste em `tests/unit/`.
 
@@ -87,7 +87,7 @@ A régua:
   pessoa procurar em 800 linhas;
 - **nenhum endereço duplicado.** Dois `data-id` iguais fazem o `run_javascript`
   pintar o primeiro e calar sobre o segundo — sem erro, sem log;
-- **o pixel não mudou.** Foto antes e depois com `layout/_ferramentas/olhar.py`,
+- **o pixel não mudou.** Foto antes e depois com `src/hefesto_dualsense4unix/interface/olhar.py`,
   no **mesmo** Chrome e no **mesmo** tamanho, e a diferença tem de ser **zero**.
   Se mudou, o `data-` pegou um seletor CSS por acidente. **Atenção:** o
   `scrollIntoViewIfNeeded` do Playwright **rola antes de medir** e cega toda

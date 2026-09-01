@@ -7,14 +7,14 @@ posse:
     - src/hefesto_dualsense4unix/utils/xdg_paths.py
     - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
     - src/hefesto_dualsense4unix/app/gui_dialogs.py
-    - layout/_ferramentas/aba03.py
+    - src/hefesto_dualsense4unix/interface/aba03.py
 cria:
   - src/hefesto_dualsense4unix/profiles/catalogo_de_curvas.py
   - tests/unit/test_migra_gatilhos_meus_efeitos_ganham_tela.py
 bancada: true
 depois_de:
   - MIGRA-GATILHOS-09
-  # SÉRIE, por R5: divide layout/_ferramentas/aba03.py com a 02, a 04 e a
+  # SÉRIE, por R5: divide src/hefesto_dualsense4unix/interface/aba03.py com a 02, a 04 e a
   # 05, e triggers_actions.py com a 03 e a 04.
   - MIGRA-GATILHOS-02
   - MIGRA-GATILHOS-03

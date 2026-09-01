@@ -53,7 +53,7 @@ E o mockup:
 > *"**"Meus efeitos" na mesma lista dos prontos** — `profiles/curva_propria.py`
 > existe desde julho e nunca teve tela."*
 > *"**Só "Guardar esse efeito"** sobrou de botão, como você pediu."*
-> — `layout/_ferramentas/aba03.py:130-131`
+> — `src/hefesto_dualsense4unix/interface/aba03.py:130-131`
 
 ## A medição
 
@@ -123,7 +123,7 @@ nomes prontos do DSX (`_nomes_recusados_do_dsx`, `:82`). Um botão que só grave
 
 - a lista "Efeito pronto" da sprint 04 ganha, **abaixo dos prontos**, um
   separador `──── Meus efeitos ────` e as curvas do catálogo
-  (`layout/_ferramentas/aba03.py:93-95`);
+  (`src/hefesto_dualsense4unix/interface/aba03.py:93-95`);
 - escolher uma delas põe modo + sete bytes na coluna e segue o caminho que já
   existe (`_persist_params_to_draft` + live-preview) — nenhuma rota nova para o
   aparelho;

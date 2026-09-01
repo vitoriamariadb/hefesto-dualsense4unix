@@ -53,7 +53,7 @@ cria aqui todos os buracos de que elas precisam.
 ## O que entrega
 
 **1 · Um quadro só.** As duas molduras viram um `GtkFrame` com o título que ela
-deu — **"Seleção de Gatilho"** (`layout/_ferramentas/aba03.py:107`) — e
+deu — **"Seleção de Gatilho"** (`src/hefesto_dualsense4unix/interface/aba03.py:107`) — e
 dentro dele duas colunas separadas por um filete, com os títulos
 *"Gatilho esquerdo `L2`"* e *"Gatilho direito `R2`"* (`aba03.py:78`).
 

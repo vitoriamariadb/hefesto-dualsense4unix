@@ -25,8 +25,8 @@ Decisão: `D-A-INTERFACE-NOVA-E-O-MOCKUP-DENTRO-DE-UMA-JANELA-GTK`
 Contrato da aba: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 9 —
 **toda linha do "Nada se perdeu" é requisito**.
 Especificação visual: `layout/10-perfis.html` e o gerador
-`layout/_ferramentas/aba10.py`.
-Correções literais dela: `layout/_ferramentas/CORRECOES-DELA.md`, aba Perfis.
+`src/hefesto_dualsense4unix/interface/aba10.py`.
+Correções literais dela: `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`, aba Perfis.
 
 ## A EXECUÇÃO ESPERA A PALAVRA DELA
 
@@ -149,7 +149,7 @@ estão em prosa, e não num `depois_de` com um id inventado.
 | `app/actions/profiles_actions.py` | **03**, **04**, **05**, **06** | `ONDA-PERFIS-02/06/08/09` |
 | `app/actions/footer_actions.py` | **ninguém** (está no `nao_toca` da 05) | `ONDA-PERFIS-08`, `ONDA-CONEXOES-09`, `ONDA-GATILHOS-02`, `ONDA-NAVEGACAO-09`, `ONDA-SISTEMA-05` |
 | `integrations/cor_do_plastico.py` | **ninguém** (`nao_toca` da 06) | `ONDA-CONEXOES-08/11/12` |
-| `layout/_ferramentas/aba10.py` | **02** | ninguém — mas ver a nota abaixo |
+| `src/hefesto_dualsense4unix/interface/aba10.py` | **02** | ninguém — mas ver a nota abaixo |
 
 **A nota do `novo-layout/`, e ela é séria:** a pasta é ignorada pelo git. Duas
 levas editando o mesmo mockup em árvores diferentes **divergem sem conflito de

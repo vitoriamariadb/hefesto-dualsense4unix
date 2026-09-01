@@ -5,9 +5,9 @@ instalado até o mockup aprovado — do frontal ao backend.*
 
 **As fontes**, e toda afirmação daqui sai de uma delas:
 `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md` §6 (o contrato da aba) ·
-`layout/06-navegacao.html` e `layout/_ferramentas/aba06.py` (a
+`layout/06-navegacao.html` e `src/hefesto_dualsense4unix/interface/aba06.py` (a
 especificação visual, aprovada por ela) ·
-`layout/_ferramentas/CORRECOES-DELA.md` (as correções literais) ·
+`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md` (as correções literais) ·
 `/tmp/coleta/decisoes.md` (as decisões dela).
 
 ---

@@ -4,7 +4,7 @@ onda: MIGRA-ILUMINACAO
 posse:
   IL10:
     - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
-    - layout/_ferramentas/aba04.py
+    - src/hefesto_dualsense4unix/interface/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_10_a_cor_do_plastico_por_coluna.py
@@ -21,7 +21,7 @@ depois_de:
   - ONDA-ILUMINACAO-08
   - ONDA-ILUMINACAO-09
   # A FILA INTEIRA que vem antes desta, e ela é longa de propósito: nove das doze
-  # abrem `app/actions/lightbar_actions.py` e cinco abrem `_ferramentas/aba04.py`.
+  # abrem `app/actions/lightbar_actions.py` e cinco abrem `src/hefesto_dualsense4unix/interface/aba04.py`.
   # Quem divide arquivo executa EM SÉRIE (R5), e o portão de colisão não faz fecho
   # transitivo — por isso a fila se escreve inteira, como na ONDA-SISTEMA-02.
   - MIGRA-ILUMINACAO-01

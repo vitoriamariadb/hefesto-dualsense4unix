@@ -35,7 +35,7 @@ erro de JavaScript**, e a linha "Corpo" voltou a caber na caixa.
 
 **Não vivem, e nunca viveram.** O SVG é o desenho que ela fez no editor, e a
 única cor que ele carregava era `fill="#3a3f4b"` como atributo. As cinco cores
-estavam em `layout/_ferramentas/topo.html:295-326` e no `mapa.py`, com uma
+estavam em `src/hefesto_dualsense4unix/interface/topo.html:295-326` e no `mapa.py`, com uma
 quinta em `04-iluminacao.html`. Quem fosse consertar o hex procuraria no arquivo
 errado. **Substituído** no cabeçalho de `docs/data/cores-do-dualsense.csv`.
 
@@ -116,7 +116,7 @@ perde: fica em `--z-<zona>-crua`, ao lado da cor que se vê.
 fonte. As quatro cápsulas dos ombros são **inclinadas** e a letra é horizontal:
 no x onde ela mora, o miolo da cápsula já subiu, e o centro do *bounding box* cai
 abaixo dele. **Path inclinado não se mede por caixa** — é a mesma lição que o
-`medir-subpaths.py` desta casa já pagou.
+`medir_subpaths.py` desta casa já pagou.
 
 ---
 
@@ -138,7 +138,7 @@ abaixo dele. **Path inclinado não se mede por caixa** — é a mesma lição qu
 
 ## O que fica aberto, e não é dela
 
-* **O mockup ainda diz o fato caduco** — `layout/_ferramentas/aba08.py` e o
+* **O mockup ainda diz o fato caduco** — `src/hefesto_dualsense4unix/interface/aba08.py` e o
   HTML que ele gera afirmam que *"pelo rádio o aparelho recusa a leitura"*, e o
   contrato repete em `2026-08-26-O-REDESENHO-as-dez-abas.md:330,623`. **Os dois
   estão em revisão com ela, e não se tocam sem a palavra dela.**

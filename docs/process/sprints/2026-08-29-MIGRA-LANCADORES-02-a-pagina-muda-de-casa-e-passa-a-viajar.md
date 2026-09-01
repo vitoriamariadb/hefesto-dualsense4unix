@@ -37,9 +37,9 @@ no repositório.
 Conferido agora:
 
 ```
-$ git check-ignore -v layout/07-lancadores.html layout/_ferramentas/aba07.py
+$ git check-ignore -v layout/07-lancadores.html src/hefesto_dualsense4unix/interface/aba07.py
 .gitignore:108:novo-layout/	layout/07-lancadores.html
-.gitignore:108:novo-layout/	layout/_ferramentas/aba07.py
+.gitignore:108:novo-layout/	src/hefesto_dualsense4unix/interface/aba07.py
 ```
 
 O diagnóstico completo — as quatro consequências, o wheel que só leva

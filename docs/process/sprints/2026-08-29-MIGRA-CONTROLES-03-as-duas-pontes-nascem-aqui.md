@@ -33,7 +33,7 @@ rota que emitia GTK, que decidiu a tecnologia
 ## O defeito
 
 **Não existe canal nenhum entre o Python e a página.**
-`layout/_ferramentas/ver.py` (147 linhas) é só **visor**: os quatro pinos  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+`src/hefesto_dualsense4unix/interface/ver.py` (147 linhas) é só **visor**: os quatro pinos  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 (`:28-31`), duas folhas de estilo de usuário (`:68`, `:82`) e `load_uri`
 (`:92`). Nenhum `register_script_message_handler`, nenhum `run_javascript`.
 
@@ -53,7 +53,7 @@ mais. Ele não sabe o que é um controle, uma bateria ou um giroscópio — quem
 
    **A razão é uma conta que ninguém fez ainda, e esta sprint tem de fazer:** o
    card pinta a leitura viva **dez vezes por segundo** (é o que a dica do
-   mockup promete, `layout/_ferramentas/aba02.py`, bloco do Giroscópio).
+   mockup promete, `src/hefesto_dualsense4unix/interface/aba02.py`, bloco do Giroscópio).
    Com 29 valores por controle e quatro controles na mesa, uma chamada por
    valor são **1.160 chamadas por segundo** atravessando a fronteira. **Ninguém
    mediu quanto isso custa**, e a diferença entre uma e outra forma pode ser a

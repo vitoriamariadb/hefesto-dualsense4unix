@@ -38,7 +38,7 @@ O mockup põe o recibo **dentro do quadro**, com os dois lados de uma vez:
 ```
 L2: Metralhadora — escrito no controle · R2: Arco de flecha — escrito no controle
 ```
-— `layout/_ferramentas/aba03.py:100-103`
+— `src/hefesto_dualsense4unix/interface/aba03.py:100-103`
 
 E o contrato manda manter o que a linha já sabe dizer:
 

@@ -100,7 +100,7 @@ Portão do install: um teste que lê `install.sh` e exige a cópia de
    recusa a leitura (o caso comum no Bluetooth), o controle aparece neutro. Vale
    desenhar neutro, ou é melhor não desenhar nada até saber a cor?
 2. **Tamanho**: o mockup dá `max-width: 212px`
-   (`layout/_ferramentas/aba04.py`, `.previa .ds-svg`). Confirmar na tela.
+   (`src/hefesto_dualsense4unix/interface/aba04.py`, `.previa .ds-svg`). Confirmar na tela.
 
 ## Fontes
 

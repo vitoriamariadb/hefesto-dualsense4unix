@@ -45,7 +45,7 @@ que é onde a interface vive.
 
 Esta é a primeira decisão de toda régua nova, e escolher errado dá verde falso.
 
-| | **`olhar.py` e as réguas de `layout/_ferramentas/`** | **`scripts/regua_de_tela.py`** |
+| | **`olhar.py` e as réguas de `src/hefesto_dualsense4unix/interface/`** | **`scripts/regua_de_tela.py`** |
 |---|---|---|
 | motor | Playwright dirigindo **Chromium** | **WebKitGTK** dentro de uma janela GTK |
 | alvo | o **mockup**, arquivo `file://` | o **motor que ela vai usar**, com o piloto e o daemon vivo |

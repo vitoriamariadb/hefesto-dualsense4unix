@@ -79,7 +79,7 @@ Elas são de **toda** a janela, não desta aba. Sumir com elas ao trocar a pági
 ### O gesto que a página dá sozinha, sem ninguém clicar
 
 O acordeão é CSS puro, e o cartão do alvo nasce com o rádio **`checked`**
-(`layout/_ferramentas/aba02.py`, `bloco()`: `{" checked" if c["alvo"]}`).
+(`src/hefesto_dualsense4unix/interface/aba02.py`, `bloco()`: `{" checked" if c["alvo"]}`).
 Se a ponte ler o estado inicial do rádio como escolha, **a aba define o alvo ao
 abrir, sem gesto de ninguém** — que é exatamente o defeito que
 `status_actions.py:1629` já curou, com a frase no código: *"montar a aba não é

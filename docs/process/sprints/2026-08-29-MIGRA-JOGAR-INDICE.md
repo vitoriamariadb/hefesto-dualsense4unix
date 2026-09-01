@@ -72,9 +72,9 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
    depois. Nove de dez abas voltaram "sem título" para quem mediu assim.
 4. **Os `<select>` saem como caixa branca** no WebKitGTK, que relata as cores do
    autor e desenha o tema do sistema. A cura é `select{appearance:none}` e já
-   está no `layout/_ferramentas/ver.py`. São 117 nas dez abas — **nenhum  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+   está no `src/hefesto_dualsense4unix/interface/ver.py`. São 117 nas dez abas — **nenhum  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    nesta**, e é por isso que a Jogar é barata de moldura.
-5. **84 filtros mortos no SVG** (`layout/_ferramentas/monta.py` prefixa os
+5. **84 filtros mortos no SVG** (`src/hefesto_dualsense4unix/interface/monta.py` prefixa os
    ids e não reescreve o `url()`, porque o desenho usa aspas escapadas). O
    contorno do touchpad **nunca apareceu, em motor nenhum**. A cura está pronta,
    muda 1,09% do desenho que ela aprovou e **é dela** — não entra em sprint desta
@@ -118,7 +118,7 @@ Fonte: `docs/process/2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md`, §6.
    10 ──► 04          (o cartão só mostra máscara viva depois da 10)
 ```
 
-* **02 antes de 03** — as duas abrem `layout/_ferramentas/aba01.py`, que a  <!-- ref-externa: nasce na MIGRA-JOGAR-03, ainda não executada -->
+* **02 antes de 03** — as duas abrem `src/hefesto_dualsense4unix/interface/aba01.py`, que a  <!-- ref-externa: nasce na MIGRA-JOGAR-03, ainda não executada -->
   02 cria. Quem divide arquivo executa **em série** (R5).
 * **03 antes de 04, 05, 08 e 09** — sem endereço o Python não alcança valor
   nenhum. A 03 é a que mais destrava por linha escrita.

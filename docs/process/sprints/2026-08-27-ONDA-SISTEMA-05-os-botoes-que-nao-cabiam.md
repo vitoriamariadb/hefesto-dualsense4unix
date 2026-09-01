@@ -51,7 +51,7 @@ O que muda de forma:
 | "Detalhes técnicos" abaixo de tudo (`:3057`, `daemon_status_text:3087`) | **à direita dos botões de Avançado**, em grade de duas colunas |
 | "Voltar ao padrão" no rodapé (`:4269`, `btn_footer_restore_default`, handler `on_restore_default`) | **"Restaurar de fábrica"**, no quadro Avançado, com confirmação |
 
-**A palavra dela**, em `layout/_ferramentas/CORRECOES-DELA.md`, aba
+**A palavra dela**, em `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`, aba
 Sistema: *"todos os valores de preparar os jogos ao lado dos botões são
 valores que aparecem se deixarmos o mouse sobre o botão. Em avançado a mesma
 coisa. E subir a detalhes técnicos pra ficar a direita dos botões de avançado.

@@ -5,7 +5,7 @@ posse:
   IL11:
     - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
     - docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md
-    - layout/_ferramentas/aba04.py
+    - src/hefesto_dualsense4unix/interface/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
 cria:
   - tests/unit/test_migra_iluminacao_11_troca_ou_rodizio.py

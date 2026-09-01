@@ -92,7 +92,7 @@ tem o canal e não tem o destinatário.
   **Ela tem de sair idêntica.** Se sair diferente, a sprint mudou o que ela
   aprovou e vira pergunta dela, não achado do executor;
 - **a fita continua clicável**: `fita_clicavel` (hoje em
-  `layout/_ferramentas/aba02.py:942`) já para com `SystemExit` se a forma
+  `src/hefesto_dualsense4unix/interface/aba02.py:942`) já para com `SystemExit` se a forma
   do chip mudar — foi assim que a fita viva morreu sem sintoma em 27/08. O
   atributo novo não pode fazer o casamento dela falhar: rode o gerador e afirme
   que os cinco chips viraram `<label for>`.

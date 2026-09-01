@@ -58,7 +58,7 @@ não existe.
 Uma medição, na máquina dela, com a ferramenta que **já está no disco**:
 
 ```bash
-layout/_ferramentas/ver.py 03      # a aba Gatilhos no WebView, na tela dela
+src/hefesto_dualsense4unix/interface/ver.py 03      # a aba Gatilhos no WebView, na tela dela
 ```
 
 Registrar, em `docs/process/medicoes/2026-08-29-o-popup-do-select-no-webkitgtk-sob-cosmic.md`:

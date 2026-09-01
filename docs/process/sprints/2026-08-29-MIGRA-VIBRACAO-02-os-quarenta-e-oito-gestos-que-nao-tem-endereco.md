@@ -3,7 +3,7 @@ sprint: MIGRA-VIBRACAO-02
 onda: MIGRA-VIBRACAO
 posse:
   MV2:
-    - layout/_ferramentas/aba05.py
+    - src/hefesto_dualsense4unix/interface/aba05.py
 cria:
   - tests/unit/test_migra_vibracao_02_a_pagina_tem_endereco.py
 bancada: false
@@ -16,8 +16,8 @@ depois_de:
   # é a segunda verdade que esta casa paga caro.
   - MIGRA-GATILHOS-02
 nao_toca:
-  - layout/_ferramentas/monta.py
-  - layout/_ferramentas/topo.html
+  - src/hefesto_dualsense4unix/interface/monta.py
+  - src/hefesto_dualsense4unix/interface/topo.html
   - src/
   - install.sh
   - pyproject.toml
@@ -109,7 +109,7 @@ outros.
 `tests/unit/test_migra_vibracao_02_a_pagina_tem_endereco.py`
 
 1. **A FOTO NÃO MUDA — esta é a mordida principal.** Gere `05-vibracao.html`
-   antes e depois, fotografe as duas com `layout/_ferramentas/olhar.py` e
+   antes e depois, fotografe as duas com `src/hefesto_dualsense4unix/interface/olhar.py` e
    compare **pixel a pixel**. Atributo não pinta; se um pixel mudou, o gerador
    mudou mais do que devia — e esta aba está **FECHADA por elogio literal dela**
    (`CORRECOES-DELA.md:39`). *Arranque:* mude uma linha de CSS junto e veja a
@@ -157,7 +157,7 @@ faltando" e passa a ser **a aba não existir**, sem um erro no log.
 
 Onde o HTML passa a morar é do **`MIGRA-MOLDURA-01`**, e há **divergência viva
 entre as ondas paralelas**: a `MIGRA-GATILHOS-02` escreve o gerador onde ele
-está (`layout/_ferramentas/`), e a `MIGRA-LANCADORES-01` já reivindica
+está (`src/hefesto_dualsense4unix/interface/`), e a `MIGRA-LANCADORES-01` já reivindica
 `src/hefesto_dualsense4unix/gui/telas/07-lancadores.html` e um gerador em `scripts/telas/`. <!-- ref-externa: os dois são o que aquela sprint VAI criar; a ausência é o assunto. -->
 **Esta sprint segue a primeira** — escreve no gerador
 onde ele está hoje. A mudança de endereço do arquivo é um `git mv` de quem

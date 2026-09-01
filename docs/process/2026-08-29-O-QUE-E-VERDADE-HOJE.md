@@ -35,7 +35,7 @@ pilha"*. **Nunca escreva — em código, tela ou documento — que o aparelho n�
 
 **1.3 — Confira COMO a foto foi tirada antes de acreditar nela.** Hoje o produto
 foi declarado lendo a cor do plástico com base numa foto de `--cor-duble`, um
-dublê que não manda byte nenhum (`layout/_ferramentas/controles_vivos.py`).  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+dublê que não manda byte nenhum (`src/hefesto_dualsense4unix/interface/controles_vivos.py`).  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 No instante da foto, `ler_pelo_cabo` devolvia `None`.
 
 **1.4 — Dois fatos desta conversa caducaram no mesmo dia** (§2.2 e §2.4), curados

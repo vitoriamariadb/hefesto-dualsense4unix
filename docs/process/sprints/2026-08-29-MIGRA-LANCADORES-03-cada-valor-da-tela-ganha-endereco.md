@@ -98,7 +98,7 @@ nasce — o desenho está **selado** por ela e esta sprint não o abre.
    **Mordida:** dê `data-acao="procurar-ausentes"` ao segundo → reprova, com a
    frase do P6.
 4. **O atributo não mudou pixel.** Foto do Chrome antes e depois, pelo
-   `layout/_ferramentas/olhar.py`, comparadas byte a byte.
+   `src/hefesto_dualsense4unix/interface/olhar.py`, comparadas byte a byte.
    **Mordida:** acrescente junto um `style` qualquer → as fotos divergem e
    reprova. *E a armadilha de 27/08 vale aqui:* o `scrollIntoViewIfNeeded` do
    Playwright **rola antes de medir** e cega toda medição de layout feita

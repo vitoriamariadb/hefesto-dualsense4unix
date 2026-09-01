@@ -42,7 +42,7 @@ produto que ela decidiu que **não é só Steam**.
 ## O que esta sprint entrega
 
 A **faixa de estado rápido** no topo de cada card, exatamente como o mockup
-aprovado a desenha (`layout/_ferramentas/aba02.py`, função `card`, bloco
+aprovado a desenha (`src/hefesto_dualsense4unix/interface/aba02.py`, função `card`, bloco
 `fx`), com seis itens numa linha só:
 
 | item | de onde vem hoje |

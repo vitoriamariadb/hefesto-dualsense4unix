@@ -3,7 +3,7 @@ sprint: MIGRA-PERFIS-02
 onda: PERFIS
 posse:
   MP2:
-    - layout/_ferramentas/aba10.py
+    - src/hefesto_dualsense4unix/interface/aba10.py
 cria:
   - tests/unit/test_migra_perfis_02_todo_valor_tem_endereco.py
 bancada: false
@@ -63,7 +63,7 @@ seleção do ativo e os quatro campos do editor). É o que torna esta aba barata
 do lado do dado — e cara do lado do gesto, que é a **05**.
 
 O **rodapé** (Aplicar · Salvar Perfil · Importar · Exportar, e o recibo) é da
-**moldura**: ele vive em `layout/_ferramentas/fim.html`, é o mesmo nas dez
+**moldura**: ele vive em `src/hefesto_dualsense4unix/interface/fim.html`, é o mesmo nas dez
 abas, e tem classe (`r-salvar`, `recibo`) mas nenhum `data-hef`. **Esta sprint
 não o toca** — endereçá-lo uma vez para as dez é da moldura, e endereçá-lo aqui
 criaria a décima cópia do mesmo problema.
@@ -84,7 +84,7 @@ criaria a décima cópia do mesmo problema.
    `Profile.controllers` (`profiles/schema.py:1008`, canonizada em `:1114`).
    Endereço que não é a chave do dado obriga a inventar uma tradução, e a
    tradução é onde nasce a segunda verdade.
-4. **O HTML é regerado** (`layout/_ferramentas/regerar.py`) e a foto do
+4. **O HTML é regerado** (`src/hefesto_dualsense4unix/interface/regerar.py`) e a foto do
    Chrome é conferida contra a de antes.
 
 ## Como se prova (a mordida)
@@ -114,14 +114,14 @@ criaria a décima cópia do mesmo problema.
   não elemento por elemento.
 - **o motor de verdade também**: a mesma comparação no `WebKit2.WebView`, com
   `select{appearance:none}` e `.nota{display:none}` aplicados como o `ver.py`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
-  aplica (`layout/_ferramentas/ver.py:66-90`). O Chrome sozinho não prova  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+  aplica (`src/hefesto_dualsense4unix/interface/ver.py:66-90`). O Chrome sozinho não prova  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
   nada sobre a tela dela.
 
 ## O que é dela decidir
 
 - **A PRIORIDADE NÃO É EDITÁVEL NO MOCKUP, E ELA PEDIU QUE FOSSE.** Palavra
   dela, 27/08: *"prioridade é slicer"*
-  (`layout/_ferramentas/CORRECOES-DELA.md`). O mockup desenha
+  (`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`). O mockup desenha
   `<span class="trilho"><span class="cheio" style="width:90%">` — um desenho,
   não um controle: **não há como arrastar**. Hoje o produto tem uma
   `Gtk.Scale` de verdade (`profile_priority_scale`, seis `self._get()`), e o

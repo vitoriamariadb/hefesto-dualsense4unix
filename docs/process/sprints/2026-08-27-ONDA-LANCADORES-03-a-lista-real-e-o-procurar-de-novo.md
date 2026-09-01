@@ -61,6 +61,6 @@ nao_toca:
    nova**, não é ligar o que existe.
 2. **O carimbo fica aqui?** Ela mandou o `◆ este jogo já sabe por onde entra`
    sair da aba Perfis — *"Isso sai. Isso tá na aba Jogar."*
-   (`layout/_ferramentas/CORRECOES-DELA.md:79-86`). Aqui ele aparece
+   (`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:79-86`). Aqui ele aparece
    **agregado** ("3 jogos já sabem por onde entrar") e ela aprovou a aba inteira
    depois disso. Fica como está, ou o agregado segue o individual?

@@ -287,7 +287,7 @@ provou o reparo com md5; o arquivo dela está íntegro.
 **A causa: oito arquivos cravavam o caminho absoluto da árvore dela.**
 
 ```
-layout/_ferramentas/{monta,exportar,aba08,aba09,importar,mapa,regua}.py
+src/hefesto_dualsense4unix/interface/{monta,exportar,aba08,aba09,importar,mapa,regua}.py
 scripts/check_pecas_do_dualsense.py        ← este é VERSIONADO
 ```
 

@@ -118,7 +118,7 @@ dela — já aconteceu, e o mockup que ela ia abrir sumiu na frente dela.
 
 ```bash
 cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix-dev
-HEFESTO_VARIANTE=dev .venv/bin/python layout/_ferramentas/controles_vivos.py --oculta --segundos 3 --foto /tmp/x.png
+HEFESTO_VARIANTE=dev .venv/bin/python src/hefesto_dualsense4unix/interface/controles_vivos.py --oculta --segundos 3 --foto /tmp/x.png
 ```
 
 Sem ela, `daemon_state_full()` devolve `None` e a tela diz "Errno 111".
@@ -133,7 +133,7 @@ São os mais urgentes: ela olha a aba Controles e eles estão lá.
 
 **A-1 · O botão "Liberar" sai do microfone.**
 Ele não existe no produto. Antes de tirar, `git log -p` em
-`layout/_ferramentas/aba02.py` para achar quando nasceu e com que justificativa;
+`src/hefesto_dualsense4unix/interface/aba02.py` para achar quando nasceu e com que justificativa;
 se alegaram um IPC, meça se existe. Cole no relato: quantos botões o bloco tem,
 e **o dono de cada um** (método de IPC, arquivo:linha). Sem dono, não entra.
 
@@ -173,7 +173,7 @@ esta casa mais paga. Extraia para `scripts/`.
 Gatilhos · Iluminação · Lançadores · Navegação.
 Cada uma com régua própria em `tests/unit/test_regua_de_tela_a_aba_*.py`.
 **Quatro rascunhos não provados** ficaram de uma leva parada:
-`layout/_ferramentas/{jogar_vivo,perfis_vivos,conexoes_vivas,sistema_viva}.py`.
+`src/hefesto_dualsense4unix/interface/{jogar_vivo,perfis_vivos,conexoes_vivas,sistema_viva}.py`.
 Leia, meça, e diga se aproveita ou refaz — as duas respostas servem, desde que
 medidas.
 

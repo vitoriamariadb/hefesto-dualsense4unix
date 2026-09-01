@@ -31,7 +31,7 @@ Controles diz melhor.
 
 Fonte: `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 8, *"O card de
 controle encolhe para o que é declaração e rádio"*;
-`layout/_ferramentas/aba08.py:409-435` (as duas tiras). Decisões:
+`src/hefesto_dualsense4unix/interface/aba08.py:409-435` (as duas tiras). Decisões:
 `D-A-ESCOLHA-DO-PLAYER-MORA-NA-LIGHTBAR`, `D-AS-ABAS-CONVERSAM`,
 `D-A-FITA-E-O-UNICO-ALVO`.
 
@@ -197,7 +197,7 @@ o par se move junto ou não se move, e é o
 reescreve `_linha_da_cor` inteiro, e a lápide **sai junto** — não fica anotada
 ao lado.
 
-O mockup (`layout/_ferramentas/aba08.py`) e o contrato
+O mockup (`src/hefesto_dualsense4unix/interface/aba08.py`) e o contrato
 (`docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`) ainda descrevem o mundo
 de antes. **Os dois estão em revisão com ela, e não se tocam sem a palavra
 dela.**

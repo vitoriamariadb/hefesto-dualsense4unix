@@ -3,7 +3,7 @@ sprint: MIGRA-ILUMINACAO-08
 onda: MIGRA-ILUMINACAO
 posse:
   IL8:
-    - layout/_ferramentas/aba04.py
+    - src/hefesto_dualsense4unix/interface/aba04.py
     - scripts/telas/aba04.py   # o mesmo arquivo depois da MIGRA-CONTROLES-02
     - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
 cria:
@@ -21,7 +21,7 @@ depois_de:
   - ONDA-ILUMINACAO-08
   - ONDA-ILUMINACAO-09
   # A FILA INTEIRA que vem antes desta, e ela é longa de propósito: nove das doze
-  # abrem `app/actions/lightbar_actions.py` e cinco abrem `_ferramentas/aba04.py`.
+  # abrem `app/actions/lightbar_actions.py` e cinco abrem `src/hefesto_dualsense4unix/interface/aba04.py`.
   # Quem divide arquivo executa EM SÉRIE (R5), e o portão de colisão não faz fecho
   # transitivo — por isso a fila se escreve inteira, como na ONDA-SISTEMA-02.
   - MIGRA-ILUMINACAO-01
@@ -45,7 +45,7 @@ nao_toca:
 ### (a) O trilho é um desenho, não um controle
 
 Os `.trilho` do mockup são `<span>` com um `<span class="cheio">` de largura em %
-(`layout/_ferramentas/aba04.py:320`; o CSS em `:195-197`). **Conferido no
+(`src/hefesto_dualsense4unix/interface/aba04.py:320`; o CSS em `:195-197`). **Conferido no
 HTML gerado: o miolo da aba tem quatro `<input>`, e os quatro são
 `type="color"`.** Não existe um controle de brilho na página — existe o desenho
 de um.
@@ -108,7 +108,7 @@ junto, cada arraste vira uma rajada de IPC por coluna.
 
 Medido em 29/08: o WebKitGTK **relata as cores do autor e desenha o tema do
 sistema** — foi o que fez os `<select>` saírem como caixa branca, e a cura foi
-`select{appearance:none}` (`layout/_ferramentas/ver.py:78-88`; são **117**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+`select{appearance:none}` (`src/hefesto_dualsense4unix/interface/ver.py:78-88`; são **117**  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
 `<select>` nas dez abas). **Um `range` tem o mesmo problema, e a mesma cura
 muda o desenho.**
 

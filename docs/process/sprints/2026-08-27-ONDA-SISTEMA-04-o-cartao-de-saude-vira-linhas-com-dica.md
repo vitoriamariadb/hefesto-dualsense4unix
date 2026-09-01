@@ -46,7 +46,7 @@ explicação numa dica; e a mais longa tem 311 caracteres na tela.
 
 Contrato: redesenho, linhas 524-525 ("O cartão encolhe na tela e cresce na
 dica") e 546. Mockup: `layout/09-sistema.html`, quadro **Saúde do
-sistema**; gerador em `layout/_ferramentas/aba09.py:56` (`saude()`) — a
+sistema**; gerador em `src/hefesto_dualsense4unix/interface/aba09.py:56` (`saude()`) — a
 forma é `[selo] veredito … [?]`, com a dica ancorada à direita.
 
 ## O que entrega

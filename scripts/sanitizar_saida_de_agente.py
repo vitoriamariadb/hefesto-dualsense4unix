@@ -61,7 +61,7 @@ RAIZ = Path(__file__).resolve().parents[1]
 if str(RAIZ) not in sys.path:
     sys.path.insert(0, str(RAIZ))
 
-from tests.unit.test_docs_mac_anonimato import (  # noqa: E402
+from tests.unit.test_docs_mac_anonimato import (
     _OUIS_REAIS_OCTETOS,
 )
 

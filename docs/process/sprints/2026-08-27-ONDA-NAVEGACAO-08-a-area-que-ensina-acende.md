@@ -64,7 +64,7 @@ tela nenhuma: só um comentário de código o conhecia.
 > — 27/08/2026, `/tmp/coleta/hoje.md:240`
 
 > "Se for pros botões do dualsense acenderem igual temos hoje na aba status ok."
-> — `layout/_ferramentas/CORRECOES-DELA.md`
+> — `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`
 
 ## O que entrega
 

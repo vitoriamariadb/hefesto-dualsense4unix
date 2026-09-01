@@ -154,7 +154,7 @@ abas devolvia **0** para as duas. Ganharam porta em 29/08:
 
 | Página | Porta | Onde |
 |---|---|---|
-| `mapa-do-controle.html` (1309 linhas, gerador `_ferramentas/mapa.py`, **dois** portões o medem) | *"Banco de provas: o mapa do controle ↗"* | `.quadro-topo` da aba **Navegação** — é de lá que saem as 21 linhas das duas telas de botões dela |
+| `mapa-do-controle.html` (1309 linhas, gerador `src/hefesto_dualsense4unix/interface/mapa.py`, **dois** portões o medem) | *"Banco de provas: o mapa do controle ↗"* | `.quadro-topo` da aba **Navegação** — é de lá que saem as 21 linhas das duas telas de botões dela |
 | `mapa-das-portas.html` (1475 linhas, **sem** gerador) | *"Banco de provas: o mapa das portas ↗"* | `.quadro-topo` de "Rádio e adaptadores", na aba **Conexões** |
 
 A porta natural do mapa do controle é também a aba **Controles**, e ela estava

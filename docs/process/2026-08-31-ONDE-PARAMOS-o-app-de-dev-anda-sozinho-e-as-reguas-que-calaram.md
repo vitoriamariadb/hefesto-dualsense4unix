@@ -328,7 +328,7 @@ já derrubou a sessão gráfica dela.
 **Para falar com o daemon de dev, a variável é obrigatória:**
 
 ```bash
-HEFESTO_VARIANTE=dev .venv/bin/python layout/_ferramentas/controles_vivos.py \
+HEFESTO_VARIANTE=dev .venv/bin/python src/hefesto_dualsense4unix/interface/controles_vivos.py \
     --oculta --segundos 3 --foto /tmp/x.png
 ```
 

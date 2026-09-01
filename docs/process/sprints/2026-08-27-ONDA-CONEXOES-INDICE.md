@@ -24,11 +24,11 @@ minha máquina ficar igual à dela?"*
 **Contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, seção 8
 (linhas 597-688) — toda linha do "Nada se perdeu" é requisito.
 **Especificação visual:** `layout/08-conexoes.html` e o gerador
-`layout/_ferramentas/aba08.py`.
+`src/hefesto_dualsense4unix/interface/aba08.py`.
 **Correção dela sobre esta aba:** *"mds conexões é muita coisa pra arrumar. Veja
 o padrão de correção que to pedindo nos anteriores e dispara um especialista em
 visualização opus pra corrigir e nos apresentar algo melhor."*
-(`layout/_ferramentas/CORRECOES-DELA.md`) — o mockup de 27/08 às 01h19 é a
+(`src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`) — o mockup de 27/08 às 01h19 é a
 resposta a esse pedido, e é o alvo.
 
 ## As treze

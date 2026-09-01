@@ -30,8 +30,8 @@ dela: *"sem impeditivo então. manda ve em tudo."*
 - **Contrato da aba:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, §2
   (linhas 166-242) — toda linha do "Nada se perdeu" é requisito.
 - **Especificação visual:** `layout/02-controles.html`, gerado por
-  `layout/_ferramentas/aba02.py`.
-- **Correções literais dela:** `layout/_ferramentas/CORRECOES-DELA.md`.
+  `src/hefesto_dualsense4unix/interface/aba02.py`.
+- **Correções literais dela:** `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`.
 - **O retrato do dia:**
   [ONDE PARAMOS 29/08](../2026-08-29-ONDE-PARAMOS-a-tecnologia-decidida-e-a-cura-que-a-tela-desfazia.md)
   e [O POSTO DE COMANDO](../2026-08-29-O-POSTO-DE-COMANDO-o-que-esta-em-voo.md).

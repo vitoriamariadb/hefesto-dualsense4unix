@@ -27,7 +27,7 @@ parecer o mockup — e nesta casa **interface só fecha com o olho dela**.
 
 > *"Sempre vai validando via navegador."*
 > *"Faça todos os ajustes. Aba a aba valida com calma."*
-> — `layout/_ferramentas/CORRECOES-DELA.md:71,73`
+> — `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:71,73`
 
 Regra da casa, PROVA-DE-TELA-01: foto antes e depois, e **a palavra final é
 dela**.

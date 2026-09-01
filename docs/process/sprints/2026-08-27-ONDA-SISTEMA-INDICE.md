@@ -6,8 +6,8 @@ aprovado mostra.* Sete sprints.
 - **Contrato:** `docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md`, §7 Sistema
   (linhas 506-601).
 - **Mockup aprovado:** `layout/09-sistema.html`, gerado por
-  `layout/_ferramentas/aba09.py`.
-- **A palavra dela:** `layout/_ferramentas/CORRECOES-DELA.md`, seção
+  `src/hefesto_dualsense4unix/interface/aba09.py`.
+- **A palavra dela:** `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md`, seção
   "Aba Sistema".
 - **Protocolo de quem executa:** `docs/process/COMO-EXECUTAR-UMA-SPRINT.md`.
 

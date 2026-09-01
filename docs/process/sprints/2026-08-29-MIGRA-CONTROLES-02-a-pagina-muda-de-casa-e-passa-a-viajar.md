@@ -52,7 +52,7 @@ ids no [índice](2026-08-29-MIGRA-CONTROLES-INDICE.md).
 
 ```
 .gitignore:108:novo-layout/	layout/02-controles.html
-.gitignore:108:novo-layout/	layout/_ferramentas/aba02.py
+.gitignore:108:novo-layout/	src/hefesto_dualsense4unix/interface/aba02.py
 ```
 
 Disso saem quatro consequências, e as quatro já cobraram:

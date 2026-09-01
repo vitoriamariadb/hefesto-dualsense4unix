@@ -46,12 +46,12 @@ Antes disso era pendência de vocabulário: *"Arco"* é ambíguo em português (
 de círculo, arco elétrico) e *"Arma"* não separava de *"Arma automática"* nem de
 *"Arma semi-automática"* (`:117-119`).
 
-**O mockup aprovado** — `layout/_ferramentas/aba03.py:47,60`, e o contrato
+**O mockup aprovado** — `src/hefesto_dualsense4unix/interface/aba03.py:47,60`, e o contrato
 que copia a lista dos 19 (`docs/process/2026-08-26-O-REDESENHO-as-dez-abas.md:264`)
 — escreve os dois **sem** o termo em inglês. E a palavra dela sobre a aba:
 
 > *"aba gatilhos perfeita. Parabéns."*
-> — `layout/_ferramentas/CORRECOES-DELA.md:27-28`
+> — `src/hefesto_dualsense4unix/interface/CORRECOES-DELA.md:27-28`
 
 ## Por que isto não se resolve sozinho
 

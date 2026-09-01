@@ -4,7 +4,7 @@ onda: MIGRA-NAVEGACAO
 posse:
   NAV6-DIAGNOSTICO:
     - src/hefesto_dualsense4unix/app/telas/navegacao/diagnostico.py
-    - layout/_ferramentas/aba06.py
+    - src/hefesto_dualsense4unix/interface/aba06.py
     - layout/06-navegacao.html
 cria:
   - src/hefesto_dualsense4unix/app/telas/navegacao/diagnostico.py

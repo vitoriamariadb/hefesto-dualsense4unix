@@ -31,7 +31,7 @@ $ for f in novo-layout/??-*.html; do
 04-iluminacao.html: 4 09-sistema.html: 4
 05-vibracao.html: 4   10-perfis.html: 4
 
-$ grep -c ... layout/_ferramentas/topo.html
+$ grep -c ... src/hefesto_dualsense4unix/interface/topo.html
 4
 ```
 

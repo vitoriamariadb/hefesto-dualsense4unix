@@ -73,7 +73,7 @@ não foi medido, e vai primeiro: o enxerto SUBSTITUTIVO."*
    e a página desenha a dela dentro do HTML
    (`layout/01-jogar.html:566-585`). Com o enxerto as duas ficam na tela ao
    mesmo tempo. É o mesmo defeito que ela viu **em um segundo** quando a
-   primeira versão do `layout/_ferramentas/ver.py` pôs um `Gtk.Notebook`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
+   primeira versão do `src/hefesto_dualsense4unix/interface/ver.py` pôs um `Gtk.Notebook`  <!-- ref-externa: mora em `novo-layout/`, que é .gitignore e NÃO viaja em worktree -->
    por cima da tira do desenho — *"as abas apareciam duas vezes"*.
 3. **A fita da Jogar está declarada como "ainda não ligada".**
    `app/app.py:1231` — `"tab_home_box": _MOTIVO_ALVO_AINDA_NAO_LIGADO`. O
@@ -95,7 +95,7 @@ widget lá dentro.
 2. **O `GtkScrolledWindow` para de rolar.** A página foi desenhada para
    1180×757 exatamente (`--alt-janela:757px`, `01-jogar.html:460`) e rola por
    conta própria quando precisa. Dois roladores encaixados dão a barra dupla que
-   o `layout/_ferramentas/olhar.py` esconde por outro motivo. Política
+   o `src/hefesto_dualsense4unix/interface/olhar.py` esconde por outro motivo. Política
    `NEVER` nos dois eixos, ou o `ScrolledWindow` sai e o `WebView` é filho
    direto — o que a medição do passo 5 disser.
 3. **A fita fica em UM lugar.** Esta sprint **declara a duplicação e não a
