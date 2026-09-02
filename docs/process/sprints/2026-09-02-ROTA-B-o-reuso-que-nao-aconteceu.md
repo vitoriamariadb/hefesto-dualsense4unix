@@ -10,38 +10,56 @@
 
 ## A CORRELAÇÃO, e ela é o achado desta onda
 
-| pacote | linhas | imports do motor GTK | campos escritos |
+**A TABELA ABAIXO FOI REMEDIDA PELA B1 EM 02/09/2026, e cinco células estavam
+erradas** — a régua velha não contava `profiles/`, que é de onde as abas Perfis
+e Gatilhos tiram quase tudo. Os números que valem:
+
+| pacote | linhas | módulos do legado | campos escritos |
 | --- | --- | --- | --- |
-| `a08_conexoes.py` | 1790 | **14** | **8/11 (73%)** |
-| `a01_jogar.py` | 434 | 2 | 6/11 (55%) |
+| `a08_conexoes.py` | 1790 | **11** | **8/11 (73%)** |
+| `a10_perfis.py` | 932 | **6** | 1/3 (33%) |
+| `a01_jogar.py` | 434 | 3 | 6/11 (55%) |
+| `a02_controles.py` | 509 | 3 | 7/12 (58%) |
+| `a03_gatilhos.py` | 632 | 3 | **1/25 (4%)** |
+| `a06_navegacao.py` | 673 | 3 | 4/7 (57%) |
 | `a05_vibracao.py` | 385 | 2 | 2/9 (22%) |
 | `a09_sistema.py` | 399 | 2 | 2/10 (20%) |
-| `a02_controles.py` | 509 | 1 | 7/12 (58%) |
-| `a06_navegacao.py` | 673 | 1 | 4/7 (57%) |
-| `a10_perfis.py` | 932 | 1 | 1/3 (33%) |
-| `a03_gatilhos.py` | 632 | **1** | **1/25 (4%)** |
-| `a04_iluminacao.py` | 273 | **0** | 6/12 (50%) |
+| `a04_iluminacao.py` | 273 | **1** | 6/12 (50%) |
 
-**A aba que mais REUSA é a que mais FUNCIONA.** As que reescreveram são as que
-estão em 4% e 20%.
+**A aba que mais REUSA é a que mais FUNCIONA** — no topo, e só no topo. `a08` e
+`a10` pintam 100% dos campos que têm. Mas **a correlação NÃO é monótona**:
+`a03_gatilhos` alcança três módulos e pinta 1 de 25. **Reuso não é pintura**, e
+tratar um pelo outro foi o que produziu as cinco células erradas.
 
-No total: **6.027 linhas nos dez pacotes, 24 imports do motor, 20 chamadas de
-IPC cru.** O motor tem 23 módulos de ação, 9 widgets e a `gui/ponte_da_tela` — e
-a interface nova alcança uma fração deles.
+No total: **6.027 linhas nos nove pacotes, 34 módulos do legado alcançados**
+(não 24), 20 chamadas de IPC cru. Contra **415 defs públicas** em `app/actions/`
++ `app/widgets/` + `gui/ponte_da_tela.py`, das quais **314 atravessam para
+HTML** — e a interface nova chama cerca de treze.
 
-## O EXEMPLO QUE PROVA, medido
+A régua que produz estes números, e o inventário inteiro, estão em
+[2026-09-02-ROTA-B1-o-inventario-do-motor.md](2026-09-02-ROTA-B1-o-inventario-do-motor.md).
 
-`a03_gatilhos.py` importa `trigger_specs` (certo — as especificações dos modos
-vêm de lá) e reescreve por conta própria:
+## O EXEMPLO QUE ESTE DOCUMENTO DEU, e a B1 DERRUBOU
 
-| a aba escreveu | o motor já tinha |
+Este texto dizia que `a03_gatilhos.py` reescreve quatro funções do motor. **Três
+não são reescrita: já chamam o motor**, e o docstring de uma delas diz "NÃO SE
+DIGITA NENHUM NÚMERO". A acusação foi feita por nome, sem ler o corpo.
+
+| o que este documento acusava | o que a função faz, lida no fonte |
 | --- | --- |
-| `_desfecho(resposta)` | `app/actions/triggers_actions.py:humanizar_erro_gatilho` |
-| `_padroes(nome)` | os defaults por modo, dentro de `trigger_specs` |
-| `_curva(chave)` / `_pronto_da_curva()` | as curvas prontas |
+| `_padroes(nome)` `:330` | chama `trigger_specs.preset_to_positional_params` |
+| `_curva(chave)` `:361` | chama `trigger_presets.resolve_feedback_preset` |
+| `_pronto_da_curva()` `:96` | compara com `trigger_presets.FEEDBACK_POSITION_PRESETS` |
+| `_desfecho(resposta)` `:315` | normaliza a FORMA da resposta da ponte — não é o trabalho de `humanizar_erro_gatilho`, que traduz o TEXTO da recusa |
 
-Duas grafias do mesmo fato é o defeito-mãe desta casa. E aqui ele tem um custo
-que se vê: a aba entrega **1 campo de 25**.
+**O defeito real é o inverso do acusado:** `humanizar_erro_gatilho` existe, foi
+testado, e **nenhum pacote o chama** — a recusa do daemon chega crua na tela
+dela. É função não alcançada, não segunda verdade.
+
+**A duplicata que EXISTE está noutro lugar**, e tem três grafias:
+`core/sysfs_leds.norm_mac` × `pacotes/__init__.py:272 _so_hex` ×
+`pacotes/a08_conexoes.py:290 _so_hex`. As três discordam em 3 de 5 entradas
+medidas. A prova está na B1.
 
 ## ELA FOI PARTIDA EM DUAS — B1 e B2
 

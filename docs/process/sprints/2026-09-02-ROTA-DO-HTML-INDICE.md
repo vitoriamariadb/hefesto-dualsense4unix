@@ -23,19 +23,32 @@ uma pergunta e só uma: *"como isto funcionava?"*. Ninguém volta para ele.
 **O medo dela estava certo, e ele se materializou.** A medição de 02/09/2026
 prova, e a correlação não deixa dúvida:
 
-| pacote | linhas | imports do motor GTK | campos que escreve |
+| pacote | linhas | módulos do legado | campos que escreve |
 | --- | --- | --- | --- |
-| `a08_conexoes.py` | 1790 | **14** | **8/11 (73%)** |
-| `a02_controles.py` | 509 | 1 | 7/12 (58%) |
-| `a03_gatilhos.py` | 632 | **1** | **1/25 (4%)** |
-| `a04_iluminacao.py` | 273 | **0** | 6/12 (50%) |
+| `a08_conexoes.py` | 1790 | **11** | **8/11 (73%)** |
+| `a10_perfis.py` | 932 | **6** | 1/3 (33%) |
+| `a02_controles.py` | 509 | 3 | 7/12 (58%) |
+| `a03_gatilhos.py` | 632 | 3 | **1/25 (4%)** |
+| `a04_iluminacao.py` | 273 | **1** | 6/12 (50%) |
 
-**A aba que mais LINKA o legado é a que mais FUNCIONA.** As que reescreveram do
-zero são as que travaram.
+**REMEDIDO PELA ONDA B1 EM 02/09/2026.** A tabela anterior dizia `a04 = 0`,
+`a10 = 1`, `a02 = 1`, `a03 = 1` e `a08 = 14`, e as cinco estavam erradas: a
+régua não contava `profiles/`, de onde as abas Perfis e Gatilhos tiram quase
+tudo.
 
-No total: 6.027 linhas nos dez pacotes, **24 imports do motor**, 20 chamadas de
-IPC cru — contra 23 módulos de ação, 9 widgets e a `gui/ponte_da_tela` que
-estavam ali, prontos, funcionando.
+**A aba que mais LINKA o legado é a que mais FUNCIONA** — no topo. Mas a
+correlação NÃO é monótona: `a03_gatilhos` alcança três módulos e pinta 1 campo
+de 25. **Reuso não é pintura.**
+
+No total: 6.027 linhas nos nove pacotes, **34 módulos do legado alcançados**
+(não 24), 20 chamadas de IPC cru — contra **415 defs públicas** em
+`app/actions/`, `app/widgets/` e `gui/ponte_da_tela.py`, das quais **314
+atravessam para HTML**. A tela nova chama cerca de treze.
+
+**O inventário completo — o que cada aba deveria estar chamando e não chama —
+está em
+[2026-09-02-ROTA-B1-o-inventario-do-motor.md](2026-09-02-ROTA-B1-o-inventario-do-motor.md).
+Leia antes de escrever uma linha de qualquer aba.**
 
 ### O QUE ISSO IMPÕE A TODA ONDA DESTA PASTA
 
