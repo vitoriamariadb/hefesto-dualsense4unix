@@ -30,7 +30,7 @@ medidos nesta árvore às 13h40, em ~23 s.
 
 Palavra dela: *"eu desinstalei a versão antiga e vamos deixar só a dev."*
 
-O cabeçalho do `install-dev.sh` dizia desde 29/08, com todas as letras, que *"o
+O cabeçalho do `install-dev.sh` dizia desde 29/08, com todas as letras, que *"o  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 app de dev DEPENDE do Hefesto estável para essa camada"*. Sem o estável, ninguém
 instalava udev, grupo `hefesto`, broker, resiliência do bluetoothd nem a ponte
 privilegiada.
@@ -42,7 +42,7 @@ disso era erro. Era aviso, no meio do log.
 
 **A cura não foi duplicar.** As onze curas de HOST saíram do `install.sh` para
 `scripts/lib/camada_de_maquina.sh` (919 linhas), que os DOIS instaladores
-sourceiam. O `install-dev.sh` ganhou `--camada-de-maquina`. Conferido: a função
+sourceiam. O `install-dev.sh` ganhou `--camada-de-maquina`. Conferido: a função  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 `instalar_camada_de_maquina` tem **11 passos e 11 chamadas**, e o portão proíbe
 que o `install.sh` a chame — chamá-la daria as onze por servidas e o portão
 viraria decoração.

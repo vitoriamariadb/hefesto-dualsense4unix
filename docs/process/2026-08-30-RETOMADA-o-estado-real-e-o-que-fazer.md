@@ -207,7 +207,7 @@ Em `dev-gtk`, tudo commitado e com mordida:
   comido em cada quatro)
 - a trava que impede dois daemons de segurar o mesmo controle
 - a lápide "o aparelho recusa" saiu de 25 lugares — a causa era o nosso CRC
-- o `install-dev.sh` assa os transforms do SVG sozinho
+- o `install-dev.sh` assa os transforms do SVG sozinho  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 
 ---
 

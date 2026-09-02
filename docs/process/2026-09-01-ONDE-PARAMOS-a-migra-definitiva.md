@@ -95,7 +95,7 @@ Commit `6f7e0119`, branch `dev`, árvore limpa.
 | Interface dentro do `src/` | `src/hefesto_dualsense4unix/interface/` — entra na wheel |
 | Console-script | `hefesto-dualsense4unix-gui` → `interface.hefesto_vivo:main` |
 | Purge do `-dev` | completo: nome, pasta, `.desktop`, unit, XDG, WM_CLASS |
-| `install-dev.sh` | virou o instalador único; `APP_ID` sem variante |
+| `install.sh` | é o instalador único; o de desenvolvimento foi aposentado no fim do dia |
 | Ruff, repo inteiro | **727 → 0** |
 | Os 12 ganchos do pre-commit | **todos verdes** |
 | Gestos ligados e validados no aparelho dela | **48**, nas dez abas |
@@ -239,7 +239,7 @@ Mudança de desenho **só entra no publicado com o OK dela**, aba por aba
   octetos 4 e 5 (o MAC dela vira `d42f4b0000d8`; o exemplo com os octetos reais NÃO se escreve, nem para ilustrar a máscara — foi assim que eu mesma o vazei em 01/09). Dois portões vigiam isso.
 - **`install.sh` não roda nesta árvore.** Ele declara
   `readonly APP_ID="hefesto-dualsense4unix"` e sequestraria a instalação. O
-  instalador desta árvore é o `install-dev.sh` — que, apesar do nome, **é o
+  instalador desta árvore é o `install.sh` — que, no fim deste dia, **é o
   instalador único** desde 01/09. Renomeá-lo é trabalho pendente.
 - **Nunca `git stash` puro.** O stash é compartilhado entre worktrees e outra
   sessão pode dar `pop` no seu. Se precisar guardar, é commit WIP.

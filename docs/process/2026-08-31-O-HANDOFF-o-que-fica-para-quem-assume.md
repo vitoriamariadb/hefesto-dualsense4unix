@@ -15,9 +15,9 @@ não medido.
 ## 1. O QUE FICOU FUNCIONANDO, e é o mais importante
 
 **O app de dev anda sozinho.** Ela desinstalou o Hefesto estável e o app parou
-na hora — a premissa que o sustentava estava escrita no `install-dev.sh` desde
+na hora — a premissa que o sustentava estava escrita no `install-dev.sh` desde  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 29/08 e caiu. A camada de máquina virou `scripts/lib/camada_de_maquina.sh`,
-sourceada pelos DOIS instaladores, e o `install-dev.sh` ganhou
+sourceada pelos DOIS instaladores, e o `install-dev.sh` ganhou  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 `--camada-de-maquina`.
 
 Conferido nesta máquina: grupo `hefesto` existe com ela dentro, `/dev/uhid` é

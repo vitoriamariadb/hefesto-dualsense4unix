@@ -50,7 +50,7 @@ Nenhum deles pede `sudo`. Nenhum deles escreve em `/etc` ou `/usr`.
 **Não rodes `./install.sh` na pasta de dev.** Ele tem o nome do app cravado
 (`install.sh:192`): rodá-lo ali não cria um app novo, **reescreve o teu** — o
 atalho passa a apontar para a pasta de dev, e a tua unit passa a rodar código de
-desenvolvimento sem trocar o nome de nada. O `install-dev.sh` existe por isso, e
+desenvolvimento sem trocar o nome de nada. O `install-dev.sh` existe por isso, e  <!-- ref-externa: `install-dev.sh` foi aposentado em 01/09/2026, quando o app virou único; o parágrafo é o registro do dia em que ele existia -->
 ele **se recusa a rodar** se detectar que vai colidir, dizendo o que colide.
 
 ---
