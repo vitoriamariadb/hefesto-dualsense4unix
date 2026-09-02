@@ -115,17 +115,48 @@ medindo a coisa errada.
 
 ### PARTE 2 — os ajustes para a nova infra
 
-O que a migração para o `WebKit2.WebView` exige e que o GTK não precisava:
+**A INTERFACE ESTÁ EM 36%, e não nos 77% que eu disse antes.** Ela viu e
+cobrou, com as telas na mão:
 
-| | medido em 01/09 |
-| --- | --- |
-| gestos com dono | **44 de 62 (71%)** |
-| abas que pintam com o daemon vivo | **9 de 10**, 184 valores num passeio |
-| gestos sem dono, por aba | `06-navegacao` 8/15 · `09-sistema` 5/12 · `01-jogar` 5/7 · `08-conexoes` 16/18 |
+> *"basicamente todas as telas são mockups e estão com informações incorretas ou
+> desatualizadas ou não integradas de fato."*
 
-As três abas que aparecem como "100%" numa contagem ingênua — `05-vibracao`,
-`07-lancadores`, `10-perfis` — têm **zero** `data-gesto` no HTML. Não é 100%: é
-"ainda não tem botão". Não conte esse tipo de zero como pronto.
+**A MEDIÇÃO CERTA — 02/09/2026.** Dos 103 `data-campo` das dez abas, o pacote da
+aba ESCREVE **37**. Os outros 66 mostram o valor cravado no HTML do mockup:
+
+| aba | campos | o produto escreve | |
+| --- | --- | --- | --- |
+| `03-gatilhos` | 25 | **1** | **4%** |
+| `09-sistema` | 10 | 2 | 20% |
+| `05-vibracao` | 9 | 2 | 22% |
+| `10-perfis` | 3 | 1 | 33% |
+| `04-iluminacao` | 12 | 6 | 50% |
+| `01-jogar` | 11 | 6 | 55% |
+| `06-navegacao` | 7 | 4 | 57% |
+| `02-controles` | 12 | 7 | 58% |
+| `08-conexoes` | 11 | 8 | 73% |
+| `07-lancadores` | 3 | **0** | **0%** |
+| **TOTAL** | **103** | **37** | **36%** |
+
+E **120 dos 183 campos do HTML nascem com valor cravado** — é o que aparece
+quando o produto não escreve por cima.
+
+**O QUE ISSO PRODUZ NA TELA DELA, fotografado em 02/09 com UM controle no cabo:**
+a aba Gatilhos mostra `P2·Starlight Blue·BT` com *"Arma semi-automática"* e
+*"Stop hard"*, enquanto o cabeçalho da MESMA tela diz `1 controle: 1 USB · 0 BT`.
+A Iluminação mostra P2 com cor e brilho. **Uma tela que mostra o desenho como se
+fosse o aparelho mente para quem está com o controle na mão** — e é pior que
+tela vazia, porque não há como perceber.
+
+**POR QUE O NÚMERO ANTERIOR ESTAVA ERRADO, e a lição vale para a próxima
+medição:** o 77% contava handlers de IPC cujo NOME aparece no código da
+interface. Presença de string não é funcionamento. O mesmo vale para os "44 de
+62 gestos com dono": ter dono é ter função registrada, não é a função fazer o
+que o botão promete.
+
+**A RÉGUA QUE FALTA, e ela é a primeira coisa a construir:** um portão que, com
+o daemon vivo e a mesa real, reprove quando um campo continua exibindo o valor
+do mockup. Hoje nada acusa isso — foi ela quem viu.
 
 ### PARTE 3 — as features não desenvolvidas
 
