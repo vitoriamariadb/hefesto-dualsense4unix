@@ -34,7 +34,7 @@ MOCKUP · INDECIDÍVEL e lista os MOCKUP pelo nome. O cérebro é puro
 **A tela tem 287 campos, não 103.** Os dois números anteriores contavam NOMES
 ÚNICOS de `data-campo`; o mesmo endereço se repete uma vez por coluna de
 controle, e `aj-val-e-0` vale `7` na do P1 e `3` na do P2. E a `10-perfis`, que
-o dossiê media com 3 campos, tem **81 elementos** — ela endereça por `data-hef`,
+o dossiê contava com 3 campos, tem **81 elementos** — ela endereça por `data-hef`,
 que a régua antiga não olhava.
 
 **A pior aba não era a que o plano apontava.** `03-gatilhos` carregava **41 dos
