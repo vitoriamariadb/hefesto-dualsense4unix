@@ -17,11 +17,19 @@ mais refação."* <!-- noqa-acento: citação literal dela -->
 **A regra que produz esta ordem é uma só:** nada que outra coisa vá reescrever
 entra antes dela. Cada posição abaixo tem a razão medida.
 
-### FASE 0 — O QUE JÁ ESTÁ EM VOO *(pendência zero)*
+> **02/09/2026, FIM DO DIA — AS FASES 0, 1 E 2 FECHARAM.** A leva das treze
+> frentes entrou, a onda do microfone entrou **com a auditoria que lhe faltava**,
+> e ela mandou publicar as sete abas. O que sobra está reorganizado em DEZ
+> frentes por arquivo, com a do PINTOR primeiro, em
+> **[ONDE PARAMOS — o fim do dia](2026-09-02-ONDE-PARAMOS-o-fim-do-dia-e-as-dez-frentes-que-sobram.md)**,
+> que é a fila de agora. **Leia a §5 dele antes de rodar qualquer comando.**
+> O que está abaixo fica como registro de como a fila foi construída.
+
+### FASE 0 — O QUE JÁ ESTAVA EM VOO *(FECHADA em 02/09/2026)*
 
 | # | o quê | estado |
 | --- | --- | --- |
-| 0 | **A onda do microfone** | **PARADA E SALVA** na branch `worktree-wf_01bb9c2c-3c4-7`, commit `d6506b23`, 48 arquivos (+3401/−567). Passou por 5 lentes, o planejador e o executor. **NÃO passou pela auditoria** — os três auditores não chegaram a rodar. **Não faça merge sem eles.** Retomar: `Workflow({scriptPath: '…/o-mic-vira-eleicao-wf_01bb9c2c-3c4.js', resumeFromRunId: 'wf_01bb9c2c-3c4'})` — as sete fases já feitas voltam do cache. |
+| 0 | **A onda do microfone** | **ENTROU em `dev`** (merge `b988a9b4`), depois de três auditores adversários com lentes distintas e um corretivo. Os três voltaram `aprovo_com_ressalva`; SETE achados, os sete reproduzidos e curados, **zero devolvido**. Dois eram de COMPORTAMENTO: o mudo de QUALQUER controle devolvia o microfone da MESA INTEIRA com o LED de quem elegeu ACESO (alcançável no primeiro toque), e desligar o interruptor prometia devolver a luz ao kernel sem devolver. E a "impossibilidade construtiva" que o commit afirmava era FALSA — a recusa de escrever o `common[9]` continua inteira pelas três medições de 01/08, 03/08 e 19/08, mas o motivo NOVO caiu. |
 
 ### FASE 1 — TUDO O QUE NÃO PRECISA DELA *(e é quase tudo)*
 
