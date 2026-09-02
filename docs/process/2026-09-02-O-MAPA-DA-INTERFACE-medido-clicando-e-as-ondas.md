@@ -156,15 +156,38 @@ inventado.
 
 ### D2 — O JOGADOR: a HTML perdeu o que a GTK lia
 
-O daemon publica DUAS chaves: `player_slot` (a posição, que o produto decide) e
-`player` (o LED que o aparelho mostra). No cabo coincidem; **no rádio o `player`
-volta `None` e o `player_slot` continua certo.**
+O daemon publica DUAS chaves: `player_slot` (a posição de sessão, que o PRODUTO
+decide e que sobrevive a desconectar e reconectar) e `player` (o número do
+jogador que o JOGO vê). **Quem volta `None` é o controle que NÃO é jogador do
+co-op — em qualquer transporte**, e o `player_slot` continua certo.
+
+Medido em 02/09/2026 com os dois na mesa, e é o CABO que cala:
+
+```
+uniq 4446…4203 · bt  · player 1    · player_slot 1 · is_primary TRUE
+uniq d42f…46d8 · usb · player None · player_slot 2 · is_primary false
+coop.enabled=true · coop.players=1 · coop.mesa tem UMA entrada, a do primário
+```
+
+A condição está escrita em `daemon/subsystems/coop.CoopManager.player_indexes`:
+*"Só entra quem o jogo enxerga: um secundário ainda aguardando o grab não tem
+vpad — reservou o índice, mas não é jogador nenhum até ser promovido."* Com o
+co-op DESLIGADO (`resolve_player_numbers`) todos os conectados são o jogador 1.
 
 | | lê |
 | --- | --- |
-| GTK (`app/widgets/controller_card.py:1059-1065`) | `player_slot` **e depois** `player` |
+| GTK (`app/actions/base.numero_do_controle`) | `player_slot`, e sem ele `index + 1` |
+| GTK (`controller_card.py:1059-1067`) | `player_slot` para "Controle N"; `player` para o sufixo "· Jogador X" |
 | HTML (`a01_jogar.py:48`, `a04_iluminacao.py:89-90`) | **só** `player` |
-| HTML (`a04_iluminacao.py:221`) | `player_slot or player` — **já certo** |
+| HTML (`a04_iluminacao.py:221`) | `player_slot or player or 1` — a ordem já é a certa; o `or 1` é POSIÇÃO disfarçada de default |
+
+**CORREÇÃO DE FATO (02/09/2026):** este bloco dizia *"no rádio o `player` volta
+`None`"* e que a GTK lia as duas chaves *"nesta ordem"*, como se fossem uma
+queda. Medido: não é o transporte, e não é uma queda — a GTK responde DUAS
+perguntas diferentes com as duas chaves. O dono novo é
+`interface/pacotes.jogador_de`, e ele deixa de fora, de propósito, a queda para
+`index + 1`: a posição é o que fez o mesmo controle mudar de nome quando o
+segundo entrou na mesa (D1).
 
 **Resultado medido:** a aba Iluminação escreve `Modelo: P—` no rótulo e deixa o
 botão `2` ACESO logo abaixo. A mesma aba discordando de si mesma.

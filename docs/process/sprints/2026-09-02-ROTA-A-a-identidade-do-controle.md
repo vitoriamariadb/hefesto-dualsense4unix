@@ -54,6 +54,24 @@ gui/aba_conexoes.py               o desenho do gabinete (já reusado pela a08)
 **A GTK mostrava o modelo?** Consulte o grafo da árvore estável e o
 `controller_card.py`. Se mostrava, a lógica dela é a que se liga — não uma nova.
 
+## O QUE FECHOU EM 02/09/2026 — os passos 1 e 2
+
+| | onde |
+| --- | --- |
+| o daemon publica `serial`, `modelo` e `nome_declarado` por controle | `daemon/ipc_handlers._identidade_publicada` |
+| a leitura de aparelho sai do tique e vira cache de sessão, **uma pergunta por endereço** | `_identidade_de_fabrica` + `_perguntar_identidade` |
+| o serial deixa de ser descartado dentro do `decodificar` | `integrations/cor_do_plastico.serial_de` + `ler_identidade_pelo_cabo` |
+| o dono do nome na tela | `interface/pacotes.identidade_de` |
+| as réguas | `tests/unit/test_os_donos_de_fato.py` (37) |
+
+**`nome_declarado` é a TERCEIRA chave, e ela não estava no plano.** Sem ela o
+primeiro termo da ordem — *"o que ELA nomeou"* — não tem fonte: a declaração
+dela vive em `maquina.json` (`controles[<uniq>].cor`), que o `state_full` não
+publicava. Custo zero: o daemon já carrega o documento em `_maquina` no boot e
+o rebinda no "Aplicar".
+
+**O passo 3 NÃO foi feito** — ver o fim deste arquivo.
+
 ## OS PASSOS
 
 ### 1. O daemon passa a publicar a identidade
@@ -125,3 +143,17 @@ Com DOIS controles na mesa:
   neles ao mesmo tempo.
 - Não publica HTML.
 - Não toca no `player`/`player_slot` — isso é a ONDA B.
+
+## O QUE FICOU ABERTO, e por quê (02/09/2026)
+
+* **o passo 3 — as abas param de cravar.** Exige editar os `aNN_*.py` e os
+  geradores (`src/hefesto_dualsense4unix/interface/aba01.py` e os nove irmãos),
+  onde dez frentes estavam ao mesmo tempo. Os donos existem e estão testados;
+  ligá-los é a próxima leva;
+* **`grep -c 'Cosmic Red\|Starlight Blue' src/.../paginas/*.html == 0`** —
+  continua **170**, e continuará até o passo 3;
+* **a prova no aparelho.** Ela pede clique e escrita no daemon vivo, com dois
+  controles na mesa e treze frentes em voo. É do orquestrador, serializada;
+* **o `serial` publicado é o de fábrica, cru.** Ele identifica o aparelho de
+  forma única, como um MAC. Quem o levar para a TELA ou para arquivo versionado
+  responde pelas duas réguas de anonimato desta casa.
