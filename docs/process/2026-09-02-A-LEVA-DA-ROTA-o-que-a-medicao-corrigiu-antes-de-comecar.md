@@ -105,7 +105,7 @@ As oito ondas (A–H) do plano colidiam: A e C escrevem no mesmo
 | 1 | **B1 — o inventário do motor** | nenhum `.py` de produção; escreve um documento |
 | 2 | **A+C — os donos de fato** | `daemon/ipc_handlers.py` · `integrations/cor_do_plastico.py` · `pacotes/__init__.py` |
 | 3 | **O instrumento** | `interface/hefesto_vivo.py` · `scripts/abrir_interface.py` |
-| 4–13 | **uma por aba** (01…10) | `pacotes/aNN_*.py` · `interface/abaNN.py` |
+| 4–13 | **uma por aba** (01…10) | `pacotes/aNN_*.py` · `interface/aba*.py` |
 
 **A onda D foi dissolvida de propósito.** Os dezesseis "aplicado que não aplica"
 não são uma coisa só: sete deles são **falso negativo do instrumento** (o clique
