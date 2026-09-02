@@ -12,14 +12,27 @@ rádio:
 
 | | lê |
 | --- | --- |
-| GTK (`app/widgets/controller_card.py:1059-1065`) | `player_slot` **e depois** `player` |
+| GTK (`app/actions/base.numero_do_controle`) | `player_slot`, e sem ele `index + 1` |
+| GTK (`controller_card.py:1059-1067`) | `player_slot` para "Controle N"; `player` para o sufixo "· Jogador X" |
 | HTML (`a01_jogar.py:48`, `a04_iluminacao.py:89-90`) | **só** `player` |
-| HTML (`a04_iluminacao.py:221`) | `player_slot or player` — **já certo** |
+| HTML (`a04_iluminacao.py:221`) | `player_slot or player or 1` — a ordem já é a certa; o `or 1` é POSIÇÃO |
 
-No cabo as duas chaves coincidem. **No rádio o `player` volta `None` e o
-`player_slot` continua certo** — e a aba Iluminação escreve `Modelo: P—` no
-rótulo enquanto deixa o botão `2` ACESO logo abaixo. A mesma aba discordando de
-si mesma.
+A aba Iluminação escreve `Modelo: P—` no rótulo enquanto deixa o botão `2`
+ACESO logo abaixo. A mesma aba discordando de si mesma.
+
+**CORREÇÃO DE FATO (02/09/2026, medida com os dois na mesa):** este documento
+dizia *"no rádio o `player` volta `None`"*. **Não é o transporte** — quem cala é
+o controle que NÃO é jogador do co-op, e na medição ele estava no CABO:
+
+```
+uniq 4446…4203 · bt  · player 1    · player_slot 1 · is_primary TRUE
+uniq d42f…46d8 · usb · player None · player_slot 2 · is_primary false
+coop.enabled=true · coop.players=1 · coop.mesa tem UMA entrada, a do primário
+```
+
+A condição está em `daemon/subsystems/coop.CoopManager.player_indexes`: *"Só
+entra quem o jogo enxerga: um secundário ainda aguardando o grab não tem vpad —
+reservou o índice, mas não é jogador nenhum até ser promovido."*
 
 **E ELA JÁ DISSE QUE ISTO É REGRESSÃO:** *"por bt só faltava o som e o mic. o
 resto já tinhamos mapeado e tava funcionando na interface."*
@@ -39,47 +52,50 @@ fazer_grafos                                                    # esta árvore
 cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix-estavel && fazer_grafos
 ```
 
-### 2. Um dono por fato
+### 2. Um dono por fato — FEITO em 02/09/2026
 
 Toda leitura com mais de uma chave ganha uma função em
-`interface/pacotes/__init__.py`, com a ordem escrita e a razão. O modelo é o do
-`jogador_de` abaixo — **quem chama não precisa saber que são duas chaves**:
+`interface/pacotes/__init__.py`, com a ordem escrita e a razão — **quem chama
+não precisa saber que são duas chaves.** Os três donos que nasceram:
 
-```python
-def jogador_de(c: dict) -> int | None:
-    """Que jogador é este controle — o NÚMERO que a tela mostra, ou None.
+| dono | as chaves | o que ele responde |
+| --- | --- | --- |
+| `jogador_de(c)` | `player_slot` → `player` | o número que a tela mostra, ou `None` |
+| `identidade_de(c, mesa)` | `nome_declarado` → `modelo` → a mesa → `transport` | o nome do aparelho, ou o travessão (ROTA-A) |
+| `degradacao_de(c)` | `vpad_backend` + `vpad_motivo` | a frase da emulação degradada, ou `""` |
 
-    O daemon publica DUAS chaves: `player_slot` (a posição, que o produto
-    decide) e `player` (o LED que o aparelho mostra). No cabo coincidem; no
-    rádio o `player` volta None. A GUI GTK sempre leu as duas, nesta ordem
-    (`controller_card.py:1059-1065`).
-    """
-    for chave in ("player_slot", "player"):
-        valor = c.get(chave)
-        if valor is None:
-            continue
-        try:
-            n = int(valor)
-        except (TypeError, ValueError):
-            continue
-        if n > 0:
-            return n
-    return None
-```
+O levantamento das dezoito chaves que o daemon publica por controle, contadas
+em `app/{widgets,actions,telas}` contra `interface/pacotes/`, está escrito no
+cabeçalho da seção em `pacotes/__init__.py`. O que ele achou de novo:
+
+* `vpad_motivo` — 1 leitura na GTK, **ZERO** no HTML. É a razão pela qual a
+  emulação degradou, e sozinho o `vpad_backend` não a separa da máscara Xbox,
+  que é `uinput` por design;
+* `nascimento` — 2 na GTK, **ZERO** no HTML. É a razão do botão "A luz não
+  acende" da aba Conexões. **Fica sem dono de propósito:** é chave ÚNICA, não a
+  assinatura de duas, e o consumidor é território de outra onda;
+* `connected` — 6 na GTK, ZERO no HTML, e **não é perda**: os pacotes recebem
+  `ctx.conectados`, que já filtrou.
 
 ### 3. Nenhum pacote lê a chave crua
 
-Trocar todos os leitores pelo dono, e escrever a régua que proíbe a volta.
+A régua existe (`tests/unit/test_os_donos_de_fato.py`) e nomeia arquivo e linha.
+As abas **ainda não migraram** — dez frentes estão dentro dos `aNN_*.py` neste
+momento —, então ela carrega uma lista de exceções DATADA, com a razão de cada
+uma, para a próxima leva zerá-la. Há uma segunda régua que reprova exceção
+morta: uma lista que mente sobre o tamanho da dívida é pior que dívida nenhuma.
 
 ## AS RÉGUAS
 
-1. **A ordem é a mesma da GTK.** Se `controller_card.py` mudar a ordem dele, a
-   régua reprova — as duas têm de mudar no mesmo commit.
+1. **A ordem é a mesma da GTK.** Se `app/actions/base.numero_do_controle`
+   deixar de ler `player_slot` primeiro, a régua reprova — as duas têm de mudar
+   no mesmo commit.
 2. **Nenhum pacote lê `.get("player")` direto.** A régua varre `pacotes/*.py` e
    nomeia arquivo e linha.
-3. **O caso do rádio, escrito sozinho:** `{"player": None, "player_slot": 2}`
-   é jogador **2**. É o caso que motivou tudo e não pode se perder num
-   `parametrize`.
+3. **O caso do NÃO-JOGADOR, escrito sozinho:** `{"player": None,
+   "player_slot": 2}` é jogador **2**. É o caso que motivou tudo e não pode se
+   perder num `parametrize`. (Ele era chamado de "o caso do rádio" — ver a
+   correção de fato acima.)
 
 ## COMO SE SABE QUE FECHOU
 
