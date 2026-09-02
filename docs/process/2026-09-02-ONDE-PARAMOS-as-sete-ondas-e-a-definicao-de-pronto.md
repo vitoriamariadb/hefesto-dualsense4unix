@@ -26,7 +26,15 @@ git log --since=midnight --format='%h %s'  # o que a casa fechou hoje
 git add -A && bash scripts/portoes.sh      # os 30, ~2 min
 git worktree list                          # o que há em voo
 bash scripts/hefesto-chave.sh estado       # o que está instalado na máquina dela
+fazer_grafos                               # (re)constrói o índice de código, ~1 min
 ```
+
+**EXISTE UM GRAFO DE CÓDIGO**, construído em 02/09/2026: `.code-review-graph/`,
+com 1405 arquivos, 32.596 nós e 227.832 arestas. Ele responde "quem chama isto"
+e "que teste cobre isto" em segundos, e o servidor MCP de consulta só sobe com
+ele presente. É DERIVADO (`.gitignore:128`) — reconstrua com `fazer_grafos` em
+vez de versionar. **Ele não substitui MEDIR**: diz quem chama quem, não se o
+produto faz.
 
 **A ÁRVORE MUDOU DE NOME EM 01/09.** Não existe mais `-dev`: esta pasta é o
 produto. A antiga virou `…-estavel` e é onde o `.git` compartilhado mora — as
