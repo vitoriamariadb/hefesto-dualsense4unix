@@ -94,8 +94,15 @@ interface nova não chama `app/actions/`, ela fala IPC):
 
 | | alcança | dos 39 handlers |
 | --- | --- | --- |
-| GUI GTK antiga | 30 | **77%** |
-| interface nova | 30 | **77%** |
+| GUI GTK antiga | 30 | 77% |
+| interface nova | 30 | 77% |
+
+> **CUIDADO — ESTES 77% NÃO SÃO PARIDADE, E LER SÓ ESTA TABELA ENGANA.** Ela conta se o
+> NOME de um handler aparece no arquivo — presença de string. Medido CLICANDO, a
+> interface entrega **36%** dos campos. O número que vale está em
+> [O MAPA](2026-09-02-O-MAPA-DA-INTERFACE-medido-clicando-e-as-ondas.md).
+> A tabela fica porque a LISTA dos quatro handlers que só a GTK alcança é
+> útil — o percentual dela, não.
 
 Empate no total, e os conjuntos DIFEREM em quatro para cada lado:
 

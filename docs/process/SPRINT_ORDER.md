@@ -1,9 +1,88 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
-> **Antes de executar qualquer linha daqui, leia
-> [O QUE É VERDADE HOJE](2026-08-29-O-QUE-E-VERDADE-HOJE.md)** — cinco minutos.
-> Ele lista o que já foi curado e não deve ser reaberto, e as armadilhas de
-> leitura. Uma fila é uma lista de premissas, e premissa envelhece.
+> **02/09/2026 — A FILA MUDOU DE DONO.** O que estava aqui era a fila do
+> REDESENHO (as 90 sprints de 27/08, uma por aba). Ela cumpriu o papel: as dez
+> abas foram desenhadas e ela aprovou. **O que ficou aberto é OUTRO problema** —
+> as telas existem e não funcionam. A fila de agora é a
+> [ROTA DO HTML](sprints/2026-09-02-ROTA-DO-HTML-INDICE.md), e ela está abaixo.
+> A fila do redesenho segue no §2, para quem precisar de uma sprint de desenho.
+
+---
+
+## §0 — A ORDEM, e por que cada posição evita REFAÇÃO
+
+Pedido dela, 02/09/2026: *"ao final de tudo pensando na infra como um todo. sem
+mais refação."* <!-- noqa-acento: citação literal dela -->
+
+**A regra que produz esta ordem é uma só:** nada que outra coisa vá reescrever
+entra antes dela. Cada posição abaixo tem a razão medida.
+
+### FASE 1 — A FUNDAÇÃO *(as duas rodam JUNTAS, não se tocam)*
+
+| # | onda | por que ANTES de tudo |
+| --- | --- | --- |
+| 1 | **B — o reuso** ([sprint](sprints/2026-09-02-ROTA-B-o-reuso-que-nao-aconteceu.md)) | Fazer qualquer aba antes dela é escrever campo à mão por cima de função duplicada. Medido: a aba que mais linka o motor entrega 73%; as que reescreveram, 4% e 20%. **Toda onda de aba refaria o trabalho se esta viesse depois.** |
+| 2 | **A — a identidade** ([sprint](sprints/2026-09-02-ROTA-A-a-identidade-do-controle.md)) | Quatro abas mostram o nome do controle. Sem fonte, cada uma inventaria a sua — e seriam quatro correções depois, não uma. |
+
+**Prova de que a fase fechou:** o número de imports do motor SUBIU (piso: 24), e
+com dois controles cada um mostra o próprio modelo.
+
+### FASE 2 — O QUE FICA CERTO PARA SEMPRE *(as três rodam juntas)*
+
+| # | onda | por que aqui |
+| --- | --- | --- |
+| 3 | **C — as regressões** ([sprint](sprints/2026-09-02-ROTA-C-as-leituras-que-o-html-perdeu.md)) | Cria o dono de cada leitura de estado. Toda aba passa a ler por ele — se vier depois das abas, cada aba muda duas vezes. |
+| 4 | **D — os dezesseis** ([sprint](sprints/2026-09-02-ROTA-D-os-dezesseis-que-nao-aplicam.md)) | Classificar antes de consertar. Se as abas mexerem nos gestos primeiro, a classificação vira arqueologia. |
+| 5 | **H — a janela** ([sprint](sprints/2026-09-02-ROTA-H-a-janela-e-o-acabamento.md)) | Não depende de nada e não bloqueia nada. Entra aqui porque é barata e some da lista. |
+
+### FASE 3 — AS ABAS *(cada uma sozinha, na ordem do estrago)*
+
+| # | onda | estado hoje | espera |
+| --- | --- | --- | --- |
+| 6 | **E — Gatilhos** ([sprint](sprints/2026-09-02-ROTA-E-a-aba-gatilhos.md)) | **1 de 25 campos (4%)** | B |
+| 7 | **F — Lançadores** ([sprint](sprints/2026-09-02-ROTA-F-a-aba-lancadores.md)) | **0 gestos, 0 campos** | — |
+| 8 | **G — Perfis** ([sprint](sprints/2026-09-02-ROTA-G-a-aba-perfis-e-o-perfil-por-controle.md)) | 1 de 3 campos, e o perfil por controle | A |
+
+### FASE 4 — O QUE SÓ FECHA COM O APARELHO NA MÃO DELA
+
+| # | o quê | por que por último |
+| --- | --- | --- |
+| 9 | **O microfone como eleição** | Ela decidiu o desenho em 02/09 (o LED inverte e vira aviso de vida; cada controle com canal próprio). Precisa dela apertando o botão. |
+| 10 | **A luz que não acende, no rádio** ([sprint](sprints/2026-09-01-LUZ-NO-RADIO-01-a-prova-que-falta-e-de-aparelho.md)) | Não há código a escrever. Falta apertar com um controle no rádio. |
+| 11 | **Os graus do `specs.html`** | `luz.led_microfone` é `inferido-do-codigo` nos dois transportes: ninguém acendeu e olhou. |
+
+### FASE 5 — A INTEGRAÇÃO FINAL
+
+| # | o quê |
+| --- | --- |
+| 12 | **Botão a botão, aba a aba, como usuária**, lendo os outputs — o que ela encomendou. Só faz sentido depois das oito, e é trabalho de quem conversa com ela, na árvore dela. |
+
+---
+
+## §0.1 — A INFRA, olhada como um todo
+
+Também de 02/09, e fora da rota do HTML porque não bloqueia nenhuma onda:
+
+| assunto | estado |
+| --- | --- |
+| instalador | `install.sh --yes` → rc=0, doctor sem falha, **zero aviso**. Abortava no passo 3g desde 31/08 |
+| BlueZ | 5.86 (o nosso backport), **zero crash em 14 dias**; as redes de segurança conferidas uma a uma |
+| DKMS | os três instalados no kernel em uso; o `rtw88` revalidado para 7.1.5 |
+| áudio | o eleitor do microfone parou de eleger o que a régua proibia; idempotente |
+| os quatro legados | install/uninstall · áudio/WirePlumber · DKMS/kernel · BT — 3 agentes cada, **não despachados** |
+
+---
+
+## §0.2 — O QUE NENHUMA ONDA PODE FAZER
+
+1. **Publicar HTML.** Os geradores escrevem em `mockup/`; publicar é ATO DELA.
+2. **Rodar `install.sh`.** Reinicia o daemon dela.
+3. **Abrir janela visível.** `--oculta` sempre.
+4. **Dizer "pronto" sem colar a saída do clique.**
+
+---
+
+## §2 — A FILA DO REDESENHO (27/08), para quem precisar de sprint de desenho
 
 **27/08/2026 — o redesenho virou fila.** As dez abas de
 [O REDESENHO](2026-08-26-O-REDESENHO-as-dez-abas.md) viraram **90 sprints

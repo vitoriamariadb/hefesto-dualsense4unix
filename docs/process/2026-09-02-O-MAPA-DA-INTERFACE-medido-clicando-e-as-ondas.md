@@ -243,7 +243,20 @@ consomem — por isso não conflita com as outras ondas.
 **Fecha quando:** com dois controles, cada um mostra o próprio modelo, e trocar
 a ordem física não troca os nomes.
 
-### ONDA B — as leituras que a HTML perdeu *(a caça à regressão)*
+### ONDA B — o reuso que não aconteceu *(a que reordenou o plano)*
+
+**Arquivos:** os dez `interface/pacotes/*.py`, trocando cópia por chamada.
+**Não toca:** daemon, HTML, geradores.
+
+Ela nasceu de uma pergunta dela: *"a gnt tá recriando os meus codigos do zero ao <!-- noqa-acento: citação literal dela -->
+invés de usar o que eu já havia feito?"*. A resposta medida é SIM, em parte — e
+a correlação é direta: **a aba que mais reusa o motor GTK é a que mais funciona**
+(`a08_conexoes`, 14 imports, 73% dos campos), e as que reescreveram estão em 4%
+e 20%.
+
+Sprint: [ROTA-B](sprints/2026-09-02-ROTA-B-o-reuso-que-nao-aconteceu.md).
+
+### ONDA C — as leituras que a HTML perdeu *(a caça à regressão)*
 
 **Arquivos:** `interface/pacotes/*.py` (só leitura de estado).
 **Não toca:** daemon, HTML, geradores.
@@ -255,7 +268,7 @@ lê. **Use os dois grafos:** é literalmente a consulta que eles servem.
 **Fecha quando:** existe um dono por fato lido (como `jogador_de`), e uma régua
 que reprova pacote lendo a chave crua.
 
-### ONDA C — os dezesseis "aplicado" que não aplicam
+### ONDA D — os dezesseis "aplicado" que não aplicam
 
 **Arquivos:** `interface/pacotes/aNN_*.py` (os gestos).
 **Não toca:** pintura, daemon, HTML.
@@ -268,7 +281,7 @@ que reprova pacote lendo a chave crua.
 **Fecha quando:** a lista de "sem efeito e sem `SEM_ECO`" fica vazia, e cada
 declaração de `SEM_ECO` tem a razão escrita.
 
-### ONDA D — a aba Gatilhos
+### ONDA E — a aba Gatilhos
 
 **Arquivos:** `interface/aba03.py`, `interface/pacotes/a03_gatilhos.py`, e o HTML
 da 03 **na BANCADA**.
@@ -278,14 +291,14 @@ D3 inteiro: o pacote passa a escrever os 25 campos (hoje escreve 1), lendo o
 PERFIL (o daemon não ecoa gatilho, e isso é decisão medida). Colunas
 desconectadas ficam inertes.
 
-### ONDA E — a aba Lançadores
+### ONDA F — a aba Lançadores
 
 **Arquivos:** `interface/aba07.py`, `interface/pacotes/a07_*.py`, HTML da 07 na
 BANCADA. **Não toca:** nada mais.
 
 D4: a aba nasce do zero — 0 gestos, 0 campos.
 
-### ONDA F — a aba Perfis e o texto dela
+### ONDA G — a aba Perfis e o texto dela
 
 **Arquivos:** `interface/aba10.py`, `interface/pacotes/a10_perfis.py`, HTML da 10
 na BANCADA.
@@ -293,7 +306,7 @@ na BANCADA.
 D6 + a tabela de controles quebrada + o sistema de perfil por controle (o
 trabalho 4 do §0). **Depende da ONDA A** para nomear os controles na tabela.
 
-### ONDA G — a janela e o acabamento
+### ONDA H — a janela e o acabamento
 
 **Arquivos:** `interface/hefesto_vivo.py`, `scripts/abrir_interface.py`, CSS na
 BANCADA.
@@ -302,25 +315,28 @@ D5 (decoração) e D7 (sobreposição do brilho).
 
 ### A ORDEM, e o que pode rodar junto
 
-São SETE: A, B, C, D, E, F, G. **Seis largam juntas; só uma espera.**
+São OITO: A, B, C, D, E, F, G, H. **A ordem tem DUAS regras, e só duas.**
 
 ```
-  LARGAM AO MESMO TEMPO                      ESPERA A ONDA A
-  ─────────────────────                      ───────────────
+  PRIMEIRO, AS DUAS DE FUNDAÇÃO        DEPOIS, ESTAS QUATRO      E POR FIM
+  ─────────────────────────────        ────────────────────      ─────────
+   A  identidade  ──────────────────>  G  perfis
+   B  reuso  ───────────────────────>  E  gatilhos
+                                       C  regressões              H  janela
+                                       D  os dezesseis            F  lançadores
 
-   A  identidade  ───────────────────────>   F  perfis
-   B  regressões                                (a tabela de controles
-   C  os dezesseis                               precisa dos NOMES que
-   D  gatilhos                                   a onda A vai publicar)
-   E  lançadores
-   G  janela e CSS
+  REGRA 1: G espera A     (a tabela de controles precisa dos NOMES)
+  REGRA 2: E espera B     (senão a aba Gatilhos escreve 24 campos à mão
+                           por cima de quatro funções duplicadas)
 
-   ^ estas seis não se tocam: cada uma mexe num conjunto
-     de arquivos que nenhuma outra abre
+  A e B rodam JUNTAS — não se tocam.
+  C, D, F e H rodam a qualquer momento, e entre si não se tocam.
 ```
 
-**A ÚNICA dependência do plano é `A → F`.** Todas as outras podem rodar no mesmo
-minuto, em worktrees separadas, e ser integradas na ordem em que voltarem.
+**Por que B virou fundação:** ela nasceu da pergunta dela — *"a gnt tá recriando
+os meus codigos do zero?"* <!-- noqa-acento: citação literal dela --> — e a
+resposta medida reordenou o plano. Consertar a aba Gatilhos sem fazer B antes
+dobra o trabalho e deixa a segunda verdade embaixo.
 
 **Quem integra:** o orquestrador, por merge em `dev`, uma onda por vez, com os
 30 portões entre cada merge. Nenhuma onda mexe na árvore dela.
