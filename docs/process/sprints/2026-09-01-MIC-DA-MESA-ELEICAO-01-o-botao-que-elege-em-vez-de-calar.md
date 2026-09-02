@@ -47,10 +47,25 @@ porque as três são sobre o `common[9]`, e a muralha *"NÃO REPROPOR sem derrub
 as três"* está na linha `audio.microfone.mudo` do mapa
 (`docs/data/mapa-controles.csv:26`), não na do LED (`:151`).
 
-E há um motivo NOVO para não tomar aquela posse, que não existia antes: se
-afirmarmos o `common[9]`, o kernel deixa de alternar na borda — **e a borda é
-exatamente o que dá identidade a quem apertou.** Tomar a posse do mudo APAGA o
-sujeito do gesto dela. Virou impossibilidade construtiva, não só recusa.
+E há um custo NOVO em tomar aquela posse, que não existia antes — mas ele **não
+é uma lei do aparelho, e a versão anterior desta linha dizia que era**. FATO
+SUBSTITUÍDO em 02/09/2026, contra o fonte C desta árvore: o kernel **continua**
+alternando `ds->mic_muted` na borda do botão, sempre, porque a condição dele é o
+BIT DO BOTÃO no report de ENTRADA (`assets/dkms/hid-playstation/hid-playstation.c:1630-1640`,
+`ds_report->buttons[2] & DS_BUTTONS2_MIC_MUTE`) e não consulta nada que o
+userspace escreva.
+
+O que de fato se perderia é a **LEGIBILIDADE** da borda, e isso é consequência de
+uma ESCOLHA desta casa: o detector novo não lê o botão — lê o mudo do FIRMWARE,
+`status[1]` BIT(2) (`core/physical_report_reader.py:186` `JACK_STATUS_OFFSET`,
+`STATUS_MIC_MUDO`), que é a CONSEQUÊNCIA do aperto. Afirmar o `common[9]`
+congelaria esse bit e cegaria **o nosso leitor**, não o kernel. E nem a cegueira
+seria total: o keepalive é LIMITADO à janela de confirmação de 2 s
+(`core/backend_pydualsense.py:874-879`), então passados 2 s paramos de reescrever
+e o valor que o kernel programou na borda volta a valer.
+
+**A recusa continua de pé pelas três medições de 01/08, 03/08 e 19/08** — o que
+cai é a palavra "impossibilidade": é recusa medida com custo conhecido, não lei.
 
 ---
 
