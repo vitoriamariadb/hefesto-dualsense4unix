@@ -62,7 +62,7 @@ mtime. **Não há config dela para limpar depois dos testes.**
 
 **Grau: MEDIDO**, e a causa dos 9 foi confirmada duas vezes — por leitura do
 código (`d = Path(tempfile.mkdtemp())` sem `finally`, 7 chamadas em
-`tests/unit/test_coop_default_on_migration.py` e 2 em
+`tests/unit/test_coop_default_on_migration.py` <!-- ref-externa: o arquivo saiu quando o campo de co-op do perfil deixou de existir; o registro do que ele sujava fica --> e 2 em
 `tests/unit/test_preset_flavor_migration.py`) e pelo **conteúdo dos diretórios  <!-- ref-externa: apagado em 22/08/2026 (MASCARA-QUE-GRUDA-01); no lugar está test_o_preset_nao_escolhe_a_mascara.py -->
 no disco**, que são os arquivos daqueles testes.
 
