@@ -141,15 +141,70 @@ que mais importam:
 | 6 | **um MAC real dela está num arquivo versionado** | `docs/process/2026-09-01-ONDE-PARAMOS-a-migra-definitiva.md:41`, herdado, não desta leva |
 | 7 | **a validação final** | *"Ao final eu faria apertando os botões."* |
 
-## 6. O QUE NÃO ENTROU, e por quê
+## 6. A ONDA DO MICROFONE ENTROU DEPOIS — e a auditoria pagou por si
 
-**A onda do microfone continua parada** em `worktree-wf_01bb9c2c-3c4-7`
-(`d6506b23`, 48 arquivos, +3401/−567). Passou por cinco lentes, o planejador e o
-executor; **não passou pela auditoria**. Ela toca `daemon/ipc_handlers.py` (que
-a frente A+C mudou nesta leva), `interface/pacotes/a02_controles.py` (que a
-frente da aba 02 mudou) e `profiles/schema.py` (que o commit `11fa3e8b` mudou
-depois que a branch nasceu). **Integrá-la antes obrigaria as treze frentes a
-rebasear sobre código não auditado.** Ela é a próxima leva.
+Ela estava parada desde 01/09 em `worktree-wf_01bb9c2c-3c4-7` (`d6506b23`, 48
+arquivos, +3401/−567): cinco lentes, o planejador, o executor — e **nunca a
+auditoria**. Entrou depois da leva das treze, por três razões de arquivo (ela
+toca `ipc_handlers.py`, `a02_controles.py` e `profiles/schema.py`, os três
+mudados por outra gente no meio) e por uma de processo: integrar código não
+auditado obrigaria treze frentes a rebasear sobre ele.
+
+**Três auditores adversários, lentes distintas, e um corretivo com uma regra
+só: PROVAR a acusação antes de corrigir.** Os três voltaram
+`aprovo_com_ressalva`; SETE achados, os sete reproduzidos, os sete curados com
+régua que morde. **Zero devolvido.**
+
+**DOIS ERAM DE COMPORTAMENTO, e os dois iam para a mesa dela:**
+
+1. **O mudo de QUALQUER controle devolvia o microfone da MESA INTEIRA**, e o LED
+   de quem elegeu continuava ACESO. `_eleger_ou_devolver` decidia só pelo bit
+   `mudo` e nunca perguntava se aquele `uniq` era o eleito. Medido com dublê:
+
+   ```
+   apos J1 eleger:   leds={J1:True}              chamadas=[(eleger, J1)]
+   apos J2 apertar:  leds={J1:True, J2:False}    chamadas=[(eleger,J1), (DEVOLVER, <global>)]
+   ```
+
+   A J1 perdeu o microfone **sem soltar**, com a luz acesa. Alcançável no
+   PRIMEIRO toque — os dois controles dela estão `mic_mudo: False`. E é o
+   contrário exato do que ela pediu: *"com 4 pessoas com controle na mão
+   localmente isso é necessário."*
+
+2. **Desligar o interruptor prometia devolver a luz ao kernel e não devolvia.**
+   Tomada a posse do `common[8]`, ela só cai por `set_microphone_led(None)`, e o
+   ramo do interruptor fazia `continue`. A prosa afirmava o contrário.
+
+E um terceiro que a própria auditoria criou e mediu logo depois: nem
+`IController` nem o `FakeController` declaram `set_microphone_led`, então a
+devolução do achado 2 caía num `getattr(...) is None` e saía **calada**.
+
+**E A "IMPOSSIBILIDADE CONSTRUTIVA" DO COMMIT ERA FALSA.** Ele afirmava que
+*"escrever no `common[9]` faz o kernel parar de alternar na borda"*. O fonte C
+desta árvore decide o toggle por `ds_report->buttons[2] & DS_BUTTONS2_MIC_MUTE`
+— o bit do BOTÃO no report de ENTRADA — e não lê nada que o userspace escreva
+(`assets/dkms/hid-playstation/hid-playstation.c:1630-1640`). O que se perde ao
+afirmar o byte é a **legibilidade** da borda: o detector desta casa lê o mudo do
+FIRMWARE (`status[1]` BIT(2)), não o botão.
+
+**A recusa de escrever o mudo do firmware continua inteira** — ela é sustentada
+pelas três medições de 01/08, 03/08 e 19/08 (BT-E-VPAD-01, MIC-BT-DONO-01,
+MIC-DOIS-DONOS-01). O que caiu foi o motivo NOVO, e ele saiu do teste e da
+sprint. *Afirmação forte precisa de prova forte.*
+
+**E a pergunta da primeira lente tem resposta, escrita para ninguém reauditar:**
+a onda **não escreve uma linha no `common[9]`**. Varrido mecanicamente sobre as
+4.818 linhas do diff; os nove acertos do filtro são prosa.
+
+**O QUE A AUDITORIA CUSTOU E O QUE ELA RENDEU:** quatro agentes, 1M de tokens,
+68 minutos. Rendeu dois defeitos que a mesa dela encontraria no primeiro toque —
+e um deles com quatro pessoas na sala, que é exatamente o caso que ela descreveu
+ao pedir a feature.
+
+**O QUE FALTA, e é dela:** a onda inteira nunca foi tocada por ela, e a parte de
+TELA continua sem prova de clique. O selo do mic tem dois pintores agora
+(`a02_controles` e `Janela._pacote_do_card`), com um dono só
+(`mesa_viva.selo_do_mic`) — e a prova no aparelho é a que nenhum dublê alcança.
 
 ## 7. AS ARMADILHAS DESTA LEVA, para a próxima não repetir
 
