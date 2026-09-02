@@ -47,12 +47,14 @@ controles na mesa dela:**
   primeiro em ordem alfabética. Nada mudava porque não havia o que mudar.
   Curado com a terceira guarda, que recusa DIZENDO.
 
-**E UM DEFEITO NOVO, que a medição achou e ninguém tinha visto:** a lista de
-perfis tem **14 linhas no HTML** e ela tem **33 perfis**. O cabeçalho diz
-`33 perfis` e a coluna mostra 14 — **dezenove perfis dela são invisíveis nesta
-aba**. Não tem cura pelo pacote: o número de linhas muda com o dado, e o
-`normalizar()` do despachante descarta o `blocos` (o único caminho para trocar
-um bloco inteiro). Dono: quem mexer em `pacotes/__init__.py`.
+**E UM DEFEITO NOVO, que a medição achou e ninguém tinha visto — JÁ CURADO:** a
+lista de perfis tinha **14 linhas no HTML** e ela tem **33 perfis**. O cabeçalho
+dizia `33 perfis` e a coluna mostrava 14 — dezenove perfis dela eram invisíveis
+nesta aba, e com eles nove dos dez botões, que agem sobre o perfil ESCOLHIDO.
+Esta seção afirmava que *"não tem cura pelo pacote"*, porque o `normalizar()` do
+despachante descartava o `blocos`. **O `normalizar()` foi curado** e a lista
+virou `blocos` (`a10_perfis._html_da_lista`): fotografado em 02/09, as 33 linhas
+estão na tela, com o realce na certa.
 
 ## O REUSO, PRIMEIRO
 
@@ -138,24 +140,29 @@ Ela pediu:
 
 | o que | por quê | dono |
 | --- | --- | --- |
-| a barra da Prioridade fica na largura do desenho | precisa do `data-hef-alvo="largura"`, já escrito na BANCADA (`aba10.py`) e declarado em `mockup/DIVERGENCIAS.md` | **o ato de PUBLICAR, que é dela** |
 | a coluna `Ajuste próprio` mostra o padrão do mockup | aceso é `.gr.on`, apagado é `.gr`, e nenhum dos cinco alvos do pintor (texto·largura·fundo·valor·html) alcança uma CLASSE | `hefesto_vivo.py` — falta um `alvo === 'classe'` |
-| 19 dos 33 perfis dela não aparecem na lista | o HTML tem 14 linhas fixas e o `normalizar()` descarta o `blocos` | `pacotes/__init__.py` |
+| o `<tbody>` da lista é reescrito a cada 500 ms | o `escrever()` carimba `data-hef-visto="1"` nos filhos, e o laço do `blocos` compara `innerHTML` COM os selos contra o HTML sem eles: as duas strings nunca batem. Medido em 02/09 — `BLOCOS 20` em 20 tiques, divergência no caractere 594. Só morde um `blocos` cujos filhos tenham endereço; os dois da `08` não têm | `hefesto_vivo.py` — o selo fora da serialização, ou a comparação sem ele |
 | `ControllerOverrides` continua com 4 campos | mexe em `profiles/schema.py` e nos portões de perfil — fora do território desta frente | uma onda própria |
 
-## A FRASE DA PRIORIDADE — **PROVISÓRIO, decisão dela**
+**DUAS LINHAS SAÍRAM DESTA TABELA — 02/09/2026, e as duas fecharam:**
 
-A frase de hoje (`perfis_web._pacote_do_editor`, campo `prioridade_dica`) é:
+* *"a barra da Prioridade fica na largura do desenho, esperando o ato de
+  PUBLICAR"* — a página FOI publicada (`70b58116`) e `editor.prioridade` saiu de
+  `NAO_PINTAVEIS` (`1f6e356b`). Fotografado hoje: com o perfil em 1 de 200, o
+  trilho abre quase vazio, e não nos 90% do desenho;
+* *"19 dos 33 perfis dela não aparecem na lista"* — a lista virou `blocos` e
+  cabe inteira. Fotografado hoje: as 33 linhas, com o realce na certa.
 
-> *Prioridade 1 de 200. O maior vence a disputa quando dois perfis poderiam
-> entrar.*
+## A FRASE DA PRIORIDADE — **APROVADA POR ELA, 02/09/2026, e aplicada**
 
-Ela disse que *"esse texto em perfis nem faz sentido mais"*. Com o trilho de
-volta, o número já está ao lado dele e a frase repete o que se vê. **Proposta,
-para ela aprovar ou trocar:**
+A frase que vale, em `perfis_web._pacote_do_editor`, campo `prioridade_dica`:
 
 > *Quando dois perfis servem ao mesmo tempo, o de número maior entra.*
 
-Sem repetir o número (que o trilho e o `editor.prioridade.n` já mostram) e sem a
-palavra "prioridade", que o rótulo do campo já diz. **Não foi aplicada:** a
-frase mora em `app/actions/perfis_web.py`, e texto de tela é dela.
+A anterior era *"Prioridade 1 de 200. O maior vence a disputa quando dois
+perfis poderiam entrar."*, e a queixa dela foi literal: *"esse texto em perfis
+nem faz sentido mais"*. Com o trilho de volta, o número já está ao lado e a
+frase repetia o que se vê — além de dizer "prioridade", que é o rótulo do campo.
+
+A marca **PROVISÓRIO** que estava neste título saiu junto: a proposta virou
+decisão dela e o texto está no produto.
