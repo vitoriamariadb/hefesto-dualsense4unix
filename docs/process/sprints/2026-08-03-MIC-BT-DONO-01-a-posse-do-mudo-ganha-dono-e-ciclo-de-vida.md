@@ -42,6 +42,21 @@ report é idêntico — sobra o `OUT_REPORT_KEEPALIVE_SEC = 0.5` (`:228`). Medid
 diferença entre esta cura e um pulso no `iniciar()` é de CONTINUIDADE — a posse é
 reafirmada para sempre, inclusive em handle novo —, não de latência.**
 
+<!-- NOTA DATADA — 01/09/2026, MIC-DA-MESA-ELEICAO-01.
+     "REAFIRMADA PARA SEMPRE" CADUCOU, e o que a substituiu está medido no
+     `sendReport` de hoje: o keepalive de 0,5 s ficou LIMITADO à janela de
+     confirmação de 2,0 s depois de cada MUDANÇA (RUMBLE-SEM-DONO-01, 11/08).
+     Passados 2 s de report constante e sem rumble nosso, PARAMOS de escrever.
+     A continuidade sobrevive por outro caminho — `mic_led` está em
+     `_OUTPUT_FIELDS` e o hotplug o re-aplica —, mas o keepalive perpétuo não
+     existe mais. Isso importa para quem for mexer na LUZ: o kernel escreve
+     `mute_button_led = ds->mic_muted` a CADA borda, então uma reafirmação do
+     MESMO valor não chega ao aparelho (report idêntico não é escrito). Só o
+     valor desejado MUDANDO faz o nosso report sair na frente do dele. Régua:
+     `tests/unit/test_mic_da_mesa_o_led_com_endereco.py::test_a_borda_muda_o_report_montado`.
+     A AFIRMAÇÃO DE CIMA continua descrevendo o que a sprint entregou em 03/08;
+     o que mudou foi o mecanismo por baixo. -->
+
 ---
 
 ## As entregas
