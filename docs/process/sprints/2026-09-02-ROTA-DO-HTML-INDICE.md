@@ -160,6 +160,15 @@ cada uma na sua worktree, e integrarem por merge sem conflito.
 
 - [ONDA A — a identidade do controle](2026-09-02-ROTA-A-a-identidade-do-controle.md)
 - [ONDA B — o reuso que não aconteceu](2026-09-02-ROTA-B-o-reuso-que-nao-aconteceu.md)
+- [ONDA F — a aba Lançadores](2026-09-02-ROTA-F-a-aba-lancadores.md) — **FECHADA
+  em 02/09.** A aba saiu de `0 gestos / 0 campos` para **6 gestos e 26
+  endereços**, e os quatro números que ela afirmava caíram: `412 jogos` era 23
+  instalados, `3 já sabem por onde entrar` era 0 pontes confirmadas, e o
+  `Heroic · NÃO CHEGAM` era afirmação sobre um lançador que o produto **nunca
+  olhou** — nasceu o selo `NÃO SEI` para os cinco sem fonte. No primeiro tique
+  ela achou um **defeito vivo**: o PRAGMATA tinha acabado de perder as Opções de
+  Inicialização. A onda também derrubou a decisão de 01/09 que a proibia (ver §0
+  da sprint), e o desenho novo espera o `--publicar 07` dela.
 
 As demais (C a H) estão descritas em
 [O MAPA](../2026-09-02-O-MAPA-DA-INTERFACE-medido-clicando-e-as-ondas.md), §4,
