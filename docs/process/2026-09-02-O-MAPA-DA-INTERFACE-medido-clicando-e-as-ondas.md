@@ -302,15 +302,25 @@ D5 (decoração) e D7 (sobreposição do brilho).
 
 ### A ORDEM, e o que pode rodar junto
 
+São SETE: A, B, C, D, E, F, G. **Seis largam juntas; só uma espera.**
+
 ```
-   A  ──┬──> F        A é raiz de F (a tabela precisa dos nomes)
-        │
-   B  ──┤             B, C, D, E, G são INDEPENDENTES entre si
-   C  ──┤             e podem rodar TODAS ao mesmo tempo
-   D  ──┤
-   E  ──┤
-   G  ──┘
+  LARGAM AO MESMO TEMPO                      ESPERA A ONDA A
+  ─────────────────────                      ───────────────
+
+   A  identidade  ───────────────────────>   F  perfis
+   B  regressões                                (a tabela de controles
+   C  os dezesseis                               precisa dos NOMES que
+   D  gatilhos                                   a onda A vai publicar)
+   E  lançadores
+   G  janela e CSS
+
+   ^ estas seis não se tocam: cada uma mexe num conjunto
+     de arquivos que nenhuma outra abre
 ```
+
+**A ÚNICA dependência do plano é `A → F`.** Todas as outras podem rodar no mesmo
+minuto, em worktrees separadas, e ser integradas na ordem em que voltarem.
 
 **Quem integra:** o orquestrador, por merge em `dev`, uma onda por vez, com os
 30 portões entre cada merge. Nenhuma onda mexe na árvore dela.
