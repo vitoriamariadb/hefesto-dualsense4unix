@@ -17,45 +17,117 @@ mais refação."* <!-- noqa-acento: citação literal dela -->
 **A regra que produz esta ordem é uma só:** nada que outra coisa vá reescrever
 entra antes dela. Cada posição abaixo tem a razão medida.
 
-### FASE 1 — A FUNDAÇÃO *(as duas rodam JUNTAS, não se tocam)*
+### FASE 0 — O QUE JÁ ESTÁ EM VOO *(pendência zero)*
 
-| # | onda | por que ANTES de tudo |
+| # | o quê | estado |
 | --- | --- | --- |
-| 1 | **B — o reuso** ([sprint](sprints/2026-09-02-ROTA-B-o-reuso-que-nao-aconteceu.md)) | Fazer qualquer aba antes dela é escrever campo à mão por cima de função duplicada. Medido: a aba que mais linka o motor entrega 73%; as que reescreveram, 4% e 20%. **Toda onda de aba refaria o trabalho se esta viesse depois.** |
-| 2 | **A — a identidade** ([sprint](sprints/2026-09-02-ROTA-A-a-identidade-do-controle.md)) | Quatro abas mostram o nome do controle. Sem fonte, cada uma inventaria a sua — e seriam quatro correções depois, não uma. |
+| 0 | **A onda do microfone** | **PARADA E SALVA** na branch `worktree-wf_01bb9c2c-3c4-7`, commit `d6506b23`, 48 arquivos (+3401/−567). Passou por 5 lentes, o planejador e o executor. **NÃO passou pela auditoria** — os três auditores não chegaram a rodar. **Não faça merge sem eles.** Retomar: `Workflow({scriptPath: '…/o-mic-vira-eleicao-wf_01bb9c2c-3c4.js', resumeFromRunId: 'wf_01bb9c2c-3c4'})` — as sete fases já feitas voltam do cache. |
 
-**Prova de que a fase fechou:** o número de imports do motor SUBIU (piso: 24), e
-com dois controles cada um mostra o próprio modelo.
+### FASE 1 — TUDO O QUE NÃO PRECISA DELA *(e é quase tudo)*
 
-### FASE 2 — O QUE FICA CERTO PARA SEMPRE *(as três rodam juntas)*
+**ELA CORRIGIU O PLANO, e a medição confirmou:**
 
-| # | onda | por que aqui |
-| --- | --- | --- |
-| 3 | **C — as regressões** ([sprint](sprints/2026-09-02-ROTA-C-as-leituras-que-o-html-perdeu.md)) | Cria o dono de cada leitura de estado. Toda aba passa a ler por ele — se vier depois das abas, cada aba muda duas vezes. |
-| 4 | **D — os dezesseis** ([sprint](sprints/2026-09-02-ROTA-D-os-dezesseis-que-nao-aplicam.md)) | Classificar antes de consertar. Se as abas mexerem nos gestos primeiro, a classificação vira arqueologia. |
-| 5 | **H — a janela** ([sprint](sprints/2026-09-02-ROTA-H-a-janela-e-o-acabamento.md)) | Não depende de nada e não bloqueia nada. Entra aqui porque é barata e some da lista. |
+> *"na real dá pra fazer todas as abas (sobre a parte da migração da interface
+> original) e a parte da validação humana sim. Ao final eu faria apertando os
+> botões."* <!-- noqa-acento: citação literal dela -->
 
-### FASE 3 — AS ABAS *(cada uma sozinha, na ordem do estrago)*
+**MEDIDO EM 02/09/2026, e é o número que reorganiza a fila:**
 
-| # | onda | estado hoje | espera |
+```
+   103 campos têm endereço (data-campo) no HTML PUBLICADO
+    37 o pacote escreve
+    66 JÁ TÊM ENDEREÇO e só esperam o pacote escrever
+```
+
+| aba | endereços | escritos | **faltam** |
 | --- | --- | --- | --- |
-| 6 | **E — Gatilhos** ([sprint](sprints/2026-09-02-ROTA-E-a-aba-gatilhos.md)) | **1 de 25 campos (4%)** | B |
-| 7 | **F — Lançadores** ([sprint](sprints/2026-09-02-ROTA-F-a-aba-lancadores.md)) | **0 gestos, 0 campos** | — |
-| 8 | **G — Perfis** ([sprint](sprints/2026-09-02-ROTA-G-a-aba-perfis-e-o-perfil-por-controle.md)) | 1 de 3 campos, e o perfil por controle | A |
+| `03-gatilhos` | 25 | 1 | **24** |
+| `09-sistema` | 10 | 2 | **8** |
+| `05-vibracao` | 9 | 2 | **7** |
+| `04-iluminacao` | 12 | 6 | **6** |
+| `01-jogar` | 11 | 6 | **5** |
+| `02-controles` | 12 | 7 | **5** |
+| `06-navegacao` | 7 | 4 | **3** |
+| `07-lancadores` | 3 | 0 | **3** |
+| `08-conexoes` | 11 | 8 | **3** |
+| `10-perfis` | 3 | 1 | **2** |
 
-### FASE 4 — O QUE SÓ FECHA COM O APARELHO NA MÃO DELA
+**NENHUM DESSES 66 PRECISA DE HTML NOVO.** O endereço está lá. Não precisa de
+publicação, não precisa do olho dela, não precisa do aparelho na mão. **É
+migração pura: ler o que o GTK fazia e ligar o pacote.**
 
-| # | o quê | por que por último |
-| --- | --- | --- |
-| 9 | **O microfone como eleição** | Ela decidiu o desenho em 02/09 (o LED inverte e vira aviso de vida; cada controle com canal próprio). Precisa dela apertando o botão. |
-| 10 | **A luz que não acende, no rádio** ([sprint](sprints/2026-09-01-LUZ-NO-RADIO-01-a-prova-que-falta-e-de-aparelho.md)) | Não há código a escrever. Falta apertar com um controle no rádio. |
-| 11 | **Os graus do `specs.html`** | `luz.led_microfone` é `inferido-do-codigo` nos dois transportes: ninguém acendeu e olhou. |
+**Então TODAS as abas entram na fase 1**, cada uma na sua worktree, sem colisão
+— porque cada onda de aba toca UM `aNN_*.py` que nenhuma outra abre:
 
-### FASE 5 — A INTEGRAÇÃO FINAL
+| # | onda | toca | o mapa no GTK |
+| --- | --- | --- | --- |
+| 1 | **B1 — o inventário** | **nada, só lê** | produz a lista para todas as outras |
+| 2 | **A — a identidade** | `ipc_handlers` · `cor_do_plastico` · `pacotes/__init__` | `controller_card` |
+| 3 | **E — Gatilhos** (24 campos) | `a03_gatilhos.py` | `trigger_specs` · `triggers_actions` |
+| 4 | **Sistema** (8) | `a09_sistema.py` | `ambiente` · `ambiente_na_tela` · `daemon_actions` · `status_actions` |
+| 5 | **Vibração** (7) | `a05_vibracao.py` | `rumble_actions` · `vibracao` |
+| 6 | **Iluminação** (6) | `a04_iluminacao.py` | `lightbar_actions` |
+| 7 | **Jogar** (5) | `a01_jogar.py` | `actions/jogar` · `mode_transition` |
+| 8 | **Controles** (5) | `a02_controles.py` | `controller_card` · `external_card` · `mesa` · `sensor_widgets` |
+| 9 | **Navegação** (3) | `a06_navegacao.py` | `input_actions` · `mouse_actions` |
+| 10 | **F — Lançadores** (3) | `a07_*.py` | `launch_wrapper_dialog` (5 fn, **0 alcançadas**) · `carona_do_wrapper` |
+| 11 | **Conexões** (3) | `a08_conexoes.py` | já reusa 14× — é a melhor do lote |
+| 12 | **G — Perfis** (2) | `a10_perfis.py` | `profiles_actions` (**25 fn, 1 alcançada**) · `profile_writer` |
+| 13 | **D — os dezesseis** | os gestos | classificar em (a)/(b)/(c) |
+| 14 | **C — as regressões** | `pacotes/__init__.py` | o molde é o `jogador_de` |
+| 15 | **H — a janela** | `hefesto_vivo.py` · CSS na bancada | `app/app.py` · `app/main.py` |
+
+**AS ÚNICAS ESPERAS QUE SOBRAM:**
+- a tabela de controles da **G** espera a **A** (precisa dos nomes)
+- **C** e **A** mexem no mesmo `pacotes/__init__.py` — integrar uma depois da
+  outra, não em paralelo
+
+### FASE 2 — O QUE SOBROU DE HTML NOVO
+
+O que os 66 NÃO cobrem: campo que a aba precisa e **não tem endereço**. Cada
+onda descobre o seu, escreve na BANCADA, declara em `mockup/DIVERGENCIAS.md`, e
+**para**. Junta-se tudo numa leva de publicação só, para ela aprovar de uma vez.
+
+### FASE 3 — B2, a varredura do reuso
+
+Com a lista da B1 e as abas já ligadas, varrer o que sobrou de duplicata.
+
+### FASE 4 — O QUE SÓ FECHA COM O APARELHO
 
 | # | o quê |
 | --- | --- |
-| 12 | **Botão a botão, aba a aba, como usuária**, lendo os outputs — o que ela encomendou. Só faz sentido depois das oito, e é trabalho de quem conversa com ela, na árvore dela. |
+| 16 | O microfone como eleição — a auditoria da onda parada, e a prova no aparelho |
+| 17 | A luz que não acende, no rádio |
+| 18 | Os graus do `specs.html` |
+
+### FASE 5 — ELA APERTANDO OS BOTÕES
+
+> *"Ao final eu faria apertando os botões."*
+
+Botão a botão, aba a aba. É a validação humana, e ela é a última — **não é
+bloqueio de nada antes dela.**
+
+---
+
+## §0.0 — O QUE PODE RODAR SEM ELA, E O QUE NÃO PODE
+
+**Isto é o que decide o que cabe numa madrugada.**
+
+| pode rodar sem ela | precisa dela |
+| --- | --- |
+| **escrever os 66 campos que já têm endereço** | publicar HTML **novo** (só o que os 66 não cobrem) |
+| ler o GTK e ligar o pacote ao motor | aprovar TEXTO de tela |
+| escrever régua e mordida | **a validação final — ela apertando os botões** |
+| rodar os 30 portões e o `--prova-no-aparelho` | qualquer prova que precise do controle na mão |
+
+**A CORREÇÃO DELA, e ela vale mais que a minha estimativa anterior:** eu tinha
+posto três abas como bloqueadas por ela. **Não estão.** 66 dos 103 campos já têm
+`data-campo` no HTML publicado — a migração inteira dessas abas anda sem
+publicar nada.
+
+**A regra:** a onda escreve os campos que já têm endereço; o que precisar de
+endereço NOVO vai para a bancada, com a divergência declarada, e **para**. Junta
+tudo numa leva de publicação só. Nada de esperar acordada.
 
 ---
 

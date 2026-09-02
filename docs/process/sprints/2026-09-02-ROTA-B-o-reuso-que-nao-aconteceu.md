@@ -43,6 +43,21 @@ vêm de lá) e reescreve por conta própria:
 Duas grafias do mesmo fato é o defeito-mãe desta casa. E aqui ele tem um custo
 que se vê: a aba entrega **1 campo de 25**.
 
+## ELA FOI PARTIDA EM DUAS — B1 e B2
+
+**Porque como onda única ela colidia com tudo.** Ela mexe nos DEZ pacotes; a
+onda F mexe no `a07`, a G no `a10`. Partida, a colisão some e as abas entram na
+mesma fase:
+
+| | o que faz | o que toca | quando |
+| --- | --- | --- | --- |
+| **B1** | o INVENTÁRIO — o que o motor tem, o que a interface duplicou | **NADA. Só lê.** | fase 1, junto com A, F e G |
+| **B2** | trocar cópia por chamada | os pacotes que sobraram | fase 2, com a lista da B1 na mão |
+
+**A B1 não conflita com ninguém porque não escreve** — ela produz um documento.
+E é o insumo de todas as outras ondas: F e G leem a lista dela para saber o que
+ligar em vez de reescrever.
+
 ## O TRABALHO — e ele NÃO é reescrever de novo
 
 **A regra desta onda: para cada função dos pacotes, perguntar "isto já existe no
@@ -99,10 +114,12 @@ Nem tudo do motor serve — e forçar reuso é o erro oposto:
 [ ] a saída do `--prova-no-aparelho` colada, antes e depois
 ```
 
-## POR QUE ESTA ONDA VEM ANTES DAS OUTRAS
+## POR QUE A B1 VEM ANTES DE TODAS
 
-Porque consertar a aba Gatilhos (ONDA D) **sem** fazer isto primeiro significa
-escrever mais 24 campos à mão, com as mesmas quatro funções duplicadas embaixo.
-O trabalho dobraria, e a segunda verdade ficaria.
+Porque consertar a aba Gatilhos **sem** a lista dela significa escrever mais 24
+campos à mão, com as mesmas quatro funções duplicadas embaixo. O trabalho
+dobraria, e a segunda verdade ficaria.
 
-**Ela reordena o plano: A e B primeiro. As outras depois.**
+**E é o princípio dela, dito antes de qualquer medição:** *"minha ideia sempre
+foi usar 100% do legado e linkar ele ao html e só depois fazer o resto do
+produto."* <!-- noqa-acento: citação literal dela --> O medo estava certo.
