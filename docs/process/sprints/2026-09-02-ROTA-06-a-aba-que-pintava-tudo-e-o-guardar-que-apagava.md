@@ -37,8 +37,8 @@ navega           p2    'Só a janela'                     'BT • Só a janela' 
 Estado vivo no instante da medição (02/09, 04:23):
 
 ```
-uniq 444648e64203  transport=bt   is_primary=True   player=1
-uniq d42f4b4846d8  transport=usb  is_primary=False  player=None
+uniq 444648000003  transport=bt   is_primary=True   player=1
+uniq d42f4b0000d8  transport=usb  is_primary=False  player=None
 mouse_emulation   : {'enabled': False, 'speed': 6, 'scroll_speed': 1, 'bloqueio': 'desligada', …}
 keyboard_emulation: {'enabled': True, 'osk_disponivel': True, …}
 active_profile    : meu_perfil

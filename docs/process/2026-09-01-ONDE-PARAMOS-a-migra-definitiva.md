@@ -38,7 +38,7 @@ git log --oneline origin/dev..dev | wc -l
 git branch --contains d83a752b
 
 # A cura (reescreve hash — só vale porque NADA foi publicado):
-git filter-repo --replace-text <(echo 'd42f4b4846d8==>d42f4b0000d8') --refs origin/dev..dev
+git filter-repo --replace-text <(echo 'd42f4b0000d8==>d42f4b0000d8') --refs origin/dev..dev
 ```
 
 **Por que eu não fiz:** reescrever 66 commits é operação que, se sair errada,

@@ -79,8 +79,8 @@ O MAPA e a ROTA-C afirmam: *"No cabo coincidem; no rádio o `player` volta `None
 e o `player_slot` continua certo."* Medido às 03:20, com os dois controles dela:
 
 ```
-uniq 444648e64203 · transport bt  · player 1    · player_slot 1 · is_primary TRUE
-uniq d42f4b4846d8 · transport usb · player None · player_slot 2 · is_primary false
+uniq 444648000003 · transport bt  · player 1    · player_slot 1 · is_primary TRUE
+uniq d42f4b0000d8 · transport usb · player None · player_slot 2 · is_primary false
 ```
 
 **Quem volta `None` é o não-primário — e aqui ele está no CABO.** O transporte
