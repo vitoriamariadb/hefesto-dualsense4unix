@@ -86,6 +86,65 @@ da mesa. Enquanto a bancada não tiver o desenho, isto para e espera ela.
 4. Cada peça com teste que MORDE, com a data em `mordida_provada_em`.
 5. 30 portões verdes.
 
+## 4.1 O QUE FOI ENTREGUE — 03/09/2026 (PEÇA A e a metade da PEÇA B que é minha)
+
+### A LEITURA DA §2, que era o primeiro trabalho
+
+| trava | de onde veio | o que protegia | veredito |
+| --- | --- | --- | --- |
+| `habilitado_por_env` | `d6f9d331`, 25/07/2026 | privacidade + banda do rádio (A/B de 25/07: input 260,4 → 170,5 Hz, áudio 106,2 Hz) | a razão VALE; a alavanca não |
+| `uniqs_declarados` | `c59dd346`, 23/08/2026, QUATRO-MICROFONES-01/E1 | a mesma razão, mais o *"por controle"* que ela pediu — **não é precaução nossa, é o interruptor dela** | idem |
+
+**As duas são a MESMA razão em duas roupas:** *"a ponte é um gesto explícito"*.
+
+**A pergunta que a §2 obriga — "por que o cabo não precisa da mesma proteção?"
+— tem resposta MEDIDA em 03/09/2026:**
+
+```
+600  alsa_input...DualSense_Wireless_Controller-00.iec958-stereo   SUSPENDED
+```
+
+O canal do cabo **existe e está SUSPENDED**: publicado, e sem capturar nada
+enquanto ninguém o abre. A ponte do rádio não sabe fazer isso —
+`PonteMicBluetooth.iniciar()` manda o `0x32` de LIGAR incondicionalmente, e daí
+o controle transmite áudio o tempo todo, ouvido ou não.
+
+**Logo a trava protegia a coisa certa pela alavanca errada:** negava o CANAL
+para evitar a CAPTURA, e o cabo prova que os dois são separáveis — que é a
+distinção da §1.3 desta sprint.
+
+**Então a trava não saiu: virou automática, e o critério é o do cabo —
+PROCURA.** A exigência que MORREU é a de declarar cada `uniq` à mão antes que
+ele possa ter canal.
+
+### O QUE MUDOU NO CÓDIGO
+
+* `daemon/subsystems/bt_mic.RegistroDePedidosDeCanal` — o critério automático.
+  `alvos()` passa a somar procura + declaração; `is_enabled` é sempre `True`,
+  porque o supervisor tem de estar de pé para atender o primeiro toque. **De pé
+  ele não captura nada:** sem pedido e sem declaração `alvos()` devolve `[]`;
+* `integrations/eleicao_de_microfone` — a eleição ENCOLHEU. Ela decide só quem
+  é a fonte padrão, e quando o canal do controle não está no ar ela **PEDE** o
+  canal pelo gancho `registrar_pedidor_de_canal` (daemon importando
+  `integrations`, nunca o contrário) e espera o PipeWire publicá-lo;
+* **nenhuma frase nova de tela.** As recusas continuam palavra por palavra as
+  que já existiam. E a varredura confirmou: **não existe, e nunca existiu, tela
+  dizendo que alguém "perdeu o microfone"** — não havia o que remover.
+
+### O QUE NÃO FECHOU, e por quê
+
+1. **O PRONTO nº 1 não foi provado**, e ele espera a palavra dela. Provar
+   "`pactl` mostra DOIS canais" exige subir a ponte de verdade no controle do
+   rádio — o que, com a ponte de hoje, é **ligar o microfone dela e mantê-lo
+   capturando**. Esse gesto é dela, e é o que este módulo existe para recusar.
+   Com a cura, o caminho para ela mesma provar é **apertar o botão do
+   microfone daquele controle**;
+2. **O defeito que sobra tem nome: a ponte captura mesmo sem ouvinte.** O
+   `0x32` devia seguir o SUSPENDED/RUNNING da source, como o cabo faz. Isso é
+   `integrations/dualsense_bt_audio.py`, e enquanto não for curado o canal do
+   rádio custa banda e privacidade que o do cabo não custa;
+3. **PEÇA C parada**, como a própria sprint manda: espera a bancada dela.
+
 ## 5. E CASA COM A LUZ-DO-MIC-01
 
 O contrato da luz — *aceso = algum app com o microfone DESTE controle aberto* —
