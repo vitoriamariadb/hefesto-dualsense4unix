@@ -56,13 +56,13 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 02-controles | 50 | 4 | 18 | 24 | 4 | 0 | 8% |
 | 03-gatilhos | 31 | 10 | 10 | 5 | 5 | 1 | 32% |
 | 04-iluminacao | 35 | 5 | 9 | 13 | 7 | 1 | 14% |
-| 05-vibracao | 31 | 6 | 12 | 10 | 3 | 0 | 19% |
+| 05-vibracao | 31 | 10 | 9 | 9 | 3 | 0 | 32% |
 | 06-navegacao | 40 | 3 | 19 | 9 | 9 | 0 | 8% |
 | 07-lancadores | 30 | 4 | 6 | 10 | 9 | 1 | 13% |
 | 08-conexoes | 49 | 6 | 17 | 24 | 2 | 0 | 12% |
 | 09-sistema | 38 | 3 | 15 | 13 | 7 | 0 | 8% |
 | 10-perfis | 50 | 8 | 17 | 16 | 9 | 0 | 16% |
-| TODAS | 396 | 54 | 135 | 144 | 59 | 4 | 14% |
+| TODAS | 396 | 58 | 132 | 143 | 59 | 4 | 15% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
@@ -128,14 +128,17 @@ existem, não código novo.**
 
 O maior bloco, e o que decide a fila.
 
-- **`05-vibracao` · qual degrau está aceso.** A GTK tem
-  `_apply_policy_to_widgets` (`app/actions/rumble_actions.py:699`) fazendo a
-  exclusão mútua entre os quatro. No HTML a classe `on` está cravada da cena do
-  mockup: com `rumble_policy = 'balanceado'` no daemon, a tela mostra `Máximo`
-  aceso no P1. Ela clica, o daemon obedece, e a tela não muda. **O produto já
-  sabe disso por escrito** — `SEM_DONO["degrau-aceso"]`
-  (`src/hefesto_dualsense4unix/interface/pacotes/a05_vibracao.py:49`) — e o
-  pintor já tem o alvo `classe`. Falta o endereço no HTML e a emissão no pacote.
+- **`05-vibracao` · qual degrau está aceso. FECHOU — 03/09/2026, e agora é
+  `IGUAL`.** O exemplo fica porque ele ensina o CAMINHO, e porque o número desta
+  página mudou por causa dele. O que era: a GTK fazia a exclusão mútua em
+  `_apply_policy_to_widgets` (`app/actions/rumble_actions.py:709`) e no HTML a
+  classe `on` estava cravada da cena do mockup — com `rumble_policy =
+  'balanceado'` no daemon, a tela mostrava `Máximo` aceso no P1; ela clicava, o
+  daemon obedecia, e a tela não mudava. O que fechou: o endereço no desenho
+  (`data-campo="degrau" data-hef-alvo="classe" data-hef-quando=<chave>`,
+  `interface/aba05.py:1052`) e a emissão no pacote (`a05_vibracao.py:311`), que
+  repassa a chave lida de `state_full.rumble_policy`. **Medido no DOM vivo**, com
+  um DualSense no cabo: acende `balanceado`, apagam as três irmãs.
 - **`02-controles` · os 16 glifos.** `_refresh_glyphs` no card da GTK; no HTML,
   três glifos com a classe `on` do mockup, acesos o tempo todo.
 - **`04-iluminacao` · o brilho.** Contados os gestos das duas páginas
@@ -155,11 +158,15 @@ O maior bloco, e o que decide a fila.
 Fazem os dois, e não a mesma coisa. É a categoria que mais engana, porque a tela
 não fica vazia: ela responde outra pergunta.
 
-- **`05-vibracao` · o número do multiplicador.** A GTK mostra o **pedido**
-  (`_POLICY_MULT[policy] * 100` = 100); o HTML mostra o **aplicado**
-  (`rumble_mult_applied` = 0,7 → `70%`). Medidos lado a lado, ao vivo. E o 0,7 é
-  um valor que o próprio produto documentou como preso em passthrough ocioso —
-  o HTML publica exatamente essa aparência.
+- **`05-vibracao` · o número do multiplicador. FECHOU — 03/09/2026, e agora é
+  `IGUAL`.** O que era: a GTK mostrava o **pedido** (`_POLICY_MULT[policy] * 100`
+  = 100) e o HTML o **aplicado** (`rumble_mult_applied` = 0,7 → `70%`) — um valor
+  que o próprio produto documenta como preso em passthrough ocioso, de modo que a
+  aba publicava essa aparência. O que fechou: o pacote passou a chamar
+  `app/telas/vibracao._pedido_da_politica` (`a05_vibracao.py:119`), que é a mesma
+  linha da estável. **Medido contra o daemon dela**: `balanceado` → `100%` nas
+  duas telas. O que sobra é o TETO da faixa (200 na GTK, 150 aqui, decisão dela
+  de 27/08), e ele tem linha própria no CSV.
 - **`06-navegacao` · o campo mudou.** A GTK edita `Profile.key_bindings` (9
   botões, combinação livre); o HTML edita `Profile.button_actions` (21 botões,
   lista fechada). Os dois existem e o daemon aplica os dois — mas o
