@@ -211,7 +211,7 @@ Quatro réguas caíram nisso hoje, e duas foram derrubadas pela minha própria
 cura do rodapé. Agora perguntam a `pacotes.topo()`, a `endereco_do_anel(n)`, a
 `ALVO_DO_PLASTICO`, a `gerar_cores_do_dualsense.legivel`.
 
-**O caso mais caro foi o inverso:** a régua da aba 05 media o DADO (`-crua`, o
+**O caso mais caro foi o inverso:** a régua da aba 05 aferia o DADO (`-crua`, o
 CSV intocado) e nunca a TINTA (a variável que chega ao pixel). Um auditor trocou
 as nove variáveis que pintam do Nova Pink por verde-limão e ela deu **13
 verdes**, com o controle inteiro verde fluorescente na tela.
