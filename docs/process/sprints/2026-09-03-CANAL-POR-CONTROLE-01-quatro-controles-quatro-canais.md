@@ -1,7 +1,7 @@
 # CANAL-POR-CONTROLE-01 — quatro controles, quatro canais
 
 > **Decisão dela, 03/09/2026:** *"4 controles os 4 tem que ter canais de entrada
-> unico pra cada qual. Não faz sentido essas frases."*
+> unico pra cada qual. Não faz sentido essas frases."* <!-- noqa-acento: citação literal dela -->
 >
 > Ela recusou a PREMISSA de um recado de tela, não o texto dele. As frases
 > propostas descreviam a perda de um recurso único que passa de mão em mão — e

@@ -4,7 +4,7 @@
 >
 > *"se no topo tá mostrando controle white player 1, então cada aba vai usar os
 > controles lá de cima. Não mistura com a info dos mockups. Cada feature faz
-> referencia ao controle conectado. Por isso temos o mapa pra servir como
+> referencia ao controle conectado. Por isso temos o mapa pra servir como <!-- noqa-acento: citação literal dela -->
 > variável de identificação"*
 
 ## 0. O QUE ELA VIU, e é o que originou a lei
@@ -78,7 +78,7 @@ Hoje ela percorre a PILHA de ancestrais com um parser.
 
 ## 4. COMO SE CONSERTA UMA ABA
 
-1. Dar ENDEREÇO ao elemento no gerador (`layout/_ferramentas/abaNN.py`):
+1. Dar ENDEREÇO ao elemento no gerador (o gerador da aba (`src/hefesto_dualsense4unix/interface/aba04.py` e os nove irmãos)):
    `data-campo` + `data-hef-alvo` (`cor`, `texto`, `classe`…).
 2. O pacote da aba (`interface/pacotes/aNN_*.py`) passa a ESCREVER aquele campo
    com o que leu do daemon.
