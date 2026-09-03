@@ -5,8 +5,13 @@ comeram trabalho hoje, e a primeira come trabalho que está no *stage*.
 
 **O que este dia entregou, em uma linha:** o produto foi INSTALADO de verdade
 (`rc=0`, três módulos DKMS, daemon reiniciado), a suíte fechou VERDE nos oito
-lotes (16.447 testes), e **quatro instrumentos que davam verde sobre nada**
-foram achados e curados — um deles por ELA, lendo a saída do install.
+lotes (16.447 testes), **quatro instrumentos que davam verde sobre nada** foram
+achados e curados — um deles por ELA, lendo a saída do install —, e **nove
+agentes clicaram nove abas no produto instalado** (§10), achando uma `quebra`
+que apagava dado dela e oito telas que afirmavam o que não existia.
+
+**E o serial de aparelho ganhou portão** (§9), a pedido dela — descobrindo no
+caminho que a régua já existia desde 15/08 e o que faltava era a CAMADA.
 
 ---
 
@@ -262,6 +267,79 @@ estão no registro do dia, e a próxima pessoa deve saber:
 * **o número de série do DualSense**, que apareceu numa leitura de
   `daemon.state_full`.
 
-A senha vale trocar. O serial é identidade de aparelho, como o MAC — e a régua
-`test_docs_mac_anonimato.py` **não o cobre**, porque a lista dela é de OUIs.
-Fica como pergunta aberta: vale um portão para número de série?
+A senha vale trocar. O serial é identidade de aparelho, como o MAC.
+
+**ELA RESPONDEU — *"sim, faz o portão pro número de série"* — E A RESPOSTA
+DERRUBOU A PERGUNTA.** Esta seção dizia que `test_docs_mac_anonimato.py` *"não o
+cobre, porque a lista dela é de OUIs"*. **Está errado, e o erro foi medido ao
+escrever o portão novo:** o mesmo arquivo traz
+`test_nenhum_serial_de_fabrica_real_no_repo` desde 15/08/2026, e ele acusou o
+valor forjado que o portão novo tinha acabado de criar. Ele é o AUTORITATIVO —
+mede a forma exata de um DualSense em texto, em hexdump com o serial
+atravessando a quebra de linha, e em corrida hexadecimal colada.
+
+**O QUE FALTAVA NÃO ERA A RÉGUA, ERA A CAMADA.** Aquele teste é da SUÍTE, e a
+suíte roda no FIM — a mesma forma que deixou os 37 endereços de rádio crus
+passarem esta manhã. Então nasceu `scripts/check_numero_de_serie.py`:
+
+| | forma | alcance | custo | quando roda |
+| --- | --- | --- | --- | --- |
+| autoritativo (`mac-por-oui`) | exata do DualSense | texto · hexdump · hex colado | ~12 s | fim da suíte |
+| novo (`serial-de-aparelho`) | 15 a 20 caracteres | texto | 1,2 s | **antes do commit** |
+
+A largura também importa: 15 a 20 alcança serial de 8BitDo e de Pro Controller,
+que a forma de dezessete não vê. Mede por FORMA e nunca por lista — listar os
+seriais reais seria o vazamento que ele existe para impedir. Isenta-se com
+`serial-de-mentira` na MESMA linha, com a razão.
+
+---
+
+## §10 — A LEVA DAS NOVE ABAS, e a única `quebra` do dia
+
+Nove agentes clicaram nove abas no produto INSTALADO, com o daemon dela vivo e
+um DualSense White no cabo. Zero conflito de código entre as nove; um só conflito
+de merge, e ele foi **as duas frentes acrescentando entradas diferentes à mesma
+lista `PERIGOSOS`** — resolvido mantendo as duas.
+
+**A ÚNICA QUEBRA, e ela apagava dado dela:**
+
+O cartão de um controle que CHEGA nunca reabria. O piloto tinha o passo que
+FECHA o cartão de um lugar sem dono e **não tinha o simétrico** — no fonte
+inteiro, `classList.add('off')` uma vez, `remove` zero. Bastava um controle sair
+e voltar, ou ligar o segundo com a aba já aberta: o cabeçalho passava a contar
+`2 controles`, o pacote mandava a coluna inteira com bateria, cor e luz, e o
+cartão ficava em **24 px contra os 34 de um cartão aberto**. Só recarregar a
+página desfazia. O P3 e o P4 escapavam porque nascem com a marca cravada no HTML
+(decisão dela de 31/08): o defeito só alcança quem esvazia em execução.
+
+A régua nova **roda o JS no `node`** contra um DOM de mentira, em vez de ler o
+texto do piloto — pela razão da §7: um `grep` por `remove('off')` daria verde no
+dia em que alguém escrevesse a linha dentro de um `if` que nunca corre. E
+`scripts/ensaios/o_cartao_reabre_no_webkit.py` prova no `WebKit2.WebView` que ela
+usa, com a folha real: `34 -> 24 -> 34`.
+
+**AS OITO QUE ENGANAM,** uma por aba:
+
+| aba | o que a tela afirmava |
+| --- | --- |
+| 02 Controles | assento VAZIO com barra de bateria pintada a **64%** e os chips Giroscópio/Acelerômetro no verde de conectado |
+| 03 Gatilhos | "Guardar esse efeito" **reacendia a barra de luz que ela apagou** — o gesto reaplicava o perfil INTEIRO |
+| 04 Iluminação | três botões prometiam "Player 3 — livre" num número que o produto RECUSA; e a coluna que esvazia ficava meio acesa, com dez cliques que engoliam o toque |
+| 05 Vibração | **138.804 px²** — perto de um quarto do miolo — em quatro alvos cujo clique não respondia a ninguém |
+| 06 Navegação | o lugar VAZIO era o mais colorido da fileira: Starlight Blue do mockup e lightbar `#ff0000` |
+| 07 Lançadores | o "?" contava **2 controles** a dois centímetros de um cabeçalho que dizia **1** — o número vinha da mesa do DESENHO |
+| 08 Conexões | a régua da casa **dispensava uma ordem de serviço dela a cada volta**, e o Check-up perdia uma das duas linhas que acusam nesta máquina |
+| 09 Sistema | cinco das seis linhas do exame cortadas em reticências, e a metade escondida era a resposta: *"…estão liberados. O que fazer: nada"* virava *"o mic e o fone do controle…"* ao lado de um selo NOTA |
+| 10 Perfis | o `<select>` de Estilo de Jogo — o campo mais aceso do painel — aceitava a escolha e **não gravava nada**; e nove recusas desta aba saíam no terminal, nunca na tela |
+
+**O PADRÃO DAS NOVE É UM SÓ, e é o da §7 com outro nome:** *a tela afirma o que
+o desenho trouxe, e o produto não tem por onde desdizer*. Seis das nove são o
+MOCKUP vazando para dentro do produto — o número, a cor, a barra, o chip.
+
+**DOIS ACHADOS SOBRE AS PRÓPRIAS RÉGUAS,** e valem mais que as curas:
+
+* a régua da aba 07 passou **verde sobre uma página envenenada**: o `re.search`
+  casava o PRIMEIRO `<span class="ajuda">` do arquivo, que é o do topo. *Seletor
+  que casa o elemento errado dá não-achado convincente.*
+* `test_a_dica_nao_nomeia_controle_que_nao_esta_na_mesa` **exigia** `count("—
+  livre.") == 3` com um controle na mesa: era a régua que SUSTENTAVA o defeito.
