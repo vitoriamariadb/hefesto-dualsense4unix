@@ -140,7 +140,7 @@ Ela pediu:
 
 | o que | por quê | dono |
 | --- | --- | --- |
-| a coluna `Ajuste próprio` mostra o padrão do mockup | aceso é `.gr.on`, apagado é `.gr`, e nenhum dos cinco alvos do pintor (texto·largura·fundo·valor·html) alcança uma CLASSE | `hefesto_vivo.py` — falta um `alvo === 'classe'` |
+| a coluna `Ajuste próprio` mostra o padrão do mockup | o desenho já declara `data-hef-alvo="classe"` e o pacote já manda o estado — só que na BANCADA. `--publicar-enderecos 10` recusou (a ferramenta é por PÁGINA, e esta já carrega o `—` do Estilo de Jogo, decisão dela). O pacote pergunta à página publicada e cala até lá | **ela** — `scripts/check_o_desenho_aprovado.py --publicar 10` |
 | o `<tbody>` da lista é reescrito a cada 500 ms | o `escrever()` carimba `data-hef-visto="1"` nos filhos, e o laço do `blocos` compara `innerHTML` COM os selos contra o HTML sem eles: as duas strings nunca batem. Medido em 02/09 — `BLOCOS 20` em 20 tiques, divergência no caractere 594. Só morde um `blocos` cujos filhos tenham endereço; os dois da `08` não têm | `hefesto_vivo.py` — o selo fora da serialização, ou a comparação sem ele |
 | `ControllerOverrides` continua com 4 campos | mexe em `profiles/schema.py` e nos portões de perfil — fora do território desta frente | uma onda própria |
 | o chip **Perfil ativo** mostra o `active_profile` CRU | `pacotes.topo()` pinta o `data-campo="perfil"` das dez abas sem passar pelo §P1 nem pelo `find_by_slug`: com o marcador órfão o chip nomeia um perfil que não existe, e com `sackboy` no daemon a MESMA tela diz `sackboy` no chip e acende `Sackboy` na lista. `a10_perfis._valendo` já resolve — o cabeçalho não o chama | `interface/pacotes/__init__.py`, `topo()` — e **não** esta aba: um pacote que emitisse `perfil` seria o segundo dono do cabeçalho |
@@ -153,6 +153,22 @@ Ela pediu:
   trilho abre quase vazio, e não nos 90% do desenho;
 * *"19 dos 33 perfis dela não aparecem na lista"* — a lista virou `blocos` e
   cabe inteira. Fotografado hoje: as 33 linhas, com o realce na certa.
+
+**E UMA TERCEIRA MUDOU DE DONO — 02/09/2026, a coluna `Ajuste próprio`.** A
+linha dizia que *"nenhum dos cinco alvos do pintor alcança uma CLASSE"*; **o
+alvo `classe` nasceu no mesmo dia** e a nota dele já cita esta coluna pelo nome.
+O gerador passou a declarar `data-hef-alvo="classe"` nos dezesseis `<span>` e o
+pacote passa a mandar o ESTADO — e no caminho apareceu um defeito que
+`NAO_PINTAVEIS` escondia: a emissão iterava o `dict` de seções e mandava as
+CHAVES (`"leds"`, `"triggers"`…), que o `ligado()` lê como ACESO. Publicada
+assim, a tabela acenderia as quatro seções nos quatro controles.
+
+O que sobrou é ato dela: `--publicar-enderecos 10` **recusou**, porque a página
+carrega uma mudança de desenho pendente. Medido na máquina dela, dois controles
+na mesa e `meu_perfil` valendo: a tabela mostra **seis células acesas** e o
+cabeçalho duas linhas acima diz **"0 de 2 controles com ajuste próprio neste
+perfil"** — a mesma tela com duas respostas. Com a publicação simulada e
+desfeita, a aba sai de **64 PRODUTO · 17 MOCKUP** para **80 · 1**.
 
 ## A FRASE DA PRIORIDADE — **APROVADA POR ELA, 02/09/2026, e aplicada**
 
