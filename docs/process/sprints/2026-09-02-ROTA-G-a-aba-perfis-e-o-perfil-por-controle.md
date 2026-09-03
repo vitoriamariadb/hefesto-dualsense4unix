@@ -116,7 +116,7 @@ Ela pediu:
 ```
 [ ] `ControllerOverrides` saiu de 4 campos, e cada "não" tem razão escrita
 [x] a tabela mostra os DOIS controles, com nome          02/09 — a pintura os apagava
-[ ] o texto da prioridade foi aprovado por ela           a frase abaixo espera o OK
+[~] o texto da prioridade foi aprovado por ela           02/09 — aprovado, e AINDA NÃO CHEGA À TELA (ver o fim)
 [x] `ativar` sai da lista de "sem efeito"                02/09 — recusa DIZENDO
 [ ] gravar → trocar de perfil → voltar: o ajuste do controle volta igual
 ```
@@ -143,6 +143,7 @@ Ela pediu:
 | a coluna `Ajuste próprio` mostra o padrão do mockup | aceso é `.gr.on`, apagado é `.gr`, e nenhum dos cinco alvos do pintor (texto·largura·fundo·valor·html) alcança uma CLASSE | `hefesto_vivo.py` — falta um `alvo === 'classe'` |
 | o `<tbody>` da lista é reescrito a cada 500 ms | o `escrever()` carimba `data-hef-visto="1"` nos filhos, e o laço do `blocos` compara `innerHTML` COM os selos contra o HTML sem eles: as duas strings nunca batem. Medido em 02/09 — `BLOCOS 20` em 20 tiques, divergência no caractere 594. Só morde um `blocos` cujos filhos tenham endereço; os dois da `08` não têm | `hefesto_vivo.py` — o selo fora da serialização, ou a comparação sem ele |
 | `ControllerOverrides` continua com 4 campos | mexe em `profiles/schema.py` e nos portões de perfil — fora do território desta frente | uma onda própria |
+| o chip **Perfil ativo** mostra o `active_profile` CRU | `pacotes.topo()` pinta o `data-campo="perfil"` das dez abas sem passar pelo §P1 nem pelo `find_by_slug`: com o marcador órfão o chip nomeia um perfil que não existe, e com `sackboy` no daemon a MESMA tela diz `sackboy` no chip e acende `Sackboy` na lista. `a10_perfis._valendo` já resolve — o cabeçalho não o chama | `interface/pacotes/__init__.py`, `topo()` — e **não** esta aba: um pacote que emitisse `perfil` seria o segundo dono do cabeçalho |
 
 **DUAS LINHAS SAÍRAM DESTA TABELA — 02/09/2026, e as duas fecharam:**
 
@@ -165,4 +166,16 @@ nem faz sentido mais"*. Com o trilho de volta, o número já está ao lado e a
 frase repetia o que se vê — além de dizer "prioridade", que é o rótulo do campo.
 
 A marca **PROVISÓRIO** que estava neste título saiu junto: a proposta virou
-decisão dela e o texto está no produto.
+decisão dela.
+
+**MAS ELA NÃO CHEGA À TELA — correção de fato, 02/09/2026.** Aqui estava escrito
+que *"o texto está no produto"*, e isso se leu como entregue. Medido: o endereço
+`editor.prioridade.dica` está em `a10_perfis.NAO_PINTAVEIS`, então o `pop` do fim
+de `pacote()` descarta a frase, e a tela continua com o `title=` estático do
+desenho — que não é nem a frase velha nem a que ela aprovou. O motivo de estar
+travado é o da tabela lá em cima: o alvo é um `<span>` com dois filhos-elemento
+(o trilho e o número), e `textContent` os apagaria.
+
+**O que falta é do PINTOR, não desta aba:** `hefesto_vivo.py` precisa de um
+`data-hef-alvo` que escreva ATRIBUTO (`title=`). Enquanto não houver, a decisão
+está no motor e não na tela dela.
