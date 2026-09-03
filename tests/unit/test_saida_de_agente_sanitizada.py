@@ -26,6 +26,8 @@ if str(RAIZ) not in sys.path:
 
 from scripts.sanitizar_saida_de_agente import (
     _OUIS_COMO_TRIO,
+    mascarar_enderecos,
+    normalizar_glifos,
     recusar,
     sanitizar,
 )
@@ -81,11 +83,39 @@ def test_nenhum_arquivo_de_agente_tem_segredo(arquivo: Path) -> None:
 
 @pytest.mark.parametrize("arquivo", _arquivos(), ids=lambda p: p.name)
 def test_nenhum_arquivo_de_agente_tem_mac_real(arquivo: Path) -> None:
-    """Sanitizar de novo não pode mudar nada — se muda, passou algo cru."""
+    """Mascarar de novo não pode mudar nada — se muda, passou um MAC cru.
+
+    A régua é ``mascarar_enderecos``, e NÃO ``sanitizar``. A diferença nasceu de
+    um defeito medido em 03/09/2026: ``sanitizar`` também normaliza glifo, então
+    uma nota musical (U+266A) em dois relatórios da leva de 01/09 reprovava aqui
+    com a mensagem "tem MAC real (com separador, colado ou com o OUI elidido)".
+    Não havia endereço nenhum nos arquivos — a régua acusava a coisa errada, e
+    quem foi conferir gastou a investigação inteira procurando um MAC que não
+    existia. O glifo tem régua PRÓPRIA logo abaixo, com o nome do que mede.
+    """
     texto = arquivo.read_text(encoding="utf-8", errors="replace")
-    assert sanitizar(texto, home=None) == texto, (
+    assert mascarar_enderecos(texto, home=None) == texto, (
         f"{arquivo.relative_to(RAIZ)} tem MAC real (com separador, colado ou com "
         "o OUI elidido) — a máscara da casa é octetos 4 e 5 zerados"
+    )
+
+
+@pytest.mark.parametrize("arquivo", _arquivos(), ids=lambda p: p.name)
+def test_nenhum_arquivo_de_agente_tem_glifo_proibido(arquivo: Path) -> None:
+    """A outra metade, e ela precisa do nome certo para não virar alarme falso.
+
+    O ``validar-glifos.py`` do repositório NÃO alcança este chão: ele segue o
+    Emoji_Presentation estrito, e tanto o U+2713 (CHECK MARK) quanto o U+266A
+    (nota musical) têm apresentação de TEXTO — passam por ele e travam no
+    ``universal-sanitizer.py`` do pre-commit, que usa faixas largas. Quem
+    sanitiza para o repositório obedece ao MAIS ESTRITO dos dois; esta régua é
+    esse contrato, medido sobre a saída de agente já versionada.
+    """
+    texto = arquivo.read_text(encoding="utf-8", errors="replace")
+    assert normalizar_glifos(texto) == texto, (
+        f"{arquivo.relative_to(RAIZ)} tem glifo que o hook de pre-commit bloqueia "
+        "— não é MAC, é emoji/símbolo. Os que carregam sentido viram texto "
+        "(`[OK]`, `[X]`, `[!]`, `[nota]`); os decorativos saem."
     )
 
 

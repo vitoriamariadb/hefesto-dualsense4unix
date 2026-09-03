@@ -194,10 +194,18 @@ def _mascarar_trio(m: re.Match[str]) -> str:
     return f"00:00:{m['c']}"
 
 
-#: Os emoji que CARREGAM sentido num relatório de agente: veredito em tabela.
-#: Remover estes sem trocar apagaria a informação; os demais são decorativos.
+#: Os glifos que CARREGAM sentido num relatório de agente: o veredito de uma
+#: tabela, ou o RÓTULO de um botão do produto. Remover estes sem trocar apagaria
+#: a informação; os demais são decorativos.
 #: Escritos por escape de propósito: o portão de glifos varre ESTE arquivo
 #: também, e um emoji literal aqui o faria reprovar a si mesmo.
+#:
+#: NOTA DATADA — 03/09/2026: a nota musical (U+266A) entrou, e o motivo é
+#: medido. Ela é o RÓTULO do botão do alto-falante na aba Controles, e os
+#: relatórios da leva de 01/09 a usam como nome próprio — "o gesto `mudo`
+#: atende o microfone e a nota", "a nota nasce `disabled` quando `alto_pode` é
+#: falso". Ela caía em `_FAIXAS_DO_HOOK` (Miscellaneous Symbols) e era APAGADA
+#: sem troca, deixando a frase sem sujeito. Rótulo de botão não é decoração.
 _EMOJI_COM_SENTIDO = {
     "\u2705": "[OK]",   # WHITE HEAVY CHECK MARK
     "\u274c": "[X]",    # CROSS MARK
@@ -207,6 +215,7 @@ _EMOJI_COM_SENTIDO = {
     "\u2718": "[X]",    # HEAVY BALLOT X
     "\u2716": "[X]",    # HEAVY MULTIPLICATION X
     "\u26a0": "[!]",    # WARNING SIGN
+    "\u266a": "[nota]",  # EIGHTH NOTE — o botão do alto-falante, aba Controles
     "\U0001f6a8": "[!]",   # POLICE CARS REVOLVING LIGHT
     "\U0001f534": "[X]",   # LARGE RED CIRCLE
     "\U0001f7e2": "[OK]",  # LARGE GREEN CIRCLE
@@ -315,9 +324,20 @@ def normalizar_glifos(texto: str) -> str:
     return "".join(saida)
 
 
-def sanitizar(texto: str, home: str | None = None) -> str:
-    """Devolve o texto com MAC e caminho de HOME mascarados, e sem emoji."""
-    texto = normalizar_glifos(texto)
+def mascarar_enderecos(texto: str, home: str | None = None) -> str:
+    """Só o ENDEREÇO: MAC nas quatro formas e o caminho de HOME. Nada de glifo.
+
+    Existe separado de ``sanitizar`` por um defeito de RÉGUA medido em
+    03/09/2026: ``test_nenhum_arquivo_de_agente_tem_mac_real`` usava a
+    idempotência de ``sanitizar`` como prova de que não havia MAC cru. Mas
+    ``sanitizar`` também normaliza glifo, então uma nota musical num relatório
+    reprovava com a mensagem "tem MAC real (com separador, colado ou com o OUI
+    elidido)" — e quem foi conferir procurou um endereço que não existia. Uma
+    régua que acusa a coisa errada custa a investigação inteira.
+
+    Quem quer medir MAC chama isto; quem quer medir glifo chama
+    ``normalizar_glifos``; quem vai ESCREVER o arquivo chama ``sanitizar``.
+    """
     texto = _MAC_SEP.sub(_mascarar_sep, texto)
     texto = _MAC_COL.sub(_mascarar_col, texto)
     texto = _SUFIXO_ELIDIDO.sub(_mascarar_elidido, texto)
@@ -331,6 +351,11 @@ def sanitizar(texto: str, home: str | None = None) -> str:
     if home:
         texto = texto.replace(home, "~")
     return texto
+
+
+def sanitizar(texto: str, home: str | None = None) -> str:
+    """Devolve o texto com MAC e caminho de HOME mascarados, e sem emoji."""
+    return mascarar_enderecos(normalizar_glifos(texto), home)
 
 
 def recusar(texto: str) -> list[str]:
