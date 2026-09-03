@@ -179,7 +179,10 @@ E um terceiro que a própria auditoria criou e mediu logo depois: nem
 `IController` nem o `FakeController` declaram `set_microphone_led`, então a
 devolução do achado 2 caía num `getattr(...) is None` e saía **calada**.
 
-**E A "IMPOSSIBILIDADE CONSTRUTIVA" DO COMMIT ERA FALSA.** Ele afirmava que
+**E A "IMPOSSIBILIDADE CONSTRUTIVA" DO COMMIT ERA FALSA** — o que vem a seguir é
+recitação-da-frase-derrubada: a frase é **citada para ser enterrada**, nunca
+afirmada, e `tests/unit/test_bt_e_vpad_01.py` exige esta marca de quem a repete,
+justamente para não reprovar a correção em vez do defeito. Ele afirmava que
 *"escrever no `common[9]` faz o kernel parar de alternar na borda"*. O fonte C
 desta árvore decide o toggle por `ds_report->buttons[2] & DS_BUTTONS2_MIC_MUTE`
 — o bit do BOTÃO no report de ENTRADA — e não lê nada que o userspace escreva
