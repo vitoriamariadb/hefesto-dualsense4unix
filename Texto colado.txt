@@ -1,0 +1,1 @@
+specs.html tem 1,5 MB e é gerado de docs/data/mapa-controles.csv. Vou ler a fonte, agregada — é o mapa da paridade cabo × rádio, que é exatamente o assunto da migração.
