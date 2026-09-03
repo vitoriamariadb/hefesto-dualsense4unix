@@ -58,11 +58,11 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 04-iluminacao | 35 | 5 | 9 | 13 | 7 | 1 | 14% |
 | 05-vibracao | 31 | 6 | 12 | 10 | 3 | 0 | 19% |
 | 06-navegacao | 40 | 3 | 19 | 9 | 9 | 0 | 8% |
-| 07-lancadores | 30 | 4 | 6 | 10 | 9 | 1 | 13% |
+| 07-lancadores | 30 | 8 | 6 | 6 | 9 | 1 | 27% |
 | 08-conexoes | 49 | 6 | 17 | 24 | 2 | 0 | 12% |
 | 09-sistema | 38 | 3 | 15 | 13 | 7 | 0 | 8% |
 | 10-perfis | 50 | 8 | 17 | 16 | 9 | 0 | 16% |
-| TODAS | 396 | 54 | 135 | 144 | 59 | 4 | 14% |
+| TODAS | 396 | 58 | 135 | 140 | 59 | 4 | 15% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
