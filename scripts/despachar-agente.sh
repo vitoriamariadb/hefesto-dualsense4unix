@@ -188,6 +188,34 @@ ${ARQ_SPRINT}
 Leia-a inteira antes de tocar em código, e siga o protocolo em
 docs/process/COMO-EXECUTAR-UMA-SPRINT.md.
 
+## A TELA DELA É UMA SÓ — E A SUA JANELA NÃO NASCE NELA
+
+Regra dela, 04/09/2026: *"o app de validação, os testes, a parte de navegar na
+interface tem que abrir na área de trabalho OS. Sempre. (…) faz isso pq abrindo
+na tela Meow me quebra aqui no serviço."*
+
+Ela está trabalhando no workspace \`Meow\` AGORA. Janela que nasce lá rouba o
+foco dela, e o mouse dela passa a brigar com o seu clique.
+
+1. **Prefira não abrir janela nenhuma** — \`Gtk.OffscreenWindow\`, \`--oculta\`,
+   Playwright \`headless\`, \`scripts/gui-captura/retratar_abas.py\`. É quase
+   sempre possível, e aí não há workspace a errar.
+2. **Se a janela for inevitável**, ela nasce no \`OS\`:
+
+       aurora-claude-workspace.sh run <comando...>
+       aurora-claude-workspace.sh browser
+       aurora-claude-workspace.sh status
+
+3. **Se o \`park\` recusar, ACEITE e diga na entrega.** Nunca force com
+   \`AURORA_CLAUDE_WS_FALLBACK=1\`. E nunca rode \`peek\` nem \`goto\` por conta
+   própria: os dois trocam o que ela está vendo.
+
+A íntegra está em \`docs/process/COMO-OLHAR-A-TELA.md\`, no topo.
+
+**E a irmã desta regra:** para matar processo, **PID conferido com
+\`ps -o pid,ppid,cmd\`** — nunca padrão de nome. Um \`pkill -f 'cosmic-comp'\`
+derrubou o compositor dela em 04/09.
+
 ## A BANCADA
 Estado agora: ${BANCADA}
 

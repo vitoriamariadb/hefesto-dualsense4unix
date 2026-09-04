@@ -13,6 +13,53 @@ Este arquivo é isso. Cada linha aqui custou tempo de alguém.
 
 ---
 
+## ANTES DE TUDO: ELA TEM UMA TELA SÓ, E A JANELA NÃO NASCE NELA
+
+**Regra dela, 04/09/2026, e ela é sobre o serviço dela, não sobre estética:**
+
+> *"o app de validação, os testes, a parte de navegar na interface tem que abrir
+> na área de trabalho OS. Sempre. É lá que deixamos o claude pra ficar
+> trabalhando. usando playwright e afins. (…) faz isso pq abrindo na tela Meow
+> me quebra aqui no serviço."*
+
+A sessão do COSMIC tem **três áreas de trabalho alfinetadas, nesta ordem**:
+**`Meow` é DELA**, **`OS` é de quem está trabalhando aqui**, `III` é a terceira.
+Ela está no `Meow` **agora**, trabalhando. Uma janela que nasce lá rouba o foco,
+e o mouse dela passa a brigar com o clique do agente — os dois se quebram.
+
+**A ORDEM DE PREFERÊNCIA, e ela é dura:**
+
+1. **Não abrir janela nenhuma.** É quase sempre possível, e é o que as levas de
+   03/09 e 04/09 fizeram: `Gtk.OffscreenWindow`, `--oculta`, Playwright em
+   `headless`, `retratar_abas.py`. **Se você conseguir medir sem janela, essa é
+   a resposta certa** — não há workspace a errar.
+2. **Se a janela for inevitável** (o app de validação, um Playwright que precisa
+   de compositor, um jogo para o ensaio do sensor), ela **nasce no `OS`**:
+
+   ```bash
+   aurora-claude-workspace.sh run <comando...>   # roda e move a janela que nascer
+   aurora-claude-workspace.sh browser            # um Chrome dedicado, já no OS
+   aurora-claude-workspace.sh park <app-id>      # move uma janela já aberta
+   aurora-claude-workspace.sh status             # diagnóstico, não muda nada
+   ```
+
+   O script vive em `~/.config/zsh/scripts/aurora-claude-workspace.sh` e **não
+   está versionado neste repositório** — ele é da máquina dela.
+
+3. **Se o `park` RECUSAR**, a resposta é **aceitar a recusa e dizer na entrega**.
+   Não force com `AURORA_CLAUDE_WS_FALLBACK=1`: ele pode jogar a janela em cima
+   dela, que é exatamente o que a regra existe para impedir.
+
+**O que NUNCA se faz, por conta própria:** `aurora-claude-workspace.sh peek` ou
+`goto`. Os dois **trocam o que ela está vendo**. Só quando ela pedir para ver.
+
+**E a irmã desta regra, que já custou uma sessão inteira:** para matar um
+processo, **PID conferido com `ps -o pid,ppid,cmd`, nunca padrão de nome.** Em
+04/09/2026 um `pkill -f 'cosmic-comp'` casou com o compositor **dela**, a tela
+caiu e a conversa morreu — ela teve de restaurá-la.
+
+---
+
 ## A regra, em uma linha
 
 ```bash
