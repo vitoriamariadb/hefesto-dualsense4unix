@@ -140,7 +140,7 @@ do despacho traz a regra inteira.
 
 ## O RELATÓRIO FINAL
 
-`docs/process/agentes/2026-09-04/ONDA2-03.md`, com quatro cabeçalhos:
+`docs/process/agentes/2026-09-04/ONDA2-03.md` <!-- ref-externa: esta sprint CRIA o relatório; ele nasce no fim da frente --> , com quatro cabeçalhos:
 **o que mudou** · **como provei (a mordida colada)** · **o que medi e derrubou
 uma suposição** · **o que sobrou para o próximo** — e, separada, **a lista das
 linhas do CSV que você fechou**, que é o que a ONDA1-X vai lançar.
