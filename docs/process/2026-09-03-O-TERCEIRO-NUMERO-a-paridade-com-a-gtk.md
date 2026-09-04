@@ -12,7 +12,14 @@ Nenhum dos dois responde a pergunta da qual sai a fila de trabalho: **o que a
 janela GTK faz e a interface em HTML ainda não faz.** Esta é a medição desse
 terceiro número, e ele nasce com dono, com dado e com portão.
 
-O número é **14%**.
+**O número não se escreve nesta linha.** Ele está na tabela da §2, linha
+`TODAS` — gerada da contagem do CSV e conferida pela regra `numero-publicado`.
+
+Aqui havia uma segunda cópia dele, e ela envelheceu: em 04/09/2026 esta linha
+dizia **14%** sobre uma tabela do mesmo arquivo que já dizia **27%**. Os dois
+números estiveram certos — o 14% é o de 03/09 (`548c0fbc`), o 27% é o de hoje —
+e o defeito não foi de medição: **era o número ter dois donos, e só um deles ter
+régua.** A cópia sai; o dono fica.
 
 ---
 
@@ -71,12 +78,17 @@ A tabela é **gerada da contagem do CSV** e conferida pelo portão (regra
 nomeando a aba que divergiu. Um número publicado que não se pode conferir vira
 folheto, e este é o número que ela vai ler para decidir.
 
-**Duas correções de fato, e as duas são deste dia.** O primeiro rascunho desta
-medição publicou **394 features e 174 `FALTA_NO_HTML`**. Os números certos são
-**396 e 176**: as abas 08 e 09 contaram uma feature a menos cada uma no resumo
-que escreveram, e a lista de features delas — que é o dado — sempre teve 49 e
-38. O errado sai; o certo fica. E o `01-jogar` publicou **11%** onde a divisão
-dá **12%** (5 de 42).
+**Duas correções de fato, e as duas são de 03/09.** O primeiro rascunho desta
+medição publicou **394 features**, e duas `FALTA_NO_HTML` a menos que a conta:
+as abas 08 e 09 contaram uma feature a menos cada uma **no resumo que
+escreveram**, e a lista de features delas — que é o dado — sempre teve **49** e
+**38**, como a tabela acima continua mostrando. E o `01-jogar` publicou **11%**
+onde a divisão daquele dia dava **12%** (5 de 42).
+
+**As duas correções ficam; os valores que elas corrigiram, não.** O total de
+`FALTA_NO_HTML` e a paridade da `01-jogar` mudam a cada cura, e quem quiser os
+de hoje lê a tabela, que tem dono. O que não caduca é a lição:
+**o resumo de uma aba não é o dado dela.**
 
 ---
 
@@ -124,9 +136,12 @@ existem, não código novo.**
 
 ## 4. As três categorias, com exemplo
 
-### `FALTA_NO_HTML` — 176 features, 44% do total
+### `FALTA_NO_HTML` — a GTK faz, o HTML não
 
-O maior bloco, e o que decide a fila.
+**Quantas são hoje: a coluna `FALTA` da tabela da §2.** Em 03/09 este era o
+maior bloco, com 44% do total, e era ele que decidia a fila. **Deixou de ser**,
+e é o que as levas pagaram: as curas foram desproporcionalmente daqui, e hoje o
+maior bloco é o `DIFERENTE`.
 
 - **`05-vibracao` · qual degrau está aceso.** A GTK tem
   `_apply_policy_to_widgets` (`app/actions/rumble_actions.py:699`) fazendo a
@@ -152,10 +167,13 @@ O maior bloco, e o que decide a fila.
 - **`10-perfis` · o botão "Salvar este perfil".** Com ele foram embora as cinco
   perguntas do Salvar e a fusão com o rascunho das outras abas.
 
-### `DIFERENTE` — 103 features, 26%
+### `DIFERENTE` — os dois fazem, e não a mesma coisa
 
-Fazem os dois, e não a mesma coisa. É a categoria que mais engana, porque a tela
-não fica vazia: ela responde outra pergunta.
+**Quantas são hoje: a coluna `DIFER` da tabela da §2.** É a categoria que mais
+engana, porque a tela não fica vazia: ela responde outra pergunta. E ela
+**cresce** enquanto o trabalho anda: das dez linhas que deixaram
+`FALTA_NO_HTML` entre 04/09 de manhã e a tarde, quatro pararam aqui e seis
+foram direto a `IGUAL`.
 
 - **`05-vibracao` · o número do multiplicador.** A GTK mostra o **pedido**
   (`_POLICY_MULT[policy] * 100` = 100); o HTML mostra o **aplicado**
@@ -177,7 +195,9 @@ não fica vazia: ela responde outra pergunta.
   daemon não aplicou: a GTK salva o que ela pediu, o HTML salva o que o aparelho
   está mostrando.
 
-### `SO_NO_HTML` — 59 features, 15%
+### `SO_NO_HTML` — o HTML faz, e a GTK nunca fez
+
+**Quantas são hoje: a coluna `SO_HTML` da tabela da §2.**
 
 **Ninguém pode "consertar" removendo.** Boa parte é motor que já existia em
 `integrations/` e nunca tinha tela: o histórico do perfil (`Voltar à de
@@ -191,12 +211,13 @@ com `Off`); o HTML nomeia a curva salva (a GTK sempre mostra "Personalizar"); e
 os três pontos em que a GTK aplica o wrapper em massa ignoram a lista "não usar
 neste jogo" (o HTML passa `excluir=`). **Três linhas a NÃO copiar de volta.**
 
-### `NAO_DA_PARA_SABER` — 4 features
+### `NAO_DA_PARA_SABER` — não se decide lendo
 
-Não se decide lendo. As quatro precisam de bancada: se a lista de 19 modos abre
-no compositor dela, se o `Automático` de fato larga a luz para o jogo, se o
-reparo do HTML repõe a linha no `.vdf` dela, e se o nome do plástico chega ao
-cartão. **Ficam registradas como indecidíveis em vez de chutadas** — é a mesma
+**Quantas são hoje: a coluna `?` da tabela da §2.**
+
+Elas precisam de bancada: se a lista de 19 modos abre no compositor dela, se o
+`Automático` de fato larga a luz para o jogo, se o reparo do HTML repõe a linha
+no `.vdf` dela, e se o nome do plástico chega ao cartão. **Ficam registradas como indecidíveis em vez de chutadas** — é a mesma
 disciplina do `de_onde_sei` do mapa de canais.
 
 ---
@@ -220,8 +241,12 @@ que se espera dele:
 **A segunda metade é a que envelhece o número de propósito.** Quando alguém
 fechar uma dívida — o lado HTML passar a chamar a função da GTK que a carregava,
 ou a página ganhar o endereço que lhe faltava (`data-campo="fragil"`) —, o
-símbolo aparece, o portão **reprova**, e o CSV tem de ser reescrito. Sem isso,
-"14% de paridade" vira propaganda no dia seguinte à primeira cura.
+símbolo aparece, o portão **reprova**, e o CSV tem de ser reescrito. Sem isso a
+paridade publicada vira propaganda no dia seguinte à primeira cura.
+
+**E a régua fez o que prometia.** Entre 03/09 e 04/09 a paridade andou de 14%
+para 27% sem que ninguém a "atualizasse" à mão: cada cura fez o portão reprovar,
+e a linha do CSV foi reescrita com o endereço novo lido no código.
 
 ### As oito regras
 
@@ -281,21 +306,48 @@ regerar a tabela da §2. Nunca afrouxando a regra no script.
 
 ## 7. O que este número diz sobre a fila
 
-Três leituras que a tabela sustenta, e nenhuma delas é opinião:
+Três leituras que a tabela sustenta, e nenhuma delas é opinião. **Quem lê os
+extremos lê a tabela da §2, não este parágrafo** — a lista abaixo diz que TIPO
+de atraso cada aba tem, que é o que não muda a cada cura.
 
-1. **A `03-gatilhos` é a mais adiantada (32%) e a `02-controles`, a `06` e a
-   `09` são as mais atrasadas (8%).** As três atrasadas não têm o mesmo
-   problema: a 02 é leitura viva pura, a 06 **mudou de campo** (e o câmbio
-   apaga edição da GTK em silêncio), e a 09 tem **sete botões sem dono** na tela
-   dela hoje — o clique cai no despacho, imprime no stdout e não diz uma letra.
-2. **Botão morto é pior que botão ausente.** A 09 tem sete, a 10 tem um
-   ("Recarregar"), a 07 aponta três na 09. Todos com rótulo e tooltip, todos
-   silenciosos. Custam pouco e enganam muito.
-3. **Uma parte da dívida é ato dela, não código.** Quatro campos da 02
-   (`touch-ponto`, `luz-cor`, `alto-num`, `alto-barra`) e o `data-campo="luz"`
-   da 04 já têm dono e emissão, e esperam só o
-   `scripts/check_o_desenho_aprovado.py --publicar`. Isso fecha cinco buracos
-   sem uma linha de código nova.
+1. **Nem toda aba atrasada está atrasada pelo mesmo motivo, e é isso que decide
+   a ordem.** A `02-controles` é **leitura viva pura** — o dado existe e a
+   página não tem onde pô-lo. A `06-navegacao` **mudou de campo**
+   (`Profile.key_bindings` → `Profile.button_actions`), e o câmbio apaga em
+   silêncio o que ela editou na janela antiga; é dívida de MOTOR, e nenhuma
+   pintura a fecha. E a `01-jogar` é quase toda **ponte entre dois arquivos que
+   já existem** — 18 das 30 linhas abertas dela caíram no balde `LIGAR` da
+   triagem de 04/09, a melhor razão entre trabalho e ganho do inventário.
+   <!-- O RANKING SAIU DAQUI EM 04/09/2026, e ele estava certo em 03/09: a
+        `03-gatilhos` era a mais adiantada com 32% e a `02`, a `06` e a `09` as
+        mais atrasadas com 8%. Hoje a `03` continua na frente e as três de trás
+        não são mais as mesmas — a `09` saiu do fundo. Um ranking é uma segunda
+        cópia da tabela, e foi a segunda cópia que envelheceu o `14%` desta
+        página; ele não volta. -->
+2. **Botão morto é pior que botão ausente.** Ele tem rótulo e tooltip, e é
+   silencioso: custa pouco e engana muito. **A contagem de 03/09 — sete na 09,
+   um na 10 ("Recarregar") — não vale mais**, e as duas curas têm régua:
+   `tests/unit/test_a_09_sistema_fecha_a_paridade.py` mede o ATO gesto a gesto
+   na 09, e `tests/unit/test_aba10_os_cinco_gestos_calados_passaram_a_falar.py`
+   fecha os cinco últimos da 10. O princípio fica; o número tem dono, e o dono
+   é o CSV.
+3. **UM FATO QUE CAIU EM 04/09/2026, e ele encurtava a fila.** Esta linha dizia
+   que quatro campos da 02 (`touch-ponto`, `luz-cor`, `alto-num`,
+   `alto-barra`) e o `data-campo="luz"` da 04 esperavam o
+   `scripts/check_o_desenho_aprovado.py --publicar` dela. **Não esperam mais** —
+   os cinco estão nas páginas que o produto abre, e as duas páginas são
+   byte-idênticas ao mockup:
+
+   ```
+   $ grep -c 'data-campo="alto-barra"' src/.../interface/paginas/02-controles.html   → 4
+   $ grep -c 'data-campo="luz"'        src/.../interface/paginas/04-iluminacao.html  → 2
+   $ .venv/bin/python scripts/check_o_desenho_aprovado.py
+     o produto já tem ..... 13
+     o produto está atrás . 0  (0 em trabalho)
+   ```
+
+   **Nenhuma linha desta medição espera o `--publicar` dela.** As treze páginas
+   foram publicadas na madrugada de 04/09.
 
 O que o CSV **não** decide é a ordem. Ele diz onde estão os buracos, com
 endereço; qual se fecha primeiro é dela.
