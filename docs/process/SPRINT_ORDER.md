@@ -22,6 +22,19 @@
 
 ## §-1 — A FILA DE AGORA: as treze sprints das dezesseis decisões
 
+> **04/09/2026, madrugada — TRÊS ESPERAS CAÍRAM E UMA SPRINT FECHOU.** As dez
+> abas foram republicadas (`check_o_desenho_aprovado.py --publicar`), o que
+> destravou **S-06, S-07 e S-09** de uma vez: elas esperavam só o `--publicar`
+> da aba delas. E a **S-13** foi feita — a linha do CSV que chamava o touchpad
+> de *"duas decisões dela em conflito"* foi remedida com a D-15.
+>
+> **E entraram QUINZE queixas novas dela**, medidas uma a uma em
+> [AS QUINZE QUEIXAS DELA](2026-09-04-AS-QUINZE-QUEIXAS-DELA-medidas-uma-a-uma.md)
+> — quatro já fecharam (o relógio da tela, o tema do popup, o tamanho da janela
+> e o desenho no lugar vazio) e as outras onze viraram as ondas A–J daquele
+> documento, §6. **Onze das quinze tinham a mesma forma:** o motor existia,
+> medido e repassado, e faltava o chamador.
+
 **04/09/2026.** A ordem é por **DESBLOQUEIO**, não por peso: as três primeiras
 são peças de tela que as outras dez usam. É a lição dos quinze defeitos de forma
 de 23/08 — consertar aba por aba pagaria quinze vezes o mesmo preço.
@@ -33,14 +46,14 @@ de 23/08 — consertar aba por aba pagaria quinze vezes o mesmo preço.
 | **S-03** | O botão cinza com a razão na dica | ~6 linhas, em 3 abas | CSS novo |
 | **S-04** | Os QUATRO lugares de aviso que a página já tem | 6 linhas da aba 01 | — |
 | **S-05** | O botão do microfone liga o microfone E o canal dele | 3 linhas, abas 02 e 08 | S-01 |
-| **S-06** | Deslizante de volume no mic e no alto-falante | 4 linhas da aba 02 | `--publicar` da 02 |
-| **S-07** | O interruptor do automático, gravando a cor ao desligar | 3 linhas da aba 04 | `--publicar` da 04 |
+| **S-06** | Deslizante de volume no mic e no alto-falante | 4 linhas da aba 02 | ~~`--publicar` da 02~~ **destravada 04/09** |
+| **S-07** | O interruptor do automático, gravando a cor ao desligar | 3 linhas da aba 04 | ~~`--publicar` da 04~~ **destravada 04/09** |
 | **S-08** | A linha de estado da vibração | 2 linhas da aba 05 | S-02 |
-| **S-09** | O veredito do Check-up + a quarta cor | 3 linhas da aba 08 | `--publicar` da 08 |
+| **S-09** | O veredito do Check-up + a quarta cor | 3 linhas da aba 08 | ~~`--publicar` da 08~~ **destravada 04/09** |
 | **S-10** | "cabo"/"rádio" pela função dona | 1 linha, e mata uma cópia | — |
 | **S-11** | Casco fora, luz viva dentro | 2 linhas da aba 02 | — |
 | **S-12** | A frase da mesa vazia e o `+N` do quinto | 2 linhas da aba 01 | — |
-| **S-13** | Corrigir o CSV: o touchpad nunca foi conflito | 1 linha, e um fato errado | — |
+| ~~**S-13**~~ | ~~Corrigir o CSV: o touchpad nunca foi conflito~~ | **FEITA 04/09** | `paridade-gtk-html.csv`, a linha do `06-navegacao` |
 
 **S-01, S-02 e S-03 antes de tudo.** Elas são o que falta de INFRAESTRUTURA de
 tela nesta interface: um canal de recado para o sucesso (hoje só a recusa fala),
