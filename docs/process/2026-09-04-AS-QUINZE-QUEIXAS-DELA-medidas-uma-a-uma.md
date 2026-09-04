@@ -412,8 +412,23 @@ Já estava diagnosticado, com esta medição, em `scripts/abrir_interface.py:44-
 *"NÃO SE CONSERTA AQUI. Um aplicativo que chamasse `set_decoration_layout`
 passaria a ignorar a escolha global dela."*
 
-**O conserto é de uma linha, na máquina dela, e é escolha dela qual lado quer.**
-`:minimize,maximize,close` põe os três à direita, na ordem usual do COSMIC.
+**O conserto é de duas linhas, na máquina dela — não no repositório.** Ela pediu
+que a barra fosse *"a mesma do sistema"*, e as janelas nativas do COSMIC põem os
+botões **à direita**. Então o valor que atende o pedido é
+`:minimize,maximize,close`:
+
+```bash
+sed -i 's/^gtk-decoration-layout=.*/gtk-decoration-layout=:minimize,maximize,close/' \
+    ~/.config/gtk-3.0/settings.ini
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+```
+
+Vale para **todo** aplicativo GTK da sessão, e é reversível — o valor de hoje é
+`'close,maximize,minimize:'`. Aplicativos já abertos precisam ser reabertos.
+
+**POR QUE NÃO FOI FEITO NESTA LEVA:** é configuração pessoal dela, fora da
+árvore do projeto, e mudá-la altera janelas de programas que não são este. Fica
+como a única das quinze que espera a mão dela — bastam as duas linhas acima.
 
 **Duas afirmações do código caíram junto:** `ver.py:146-155` e
 `ponte_da_tela.py:387-389` dizem que a `HeaderBar` existe porque *"sem ela os
