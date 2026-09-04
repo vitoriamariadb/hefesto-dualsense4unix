@@ -13,6 +13,15 @@ que apagava dado dela e oito telas que afirmavam o que não existia.
 **E o serial de aparelho ganhou portão** (§9), a pedido dela — descobrindo no
 caminho que a régua já existia desde 15/08 e o que faltava era a CAMADA.
 
+**À TARDE, a paridade com a janela antiga foi de 14% a 25%** (§11) com dez
+frentes em paralelo e quatro conferentes adversários — um deles derrubou uma
+entrega inteira, provando com `git log -S` que as "oito features" de uma aba já
+funcionavam. A **máscara por controle fechou** (§13), e os trinta pontos que as
+frentes não podiam decidir viraram dez perguntas em arquivo (§14).
+
+**A forma que este dia repetiu SEIS vezes tem nome** (§12): *a régua DIGITA em
+vez de perguntar* — e três delas reprovaram melhoras feitas no mesmo dia.
+
 ---
 
 ## §1 — AS TRÊS ARMADILHAS DO DIA
@@ -343,3 +352,103 @@ MOCKUP vazando para dentro do produto — o número, a cor, a barra, o chip.
   que casa o elemento errado dá não-achado convincente.*
 * `test_a_dica_nao_nomeia_controle_que_nao_esta_na_mesa` **exigia** `count("—
   livre.") == 3` com um controle na mesa: era a régua que SUSTENTAVA o defeito.
+
+---
+
+## §11 — A TARDE: A PARIDADE COM A JANELA ANTIGA, DE 14% A 25%
+
+Dez frentes em paralelo, uma por aba, **arquivos exclusivos e zero respingo** —
+a fusão conferiu linha a linha que nenhuma escreveu na aba de outra. Mais quatro
+CONFERENTES ADVERSÁRIOS nas quatro piores abas.
+
+| aba | antes | depois | | aba | antes | depois |
+| --- | ---: | ---: | --- | --- | ---: | ---: |
+| 03-gatilhos | 32% | **48%** | | 05-vibracao | 19% | **32%** |
+| 06-navegacao | 8% | **30%** | | 07-lancadores | 13% | **27%** |
+| 09-sistema | 8% | **26%** | | 10-perfis | 16% | **26%** |
+| 02-controles | 8% | **22%** | | 04-iluminacao | 14% | **20%** |
+| 01-jogar | 12% | **17%** | | 08-conexoes | 12% | 14% |
+
+**TODAS: 54 → 100 features IGUAL de 396.**
+
+### O CSV É FUNDIDO POR `(aba, feature)`, NÃO POR LINHA
+
+`git merge` conflita porque dez frentes tocam o mesmo arquivo; o DADO não tem
+conflito nenhum quando cada uma mexe só na sua aba. E a tabela do documento é
+**regerada da contagem**, nunca digitada — o portão `numero-publicado` reprova
+quem esquecer.
+
+### OS CONFERENTES PAGARAM POR SI, e um derrubou uma entrega
+
+**A 09-sistema não fechou oito features.** O conferente provou com `git log -S`
+que as cinco emissões que as sustentam nasceram em `d7955862`, de OUTRA frente,
+já ancestral do pai. O que ela entregou foi uma AUDITORIA — legítima e
+necessária —, mas somá-la ao relatório daquele commit contaria as mesmas oito
+duas vezes. Três células dela foram corrigidas:
+
+1. **uma afirmação que a régua não sustenta** — o CSV dizia *"a régua prova que
+   a pergunta de 7 s NUNCA roda dentro do tique"*; ele trocou a thread por
+   chamada direta e **19 testes ficaram verdes**. Nenhum mede o relógio;
+2. **"Estado do serviço" rebaixado de IGUAL para DIFERENTE** — a classe é órfã
+   e a DICA vem cravada do desenho (`title="Ligado"`), e ela não é detalhe: o
+   valor sai TRUNCADO na tela, então a dica é a única maneira de ler a frase;
+3. **uma contradição dentro de uma célula só** — o `html_faz` dizia *"não há
+   primitiva de confirmação"* e o `porque` da MESMA linha provava o contrário.
+
+---
+
+## §12 — A FORMA QUE ESTE DIA REPETIU SEIS VEZES: *a régua DIGITA*
+
+É o padrão da §7 com outro nome, e ele apareceu em toda parte:
+
+| onde | o que digitava | contra o quê reprovou |
+| --- | --- | --- |
+| `test_o_piloto_ainda_chama_a_conta_do_despachante` | a assinatura inteira | a cura QUEM-TEM-DONO-01, do mesmo dia |
+| a guarda de vacuidade do travessão | `04-iluminacao·troca.item` | o endereço que GANHOU outro alvo |
+| `DO_CABECALHO` da 03 | quatro nomes | `rodape.salvar` e `rodape.exportar` |
+| a régua do dublê da 06 | `== 38`, `== 38`, `== 14` | a página que CRESCEU |
+| a âncora do `<svg data-colorway=` | a POSIÇÃO do atributo | outra frente que inseriu três antes |
+| `test_o_override_e_subconjunto_estrito` | `== {"muted"}` | o `volume` que ELA mandou abrir |
+
+**Todas viraram leitura:** `topo()`, `monta.fita()`, `PACOTES` e `mascaras_validas()`
+perguntados; comparação de CONJUNTOS em vez de contagem; PISO em vez de
+igualdade; `ast` em vez de literal; âncora sem posição.
+
+**A regra que sobra:** *um número, uma lista ou uma assinatura digitados sobre
+algo que outra pessoa gera é uma segunda verdade — e ela sempre perde. Pergunte
+ao dono.*
+
+---
+
+## §13 — A MÁSCARA POR CONTROLE FECHOU, e faltavam DOIS degraus, não quatro
+
+Eu estimei quatro camadas novas. Errado: `external_mask` guarda a escolha por
+APARELHO desde **15/08/2026** (decisão dela, MÁSCARA-POR-JOGADOR-01), e
+`mascara_efetiva` já era consultada na criação de todo vpad — os três degraus do
+daemon fecharam em 29/08. Faltavam a **escrita** (`set_mask` existia sem UM
+chamador; nasceu `gamepad.mask.set`) e a **tela** (`mesa_viva` lia o flavor da
+SESSÃO e repetia nos quatro cartões).
+
+    sem escolha           A -> xbox        B -> xbox
+    A escolhe DualSense   A -> dualsense   B -> xbox
+    a sessão vira DS      A -> dualsense   B -> dualsense
+    A limpa               A -> xbox
+
+E os chips chegaram aos quatro cartões: **6 → 12**, publicados por
+`--publicar-enderecos`, que RECUSOU três das quatro páginas — só passa o que não
+muda um pixel.
+
+---
+
+## §14 — A LISTA DELA
+
+Os trinta pontos que as dez frentes não podiam decidir viraram DEZ perguntas
+fechadas em
+**[2026-09-03-A-LISTA-DELA-o-que-espera-a-palavra-dela.md](2026-09-03-A-LISTA-DELA-o-que-espera-a-palavra-dela.md)**.
+A regra que criou o arquivo é dela: *"fila combinada com ela vira arquivo no
+mesmo dia"*.
+
+A primeira destrava mais que as outras: **o trilho de brilho** é desenhado como
+slider, tem um knob de 12px e **não faz nada** — e a pergunta é se mexer nele
+grava o perfil na hora ou espera o Salvar, porque a interface nova não tem
+rascunho (decisão dela de 01/09).
