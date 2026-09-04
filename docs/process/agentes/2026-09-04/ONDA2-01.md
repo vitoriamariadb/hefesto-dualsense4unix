@@ -262,9 +262,9 @@ GTK/WebKit não foi aberto.
 
 | | |
 | --- | --- |
-| **antes** | `scratchpad/01-jogar-ANTES.png` — `.janela` 1180×777, `passa_da_dobra: 0` |
-| **depois** | `scratchpad/01-jogar-DEPOIS.png` — `.janela` **1180×777**, `passa_da_dobra: 0`, sem rolagem lateral |
-| **clicado** | `scratchpad/01-jogar-CLICADO.png` — o P2 esmaecido e a caixa do cadeado |
+| **antes** | [`ONDA2-01-antes.png`](ONDA2-01-antes.png) — `.janela` 1180×777, `passa_da_dobra: 0` |
+| **depois** | [`ONDA2-01-depois.png`](ONDA2-01-depois.png) — `.janela` **1180×777**, `passa_da_dobra: 0`, sem rolagem lateral |
+| **clicado** | [`ONDA2-01-clicado.png`](ONDA2-01-clicado.png) — a caixa do cadeado MARCADA pela volta do Python, e o "Player 2" esmaecido ao lado do "Player 1" que não está |
 
 **A caixa da janela não mudou um pixel** com a linha do cadeado dentro: ela coube
 na folga que a foto de 04/09 já mostrava embaixo do último quadro.
