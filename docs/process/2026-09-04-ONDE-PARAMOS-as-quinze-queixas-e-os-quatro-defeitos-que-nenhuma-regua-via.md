@@ -31,7 +31,7 @@ Aqui está o que ficou **feito**, o que ficou **aberto**, e o que a leva ensinou
 | 12 | *"tela do layout quebra direto"* | **FEITA** — 32×98 px que faltavam |
 | 13 | perfil selecionado não se vê | **FEITA** — três estados na linha |
 | 14 | SVG em lugar desconectado | **FEITA** — uma regra, cinco abas |
-| 15 | *"esse aviso nao devia aparecer"* | **FEITA** — a frase estava de ponta-cabeça |
+| 15 | *"esse aviso nao devia aparecer"* | **FEITA** — a frase estava de ponta-cabeça | <!-- noqa-acento: citação literal dela -->
 
 **Catorze fechadas, uma esperando duas linhas na configuração dela.**
 
@@ -40,7 +40,7 @@ Aqui está o que ficou **feito**, o que ficou **aberto**, e o que a leva ensinou
 ## 2. OS QUATRO DEFEITOS QUE NENHUMA RÉGUA VIA
 
 Estes não estavam em fila nenhuma. Cada um passou por várias levas sem ser
-acusado, e os quatro têm a mesma assinatura: **o instrumento media outra coisa.**
+acusado, e os quatro têm a mesma assinatura: **o instrumento apontava para outra coisa.**
 
 ### 2.1 — A máscara nunca gravou um byte
 
@@ -182,13 +182,32 @@ muda janelas de programas que não são este.
 
 | | |
 | --- | --- |
-| commits | **15**, um por frente, com a medição na mensagem |
+| commits | **18**, um por frente, com a medição na mensagem |
 | ondas em paralelo | **8**, zero conflito de arquivo |
 | portões | **36 verdes** |
+| suíte | **17.147 testes**, oito lotes, zero falha |
+| `install.sh` | **rodou, `rc=0`** — doctor com 5 avisos e **nenhuma falha** |
 | tique da tela | 500 ms → **100 ms** (5× a pintura, e o custo por tique CAIU) |
 | paridade da aba 08 | 14% → **27%** |
 | paridade da aba 04 | 20% → **17%** — caiu porque o produto passou a fazer MAIS que a GTK |
 | campos vivos da aba 08 | 93 → **113** (+20 endereços) |
+
+**A PROVA FINAL, contra o daemon instalado às 05:11 e os dois controles dela:**
+
+```
+444648...03  primary=True   | gyro: SIM | accel: SIM | touchpad: SIM
+d42f4b...d8  primary=False  | gyro: SIM | accel: SIM | touchpad: SIM
+```
+
+Os dois trazem leitura — **inclusive o não-primário**, que era metade da mesa
+dela e estava mudo por desenho do daemon. E o tique da aba 02 fecha 101 voltas em
+10 s com mediana de 1,55 ms.
+
+**Uma armadilha na leitura desse número, e ela é a lição da noite:** os readers
+do `SensorHub` nascem sob demanda e morrem 5 s depois do último pedido. Medir com
+UMA amostra devolve `sensores = []` sempre — foi assim que eu mesmo concluí, no
+meio da madrugada, que o dado não existia. É preciso deixar o tique correr ~1 s
+antes de perguntar.
 
 ---
 
@@ -196,7 +215,7 @@ muda janelas de programas que não são este.
 
 **Quando o instrumento e o aparelho discordam, o aparelho ganha.** Quatro vezes
 nesta madrugada uma régua deu verde sobre um defeito vivo: a que não olhava a
-coluna, a que media a janela sem barra de título, a que casava um token em
+coluna, a que mediu a janela sem barra de título, a que casava um token em
 comentário, e a que passava porque o reader nem chegava a nascer.
 
 Nas quatro, quem revelou foi **arrancar a cura e olhar de novo**.
