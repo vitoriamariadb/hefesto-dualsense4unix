@@ -86,7 +86,8 @@ São três fatores em andares diferentes; nenhum come o outro. O teste
 
 ### O que foi CRIADO
 
-* `tests/unit/test_cada_motor_tem_o_seu_multiplicador.py` — **30 testes**;
+* `tests/unit/test_cada_motor_tem_o_seu_multiplicador.py` — **54 testes** (30 da
+  metade de daemon, 24 da metade de IPC);
 * `scripts/ensaios/o_multiplicador_chega_ao_motor.py` — o ensaio de bancada.
 
 ### Dois arquivos que a MINHA edição obrigou a mexer, e não são de ninguém
@@ -157,17 +158,29 @@ E  Failed: DID NOT RAISE ValueError
 6 failed, 5 passed in 0.44s
 ```
 
+### AS CINCO MORDIDAS DA METADE DE IPC (segunda passada)
+
+| cura arrancada | o que a régua disse |
+| --- | --- |
+| `esquecer_motores_do_perfil` no handler | `o segundo FF tinha de sair com o forte pela metade — o cache do mapa não caiu na gravação` · `[..., 200, 200] != [..., 200, 100]` |
+| o bloco `rumble_motores` do `state_full` | `o state_full deixou de ler o MESMO mapa que apply_game_rumble multiplica` (+ o padrão sumindo) — 2 vermelhos |
+| a linha do despacho em `ipc_server` | `'"rumble.motores.set": self._handle_rumble_motores_set' in ...` — o método vira inalcançável e só isto pega |
+| `_chave_de_peca_que_grava` → `norm_mac` cru | `assert 'ok' == 'sem_endereco'` nos DOIS casos (o `path:` e o vpad) |
+| a advertência da docstring de `rumble_stop` | `a ponte não diz qual é o gesto que DEVOLVE a vibração ao jogo` |
+
 ### Com as três curas de volta
 
 ```
-30 passed, 1 warning in 0.91s
+54 passed, 1 warning in 1.14s
 ```
+
+E os vizinhos, agora com os de IPC junto: **362 passed**.
 
 ### Os portões
 
 ```
 git add -A && bash scripts/portoes.sh
-TODOS VERDES — 40 portões.
+TODOS VERDES — 40 portões.        (as duas passadas)
 ```
 
 (Na primeira passada: `citacoes-de-linha` vermelho por 3 endereços que a minha
@@ -223,6 +236,20 @@ mesmo ato: o ensaio agora fotografa `rumble_active` antes, devolve o estado no
 fim, e RECLAMA em `stderr` se a devolução não bater. O estado dela foi devolvido
 à mão e conferido (`rumble_active=None · passthrough=True`).
 
+### O daemon VIVO contra o método novo — medido, não suposto
+
+```
+rumble_motores_set(forte_pct=50, fraco_pct=100)  ->  (False, None)
+state_full tem rumble_motores?                   ->  False
+rumble_active = None · passthrough = True        (a máquina dela, intocada)
+```
+
+O daemon instalado é o da árvore DELA e não conhece o método. **Isso mede duas
+coisas de uma vez:** que a afirmação *"não verifiquei contra o daemon instalado"*
+é fato e não desculpa; e que a ponte **degrada em silêncio correto** — devolve
+`(False, None)`, o mesmo que "daemon fora do ar", em vez de estourar na tela de
+quem estiver com uma janela nova contra um daemon velho.
+
 ## O que NÃO verifiquei
 
 * **NÃO verifiquei o plástico.** O ensaio mede o que o DAEMON guarda; qual motor
@@ -235,9 +262,11 @@ fim, e RECLAMA em `stderr` se a devolução não bater. O estado dela foi devolv
 * **NÃO verifiquei a tela.** A metade de TELA da aba 05 é de outra frente
   (`interface/pacotes/a05_vibracao.py`, `interface/aba05.py`, no `nao_toca:`
   desta sprint). Nenhum pixel mudou aqui.
-* **NÃO verifiquei o `state_full` publicando os dois números de volta**, nem o
-  método `rumble.motores.set` — os dois moram em `daemon/ipc_handlers.py` e
-  `app/ipc_bridge.py`. Ver a seção abaixo.
+* **NÃO verifiquei o `rumble.motores.set` contra um daemon VIVO que o conheça**
+  — o instalado é o dela e não tem este código (medido acima). O que está medido
+  é o handler REAL contra um perfil REAL no disco, com o `IpcHandlersMixin`
+  instanciado; o que falta é o mesmo caminho por cima do socket, e ele só existe
+  depois do merge e de um `install.sh` — que agente nenhum roda.
 * **NÃO rodei a suíte inteira** (regra: é de quem coordena, e no fim). Rodei o
   meu escopo e os dez vizinhos de vibração/perfil.
 * **NÃO verifiquei `auto` por bateria com a barra.** A barra não tem
@@ -247,41 +276,137 @@ fim, e RECLAMA em `stderr` se a devolução não bater. O estado dela foi devolv
 
 ## O que sobrou para o próximo
 
-### 1. `ipc_handlers.py` e `ipc_bridge.py` NÃO foram tocados — e a razão
+### 1. A metade de IPC — FECHADA na segunda passada (e a premissa que eu li errado)
 
-A sprint diz *"quando você começar, `ipc_handlers.py` e `ipc_bridge.py` passam a
-ser seus — **quem despachou confirma isso no preâmbulo**"*. **O preâmbulo não
-confirmou**, e o `posse:` do frontmatter lista dois arquivos só
-(`daemon/subsystems/gamepad.py`, `profiles/schema.py`). Além disso a condição da
-própria sprint — *"espera a `ONDA1-D1-O-SOM-01` fechar"* — **não estava
-cumprida**: medido nesta árvore, `git log dev..voo/ONDA1-D1-O-SOM-01-D1` está
-**vazio**. `COMO-EXECUTAR-UMA-SPRINT.md` §2 manda relatar em vez de editar, e é
-o que está sendo feito.
+**A primeira passada desta sprint parou aqui, e por um erro meu de leitura de
+`git`.** Eu medi `git log --oneline dev..voo/ONDA1-D1-O-SOM-01-D1` → `0` e
+concluí *"D1 não fechou"*. **O sentido é o contrário:** `dev..branch` vazio
+quer dizer que a branch está INTEIRA dentro de `dev` — ou seja, D1 fechou e já
+foi integrada. Quem despacha mediu o outro lado
+(`voo/ONDA1-D1-O-SOM-01-D1..dev` → 21) e a prova direta (`_handle_mic_canal_set`
+vivo em `daemon/ipc_handlers.py`), confirmou a posse, e o resto desta seção é o
+que foi feito depois.
 
-**Falta, então, a metade de IPC — e ela é pequena e está especificada:**
+**A lição, e ela é de instrumento, não de código:** `A..B` lista o que está em
+**B** e não em **A**. Um vazio nunca é a resposta sozinho — ele responde a
+pergunta na direção em que foi feito, e eu li a direção errada. A abstenção de
+posse continua tendo sido a atitude certa sobre a premissa que eu tinha; o que
+faltou foi medir os DOIS sentidos antes de afirmar.
 
-* **`rumble.motores.set {uniq, forte_pct, fraco_pct}`** — grava
-  `ControllerRumbleOverride.motor_forte_pct` / `motor_fraco_pct` no perfil, para
-  aquele `uniq`. A borda já recusa fora de 0–100, com a razão escrita.
-* **UMA LINHA a mais, e sem ela a barra nova só vale na próxima troca de
-  perfil:**
+Antes de começar, `git merge dev` (limpo, um documento de handoff).
 
-  ```python
-  daemon._rumble_motores_pct = None   # invalida o mapa memoizado
-  ```
+#### `rumble.motores.set` — o método que grava
 
-  O contrato dessa linha já está travado por teste, escrito de fora:
-  `TestOCacheDoMapa::test_invalidar_o_cache_e_uma_linha`. Sem ela a tela diria
-  "aplicado" sobre um motor que não mudou — que é a família de defeito que esta
-  casa mais paga.
-* **`state_full`** publicando os dois números de volta, por peça (ao lado de
-  `rumble_policy` / `rumble_mult_applied`, em `ipc_handlers.py:3023`). Sem isso a
-  tela desenha a barra onde ela estava, não onde ela está.
-* **`profiles/manager.py`** (opcional, e é o caminho mais limpo a prazo): chamar
-  `schema.motores_dos_controles(profile.controllers)` na ativação e publicar o
-  mapa no daemon, no molde exato do `set_rumble_scales` logo acima
-  (`manager.py:459`). Hoje o mapa é lido do disco pelo próprio `gamepad.py`, o
-  que funciona e é memoizado — mas a simetria com o irmão vale a troca.
+`daemon/ipc_handlers._handle_rumble_motores_set`, registrado em
+`daemon/ipc_server._handlers`. Params `{uniq?, forte_pct?, fraco_pct?}`.
+
+| decisão | por quê |
+| --- | --- |
+| grava no **perfil**, por peça | a barra é POLÍTICA, não comando — decisão dela |
+| campo omitido **não mexe** naquela barra | duas barras independentes é o caso dela |
+| `100` **apaga** o campo | no aparelho "escreveu 100" e "não escreveu" são o mesmo fator 1,0; a chave a menos é o que mantém o downgrade possível |
+| a seção `rumble` só cai **vazia** | o degrau da peça (`policy`, o teto do card do cabo) mora ali e não é deste gesto |
+| nada mudou → **não regrava** | um `save` troca a data do arquivo e faz o daemon reaplicar o perfil; no meio de uma partida isso não é de graça |
+| a **faixa é da borda do esquema** | uma segunda faixa aqui seria o HARM-19 renascendo — foi assim que `rumble.policy_custom` divergiu do esquema em 0–1 contra 0–2 |
+
+Quatro recusas, todas com motivo escrito: `sem_controle` (mesa vazia),
+`sem_endereco`, `sem_perfil`, e o `ValueError` da borda.
+
+#### `state_full` — os dois números de volta
+
+`rumble_motores` = `{uniq: {forte_pct, fraco_pct}}`, **só de quem tem opinião**,
+mais `rumble_motor_pct_padrao` (o 100, para a tela não digitá-lo).
+
+**A fonte é a MESMA que o motor lê** — `gamepad._motores_do_perfil_ativo`, o
+mapa memoizado que `apply_game_rumble` multiplica. Não é economia de linhas: uma
+segunda leitura do disco no `state_full` poderia pintar um número que o motor
+não está usando, que é o "aplicado" falso que esta casa passou 04/09 inteiro
+arrancando. Há régua por AST que reprova quem abrir a segunda leitura.
+
+#### A linha que faz a barra valer AGORA
+
+Ela virou uma função com nome, `gamepad.esquecer_motores_do_perfil(daemon)`,
+chamada pelo handler no mesmo ato. Mora ao lado do cache que esquece — e não
+como um `daemon._rumble_motores_pct = None` escrito no handler — porque `daemon`
+é `Any` só naquele arquivo: o `DaemonProtocol` não declara o atributo (ele nasce
+em runtime, como `_grab_retry_falhas`), e escrever direto levava um
+`attr-defined` do mypy que só um `cast` calaria. Nomear é melhor que esconder.
+
+#### `app/ipc_bridge.rumble_motores_set`
+
+Devolve `(ok, corpo)` com o corpo do daemon inteiro (`_corpo_do_daemon`), e não
+um `bool` estreito — é a lição do ELO-MUDO-01: invólucro que estreita faz a tela
+re-deduzir o que o daemon já sabia.
+
+#### `docs/protocol/ipc-unix-socket.md`
+
+Gerado (`scripts/gerar-contrato-ipc.py`): 42 → **43 métodos**. E ganhou a seção
+em PROSA do `rumble.motores.set` — a conta dela, o que cada `status` quer dizer,
+e como a tela lê de volta. Sem ela o método entrava na tabela como um dos 21
+"sem contrato em prosa", e a frente da aba 05 teria de ler o handler para saber
+o que mandar.
+
+### 1b. O `rumble_stop`: o que eu decidi, e por que NÃO mudei o comportamento
+
+**Não é defeito, e a leitura da primeira passada estava incompleta.** Fui ler o
+handler: `_handle_rumble_stop` fixa `(0, 0)` **de propósito e com a razão
+escrita** — o poll loop re-afirma o silêncio para que outra escrita HID não
+reative os motores por acidente (HARM-16), e a docstring já mandava *"use
+rumble.passthrough para liberar controle completo ao jogo"*. Trocar isso seria
+repropor decisão medida, que esta casa não faz — e ainda desarmaria a HARM-16
+num caminho que existe para armá-la.
+
+**O defeito real é de VOCABULÁRIO, e está na ponte.** `app/ipc_bridge.rumble_stop`
+chamava-se "parar" e não dizia uma palavra sobre a consequência: enquanto o par
+fixado estiver de pé, `apply_game_rumble` descarta o FF de **todo jogo** na
+primeira linha. Foi assim que o meu próprio ensaio deixou a máquina dela sem
+vibração em jogo nenhum, em silêncio — e nenhuma régua viu, porque nenhuma
+mentia: o produto fazia exatamente o que prometia a quem tivesse lido o handler.
+
+**A cura é a frase, e ela tem mordida:** a docstring de `rumble_stop` agora diz o
+que o par fixado faz com o FF e nomeia `rumble_passthrough` como o gesto que
+devolve a vibração ao jogo; a de `rumble_passthrough` aponta de volta.
+`TestAPonte::test_parar_avisa_que_nao_devolve_a_vibracao_ao_jogo` reprova se
+qualquer das duas metades sumir. **Não abri sprint** porque o conserto de
+comportamento seria errado e o de vocabulário coube em duas docstrings.
+
+### 1c. Um defeito VIVO que a régua nova achou — `norm_mac` não serve para GRAVAR
+
+`core.sysfs_leds.norm_mac` promete `None` *"quando não há nenhum dígito hex
+(ex.: `key` que é um `path`)"*. **A promessa não se cumpre para um path que por
+acaso tem letras hex:**
+
+```
+norm_mac("path:/dev/input/event9")  ->  "adeee9"
+```
+
+Uma chave que **parece** boa e que motor nenhum casa. Para LER é inofensivo (a
+chave não bate, e `a08_conexoes._so_hex` já registrava que *"as duas erram, e
+errar de um jeito só é o ponto"*); para **GRAVAR** é o defeito mais caro desta
+casa — a escolha dela vai para o disco e some calada.
+
+A cura é `_chave_de_peca_que_grava`, com duas condições verificáveis: **doze
+dígitos hex** e **não é vpad** (`02fe…`). Refusa em voz alta (`sem_endereco` com
+motivo) em vez de gravar um override fantasma. **O achado é da régua, não meu:**
+eu escrevi o teste esperando `sem_endereco` e ele saiu `ok`.
+
+**Relatado e não consertado:** a docstring de `norm_mac`
+(`core/sysfs_leds.py:38-43`) afirma um `None` que ela não entrega. `sysfs_leds`
+não é desta posse, e a afirmação é usada por vários chamadores de LEITURA, onde
+ela é inofensiva — mas é um fato errado e a regra da casa manda substituí-lo.
+
+### 1d. Duas dívidas DECLARADAS, no molde que a ONDA1-D1 abriu no mesmo dia
+
+`rumble_motores_set` não tem chamador em `src/`, e não pode ter: quem atravessa
+é a aba 05, que está no `nao_toca:` desta sprint. Fiar a rota daqui seria a
+frente do motor editando arquivo de outra frente. Declarada nos dois portões que
+cobram, com o endereço exato de onde o caminho se fecha:
+
+* `tests/unit/test_ipc_bridge.py::_SEM_TRAVESSIA_DECLARADA`;
+* `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py::_SEM_CAMINHO_HOJE`.
+
+**Quando a aba 05 fechar, as duas linhas saem** — e as réguas voltam a cobrá-las
+sozinhas, que é o desenho delas.
 
 ### 2. Para a frente da aba 05, sem redecidir nada
 
