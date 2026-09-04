@@ -126,6 +126,22 @@ BOA notícia (*"Economia de energia desligada"*) sob o cabeçalho laranja, porqu
 Com `+N` se passar de três. Cresce quando a máquina está ruim, e não ocupa nada
 quando está boa.
 
+**A DÚVIDA QUE EU LEVANTEI AQUI MORREU COM UMA MEDIÇÃO.** Eu avisei que crescer
+a coluna podia reabrir o vão de 38 px que ela reclamou em 31/08 — o gerador da
+aba 01 tem portão de altura, e as colunas irmãs terminam no mesmo y. Ela
+respondeu *"vc decide esse"*, e a medição decidiu por mim:
+
+    grep -c 'data-campo="aviso-selo"' interface/paginas/01-jogar.html  →  4
+
+**A página já tem QUATRO pares `aviso-selo`/`aviso-texto`.** Três nascem vazios,
+e o defeito nunca foi falta de lugar — foi o piloto escrever só no primeiro
+(`hefesto_vivo.py:407` distribui a lista por ordem e escreve `''` no que sobra).
+
+Então: **zero pixel novo, zero risco de vão, e o mockup não é republicado.** Os
+quatro lugares que já existem passam a ser usados, o mais grave em cima, e o
+`+N` entra no quarto quando passar de quatro. A altura não muda porque a altura
+já estava paga.
+
 ### D-10 · As três frases órfãs da aba Jogar entram na coluna Atenção
 
 **Em jogo:** *"Ponte com o jogo: nenhuma"*, o cadeado *"não trocar de perfil
@@ -148,20 +164,40 @@ nova aplica na hora e troca o modo por baixo — consequência da decisão dela 
 **Custo declarado e aceito:** o `<select>` de modo muda sozinho depois de ela
 mexer noutro campo.
 
-### D-12 · As duas camadas do microfone passam a SE CONVERSAR
+### D-12 · O botão do microfone liga o microfone E o canal dele
 
-**Em jogo:** o selo diz ATIVO/MUDO, e fala de outra camada em cada janela — a
-nova diz se o FIRMWARE está calado, a antiga se o PC está capturando. Com o
-microfone aberto no aparelho e mudo no PipeWire, as duas se contradizem e nada
-avisa.
+**Em jogo:** eu levei isto como *"duas camadas se contradizem"* — o selo da
+interface nova fala do firmware, o da janela antiga fala do PipeWire — e ofereci
+três arranjos que GUARDAVAM a contradição. Ela recusou os três e escreveu
+*"fazer eles se conversarem"*.
 
-**ELA ESCOLHEU, e não era uma das três que ofereci:**
-*"Fazer eles se conversarem."*
+Ao detalhar o trabalho eu ainda li isso errado, como *"o Hefesto força o
+PipeWire a acompanhar o firmware"* — dois estados independentes, um mandando no
+outro. **Ela corrigiu o CONCEITO:**
 
-Não é um aviso de divergência — é **uma verdade só**. O produto passa a
-resolver as duas camadas num estado único, e o selo diz esse estado. É a
-decisão mais cara desta lista e a mais certa: ela recusou as três opções que
-guardavam a contradição e mandou matá-la.
+> *"tá errado o conceito da coisa. o botão é pra ligar o microfone e ele ser
+> ouvido no canal específico dele."*
+
+**NÃO SÃO DUAS CAMADAS COM DUAS VERDADES. É UM ATO SÓ.** O botão do microfone
+tem um trabalho: **ligar o microfone do controle e fazer com que ele seja ouvido
+no canal dele**. As duas pontas não são dois estados a conciliar — são as duas
+metades do mesmo ato, e o ato só está feito quando as duas estão feitas.
+
+O que isso muda no trabalho, e é bastante:
+
+* **o gesto** deixa de ser "manda `mic.set` e pronto": ligar o microfone é
+  não-mudo no firmware **e** o canal de captura daquele controle ativo e audível
+  no PipeWire. Se a segunda metade não acontecer, o gesto **não** deu certo;
+* **o selo** deixa de perguntar "de que camada eu falo". Ele diz se o microfone
+  está ligado e sendo ouvido — que é a única coisa que ela quer saber;
+* **o recado da D-01** ganha o caso em que a primeira metade vai e a segunda
+  não: *"o microfone ligou, mas o canal dele está mudo no sistema"* — e aí sim é
+  uma frase, porque há o que fazer.
+
+**A LIÇÃO, e é a segunda do dia:** eu construí um problema de arquitetura
+("conciliar duas camadas") em cima de um ato que o produto tem de fazer inteiro.
+Quando ela recusa todas as opções que ofereço, a hipótese certa não é que falta
+uma quarta opção — é que a pergunta está errada.
 
 ### D-13 · O "Cores automáticas" ganha interruptor no topo da Iluminação
 
@@ -172,6 +208,23 @@ vê o estado nem pode mudá-lo, e o perfil dela está com ele LIGADO.
 **ELA ESCOLHEU:** *"Um interruptor no topo da aba Iluminação."*
 
 **Custo declarado:** ~30 px fixos, e o mockup da 04 a republicar.
+
+**E ELE CARREGA UMA CONTRADIÇÃO QUE ELA RESOLVEU NA HORA.** O interruptor abre o
+caminho que a regra dela de 03/09 proíbe (*"nenhuma cor dos controles nunca pode
+ser a mesma"*): com o automático desligado, o controle que chega depois não tem
+cor própria e cai na cor GLOBAL do perfil — o seguinte também, e dois ficam
+iguais. Hoje isso não acontece só porque não há como desligar o automático pela
+interface nova; o interruptor tira essa proteção acidental.
+
+Ofereci três saídas — avisar, recusar, ou gravar. **Ela escolheu a terceira:**
+
+> *"ok aceito o caminho"*
+
+**Desligar o automático GRAVA a cor de cada controle no ato.** O automático sai,
+nenhuma cor se perde e nenhuma se repete. A regra dela fica cumprida sem o
+produto nunca dizer não a ela.
+
+
 
 ### D-14 · Uma linha de estado da vibração por coluna
 
@@ -227,16 +280,18 @@ as outras usam.
 | **S-01** | O canal de recado no cartão (D-01) | 5 linhas do CSV, em 5 abas | — |
 | **S-02** | A linha de ressalva condicional (D-02) | ~8 linhas, em 5 abas | — |
 | **S-03** | O botão cinza com a razão na dica (D-03) | ~6 linhas, em 3 abas | CSS novo na folha |
-| **S-04** | A coluna Atenção com três linhas + as três frases órfãs (D-09, D-10) | 6 linhas da aba 01 | S-02 |
-| **S-05** | Uma verdade só para o microfone (D-12) | 3 linhas, abas 02 e 08 | — |
+| **S-04** | Usar os QUATRO lugares de aviso que a página já tem + as três frases órfãs (D-09, D-10) | 6 linhas da aba 01 | — |
+| **S-05** | O botão do microfone liga o microfone E o canal dele (D-12) | 3 linhas, abas 02 e 08 | S-01 |
 | **S-06** | Deslizante de volume no mic e no alto-falante (D-08) | 4 linhas da aba 02 | `--publicar` da 02 |
-| **S-07** | O interruptor do automático na Iluminação (D-13) | 3 linhas da aba 04 | `--publicar` da 04 |
+| **S-07** | O interruptor do automático, gravando a cor ao desligar (D-13) | 3 linhas da aba 04, e a regra da cor | `--publicar` da 04 |
 | **S-08** | A linha de estado da vibração (D-14) | 2 linhas da aba 05 | S-02 |
 | **S-09** | O veredito do Check-up + a quarta cor (D-16) | 3 linhas da aba 08 | `--publicar` da 08 |
 | **S-10** | "cabo"/"rádio" pela função dona (D-05) | 1 linha, e mata uma cópia | — |
 | **S-11** | Casco fora, luz viva dentro (D-06) | 2 linhas da aba 02 | — |
 | **S-12** | A frase da mesa vazia e o `+N` do quinto (D-07) | 2 linhas da aba 01 | — |
 | **S-13** | Corrigir o CSV: o touchpad nunca foi conflito (D-15) | 1 linha, e um fato errado | — |
+
+**S-04 SUBIU** para logo depois das três peças de infraestrutura: a medição mostrou que ela não depende de nenhuma delas nem de publicar nada — os quatro lugares já estão na página, e é a aba que ela mais olha.
 
 **S-01, S-02 e S-03 são as três peças de infraestrutura de tela desta leva.**
 Fazê-las primeiro faz as dez seguintes custarem metade — é o mesmo padrão dos
