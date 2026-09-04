@@ -239,9 +239,11 @@ foco dela, e o mouse dela passa a brigar com o seu clique.
    sempre possível, e aí não há workspace a errar.
 2. **Se a janela for inevitável**, ela nasce no \`OS\`:
 
-       aurora-claude-workspace.sh run <comando...>
-       aurora-claude-workspace.sh browser
-       aurora-claude-workspace.sh status
+       <script-de-workspace> run <comando...>     # roda e move a janela
+       <script-de-workspace> browser              # navegador já parqueado
+       <script-de-workspace> status               # diagnóstico
+
+   O nome do script está em \`docs/process/COMO-OLHAR-A-TELA.md\`, no topo.
 
 3. **Se o \`park\` recusar, ACEITE e diga na entrega.** Nunca force com
    \`AURORA_CLAUDE_WS_FALLBACK=1\`. E nunca rode \`peek\` nem \`goto\` por conta
