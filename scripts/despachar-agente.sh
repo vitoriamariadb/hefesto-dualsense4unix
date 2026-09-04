@@ -178,6 +178,14 @@ export PYTHONPATH="${WT}/src"
 export PYTEST_ADDOPTS="-p no:cacheprovider"
 ENV
 
+# O `CLAUDE.md` É `.gitignore:90`, LOGO ELE NÃO EXISTE NUMA ÁRVORE DE AGENTE.
+# `git worktree add` não copia arquivo ignorado, e isto foi medido em 25/08/2026
+# com OITO agentes já em voo mandados ler um arquivo que não estava lá. Copiar à
+# mão é lembrança, e lembrança falha; aqui é parte do despacho.
+if [ -f "$RAIZ/CLAUDE.md" ] && [ ! -f "$WT/CLAUDE.md" ]; then
+  cp "$RAIZ/CLAUDE.md" "$WT/CLAUDE.md"
+fi
+
 # O `.envrc-voo` é do worktree e não da árvore: ele mora no `.git/info/exclude`
 # LOCAL do worktree, e não no `.gitignore` versionado. Duas razões:
 #   - se fosse versionado, entraria na branch e viajaria para o merge;
@@ -234,9 +242,29 @@ na tela Meow me quebra aqui no serviço."*
 Ela está trabalhando no workspace \`Meow\` AGORA. Janela que nasce lá rouba o
 foco dela, e o mouse dela passa a brigar com o seu clique.
 
+**DESDE 04/09/2026 HÁ UMA GUARDA AUTOMÁTICA, e ela é a sua primeira linha
+de defesa** (TELA-DELA-01 e 02): a suíte e os 21 scripts de \`scripts/\` que
+abrem \`Gtk.Window\` desviam a janela para um \`Xvfb\` próprio, sozinhos. Você
+não precisa fazer nada para isso funcionar, e verá em stderr:
+
+    [tela] janela desviada para o Xvfb :NN — a tela dela não recebe nada
+
+**NUNCA ponha \`HEFESTO_NA_TELA=1\`.** É o escape da guarda, e ligá-lo devolve
+a janela para a sessão viva — a tela dela.
+
+A guarda NÃO cobre o que você inventar: um script novo seu, um \`python -c\`
+com GTK, um navegador chamado à mão. Para esses, valem os três passos:
+
 1. **Prefira não abrir janela nenhuma** — \`Gtk.OffscreenWindow\`, \`--oculta\`,
    Playwright \`headless\`, \`scripts/gui-captura/retratar_abas.py\`. É quase
-   sempre possível, e aí não há workspace a errar.
+   sempre possível, e aí não há workspace a errar. Se o seu script novo abre
+   \`Gtk.Window\`, chame a guarda — há régua que reprova quem não chama:
+
+       from hefesto_dualsense4unix.utils.tela_de_mentira import (
+           garantir_tela_de_mentira,
+       )
+
+       garantir_tela_de_mentira()
 2. **Se a janela for inevitável**, ela nasce no \`OS\`:
 
        <script-de-workspace> run <comando...>     # roda e move a janela
