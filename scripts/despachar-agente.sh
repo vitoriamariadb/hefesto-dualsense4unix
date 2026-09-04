@@ -23,6 +23,11 @@
 #   scripts/despachar-agente.sh <sprint> <agente>   imprime o preâmbulo do prompt
 #   scripts/despachar-agente.sh --listar            o que está em voo
 #   scripts/despachar-agente.sh --limpar            remove worktrees já integrados
+#
+# HEFESTO_BASE=<branch>  de onde a árvore do agente NASCE (padrão: `dev`).
+#   A segunda onda de uma leva precisa disto: as dez frentes da ONDA 2 usam
+#   as peças que a ONDA 0 entregou, e nascer de `dev` as faria regenerar as
+#   páginas sem elas — em silêncio.
 set -euo pipefail
 
 RAIZ="$(git rev-parse --show-toplevel)"
@@ -122,12 +127,43 @@ elif [ -z "${HEFESTO_SEM_POSSE:-}" ]; then
   echo "       a posse desta sprint NÃO foi conferida." >&2
 fi
 
+# A BASE DA ÁRVORE — `dev` por padrão, e trocável por onda.
+BASE="${HEFESTO_BASE:-dev}"
+if ! git -C "$RAIZ" rev-parse --verify -q "$BASE" >/dev/null; then
+  {
+    echo "ERRO: a base '${BASE}' não existe neste repositório."
+    if [ -n "${HEFESTO_BASE:-}" ]; then
+      echo "  veio de: HEFESTO_BASE=${HEFESTO_BASE}"
+    else
+      echo "  veio do padrão do script"
+    fi
+    echo "  nenhum worktree foi criado."
+    echo "  para ver o que existe: git -C ${RAIZ} branch --list"
+  } >&2
+  exit 1
+fi
+
 BRANCH="voo/${SPRINT}-${AGENTE}"
 WT="${VOO}/${SPRINT}-${AGENTE}"
 
 if [ ! -d "$WT" ]; then
   mkdir -p "$VOO"
-  git -C "$RAIZ" worktree add -b "$BRANCH" "$WT" dev >/dev/null 2>&1 \
+  # A BASE É `dev` POR PADRÃO, E ISSO ESTAVA CRAVADO ATÉ 04/09/2026.
+  #
+  # O defeito aparece na segunda onda de uma leva: a ONDA 0 entrega as peças de
+  # infraestrutura (a folha, o piloto) e as dez frentes da ONDA 2 as USAM. Com a
+  # base cravada em `dev`, cada uma das dez nasce SEM as peças, e ou reescreve o
+  # que já existe ou regenera as páginas apagando o CSS da onda anterior — em
+  # silêncio, porque o gerador não sabe que a peça devia estar lá.
+  #
+  # A saída não é merge apressado na árvore DELA (a regra de 25/08 é explícita:
+  # ela recebe a leva no fim, de uma vez). É poder dizer de onde a onda nasce:
+  #
+  #     HEFESTO_BASE=onda/po-0409 scripts/despachar-agente.sh <sprint> <agente>
+  #
+  # A base sai IMPRESSA no preâmbulo, porque agente que não sabe em que chão
+  # pisa mede a árvore errada — é a mesma razão do `PYTHONPATH`.
+  git -C "$RAIZ" worktree add -b "$BRANCH" "$WT" "$BASE" >/dev/null 2>&1 \
     || git -C "$RAIZ" worktree add "$WT" "$BRANCH" >/dev/null
 fi
 
@@ -171,6 +207,7 @@ PREÂMBULO DO AGENTE — cole isto no início do prompt dele
 ## A SUA ÁRVORE
 Você trabalha em: ${WT}
 Branch: ${BRANCH}
+Nasceu de: ${BASE}
 
 **NÃO edite nada em ${RAIZ}.** Aquela é a árvore dela, e outros agentes têm as
 suas. A sua é isolada: o que você escreve aqui não atinge ninguém, e o que os
