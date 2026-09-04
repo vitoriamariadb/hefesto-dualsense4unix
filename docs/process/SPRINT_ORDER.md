@@ -1,5 +1,27 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
+> **04/09/2026, TARDE — AS 54 FORAM DECIDIDAS, E NADA NA FILA ESPERA POR ELA.**
+> Ela mandou: *"seja o po e orquestrador e todas as sprints restantes"*. As 54
+> perguntas das dez abas estão decididas em
+> **[O PO DECIDE AS 54](2026-09-04-O-PO-DECIDE-as-54-e-os-sete-conflitos.md)**
+> — §1 os **sete conflitos** com as dezesseis que ela já tinha decidido (nas
+> sete, a decisão dela ganhou), §2 as 54 uma a uma, §4 a fila em quatro ondas
+> **por posse de arquivo**.
+>
+> **DOIS FATOS CAÍRAM ali, e os dois encurtam a fila:**
+> o balde `PUBLICAR` está **VAZIO** — as treze páginas foram publicadas na
+> madrugada, e `check_o_desenho_aprovado.py` responde `o produto está atrás: 0`;
+> e a fila caiu de 232 para **226 abertas** (125 `DIFERENTE` + 101
+> `FALTA_NO_HTML`). Descontando os 52 que não são dívida, **sobram 174**, e com
+> as 74 do `DESENHO` decididas **nada espera a palavra dela** até a FASE 5.
+>
+> **A ORDEM DE EXECUÇÃO É POR GARGALO DE ARQUIVO, e ele foi medido:**
+> `interface/monta.py` é importado por **18** módulos, `interface/hefesto_vivo.py`
+> é o piloto das dez abas, e `daemon/ipc_handlers.py` é disputado por quatro
+> sprints. Por isso **ONDA 0 (a infra de tela, 2 frentes) e ONDA 1 (o motor, 2
+> frentes) vêm antes da ONDA 2 (as dez abas, 10 frentes em paralelo)** — sem
+> isso, dez agentes disputam três arquivos.
+
 > **04/09/2026 — A FILA TEM DONO NOVO, E ELE É UMA MEDIÇÃO.** As 232 linhas
 > abertas da paridade foram triadas uma a uma: **52 não são dívida**, e das 180
 > que sobram **74 eram decisão dela**. Ela decidiu DEZESSEIS nesta madrugada, e
