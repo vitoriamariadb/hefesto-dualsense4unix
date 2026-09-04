@@ -55,14 +55,14 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 01-jogar | 42 | 7 | 12 | 18 | 4 | 1 | 17% |
 | 02-controles | 50 | 11 | 16 | 19 | 4 | 0 | 22% |
 | 03-gatilhos | 31 | 15 | 8 | 2 | 5 | 1 | 48% |
-| 04-iluminacao | 35 | 7 | 7 | 13 | 7 | 1 | 20% |
+| 04-iluminacao | 35 | 7 | 8 | 12 | 7 | 1 | 20% |
 | 05-vibracao | 31 | 10 | 9 | 9 | 3 | 0 | 32% |
 | 06-navegacao | 40 | 12 | 13 | 6 | 9 | 0 | 30% |
 | 07-lancadores | 30 | 8 | 6 | 6 | 9 | 1 | 27% |
 | 08-conexoes | 49 | 7 | 19 | 21 | 2 | 0 | 14% |
 | 09-sistema | 38 | 10 | 7 | 14 | 7 | 0 | 26% |
 | 10-perfis | 50 | 13 | 15 | 13 | 9 | 0 | 26% |
-| TODAS | 396 | 100 | 112 | 121 | 59 | 4 | 25% |
+| TODAS | 396 | 100 | 113 | 120 | 59 | 4 | 25% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
@@ -138,10 +138,12 @@ O maior bloco, e o que decide a fila.
   pintor já tem o alvo `classe`. Falta o endereço no HTML e a emissão no pacote.
 - **`02-controles` · os 16 glifos.** `_refresh_glyphs` no card da GTK; no HTML,
   três glifos com a classe `on` do mockup, acesos o tempo todo.
-- **`04-iluminacao` · o brilho.** Contados os gestos das duas páginas
-  (publicado: cor 16, apagar 2, auto 2, player 8; mockup: cor 18, apagar 2,
-  auto 2, player 8) — **nenhum de brilho em lugar nenhum**. O trilho é
-  decoração: ela vê `82%` e não tem como mexer.
+<!-- A LINHA DO BRILHO SAIU DAQUI EM 03/09/2026, e ela era a maior falta
+     desta aba: *"contados os gestos das duas páginas, nenhum de brilho em
+     lugar nenhum — o trilho é decoração"*. O trilho passou a GRAVAR (decisão
+     dela, "Grava na hora") e a linha virou `DIFERENTE`, com a diferença
+     medida e o endereço dos dois lados no CSV. Ela não é decisão a preservar:
+     é um fato que a medição derrubou. -->
 - **`03-gatilhos` · os 73 parâmetros.** 17 dos 19 modos têm ajuste, e na GTK
   todos são `Gtk.Scale` que ela arrasta. No HTML são barras de leitura, sem
   `data-gesto` e sem `<input>`. Escolher um modo aplica os padrões dele e
