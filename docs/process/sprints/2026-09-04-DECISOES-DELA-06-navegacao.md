@@ -15,7 +15,7 @@ ela JÁ respondeu estão em
 
 ## [01] O interruptor do Modo apaga quando você está jogando, ou continua clicável e diz não depois?
 
-**Peso:** media
+**Peso:** média
 
 Hoje o "Status do Modo" aceita o clique e recusa DEPOIS, por escrito, num recado que dura 30 segundos no cartão (`hefesto_vivo._recusou_dizendo`, `SEGUNDOS_DO_RECADO = 30.0`). A janela antiga faz o contrário: apaga o interruptor ANTES de qualquer clique (`mouse_actions.py:299`, `blocked = mode != MODE_DESKTOP`) e deixa a razão escrita ao lado o tempo todo. Confirmei que a tela nova não mente mais — o `<label>` perdeu o `<input type=checkbox>`, então o clique recusado não mexe em nada, e em 03/09, com o daemon em modo gamepad, os dois cliques recusaram e a tela ficou em "Desligado" do começo ao fim. O que continua diferente é só o MOMENTO: você gasta o clique para descobrir. A razão do portão é séria e está escrita no produto — ligar o mouse jogando derruba o controle virtual e os jogadores do co-op, em silêncio.
 
@@ -87,7 +87,7 @@ A janela antiga tem duas frases fixas abaixo da lista que a tela nova não tem, 
 
 ## [05] Desligar o teclado tira três coisas. Você quer saber antes, depois, ou enquanto durar?
 
-**Peso:** media · **Depende de:** A opção do recado de 30 segundos depende de a tela ganhar canal de aviso de SUCESSO — hoje só a recusa (`RuntimeError`) chega ao seu cartão. As outras duas não dependem de nada.
+**Peso:** média · **Depende de:** A opção do recado de 30 segundos depende de a tela ganhar canal de aviso de SUCESSO — hoje só a recusa (`RuntimeError`) chega ao seu cartão. As outras duas não dependem de nada.
 
 CORREÇÃO DO QUE ESTAVA MEDIDO: o CSV diz que a tela nova não avisa NADA sobre o custo de desligar o teclado. Não é verdade hoje — a dica `?` da "Função do teclado" já diz, com estas palavras: "Liga o que o controle digita: os atalhos da tabela à direita, o teclado na tela e as três regiões do touchpad". É o mesmo conteúdo do aviso da janela antiga, movido para o hover e movido para ANTES do ato. O que não existe é o aviso DEPOIS: a tela sabe levar uma recusa até o seu cartão (por 30 segundos), mas não tem canal para um recado de sucesso — escolher "Desativado" tira três coisas e a única resposta da tela é a lista mudando de palavra. O que decide aqui é: dias depois, quando o L3 não abrir mais o teclado na tela, o que na tela responde por quê?
 

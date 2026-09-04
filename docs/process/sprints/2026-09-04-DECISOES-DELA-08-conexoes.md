@@ -69,7 +69,7 @@ Quatro das cinco conferências do Check-up escrevem uma cura — o que fazer par
 
 ## [04] A tela diz de onde veio cada frase, ou isso fica só no código?
 
-**Peso:** media
+**Peso:** média
 
 Toda frase de uma ordem de serviço carrega de onde ela veio: "medido aqui", "derivado da conta" ou "especificação de terceiro" — e a terceira exige nomear quem afirmou. Há portão que reprova frase sem essa marca. A janela antiga IMPRIME a marca, em cinza, no fim de cada uma das três linhas do cartão. Aqui ela ficou de fora do cartão E do `?`, e a razão está escrita no código: o balão do `?` tem 330 px de largura e já traz duas frases; um "[medido aqui]" no fim de cada uma competiria com o texto que você foi ler. O que está em jogo é a tela distinguir o que foi MEDIDO do que foi RACIOCINADO — que é o motivo de o selo existir.
 
@@ -124,7 +124,7 @@ Dois botões desta aba só valem em certas condições. O microfone tem QUATRO (
 
 ## [07] Quando não cabe na tela, a tela avisa ou cala?
 
-**Peso:** media
+**Peso:** média
 
 Três listas desta aba têm teto cravado no desenho: CINCO linhas de exame, QUATRO rádios vizinhos e UM cartão de ordem de serviço. Na sua bancada há quatro rádios, e o exame de 03/09 devolveu DUAS ordens abertas — a segunda não aparece em lugar nenhum. Nada age sobre o alvo errado (o produto confere a faixa antes de gravar); o que acontece é a tela ESCONDER. A janela antiga desenha uma linha por rádio, sem teto, e tem uma conta pronta que diz quantos ficaram de fora, justamente porque calar seria ausência lida como sucesso.
 

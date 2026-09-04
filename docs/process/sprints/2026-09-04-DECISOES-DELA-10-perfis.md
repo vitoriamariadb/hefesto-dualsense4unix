@@ -51,7 +51,7 @@ As duas frases prontas terminam mandando você para lugares diferentes, e um del
 
 ## [03] A frase da Prioridade que você aprovou não chega à tela. Qual fica?
 
-**Peso:** media
+**Peso:** média
 
 Você aprovou em 02/09 a frase "Quando dois perfis servem ao mesmo tempo, o de número maior entra.", e ela nunca chegou à tela: o lugar onde ela escreveria é o mesmo pedaço que segura o trilho e o número, e escrever ali apagaria os dois. O que você lê hoje ao parar o rato é o texto que ficou no desenho: "Decide quem ganha quando dois perfis poderiam entrar: o maior vence. O Universal fica em zero, para nunca atropelar ninguém e nunca deixar o controle sem nada." A frase não muda de perfil para perfil — ela é constante, e está escrito no código que é de propósito. E o que impedia deixou de impedir: o canal para o produto escrever dica de hover nasceu em 03/09 e já está em uso nesta mesma página, nos botões Salvar e Exportar do rodapé — a medição que dizia "precisa de motor" envelheceu.
 
@@ -69,7 +69,7 @@ Você aprovou em 02/09 a frase "Quando dois perfis servem ao mesmo tempo, o de n
 
 ## [04] Você digita o número do jogo. O que a tela responde, e onde?
 
-**Peso:** media
+**Peso:** média
 
 Hoje você digita 1599660, sai do campo, e a tira de desfecho responde "«Perfil» agora vale em: Jogo da Steam · Sackboy: A Big Adventure" — medido na interface viva; enquanto você digita, a tela é muda. Colar o endereço da loja funciona, o número certo entra na regra, mas o campo continua mostrando o endereço colado até você trocar de perfil — a janela antiga trocava o endereço pelo número na sua frente. O carimbo de ponte (qual ponte já funcionou naquele jogo) não tem lugar nenhum nesta interface, nas vezes em que ele tem o que dizer. E uma correção da medição, que fecha uma pergunta antes de ela nascer: o campo não fica "sem efeito" quando o perfil está em Todos — digitar ali move o seletor junto e o perfil vira perfil de jogo, então esconder o campo, como faz a janela antiga, refaria o impasse que esta tela desfez.
 
@@ -87,7 +87,7 @@ Hoje você digita 1599660, sai do campo, e a tira de desfecho responde "«Perfil
 
 ## [05] A tira que responde aos cliques corta o fim da frase. Uma linha ou duas?
 
-**Peso:** media
+**Peso:** média
 
 Todos os nove botões desta aba respondem na mesma tira, embaixo do título: uma linha de 15px que não quebra e corta com reticências. A frase da carona da Steam tem 218 caracteres sozinha ("Reposta a Opção de Inicialização do Hefesto em N jogos da Steam… Sem ela, no Bluetooth o jogo tende a não enxergar controle nenhum…") e ela vem grudada na frase de ativação: juntas passam de 280. Numa linha de 1.180px a 11px cabem cerca de 200, pela conta da largura. O que some é o FIM — e o fim é sempre a parte que avisa: o que não entrou no perfil, e o que acontece se a Opção de Inicialização faltar.
 

@@ -15,7 +15,7 @@ ela JÁ respondeu estão em
 
 ## [01] Duas frases da janela antiga não têm lugar aqui. Em que canal elas entram?
 
-**Peso:** media · **Depende de:** Nenhum. As duas frases já são função pura do produto (`home_actions.texto_da_ponte` e `_MODE_DESCRIPTIONS['native']`), e a coluna Atenção já lê seis fontes desse mesmo formato.
+**Peso:** média · **Depende de:** Nenhum. As duas frases já são função pura do produto (`home_actions.texto_da_ponte` e `_MODE_DESCRIPTIONS['native']`), e a coluna Atenção já lê seis fontes desse mesmo formato.
 
 A janela antiga escreve duas linhas fixas embaixo do seletor que a interface nova não tem em superfície nenhuma. A primeira é o aviso do Modo Nativo — "Alguns jogos derrubam o controle no meio da partida neste modo" (home_actions.py:169-199); medido agora, a palavra "derruba" não aparece uma única vez nas páginas publicadas, nem nos tooltips. A segunda é a linha "Ponte com o jogo" (home_actions.py:1121, cinco desfechos), que na sua máquina diria hoje "nenhuma — nenhum jogo está recebendo controle do Hefesto". As descrições dos modos já viraram tooltip, como você mandou em 30/08; o que ficou de fora foi justamente o AVISO e o ESTADO.
 
@@ -33,7 +33,7 @@ A janela antiga escreve duas linhas fixas embaixo do seletor que a interface nov
 
 ## [02] O cartão chama de "Player 1" um controle que o jogo ainda não recebeu. Muda a palavra?
 
-**Peso:** media
+**Peso:** média
 
 O cartão escreve "Player N" (a01_jogar.py:142), e o N sai do `player_slot` — a posição de sessão. A janela antiga escreve "Controle N" e só acrescenta "— P2" quando o daemon confirmou o jogador (home_actions.py:1571). A diferença não é o número: desde 15/08 os dois saem da mesma fila de chegada e batem quando existem. É a PALAVRA. Medido em 02/09 na sua mesa, o controle do cabo estava com `player` nulo — tinha reservado o lugar e o jogo ainda não o via — e o cartão dizia "Player 2" assim mesmo.
 

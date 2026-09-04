@@ -33,7 +33,7 @@ A barra "Personalizado" já foi redesenhada como barra que se arrasta, de 0 a 20
 
 ## [02] As duas explicações ficam escondidas atrás do "?", ou voltam para a tela?
 
-**Peso:** media
+**Peso:** média
 
 São duas frases que já existem nas duas telas, lidas do mesmo arquivo da janela antiga — o conteúdo fechou, e o que está em jogo é o momento em que você as lê. Na janela antiga, "Espera 5 segundos antes de trocar de faixa, para não ficar oscilando" só aparece quando o Auto está escolhido, e "Os valores acima ainda passam pela intensidade escolhida ali em cima antes de chegar ao controle" é um rótulo em itálico, permanente, no rodapé do card de testar. Na aba nova as duas moram dentro do "?", e quem não passa o rato não é ensinado. A segunda é a única frase que liga os dois blocos desta aba: por que um Testar com 220 sai fraco quando o degrau está em Economia.
 
@@ -109,7 +109,7 @@ Em 03/09 você decidiu construir a força por controle, e o clique do degrau dei
 
 ## [06] O clique que a interface não entende responde alguma coisa?
 
-**Peso:** media · **Depende de:** Decisão 1. O levantamento diz que a barra "Personalizado" também cai neste buraco e fica muda; conferi hoje e não cai mais — desde 03/09 as recusas dos gestos de força e de intensidade chegam ao cartão. Publicar a aba mata o resto desse caminho, e o que sobra é o par Testar/Parar.
+**Peso:** média · **Depende de:** Decisão 1. O levantamento diz que a barra "Personalizado" também cai neste buraco e fica muda; conferi hoje e não cai mais — desde 03/09 as recusas dos gestos de força e de intensidade chegam ao cartão. Publicar a aba mata o resto desse caminho, e o que sobra é o par Testar/Parar.
 
 A recusa do PRODUTO chega igual nas duas telas: mesma frase, mesmo dono. O que muda é o clique que a INTERFACE não entende — na janela antiga ele não existe, porque os botões só existem onde valem. Na aba nova sobram dois caminhos mudos, os dois no par Testar/Parar: "o controle X não está na mesa agora" e "o clique não disse em qual controle — e sem alvo a mesa inteira treme". Eles vão só para o terminal de quem lançou a janela, e o primeiro acontece sozinho: você clica em Testar no instante em que o controle cai, e o botão não responde nada.
 

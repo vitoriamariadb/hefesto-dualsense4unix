@@ -70,7 +70,7 @@ Correção ao CSV, medida hoje: ele diz que o aviso só aparece no cartão da St
 
 ## [04] 63 jogos com o atalho e 22 instalados, na mesma tela
 
-**Peso:** media
+**Peso:** média
 
 Esta não vem do CSV: está escrita no código como decisão sua, com data de 03/09, e você vê os dois números a uma linha de distância dentro do cartão da Steam. O canto diz «22 jogos instalados» e o corpo diz «…o atalho está no lugar em 63 jogos da sua biblioteca». As duas afirmações são verdadeiras — biblioteca inclui o que não está instalado, instalados não —, e a tela não dá como saber disso: quem lê vê 63 maior que 22 e conclui que um dos dois mente. Os números andam sozinhos: em 02/09 a mesma leitura deu 23 e 63, e horas depois 62.
 

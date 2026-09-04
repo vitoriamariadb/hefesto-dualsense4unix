@@ -52,7 +52,7 @@ O botão "Automático" da célula Opções larga a barra para o jogo escolher e 
 
 ## [03] Uma cor de fora da guia não tem como ser reenviada
 
-**Peso:** media
+**Peso:** média
 
 A aba manda a cor ao aparelho no instante do clique — não há rascunho nem "Aplicar", como você decidiu em 01/09. Clicar de novo num dos oito tons reenvia, porque um botão sempre dispara. O seletor livre não: ele só avisa quando o valor MUDA, então reabrir e confirmar a mesma cor não manda nada ao controle. Quando um controle cai e volta, ou quando você quer conferir se a cor chegou mesmo, a cor que você escolheu à mão é justamente a que não tem porta de volta. A janela antiga tem um botão dedicado para isso.
 
@@ -70,7 +70,7 @@ A aba manda a cor ao aparelho no instante do clique — não há rascunho nem "A
 
 ## [04] Quando você mexe no brilho e a barra não pode acender
 
-**Peso:** media · **Depende de:** Publicar a 04 com o trilho de brilho. O arrastador está no mockup e não na página publicada, e a divergência está declarada em `mockup/DIVERGENCIAS.md` esperando o seu OK. Até lá nenhum clique fica morto: o trilho publicado é só leitura, e não há polegar a arrastar.
+**Peso:** média · **Depende de:** Publicar a 04 com o trilho de brilho. O arrastador está no mockup e não na página publicada, e a divergência está declarada em `mockup/DIVERGENCIAS.md` esperando o seu OK. Até lá nenhum clique fica morto: o trilho publicado é só leitura, e não há polegar a arrastar.
 
 Esta não estava no levantamento — medi hoje. O trilho de brilho já grava na hora, como você mandou em 03/09, mas ele está no desenho da bancada e ainda não no produto: o arrastador existe no mockup e não na página publicada. Quando ele entrar, há um caso em que o número é guardado e a barra NÃO muda — os mesmos estados em que a luz não é nossa (Nativo, a Steam com o controle aberto, cor desconhecida): não há cor a reescalar, e mandar preto apagaria a barra por um arraste de brilho. O produto responde com um cartão sobre a coluna. Essa frase é palavra de tela, e palavra de tela é sua.
 

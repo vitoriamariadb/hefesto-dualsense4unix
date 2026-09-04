@@ -15,7 +15,7 @@ ela JÁ respondeu estão em
 
 ## [01] Depois de escolher o modo, a tela ainda diz o que ele faz?
 
-**Peso:** media
+**Peso:** média
 
 Na janela antiga há uma frase em itálico embaixo da grade, reescrita a cada troca de modo (`triggers_actions.py:513`). Na tela nova a explicação só existe na dica de cada opção da lista: com a lista fechada, o campo mostra o rótulo e mais nada — a dica do próprio campo é fixa e igual nos oito, 'Gatilho esquerdo — os 19 modos, com a descrição de cada um' (`03-gatilhos.html:1285`, e mais três iguais). Medido hoje, e muda o preço da resposta: desde 03/09 o produto SABE escrever numa dica (`hefesto_vivo.py:181`), então a dica do campo pode passar a ser a do modo escolhido sem uma linha nova de tela. Sua resposta decide se a explicação volta a ficar à vista, volta só no hover, ou não volta — e, se voltar, qual das duas frases o produto usa: a desta tela (62 letras em média) ou a do motor (38).
 
@@ -51,7 +51,7 @@ O campo 'Efeito pronto' aparece nos 19 modos — é o seu desenho. A janela anti
 
 ## [03] A coluna do controle ganha um botão para mandar o efeito de novo?
 
-**Peso:** media
+**Peso:** média
 
 O gatilho é comando de ida: o DualSense não devolve o modo em que está, então depois de tirar e pôr o cabo, ou de trocar de perfil, a tela pode continuar certa e o aparelho já ter voltado ao normal. Hoje não há como reenviar o que está na tela — o produto ouve só a MUDANÇA do campo (`hefesto_vivo.py:647`), e reescolher o modo que já está escolhido não muda nada; para reenviar ela precisa escolher outro modo e voltar, o que aplica um efeito errado no meio do caminho. O 'Aplicar' verde do rodapé não substitui: ele manda o que está gravado no disco, não o que ela acabou de escolher. A janela antiga tem 'Aplicar em L2', 'Aplicar em R2' e 'Desligar' por lado.
 

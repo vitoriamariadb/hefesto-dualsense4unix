@@ -52,7 +52,7 @@ A janela antiga apaga o botão que não tem o que fazer, e a razão está escrit
 
 ## [03] Nove segundos e meio calado — a tela diz que ele está trabalhando?
 
-**Peso:** media · **Depende de:** A decisão do "Atualizar" acima: se ele virar só releitura, a espera cai de 9,5 s para 4 ms e esta pergunta morre sozinha.
+**Peso:** média · **Depende de:** A decisão do "Atualizar" acima: se ele virar só releitura, a espera cai de 9,5 s para 4 ms e esta pergunta morre sozinha.
 
 Da cadeira dela, clicar "Atualizar" hoje é nove segundos e meio de nada, e no fim mais nada. A janela não congela — o gesto corre em thread justamente por causa desses 9,5 s —, mas nenhuma letra na tela diz que há trabalho em curso: procurei e não existe estado "em voo" em lugar nenhum do piloto. E quando volta, o estado publicado é IDÊNTICO, o que está certo (nada no disco mudou) e está declarado em `SEM_ECO`. O único canal de recado que esta página já tem é a mesma tarja laranja do rodapé que a recusa usa.
 

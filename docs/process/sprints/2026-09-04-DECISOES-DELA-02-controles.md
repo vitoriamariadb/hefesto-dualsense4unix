@@ -15,7 +15,7 @@ ela JÁ respondeu estão em
 
 ## [01] A cor viva do controle tem lugar no card, ou o plástico basta?
 
-**Peso:** media
+**Peso:** média
 
 Hoje o card inteiro é pintado pela cor do PLÁSTICO: a borda, o círculo dos analógicos, os glifos e as barras dos gatilhos saem todos de `--plastico`, que a folha `plastico-css` reescreve a cada tique a partir do modelo declarado de cada controle. A cor VIVA da barra de luz aparece num lugar só — o retângulo dentro da moldura "Barra de luz" —, e esse retângulo mora no corpo do card, que fica recortado quando o card está fechado. Com dois controles do MESMO modelo e os cards fechados, não há nada na tela que os separe pela cor; a janela antiga separa, porque ela tinge o card inteiro com a cor da barra de luz. A pergunta é onde a cor viva aparece além do retângulo.
 
@@ -122,7 +122,7 @@ Quando o Hefesto escreve um volume, ele assume a posse dos bytes de volume do co
 
 ## [07] Quando a emulação cai para o modo pobre, a tela conta?
 
-**Peso:** media
+**Peso:** média
 
 O card diz o que o jogo vê — "DualSense", "Xbox 360" — e não diz em que condição. Quando o gamepad virtual cai para o `uinput`, a janela antiga acende a tarja "Emulação degradada (uinput): <motivo>", com o motivo em português. Do lado novo o ajudante que monta esse motivo EXISTE (`pacotes/__init__.py:908`) e nenhum dos dez pacotes o chama — não porque falte código, mas porque não há onde pousar a frase.
 
@@ -140,7 +140,7 @@ O card diz o que o jogo vê — "DualSense", "Xbox 360" — e não diz em que co
 
 ## [08] Quando o mudo cai no controle errado, a tela confessa?
 
-**Peso:** media · **Depende de:** MOTOR pequeno — o gesto do 🎙 precisa ler `ipc_bridge.alvo_honrado` (já existe, `app/ipc_bridge.py:1041`) em vez de tratar a resposta do daemon como sim/não.
+**Peso:** média · **Depende de:** MOTOR pequeno — o gesto do 🎙 precisa ler `ipc_bridge.alvo_honrado` (já existe, `app/ipc_bridge.py:1041`) em vez de tratar a resposta do daemon como sim/não.
 
 Na mesa cheia, o daemon pode atender um pedido de mudo pela rota global em vez do controle em que você clicou. Ele DIZ isso na resposta, e a janela antiga lê os três estados (`ipc_bridge.alvo_honrado`) e acende a tarja dentro do card. O gesto novo trata a resposta como sim/não: um mudo que caiu no controle de outra pessoa aparece aqui como sucesso — a tela pinta o selo do card certo e o microfone que calou foi outro. O canal para dizer isso já existe: é o mesmo depósito de frases por controle que hoje mostra as recusas no cartão, por 30 segundos.
 
