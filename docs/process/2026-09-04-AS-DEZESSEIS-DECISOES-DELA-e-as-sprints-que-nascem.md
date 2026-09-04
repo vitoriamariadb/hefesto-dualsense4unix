@@ -199,6 +199,21 @@ O que isso muda no trabalho, e é bastante:
 Quando ela recusa todas as opções que ofereço, a hipótese certa não é que falta
 uma quarta opção — é que a pergunta está errada.
 
+**DUAS CONSEQUÊNCIAS DESTE CONCEITO, medidas antes de virarem pergunta:**
+
+* **o deslizante de volume da D-08 já está na camada certa.** `mic.volume.set`
+  mexe no ganho da FONTE no PipeWire — é literalmente *"o canal específico
+  dele"*. E o produto já separa os dois de propósito: `mic.set` mexe no mudo do
+  firmware (apaga a luz vermelha, e enquanto vigorar o botão físico do controle
+  deixa de valer); `mic.volume.set` não toca no firmware, não tira o botão
+  físico, não apaga luz nenhuma. A docstring diz por quê: *"somar os dois num
+  método só faria a interface prometer uma coisa e entregar outra."*
+* **o botão FÍSICO do controle faz o mesmo ato.** Ela decidiu em 30/08 que *"o
+  botão do Controle sempre controla a interface"*, e o daemon tem o flag
+  `mic_button_toggles_system` para isso. Com o conceito dela, ele é sempre
+  verdadeiro: apertar o botão no plástico liga o microfone **e** o canal, igual
+  ao botão da tela. Não há duas rotas com dois comportamentos.
+
 ### D-13 · O "Cores automáticas" ganha interruptor no topo da Iluminação
 
 **Em jogo:** o campo governa a paleta E a numeração automática (inclusive dos
