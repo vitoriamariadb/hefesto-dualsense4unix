@@ -176,6 +176,14 @@ muda janelas de programas que não são este.
 | 9 das 16 linhas do balde LIGAR da aba 08 | `a08_conexoes.py` | fôlego, desenho novo, ou IPC novo — cada uma com a razão escrita |
 | O alvo de saída não é lido de volta | acordeão em CSS puro | o piloto recusa escrever `checked`; precisa de alvo novo |
 
+**ATUALIZADO AO MEIO-DIA DE 04/09:** ela pediu as dúvidas em opções e decidiu
+duas na hora. A tabela acima virou a fila **T-01…T-06** do
+[`SPRINT_ORDER.md`](SPRINT_ORDER.md), §-1, e o que ainda espera a palavra dela
+está em
+[DECISOES-DELA-11](sprints/2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md).
+E entrou um defeito novo, com foto dela: **a interface perdeu o estilo sozinha**
+([A-TELA-NUA-01](sprints/2026-09-04-A-TELA-NUA-01-a-interface-perdeu-o-estilo-sozinha.md)).
+
 ---
 
 ## 6. OS NÚMEROS

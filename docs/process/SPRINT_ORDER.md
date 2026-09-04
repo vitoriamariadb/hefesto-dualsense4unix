@@ -35,6 +35,35 @@
 > documento, §6. **Onze das quinze tinham a mesma forma:** o motor existia,
 > medido e repassado, e faltava o chamador.
 
+> **04/09/2026, MEIO-DIA — AS QUINZE FECHARAM EM CATORZE, E ELA DECIDIU MAIS DUAS.**
+> O handoff está em
+> [ONDE PARAMOS — as quinze queixas](2026-09-04-ONDE-PARAMOS-as-quinze-queixas-e-os-quatro-defeitos-que-nenhuma-regua-via.md).
+> Ao meio-dia ela pediu as dúvidas em opções e decidiu duas na hora — o
+> microfone como UM estado (*"o botão fisico do mic se ligado no microfone ele fica ligado tambem. indepente se nativo ou virtual"*) <!-- noqa-acento: citação literal dela -->
+> e o alto-falante com os dois canais da GTK (*"sons do pc e sons do jogo. veja
+> como fizemos no gtk"*). E mandou uma foto: a interface **perdeu o estilo
+> sozinha**. Esta é a fila da tarde, por DESBLOQUEIO:
+
+| # | sprint | fecha | espera |
+| --- | --- | --- | --- |
+| **T-01** | [A-TELA-NUA-01](sprints/2026-09-04-A-TELA-NUA-01-a-interface-perdeu-o-estilo-sozinha.md) — a interface perdeu o estilo sozinha | defeito vivo na tela dela, com foto | — |
+| **T-02** | [MICROFONE-UM-ATO-01](sprints/2026-09-04-MICROFONE-UM-ATO-01-o-botao-fisico-e-o-da-tela-sao-o-mesmo-estado.md) — o botão físico e o da tela são o mesmo estado | a D-12 inteira: o método de eleição do canal, em qualquer modo | S-01 |
+| **T-03** | [ALTO-FALANTE-DOIS-CANAIS-01](sprints/2026-09-04-ALTO-FALANTE-DOIS-CANAIS-01-sons-do-jogo-e-todo-o-som-do-pc-em-qualquer-modo.md) — "Sons do jogo" e "Todo o som do PC" | a leitura das duas camadas e o ensaio que vai e volta | — |
+| **T-04** | [AJUSTE-PROPRIO-DESALINHADO-01](sprints/2026-09-04-AJUSTE-PROPRIO-DESALINHADO-01-a-coluna-diz-o-que-o-disco-nao-guarda.md) — a coluna diz o que o disco não guarda | a tela afirmando o que não é, na aba 10 | — |
+| **T-05** | [BARRA-DA-JANELA-01](sprints/2026-09-04-BARRA-DA-JANELA-01-os-botoes-do-lado-do-sistema.md) — os botões do lado do sistema | a queixa 2 | **decisão [01]** |
+| **T-06** | [O-TERCEIRO-NUMERO-ENVELHECEU-01](sprints/2026-09-04-O-TERCEIRO-NUMERO-ENVELHECEU-01-a-prosa-diz-14-e-a-tabela-27.md) — a prosa diz 14% e a tabela 27% | um fato errado em três linhas | — |
+
+**T-01 primeiro porque é o único defeito VIVO na tela dela** — os outros cinco
+são features ou afirmações erradas; este ela viu acontecer. T-02 e T-03 são as
+duas decisões do meio-dia; T-02 espera a S-01 (o recado "ligou, mas o canal
+está mudo" precisa do canal de recado). **T-04 não espera nada** e é curto: a
+medição está inteira, falta o diagnóstico de minutos.
+
+**AS CINCO DÚVIDAS QUE SOBRARAM, em opções:**
+[DECISOES-DELA-11 — o que sobrou da madrugada](sprints/2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md)
+— a barra da janela, as barras de motor da vibração, o botão de sensor, as nove
+linhas LIGAR da 08, e o alvo `marcado` do pintor. Cada uma com recomendação.
+
 **04/09/2026.** A ordem é por **DESBLOQUEIO**, não por peso: as três primeiras
 são peças de tela que as outras dez usam. É a lição dos quinze defeitos de forma
 de 23/08 — consertar aba por aba pagaria quinze vezes o mesmo preço.
