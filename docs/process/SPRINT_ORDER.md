@@ -1,11 +1,69 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
-> **02/09/2026 — A FILA MUDOU DE DONO.** O que estava aqui era a fila do
-> REDESENHO (as 90 sprints de 27/08, uma por aba). Ela cumpriu o papel: as dez
-> abas foram desenhadas e ela aprovou. **O que ficou aberto é OUTRO problema** —
-> as telas existem e não funcionam. A fila de agora é a
-> [ROTA DO HTML](sprints/2026-09-02-ROTA-DO-HTML-INDICE.md), e ela está abaixo.
-> A fila do redesenho segue no §2, para quem precisar de uma sprint de desenho.
+> **04/09/2026 — A FILA TEM DONO NOVO, E ELE É UMA MEDIÇÃO.** As 232 linhas
+> abertas da paridade foram triadas uma a uma: **52 não são dívida**, e das 180
+> que sobram **74 eram decisão dela**. Ela decidiu DEZESSEIS nesta madrugada, e
+> delas nascem **13 sprints com ordem de desbloqueio** — a fila de agora.
+>
+> **A FILA VIVA:**
+> **[AS DEZESSEIS DECISÕES DELA, e as sprints que nascem](2026-09-04-AS-DEZESSEIS-DECISOES-DELA-e-as-sprints-que-nascem.md)**
+> — §1 as decisões com o que estava em jogo, §2 as treze sprints em ordem de
+> desbloqueio, §3 as 54 perguntas que ela ainda não viu.
+>
+> **O INVENTÁRIO QUE A PRODUZIU:**
+> **[AS 232 LINHAS ABERTAS, triadas uma a uma](2026-09-04-AS-232-LINHAS-ABERTAS-o-que-falta-de-verdade.md)**
+> — os seis baldes, a matriz por aba, e os seis defeitos que perdem trabalho
+> dela em silêncio.
+>
+> O que estava aqui — a ROTA DO HTML de 02/09 e, antes dela, as 90 sprints do
+> redesenho de 27/08 — **cumpriu o papel e fica como registro**, abaixo.
+
+---
+
+## §-1 — A FILA DE AGORA: as treze sprints das dezesseis decisões
+
+**04/09/2026.** A ordem é por **DESBLOQUEIO**, não por peso: as três primeiras
+são peças de tela que as outras dez usam. É a lição dos quinze defeitos de forma
+de 23/08 — consertar aba por aba pagaria quinze vezes o mesmo preço.
+
+| # | sprint | fecha | espera |
+| --- | --- | --- | --- |
+| **S-01** | O canal de recado no cartão | 5 linhas, em 5 abas | — |
+| **S-02** | A linha de ressalva condicional | ~8 linhas, em 5 abas | — |
+| **S-03** | O botão cinza com a razão na dica | ~6 linhas, em 3 abas | CSS novo |
+| **S-04** | Os QUATRO lugares de aviso que a página já tem | 6 linhas da aba 01 | — |
+| **S-05** | O botão do microfone liga o microfone E o canal dele | 3 linhas, abas 02 e 08 | S-01 |
+| **S-06** | Deslizante de volume no mic e no alto-falante | 4 linhas da aba 02 | `--publicar` da 02 |
+| **S-07** | O interruptor do automático, gravando a cor ao desligar | 3 linhas da aba 04 | `--publicar` da 04 |
+| **S-08** | A linha de estado da vibração | 2 linhas da aba 05 | S-02 |
+| **S-09** | O veredito do Check-up + a quarta cor | 3 linhas da aba 08 | `--publicar` da 08 |
+| **S-10** | "cabo"/"rádio" pela função dona | 1 linha, e mata uma cópia | — |
+| **S-11** | Casco fora, luz viva dentro | 2 linhas da aba 02 | — |
+| **S-12** | A frase da mesa vazia e o `+N` do quinto | 2 linhas da aba 01 | — |
+| **S-13** | Corrigir o CSV: o touchpad nunca foi conflito | 1 linha, e um fato errado | — |
+
+**S-01, S-02 e S-03 antes de tudo.** Elas são o que falta de INFRAESTRUTURA de
+tela nesta interface: um canal de recado para o sucesso (hoje só a recusa fala),
+uma linha de ressalva que só nasce quando há ressalva, e um estado apagado para
+o botão que vai recusar. Com as três de pé, as dez seguintes custam metade.
+
+**S-04 e S-12 não esperam nada** e são a aba que ela mais olha — bom lugar para
+começar enquanto as três de infra são escritas.
+
+### O que NÃO entra nesta fila, e é preciso dizer
+
+* **As 43 do balde `LIGAR`** — o dado já existe nos dois lados e falta só ler e
+  ter endereço na página. Não precisam de decisão nenhuma dela, e por isso não
+  são sprint de conversa: são trabalho. Dezoito são da `01-jogar` e dezesseis da
+  `08-conexoes` — as duas abas fecham quase inteiras com isso.
+* **As 57 do balde `MOTOR`** — código novo. Três são features inteiras (a
+  cerimônia "Mapear Entrada a Entrada" da 08, o editor avançado de regra da 10,
+  a seção `mode` do perfil).
+* **As 54 perguntas que ela ainda não viu** — em
+  `sprints/2026-09-04-DECISOES-DELA-<aba>.md`, uma por aba, cada uma com opções,
+  custo em linhas de tela e recomendação. **Não estão respondidas.** São a fila
+  da próxima conversa, no formato que ela pediu: um ponto por vez, o próximo
+  depois do OK dela.
 
 ---
 
