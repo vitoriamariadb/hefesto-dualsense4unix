@@ -61,8 +61,8 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 07-lancadores | 30 | 8 | 6 | 6 | 9 | 1 | 27% |
 | 08-conexoes | 49 | 7 | 19 | 21 | 2 | 0 | 14% |
 | 09-sistema | 38 | 10 | 7 | 14 | 7 | 0 | 26% |
-| 10-perfis | 50 | 13 | 15 | 13 | 9 | 0 | 26% |
-| TODAS | 396 | 100 | 112 | 121 | 59 | 4 | 25% |
+| 10-perfis | 50 | 13 | 16 | 12 | 9 | 0 | 26% |
+| TODAS | 396 | 100 | 113 | 120 | 59 | 4 | 25% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
