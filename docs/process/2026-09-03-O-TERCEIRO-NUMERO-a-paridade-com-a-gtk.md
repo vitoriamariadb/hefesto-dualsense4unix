@@ -55,14 +55,14 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 01-jogar | 42 | 7 | 13 | 17 | 4 | 1 | 17% |
 | 02-controles | 50 | 12 | 15 | 19 | 4 | 0 | 24% |
 | 03-gatilhos | 31 | 15 | 8 | 2 | 5 | 1 | 48% |
-| 04-iluminacao | 35 | 7 | 8 | 12 | 7 | 1 | 20% |
+| 04-iluminacao | 35 | 6 | 9 | 12 | 7 | 1 | 17% |
 | 05-vibracao | 31 | 10 | 11 | 7 | 3 | 0 | 32% |
 | 06-navegacao | 40 | 12 | 13 | 6 | 9 | 0 | 30% |
 | 07-lancadores | 30 | 8 | 6 | 6 | 9 | 1 | 27% |
 | 08-conexoes | 49 | 7 | 20 | 20 | 2 | 0 | 14% |
 | 09-sistema | 38 | 10 | 11 | 10 | 7 | 0 | 26% |
 | 10-perfis | 50 | 13 | 16 | 12 | 9 | 0 | 26% |
-| TODAS | 396 | 101 | 121 | 111 | 59 | 4 | 26% |
+| TODAS | 396 | 100 | 122 | 111 | 59 | 4 | 25% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
