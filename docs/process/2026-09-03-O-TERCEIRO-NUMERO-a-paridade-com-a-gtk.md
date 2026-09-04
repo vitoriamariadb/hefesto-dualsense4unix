@@ -53,7 +53,7 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | aba | feats | IGUAL | DIFER | FALTA | SO_HTML | ? | paridade |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 01-jogar | 42 | 8 | 14 | 15 | 4 | 1 | 19% |
-| 02-controles | 50 | 12 | 15 | 19 | 4 | 0 | 24% |
+| 02-controles | 50 | 12 | 16 | 18 | 4 | 0 | 24% |
 | 03-gatilhos | 31 | 15 | 8 | 2 | 5 | 1 | 48% |
 | 04-iluminacao | 35 | 6 | 9 | 12 | 7 | 1 | 17% |
 | 05-vibracao | 31 | 10 | 11 | 7 | 3 | 0 | 32% |
@@ -62,7 +62,7 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 08-conexoes | 49 | 13 | 21 | 13 | 2 | 0 | 27% |
 | 09-sistema | 38 | 10 | 11 | 10 | 7 | 0 | 26% |
 | 10-perfis | 50 | 13 | 16 | 12 | 9 | 0 | 26% |
-| TODAS | 396 | 107 | 124 | 102 | 59 | 4 | 27% |
+| TODAS | 396 | 107 | 125 | 101 | 59 | 4 | 27% |
 
 <!-- /TABELA-DA-PARIDADE -->
 

@@ -23,9 +23,9 @@ E o perfil ativo, lido do **disco** (`~/.config/hefesto-dualsense4unix/profiles/
 
 ```
 controles guardados: 3
-  d42f4b4846d8  ->  ['leds', 'rumble', 'triggers']     ← o P2 da tela
-  444648e64203  ->  ['leds', 'rumble', 'triggers']     ← o P1 da tela
-  143a9a13ebab  ->  []                                  ← não está na mesa
+  d42f4b0000d8  ->  ['leds', 'rumble', 'triggers']     ← o P2 da tela
+  444648000003  ->  ['leds', 'rumble', 'triggers']     ← o P1 da tela
+  143a9a0000ab  ->  []                                  ← não está na mesa
 ```
 
 **As duas leituras não batem, e a divergência tem três formas:**
