@@ -50,8 +50,12 @@
 | **T-02** | [MICROFONE-UM-ATO-01](sprints/2026-09-04-MICROFONE-UM-ATO-01-o-botao-fisico-e-o-da-tela-sao-o-mesmo-estado.md) — o botão físico e o da tela são o mesmo estado | a D-12 inteira: o método de eleição do canal, em qualquer modo | S-01 |
 | **T-03** | [ALTO-FALANTE-DOIS-CANAIS-01](sprints/2026-09-04-ALTO-FALANTE-DOIS-CANAIS-01-sons-do-jogo-e-todo-o-som-do-pc-em-qualquer-modo.md) — "Sons do jogo" e "Todo o som do PC" | a leitura das duas camadas e o ensaio que vai e volta | — |
 | **T-04** | [AJUSTE-PROPRIO-DESALINHADO-01](sprints/2026-09-04-AJUSTE-PROPRIO-DESALINHADO-01-a-coluna-diz-o-que-o-disco-nao-guarda.md) — a coluna diz o que o disco não guarda | a tela afirmando o que não é, na aba 10 | — |
-| **T-05** | [BARRA-DA-JANELA-01](sprints/2026-09-04-BARRA-DA-JANELA-01-os-botoes-do-lado-do-sistema.md) — os botões do lado do sistema | a queixa 2 | **decisão [01]** |
+| **T-05** | [BARRA-DA-JANELA-01](sprints/2026-09-04-BARRA-DA-JANELA-01-os-botoes-do-lado-do-sistema.md) — os botões do lado do sistema | a queixa 2 | ~~decisão [01]~~ **`1-a`, 04/09 tarde** |
 | **T-06** | [O-TERCEIRO-NUMERO-ENVELHECEU-01](sprints/2026-09-04-O-TERCEIRO-NUMERO-ENVELHECEU-01-a-prosa-diz-14-e-a-tabela-27.md) — a prosa diz 14% e a tabela 27% | um fato errado em três linhas | — |
+| **T-07** | [PINTOR-MARCADO-01](sprints/2026-09-04-PINTOR-MARCADO-01-o-decimo-alvo.md) — o décimo alvo do pintor | todo checkbox das dez abas | — |
+| **T-08** | [VIBRACAO-POR-MOTOR-01](sprints/2026-09-04-VIBRACAO-POR-MOTOR-01-as-duas-barras-multiplicam-o-degrau.md) — as duas barras multiplicam o degrau | o conceito dela: `efetivo = degrau × barra(motor)` | — |
+| **T-09** | [SENSOR-DE-VERDADE-01](sprints/2026-09-04-SENSOR-DE-VERDADE-01-giro-e-acelerometro-desligam-em-qualquer-modo.md) — giro e acel desligam de verdade | interruptor real, em qualquer modo e máscara | **medir por onde o jogo lê, antes** |
+| **T-10** | [CONEXOES-LIGAR-TUDO-01](sprints/2026-09-04-CONEXOES-LIGAR-TUDO-01-as-dezesseis-linhas-nas-tres-familias.md) — as dezesseis da 08, nas três famílias | a aba 08 inteira no balde LIGAR | T-07 (a linha 8) |
 
 **T-01 primeiro porque é o único defeito VIVO na tela dela** — os outros cinco
 são features ou afirmações erradas; este ela viu acontecer. T-02 e T-03 são as
@@ -59,10 +63,14 @@ duas decisões do meio-dia; T-02 espera a S-01 (o recado "ligou, mas o canal
 está mudo" precisa do canal de recado). **T-04 não espera nada** e é curto: a
 medição está inteira, falta o diagnóstico de minutos.
 
-**AS CINCO DÚVIDAS QUE SOBRARAM, em opções:**
-[DECISOES-DELA-11 — o que sobrou da madrugada](sprints/2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md)
-— a barra da janela, as barras de motor da vibração, o botão de sensor, as nove
-linhas LIGAR da 08, e o alvo `marcado` do pintor. Cada uma com recomendação.
+**ELA RESPONDEU AS CINCO NA MESMA TARDE** —
+[DECISOES-DELA-11](sprints/2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md)
+guarda as respostas. Duas vieram **fora das minhas opções**, e nas duas a
+pergunta estava errada: a barra de motor não é um comando, é POLÍTICA (um
+multiplicador por motor que compõe com o degrau); e o botão de sensor não vira
+leitura — *"tem que funcionar de verdade"*. É a mesma lição da D-12, pela
+terceira vez no dia. **T-07 antes de T-10** porque a linha 8 da 08 precisa do
+alvo `marcado`; **T-09 começa por uma MEDIÇÃO**, não por código.
 
 **04/09/2026.** A ordem é por **DESBLOQUEIO**, não por peso: as três primeiras
 são peças de tela que as outras dez usam. É a lição dos quinze defeitos de forma

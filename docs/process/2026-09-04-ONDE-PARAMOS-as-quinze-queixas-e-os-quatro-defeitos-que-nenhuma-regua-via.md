@@ -178,8 +178,8 @@ muda janelas de programas que não são este.
 
 **ATUALIZADO AO MEIO-DIA DE 04/09:** ela pediu as dúvidas em opções e decidiu
 duas na hora. A tabela acima virou a fila **T-01…T-06** do
-[`SPRINT_ORDER.md`](SPRINT_ORDER.md), §-1, e o que ainda espera a palavra dela
-está em
+[`SPRINT_ORDER.md`](SPRINT_ORDER.md), §-1 — **T-01…T-10, e nenhuma espera a
+palavra dela**: as cinco dúvidas foram respondidas à tarde, em
 [DECISOES-DELA-11](sprints/2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md).
 E entrou um defeito novo, com foto dela: **a interface perdeu o estilo sozinha**
 ([A-TELA-NUA-01](sprints/2026-09-04-A-TELA-NUA-01-a-interface-perdeu-o-estilo-sozinha.md)).

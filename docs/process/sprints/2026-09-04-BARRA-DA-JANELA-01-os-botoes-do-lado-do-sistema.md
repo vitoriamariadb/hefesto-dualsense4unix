@@ -3,10 +3,9 @@
 > **Queixa 2 dela, 04/09/2026:** *"a barra de navegação fechar, maximizar
 > diminuir não é a mesma do sistema"*. A única das quinze que ficou aberta.
 
-**ESPERA A DECISÃO [01] de
+**DECIDIDA — 04/09/2026, tarde: "1-a", só a janela do Hefesto.** Era a [01] de
 [`DECISOES-DELA-11`](2026-09-04-DECISOES-DELA-11-o-que-sobrou-da-madrugada.md).**
-Esta sprint é a opção recomendada — *só a janela do Hefesto*. Se ela escolher
-as duas linhas na sessão, a sprint fecha sem código.
+Nada mais espera.
 
 ## O QUE É
 

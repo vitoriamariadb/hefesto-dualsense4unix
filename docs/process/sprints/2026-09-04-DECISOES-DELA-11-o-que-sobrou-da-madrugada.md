@@ -4,7 +4,10 @@
 cinco que a madrugada deixou esperando a palavra dela, no formato das dez listas
 por aba: opções, custo em linhas de tela, recomendação primeiro.
 
-**ELAS NÃO ESTÃO RESPONDIDAS.** O que ela JÁ decidiu ao meio-dia — o microfone
+**RESPONDIDAS NA MESMA TARDE**, no chat, em uma mensagem: `1-a`, a 2 e a 3
+com um conceito próprio — **fora das opções, e nas duas a pergunta é que
+estava errada** —, `4 tudo`, `5-a`. Cada resposta está no fim da sua
+pergunta, com a sprint que nasceu. O que ela JÁ decidiu ao meio-dia — o microfone
 como um estado só, e o alto-falante com os dois canais da GTK — **não está aqui**:
 virou sprint direto (`MICROFONE-UM-ATO-01`, `ALTO-FALANTE-DOIS-CANAIS-01`) e está
 na fila do [`SPRINT_ORDER.md`](../SPRINT_ORDER.md), §-1.
@@ -36,6 +39,8 @@ PERGUNTA a sessão e se ajusta, em vez de exigir que a sessão se ajuste a ele.
 
 **Fecha:** a queixa 2 da madrugada, a única das quinze que ficou aberta.
 
+**ELA DECIDIU:** `1-a` — só a janela do Hefesto. Sprint: [BARRA-DA-JANELA-01](2026-09-04-BARRA-DA-JANELA-01-os-botoes-do-lado-do-sistema.md), destravada.
+
 ---
 
 ## [02] As barras de motor da vibração: uma barra manda o par, ou viram leitura?
@@ -62,6 +67,10 @@ o Testar.
 
 **Fecha as linhas:** *As barras de motor — `SEM_DONO["barra:motor"]`* · a linha
 "barra:motor" do `paridade-gtk-html.csv`.
+
+**ELA DECIDIU — fora das três:** *"os slcers do botão esquerdo e direito (forte e fraco) se multiplicam (interagem com os botões economia, moderado,máximo, se eu tiver 150% do perfil de vibração e as duas linhas estiverem 100 entao a vibração dos 2 será 150%, mas se so a do motor fraco tiver 100 e a outrqa 50% então será 150 em um e 75% no outro entende?"* <!-- noqa-acento: citação literal dela -->
+
+A barra não manda `rumble.set` — **é política**: um multiplicador por motor que compõe com o degrau. A pergunta "manda agora ou vira leitura" estava errada. Sprint: [VIBRACAO-POR-MOTOR-01](2026-09-04-VIBRACAO-POR-MOTOR-01-as-duas-barras-multiplicam-o-degrau.md).
 
 ---
 
@@ -90,6 +99,10 @@ enlouquece com giro), a terceira volta como sprint com o motivo medido.
 **Fecha as linhas:** *O botão de sensor é interruptor de coisa sem interruptor*
 (handoff da madrugada, §5).
 
+**ELA DECIDIU — a terceira, e mais:** *"ele tem que funcionar de verdade. ambos independente do modo e da mascara."* <!-- noqa-acento: citação literal dela -->
+
+Interruptor de verdade, cada sensor por si, em Nativo e Virtual, com ou sem máscara. Sprint: [SENSOR-DE-VERDADE-01](2026-09-04-SENSOR-DE-VERDADE-01-giro-e-acelerometro-desligam-em-qualquer-modo.md) — que começa MEDINDO por onde o jogo lê o giro em cada modo.
+
 ---
 
 ## [04] As nove linhas LIGAR da aba 08 que não fecharam: fôlego, desenho, ou IPC?
@@ -113,6 +126,8 @@ deve esperar as outras duas.
 
 **Fecha as linhas:** *9 das 16 linhas do balde LIGAR da aba 08* (handoff, §5).
 
+**ELA DECIDIU:** *"tudo"* — as três famílias. Sprint: [CONEXOES-LIGAR-TUDO-01](2026-09-04-CONEXOES-LIGAR-TUDO-01-as-dezesseis-linhas-nas-tres-familias.md).
+
 ---
 
 ## [05] O alvo de saída do alto-falante não é lido de volta: alvo novo no pintor, ou o acordeão muda?
@@ -135,3 +150,5 @@ acordeão, e ele nasce sempre fechado.
 vale para as dez abas.
 
 **Fecha as linhas:** *O alvo de saída não é lido de volta* (handoff, §5).
+
+**ELA DECIDIU:** `5-a` — o décimo alvo `marcado`. Sprint: [PINTOR-MARCADO-01](2026-09-04-PINTOR-MARCADO-01-o-decimo-alvo.md).
