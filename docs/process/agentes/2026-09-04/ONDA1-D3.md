@@ -214,6 +214,32 @@ o sensor ao sair — a bancada é dela.
 * **POR QUE o SDL não abre o `hidraw` do vpad por HIDAPI.** O FATO está medido
   e é reprodutível (em Virtual, com e sem a env do produto, com as duas
   máscaras: `tem_giro=false`); a CAUSA é hipótese não verificada — ver abaixo.
+  **MEDIDO EM 05/09/2026, depois do install:** a coluna Virtual desta tabela
+  foi reproduzida linha a linha (o `hidraw` do físico em `0600 root` porque o
+  `hidraw_broker_hidden` o esconde por desenho; o do vpad legível e não aberto;
+  o SDL abrindo `event21`+`event25` por evdev; `GYRO=NAO` nos dois). E a
+  pergunta ganhou UM PASSO — não a resposta inteira:
+
+  `SDL_hid_enumerate(0x054C, 0)` devolve **ZERO** dispositivos Sony, e
+  `SDL_hid_enumerate(0,0)` devolve **UM** de seis nós `hidraw` — ou seja, o SDL
+  não deixa de ABRIR o vpad: ele não o **ENUMERA**. E a diferença de forma
+  entre o único que ele enxerga e o vpad está no udev:
+
+  | nó | cadeia de pais | o SDL enumera? |
+  | --- | --- | --- |
+  | `hidraw0` | `hid` → **`usb`** | SIM |
+  | `hidraw5` (vpad) | `hid` → **`misc`** (uhid) | NÃO |
+
+  Um dispositivo `uhid` não tem pai USB, e a enumeração do hidapi do SDL
+  caminha por ele. **É o mecanismo provável, e não está provado suficiente:**
+  `hidraw1` também pendura em `usb` e também ficou de fora, por razão que esta
+  medição não isolou. Quem for fechar isto começa por aí, e a sonda está em
+  `scripts/ensaios/o_jogo_para_de_ver_o_giro.py`.
+
+  **O QUE NÃO MUDA, e vale dizer porque é o que ela pergunta:** o giroscópio
+  **não morre** no Modo Virtual. O nó de movimento do vpad emite no mesmo
+  ritmo do físico — 5901 eventos contra 5854 em quatro segundos. O dado
+  atravessa; o que falta é o SDL amarrá-lo ao controle.
 
 ---
 
