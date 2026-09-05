@@ -11,8 +11,9 @@
 | --- | --- |
 | árvore dela | `/mnt/Apate/Desenvolvimento/hefesto-dualsense4unix`, branch `dev` |
 | portões | **42 verdes** (`bash scripts/portoes.sh`, ~4 min) |
-| suíte | doze lotes |
-| commits do dia | 45 |
+| suíte | **17.856 verdes**, doze lotes, zero vermelho |
+| `install.sh` | **`rc=0`**, doctor sem nenhuma FALHA (5 avisos de ambiente) |
+| commits do dia | 47 |
 
 ## 1. A ONDA 3, em quatro frentes
 
@@ -110,6 +111,34 @@ próxima pessoa.
 5. **A `07-lancadores`** era o único desvio de forma nos chips e foi curada;
    os quatro ponteiros para o parâmetro morto `fita_viva=False` passaram a citar
    `monta.ABAS_QUE_ESCOLHEM`.
+
+## 6. O OITAVO INSTRUMENTO FALSO, e ele acusava o inocente
+
+Oito ERROS no lote-00 da suíte, sempre nos mesmos casos, com a frase *"o WebKit
+não respondeu em 30 s"* e o `saiu` VAZIO. **O laço não estourou — ele foi
+MORTO.** Sete testes de GUI armavam `GLib.timeout_add(20000, Gtk.main_quit)` e
+nunca o removiam; o disparo pendente caía DENTRO do `Gtk.main()` do teste
+seguinte do mesmo processo.
+
+A cura já existia em CINCO arquivos irmãos, com o comentário que a explica —
+*"Um `timeout_add` pendente depois da fixture dispara DENTRO do laço do PRÓXIMO
+teste de GUI do mesmo processo. Já matou onze medições."* Nos outros sete
+faltava. Medido: duas voltas em três reprovavam antes; três em três passam
+depois.
+
+**E SÓ APARECE EM ORDEM ALEATÓRIA.** Rodando o arquivo sozinho, sempre verde —
+por isso a primeira leitura culpou uma execução concorrente, e estava errada.
+
+## 7. O INSTALL
+
+`./install.sh --yes` da árvore DELA (`dev`, limpa), **`rc=0`**, 79 mudanças
+planejadas e 26 com root. O `doctor` final: *"tudo OK"*, nenhuma FALHA, cinco
+avisos — todos de ambiente e anteriores (histórico de storm USB, erros
+acumulados do rádio BT, o exame da mesa, a autoridade de exibição desconhecida,
+e o hide cobrindo só o hidraw com nenhum jogo aberto).
+
+O daemon reiniciou e voltou: um controle no cabo, perfil `Personalizado`.
+Os lançadores apontam para a árvore dela.
 
 ## A regra que este dia deixa
 
