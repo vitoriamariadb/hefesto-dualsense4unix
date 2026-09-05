@@ -32,8 +32,8 @@ morreu por decisão (conflito C-1), e a [05] e a [10] já estavam feitas.**
 | --- | --- | --- |
 | **D-06 / S-11** | *"casco borda externa lightbar borda interna"* | um anel de 1px dentro dos 2px do casco, com o MESMO `data-campo` do retângulo da Barra de luz |
 | **[02]** | palavra curta no lugar do travessão | `Jogo` · `Steam` · `Não sei` · `Apagada`, e a frase inteira no `title` da linha |
-| **[04]** | o botão avisa antes do clique (D-03) | o 🎙 e o ♪ apagam com a razão no `?`. **O `disabled` do ♪ saiu** |
-| **[06]** | o "Devolver" do alto-falante | fica FORA, e o `title` do ♪ passou a dizer o preço |
+| **[04]** | o botão avisa antes do clique (D-03) | o 🎙 e o [nota] apagam com a razão no `?`. **O `disabled` do [nota] saiu** |
+| **[06]** | o "Devolver" do alto-falante | fica FORA, e o `title` do [nota] passou a dizer o preço |
 | **T-07** | o décimo alvo | `data-hef-alvo="marcado"` no rádio do acordeão |
 
 **Nada foi publicado.** A publicação é uma leva só, para o olho dela
@@ -133,7 +133,7 @@ impede a terceira.
 
 | foto | o que ela mostra |
 | --- | --- |
-| `01-antes.png` | a aba publicada de hoje — o 🎙 e o ♪ com um `?` que não existia |
+| `01-antes.png` | a aba publicada de hoje — o 🎙 e o [nota] com um `?` que não existia |
 | `02-depois.png` | a bancada publicada em cima, e **um defeito que só a foto pegou** (abaixo) |
 | `03-depois-curado.png` | os dois `?` invisíveis, como têm de ser com os botões clicáveis |
 | `04-vivo-antes-do-clique.png` | o card em repouso, com os dois anéis |
@@ -318,7 +318,7 @@ teste são asserção e docstring; a da ponte é reexport.
    `classe` veste** — ele é derivado, e não é um segundo campo.
 
 2. **`interface/monta.py` — a folha do botão cinza não alcança botão de ÍCONE.**
-   A peça casa `.btn` e `.seg button`; o 🎙/♪ é `.mudo-i`, 22px quadrados, e
+   A peça casa `.btn` e `.seg button`; o 🎙/[nota] é `.mudo-i`, 22px quadrados, e
    virar `.btn` seria trocar o desenho que ela aprovou. Esta aba tem **três
    linhas de CSS** que copiam a cara da folha, declaradas como cópia. O dia em
    que `.mudo-i` entrar naquela lista, elas somem daqui. É a mesma dívida que a
@@ -369,7 +369,7 @@ teste são asserção e docstring; a da ponte é reexport.
 | `02-controles` | o "Devolver" do alto-falante | decisão [06] · fica fora, e a dica diz o preço |
 | `02-controles` | a degradação do gamepad virtual chega à tela | decisão [07] · `degradacao_de` ganhou chamador |
 | `02-controles` | o mudo que caiu no controle errado | decisão [08] · `alvo_honrado` no gesto `volume` |
-| `02-controles` | onde a tela mostra o alto-falante mudo | decisão [09] · o ♪ acende, e o `alto-estado` saiu do desenho |
+| `02-controles` | onde a tela mostra o alto-falante mudo | decisão [09] · o [nota] acende, e o `alto-estado` saiu do desenho |
 | `02-controles` | a cor viva no cartão | D-06 / S-11 · o anel interno |
 | `02-controles` | o microfone é um ato só | S-05 · `mic.canal.set` + `frase_do_ato_do_microfone` |
 | `02-controles` | o décimo alvo tem endereço | T-07 · `data-hef-alvo="marcado"` |
