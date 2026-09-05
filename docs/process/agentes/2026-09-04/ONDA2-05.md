@@ -283,6 +283,43 @@ enunciado do que sobra para ela decidir.
 
 ---
 
+## O que medi e derrubou uma suposição
+
+**1. A régua de clique desta casa NÃO alcança o gesto novo, e o dublê dela é o
+motivo.** Eu ia declarar o `motor` no `PROVAS` do pacote, como todo gesto novo
+faz. Rodei, e a `PonteDeMentira` da régua geral estourou: ela responde `True` a
+qualquer nome, e `rumble_motores_set` devolve `(ok, corpo)` — o gesto morre num
+`TypeError: cannot unpack`. **A saída fácil seria afrouxar o gesto** (ler só o
+`ok`, ignorar o corpo) para caber no dublê. É **exatamente** o defeito que esta
+casa mediu duas vezes em 04/09: *"nos dois casos o dublê do teste era mais
+frouxo que a ponte real"*, e nas duas o gesto passou verde sem gravar um byte.
+Por isso o `motor` ficou FORA do `PROVAS`, com a razão escrita, e ganhou um
+dublê fiel no teste desta frente.
+
+**2. A minha própria régua acusou o inocente na primeira execução.** A régua 3
+do `aba05._conferir` fatiava o corpo por `class="ctrl vazia"` e ia até a próxima
+coluna; com a linha de mesa nascendo DEPOIS da grade, o pedaço da última coluna
+vazia varria o resto do documento e engolia a linha nova. A saída foi
+`um lugar vazio tem ajuste vivo: 'data-papel="forca-mesa"'` — sobre um ajuste
+que está fora de coluna nenhuma. **Régua que lê o pedaço errado acusa o
+inocente**, e a cura foi o segundo corte, não a exceção.
+
+**3. Uma afirmação minha sobre a cena do mockup caiu no meio do trabalho.** Eu
+escolhi o P3 para ser a coluna que HERDA a força da mesa — e o P3 é um dos dois
+LUGARES VAZIOS desde 31/08, por ordem dela. A régua nova (*"nenhuma coluna viva
+da cena HERDA a força da mesa"*) pegou; sem ela o desenho ensinaria a decisão
+[05] numa coluna que não se desenha. **A cena que ensina tem de ensinar no que
+está à vista.**
+
+**4. E um fato do produto reorganizou a cena inteira: `auto` não pode ser
+override de peça.** O esquema o recusa por unidade, com validador próprio. A
+cena tinha uma coluna desenhando `auto` como escolha dela naquele controle —
+um estado que o produto não sabe guardar. Ele mudou para a linha de mesa, que é
+o único lugar onde cabe, e a cena ficou mais honesta do que era antes de eu
+mexer nela.
+
+---
+
 ## O que NÃO verifiquei
 
 * **O APARELHO.** Nada desta frente tocou o daemon, o `hidraw` ou o controle. A
