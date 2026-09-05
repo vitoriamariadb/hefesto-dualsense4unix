@@ -1,5 +1,28 @@
 # O TERCEIRO NÚMERO — a paridade com a GTK
 
+> ## ⚠ ESTE NÚMERO MEDE A BANCADA, NÃO O QUE ELA ABRE
+>
+> **Medido em 04/09/2026, e é o achado maior da leva daquele dia.** As dez
+> frentes de aba entregaram, e **nenhuma publicou** — `git diff` em
+> `src/hefesto_dualsense4unix/interface/paginas/` não mostra **um byte** de
+> mudança. O produto que ela abre continua o de antes.
+>
+> ```
+> cadeado         bancada=2  publicado=0
+> reenviar        bancada=2  publicado=0
+> auto-cores      bancada=1  publicado=0
+> forca-mesa      bancada=1  publicado=0
+> ```
+>
+> **E isso está CERTO**, não é falha: a direção é `mockup/` → produto, nunca o
+> contrário, e *publicação é o olho dela* (PROVA-DE-TELA-01). As dez frentes
+> recusaram publicar porque cada uma move pixel, e pixel é decisão dela.
+>
+> **A leitura correta da tabela abaixo:** ela diz *"o código sabe fazer"*, não
+> *"ela já tem"*. A distância entre as duas é UMA leva — a de publicação, que
+> é dela aprovar aba por aba.
+
+
 **03/09/2026.** Esta casa tinha dois números sobre a interface nova, e os dois
 mediam a interface nova **contra ela mesma**:
 
@@ -68,8 +91,8 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 07-lancadores | 30 | 9 | 6 | 5 | 9 | 1 | 30% |
 | 08-conexoes | 49 | 14 | 21 | 12 | 2 | 0 | 29% |
 | 09-sistema | 38 | 10 | 12 | 9 | 7 | 0 | 26% |
-| 10-perfis | 50 | 13 | 16 | 12 | 9 | 0 | 26% |
-| TODAS | 396 | 117 | 127 | 89 | 59 | 4 | 30% |
+| 10-perfis | 50 | 14 | 16 | 11 | 9 | 0 | 28% |
+| TODAS | 396 | 118 | 127 | 88 | 59 | 4 | 30% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
