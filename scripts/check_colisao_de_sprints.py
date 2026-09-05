@@ -59,6 +59,7 @@ Um bloco entre ``---`` no topo do arquivo de sprint::
   depois_de  as sprints que têm de fechar ANTES. Serializa uma colisão em vez
              de proibi-la.
   nao_toca   o que esta sprint declara que NÃO é seu. É a metade que faltava.
+  decisoes   quais decisões dela esta sprint responde (ex.: `01-Q1, 01-Q3`).
 
 Uso:
     scripts/check_colisao_de_sprints.py                 confere tudo
@@ -84,7 +85,12 @@ _CAMPOS_LISTA = ("cria", "depois_de", "nao_toca")
 # posse. Entrou aqui porque a recusa a campo desconhecido é por desenho ("RECUSA
 # o que não entende, dizendo a linha") e um campo novo cegava o portão inteiro:
 # uma sprint com `onda:` derrubava a análise das outras 96.
-_CAMPOS_CONHECIDOS = ("sprint", "posse", "bancada", "onda", *_CAMPOS_LISTA)
+# `decisoes` nasceu em 05/09/2026, pela mesma razão e pela mesma porta que
+# `onda`: as sprints da ONDA 5 saem das 41 decisões dela, e a sprint precisa
+# dizer QUAL delas responde para que o registro em
+# `docs/process/DECISOES-DELA-O-REGISTRO.md` tenha a outra ponta. Agrupa, não
+# restringe — o portão o LÊ e o ignora no cruzamento de posse.
+_CAMPOS_CONHECIDOS = ("sprint", "posse", "bancada", "onda", "decisoes", *_CAMPOS_LISTA)
 
 
 class FormatoInvalido(Exception):

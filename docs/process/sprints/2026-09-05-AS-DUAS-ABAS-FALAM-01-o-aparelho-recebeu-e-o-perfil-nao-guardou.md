@@ -13,6 +13,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/profiles/
+depois_de: [ONDA2-03-GATILHOS-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-03-02]
 ---
 
 # D-17 · Quando o aparelho recebeu e o perfil não guardou, AS DUAS ABAS FALAM

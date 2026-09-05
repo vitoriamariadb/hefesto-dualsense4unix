@@ -13,7 +13,7 @@ posse:
 cria:
   - tests/unit/test_a_palavra_do_transporte_tem_um_dono_so.py
 bancada: false
-depois_de: [ONDA2-01-JOGAR-01, ONDA2-02-CONTROLES-01, ONDA2-03-GATILHOS-01, ONDA2-07-LANCADORES-01, ONDA2-09-SISTEMA-01]
+depois_de: [ONDA1-X-OS-FATOS-01, ONDA2-01-JOGAR-01, ONDA2-02-CONTROLES-01, ONDA2-03-GATILHOS-01, ONDA2-07-LANCADORES-01, ONDA2-09-SISTEMA-01, ONDA3-GESTO-DECLARA-01]
 nao_toca:
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/onde.py
