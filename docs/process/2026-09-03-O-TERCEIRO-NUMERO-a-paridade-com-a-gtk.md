@@ -1,6 +1,6 @@
 # O TERCEIRO NÚMERO — a paridade com a GTK
 
-> ## ⚠ ESTE NÚMERO MEDE A BANCADA, NÃO O QUE ELA ABRE
+> ## ATENÇÃO — ESTE NÚMERO MEDE A BANCADA, NÃO O QUE ELA ABRE
 >
 > **Medido em 04/09/2026, e é o achado maior da leva daquele dia.** As dez
 > frentes de aba entregaram, e **nenhuma publicou** — `git diff` em
@@ -86,13 +86,13 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 02-controles | 50 | 12 | 16 | 18 | 4 | 0 | 24% |
 | 03-gatilhos | 31 | 15 | 9 | 1 | 5 | 1 | 48% |
 | 04-iluminacao | 35 | 7 | 9 | 11 | 7 | 1 | 20% |
-| 05-vibracao | 31 | 15 | 9 | 4 | 3 | 0 | 48% |
+| 05-vibracao | 31 | 15 | 8 | 5 | 3 | 0 | 48% |
 | 06-navegacao | 40 | 13 | 15 | 3 | 9 | 0 | 32% |
 | 07-lancadores | 30 | 9 | 6 | 5 | 9 | 1 | 30% |
 | 08-conexoes | 49 | 14 | 21 | 12 | 2 | 0 | 29% |
 | 09-sistema | 38 | 10 | 12 | 9 | 7 | 0 | 26% |
 | 10-perfis | 50 | 14 | 16 | 11 | 9 | 0 | 28% |
-| TODAS | 396 | 118 | 127 | 88 | 59 | 4 | 30% |
+| TODAS | 396 | 118 | 126 | 89 | 59 | 4 | 30% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
