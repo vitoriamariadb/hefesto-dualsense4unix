@@ -93,7 +93,15 @@ python3 scripts/check_colisao_de_sprints.py --abertas | tail -1   # 34 abertas
 | **LOTE-3** | O-CONTROLE-SEM-MAC-01 · SOM-QUE-SAI-01 · MIC-BT-DONO-01 · JOGAR-OS-SEIS-AVISOS-01 · CONEXOES-A-LUZ-QUE-NAO-ACENDE-01 | 5 | a onda I: dependem de H |
 | **LOTE-4** | QUEM-E-QUEM-04 · PARIDADE-REMEDIR-02 · SPECS-A-PROCEDENCIA-01 | 3 | fecham os números: o CSV da paridade e o mapa recebem o que os lotes 1-3 mediram |
 
-**O CHECKPOINT DO LIMITE SEMANAL, antes de cada lote:** ela lê o uso (`/usage`).
+**O CHECKPOINT DO LIMITE SEMANAL CAIU — 06/09/2026, decisão dela**
+(`D-0609-O-CHECKPOINT-DE-70-SUSPENSO`): com o plano x20 em 41% e o reset em
+17h03, os quatro lotes vão seguidos, sem parar em 70%. Palavra dela: *"é tempo
+infinito praticamente que temos (…) a ideia é chegarmos em 100% antes do limite
+do plano ser resetado"*. <!-- noqa-acento: citação literal dela --> Com a gordura
+voltam **os conferentes por lote**, que este plano tinha cortado pelo custo: um
+por sprint, DEPOIS da costura, lendo o que entrou de verdade na integração.
+
+O texto abaixo fica como registro do que a regra era: ela lê o uso (`/usage`).
 Acima de **70%**, não despache — vá para a §3 com o que está costurado.
 Entre 55% e 70% antes do LOTE-2, divida-o em dois (os 8 da G primeiro, os 8 da
 H depois, cada um com a sua costura). Cada agente custa; um lote de 16 é a
