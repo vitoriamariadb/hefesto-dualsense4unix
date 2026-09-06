@@ -1,6 +1,6 @@
 ---
 sprint: DAEMON-ACORDADO-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   E2:
@@ -10,6 +10,8 @@ bancada: false
 depois_de: []
 nao_toca: []
 ---
+
+> **ESTADO 2026-09-06: feita** — a E2, item 1: o `pids_da_steam` do `escritor_cru` deixou de forkar o par de `pgrep` e passou a usar a varredura nativa de `/proc` da PERF-PROC-SCAN-01 (`cmdline_de_pid`, agora pública). Medido nesta máquina, 430 processos: **3.859 → 1.465 `read()` por chamada (2,6x) e 20,8 → 3,8 ms (5,5x)**, mais dois `fork`/`execve` a menos. Equivalência com o `pgrep` conferida em três agulhas. A E1 já estava respondida (25/08) e o item 2 fechado; a cadência de leitura do controle não foi tocada. A **E3 continua sendo dela**.
 
 > **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **O que falta é a E2, item 1, e ela já tem desenho** (última seção desta sprint): o
 `pids_da_steam` do `escritor_cru` é a cópia que ficou de fora da troca `pgrep -f` → varredura
