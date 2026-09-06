@@ -426,6 +426,21 @@ dos vizinhos sem tocar em nenhum deles.
 
 ## 8. OS PORTÕES E OS COMANDOS
 
+**43 VERDES DE 44.** O único vermelho é `ruff`, e é **HERDADO** — o `N802` de
+`tests/unit/test_a_palavra_do_transporte_tem_um_dono_so.py:140`, que nasceu na
+base desta branch e não toca nenhum arquivo desta posse (§6.4). Os três erros
+de `ruff` que ERAM meus (dois `N802` por nomes de teste com palavra em caixa
+alta, e um `E501`) foram curados no commit `b3659b2d`.
+
+Os dois que nasceram vermelhos **por causa desta entrega** fecharam, e os dois
+pela mesma causa — um comentário que soletrou o nome da função em vez de citar
+o endereço (§7):
+
+| portão | o que acusou | como fechou |
+| --- | --- | --- |
+| `paridade-gtk-html` | *"o sinal … APARECEU em interface/aba02.py"* | o comentário passou a citar `controller_card.py:1729` |
+| `donos-de-comportamento` | `donos-de-comportamento.csv:37 … reclassifique` | idem — e a linha 37 do CSV **fica `SO-GTK`**, que é a verdade: a tela nova NÃO chama aquele dono |
+
 ```bash
 cd /mnt/Apate/Desenvolvimento/hefesto-voo/hefesto-voo/CONTROLES-VERDADE-01-C-CONTROLES-VERDADE-01
 source .envrc-voo
@@ -434,6 +449,10 @@ $PY -m pytest tests/unit/test_a_aba_02_controles_fecha_as_linhas.py -q   # 68 pa
 $PY src/hefesto_dualsense4unix/interface/aba02.py                        # regera a bancada
 git add -A && bash scripts/portoes.sh > <scratchpad>/CONTROLES-VERDADE-01-portoes.txt 2>&1
 ```
+
+**A saída vai para um arquivo com o MEU nome**, e não é zelo: o rascunho da
+sessão é compartilhado, e nesta leva havia **quinze `portoes.sh` de seis
+árvores** rodando ao mesmo tempo (`load average` 11,3).
 
 O diff são **quatro arquivos, e são exatamente os quatro da posse** —
 `aba02.py`, `pacotes/a02_controles.py`, `mockup/02-controles.html` e a régua —
