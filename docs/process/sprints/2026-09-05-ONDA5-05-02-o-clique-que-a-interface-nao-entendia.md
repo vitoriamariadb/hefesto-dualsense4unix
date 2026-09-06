@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-05-02
-estado: aberta
+estado: feita
 decisoes: [05-Q6]
 posse:
   A05P:
@@ -20,6 +20,41 @@ depois_de: [ONDA2-05-VIBRACAO-01]
 ---
 
 # ONDA5-05-02 · DEFEITO — o clique que a interface não entendia
+
+## FEITA — 06/09/2026, e a prova é a tela dela
+
+**Os quatro passos fecharam.** A cura mora em `_uniq`, que passou a distinguir
+os dois fatos pelo `controle` que já chega no clique — e por isso alcança os
+**quatro** chamadores de uma vez.
+
+**MEDIDO NO PRODUTO, com o daemon dela vivo e um DualSense no cabo**
+(`scripts/ensaios/o_clique_da_coluna_que_esvaziou.py`, janela `--oculta`): a
+mesa tinha `['p1']`, a página publicava `p1 p2 p3 p4`, e o clique dentro da
+coluna do **p2** — o assento que a página tem e a mesa não — chegou ao Python
+**26 vezes em 26** (18 `testar`, 4 `parar`, 4 `forca`, em seis execuções),
+sempre de primeira, e a tarja de rodapé trouxe a frase do FATO:
+
+    este controle saiu da mesa entre o clique e agora. Sem o lugar dele na
+    lista do Hefesto não há como mirar só nele — e mandar assim faria a mesa
+    inteira tremer. Espere ele voltar e clique de novo.
+
+**A MORDIDA, na tela:** com o ramo novo de `_uniq` arrancado, o mesmo ensaio
+devolve `rc=1` e a tarja volta a dizer *"o clique não disse em qual controle"* —
+o defeito que ela leu como *"parece erro"*, reproduzido pelo caminho dela.
+
+**E A NÃO-REGRESSÃO:** o "Testar" da coluna CONECTADA continua aplicando de
+primeira (`gestos: 1 · aplicados: 1 · sem dono: 0`, com a bancada reservada e
+liberada).
+
+**UM ACHADO QUE A SPRINT NÃO PREVIA, e ele é do mesmo assunto:** o `motivo` do
+daemon no `testar` — o exemplar que ensinou o `parar` a fazer o certo — **não
+tinha régua**. Ao morder a cura do `parar`, a mordida caiu por engano no
+`testar` e os 23 casos passaram iguais. Ganhou régua própria
+(`test_o_testar_diz_o_motivo_do_daemon_e_nao_um_palpite`).
+
+O relato completo está em `docs/process/agentes/2026-09-06/ONDA5-05-02.md`.
+
+---
 
 > **A palavra dela, 05/09/2026, na pergunta 05-Q6** (*"quando você clica em
 > Testar num controle que acabou de cair da mesa, a tela responde alguma
