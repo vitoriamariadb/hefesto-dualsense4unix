@@ -607,3 +607,61 @@ impedir. A linha a mudar é `app/actions/emulation_actions.py`, e ela está no m
    construiu o diálogo de relançar** — o gesto avisa o serviço e diz o que fez,
    e a frase do dono já explica que é preciso *"fechar e abrir o jogo de novo"*.
    Se o "Jogador 3 fantasma" reaparecer, é aqui que se olha.
+
+---
+
+## 12. OS TRÊS RECADOS DA COSTURA — o que fiz com cada um
+
+Chegaram em voo, do coordenador. **A minha árvore nasceu de `3f6855a6` e não foi
+adiantada** (rebasear no meio de uma edição de 600 linhas em `a07_lancadores.py`
+trocaria a entrega por um conflito); o que li de `onda/atual-0609` foi lido com
+`git show`, sem mover a árvore.
+
+### 12.1 A docstring que anunciava uma decisão morta — APLICADA
+
+`aviso_do_jogo_aberto` anunciava a `07[02]` do PO (*"a frase para de nomear
+lugar"*) e citava a régua *"que ainda exige o literal «aba Sistema»"*. **As três
+afirmações caíram**: a `07-Q2` dela, em 05/09, recusou as três opções e respondeu
+com uma quarta — *"O produto aplica ela"*. Apliquei o bloco `+` do
+`ONDA5-07-03.md` §4.2 **como está**; a minha medição não discorda dele.
+
+**E a régua desta posse sobreviveu à troca sem uma linha nova**, o que vale
+registro: `test_a_aba_nao_escreve_uma_segunda_frase_do_aviso` **não conhece a
+frase** — ela pergunta ao dono e compara. Só o docstring dela envelheceu, e está
+corrigido. *Régua que digita o que devia LER teria caído junto.*
+
+### 12.2 As quatro linhas do CSV 240 — os números novos
+
+O meu diff moveu as quatro que o `html_onde` cita:
+
+| era | é |
+| --- | --- |
+| `a07_lancadores.py:535` (fim de `_o_jogo_em_foco`) | **616** |
+| `a07_lancadores.py:566` (a frase do aviso, no docstring) | **649** |
+| `a07_lancadores.py:801` (a notícia da vigia) | **1009** |
+| `a07_lancadores.py:805` (a frase é do dono) | **1013** |
+
+### 12.3 O `CURADOS` da régua do gerador — o diff
+
+A guarda **já está posta** em `aba07.py` (§4, com a mordida medida). A régua não
+existe na minha base (`3f6855a6`), então o diff vai daqui. **Duas formas**, porque
+a versão em `onda/atual-0609` (`6f35e9b3`) ainda usa um glob e o recado descreve
+uma lista explícita — vale a que estiver no disco na hora:
+
+```diff
+# se a régua estiver com a LISTA (`tests/unit/test_a_palavra_do_transporte_tem_um_dono_so.py`)
+-    CURADOS = ("aba01.py", "aba02.py", "aba04.py", "aba05.py", "aba10.py")
++    CURADOS = ("aba01.py", "aba02.py", "aba04.py", "aba05.py", "aba07.py",
++               "aba10.py")
+
+# se ainda estiver com o GLOB (é o que `6f35e9b3` tem, na linha 199)
+-    for arq in sorted((raiz / "src/hefesto_dualsense4unix/interface").glob("aba0[45].py")):
++    for arq in sorted((raiz / "src/hefesto_dualsense4unix/interface").glob("aba0[457].py")):
+```
+
+### 12.4 O que o recado 1 abre, e eu NÃO fiz
+
+*"Se o seu trabalho fizer o Salvar armar a vigia, a condição da frase pode
+encolher"*. **Não faz.** Nenhum gesto desta frente toca `perfil.com_a_carona` nem
+o Salvar do rodapé; a `_VigiaDaSteam` continua nascendo só do `Consertar`
+recusado, como desde 03/09. A frase do dono fica como a irmã a deixou.
