@@ -1,0 +1,45 @@
+{
+  "Carregando": {
+    "visivel": [
+      "g-raio"
+    ],
+    "cor": "rgb(80, 250, 123)",
+    "nome": "Carregando",
+    "largura": 13,
+    "trilho": 118.5
+  },
+  "Cheio": {
+    "visivel": [
+      "g-cheio"
+    ],
+    "cor": "rgb(80, 250, 123)",
+    "nome": "Cheio",
+    "largura": 13,
+    "trilho": 118.5
+  },
+  "Fora de faixa": {
+    "visivel": [
+      "g-atencao"
+    ],
+    "cor": "rgb(255, 184, 108)",
+    "nome": "Fora de faixa",
+    "largura": 13,
+    "trilho": 118.5
+  },
+  "Erro de carga": {
+    "visivel": [
+      "g-atencao"
+    ],
+    "cor": "rgb(255, 184, 108)",
+    "nome": "Erro de carga",
+    "largura": 13,
+    "trilho": 118.5
+  },
+  "(vazio)": {
+    "visivel": [],
+    "cor": null,
+    "nome": null,
+    "largura": 13,
+    "trilho": 118.5
+  }
+}
