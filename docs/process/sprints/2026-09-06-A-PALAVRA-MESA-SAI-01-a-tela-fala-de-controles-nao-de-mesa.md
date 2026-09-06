@@ -1,6 +1,6 @@
 ---
 sprint: A-PALAVRA-MESA-SAI-01
-estado: aberta
+estado: feita
 posse:
   MESA:
     - src/hefesto_dualsense4unix/interface/frases_que_ela_baniu.py
@@ -33,6 +33,15 @@ nao_toca:
 ---
 
 # A-PALAVRA-MESA-SAI-01 · TEXTO — a tela fala de controles, não de "mesa"
+
+> **FEITA — 06/09/2026.** As 34 ocorrências lidas nas dez abas e os 23
+> literais de tela dos dez pacotes foram a ZERO; a régua é
+> `tests/unit/test_a_palavra_mesa_nao_chega_a_tela.py`, mordida duas vezes.
+> **O que sobra é `app/`**, que não era desta posse: dezesseis frases lá
+> ainda dizem a palavra e chegam à tela em execução — a lista com endereço,
+> a razão de o funil `hefesto_vivo._json` NÃO ter adotado a palavra, e o
+> que fecha estão no relatório
+> [`docs/process/agentes/2026-09-06/A-PALAVRA-MESA-SAI-01.md`](../agentes/2026-09-06/A-PALAVRA-MESA-SAI-01.md).
 
 > **A palavra dela, 06/09/2026:** *"Falei do termo mesa que é horrível. Mas os
 > claudes anteriores entraram na pira de usar isso em tudo no layout. O termo
