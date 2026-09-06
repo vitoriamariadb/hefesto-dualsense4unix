@@ -15,7 +15,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/home_actions.py
   - src/hefesto_dualsense4unix/app/actions/carona_do_wrapper.py
   - docs/data/paridade-gtk-html.csv
-depois_de: [MIGRA-PERFIS-01, MIGRA-PERFIS-03, MIGRA-PERFIS-04, MIGRA-PERFIS-05, MIGRA-PERFIS-06, ONDA-PERFIS-01, ONDA-PERFIS-02, ONDA-PERFIS-03, ONDA-PERFIS-04, ONDA-PERFIS-05, ONDA-PERFIS-06, ONDA-PERFIS-08, ONDA-PERFIS-09, ONDA2-10-PERFIS-01, ONDA5-10-02]
+depois_de: [MIGRA-PERFIS-01, MIGRA-PERFIS-03, MIGRA-PERFIS-04, MIGRA-PERFIS-05, MIGRA-PERFIS-06, ONDA-PERFIS-01, ONDA-PERFIS-02, ONDA-PERFIS-03, ONDA-PERFIS-04, ONDA-PERFIS-05, ONDA-PERFIS-06, ONDA-PERFIS-08, ONDA-PERFIS-09, ONDA2-10-PERFIS-01]
 ---
 
 # ONDA5-10-01 · DEFEITO — o Hefesto não manda ninguém para o terminal

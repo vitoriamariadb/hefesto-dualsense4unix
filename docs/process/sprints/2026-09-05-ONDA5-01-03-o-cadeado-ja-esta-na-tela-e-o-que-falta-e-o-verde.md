@@ -4,17 +4,13 @@ posse:
   01-Q3:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
     - tests/unit/test_a_aba_01_jogar_fecha_as_linhas.py
-depois_de:
-  - ONDA5-01-01
-  - ONDA5-01-02
-  - ONDA5-03-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/aba01.py
   - src/hefesto_dualsense4unix/interface/paginas/
   - mockup/
   - src/hefesto_dualsense4unix/app/
-depois_de: [ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-07-03]
+depois_de: [ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-01-01, ONDA5-01-02, ONDA5-03-01, ONDA5-07-03]
 ---
 
 # 01-Q3 · DESENHO — o cadeado já está na tela, e o que falta é o verde

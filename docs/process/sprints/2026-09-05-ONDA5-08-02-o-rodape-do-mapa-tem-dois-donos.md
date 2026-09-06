@@ -8,13 +8,11 @@ posse:
     - mockup/08-conexoes.html
     - src/hefesto_dualsense4unix/interface/paginas/08-conexoes.html
     - tests/unit/test_a_aba_08_conexoes_fecha_as_linhas.py
-depois_de:
-  - ONDA5-08-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/monta.py
-depois_de: [LEVA-3, MIGRA-CONEXOES-12, ONDA2-08-CONEXOES-01]
+depois_de: [LEVA-3, MIGRA-CONEXOES-12, ONDA2-08-CONEXOES-01, ONDA5-08-01]
 ---
 
 # ONDA5-08-02 · DEFEITO — o rodapé do mapa tem dois donos, e um deles é a aba

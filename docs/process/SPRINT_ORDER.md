@@ -1,5 +1,12 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
+> **A FILA DE AGORA É DE 06/09/2026 e mora num arquivo só:**
+> **[AS VINTE E QUATRO HORAS — a ordem que o orquestrador despacha, e as rotas corrigidas](2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md).**
+> Ele lê a §-1 abaixo (a ONDA CINCO, a T-10 e a S-10), corrige as rotas das
+> sprints (nove ciclos e doze chaves `depois_de` duplicadas caíram nos próprios
+> arquivos), acrescenta a ONDA5-P-01 do piloto, e ordena tudo em cinco ondas por
+> posse de arquivo. **O que vem depois dele neste arquivo é registro datado.**
+
 > **ESTE ARQUIVO TINHA QUATRO "FILAS DE AGORA" EMPILHADAS — 05/09/2026.** Cada
 > dia acrescentava um banner no topo e nenhum aposentava o anterior, então quem
 > chegava lia quatro filas concorrentes e escolhia uma. Ela pediu a faxina com

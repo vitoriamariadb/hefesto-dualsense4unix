@@ -6,8 +6,8 @@ posse:
     - mockup/02-controles.html
   02-Q6:
     - src/hefesto_dualsense4unix/interface/aba02.py
-    - mockup/DIVERGENCIAS.md
 nao_toca:
+  - mockup/DIVERGENCIAS.md
   - src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py
   - src/hefesto_dualsense4unix/interface/paginas/02-controles.html
   - src/hefesto_dualsense4unix/interface/monta.py
@@ -15,7 +15,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/regua_do_mockup.py
   - src/hefesto_dualsense4unix/interface/mesa_viva.py
   - scripts/check_o_desenho_aprovado.py
-depois_de: [A-PORTA-DA-ABA-CONTROLES-01, ONDA2-02-CONTROLES-01, ONDA5-08-01]
+depois_de: [A-PORTA-DA-ABA-CONTROLES-01, ONDA2-02-CONTROLES-01]
 ---
 
 # DESENHO · ONDA5-02-02 — o ♪ em duas cores, e as duas dicas que mandam para uma janela sem lançador

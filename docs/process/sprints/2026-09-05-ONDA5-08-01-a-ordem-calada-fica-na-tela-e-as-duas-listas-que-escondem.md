@@ -6,10 +6,10 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba08.py
     - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
     - mockup/08-conexoes.html
-    - mockup/DIVERGENCIAS.md
     - src/hefesto_dualsense4unix/interface/paginas/08-conexoes.html
     - tests/unit/test_a_aba_08_conexoes_fecha_as_linhas.py
 nao_toca:
+  - mockup/DIVERGENCIAS.md
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
@@ -17,7 +17,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/utils/maquina.py
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
-depois_de: [ONDA2-08-CONEXOES-01, ONDA5-02-02, ONDA5-08-02]
+depois_de: [ONDA2-08-CONEXOES-01]
 ---
 
 # ONDA5-08-01 · DEFEITO — a ordem calada fica na tela, e as duas listas que escondem

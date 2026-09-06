@@ -7,9 +7,6 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba05.py
     - mockup/05-vibracao.html
     - tests/unit/test_a_aba_05_vibracao_fecha_as_linhas.py
-depois_de:
-  - ONDA5-05-01
-  - ONDA5-05-02
 nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/paginas/05-vibracao.html
@@ -18,7 +15,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/telas/vibracao.py
   - src/hefesto_dualsense4unix/app/actions/rumble_actions.py
   - docs/data/paridade-gtk-html.csv
-depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01]
+depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01, ONDA5-05-01, ONDA5-05-02, ONDA5-P-01]
 ---
 
 # ONDA5-05-03 · DESENHO — a confirmação sai do cartão e vai para a faixa

@@ -6,8 +6,6 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba05.py
     - mockup/05-vibracao.html
     - tests/unit/test_a_aba_05_vibracao_fecha_as_linhas.py
-depois_de:
-  - ONDA2-05-VIBRACAO-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a05_vibracao.py
   - src/hefesto_dualsense4unix/interface/paginas/05-vibracao.html
@@ -17,7 +15,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - src/hefesto_dualsense4unix/app/telas/vibracao.py
   - docs/data/paridade-gtk-html.csv
-depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01, ONDA5-05-03]
+depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01]
 ---
 
 # ONDA5-05-01 · DESENHO — a nota do Testar volta para a dica

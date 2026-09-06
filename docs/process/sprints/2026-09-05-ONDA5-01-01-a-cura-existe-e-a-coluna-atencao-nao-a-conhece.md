@@ -4,7 +4,6 @@ posse:
   01-Q1:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
     - tests/unit/test_a01_a_coluna_atencao_acende_o_mais_grave.py
-depois_de: [ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-01-03, ONDA5-07-03]
 nao_toca:
   - src/hefesto_dualsense4unix/app/actions/home_actions.py
   - src/hefesto_dualsense4unix/app/actions/jogar/painel.py
@@ -15,6 +14,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
   - src/hefesto_dualsense4unix/interface/pacotes/a09_sistema.py
   - tests/unit/test_a_aba_01_jogar_fecha_as_linhas.py
+depois_de: [ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01]
 ---
 
 # 01-Q1 · DEFEITO — a cura existe, o produto sabe se ela caiu, e a coluna Atenção não a conhece

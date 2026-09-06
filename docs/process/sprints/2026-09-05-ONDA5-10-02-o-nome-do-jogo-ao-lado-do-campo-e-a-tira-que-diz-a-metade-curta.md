@@ -11,15 +11,13 @@ posse:
     - src/hefesto_dualsense4unix/integrations/sentinela_do_wrapper.py
   reguas:
     - tests/unit/test_a_aba_10_perfis_fecha_as_linhas.py
-depois_de:
-  - ONDA5-10-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py
   - src/hefesto_dualsense4unix/profiles/simple_match.py
   - src/hefesto_dualsense4unix/app/actions/perfis_web.py
-depois_de: [ONDA2-10-PERFIS-01, ONDA5-07-01]
+depois_de: [ONDA2-10-PERFIS-01, ONDA5-10-01, ONDA5-07-01]
 ---
 
 # ONDA5-10-02 · DESENHO — o nome do jogo ao lado do campo, e a tira que diz a metade curta

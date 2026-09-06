@@ -1,5 +1,12 @@
 # ONDA CINCO — as vinte e quatro sprints das 41 decisões dela
 
+> **06/09/2026 — a ORDEM de despacho destas sprints é a de
+> [AS VINTE E QUATRO HORAS](../2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md),
+> §4 e §5, que substitui as faixas deste índice.** Os frontmatters de dezesseis
+> sprints foram corrigidos (uma chave `depois_de`, sem ciclos); nasceu a
+> `ONDA5-P-01` (o piloto), e a 10-03 e o `DIVERGENCIAS.md` passaram ao
+> coordenador. Fechadas até aqui: 03-01, 04-01, MIC-VIRTUAL-01 passo 1, DOCUMENTACAO.
+
 **05/09/2026.** Ela respondeu **41 decisões** num dia. Onze frentes as leram aba
 por aba, mediram o que já existia antes de escrever qualquer coisa, e
 devolveram **24 sprints e um documento de princípio**.

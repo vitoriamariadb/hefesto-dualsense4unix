@@ -6,16 +6,13 @@ posse:
     - src/hefesto_dualsense4unix/interface/pacotes/a03_gatilhos.py
     - src/hefesto_dualsense4unix/interface/aba03.py
     - tests/unit/test_a_aba_03_gatilhos_fecha_as_linhas.py
-depois_de:
-  - ONDA5-03-01
-  - AS-DUAS-ABAS-FALAM-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/gui/ponte_da_tela.py
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/paginas/
   - docs/data/paridade-gtk-html.csv
-depois_de: [MIGRA-GATILHOS-04, MIGRA-GATILHOS-05, MIGRA-GATILHOS-06, MIGRA-GATILHOS-09, MIGRA-GATILHOS-10, ONDA2-03-GATILHOS-01, ONDA4-S10-O-TRANSPORTE-01]
+depois_de: [MIGRA-GATILHOS-04, MIGRA-GATILHOS-05, MIGRA-GATILHOS-06, MIGRA-GATILHOS-09, MIGRA-GATILHOS-10, ONDA2-03-GATILHOS-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-03-01, AS-DUAS-ABAS-FALAM-01]
 ---
 
 # ONDA5-03-02 · DESENHO — o recibo que repete o clique, e as três que já existem

@@ -6,7 +6,6 @@ posse:
     - src/hefesto_dualsense4unix/interface/frases_que_ela_baniu.py
     - tests/unit/test_a_aba_01_jogar_fecha_as_linhas.py
     - tests/unit/test_a_frase_que_ela_baniu_nao_chega_a_tela.py
-depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA2-01-JOGAR-01, ONDA5-01-03, ONDA5-07-03]
 nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
   - src/hefesto_dualsense4unix/interface/aba01.py
@@ -14,6 +13,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/jogar/painel.py
   - src/hefesto_dualsense4unix/interface/paginas/
   - mockup/
+depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA2-01-JOGAR-01]
 ---
 
 # 01-Q1 · DEFEITO — a profecia que um teste prendeu na janela antiga

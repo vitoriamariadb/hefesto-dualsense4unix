@@ -6,8 +6,6 @@ posse:
     - src/hefesto_dualsense4unix/interface/pacotes/a04_iluminacao.py
     - tests/unit/test_a_04_o_trilho_de_brilho_grava.py
     - docs/data/paridade-gtk-html.csv
-depois_de:
-  - ONDA2-04-ILUMINACAO-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/aba04.py
   - src/hefesto_dualsense4unix/interface/paginas/04-iluminacao.html

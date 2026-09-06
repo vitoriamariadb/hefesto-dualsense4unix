@@ -322,7 +322,7 @@ byte porque o dublê era mais frouxo que a ponte real; `PonteEstrita`
 
 ## 7. A PROVA
 
-`bash scripts/portoes.sh` (os 42, sem argumento) com o `git add -A` antes — os
+`bash scripts/portoes.sh` (os 43, sem argumento) com o `git add -A` antes — os
 portões são cegos a arquivo novo. Os lotes que tocam este escopo:
 `test_mic_da_mesa_cheia_01.py`, `test_a_aba_02_controles_fecha_as_linhas.py`,
 `test_a02_som_e_sensor_falam_quando_recusam.py`,

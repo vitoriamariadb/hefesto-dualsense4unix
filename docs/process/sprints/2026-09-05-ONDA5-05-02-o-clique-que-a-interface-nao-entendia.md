@@ -5,8 +5,6 @@ posse:
   A05P:
     - src/hefesto_dualsense4unix/interface/pacotes/a05_vibracao.py
     - tests/unit/test_a05_a_vibracao_aplica_e_fala.py
-depois_de:
-  - ONDA2-05-VIBRACAO-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/aba05.py
   - mockup/05-vibracao.html
@@ -17,7 +15,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/ds_limpo.svg
   - src/hefesto_dualsense4unix/app/mesa.py
   - docs/data/paridade-gtk-html.csv
-depois_de: [ONDA2-05-VIBRACAO-01, ONDA5-05-03]
+depois_de: [ONDA2-05-VIBRACAO-01]
 ---
 
 # ONDA5-05-02 · DEFEITO — o clique que a interface não entendia

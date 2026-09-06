@@ -9,8 +9,6 @@ posse:
     - src/hefesto_dualsense4unix/interface/jogar_vivo.py
     - tests/unit/test_wrapper_banner.py
     - tests/unit/test_a_aba01_le_o_estado_em_vez_de_cravar.py
-depois_de:
-  - ONDA5-07-02
 nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py
   - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
@@ -19,7 +17,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/sentinela_do_wrapper.py
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
-depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-01-01, ONDA5-01-02, ONDA5-01-03]
+depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-07-02, ONDA5-01-01, ONDA5-01-02]
 ---
 
 # ONDA5-07-03 · DEFEITO — o aviso do jogo aberto não manda copiar, e cala nas duas telas

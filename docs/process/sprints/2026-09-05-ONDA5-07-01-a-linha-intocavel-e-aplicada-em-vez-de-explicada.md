@@ -21,7 +21,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/jogar/painel.py
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
-depois_de: [DAEMON-ACORDADO-01, ONDA-SISTEMA-06, ONDA2-07-LANCADORES-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-10-02]
+depois_de: [DAEMON-ACORDADO-01, ONDA-SISTEMA-06, ONDA2-07-LANCADORES-01, ONDA4-S10-O-TRANSPORTE-01]
 ---
 
 # ONDA5-07-01 · DEFEITO — a linha intocável é APLICADA, não explicada
