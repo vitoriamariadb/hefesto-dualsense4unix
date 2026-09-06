@@ -1,6 +1,6 @@
 ---
 sprint: COOP-QUE-NAO-DESMONTA-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   E3:
@@ -23,6 +23,8 @@ que a E3 toca: em `integrations/uhid_gamepad.py:579-586` desacoplar o `player_ma
 (`backend_pydualsense.py:153`, `_VPAD_U…`). `coop.py`, `connection.py` e `evdev_reader.py`
 saem da posse: já estão curados e outras sprints desta onda os tocam. **A prova de bancada
 (dois controles, o primário cai e volta) é da MESA-DE-QUATRO-01**; aqui a régua usa dublê.
+
+> **ESTADO 2026-09-06: feita** — a E3 fechou: o MAC do vpad passou a sair do CONTROLE (`integrations/uhid_gamepad.vpad_mac`, hash estável do `uniq` sob o prefixo `02:fe`) em vez do número do jogador, que continua contíguo e reusável; `integrations/virtual_pad._try_uhid` repassa a identidade que a factory já recebia. Cinco mordidas em `tests/unit/test_coop_numeracao_sem_colisao.py`; prova de aparelho continua com a MESA-DE-QUATRO-01. Entrega: `docs/process/agentes/2026-09-06/COOP-QUE-NAO-DESMONTA-01-opus.md`.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
