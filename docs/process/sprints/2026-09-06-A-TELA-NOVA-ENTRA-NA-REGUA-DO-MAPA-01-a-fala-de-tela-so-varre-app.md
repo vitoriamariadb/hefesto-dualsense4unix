@@ -128,16 +128,25 @@ reprovar.
 Rode o `--censo-de-transporte` com o alcance novo e **trie as frases de
 `interface/` em três baldes**, no relatório:
 
-1. **AFIRMA sem lastro** — a frase promete um transporte que o mapa não
-   sustenta. É dívida, e cada uma leva a `chave` do mapa que a derruba.
+1. **AFIRMA o que a célula ainda não registra** — e **isto NÃO é dívida da
+   tela: é fila de REMEDIÇÃO DO MAPA.** Palavra dela, 06/09: *"Esse mapa é
+   funcional e real. tá desartualizado no sentido de não ter sido medido. foi e
+   tudo funciona."* Uma célula `aciona=não` quer dizer *"ninguém remediu"*, não
+   *"não funciona"*. Cada linha leva a `chave` do mapa, o que a tela já afirma —
+   que é pista do que medir — e o que faltaria medir para a célula ser marcada.
 2. **AFIRMA com lastro** — o mapa sustenta. Nada a fazer, e diga quantas.
 3. **NÃO AFIRMA** — comentário, docstring, nome de campo, prosa de código.
    **A maior parte vai cair aqui, e isso não é fracasso da medição.**
 
-**NÃO CURE NENHUMA FRASE.** `interface/` está no seu `nao_toca`, e não é
-descuido: curar 227 literais no mesmo commit em que a régua muda impede alguém
-de saber qual das duas coisas quebrou o quê. **O balde 1 vira sprint, com a
-lista pronta.**
+**NÃO CURE NENHUMA FRASE, E NÃO ACUSE NENHUMA.** `interface/` está no seu
+`nao_toca`, e não é descuido: curar 227 literais no mesmo commit em que a régua
+muda impede alguém de saber qual das duas coisas quebrou o quê.
+
+**E a régua que você entrega INFORMA, nunca VETA.** Ela nomeia, conta e cobra
+declaração; ela **não** reprova uma frase de tela porque a célula do mapa está
+atrasada. Transformar um mapa desatualizado em freio é o erro que o coordenador
+cometeu em 06/09, mandando outro agente PARAR — e a regra da casa é a inversa:
+*quando o instrumento e o aparelho discordam, o APARELHO ganha.*
 
 ---
 
