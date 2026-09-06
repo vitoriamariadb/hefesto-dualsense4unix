@@ -706,3 +706,20 @@ com parênteses. A forma `# noqa-acento: razão` faz o **ruff** avisar
 `Invalid # noqa directive` — ele lê o prefixo `# noqa` como diretiva dele. A
 árvore tem nove desses avisos hoje, todos de outras frentes; não são erro, mas
 são ruído que o portão imprime a cada volta.
+
+## 15. O TIQUE, REMEDIDO DEPOIS DE TUDO
+
+A cura da §12 pôs uma leitura de arquivo a mais no caminho do `storm_report`,
+que é da faixa lenta. **Uma cura que cobra o preço em outro lugar é a metade que
+esta casa esquece de medir**, então ficou medido — mesmo comando, mesma máquina,
+com tudo aplicado:
+
+```
+custo do tique: mediana 1,28 ms · max 28,20 ms · teto 100 ms
+custo do IPC:   mediana 0,87 ms · max  7,04 ms
+ZERO tique lento · 5 mutações de DOM em 100 tiques
+```
+
+Contra os **1.341 ms** do começo do dia, e contra os **18,6 ms** logo depois da
+cura do prontuário. O leitor do rótulo cacheia por processo
+(`_ROTULOS_EM_CACHE`), então ele lê a página UMA vez na vida da janela.
