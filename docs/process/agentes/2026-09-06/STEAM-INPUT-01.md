@@ -412,14 +412,23 @@ REPROVOU: 1 vermelho(s) de 44 -> paridade-gtk-html
 **Os outros 43: verdes**, `casa-sabe` (127 s), `acentuacao` (75 s), `mypy`,
 `shellcheck`, `referencias-docs` e `anonimato` inclusos.
 
-**A LEVA INTEIRA MEDIDA DUAS VEZES, e digo qual é qual:** a corrida acima é a do
-commit do código (`ec28701c`), e ela é a que vale. O commit de prosa que veio
-depois (§12) mexeu em **docstring e num `enabled` de um estado de mentira**, e
-sobre ele rodei à mão o que podia mudar de cor — `ruff`, `acentuacao` e os cinco
-arquivos de teste do escopo (124 verdes). A corrida completa desse último commit
-**ficou em `casa-sabe` quando esta entrega fechou**: a máquina estava com **oito
-árvores desta leva rodando os portões ao mesmo tempo**, e aquele portão sozinho
-leva 127 s com a máquina livre. **Não publico um verde que não vi.**
+**A LEVA INTEIRA MEDIDA DUAS VEZES, e as duas dão o mesmo veredito.** A corrida
+acima é a do commit do código (`ec28701c`); a segunda é a do commit que aplicou
+o recado da costura (`fce15c61`, §12), e ela fechou depois — mesma conta, mesmo
+vermelho:
+
+```
+casa-sabe  ok 118986 ms · acentuacao  ok 66963 ms · mypy  ok 190 ms
+REPROVOU: 1 vermelho(s) de 44 -> paridade-gtk-html
+```
+
+**ESTE PARÁGRAFO DIZIA OUTRA COISA HÁ DUAS HORAS**, e a correção fica registrada
+porque ela é o método: enquanto a segunda corrida estava presa em `casa-sabe` —
+com **oito árvores desta leva rodando os portões ao mesmo tempo** —, o relato
+dizia *"não publico um verde que não vi"* e listava só o que eu tinha rodado à
+mão sobre aquele commit (`ruff`, `acentuacao` e os cinco arquivos de teste do
+escopo, 124 verdes). A corrida terminou, **e o texto passou a dizer o que ela
+mediu** em vez de continuar descrevendo a espera.
 
 ---
 
