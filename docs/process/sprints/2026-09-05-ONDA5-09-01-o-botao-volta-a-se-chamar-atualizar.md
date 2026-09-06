@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-09-01
-estado: aberta
+estado: feita
 decisoes: [09-Q1, 09-Q2, 09-Q3 (a metade de tela)]
 posse:
   09A:
@@ -19,6 +19,32 @@ nao_toca:
 ---
 
 # ONDA5-09-01 · DESENHO — o botão volta a se chamar "Atualizar"
+
+> **ESTADO 06/09/2026: feita.** Os cinco passos entraram na bancada:
+> `mockup/09-sistema.html:1245` diz `Atualizar` e
+> `data-hef-em-voo="Atualizando…"`, o comentário de 24 linhas SAIU, as três
+> mensagens da régua do gerador citam a palavra dela, e a dica passou a nomear
+> o que foi medido. Medido no motor do produto, com o piloto oculto e o gesto
+> dublado: `Atualizar` → **`Atualizando…`** → `Atualizar`. A divergência com o
+> produto está declarada em `mockup/DIVERGENCIAS.md`; **publicar continua sendo
+> ato dela**. Suíte da aba: 32 verdes.
+>
+> **DUAS AFIRMAÇÕES DESTA SPRINT CAÍRAM NA MEDIÇÃO, e as duas eram mordidas
+> que não mordiam** — a §3 as descreve como se mordessem:
+>
+> * **Passo 1** — *"ponha `Reaplicar ajustes` de volta e `aba09.py:1665`
+>   reprova na hora do `python3 aba09.py`"*. **Não reprova.** A guarda do
+>   gerador compara o HTML montado com a MESMA constante que o montou: trocar
+>   o valor deixa os dois lados de acordo, e o gerador sai `rc=0` imprimindo a
+>   faixa do serviço já com o rótulo trocado. A régua da suíte passava junto,
+>   porque `import aba09` reescreve a página antes de ela ler. **Nenhuma régua
+>   segurava a palavra dela.** Curado onde cabia: a camada 2 passou a cobrar
+>   `"Atualizar"` e `"Atualizando…"` LITERAIS, e aí sim morde.
+> * **§5.3** — *"tire o `em_voo=EM_VOO_ATUALIZAR` de `aba09.py:1042` e veja a
+>   camada 3 medir o botão dizendo `Atualizar` a espera inteira"*. A camada 3
+>   **não chega a medir**: a régua 9 do gerador levanta `SystemExit` no
+>   `import aba09`, e a página nunca é escrita. A guarda é mais dura que a
+>   régua — o que se vê é a aba inteira caindo no *setup*.
 
 > **A palavra dela, 05/09/2026, sobre a pergunta 09-Q1:**
 >
@@ -133,10 +159,18 @@ manter — a mesma gramática que a janela antiga já usa nos recibos dela
 (*"Reiniciando o Hefesto…"*,
 `src/hefesto_dualsense4unix/app/actions/daemon_actions.py:2293`).
 
-**A MORDIDA:** troque só o valor e deixe o nome `ROTULO_REAPLICAR` — nenhuma
-régua reprova, e é o ponto: **este passo não tem régua automática, tem leitura.**
-O que se pode morder é o valor: ponha `"Reaplicar ajustes"` de volta e
-`aba09.py:1665` reprova na hora do `python3 aba09.py`, com a frase do Passo 3.
+**A MORDIDA — corrigida em 06/09/2026, porque a que estava escrita aqui NÃO
+MORDIA.** Este parágrafo dizia *"ponha `Reaplicar ajustes` de volta e
+`aba09.py:1665` reprova na hora do `python3 aba09.py`"*. **Medido: sai `rc=0`.**
+A guarda do gerador compara o HTML montado com a MESMA constante que o montou,
+e a régua da suíte lê a constante também — `import aba09` reescreve a página
+antes de ela olhar. Trocar o valor deixava as duas verdes com o rótulo trocado.
+
+**A régua que morde é a da palavra LITERAL**, e ela passou a existir nesta
+sprint (`tests/unit/test_a_aba_09_sistema_fecha_as_linhas.py`, camada 2): com
+`ROTULO_ATUALIZAR = "Reaplicar ajustes"` ela reprova dizendo que ela mandou
+manter `"Atualizar"`. Trocar só o NOME da constante continua sem régua — esse
+é leitura, e é o que este passo pede.
 
 ### Passo 2 — o comentário que argumenta pelo nome que caiu
 
@@ -270,10 +304,17 @@ mudo em nenhum momento desta sprint.
 1. **A FOTO**, antes e depois, `--oculta`. Ela tem UMA tela.
 2. **O CLIQUE**: clique o botão e mostre as três coisas — o rótulo virando
    `Atualizando…`, o rótulo voltando inteiro, e a tarja do desfecho.
-3. **A MORDIDA**: `tests/unit/test_a_aba_09_sistema_fecha_as_linhas.py:662-675`
-   já mede o rótulo DURANTE a espera e no pouso, num WebKit de verdade. Tire o
-   `em_voo=EM_VOO_ATUALIZAR` de `aba09.py:1042` e veja a camada 3 medir o botão
-   dizendo `"Atualizar"` a espera inteira.
+3. **A MORDIDA**: `tests/unit/test_a_aba_09_sistema_fecha_as_linhas.py` já mede
+   o rótulo DURANTE a espera e no pouso, num WebKit de verdade.
+
+   **CORRIGIDO EM 06/09/2026:** este item mandava tirar o
+   `em_voo=EM_VOO_ATUALIZAR` de `aba09.py:1042` e *"ver a camada 3 medir o
+   botão dizendo `Atualizar` a espera inteira"*. **A camada 3 não chega a
+   medir**: a régua 9 do próprio gerador levanta `SystemExit` no `import
+   aba09` — *"o botão 'Atualizar' perdeu o `data-hef-em-voo`"* — e a página
+   nunca é escrita. O que se vê é a aba inteira caindo no *setup*. A guarda do
+   gerador é mais dura que a régua da tela, e é ela que responde por este
+   atributo.
 
 **A JANELA NÃO NASCE NA TELA DELA.** `--oculta`, `Gtk.OffscreenWindow`,
 Playwright `headless`; se for inevitável, ela nasce no `OS`.
