@@ -74,22 +74,31 @@ um override por-`uniq` de `player_leds`, que fica **acima** da camada
 automática no merge do backend. Sem um "todas apagadas", o HTML não tem como
 devolver as luzes ao automático.
 
-### O DEFEITO VIVO QUE MORA AQUI, e ele PERDE CONFIGURAÇÃO DELA
+### O QUE PARECIA DEFEITO AQUI, E NÃO É — leia antes de caçar
 
-`interface/pacotes/rodape.py:96` — medido e escrito no CSV: **o "Salvar" do
-rodapé grava `auto_player_colors=False` FIXO no override de cada controle
-conectado.** O perfil ativo dela tem `leds.auto_player_colors = True`.
+`interface/pacotes/rodape.py:96` grava `auto_player_colors=False` fixo no
+rascunho de cada controle conectado. **Isso NÃO perde configuração dela**, e o
+coordenador escreveu o contrário aqui na primeira versão desta sprint, em
+06/09, por ter lido **metade** da célula do CSV.
 
-> Pela interface nova ela **não vê esse estado nem pode mudá-lo**, e um Salvar
-> escreve `False` no override **sem ela ter pedido**. O campo governa a paleta
-> **e** a numeração automática.
+O que a célula diz depois do `||`, e foi remedido pela `ONDA5-07-02` na onda A:
 
-É a mesma assinatura do item 13 de 05/09: *o Salvar destrói o que a aba já
-tinha gravado certo*. `rodape.py` **não é da sua posse** — é da `ONDA5-07-02`,
-que fecha na onda A, antes de você. **Confira se ela já curou.** Se não curou,
-**RELATE com esta medição colada**; não edite o arquivo.
+> *"FATO DERRUBADO EM 04/09/2026, medindo o ATO em vez de ler a linha: o
+> override por controle NÃO carrega `auto_player_colors`. A linha existe, e o
+> valor dela é DESCARTADO duas vezes — `with_controller_leds` chama
+> `_leds_draft_to_config` sem `include_auto`, e o filtro `only_fields` o derruba
+> de novo. O toggle é do PERFIL, por decisão antiga e escrita nas duas pontas."*
 
----
+O `leds.auto_player_colors = True` dela **sai intacto** do `to_profile`, e há
+régua que tranca isso (`test_o_salvar_nao_congela_a_paleta_automatica.py`).
+
+**A METADE QUE CONTINUA VALENDO, e é o seu Passo 4:** pelo HTML ela **não vê
+esse estado nem pode mudá-lo**. É a linha `04[02]` do CSV, e é falta de tela,
+não perda de dado. **Não vá caçar um `False` que ninguém grava.**
+
+**E a lição de processo, que vale mais que a linha:** *a célula do CSV tem duas
+metades separadas por `||`, e a segunda pode derrubar a primeira.* Leia a
+célula inteira antes de escrever uma sprint sobre ela.
 
 ## 3. O TRABALHO, EM CINCO PASSOS
 
