@@ -1,6 +1,6 @@
 ---
 sprint: O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   OSK:
@@ -22,7 +22,15 @@ só o que é nosso. **Dublar o binário** (`_OSK_SPAWN_ARGS` + `_resolved_bin`/`
 antes (o erro de 30/08 está no fim do arquivo). A COOP-QUE-NAO-DESMONTA-01 não toca mais
 `connection.py`, então esta sprint não espera ninguém.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
+> **ESTADO 2026-09-06: feita** — os três defeitos fecharam: o `shutdown` chama
+`osk.close()`, e o arquivo de sessão `teclado-na-tela.json` (no `runtime_dir`,
+com PID + binário) faz o daemon novo adotar o órfão do anterior, de modo que o
+R3 fecha e o L3 não empilha. A adoção é conservadora — arquivo nosso, PID vivo
+e `/proc/<pid>/comm` casando — e uma QUARTA forma de mentir apareceu ao medir,
+o DEFUNTO por colher, que passaria nas três perguntas com `/proc` intacto. Oito
+casos em `tests/unit/test_o_teclado_nao_sobrevive_ao_daemon.py`, cinco
+arrancadas provadas. Entrega:
+`docs/process/agentes/2026-09-06/O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01-opus.md`.
 
 # O TECLADO QUE SOBREVIVE AO DAEMON · 01 — quem fecha o que o daemon abriu
 
