@@ -1,44 +1,91 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
-> **04/09/2026, TARDE — AS 54 FORAM DECIDIDAS, E NADA NA FILA ESPERA POR ELA.**
-> Ela mandou: *"seja o po e orquestrador e todas as sprints restantes"*. As 54
-> perguntas das dez abas estão decididas em
-> **[O PO DECIDE AS 54](2026-09-04-O-PO-DECIDE-as-54-e-os-sete-conflitos.md)**
-> — §1 os **sete conflitos** com as dezesseis que ela já tinha decidido (nas
-> sete, a decisão dela ganhou), §2 as 54 uma a uma, §4 a fila em quatro ondas
-> **por posse de arquivo**.
+> **ESTE ARQUIVO TINHA QUATRO "FILAS DE AGORA" EMPILHADAS — 05/09/2026.** Cada
+> dia acrescentava um banner no topo e nenhum aposentava o anterior, então quem
+> chegava lia quatro filas concorrentes e escolhia uma. Ela pediu a faxina com
+> todas as letras: *"aí vc atua em formalizar tudo e procurar contradições no
+> projeto pra ou apagar e substituir pela nova ou sobrescrever. e organizar a
+> sprint order."*
 >
-> **DOIS FATOS CAÍRAM ali, e os dois encurtam a fila:**
-> o balde `PUBLICAR` está **VAZIO** — as treze páginas foram publicadas na
-> madrugada, e `check_o_desenho_aprovado.py` responde `o produto está atrás: 0`;
-> e a fila caiu de 232 para **226 abertas** (125 `DIFERENTE` + 101
-> `FALTA_NO_HTML`). Descontando os 52 que não são dívida, **sobram 174**, e com
-> as 74 do `DESENHO` decididas **nada espera a palavra dela** até a FASE 5.
->
-> **A ORDEM DE EXECUÇÃO É POR GARGALO DE ARQUIVO, e ele foi medido:**
-> `interface/monta.py` é importado por **18** módulos, `interface/hefesto_vivo.py`
-> é o piloto das dez abas, e `daemon/ipc_handlers.py` é disputado por quatro
-> sprints. Por isso **ONDA 0 (a infra de tela, 2 frentes) e ONDA 1 (o motor, 2
-> frentes) vêm antes da ONDA 2 (as dez abas, 10 frentes em paralelo)** — sem
-> isso, dez agentes disputam três arquivos.
+> **A partir daqui há UMA fila de agora — a §-1 abaixo — e tudo o que vem
+> depois dela é registro datado.** Fila combinada com ela vira arquivo no mesmo
+> dia; fila velha vira história, não alternativa.
 
-> **04/09/2026 — A FILA TEM DONO NOVO, E ELE É UMA MEDIÇÃO.** As 232 linhas
-> abertas da paridade foram triadas uma a uma: **52 não são dívida**, e das 180
-> que sobram **74 eram decisão dela**. Ela decidiu DEZESSEIS nesta madrugada, e
-> delas nascem **13 sprints com ordem de desbloqueio** — a fila de agora.
+## A FILA DE AGORA — 05/09/2026
+
+**Três frentes, e a ordem entre elas é de risco, não de tamanho.**
+
+### 1. A ONDA CINCO — 24 sprints das 41 decisões dela
+
+**[ONDA CINCO — o índice](sprints/2026-09-05-ONDA-CINCO-INDICE.md)** é a fila
+executável. Quinze sprints de **DEFEITO** e nove de **DESENHO**, escritas depois
+de medir o que já existia: **dezessete das 41 decisões já estavam no produto**, e
+seis não eram decisão de tela — eram defeito, ditas com a palavra dela.
+
+A linha que separa as duas famílias é dela: *o Hefesto não explica a própria
+falha — ele a conserta.*
+
+**Nenhuma foi executada.** É por aqui que a próxima leva começa.
+
+### 2. A DÍVIDA DA MIGRAÇÃO — 2.397 linhas recriadas, com endereço
+
+**[O DONO DE CADA COMPORTAMENTO](2026-09-05-O-DONO-DE-CADA-COMPORTAMENTO-o-mapa-que-responde-a-queixa-da-recriacao.md)**
+responde à queixa que ela repetiu: *"estamos recriando um produto que estava
+praticamente pronto pro gtk"*. Cinco laudos mediram 410 comportamentos; os 50
+que decidem estão em `docs/data/donos-de-comportamento.csv`, e o portão
+`donos-de-comportamento` impede o laudo de envelhecer.
+
+A fila que esse mapa deixa, em ordem de quanto devolve por linha mexida:
+
+1. **`botoes.*` (aba 06)** — 777 linhas, e o Guardar de uma tela anula o que a
+   outra escreveu: é a maior dívida E o maior risco de perder trabalho dela;
+2. **`daemon.leitura_no_tique`** — o congelamento de 8,4 s, com causa e cura
+   medidas (132 linhas que o dono faz em 22);
+3. **as 15 `SO-GTK`** — decidir uma a uma: migra, ou morre com a janela;
+4. **as 16 `DIVERGE`** — em quatro delas o **GTK erra**: promover a versão da
+   tela nova, não copiar a da janela.
+
+### 3. AS TRÊS SPRINTS AVULSAS DE 05/09
+
+| sprint | estado |
+| --- | --- |
+| [A DOCUMENTAÇÃO RETRATA AS DEZ](sprints/2026-09-05-A-DOCUMENTACAO-RETRATA-AS-DEZ-01-a-foto-publica-uma-janela-que-ninguem-abre.md) | **FEITA em 05/09** — as dez fotos existem, o README mostra o produto, e os três portões da foto passaram a enxergar `interface/`. O retratista ficou em `interface/olhar.py --todas --publicado --doc` e não num arquivo novo, por ordem dela (*"a ideia é termos menos arquivos"*) |
+| [A JANELA GTK SE APOSENTA DEPOIS](sprints/2026-09-05-A-JANELA-GTK-SE-APOSENTA-DEPOIS-01-o-plano-e-a-data-em-que-ele-parou.md) | aberta — é o plano, não a execução |
+| [AS DUAS ABAS FALAM](sprints/2026-09-05-AS-DUAS-ABAS-FALAM-01-o-aparelho-recebeu-e-o-perfil-nao-guardou.md) | aberta |
+
+### O que NÃO está nesta fila, e é decisão dela
+
+* **A tradução para o inglês.** Ela decidiu em 05/09: *"não são prioridades a
+  parte da tradução"*. O bloqueio está medido de qualquer forma — o catálogo tem
+  413 entradas, 317 do `main.glade` e **zero da interface nova**, e as dez abas
+  têm ~40.000 palavras de tela com 18 marcas `_()`;
+* **O FABLE** — alto-falante e microfone virtuais como aparelhos do sistema. Ela
+  o nomeou como **a exceção** à regra de não recriar, e a medição confirma que
+  não existe: zero `module-null-sink` e zero `pw-loopback` no repositório
+  inteiro. O controle do alto-falante (volume, rota, pré-amplificador) já
+  funciona nos dois transportes; o que falta é o aparelho virtual.
+
+---
+
+> **O QUE VEIO ANTES, e continua valendo para o que MEDIU.** Os quatro banners
+> que ocupavam este topo viraram uma linha cada:
 >
-> **A FILA VIVA:**
-> **[AS DEZESSEIS DECISÕES DELA, e as sprints que nascem](2026-09-04-AS-DEZESSEIS-DECISOES-DELA-e-as-sprints-que-nascem.md)**
-> — §1 as decisões com o que estava em jogo, §2 as treze sprints em ordem de
-> desbloqueio, §3 as 54 perguntas que ela ainda não viu.
+> * **04/09, tarde** — as 54 perguntas decididas em
+>   [O PO DECIDE AS 54](2026-09-04-O-PO-DECIDE-as-54-e-os-sete-conflitos.md); nos
+>   sete conflitos com as dezesseis anteriores, a decisão dela ganhou;
+> * **04/09** — as 232 linhas da paridade triadas em
+>   [AS 232 LINHAS ABERTAS](2026-09-04-AS-232-LINHAS-ABERTAS-o-que-falta-de-verdade.md):
+>   52 não eram dívida, e das 180 que sobram 74 eram decisão dela;
+> * **04/09, madrugada** — as dezesseis decisões e as treze sprints em
+>   [AS DEZESSEIS DECISÕES DELA](2026-09-04-AS-DEZESSEIS-DECISOES-DELA-e-as-sprints-que-nascem.md);
+> * **02/09** — a ROTA DO HTML, e antes dela as 90 sprints do redesenho de
+>   27/08. As fases 0, 1 e 2 fecharam; o que sobra está nas seções abaixo.
 >
-> **O INVENTÁRIO QUE A PRODUZIU:**
-> **[AS 232 LINHAS ABERTAS, triadas uma a uma](2026-09-04-AS-232-LINHAS-ABERTAS-o-que-falta-de-verdade.md)**
-> — os seis baldes, a matriz por aba, e os seis defeitos que perdem trabalho
-> dela em silêncio.
->
-> O que estava aqui — a ROTA DO HTML de 02/09 e, antes dela, as 90 sprints do
-> redesenho de 27/08 — **cumpriu o papel e fica como registro**, abaixo.
+> **A ordem de execução continua sendo por GARGALO DE ARQUIVO**, e ele foi
+> medido: `interface/monta.py` é importado por **18** módulos,
+> `interface/hefesto_vivo.py` é o piloto das dez abas, e
+> `daemon/ipc_handlers.py` é disputado por quatro sprints. Dez agentes em dez
+> abas disputam três arquivos se a infra não vier antes.
 
 ---
 
