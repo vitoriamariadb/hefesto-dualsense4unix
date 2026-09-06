@@ -1,6 +1,6 @@
 ---
 sprint: ONDA3-GESTO-DECLARA-01
-estado: aberta
+estado: feita
 onda: 3
 posse:
   DECLARA:
