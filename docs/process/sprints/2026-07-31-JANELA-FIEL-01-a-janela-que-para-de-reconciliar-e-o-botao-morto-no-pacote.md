@@ -618,7 +618,7 @@ não ter de re-derivar:
   GUI guarda o desenho escolhido. Também é limpeza de dicionário, não de
   comportamento.
 - O teste guardião só olha **uma** direção:
-  `tests/unit/test_glade_signal_handlers.py:45-50` verifica que todo `handler=`
+  `tests/unit/test_glade_signal_handlers.py:45-50` verifica que todo `handler=`  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
   do glade tem entrada no dicionário. Handler morto **no dicionário** passa sem
   ninguém reclamar — é o "terceiro teste, o que morde" da entrega 6, e continua
   por escrever.

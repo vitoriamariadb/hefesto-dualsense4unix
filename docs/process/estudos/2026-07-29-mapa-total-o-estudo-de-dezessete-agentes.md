@@ -750,7 +750,7 @@ do mapa da GUI, que enumera 20 módulos de `app/actions/` e pula justamente esse
   commit: `e96dea8` (27/07) — o **mesmo** que reescreveu esse tooltip, e cuja
   mensagem diz "o desfazer do Steam Input passou a existir".
 - **E há um portão que proíbe escrever a verdade.**
-  `tests/unit/test_janela_sem_mentira.py:253` bane a palavra "desfazer" em texto
+  `tests/unit/test_janela_sem_mentira.py:253` bane a palavra "desfazer" em texto  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
   de ajuda de widget clicável, e a válvula de escape `_contraparte_na_janela`
   (`:400-418`) só procura a função inversa dentro de `app/` — onde
   `remove_appid_from_steam_input_allowlist` não aparece. **Um tooltip honesto que
@@ -1327,7 +1327,7 @@ default e o teste na mesma leva, com o motivo novo escrito no lugar do antigo**.
 Quem mexer num sem o outro vai achar que quebrou algo.
 
 E há um terceiro caso, na aba Sistema:
-`tests/unit/test_janela_sem_mentira.py:253` **bane a palavra "desfazer"** em texto
+`tests/unit/test_janela_sem_mentira.py:253` **bane a palavra "desfazer"** em texto  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 de ajuda de widget clicável, e a válvula de escape só procura a função inversa
 dentro de `app/`. **Um tooltip honesto sobre o desfazer da allowlist quebra a
 suíte** — a correção que passa hoje usa "desmarcar".

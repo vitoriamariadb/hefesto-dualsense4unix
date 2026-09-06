@@ -490,7 +490,7 @@ processo não vê estado que sobreviveu em memória.
 
 **Referência de veículo:** `scripts/gui-captura/retratar_abas.py:2132` e `:2187`
 já montam a janela real com `Gtk.OffscreenWindow` e dublês; e há precedente de
-teste pela porta da janela em `tests/unit/test_o_campo_do_jogo_na_janela_de_verdade.py`.
+teste pela porta da janela em `tests/unit/test_o_campo_do_jogo_na_janela_de_verdade.py`.  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 **Não invente um terceiro caminho.**
 
 **A mordida:** rode o ciclo contra `aventura.json` **antes** de a T4 existir. Ele

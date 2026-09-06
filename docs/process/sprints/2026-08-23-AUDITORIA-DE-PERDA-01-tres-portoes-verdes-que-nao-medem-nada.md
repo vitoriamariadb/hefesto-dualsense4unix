@@ -19,7 +19,7 @@ itens são da pior família da casa: **portão verde que não mede o que promete
 Nenhum dos três estava escrito em lugar nenhum da árvore. Os três vivem em
 relatos de conferente que morreram no diário do workflow.
 
-### 1.1 `tests/unit/test_a_bancada_da_foto_exercita_os_dois_graus.py` — não olha a foto
+### 1.1 `tests/unit/test_a_bancada_da_foto_exercita_os_dois_graus.py` — não olha a foto  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 
 Ele mede o **dado** da bancada (`_censo_de_mentira()`, `_dongles_de_mentira()`) e
 nunca que o retrato os usa. As duas linhas que ligam a bancada ao host do retrato

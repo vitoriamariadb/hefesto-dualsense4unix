@@ -108,7 +108,7 @@ na lista de AST que cobra o `main`. A segunda régua do arquivo
 
 **M3 — O `main` do retrato é cobrado em cinco abas, não em onze.**
 
-`tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:316-321` fixa
+`tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:316-321` fixa  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 `esperadas` em cinco montadores (`_montar_aba_lightbar`, `_rumble`, `_sistema`,
 `_emulacao`, `_navegacao`). O `main` chama **nove** (`retratar_abas.py:2203-2215`).
 Tirar `_montar_aba_inicio` da linha `:2203` não reprova este teste.
@@ -251,7 +251,7 @@ um script que está mudando debaixo dela. É o erro R2 na escala pequena — med
 
 | agente | tarefas | POSSE DE ARQUIVO (exclusiva) |
 |---|---|---|
-| **A2 — o dono das réguas** | Z0-1, Z0-2, Z0-3, Z0-4 | `tests/unit/test_as_fotos_acompanham_a_versao.py`; `tests/unit/test_a_foto_monta_como_o_produto_monta.py`; `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py` |
+| **A2 — o dono das réguas** | Z0-1, Z0-2, Z0-3, Z0-4 | `tests/unit/test_as_fotos_acompanham_a_versao.py`; `tests/unit/test_a_foto_monta_como_o_produto_monta.py`; `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py` |  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 
 A2 **lê** o retrato e **não o edita**. Se uma régua exigir mudança no script,
 A2 **relata** e a mudança volta para A1 (regra R1).
@@ -332,7 +332,7 @@ de onze e a jurar que conferiu tudo.
 
 ### Z0-3 — O `main` do retrato é cobrado nas onze *(A2)*
 
-**Arquivo:** `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:316-321`.
+**Arquivo:** `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:316-321`.  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 
 **O conserto:** o dicionário `esperadas` para de ser uma lista literal de cinco
 e passa a ser **derivado de `MIXINS_DE_ABA`** — uma fonte só, que é a regra que
@@ -354,7 +354,7 @@ Depois: reprova nomeando "Início". Devolva.
 
 ### Z0-4 — O `emulation_vidpid_label` entra na tabela do F14 *(A2)*
 
-**Arquivos:** `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:80-140` (a
+**Arquivos:** `tests/unit/test_p10_a_foto_nao_publica_o_glade_cru.py:80-140` (a  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 tabela); o alvo é `gui/main.glade:3074-3077`, **só leitura**.
 
 **O conserto:** uma linha nova em `_ROTULOS_QUE_O_CODIGO_REESCREVE`:

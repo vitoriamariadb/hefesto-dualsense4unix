@@ -734,7 +734,7 @@ Existem hoje e vão morder (**MEDIDO** por leitura):
   reprova quem transformar a flag em modo.
 - `tests/unit/test_steam_input_desfazer.py:202` — exige chamador de `src/` para o desmarcar.
   Esta proposta o satisfaz melhor do que hoje.
-- `tests/unit/test_janela_sem_mentira.py:216` (widget invisível não declara sinal) e `:421`
+- `tests/unit/test_janela_sem_mentira.py:216` (widget invisível não declara sinal) e `:421`  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
   (tooltip que promete desfazer tem de desfazer) — o segundo é exatamente o que a reescrita
   do tooltip da aba Sistema tem de respeitar.
 - `tests/unit/test_vocabulario_das_quatro_superficies.py`,

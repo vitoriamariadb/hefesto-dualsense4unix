@@ -179,7 +179,7 @@ de começar: hoje são **550 verdes**. Estes são os que a mudança toca:
 | `test_status_faixa_blocos.py::test_o_frame_estado_tem_a_mesma_largura_do_card` | lê o glade e exige `frame_status_estado` com `width-request == LARGURA_CARD_UNICO` | o frame some: o teste tem de medir a largura do CARD contra `LARGURA_CARD_UNICO`, que é o fato que ele sempre quis |
 | `test_status_faixa_blocos.py::test_a_bateria_do_card_sai_quando_o_frame_estado_ja_a_mostra` | `_battery_row` invisível no card único | inverte: a bateria do card passa a ser a única, e fica VISÍVEL nos dois modos |
 | `test_status_faixa_blocos.py::test_cada_sensor_tem_moldura_propria...[Alto-falante]` | o rótulo da moldura começa com "Alto-falante" | continua válido se você mantiver o prefixo (E2) |
-| `test_largura_a_mesma_em_todas_as_abas.py` (3 testes do `status_grid`) | a coluna de valores e o número da bateria | o grid some: estes testes passam a medir os rótulos dentro do card |
+| `test_largura_a_mesma_em_todas_as_abas.py` (3 testes do `status_grid`) | a coluna de valores e o número da bateria | o grid some: estes testes passam a medir os rótulos dentro do card |  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 | `test_contagem_um_numero_na_janela.py` | `status_battery_caption` visível | idem |
 | `test_status_cards.py::test_...battery_caption` | idem | idem |
 | `test_status_som_04_rota.py` (3 testes) | o botão da rota nasce no `status_grid` | o berço muda; o teste tem de apontar para o novo pai no glade |

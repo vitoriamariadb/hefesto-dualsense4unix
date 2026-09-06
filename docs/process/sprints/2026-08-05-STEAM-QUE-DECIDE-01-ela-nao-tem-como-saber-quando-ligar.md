@@ -516,7 +516,7 @@ Ela pode **entrar** na exceção com um clique e **não pode sair** sem terminal
 (`tests/unit/test_steam_input_desfazer.py:202`,
 `test_a_remocao_nao_voltou_a_ser_orfa`) passa a exigir chamador em `app/`
 também — arrancado o gatilho da janela, reprova; (b)
-`tests/unit/test_janela_sem_mentira.py:421`
+`tests/unit/test_janela_sem_mentira.py:421`  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 (`test_tooltip_que_promete_desfazer_tem_de_desfazer`) já é o portão do texto e
 tem de continuar verde nos dois estados; (c) a lista com dois appids de fixture
 mostra **dois nomes**, e um appid sem manifest mostra `(não instalado)` em vez

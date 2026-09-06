@@ -185,7 +185,7 @@ veste cinco hosts de mentira e tem função por aba da janela GTK — **nada dis
 existe numa página WebKit.** Reescrevê-lo no lugar seria um programa novo usando
 o nome do velho, e **30 arquivos de `tests/` e `scripts/` o citam** (medido:
 `grep -rln retratar_abas tests/ scripts/`), inclusive `test_a_foto_monta_como_o_produto_monta.py`,
-`test_p10_a_foto_nao_publica_o_glade_cru.py` e `test_retrato_das_abas_nao_vaza_dado_real.py`.
+`test_p10_a_foto_nao_publica_o_glade_cru.py` e `test_retrato_das_abas_nao_vaza_dado_real.py`.  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 
 O retratista das dez **não precisa de nada disso**, porque o piloto já é o
 motor: ele abre a página, espera o tique, e fotografa.

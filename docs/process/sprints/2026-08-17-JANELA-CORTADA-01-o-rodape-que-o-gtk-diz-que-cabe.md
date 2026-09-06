@@ -86,7 +86,7 @@ acompanha (435 → 955); **nenhuma aba rola na janela de abertura** (a mais alta
 Emulação, pede 646px e tem 705); e as dez fotos saíram idênticas em dimensão e
 peso.
 
-**Portão:** `tests/unit/test_janela_cortada_01_o_rodape_nao_sai_pela_borda.py`,
+**Portão:** `tests/unit/test_janela_cortada_01_o_rodape_nao_sai_pela_borda.py`,  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 4 testes. Ele mede ALOCAÇÃO, não tamanho preferido, e cobre alturas abaixo do
 mínimo do conteúdo — que é o regime em que o defeito vivia. Morde: desligados os
 scrollers, reprova em 560/620/650 nomeando quantos pixels o rodapé ficou fora.

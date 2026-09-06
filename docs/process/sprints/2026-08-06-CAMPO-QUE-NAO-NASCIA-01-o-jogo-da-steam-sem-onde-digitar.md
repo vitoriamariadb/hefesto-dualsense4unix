@@ -165,7 +165,7 @@ Os quatro que caem são exatamente os que perguntam pelo **campo**:
 ### O que o arquivo novo faz de diferente
 
 Um teste novo com dublê não valeria nada — seria o sétimo a perguntar à caixa.
-Por isso `test_campo_que_nao_nascia_01_o_jogo_da_steam_sem_onde_digitar.py`:
+Por isso `test_campo_que_nao_nascia_01_o_jogo_da_steam_sem_onde_digitar.py`:  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 
 - exige **GTK real** logo na primeira linha (`exigir_gi_real`, antes de qualquer
   `import gi`), porque contra o stub da bancada ele passaria sem mostrar nada a

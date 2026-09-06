@@ -252,7 +252,7 @@ trocando os ids: um `<object class="GtkScrolledWindow" id="scroll_tab_config_box
 `label` traduzível é `Configurações`.
 **O `id` no box interno não é opcional**:
 `test_toda_aba_continua_sendo_reconhecida_pelo_id_do_glade`
-(`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:355-381`) assere `None not in nomes` para
+(`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:355-381`) assere `None not in nomes` para  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 TODAS as páginas. Como saber que deu certo: o comando da prova de trabalho imprime
 `paginas: 11` e a lista termina em `'Configurações'`.
 
@@ -1667,7 +1667,7 @@ acrescente a entrada da aba (ambiente e bandeja mudam por fora da janela);
 `tests/unit/test_notebook_switch_page.py:128 test_todo_id_do_mapa_existe_no_glade` exige que o id
 exista no glade. E decida sobre `_PAGINAS_COM_TETO_ELASTICO` (`:1037-1044`, seis nomes): ou a
 página entra ali, ou entra em `PAGINAS_SEM_TETO` de
-`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:102-105` (duas, com o motivo escrito),
+`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:102-105` (duas, com o motivo escrito),  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 consumidos em `:377` e `:384`. Ficar fora das duas é ficar sem cobrança.
 
 **11. `scripts/gui-captura/retratar_abas.py`:** acrescente `"readme_configuracoes"` ao fim de
@@ -2096,7 +2096,7 @@ card; um `GtkLabel` de título com `use-markup` e `xalign=0`; um `GtkBox` horizo
 rotulado `Examinar de novo` e um `GtkLabel id="config_saude_quando"` alinhado à direita; e um
 `GtkLabel id="config_saude_itens"` com `use-markup` e `xalign=0` para as seis linhas.
 **PROIBIDO nos textos do glade: `sudo`, `JSON`, `systemd`, `.service`, `throttle`** — a lista
-completa está em `tests/unit/test_glade_vocabulario_leigo.py:39-63`, que reprova em `label` e
+completa está em `tests/unit/test_glade_vocabulario_leigo.py:39-63`, que reprova em `label` e  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 `tooltip-text`, e ela inclui ainda `systemctl`, `rc=`, `Unit:`, `Motor fraco`, `Motor forte`,
 `weak`, `strong`, `Política de rumble`, `Preview do perfil` e `Anti-storm`. As mensagens de cura
 do doctor são cheias de `sudo` — elas têm de ser traduzidas no Python.
@@ -2211,7 +2211,7 @@ ainda não o chama: **`doctor.sh` NÃO conta como chamador de produção**, porq
 - **Não abra esta leva sem confirmar com quem manda.** Ver seção 7.
 - **A janela passaria a ter DUAS telas de "saúde do sistema"**, uma na aba Sistema (o cartão
   `storm_card`, `main.glade:2694`, com o rótulo `storm_diag_label` em `:2706`, travado por
-  `tests/unit/test_glade_vocabulario_leigo.py:75-96`) e outra na Configurações. Ou CONFIG-09
+  `tests/unit/test_glade_vocabulario_leigo.py:75-96`) e outra na Configurações. Ou CONFIG-09  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
   estende o cartão existente, ou explica a divisão de assunto por escrito. D3 do INDICE diz que a
   aba nova não rouba controle das existentes; isto é o caso-limite dessa regra.
 
@@ -2273,7 +2273,7 @@ existir.
 
 **A6. Toda página precisa de id no widget de conteúdo.**
 Dizia: nada.
-Hoje: `tests/unit/test_largura_a_mesma_em_todas_as_abas.py:355-381`
+Hoje: `tests/unit/test_largura_a_mesma_em_todas_as_abas.py:355-381`  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 (`test_toda_aba_continua_sendo_reconhecida_pelo_id_do_glade`) assere `None not in nomes` para
 todas as páginas; `id_da_pagina` (`home_actions.py:79-105`) desce pelo `ScrolledWindow` e pelo
 `Viewport`.
@@ -2315,7 +2315,7 @@ Mudar: escrever 1180 como teto de largura, medir o de altura no dia, e dizer de 
 Dizia: nada.
 Hoje: `_montar()` (`tests/unit/test_layout_orcamento_altura.py:237-252`) faz só
 `builder.add_from_file(str(MAIN_GLADE))`; nenhum `install_*_tab` roda. Idem `_montar` de
-`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:170-200`. E a aba Início é "100% montada em
+`tests/unit/test_largura_a_mesma_em_todas_as_abas.py:170-200`. E a aba Início é "100% montada em  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 código" por escrito (`main.glade:265-266`).
 Mudar: escrever as duas consequências opostas na sprint. (a) CONFIG-01 passa nos portões de
 geometria trivialmente. (b) Todo o conteúdo das sprints seguintes nasce INVISÍVEL para o portão
@@ -2347,7 +2347,7 @@ Hoje: `scripts/validar-palavra-de-tela.py` conhece **oito frases** em `JARGAO_BA
 validado", "Aplicar correções", "Testar criação de device virtual", "Gamepads:". O alcance é
 declarado e estreito: **só o `main.glade`** (`:14-18`, `:61`) — rótulo montado em Python passa
 livre, de propósito. E existe uma lista DIFERENTE, em
-`tests/unit/test_glade_vocabulario_leigo.py:39-63`, que reprova em `label` e `tooltip-text`:
+`tests/unit/test_glade_vocabulario_leigo.py:39-63`, que reprova em `label` e `tooltip-text`:  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 `systemctl`, `systemd`, `rc=`, `.service`, `Unit:`, `Motor fraco`, `Motor forte`, `weak`,
 `strong`, `Throttle`, `throttle`, `Política de rumble`, `Preview do perfil`, `JSON`, `Anti-storm`
 e **`sudo`**.
@@ -3102,7 +3102,7 @@ mexer no doctor cai para quase nada.
 
 **6.9. A superfície que CONFIG-09 quer construir já existe funcionando na aba Sistema.** O cartão
 "Saúde do sistema" (`main.glade:2694` `storm_card`, rótulo `:2706` `storm_diag_label`, id travado
-por `tests/unit/test_glade_vocabulario_leigo.py:75-96`) é pintado por
+por `tests/unit/test_glade_vocabulario_leigo.py:75-96`) é pintado por  <!-- ref-externa: a régua da janela GTK saiu na GTK-3 (06/09/2026, `D-0609-GTK-LEVA-INTEIRA`); o registro do dia em que ela existiu não se reescreve -->
 `app/actions/daemon_actions.py:731 _refresh_storm_diag`, que roda `storm_doctor.storm_report()` em
 thread worker, mapeia `[ OK ]`, `[WARN]` e `[INFO]` para cor (`:754`) e devolve por
 `GLib.idle_add(self._apply_storm_diag, ...)` (`:772`). O molde de implementação está pronto e
