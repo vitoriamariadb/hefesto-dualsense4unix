@@ -1,6 +1,6 @@
 ---
 sprint: LUZES-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-PRIORIDADE-TODAS-AS-ABAS]
 posse:
   04A:
@@ -21,6 +21,38 @@ nao_toca:
 ---
 
 # LUZES-01 · PARIDADE — as cinco lâmpadas sem trocar o número, e o automático que o Salvar apaga
+
+> **FEITA em 06/09/2026** — `voo/LUZES-01-BLUZ`, relatório em
+> `docs/process/agentes/2026-09-06/LUZES-01.md`.
+>
+> **AS CINCO LINHAS QUE ERAM O TRABALHO FECHARAM** (`140`, `141`, `142`,
+> `143`, `148`): as cinco luzes de jogador viraram botões, seis teclas de
+> desenho nasceram (`P1`..`P4`, todas e nenhuma), o indicador virou o botão de
+> reenvio e a faixa do título ganhou o "Todos no automático". `PISO_DA_ABA`
+> foi de 7 para 11, e **as treze peças novas responderam ao clique no
+> WebKitGTK**, com o dono resolvido em `p1` — não em `dualsense`.
+>
+> **A §4 ENCOLHEU: a `146` e a `151` também já estavam fechadas**, pelo
+> interruptor da D-13 publicado em 04/09 (`paginas/04-iluminacao.html:2016`).
+> O que sobrava da `151` era a mesma metade da `146`; o ramo D4 não tem
+> premissa nesta aba, porque toda escrita de cor leva `uniq` e o override
+> vence a camada automática no merge. **Os quatro vereditos estão no relatório,
+> com o endereço lido, para a `PARIDADE-REMEDIR-01` aplicar.**
+>
+> **O PASSO 3 MUDOU DE FORMA depois de medir o motor:** gravar `[False] * 5`
+> **prende** as lâmpadas apagadas (`manager._controllers_to_specs` lê
+> `model_fields_set`). O caminho de volta é o campo SAIR do override mais o
+> `profile.switch`, que é o único que solta a camada da usuária
+> (`manager.py:425`).
+>
+> **E O PASSO 1 CUSTOU UMA FAIXA DA GRADE, que foi desfeita.** A conta de
+> "38px de folga no `.miolo`" estava errada — os 38 são o RODAPÉ, e a aba
+> passou a rolar por dentro. As doze teclas foram para dentro da `.aceso`, que
+> tinha 152px vagos, e a coluna **não cresceu um pixel**.
+>
+> **O que NÃO nasceu:** a `158` continua condicional (pede um escopo "Todos"
+> de DESENHO, e o `auto-todos` é de COR), e a "prévia honesta" continua fora
+> por decisão de coordenação (§4).
 
 > **A decisão dela, 06/09/2026** (`D-0609-PRIORIDADE-TODAS-AS-ABAS`): *"todas as
 > abas, menos Lançadores"* — a 04 entra na leva das 24 horas.
