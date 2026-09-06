@@ -1,6 +1,6 @@
 ---
 sprint: A-TRAVA-DO-LED-NAO-SOLTA-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   LED:
@@ -23,7 +23,19 @@ daemon o caminho que solta SÓ `"led"` (rota nova, ou parâmetro em `_handle_led
 `a04_iluminacao.py:2462` — **`a04_iluminacao.py` entrou na posse por isso.** Todos os
 `depois_de` antigos estão `absorvida`/`feita`; a lista foi limpa.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 29/08 (`daemon/ipc_handlers.py` continua sem `clear` para `led`).
+> **ESTADO 2026-09-06: feita** — nasceu a rota `led.auto_release`
+(`daemon/ipc_handlers._handle_led_auto_release`), que solta a trava manual da
+categoria `led` e SÓ ela; o botão "Automático" da aba Iluminação passou a
+chamá-la como TERCEIRO passo do gesto (largar o claim → pintar a cor do slot →
+soltar a trava), porque o `led.set` do meio re-armaria um release posto antes
+dele; e nasceu a régua do par
+(`tests/unit/test_toda_categoria_de_trava_tem_par.py`, 17 passam + a lápide viva
+de `audio` em `xfail(strict=True)`). A entrega 3 (as categorias armadas no log
+da supressão) NÃO foi feita: é `profiles/autoswitch.py`, fora da `posse:`, e
+está relatada. Laudo em
+`docs/process/agentes/2026-09-06/A-TRAVA-DO-LED-NAO-SOLTA-01-opus.md`.
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 29/08 (`daemon/ipc_handlers.py` continua sem `clear` para `led`). **CADUCOU no mesmo dia: ver a linha acima.**
 
 # A TRAVA DO LED NÃO SOLTA · 01 — arma em dois lugares e não solta em nenhum
 
