@@ -95,8 +95,16 @@ PROCUREI="$RAIZ/docs/process/sprints (maxdepth 2, casando *${SPRINT}*.md)"
 # 26/07 e o despacho morria dizendo "não declara posse" sobre o arquivo errado,
 # com a sprint certa aberta na lista viva do lado. Casar pelo `sprint:` do
 # frontmatter, que é o dono do id, resolve a classe inteira.
+#
+# O `|| true` NÃO É ENFEITE, e ele é defeito MEDIDO em 06/09/2026: este script
+# roda com `set -euo pipefail`, e numa ATRIBUIÇÃO simples o `set -e` mata o
+# script quando o comando falha. `grep -rl` devolve 1 quando não acha nada — que
+# é exatamente o caso da sprint inexistente —, então o despacho morria MUDO, com
+# rc=1 e saída vazia, no lugar de dizer onde procurou. Quatro réguas de
+# `test_portao_o_caminho_morto_nomeia.py` acusaram, e é o que elas existem para
+# pegar: a recusa tem de NOMEAR.
 ARQ_SPRINT="$(grep -rl --include='*.md' -E "^sprint: *${SPRINT} *$" \
-              "$RAIZ/docs/process/sprints" 2>/dev/null | head -1)"
+              "$RAIZ/docs/process/sprints" 2>/dev/null | head -1 || true)"
 [ -n "$ARQ_SPRINT" ] || ARQ_SPRINT="$(find "$RAIZ/docs/process/sprints" -maxdepth 2 -name "*${SPRINT}*.md" 2>/dev/null | head -1)"
 if [ -z "$ARQ_SPRINT" ]; then
   {

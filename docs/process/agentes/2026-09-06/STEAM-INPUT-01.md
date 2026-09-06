@@ -584,7 +584,7 @@ seis gestos que não são desta sprint.
 
 O enunciado desta sprint diz que *"`vdf`, `env`, `appid` e 'linha de comando'
 são proibidos em texto de tela"*. **`appid` já estava lá antes de mim**, e vem do
-dono: `steam_launch_options.rotulo_do_jogo` devolve `Sackboy™: A Big Adventure
+dono: `steam_launch_options.rotulo_do_jogo` devolve `Sackboy: A Big Adventure
 (appid 1599660)`, e cai para `appid NNNN` quando o manifesto sumiu. Medido na
 tela desta frente, em três lugares do cartão da Steam (a linha do Steam Input, a
 lista de jogos, o recado do "Este jogo não funciona").
