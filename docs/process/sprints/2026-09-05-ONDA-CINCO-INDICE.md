@@ -25,6 +25,16 @@ está em
 | --- | --- |
 | **ONDA5-03-01** | **O campo pisca em verde.** Os cinco passos entraram: a classe `.hef-deu-certo` na folha do módulo (vale nas dez abas sem republicar desenho), o pouso levando o desfecho, o `voltouDoVoo` acendendo e apagando sozinho em `MS_DA_PISCADA = 1500`, e o `"Pronto."` **fora da tela** — a `FRASE_DE_SUCESSO` morreu por não ter mais chamador. A ordem contrária que o piloto carregava por escrito (*"não construa nenhum dos dois"*) foi substituída com a data e a atribuição certa: quem recusou foi o PO, não ela. |
 | **ONDA5-04-01** | **O brilho aplica em vez de justificar a falha.** O trilho passa a escrever no aparelho mesmo quando o motor não afirma a cor, e a régua foi INVERTIDA com a razão datada — ela exigia o contrário. |
+| **ONDA5-MIC-VIRTUAL-01** | **Passo 1 de dois: o canal ganha o nome do CONTROLE.** `integrations/canal_do_microfone.py` é o dono único de `hefesto_mic_<hex6>` e do ciclo de vida. O mecanismo é REUSADO (`SourceVirtualPipeWire`, de 25/07) e a prioridade é LIDA do dono. **O Passo 2 não entrou de propósito**: ele exige medição na bancada antes do código, e a dívida está declarada no `casa-sabe` com endereço e razão. |
+
+**AS DUAS RÉGUAS DO MICROFONE ACHARAM DEFEITO NA PRIMEIRA EXECUÇÃO**, e uma
+delas reprovou a si mesma: `test_a_mascara_nao_alcanca_o_microfone` lia linha a
+linha e acusou o módulo novo, que cita o documento do princípio
+(`A-MASCARA-NAO-CUSTA-FEATURE…md`) no cabeçalho. Passou a ler por AST — código,
+nunca prosa —, e a isenção do comentário sobre bits do `luz_do_mic` morreu junto
+por não precisar mais existir. A outra pegou que `so_hex("sem-identidade")`
+devolve `"emdedade"`: o canal nasceria batizado `hefesto_mic_dedade` sobre uma
+string que não é endereço nenhum.
 
 **As quatro réguas novas da 03-01 mordem em lugares diferentes**, e a quinta
 mordida NÃO PEGOU — está declarada: arrancar o `!important` da folha deixa
