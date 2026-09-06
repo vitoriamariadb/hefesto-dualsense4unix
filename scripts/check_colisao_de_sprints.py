@@ -374,7 +374,18 @@ def main(argv: list[str] | None = None) -> int:
     anotadas, divida, erros = carrega(pasta)
 
     if args.exigir:
-        casam = [p for p in list(anotadas) + divida if args.exigir in str(p)]
+        # QUEM DECLARA O ID GANHA, e o nome do arquivo é só o desempate.
+        # MEDIDO EM 06/09/2026: `STEAM-INPUT-01` casa com DOIS caminhos — o de
+        # 26/07, escrito antes de existir frontmatter, e o de 06/09, que é o
+        # que se despacha. Casando por SUBSTRING os dois entram, o velho cai em
+        # `divida` (não tem `posse:`) e o despacho morre acusando a sprint
+        # errada, com a certa aberta na lista viva do lado. O `sprint:` do
+        # frontmatter é o dono do id; a substring só responde quando ninguém
+        # declara.
+        casam = [q for q, fm in anotadas.items()
+                 if str(fm.get("sprint") or "").strip() == args.exigir]
+        if not casam:
+            casam = [q for q in list(anotadas) + divida if args.exigir in str(q)]
         if not casam:
             print(f"ERRO: nenhuma sprint casa com '{args.exigir}' em {pasta}", file=sys.stderr)
             return 1

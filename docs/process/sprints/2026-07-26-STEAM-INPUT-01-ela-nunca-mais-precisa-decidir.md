@@ -1,3 +1,23 @@
+> **06/09/2026 — O ID `STEAM-INPUT-01` FICOU COM DUAS DONAS, e esta não é a
+> que se despacha.** A leva de 06/09 escreveu
+> `2026-09-06-STEAM-INPUT-01-o-hefesto-desliga-o-que-a-steam-poe-no-meio.md`,
+> que é de PARIDADE (o lado HTML da aba 07) e é quem carrega
+> `sprint: STEAM-INPUT-01` no frontmatter — logo, é quem a lista viva mostra e
+> quem o despachante encontra.
+>
+> **Este arquivo é o dossiê de 26/07 e continua valendo pelo que mediu:** as
+> E1, E3, E7, E8 e E9 estão entregues em código e esperam a palavra dela; a E2
+> e as E4 a E6 seguem abertas e **não estão cobertas** pela sprint de 06/09,
+> que é de outra camada. Ele fica sem frontmatter de propósito: dois arquivos
+> declarando o mesmo `sprint:` fariam a lista viva mostrar duas sprints com um
+> nome só.
+>
+> **O que falta decidir:** dar a este dossiê um id próprio custa reescrever 25
+> documentos que citam `STEAM-INPUT-01`; deixá-lo assim custa a ambiguidade
+> desta nota. Ficou como está até alguém medir se a E2 e as E4-E6 ainda têm
+> premissa. O despachante já não erra: ele casa pelo `sprint:` do frontmatter
+> desde 06/09, e o glob do nome é só o desempate.
+
 # STEAM-INPUT-01 — ela nunca mais precisa decidir quando ligar a entrada Steam
 
 - **Status:** **PARCIAL — as E1, E3, E7, E8 e E9 estão ENTREGUES EM CÓDIGO,

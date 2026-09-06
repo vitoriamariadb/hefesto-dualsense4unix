@@ -58,3 +58,47 @@ clique, **mas `LER_CAMPOS` resolve dono por `closest`** — um alvo clicável no
 perto de um `data-controle` do SVG resolve para o dono errado.
 
 Achado pela `ONDA5-05-02`. **Quem acrescentar alvo nessas abas mede antes.**
+
+---
+
+## A MEDIÇÃO PRÉ-C — as dez abas, com a mesa parada (06/09/2026, quem coordena)
+
+`hefesto_vivo.py --oculta --abre <aba> --conta-mutacoes 100`, uma aba por vez.
+O número certo é ZERO: com a mesa parada, tudo o que se mexe é a tela sambando.
+
+| aba | mutações em 100 tiques | tique mediana | tique máximo |
+| --- | --- | --- | --- |
+| 01-jogar | **0** | 2,58 ms | 13,75 ms |
+| 02-controles | **236–273** (ver abaixo) | 1,47 ms | 24,56 ms |
+| 03-gatilhos | **0** | 2,77 ms | 9,30 ms |
+| 04-iluminacao | **0** | 1,40 ms | 14,00 ms |
+| 05-vibracao | **0** | 1,42 ms | 10,59 ms |
+| 06-navegacao | **0** | 1,40 ms | 8,81 ms |
+| 07-lancadores | **0** | 1,28 ms | 13,54 ms |
+| 08-conexoes | **0** | 3,81 ms | 37,32 ms |
+| 09-sistema | 7 | 1,31 ms | **1.329,35 ms** |
+| 10-perfis | **0** | 5,82 ms | 13,64 ms |
+
+**A 02 NÃO ESTÁ SAMBANDO, e a tabela por endereço é quem diz:**
+
+```
+giro-x       childList   (filhos)   60   120 nós
+accel-x-neg  attributes  style      56
+giro-y       childList   (filhos)   52   104
+giro-z       childList   (filhos)   48    96
+accel-y-pos  attributes  style      14
+accel-x      childList   (filhos)    4
+accel-y      childList   (filhos)    2
+```
+
+São o giroscópio e o acelerômetro. O controle parado na mesa emite ruído de
+verdade, o valor MUDA, e a tela mostrando valor que mudou está certa. O que
+sobra por medir é se trocar o BLOCO (`childList`, 120 nós por 60 mutações) é
+caro perto de trocar o TEXTO — a `CONTROLES-VERDADE-01` leva a pergunta.
+
+**O ACHADO É A 09:** um tique de **1.329 ms** num teto de 100 ms, treze vezes o
+teto, com a mesa parada. Um tique de 1,3 segundo congela a janela dela e faz o
+piloto pular os seguintes. A `SISTEMA-STEAM-01` leva a medição.
+
+**E a 10-perfis é a mais cara em regime**: mediana de 5,82 ms parada, e um tique
+de 189 ms durante o passeio das dez abas. Vai com a `ONDA5-10-02`.

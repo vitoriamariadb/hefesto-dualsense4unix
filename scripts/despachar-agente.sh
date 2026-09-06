@@ -89,7 +89,15 @@ AGENTE="${2:?falta o nome do agente}"
 # só depois descobrir que a sprint não existe custa 59 MB, um nome na lista e um
 # agente que descobre sozinho, tarde.
 PROCUREI="$RAIZ/docs/process/sprints (maxdepth 2, casando *${SPRINT}*.md)"
-ARQ_SPRINT="$(find "$RAIZ/docs/process/sprints" -maxdepth 2 -name "*${SPRINT}*.md" 2>/dev/null | head -1)"
+# QUEM DECLARA O ID GANHA, e o glob do nome é só o desempate. Medido em
+# 06/09/2026: `STEAM-INPUT-01` casa com DOIS arquivos — o de 26/07, sem
+# frontmatter, e o de 06/09, que é o que se despacha. O `head -1` pegava o de
+# 26/07 e o despacho morria dizendo "não declara posse" sobre o arquivo errado,
+# com a sprint certa aberta na lista viva do lado. Casar pelo `sprint:` do
+# frontmatter, que é o dono do id, resolve a classe inteira.
+ARQ_SPRINT="$(grep -rl --include='*.md' -E "^sprint: *${SPRINT} *$" \
+              "$RAIZ/docs/process/sprints" 2>/dev/null | head -1)"
+[ -n "$ARQ_SPRINT" ] || ARQ_SPRINT="$(find "$RAIZ/docs/process/sprints" -maxdepth 2 -name "*${SPRINT}*.md" 2>/dev/null | head -1)"
 if [ -z "$ARQ_SPRINT" ]; then
   {
     echo "ERRO: nenhuma sprint casa com '${SPRINT}'."
