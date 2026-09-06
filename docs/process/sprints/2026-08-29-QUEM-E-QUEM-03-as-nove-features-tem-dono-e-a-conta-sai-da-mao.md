@@ -1,6 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-03
-estado: aberta
+estado: feita
 onda: G
 posse:
   CENSO:
@@ -17,6 +17,10 @@ nao_toca:
 (a linha sem dono é o touchpad, nomeada). **Confira antes se o comentário `SÃO QUATRO` de
 `schema.py:928` ainda diz quatro** — se a ONDA-CONTROLES-06/07 já acrescentou `mic`/`sensors`, o
 censo nasce contando o que existe hoje, não o de 29/08.
+
+> **ESTADO 2026-09-06: feita** — o censo das nove features virou portão (`tests/unit/test_quem_e_quem_03_o_censo_das_features_por_controle.py`, 17 testes), a conta escrita à mão em `schema.py` deixou de poder mentir, e o touchpad continua a única linha sem dono, nomeada e impressa. Nenhuma linha de produto: `profiles/schema.py` não foi tocado.
+
+> **CAIU DA SPRINT — remedido em 06/09/2026.** O enunciado é de 29/08 e o mundo andou duas vezes: o comentário de `schema.py` diz **SEIS**, não QUATRO (o `mic` entrou em 03/09 por MIC-QUINTO-AJUSTE-01 e o `sensores` em 04/09 por SENSOR-DE-VERDADE-01), então a tabela F2 estava velha em três linhas; `LedsConfig` não tem `brightness` e sim `lightbar_brightness`; e `layout/02-controles.html` mudou de endereço para `src/hefesto_dualsense4unix/interface/paginas/02-controles.html`. O que não mudou é a substância: o touchpad continua sem campo em lugar nenhum.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 
