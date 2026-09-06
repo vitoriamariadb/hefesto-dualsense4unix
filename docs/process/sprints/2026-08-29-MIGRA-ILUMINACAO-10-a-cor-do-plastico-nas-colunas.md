@@ -80,6 +80,16 @@ nó está `0600 root:root` pelo BROKER-01 e que o leitor abria com `os.open`
 direto. A cura entrou no mesmo dia (`A-COR-PELA-PORTA-DO-BROKER-01`) e pelo cabo
 a cor voltou a chegar — pelo rádio, não.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — pelo rádio, SIM.** A
+> `ONDA-CONEXOES-11` correu em 02/09/2026 (commit `2e772412`):
+> `identidade.cor_do_aparelho@dualsense` (`docs/data/mapa-controles.csv:111`)
+> hoje é **`radio_aciona = sim`**, `radio_de_onde_sei = medido`,
+> `radio_ate_onde_foi = SAIU NO FIO` — o produto leu a cor pelo rádio no
+> controle dela (`hidraw5`, código `04` = Galactic Purple, 13,6 ms), e a mesma
+> medição fechou que o CRC **não é opcional** no rádio. A célula dizia `divida`,
+> que é dívida NOSSA e nunca o aparelho recusando; a dívida foi paga. O que
+> sobra é ressalva de **AMOSTRA**: duas unidades, não as quatro desta bancada.
+
 **Mas o conserto é sprint FORA desta onda** — `ONDA-CONEXOES-11` (a semente e os
 filtros de barramento) e `ONDA-CONEXOES-12` (as 28 cores e as 10 zonas chegando
 ao produto). **Enquanto elas não fecharem, uma coluna no rádio não tem

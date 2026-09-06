@@ -378,6 +378,21 @@ de tela diferentes.
 `porque=` explícito. **A T6 não pode ser escrita antes de alguém preencher essa
 célula** — ou de decidir, com ela, qual é a frase.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — A CÉLULA FOI
+> PREENCHIDA, DOZE DIAS DEPOIS.** `audio.alto_falante@dualsense` hoje tem
+> `radio_por_que_nao_aciona = divida`. **A recusa registrada aqui estava certa
+> em substância** — sem causa declarada a `Fala` não tinha o que dizer, e ligar
+> texto novo na tela dela em provisório seria decidir em silêncio. O que este
+> relatório não podia saber é que a espera duraria doze dias sem ninguém
+> preencher a célula: foi a leitura de metade das colunas
+> (`aciona` sem `por_que_nao_aciona`) que fez `nao-medido` nascer no vocabulário
+> em 06/09 e que originou esta varredura. **A T6 continua sem correr, e continua
+> não podendo correr como está escrita** — a causa `divida` é NOSSA, e a lista
+> de peças insensíveis encolhe porque `audio.alto_falante.rota` é
+> `radio_aciona = sim` (o achado desta seção, confirmado). O laudo está na nota
+> da T6, em
+> [STATUS-DIZ-O-QUE-VE-01](../../sprints/2026-08-24-STATUS-DIZ-O-QUE-VE-01-o-hertz-que-sumiu-e-os-cards-fora-de-ordem.md).
+
 Não executei T6 por isso somado a três coisas: ela deixa quatro peças de som
 insensíveis no transporte que ela mais usa; a frase é texto novo na tela e ela
 não está; e eu já tinha encontrado uma premissa falsa nesta mesma sprint (T9).

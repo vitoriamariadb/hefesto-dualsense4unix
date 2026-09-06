@@ -32,6 +32,15 @@ A ressalva na tela é UMA, verbatim nas três frases que afirmam a vibração:
 *"A vibração ainda não foi conferida no aparelho — nem no cabo, nem no rádio: o
 caminho está montado, e se ela não vier não é erro seu."*
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — esta ressalva SAIU, e
+> saiu certo.** `vibracao.rumble.passthrough@dualsense` é hoje `aciona = sim` e
+> `de_onde_sei = medido` nos DOIS transportes, medido na bancada dela em
+> 05/09/2026. O `RESSALVA_DE_TRANSPORTE` de `app/actions/emulation_actions.py`
+> está **vazio**, e o vazio é o desfecho, não esquecimento. **O que este
+> relatório fez continua sendo o certo** — sem lastro, a tela não afirma —, e
+> por isso ele é gaveta C, não veto: a ressalva nasceu com a dívida e saiu junto
+> com ela.
+
 **Segunda correção de fato, na direção oposta.** A sprint diz *"das três, só a
 lightbar tem lastro medido nos dois transportes"*. O giroscópio **também tem**:
 `movimento.giroscopio.jogo@dualsense` é `de_onde_sei = medido` e `aciona = sim`

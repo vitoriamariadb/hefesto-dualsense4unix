@@ -74,6 +74,16 @@ dela (`O-REFINAMENTO-DE-ALINHAMENTO-QUE-ELA-EXIGE`).
 **`radio_aciona = não`**, `radio_por_que_nao_aciona = divida` (era
 `o-aparelho-recusa` até 29/08/2026 — a recusa era do nosso CRC, não do aparelho).
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — o `não` do rádio CAIU.**
+> A `ONDA-CONEXOES-11` correu em 02/09/2026 (commit `2e772412`) e a linha
+> (`docs/data/mapa-controles.csv:111`) hoje é **`radio_aciona = sim`**,
+> `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO` — o produto
+> leu a cor pelo rádio no controle dela (`hidraw5`, código `04` = Galactic
+> Purple, 13,6 ms). **A célula dizia `divida`, que é dívida NOSSA, nunca o
+> aparelho recusando** — e a dívida foi paga. O que sobra é ressalva de
+> **AMOSTRA**: duas unidades provadas, não as quatro desta bancada. As colunas
+> de BT não precisam mais nascer sem cor por causa do transporte.
+
 O mockup mostra **P2 Starlight Blue • BT** e **P3 Galactic Purple • BT**, com a
 cor pintada na borda, na moldura e nas dez zonas do desenho. **Metade da mesa
 dela é rádio.** Sem a declaração dela, essas colunas nascem com o nome que

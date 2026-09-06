@@ -20,6 +20,15 @@ nao_toca:
   - scripts/
   - mockup/
   - html/
+  # A posse desta sprint é um DIRETÓRIO inteiro, e por isso ela colide com toda
+  # sprint que declara um arquivo dentro dele. As quatro abaixo são as que o
+  # `check_colisao_de_sprints.py` acusava em 06/09/2026 — declaradas aqui
+  # porque esta varredura de fato não as toca: nenhuma delas tem veto do mapa a
+  # desfazer, e a última é de outro agente em voo nesta mesma leva.
+  - docs/process/sprints/2026-08-26-BATERIA-PARADA-01-o-numero-que-nunca-muda.md
+  - docs/process/sprints/2026-08-26-SPECS-A-PROCEDENCIA-DE-CADA-LINHA-01.md
+  - docs/process/sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md
+  - docs/process/agentes/2026-09-06/A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01.md
 ---
 
 # A-RECUSA-QUE-CITOU-O-MAPA-01 — varrer o passado, e desfazer os vetos

@@ -66,6 +66,25 @@ registrou a assimetria e nunca a fechou. `scripts/check_paridade_transporte.py`
 reprova afirmação forte sem teste que a sustente — e mostrar o analógico como
 ativo no rádio é afirmação forte.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — O MAPA FECHOU A
+> ASSIMETRIA, E FECHOU PELO LADO POSITIVO.** As duas células vazias que este
+> parágrafo cita eram `nao-medido`, nunca "não funciona" — e hoje
+> `entrada.emulacao_mouse.gatilhos@dualsense` e
+> `entrada.emulacao_mouse.analogico@dualsense` são **`cabo_aciona = sim` e
+> `radio_aciona = sim`, `de_onde_sei = medido` dos dois lados**. A evidência do
+> rádio: *"o caminho do mouse emulado não pergunta o transporte"* — ele lê o
+> eixo do gamepad já normalizado pelo daemon e escreve no uinput, **o mesmo
+> código para cabo e rádio**, e foi *"medido com ela na bancada, nos dois
+> transportes, em 05/09/2026"*. Os donos são `daemon/subsystems/mouse.py` e
+> `integrations/uinput_mouse.py`; a régua é
+> `tests/unit/test_o_mouse_emulado_nao_pergunta_o_fio.py`, e a palavra dela:
+> *"hj as máscaras funcionam super legal em tudo o lance do R2 analógico e
+> cursor tão medidos"*. <!-- noqa-acento: citação literal dela -->
+> **Consequência para a entrega 5 desta sprint:** a marca de transporte nas duas
+> velocidades de analógico não tem mais lastro — a tela deixaria de afirmar o
+> que o mapa hoje SUSTENTA. A observação dela de 11/08/2026 continua registrada
+> no mapa como o que era, uma observação, e foi ela mesma quem a derrubou.
+
 **Terceiro defeito: o portão HARM-05 não pode sumir na troca de motor.**
 `mouse_actions._sync_mouse_mode_gate` (`:285`) fecha o interruptor fora do modo
 "Controlar o PC", com a frase ao lado, porque ligar o mouse durante "Jogar pelo
@@ -99,6 +118,12 @@ mútua do daemon é silenciosa; a tela é o único lugar onde ela é visível.
    citando que a fonte é observação dela e **não** ensaio. A do **touch** não
    ganha marca: essa funciona nos dois, e é a única das três que o mapa dá como
    `sim`/`sim`.
+
+   > **06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01): esta entrega CADUCOU, e a
+   > marca não se põe.** Desde 05/09/2026 as TRÊS emulações são `sim`/`sim` no
+   > mapa, medidas na bancada com ela — não só o touch. Pôr a marca hoje seria
+   > a tela negar o que o mapa sustenta, que é o defeito na direção oposta. Ver
+   > a nota em "O defeito", acima.
 6. **O que quatro velocidades pedem do perfil fica DECLARADO, não inventado.**
    `ProfileMouseConfig` (`profiles/schema.py:361`) tem **um** `speed` (1-12) e
    **um** `scroll_speed` (1-5); o mockup pede **quatro** números. Quem alarga o

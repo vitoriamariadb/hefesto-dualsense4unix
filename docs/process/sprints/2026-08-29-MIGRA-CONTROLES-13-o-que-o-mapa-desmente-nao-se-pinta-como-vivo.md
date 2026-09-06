@@ -50,6 +50,25 @@ a quebra em **três** lugares, no desenho aprovado.
 | o medidor de nível do microfone, 14 barras | vem do PipeWire, e **no rádio não há placa de som atribuível**: `LeituraMic.sink = ""` é, no próprio módulo, *"o caso do controle no RÁDIO, que não publica placa de som"* (`app/mic_monitor.py:118-127`), e `nivel = None` faz o card **apagar o medidor** |
 | os três eixos do acelerômetro em `g` | `movimento.acelerometro@dualsense`: `cabo_aciona = não`, `radio_aciona = não`, com `so-ela-decide` nos dois |
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — A TERCEIRA LINHA DESTA
+> TABELA CAIU, e ela é o caso que dá nome à varredura.** O mapa **nunca disse
+> que o aparelho não faz**: `so-ela-decide` é causa NOSSA (a palavra dela), e
+> hoje nem isso resta como veto. `movimento.acelerometro@dualsense`
+> (`docs/data/mapa-controles.csv:175`) é **`cabo_aciona = sim`** e
+> **`radio_aciona = sim`**, `de_onde_sei = medido` dos dois lados: no cabo em
+> 29/08/2026 (a `ONDA-CONTROLES-04` fechou — 30 amostras por controle, |v| médio
+> de 0,9962 g e 0,9932 g em duas unidades, em inclinações diferentes) e no rádio
+> em 03/09/2026, pelo `MotionSensorReader` desta árvore, no nó de Bluetooth. **A
+> célula `por_que_nao_aciona` continua escrita `so-ela-decide` de propósito** —
+> a própria ressalva do mapa declara a armadilha —, e ler essa célula sozinha,
+> com `aciona = sim` na coluna ao lado, é exatamente o erro de leitura de metade
+> das colunas que esta varredura veio desfazer. **Os três eixos na tela não são
+> mais "número inventado": são medição.** Palavra dela em 29/08, na ressalva da
+> própria linha: *"não era pra ele sair. era pra ele FUNCIONAR."* Em
+> consequência, o portão `check_a_tela_nao_promete_o_que_o_mapa_nega.py` **não
+> deve acusar o acelerômetro** — a própria seção "Como se prova" desta sprint já
+> previa esse desligamento sozinho, e ele aconteceu.
+
 Dois dos quatro cartões do mockup são BT (P2 e P3). **A mesa dela tem dois
 controles**, e a chance de um deles estar no rádio é grande — é assim que ela
 joga.
@@ -60,6 +79,12 @@ diz isso com todas as letras). Quem o liga é a
 [ONDA-CONTROLES-04](2026-08-27-ONDA-CONTROLES-04-o-acelerometro-esta-no-mesmo-node.md),
 que atravessa a troca de motor intacta. **Enquanto ela não fechar, os três eixos
 na tela são número inventado.**
+
+> **06/09/2026 — ELA FECHOU.** A `ONDA-CONTROLES-04` está `absorvida` e o
+> acelerômetro é `aciona = sim` / `medido` nos dois transportes desde 29/08
+> (cabo) e 03/09 (rádio). A frase acima descreve o mundo de 29/08 e fica como
+> registro; **hoje os três eixos são medição, não número inventado.** Ver a nota
+> na tabela acima.
 
 ### E a régua que deveria pegar isso NÃO EXISTE
 

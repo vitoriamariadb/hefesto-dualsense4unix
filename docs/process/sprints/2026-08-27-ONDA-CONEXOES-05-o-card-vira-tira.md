@@ -195,6 +195,21 @@ o par se move junto ou não se move, e é o
 `scripts/check_paridade_transporte.py` que cobra. Quem executar esta sprint
 **deixa a dica onde está**, mesmo sabendo que ela já é falsa.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — a ordem acima CADUCOU,
+> e a dica falsa já saiu.** A frase *"No rádio o controle recusa o pedido da
+> cor"* era uma **acusação ao aparelho dela** por um defeito nosso (a semente
+> do CRC), e foi substituída em 29/08/2026 pelo commit `091ab2e5` — hoje
+> `app/widgets/external_card.py` traz *"O Hefesto ainda não lê a cor por rádio.
+> Escolha na lista."*, com `AFIRMA_NADA` e `porque=` explícito, que é o único
+> par legal quando a causa é nossa (`CAUSA_DE_FORA` em `app/fala_do_mapa.py` só
+> admite `nada-a-acionar` e `o-aparelho-recusa`). E a linha do mapa fechou
+> depois: `identidade.cor_do_aparelho@dualsense`
+> (`docs/data/mapa-controles.csv:111`) é hoje **`radio_aciona = sim`**,
+> `radio_de_onde_sei = medido` — a `ONDA-CONEXOES-11` correu em 02/09/2026
+> (commit `2e772412`). **Ninguém deixa lápide falsa onde está**: a regra desta
+> casa é que fato errado se SUBSTITUI, e uma frase que culpa o aparelho pelo
+> que é nosso é o defeito exato que o portão da `Fala` existe para impedir.
+
 **O que esta sprint TOCA e é dela:** `external_card.py:327-332` ainda ensina
 *"Por que o cabo responde e o rádio não"*, com `radio_aciona=não`. Esta sprint
 reescreve `_linha_da_cor` inteiro, e a lápide **sai junto** — não fica anotada

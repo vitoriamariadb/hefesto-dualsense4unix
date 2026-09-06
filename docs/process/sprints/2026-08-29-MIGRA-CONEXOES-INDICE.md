@@ -60,6 +60,15 @@ as sprints eram escritas:
   lugar é a `MIGRA-CONEXOES-12` (as duas janelas), que o censo tratava como uma
   pergunta e é trabalho de código nas duas respostas possíveis.
 
+  > **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — o `não` do rádio
+  > CAIU.** A `ONDA-CONEXOES-11` **correu**, em 02/09/2026 (commit `2e772412`):
+  > `identidade.cor_do_aparelho@dualsense` (`docs/data/mapa-controles.csv:111`)
+  > hoje é **`radio_aciona = sim`**, `radio_de_onde_sei = medido`,
+  > `radio_ate_onde_foi = SAIU NO FIO` — o produto leu a cor pelo rádio no
+  > controle dela (`hidraw5`, código `04` = Galactic Purple, 13,6 ms). O que
+  > sobra é ressalva de **AMOSTRA**: duas unidades provadas, não as quatro desta
+  > bancada.
+
 ## As doze
 
 | # | sprint | camada | trava |

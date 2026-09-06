@@ -179,6 +179,17 @@ rádio, `uniq` existe, e o bloco inteiro fica sensível:
 | controle deslizante do microfone | **não tem linha no mapa** (ver §2.6) |
 | "Silenciar" do microfone | `audio.microfone.mudo` — cabo `sim`, rádio **`parcial`** |
 
+> **FATO ERRADO, SUBSTITUÍDO EM 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — e o
+> erro é de LEITURA DO MAPA, na tabela logo acima.** Três linhas dela dizem
+> `audio.alto_falante.rota` **rádio `não`**. O mapa diz **`sim`**, dos dois
+> lados (`docs/data/mapa-controles.csv:8`: `cabo_aciona = sim` / `medido` /
+> `O APARELHO OBEDECEU`; `radio_aciona = sim` / `inferido-do-codigo` /
+> `MONTOU`). Quem vale `não` é só a chave guarda-chuva `audio.alto_falante`, e
+> **a causa dela é `divida`** — dívida NOSSA, não o aparelho recusando. O erro
+> já tinha sido medido pelo conferente em 25/08
+> ([STATUS-DIZ-O-QUE-VE-01-A2](../agentes/2026-08-25/STATUS-DIZ-O-QUE-VE-01-A2.md)),
+> e sobreviveu doze dias porque ninguém leu as duas colunas juntas.
+
 Régua: `docs/data/mapa-controles.csv`, 308 linhas, **49 colunas**, filtrado por
 `chave` e `controle=dualsense`. E o estado do daemon agora:
 `bt_mic = {"enabled": false, "running": false, "uniqs": []}` — a ponte de
@@ -458,6 +469,32 @@ Junto: a docstring de `controller_card.py:2094` (`ControllerCard(compact=True)
 perguntas: endereço (já tem) e **transporte**. Por rádio, as peças que o mapa
 mede como `radio_aciona=não` nascem insensíveis com dica única e honesta — a
 frase vem do CSV, não da cabeça de quem escreve (é o elo da Z6/PAREAMENTO-01).
+
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — ESTA TAREFA NUNCA CORREU,
+> E NÃO PODE CORRER COMO ESTÁ ESCRITA.** Ela é o caso mais antigo desta
+> varredura: o conferente A2 recusou executá-la em 25/08/2026 porque
+> `radio_por_que_nao_aciona` de `audio.alto_falante@dualsense` estava **VAZIA**,
+> e a `Fala` não tinha causa a declarar. **A célula foi preenchida em 06/09/2026
+> e diz `divida`** — dívida NOSSA. Isso não destrava a T6: destrava o
+> diagnóstico. Duas correções, e as duas mudam o alcance da tarefa:
+>
+> 1. **A lista de peças encolhe.** `audio.alto_falante.rota`
+>    (`docs/data/mapa-controles.csv:8`) é `radio_aciona = sim`, não `não` — logo
+>    "Sons do jogo", "Todo o som do PC", "Silenciar" e o botão da rota **saem**
+>    da lista de insensíveis. Sobra a chave guarda-chuva `audio.alto_falante`,
+>    cujo `radio_aciona = não` tem causa `divida`.
+> 2. **Com causa `divida`, apagar quatro gestos é empurrar dívida nossa para a
+>    mão dela.** `CAUSA_DE_FORA` (`app/fala_do_mapa.py`) só licencia
+>    `AFIRMA_NAO_ACIONA` para `nada-a-acionar` e `o-aparelho-recusa`; com
+>    `divida` a única `Fala` legal é `AFIRMA_NADA` com `porque=` explícito, e a
+>    frase honesta é *"o Hefesto ainda não faz"*, nunca *"o controle não faz"*.
+>
+> **O que continua de pé, e é gaveta B:** a ressalva medida do próprio mapa —
+> *"por cabo o alto-falante é placa de som USB Audio Class, não HID; assimetria
+> dura, e do aparelho, não do produto"* — e o fato de que um controle no rádio
+> **não publica placa ALSA nenhuma** (ensaio `mic-radio-sem-placa-alsa-0727`, a
+> mesa 2+2 dela). Sem sink não há som a mexer; o que muda é de quem é a razão, e
+> por isso a frase de tela é outra.
 
 O que **não** muda: o mudo do microfone (`radio_aciona=parcial`) fica sensível;
 "parcial" não é "não", e apagar o que funciona pela metade é pior que a doença.

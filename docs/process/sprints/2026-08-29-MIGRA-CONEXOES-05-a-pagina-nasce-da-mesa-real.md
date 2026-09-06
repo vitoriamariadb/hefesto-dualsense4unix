@@ -84,6 +84,19 @@ do "jogador 3 fantasma".
    O dono da substituição é a `ONDA-CONEXOES-11`, que **não correu**. Enquanto
    isso, quem executar esta sprint lê a lápide no mapa, acredita e para — foi o
    custo que a casa já pagou por quatro dias.
+
+   > **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — a dívida FECHOU, e
+   > o espinho saiu.** A `ONDA-CONEXOES-11` correu em 02/09/2026 (commit
+   > `2e772412`) e a linha `identidade.cor_do_aparelho@dualsense`
+   > (`docs/data/mapa-controles.csv:111`) hoje diz **`radio_aciona = sim`**,
+   > `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO`: o produto
+   > leu a cor pelo rádio no controle dela, com o daemon rodando — `hidraw5`,
+   > código `04` = Galactic Purple, em 13,6 ms. **O parágrafo acima descreve o
+   > defeito de leitura que originou esta varredura inteira** (célula `divida`
+   > lida como recusa do aparelho) e por isso fica escrito. O que sobra do lado
+   > do mapa é ressalva de **AMOSTRA**, não de transporte: a leitura por rádio
+   > está provada em DUAS unidades (`hidraw8` em 27/08, `hidraw5` em 02/09), não
+   > nas quatro desta bancada.
 4. **A fita atravessa o vidro.** No mockup, clicar numa linha muda os chips da
    fita — em CSS puro, por `<input type=radio>`. No produto a fita é widget
    **GTK** do cabeçalho (`_target_strip`), e o acordeão é **HTML**. Logo o gesto

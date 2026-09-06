@@ -77,6 +77,17 @@ formate. **Não reescreva nenhum.**
      **ONDA-CONEXOES-11**. (Pelo CABO a leitura passou a funcionar em
      29/08/2026, quando o produto adotou a porta do broker — antes disso ela
      estava escrita como `sim` e não acontecia.);
+
+     > **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — o mapa NÃO desmente
+     > mais os dois cartões de BT.** A `ONDA-CONEXOES-11` correu em 02/09/2026
+     > (commit `2e772412`): `docs/data/mapa-controles.csv:111` hoje é
+     > **`radio_aciona = sim`**, `radio_de_onde_sei = medido`,
+     > `radio_ate_onde_foi = SAIU NO FIO` — o produto leu a cor pelo rádio no
+     > controle dela (`hidraw5`, código `04` = Galactic Purple, 13,6 ms). A
+     > célula dizia `divida`, que é dívida NOSSA e nunca o aparelho recusando; a
+     > dívida foi paga. **"Sem cor conhecida, nasce sem cor" continua certo** —
+     > mas por unidade que não respondeu, não pelo transporte. Ressalva viva do
+     > mapa: a **AMOSTRA** é de duas unidades, não das quatro.
    - **a leitura que existe não persiste.** `app/actions/config/secao_controles.py:646`
      guarda em `self._cores`, dict de instância, e `:930` pula tudo que não seja
      `transporte == "usb"`. Fechou a janela, a cor do cabo se perde. O campo de

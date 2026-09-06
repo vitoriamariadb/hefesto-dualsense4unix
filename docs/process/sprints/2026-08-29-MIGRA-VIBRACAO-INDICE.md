@@ -212,6 +212,14 @@ aberta que nenhuma das oito herdou.
    `divida` desde 29/08/2026 (era `o-aparelho-recusa` — a recusa era do nosso CRC),
    e duas colunas do mockup são BT. Declaração dela, ou
    "Não sei" com a borda neutra? **É a mesma pergunta das dez abas.**
+
+   > **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — a pergunta encolheu,
+   > porque o `não` caiu.** A `ONDA-CONEXOES-11` correu em 02/09/2026 (commit
+   > `2e772412`): `identidade.cor_do_aparelho@dualsense`
+   > (`docs/data/mapa-controles.csv:111`) hoje é **`radio_aciona = sim`**,
+   > `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO`. A
+   > declaração dela continua valendo como recurso, mas **não é mais o único
+   > caminho para as colunas de BT terem cor**.
 6. **Os 12 filtros mortos desta aba.** (**02**) 12 `filter: url()` contra 12
    `<filter>` — nenhum casa. O Chrome ignora e desenha; **o WebKit segue o SVG
    1.1 e não desenha**, e o WebKit é o motor escolhido. A cura está pronta e

@@ -274,6 +274,15 @@ O índice antigo (`2026-08-27-ONDA-ILUMINACAO-INDICE.md`) as listava como aberta
    `o-aparelho-recusa`). **A lápide era
    falsa** — não era o aparelho, era o nosso CRC (semente `0x53`, não `0xA3`) —,
    **mas o conserto é sprint fora desta onda**, e a 10 depende dele.
+
+   > **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — o conserto SAIU, e
+   > o `não` do rádio caiu.** A `ONDA-CONEXOES-11` correu em 02/09/2026 (commit
+   > `2e772412`): `identidade.cor_do_aparelho@dualsense`
+   > (`docs/data/mapa-controles.csv:111`) hoje é **`radio_aciona = sim`**,
+   > `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO` — o
+   > produto leu a cor pelo rádio no controle dela (`hidraw5`, código `04` =
+   > Galactic Purple, 13,6 ms). A cor **chega** pelo rádio; o que sobra é
+   > ressalva de **AMOSTRA** (duas unidades provadas, não as quatro).
 3. **O brilho da tela não é o brilho do aparelho.** `luz.lightbar.brilho`:
    `cabo_aciona=não`, `radio_aciona=não`. Célula literal: *"O brilho que o
    produto oferece (`led.set {brightness}`) é MULTIPLICAÇÃO de RGB em Python,

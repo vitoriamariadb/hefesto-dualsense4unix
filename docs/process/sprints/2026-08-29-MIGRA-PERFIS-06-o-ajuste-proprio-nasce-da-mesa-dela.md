@@ -93,6 +93,15 @@ entre o par mais próximo). Sem a `ONDA-CONEXOES-11` (a semente `0x53`) ou sem a
 declaração dela (`utils/maquina.py:655`), **as linhas dos controles no rádio
 nascem cinzas**.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — o risco 1 CAIU.** A
+> `ONDA-CONEXOES-11` correu em 02/09/2026 (commit `2e772412`):
+> `identidade.cor_do_aparelho@dualsense` (`docs/data/mapa-controles.csv:111`)
+> hoje é **`radio_aciona = sim`**, `radio_de_onde_sei = medido`,
+> `radio_ate_onde_foi = SAIU NO FIO`. As linhas de rádio **não nascem mais
+> cinzas por falta de leitura**; o que sobra é ressalva de **AMOSTRA** (duas
+> unidades provadas), e a leitura devolve `None` sem levantar quando não sabe —
+> que é "Não sei" na tela, e continua honesto.
+
 **A tabela mostra a cor que o produto TEM, nunca a que ele gostaria de ter.**
 Cinza com o motivo na dica é honesto; pintar por adivinhação é o defeito que
 `scripts/check_paridade_transporte.py` existe para reprovar — ele recusa

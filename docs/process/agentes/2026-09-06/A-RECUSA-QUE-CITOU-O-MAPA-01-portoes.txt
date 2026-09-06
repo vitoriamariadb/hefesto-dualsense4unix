@@ -1,0 +1,55 @@
+# A-RECUSA-QUE-CITOU-O-MAPA-01 — `bash scripts/portoes.sh`, 06/09/2026
+
+Só o placar. A saída inteira tem 342 linhas, e ~300 delas são a lista de
+DÍVIDA do `colisao-de-sprints` (271 sprints antigas sem frontmatter de
+posse), que não reprova e é a mesma de antes desta leva.
+
+```
+  contrato-ipc           ok          74 ms
+  citacoes-de-linha      ok         202 ms
+  citacoes-no-codigo     ok       68202 ms
+  mapa-de-canais         ok         376 ms
+  fatos-de-tela          ok          55 ms
+  fala-de-tela           ok         301 ms
+  caducos                ok         143 ms
+  palavra-de-tela        ok        1238 ms
+  version-consistency    ok          27 ms
+  curvas                 ok         103 ms
+  frases-de-tela         ok          37 ms
+  paridade-transporte    ok        1646 ms
+  paridade-gtk-html      ok         208 ms
+  donos-de-comportamento ok        1128 ms
+  nada-aponta-para-a-janela ok        3433 ms
+  test-data              ok          67 ms
+  endereco-de-radio      ok        3893 ms
+  serial-de-aparelho     ok        1466 ms
+  faixa-sintetica        ok          55 ms
+  mac-por-oui            ok       13144 ms
+  mac-de-fixture         ok        1463 ms
+  casa-sabe              ok      110680 ms
+  portao-tem-chamador    ok         685 ms
+  interpretador-do-portao ok        1396 ms
+  a-tela-dela            ok        1085 ms
+  o-instrumento-e-a-tela ok        1133 ms
+  a-frase-banida         ok        2919 ms
+  src-desta-arvore       ok        1126 ms
+  o-piloto-e-a-arvore    ok        2580 ms
+  desenho-aprovado       ok         121 ms
+  identidade-de-cima     ok         214 ms
+  cor-vem-do-aparelho    ok         211 ms
+  colisao-de-sprints     ok         120 ms
+  icones                 ok         106 ms
+  packaging-parity       ok        1463 ms
+  glifos                 ok        2707 ms
+  pecas-do-dualsense     ok        9307 ms
+  cores-do-dualsense     ok        3625 ms
+  regua-de-tela          ok          29 ms
+  ruff                   ok          12 ms
+  shellcheck             ok       11333 ms
+  referencias-docs       ok        3312 ms
+  anonimato              ok        6432 ms
+  acentuacao             ok       64600 ms
+  mypy                   ok         166 ms
+
+TODOS VERDES — 45 portões.
+```

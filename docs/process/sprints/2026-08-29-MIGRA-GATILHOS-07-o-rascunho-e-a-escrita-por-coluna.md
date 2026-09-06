@@ -116,6 +116,23 @@ recebeu o gesto.
 *"O offset exato do byte de status não está registrado no código deste projeto —
 não localizado."* Não existe canal de leitura de estado de gatilho.
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — A ÚLTIMA FRASE ESTÁ
+> ERRADA, E A CITAÇÃO ACIMA JÁ FOI SUBSTITUÍDA NO MAPA.** *"Não existe canal de
+> leitura de estado de gatilho"* é afirmação sobre o APARELHO, e o mapa não a
+> sustenta. `gatilho.leitura@dualsense` (`docs/data/mapa-controles.csv:105`) tem
+> `por_que_nao_aciona = divida` nos DOIS lados — causa NOSSA —, e a `cabo_ressalva`
+> de 03/09/2026 diz, pela lei do fato errado: *"esta célula dizia «O offset exato
+> do byte de status não está registrado no código deste projeto — não
+> localizado». O offset está registrado desde 31/08/2026, no `radio_offset` desta
+> mesma linha, e agora também no `cabo_offset`. O que NÃO está registrado em
+> código nosso é o CONSUMIDOR — ninguém lê os dois bytes."* O `radio_canal` é
+> `hidraw`, e os dois bytes moram no report de ENTRADA `0x31`, **o mesmo que
+> este produto já abre e decodifica** para outros quatro campos. **O que falta é
+> escrever o leitor, não descobrir o canal.** A tela continua certa em não dizer
+> *"o controle confirmou"* enquanto ninguém lê — o que muda é que isso é
+> dívida com dono, não impossibilidade, e a `A-BANCADA-QUE-O-RADIO-PEDE`
+> (ensaio 7, 15 min) é quem a mede.
+
 A dica da aba já diz isso com todas as letras (`aba03.py:339-340`):
 
 > *"**O controle não responde de volta.** O protocolo não tem canal de leitura de

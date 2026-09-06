@@ -144,3 +144,12 @@ honesto, e **não** abre `cor_do_plastico.py` nem o CSV — os dois estão em
 é rádio. A ONDA-CONEXÕES-11 já mediu
 que a lápide *"é o aparelho que recusa"* era falsa — era o CRC desta casa,
 semente `0x53` e não `0xA3` —, e essa cura é dela, não desta onda.
+
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — a cura SAIU, e o
+> agravante caiu com ela.** A `ONDA-CONEXOES-11` correu em 02/09/2026 (commit
+> `2e772412`): `identidade.cor_do_aparelho@dualsense`
+> (`docs/data/mapa-controles.csv:111`) hoje é **`radio_aciona = sim`**,
+> `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO`. **As quatro
+> colunas não nascem com chip cinzento por causa do transporte** — o que sobra
+> é a ponte MAC↔colorway descrita acima, e a ressalva de **AMOSTRA** do mapa
+> (duas unidades provadas, não as quatro).

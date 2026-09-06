@@ -90,6 +90,18 @@ agora chega.
 **Enquanto a do rádio não fechar, esta aba tem de saber viver sem a cor nos
 cartões de BT — e a mesa dela é metade BT.**
 
+> **NOTA DE 06/09/2026 (A-RECUSA-QUE-CITOU-O-MAPA-01) — a do rádio FECHOU.** A
+> `ONDA-CONEXOES-11` correu em 02/09/2026 (commit `2e772412`) e tirou os
+> portões: `identidade.cor_do_aparelho@dualsense`
+> (`docs/data/mapa-controles.csv:111`) hoje é **`radio_aciona = sim`**,
+> `radio_de_onde_sei = medido`, `radio_ate_onde_foi = SAIU NO FIO` — o produto
+> leu a cor pelo rádio no controle dela, com o daemon rodando (`hidraw5`, código
+> `04` = Galactic Purple, 13,6 ms). **Os cartões de BT não nascem cinzentos por
+> causa do transporte.** O que sobra é ressalva de **AMOSTRA**: duas unidades
+> provadas (`hidraw8` em 27/08, `hidraw5` em 02/09), não as quatro desta
+> bancada — e "saber viver sem a cor" continua sendo o estado honesto para o
+> controle que não responder, nunca para o rádio inteiro.
+
 ### 2. A leitura não sobrevive à janela
 
 `app/actions/config/secao_controles.py` guarda o que leu em `self._cores`
