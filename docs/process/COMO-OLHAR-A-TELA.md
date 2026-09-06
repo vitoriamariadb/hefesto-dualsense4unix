@@ -31,7 +31,7 @@ e o mouse dela passa a brigar com o clique do agente — os dois se quebram.
 
 1. **Não abrir janela nenhuma.** É quase sempre possível, e é o que as levas de
    03/09 e 04/09 fizeram: `Gtk.OffscreenWindow`, `--oculta`, Playwright em
-   `headless`, `retratar_abas.py`. **Se você conseguir medir sem janela, essa é
+   `headless`, `interface/olhar.py`. **Se você conseguir medir sem janela, essa é
    a resposta certa** — não há workspace a errar.
 2. **Se a janela for inevitável** (o app de validação, um Playwright que precisa
    de compositor, um jogo para o ensaio do sensor), ela **nasce no `OS`**:
@@ -63,164 +63,75 @@ caiu e a conversa morreu — ela teve de restaurá-la.
 ## A regra, em uma linha
 
 ```bash
-scripts/gui-captura/retratar_abas.py
+src/hefesto_dualsense4unix/interface/olhar.py --todas --publicado --doc
 ```
 
-Uma execução. Nenhum clique, nenhuma janela aberta, nenhuma tela em foco. Sai
-um PNG por aba, no tamanho da tela dela maximizada (1920x1080), **com o card do
-controle vivo dentro**.
+Uma execução. Nenhum clique, nenhuma janela aberta, nenhuma tela em foco. Sai um
+PNG por aba em `docs/usage/assets/aba-NN-*.png`, recortado na moldura da janela
+(1180x777) — que são as imagens do `README.md` e do
+[`AS-DEZ-ABAS`](../usage/AS-DEZ-ABAS-o-que-cada-uma-faz.md).
 
-**Uma aba sai duas vezes, e desde 22/08/2026.** A **Configurações** pede mais
-altura do que a janela tem, então ela ganha também a foto **esticada** até a
-altura que a página pede (`readme_configuracoes_inteira.png`). A lista é
-`ABAS_ESTICADAS`, no próprio script — quem puser uma aba nova lá ganha o mesmo
-tratamento sem escrever código. Sem isso a documentação mostraria quatro seções
-e meia, e quem lesse concluiria que a quinta não existe.
+**ESTA SEÇÃO MUDOU DE COMANDO EM 06/09/2026 (`GTK-3`).** Aqui estava
+`scripts/gui-captura/retratar_abas.py`, que montava o `gui/main.glade` numa
+`Gtk.OffscreenWindow` e fotografava as ONZE abas da JANELA. A janela foi
+aposentada por decisão dela (`D-0609-GTK-LEVA-INTEIRA`) e o estúdio inteiro —
+os cinco arquivos de `scripts/gui-captura/` — saiu com ela. **O que ela abre
+hoje tem DEZ páginas HTML**, e o retratista delas mora dentro do pacote porque
+depende só do Chrome; o antigo importava GTK na primeira linha.
 
-A altura da foto esticada é a que **aquela página** pede, e não a que o
-`notebook` pede: `get_preferred_height()` de um `GtkNotebook` devolve o maior
-natural entre as onze páginas, e usar esse número esticava toda foto até a altura
-da aba mais alta. Medido em 22/08/2026: a Configurações pede 1005px e a foto
-saía com 1925, com 900px de vão vazio espalhado entre as seções.
-
-**Sem argumento, ele SOBRESCREVE as imagens da documentação**
-(`docs/usage/assets/readme_*.png`) — que são as mesmas do `README.md` e do
-`docs/usage/interface.md`. É o comportamento pedido: rodar e a documentação
-deixa de mentir.
-
-Com um caminho como argumento, ele só olha:
+Sem `--doc` ele grava em `/tmp` e não toca no repositório:
 
 ```bash
-scripts/gui-captura/retratar_abas.py /tmp/olhar
+src/hefesto_dualsense4unix/interface/olhar.py --todas --publicado
+src/hefesto_dualsense4unix/interface/olhar.py 05-vibracao.html --publicado
 ```
 
-## A mesa cheia: fotografar QUATRO controles
-
-```bash
-scripts/gui-captura/retratar_abas.py --mesa-cheia
-```
-
-Sai em `docs/process/estudos/assets/mesa-cheia/` — **fora** das imagens do
-README, de propósito: isto é medição, não a interface que a documentação
-publica.
-
-**Por que existe** (medido em 14/08/2026): o modo padrão alimenta as abas com
-dublês fixos — Início e "No jogo" com dois controles, Status com um card.
-Rodado com os quatro controles dela na mesa, **nove dos dez PNGs saíram byte a
-byte idênticos** aos de quando havia um controle só. O instrumento é cego à
-mesa cheia por construção, e a leva inteira da mesa cheia depende de foto.
-
-**De onde vem o dado, e por que isso NÃO fura a privacidade:** de
-`tests/fixtures/state_full_quatro_controles.json`, arquivo **versionado** e já
-mascarado pelos portões de `tests/` (que são mais severos que a máscara de
-`docs/`). O script continua **sem falar com o daemon** — ler um arquivo do
-repositório não é pedir estado à máquina dela. Dois testes travam os dois
-lados: `test_a_mesa_cheia_na_foto.py` roda a montagem inteira com **toda porta
-de IPC do pacote `app` minada**, e `test_retrato_das_abas_nao_vaza_dado_real.py`
-exige que todo dado de entrada more em `tests/fixtures/`.
-
-**A foto que só este modo produz:**
-
-| foto | o que ela responde |
-|---|---|
-| `mesa_cheia_status_inteira.png` | a aba Status na altura que ela **pede** (2055 px) em vez da que **recebe** (1080). É a medida do problema de empilhar quatro cards |
-
-As **duas fotos do cabeçalho** (`readme_cabecalho.png` e
-`readme_cabecalho_alvo_inativo.png`) saem em **todos** os modos desde
-24/08/2026 — a segunda é a fita do alvo **esmaecida**, o estado que a Z2-8
-levou a seis abas de uma vez. Nos modos de mesa elas ganham o prefixo do modo
-(`mesa_cheia_cabecalho.png`, `mesa_de_cinco_cabecalho.png`).
-
-## O logo e os ícones
-
-Mesma ideia, outro comando:
-
-```bash
-scripts/gerar_icones.sh            # gera todos os PNGs a partir do SVG
-scripts/gerar_icones.sh --check    # só confere (é o que o teste roda)
-```
-
-**A fonte canônica é uma só: `assets/hefesto-logo.svg`.** Mexeu no desenho?
-Rode o gerador. Os PNGs do applet COSMIC e do AppImage nascem dele, e
-`tests/unit/test_icones_refletem_o_svg.py` reprova se alguém mudar o SVG sem
-regerar.
-
-**O que isso curou** (medido em 01/08): havia **dois** caminhos de ícone e o
-documentado era o quebrado. O `install.sh` copiava
-`assets/appimage/Hefesto-Dualsense4Unix.png`, que **não existia** — o `cp`
-falhava em silêncio — e o ícone que aparecia no sistema vinha, por acidente, do
-PNG do applet, versionado à mão. E o comentário do instalador afirmava que o
-SVG era um placeholder, o que **deixou de ser verdade** em algum momento sem
-ninguém atualizar o texto.
-
-## Quando rodar
-
-| momento | por quê |
-|---|---|
-| **ao começar a trabalhar na interface** | você vê a tela de hoje, não a de seis dias atrás |
-| **antes de commitar** mudança visual | a foto do commit é a foto do que ele fez |
-| **antes de gerar release** | as imagens do README acompanham a versão |
-
-Em 01/08 as imagens da documentação eram de **26/07** — seis dias e cinco levas
-atrás. E `readme_status.png` e `readme_sistema.png` **eram referenciadas e não
-existiam**. Rodar o script curou os dois problemas de uma vez.
-
-## Para quem trabalha com o Claude Code
-
-Esta é a parte que ela levantou e que muda o dia a dia:
-
-> *"o melhor, ele funcionaria principalmente pro Claude, pq ficaria muito mais
-> fácil pro Claude entender toda a tela, sem todas as vezes o Claude tomar
-> sufoco nisso"*
-
-**Está certa, e o sufoco é real e documentado.** Um assistente que precise
-entender a interface deve rodar este script e **ler os PNGs** — a ferramenta de
-leitura de arquivos enxerga imagens. É mais rápido, mais fiel e infinitamente
-menos frágil que as alternativas, que já falharam assim:
-
-- **clicar por coordenada** para focar a janela: aconteceu duas vezes, e nas
-  duas o clique caiu noutro aplicativo e o trouxe para a frente. Pior: um
-  clique cego já desfez configuração dela sem ninguém notar;
-- **percorrer abas por teclado**: o compositor perde eventos em rajada, e a
-  sequência inteira sai deslocada em uma aba — a foto chamada "gatilhos"
-  mostrando "status". Aconteceu duas vezes antes de existir laço de
-  verificação;
-- **pedir para ela tirar o print**: funciona, mas custa o tempo dela para
-  responder o que uma foto automática responde.
+`--publicado` fotografa `interface/paginas/`, **o que o produto renderiza**. Sem
+ele, o alvo é a bancada, que é onde o desenho é concluído — e a diferença entre
+os dois é o assunto do `mockup/LEIA-PRIMEIRO.md`.
 
 ---
 
-## Os cinco scripts desta pasta, e qual usar
+## Os quatro instrumentos de tela desta casa, e qual usar
 
-| script | o que faz | quando |
+| instrumento | o que faz | quando |
 |---|---|---|
-| **`retratar_abas.py`** | monta o glade **+ injeta o card do controle**, offscreen | **rotina, sempre** |
-| **`retratar_dialogos.py`** | fotografa os **diálogos** de confirmação, offscreen | quando a mudança está num diálogo — o `retratar_abas.py` não os alcança |
-| `retrato_offscreen.py` | monta só o glade cru | medir vão/altura, quando o card não importa |
-| `capturar_verificado.sh` | fotografa a tela **de verdade**, percorrendo por teclado | prova final, com a janela aberta e em foco |
-| `aba_ativa.sh` | diz **qual aba está ativa** num PNG, medindo o sublinhado rosa | é o sensor do `capturar_verificado.sh`; sozinho, só para conferir uma foto |
+| **`src/hefesto_dualsense4unix/interface/olhar.py`** | fotografa as dez páginas num Chrome headless e mede a moldura | **rotina, sempre** |
+| **`src/hefesto_dualsense4unix/interface/hefesto_vivo.py`** | o PILOTO: a janela GTK com o `WebView` e o daemon vivo dentro. `--oculta` desvia para um Xvfb; `--foto`, `--segundos` e `--prova-clique` dirigem por dentro | quando a pergunta é *"o produto FAZ?"* — é o único que roda o motor |
+| `src/hefesto_dualsense4unix/interface/ver.py` | o desenho aprovado dentro da janela GTK, sem dado nenhum | quando a pergunta é sobre o DESENHO, e ligar dado atrapalharia |
+| `src/hefesto_dualsense4unix/gui/ponte_da_tela.py` | a ponte JS: clica, lê o DOM e mede geometria por `run_javascript` | dentro do piloto, para validar sem tocar no mouse dela |
 
-Esta tabela tem portão: `tests/unit/test_a_tabela_dos_scripts_de_tela.py` cruza
-as linhas acima com o `ls` da pasta e reprova quando divergirem. Ela já
-envelheceu calada uma vez — dizia "os três scripts" com cinco no disco, e o que
-faltava era justamente o `retratar_dialogos.py`, cujas imagens o
-[`interface.md`](../usage/interface.md) publica.
+Esta tabela tem portão: `tests/unit/test_a_tabela_dos_scripts_de_tela.py` confere
+que todo caminho citado aqui EXISTE, que o retratista está nomeado e que o
+número do título bate com o das linhas. Ela já envelheceu calada uma vez —
+dizia "os três scripts" com cinco no disco.
 
-### Por que o `retrato_offscreen.py` não basta
+### O Playwright não alcança o WebKitGTK
 
-Ele renderiza o `.glade` **cru**: combos vazios, listas vazias e — o mais grave
-— **a aba Status sem o card do controle**, que é montado em código, não no
-glade. É justamente a aba mais densa da janela.
+O `olhar.py` dirige as páginas num Chrome headless e serve para medir layout,
+`:hover` e fotografar o DESENHO. **Ele não alcança o `WebKit2.WebView`** — o
+motor que ela usa de verdade. Quem prova o produto é o piloto, com a ponte JS e
+o daemon vivo. São dois instrumentos com alvos diferentes, e o segundo é o que
+fecha uma entrega.
 
-Já houve leva fotografada por ele em que o objeto que a leva mudava **não
-aparecia na foto**. Ele continua útil para medir geometria de página (é o que
-imprime `recebe / natural / vão`), mas não serve para entender a tela.
+### E a régua tem de viver no TEMPO
 
-### Por que o `capturar_verificado.sh` não é rotina
+Uma régua que roda o tique uma vez mede um INSTANTE, não um comportamento: em
+29/08/2026 uma leva introduziu uma regressão que só aparecia aos **181
+segundos**, com 67 testes verdes. O `--segundos` do piloto existe para isso.
 
-Precisa da janela **aberta, maximizada e em foco**. E o COSMIC recusou
-maximizar por atalho, por duplo clique e por F11 nesta máquina. Ele é a prova
-final quando o assunto é *"ficou bonito?"* — e para isso não há substituto.
+### O que se perdeu com o estúdio antigo, e está escrito porque se perdeu
+
+O `capturar_verificado.sh` fotografava a tela **de verdade**, percorrendo as abas
+por teclado e conferindo onde parou — a prova final para *"ficou bonito?"*. Ele
+precisava da janela **aberta, maximizada e em foco**, e o COSMIC recusou
+maximizar por atalho, por duplo clique e por F11 nesta máquina; por isso nunca
+foi rotina. **A interface nova não tem equivalente hoje**, e quem quiser essa
+prova abre o piloto e pede o olho dela (PROVA-DE-TELA-01).
+
+O `retratar_dialogos.py` fotografava os **diálogos** de confirmação, que nascem
+por cima e vivem um segundo. A interface nova não tem diálogo GTK modal: o que
+ela usa é o canal de recado das dez páginas, que a foto normal alcança.
 
 ---
 
@@ -230,12 +141,14 @@ Seja honesto sobre isto ao usá-la:
 
 - **não passa pelo compositor** — não há sombra, canto arredondado nem o tema de
   janela do COSMIC;
-- **a foto de ABA não mostra o cabeçalho**: ela é do `main_notebook`, que o
-  script arranca do `root_box` — o `header_bar` fica **fora daquele recorte**.
-  A fita "Ajustes vão para: …" e o selo "Editando: …" moram lá, e desde
-  24/08/2026 têm **duas fotos próprias em todos os modos** (a fita viva e a
-  fita esmaecida). Não procure nenhuma das duas dentro de uma foto de aba;
+- **a foto recorta na moldura `.janela`** e não mostra o cromo da janela GTK que
+  a envolve: a barra de título, os botões de fechar/maximizar e o ícone da dock
+  ficam **fora do recorte**. Quem for medir aquilo abre o piloto;
 - **não prova que a janela abre** — prova o que tem dentro dela;
+- **não vê o que o `<script>` escreve depois de um clique.** A foto é do estado
+  INICIAL da página; o que nasce do gesto só aparece com o piloto ou com uma
+  régua que clica (`tests/unit/test_a_palavra_de_tela_da_interface_nova.py` é o
+  molde);
 - **não substitui o olho dela.** A regra da casa
   ([PROVA-DE-TELA-01](sprints/2026-07-27-PROVA-DE-TELA-01-dez-minutos-de-olho-antes-de-qualquer-leva.md))
   continua valendo: interface só fecha com ela olhando.
