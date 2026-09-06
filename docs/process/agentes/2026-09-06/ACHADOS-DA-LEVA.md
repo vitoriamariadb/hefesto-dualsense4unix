@@ -102,3 +102,51 @@ piloto pular os seguintes. A `SISTEMA-STEAM-01` leva a medição.
 
 **E a 10-perfis é a mais cara em regime**: mediana de 5,82 ms parada, e um tique
 de 189 ms durante o passeio das dez abas. Vai com a `ONDA5-10-02`.
+
+---
+
+## O SÉTIMO INSTRUMENTO FALSO — e ele deu verde sobre um defeito MEU
+
+**06/09/2026, no fecho da ONDA B.** A costura mudou a contagem do topo para
+somar `transporte` (a chave crua), que é o certo — e não conferiu se a mesa do
+**DESENHO** publicava essa chave. `monta.MESA` só tinha `via`. Efeito: **toda
+página regerada saía com `● 2 controles: 0 USB · 0 BT`** por cima de um desenho
+que mostra dois controles ligados.
+
+**As duas réguas que existiam exatamente para este risco deram VERDE.** Elas
+medem `mesa_viva.mesa_do_estado` — a mesa VIVA — e o número errado estava sendo
+escrito pela mesa do DESENHO, que é outra tabela. A assinatura é a de sempre
+nesta leva: *o instrumento respondia sobre outra coisa que não o produto.*
+
+**COMO O DEFEITO APARECEU, e é o segundo achado:** `pytest --collect-only` de
+`test_a_vibracao_diz_qual_degrau_esta_aceso.py` **reescreveu
+`mockup/05-vibracao.html` no disco**. O teste importa `aba05` no topo, e **oito
+dos dez geradores escrevem a bancada no nível do módulo** — só `aba01.py` e
+`aba02.py` tinham a guarda `if __name__ == "__main__":`, e ganharam-na porque
+`jogar_vivo.py` e `controles_vivos.py` as importam.
+
+**A `aba10` é o caso VIVO:** `perfis_vivos.py:77` faz `import aba10` no topo,
+então **toda execução de `perfis_vivos.py` reescreve o desenho aprovado dela**,
+com o estado da tomada dentro. Medido:
+
+```
+$ python -c "import aba10"
+10-perfis: OK, 35 divs · ... · 2 lugar(es) Desconectado
+$ git status --porcelain mockup/
+ M mockup/10-perfis.html
+```
+
+**A IRONIA ESTAVA ESCRITA, pela terceira vez em quatro dias:** o próprio teste
+avisa, na docstring, que *"importar `aba05` REESCREVE a bancada dela como efeito
+de um `import`, e uma régua não mexe no que mede"* — e importava assim mesmo.
+
+**O QUE FICOU DE PÉ:** `monta.MESA` publica `transporte`; `aba04.py` e
+`aba05.py` ganharam a guarda; duas réguas novas, as duas mordidas. **As outras
+seis abas estão na posse de agentes em voo, e os seis foram avisados com a cura
+de uma linha e o diff do glob da régua.**
+
+**E A SEXTA COMPARAÇÃO DE `via` ESCAPOU:** `aba08.py:496`
+(`NO_CABO = [c for c in CONECTADOS if c["via"] == "USB"]`). Ela está no GERADOR,
+não no pacote, e por isso não caiu na varredura da ONDA B. Funciona hoje porque
+a mesa do desenho ainda diz `"USB"`; fica vazia em silêncio no dia em que a
+`A-PALAVRA-MESA-SAI-01` puser `cabo` ali. Avisada ao dono.
