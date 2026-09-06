@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-MIC-VIRTUAL-01
-estado: aberta
+estado: feita
 posse:
   M:
     - src/hefesto_dualsense4unix/integrations/fontes_de_captura.py
@@ -22,6 +22,74 @@ nao_toca:
 ---
 
 # ONDA5-MIC-VIRTUAL-01 · DEFEITO — o microfone do DualSense sob a máscara Xbox
+
+> ## FEITA — 06/09/2026. Os quatro passos fecharam.
+>
+> **A PROVA, medida na máquina dela com a origem SINTÉTICA** (um `null-sink`
+> com um tom de 440 Hz dentro — nada do microfone dela foi lido):
+>
+> ```
+> canal.abrir            -> hefesto_mic_000001
+> canal.alimentando()    -> {'aa:bb:cc:00:00:01': 'prova_origem_mic.monitor'}
+> estado do nó SEM app   -> SUSPENDED      (existir não é capturar)
+> Mute do nó             -> Mute: no
+> fontes_dualsense vê    -> ['hefesto_mic_000001']
+> escolher_fonte (reg 0) -> hefesto_mic_000001
+> UM APP GRAVANDO: 192000 bytes, pico 20000   (o tom vale 20000)
+>   → O MICROFONE É OUVIDO NO CANAL DELE: SIM
+> A) só o alimentador de pé  → ler_quem_ouve = []          (a luz não acende sozinha)
+> B) app de terceiro gravando → ler_quem_ouve = ['gravador-de-terceiro']
+> default-source dela: INTACTO · residual no PipeWire: nenhum
+> ```
+>
+> **AS QUATRO MEDIÇÕES QUE DECIDIRAM O DESENHO** — e três delas acharam defeito
+> que régua nenhuma via:
+>
+> 1. **Um `module-pipe-source` NÃO TEM PORTA DE ENTRADA** (`pw-link -i` devolve
+>    nada; as duas portas são `capture_FL`/`capture_FR`, de saída). Não há no
+>    grafo a que ligar o nó do cabo: **é preciso um leitor**, e ele entrega o PCM
+>    por `SourceVirtualPipeWire.escrever`, a mesma porta do rádio.
+> 2. **TODO `module-pipe-source` NASCE `Mute: yes`** nesta versão (PipeWire
+>    1.6.8) — e não é estado restaurado: um nome sorteado, que nunca existiu,
+>    nasce mudo igual. **Mudo ele entrega BYTES, não silêncio**: 192 KB de zeros,
+>    que se leem como *"a ponte não está entregando áudio"*. Com o
+>    `set-source-mute … 0`, os mesmos 192 KB trazem o tom. **O MESMO DEFEITO ESTÁ
+>    VIVO NA PONTE DE RÁDIO**, que publica pelo mesmo mecanismo e não desmuta —
+>    RELATADO, não curado: aquele arquivo é do `nao_toca`.
+> 3. **O `source_properties` do `load-module` perde tudo depois do primeiro
+>    espaço** quando não vem entre aspas duplas. Medido: `priority.session=1500`
+>    da ponte **nunca chega ao nó** (ele nasce com o 2000 padrão) e a descrição
+>    `'Microfone do controle 1'` chega como `Microfone`. Também da ponte,
+>    também RELATADO.
+> 4. **O `parec` nasce com `fragsize = 384000`** — quase quatro segundos. Sem
+>    `--latency-msec`, o primeiro byte sai aos **1,98 s**; com `=40`, aos
+>    **0,088 s**. Dois segundos de silêncio depois do botão se leem como *"não
+>    funcionou"*.
+>
+> **E UMA REGRESSÃO QUE ESTA SPRINT CRIOU E CUROU NO MESMO DIA:** batizar o nó de
+> `hefesto_mic_<hex6>` põe a palavra `hefesto` na linha de comando de **todo app
+> dela que grave dele** (`obs --record --device=hefesto_mic_000001`), e
+> `descende_do_hefesto` passava a dizer que o OBS era nosso — **a luz nunca
+> acenderia para o canal que a sprint inteira existe para construir.** O mesmo
+> app no nó ALSA antigo dava `False`. Curado com uma poda dos nossos prefixos de
+> nó, lida do dono.
+>
+> **O QUE FICA PARA A ONDA5-MIC-VIRTUAL-02** (e nada disto era desta sprint —
+> `eleicao_de_microfone.py` está no `nao_toca` acima):
+>
+> * **o GESTO**: `pedir_canal` chamar `canal_do_microfone.abrir(uniq, …, fonte=…)`
+>   quando o transporte for cabo. A dívida está declarada no `casa-sabe` com
+>   endereço e razão;
+> * o rádio alimentando o mesmo nó por `escrever`;
+> * o `0x32` e o alimentador seguindo SUSPENDED/RUNNING da source — hoje o nó
+>   ALSA do cabo fica RUNNING enquanto o canal existe, mesmo sem ouvinte;
+> * o mudo de fábrica e o `source_properties` truncado da ponte de rádio.
+>
+> **Sete mordidas coladas** em `docs/process/agentes/2026-09-06/ONDA5-MIC-VIRTUAL-01.md`,
+> e **43 portões VERDES** — a branch foi adiantada de `ec6811aa` para
+> `da54beb5` no fim, porque os dois únicos vermelhos que ela via
+> (`referencias-docs` e `acentuacao`) eram herdados da base velha e já estavam
+> curados na nova.
 
 **Esta sprint é DEFEITO, não desenho.** Ela não redige uma frase melhor: ela
 constrói o canal que ela nomeou. O princípio que a manda existir está em
