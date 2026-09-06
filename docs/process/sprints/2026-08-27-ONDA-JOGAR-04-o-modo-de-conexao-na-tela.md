@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-JOGAR-04
+estado: absorvida
 posse:
   J4:
     - src/hefesto_dualsense4unix/app/actions/jogar/modo_de_conexao.py
@@ -14,6 +15,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/ponte_escada.py
   - src/hefesto_dualsense4unix/app/actions/home_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 01). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA JOGAR · 04 — o Modo de conexão na tela
 

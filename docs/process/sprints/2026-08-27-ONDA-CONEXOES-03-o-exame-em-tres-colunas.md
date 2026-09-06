@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-03
+estado: absorvida
 posse:
   A3:
     - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
@@ -17,6 +18,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/exame_da_mesa.py
   - src/hefesto_dualsense4unix/integrations/ordens_da_mesa.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 03 — o exame em duas colunas
 

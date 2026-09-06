@@ -1,5 +1,6 @@
 ---
 sprint: A-CASA-ARRUMADA-01
+estado: feita
 posse:
   HTML:
     - html/
@@ -27,6 +28,8 @@ nao_toca:
 depois_de:
   - IDENTIDADE-01
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # A CASA ARRUMADA · 01 — um HTML só, e a raiz limpa
 

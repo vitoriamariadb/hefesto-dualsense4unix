@@ -1,4 +1,11 @@
+---
+sprint: MIC-DA-MESA-ELEICAO-01
+estado: absorvida
+---
+
 # MIC-DA-MESA-ELEICAO-01 — o botão que ELEGE em vez de calar
+
+> **ESTADO 06/09/2026: absorvida** — o que ficou pela metade (o rádio) é a ONDA5-MIC-VIRTUAL-01 e a MIC-VIRTUAL-02 do plano das 24 horas. Não se despacha pelo id.
 
 **01/09/2026.** Decisão dela, com as palavras dela:
 

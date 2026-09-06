@@ -1,4 +1,11 @@
+---
+sprint: ROTA-F
+estado: feita
+---
+
 # ONDA F — a aba Lançadores
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **FECHADA em 02/09/2026.** O que este documento tinha como plano está abaixo da
 linha; acima está o que a execução MEDIU — e ela derrubou quatro afirmações.

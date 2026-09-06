@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-VIBRACAO-07
+estado: absorvida
 onda: MIGRA-VIBRACAO
 posse:
   MV7:
@@ -37,6 +38,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 05). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA VIBRAÇÃO · 07 — o desenho treme ao vivo, por lado e por coluna
 

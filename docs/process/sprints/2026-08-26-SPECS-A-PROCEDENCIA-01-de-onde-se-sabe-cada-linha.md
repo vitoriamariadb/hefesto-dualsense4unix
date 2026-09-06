@@ -1,5 +1,6 @@
 ---
 sprint: SPECS-A-PROCEDENCIA-01
+estado: aberta
 posse:
   P1:
     - docs/data/mapa-controles.csv
@@ -16,10 +17,13 @@ depois_de:
   - A-CASA-ARRUMADA-01      # scripts/gerar-mapa.py: ela chegou antes, e já fechou
   - COOP-NA-CONEXAO-NATIVA-01  # os dois CSV: ela mede, esta sprint só anota de onde se sabe
   - RESERVA-DO-POSTO-01     # idem — medição vem antes de procedência
+  - MESA-DE-QUATRO-01
 nao_toca:
   - src/hefesto_dualsense4unix/
   - html/specs.html
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — a condição é dela: depois de a interface estar igual ao desenho e funcionando.
 
 # SPECS · A PROCEDÊNCIA DE CADA LINHA — 01
 

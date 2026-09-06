@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-01-03
+estado: aberta
 posse:
   01-Q3:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py

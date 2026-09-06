@@ -1,6 +1,7 @@
 ---
 # onda: GATILHOS  (o portão ainda não conhece o campo `onda:` — ver o índice)
 sprint: ONDA-GATILHOS-01
+estado: absorvida
 posse:
   G1:
     - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
@@ -13,6 +14,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/app/actions/trigger_specs.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA GATILHOS · 01 — o "Desligado" que não desliga
 

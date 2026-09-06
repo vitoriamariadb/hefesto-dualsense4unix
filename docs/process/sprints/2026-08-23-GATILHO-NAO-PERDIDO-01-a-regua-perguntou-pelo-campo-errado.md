@@ -1,5 +1,6 @@
 ---
 sprint: GATILHO-NAO-PERDIDO-01
+estado: feita
 posse:
   E4:
     - src/hefesto_dualsense4unix/app/actions/trigger_specs.py
@@ -13,6 +14,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
   - docs/data/decisoes-dela.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
+
 # GATILHO-NÃO-PERDIDO-01 — a régua perguntou pelo campo errado
 
 > ## FECHADA — nota datada de 25/08/2026 (E4)

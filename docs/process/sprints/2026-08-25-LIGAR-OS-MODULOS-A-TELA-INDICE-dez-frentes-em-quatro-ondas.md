@@ -1,5 +1,6 @@
 ---
 sprint: LIGAR-OS-MODULOS-A-TELA
+estado: absorvida
 posse:
   QUEM-COORDENA:
     - docs/process/sprints/2026-08-25-LIGAR-OS-MODULOS-A-TELA-INDICE-dez-frentes-em-quatro-ondas.md
@@ -11,6 +12,8 @@ depois_de: []
 nao_toca:
   - src/hefesto_dualsense4unix/
 ---
+
+> **ESTADO 06/09/2026: absorvida** — ligava módulos à janela GTK; a tela é o HTML desde 02/09 e a janela GTK sai nas 24 horas (D-19). Não se despacha pelo id.
 
 # LIGAR OS MÓDULOS À TELA — dez frentes em quatro ondas
 

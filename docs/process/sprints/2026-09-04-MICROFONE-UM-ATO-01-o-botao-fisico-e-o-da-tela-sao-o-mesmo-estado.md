@@ -1,4 +1,11 @@
+---
+sprint: MICROFONE-UM-ATO-01
+estado: feita
+---
+
 # MICROFONE-UM-ATO-01 — o botão físico e o da tela são o mesmo estado
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Decisão dela, 04/09/2026, meio-dia:** *"o microfone (…) o botão fisico do <!-- noqa-acento: citação literal dela -->
 > mic se ligado no microfone ele fica ligado tambem. indepente se nativo ou virtual."* <!-- noqa-acento: citação literal dela -->

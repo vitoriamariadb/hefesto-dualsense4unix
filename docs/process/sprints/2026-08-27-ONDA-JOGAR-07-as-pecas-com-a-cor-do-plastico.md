@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-JOGAR-07
+estado: absorvida
 posse:
   J7:
     - src/hefesto_dualsense4unix/app/actions/jogar/pecas_na_mesa.py
@@ -34,6 +35,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/status_actions.py
   - assets/control-svg/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 01). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA JOGAR · 07 — as peças com a cor do plástico
 

@@ -1,5 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-03
+estado: aberta
 onda: QUEM-E-QUEM
 posse:
   QQ03:
@@ -17,6 +18,8 @@ nao_toca:
   - novo-layout/
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 
 # QUEM É QUEM · 03 — as nove features têm dono, e a conta sai da mão
 

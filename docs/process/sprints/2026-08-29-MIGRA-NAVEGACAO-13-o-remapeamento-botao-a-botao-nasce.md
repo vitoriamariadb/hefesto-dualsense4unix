@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-NAVEGACAO-13
+estado: absorvida
 onda: MIGRA-NAVEGACAO
 posse:
   NAV6-REMAP:
@@ -34,6 +35,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/uinput_mouse.py
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 06). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA NAVEGAÇÃO · 13 — O remapeamento botão a botão nasce, e ele vale antes de o jogo ver
 

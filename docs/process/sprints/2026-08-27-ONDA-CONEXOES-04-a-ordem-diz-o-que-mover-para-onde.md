@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-04
+estado: absorvida
 posse:
   A4:
     - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
@@ -22,6 +23,8 @@ nao_toca:
   # ("cinco frentes o tocariam; cada uma entrega um manifesto").
   - tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 04 — a ordem diz o que mover para onde
 

@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-12
+estado: absorvida
 onda: CONEXOES
 posse:
   A12:
@@ -26,6 +27,8 @@ nao_toca:
   - scripts/check_cores_do_dualsense.py
   - src/hefesto_dualsense4unix/app/widgets/external_card.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 12 — as vinte e oito cores e as dez zonas chegam ao produto
 

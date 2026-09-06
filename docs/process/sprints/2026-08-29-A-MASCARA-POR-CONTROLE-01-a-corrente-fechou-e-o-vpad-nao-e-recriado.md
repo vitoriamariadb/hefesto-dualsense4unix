@@ -1,4 +1,11 @@
+---
+sprint: A-MASCARA-POR-CONTROLE-01
+estado: feita
+---
+
 # A MÁSCARA POR CONTROLE — 01: a corrente fechou, e o vpad não é recriado
+
+> **ESTADO 06/09/2026: feita** — a corrente fechou em 29/08 (este arquivo).
 
 **29/08/2026.** Decisão dela: `D-A-MASCARA-POR-CONTROLE-VALE-NO-APLICAR` — *"a
 máscara por controle vale ao clicar em Aplicar, mesmo com jogo aberto. Ela assume

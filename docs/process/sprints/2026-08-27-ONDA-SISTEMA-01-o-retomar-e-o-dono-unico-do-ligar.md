@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-SISTEMA-01
+estado: absorvida
 # onda: SISTEMA  (o campo `onda:` NÃO existe em check_colisao_de_sprints.py:81 —
 #                 declarar como chave reprova com "campo desconhecido")
 posse:
@@ -26,6 +27,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/app.py
   - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 09). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA SISTEMA · 01 — O Retomar, e o Ligar/Desligar com um dono só
 

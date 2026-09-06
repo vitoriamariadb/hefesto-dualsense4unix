@@ -1,5 +1,6 @@
 ---
 sprint: O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01
+estado: aberta
 onda: MIGRA-NAVEGACAO
 posse:
   TECSAI:
@@ -28,6 +29,8 @@ nao_toca:
   - layout/
   - docs/usage/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
 
 # O TECLADO QUE NÃO DIZ COMO SAIR · 01 — o L3 abre, e a tela cala
 

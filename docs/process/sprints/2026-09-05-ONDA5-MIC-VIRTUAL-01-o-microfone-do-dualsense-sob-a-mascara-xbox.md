@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-MIC-VIRTUAL-01
+estado: aberta
 posse:
   M:
     - src/hefesto_dualsense4unix/integrations/fontes_de_captura.py

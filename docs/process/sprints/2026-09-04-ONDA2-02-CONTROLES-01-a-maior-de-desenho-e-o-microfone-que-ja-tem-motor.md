@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-02-CONTROLES-01
+estado: feita
 posse:
   A02:
     - src/hefesto_dualsense4unix/interface/aba02.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba09.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-02 · A ABA CONTROLES — vinte decisões, e o motor do som já está pronto
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba02.py`, o pacote `a02_controles.py`, o desenho `mockup/02-controles.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

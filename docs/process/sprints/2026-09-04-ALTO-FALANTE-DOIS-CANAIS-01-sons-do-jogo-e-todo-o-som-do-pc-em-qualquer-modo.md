@@ -1,4 +1,11 @@
+---
+sprint: ALTO-FALANTE-DOIS-CANAIS-01
+estado: feita
+---
+
 # ALTO-FALANTE-DOIS-CANAIS-01 — "Sons do jogo" e "Todo o som do PC", em qualquer modo
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Decisão dela, 04/09/2026, meio-dia:** *"sons do pc e sons do jogo. veja como
 > fizemo no gtk. ele tem uma funcionalidade."* <!-- noqa-acento: citação literal dela -->

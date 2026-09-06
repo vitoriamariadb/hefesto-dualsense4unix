@@ -1,4 +1,11 @@
+---
+sprint: PINTOR-MARCADO-01
+estado: feita
+---
+
 # PINTOR-MARCADO-01 — o décimo alvo do pintor
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Decisão dela, 04/09/2026, tarde:** opção **a** — *décimo alvo `marcado`*.
 

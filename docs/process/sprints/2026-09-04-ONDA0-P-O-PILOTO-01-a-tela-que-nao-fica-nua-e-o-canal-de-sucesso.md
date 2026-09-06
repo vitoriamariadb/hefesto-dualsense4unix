@@ -1,5 +1,6 @@
 ---
 sprint: ONDA0-P-O-PILOTO-01
+estado: feita
 posse:
   P:
     - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
@@ -21,6 +22,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/ipc_bridge.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — S-01 FEITA e a T-01 fechada (índice da ONDA QUATRO; plano das 24 horas, §1).
 
 # ONDA0-P · O PILOTO — a tela que não fica nua, e o canal que só sabia recusar
 

@@ -1,5 +1,6 @@
 ---
 sprint: ONDA4-S10-O-TRANSPORTE-01
+estado: aberta
 posse:
   T:
     - src/hefesto_dualsense4unix/interface/mesa_viva.py

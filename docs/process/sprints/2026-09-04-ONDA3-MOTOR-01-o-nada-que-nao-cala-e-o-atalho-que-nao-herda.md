@@ -1,5 +1,6 @@
 ---
 sprint: ONDA3-MOTOR-01
+estado: aberta
 onda: 3
 posse:
   MOTOR:
@@ -11,12 +12,10 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a06_navegacao.py
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - docs/data/paridade-gtk-html.csv
-depois_de:
-  - LEVA-DE-BACKGROUND-01
-  - LEVA-3
-  - ONDA-NAVEGACAO-04
-  - MIGRA-CONEXOES-11
+depois_de: [ONDA5-06-01]
 ---
+
+> **ROTA 06/09/2026:** `estado: aberta`, ONDA B do plano das 24 horas — é o MOTOR da aba 06 (o `— Nada —` que não cala seis linhas e o `resolver()` que não herda `key_bindings`); a NAVEGACAO-TECLAS-01 (ONDA C) é a tela e espera por esta. `depois_de` passou a ser só a ONDA5-06-01 (mesmos `core/acoes_de_botao.py` e `profiles/manager.py`); os quatro ids antigos estão fechados.
 
 # O `— Nada —` que não cala seis linhas, e o atalho que não herda
 

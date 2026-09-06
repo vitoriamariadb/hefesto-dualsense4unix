@@ -1,5 +1,6 @@
 ---
 sprint: RESERVA-DO-POSTO-01
+estado: aberta
 posse:
   # A constante e o caderno. `backend_pydualsense.py` colide com a
   # COOP-QUE-NAO-DESMONTA-01, que é quem a criou hoje — o `depois_de` abaixo
@@ -21,8 +22,11 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/
 depois_de:
   - COOP-QUE-NAO-DESMONTA-01
+  - MESA-DE-QUATRO-01
 bancada: true
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
 # RESERVA DO POSTO-01 — trinta segundos que ninguém cronometrou
 

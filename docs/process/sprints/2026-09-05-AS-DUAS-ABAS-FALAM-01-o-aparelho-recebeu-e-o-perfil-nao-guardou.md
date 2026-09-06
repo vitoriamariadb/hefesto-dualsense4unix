@@ -1,5 +1,6 @@
 ---
 sprint: AS-DUAS-ABAS-FALAM-01
+estado: aberta
 posse:
   D17:
     - src/hefesto_dualsense4unix/interface/pacotes/a03_gatilhos.py

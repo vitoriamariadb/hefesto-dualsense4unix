@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-05-02
+estado: aberta
 decisoes: [05-Q6]
 posse:
   A05P:

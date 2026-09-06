@@ -2,6 +2,7 @@
 # onda: NAVEGACAO  (o campo `onda:` não existe no analisador de
 # `scripts/check_colisao_de_sprints.py:80` — vai como comentário até ele existir)
 sprint: ONDA-NAVEGACAO-07
+estado: absorvida
 posse:
   NAV-G:
     - src/hefesto_dualsense4unix/gui/main.glade
@@ -35,6 +36,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/mouse_actions.py
   - src/hefesto_dualsense4unix/app/app.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 06). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA NAVEGAÇÃO · 07 — As três tabelas viram dropdown
 

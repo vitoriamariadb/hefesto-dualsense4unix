@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-VIBRACAO-01
+estado: absorvida
 # onda: ABA-VIBRACAO
 posse:
   V1:
@@ -22,6 +23,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/rumble_actions.py
   - assets/control-svg/dualsense.svg
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 05). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA VIBRAÇÃO · 01 — o desenho que nunca teve tela
 

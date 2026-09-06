@@ -1,4 +1,11 @@
+---
+sprint: AJUSTE-PROPRIO-DESALINHADO-01
+estado: feita
+---
+
 # A coluna "Ajuste próprio" diz o que o disco não guarda
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 **04/09/2026, achado do coordenador ao conferir a ONDA-G.** Não estava em fila
 nenhuma, e é da família que esta casa persegue: **a tela afirmando o que não é.**

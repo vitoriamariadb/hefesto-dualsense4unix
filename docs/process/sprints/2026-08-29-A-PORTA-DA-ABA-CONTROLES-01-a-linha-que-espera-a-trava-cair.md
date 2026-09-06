@@ -1,10 +1,13 @@
 ---
 sprint: A-PORTA-DA-ABA-CONTROLES-01
+estado: feita
 onda: A-PORTA-DA-ABA-CONTROLES
 posse:
   P1:
     - src/hefesto_dualsense4unix/interface/aba02.py
 ---
+
+> **ESTADO 06/09/2026: feita** — `interface/aba02.py` abre a porta para o `mapa-do-controle`.
 
 **ESPERA A TRAVA CAIR.** O `aba02.py` estava travado por uma leva em voo em
 29/08 — esta sprint é a linha exata a colar quando ele soltar.

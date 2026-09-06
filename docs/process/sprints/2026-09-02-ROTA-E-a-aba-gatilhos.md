@@ -1,4 +1,11 @@
+---
+sprint: ROTA-E
+estado: feita
+---
+
 # ONDA E — a aba Gatilhos
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **ESPERA A ONDA B.** Sem ela, esta aba escreve 24 campos à mão por cima de
 quatro funções duplicadas — e a segunda verdade fica embaixo.

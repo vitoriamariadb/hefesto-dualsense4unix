@@ -1,5 +1,6 @@
 ---
 sprint: LEVA-1
+estado: feita
 posse:
   A:
     - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
@@ -70,6 +71,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/ipc_bridge.py
   - docs/usage/assets
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # LEVA 1 — o que dói enquanto ela joga
 

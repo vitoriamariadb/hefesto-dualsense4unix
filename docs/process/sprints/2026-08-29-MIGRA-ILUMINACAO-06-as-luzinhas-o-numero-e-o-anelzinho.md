@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-ILUMINACAO-06
+estado: absorvida
 onda: MIGRA-ILUMINACAO
 posse:
   IL6:
@@ -33,6 +34,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 04). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA ILUMINAÇÃO · 06 — As luzinhas, o número e o anelzinho
 

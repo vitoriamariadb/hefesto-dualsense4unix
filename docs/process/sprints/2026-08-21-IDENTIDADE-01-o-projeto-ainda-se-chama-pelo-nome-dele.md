@@ -1,5 +1,6 @@
 ---
 sprint: IDENTIDADE-01
+estado: aberta
 posse:
   # Declarado em 25/08/2026, quando ela CONFIRMOU o id decidido em 21/08 e as
   # Fases 2 e 3 saíram do bloqueio. A posse é larga porque a migração é larga:
@@ -27,6 +28,7 @@ nao_toca:
   - tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py
   - tests/conftest.py
 depois_de:
+  - PERFIS-SAO-PERFIS-01
   # As duas JÁ FECHARAM e estão em `dev` (BG-04 e G7, 25/08). Declarar o
   # `depois_de` não adia nada — registra que esta frente escreve POR CIMA do
   # que elas deixaram, e não ao lado. Quem migrar o app-id vai encontrar os
@@ -35,6 +37,8 @@ depois_de:
   - LEVA-DE-BACKGROUND-01
   - MOTOR-DO-ARRANJO-01
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — empacotamento; espera a PERFIS-SAO-PERFIS-01 porque as duas tocam `assets/`.
 
 # IDENTIDADE-01 — o projeto ainda se chama pelo nome dele
 

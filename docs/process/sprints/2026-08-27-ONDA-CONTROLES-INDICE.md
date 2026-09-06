@@ -1,5 +1,7 @@
 # ONDA CONTROLES — o índice
 
+> **06/09/2026 — ESTA ONDA FOI ABSORVIDA.** As sprints deste índice estão `estado: absorvida`: a tela é o HTML desde 02/09, a fila é o `docs/data/paridade-gtk-html.csv` (aba 02) e a ordem de agora é [AS VINTE E QUATRO HORAS](../2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md). O que este índice mediu continua valendo como diagnóstico; nada aqui se despacha pelo id.
+
 **27/08/2026.** As nove sprints que levam a aba **Controles** do produto de hoje
 até o mockup que ela aprovou, do frontal ao backend.
 

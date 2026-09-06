@@ -1,5 +1,6 @@
 ---
 sprint: MOTOR-DO-ARRANJO-01
+estado: aberta
 posse:
   # O motor e o censo. Traduzido em 25/08/2026 do bloco em prosa da §9, que
   # `check_colisao_de_sprints.py` não conseguia ler — o formato dele é o
@@ -36,6 +37,8 @@ depois_de:
   # A faxina de 27/08 apagou daqui: CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
 bancada: false
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — espera a `D-QUAL-REGUA-MANDA-NO-ARRANJO`, que é dela.
 
 # MOTOR DO ARRANJO-01 — o cálculo que só existe num mockup
 

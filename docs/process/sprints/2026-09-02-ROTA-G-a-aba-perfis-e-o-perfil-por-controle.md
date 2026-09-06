@@ -1,4 +1,11 @@
+---
+sprint: ROTA-G
+estado: absorvida
+---
+
 # ONDA G — a aba Perfis, e o perfil por controle
+
+> **ESTADO 06/09/2026: absorvida** — pelas ONDA5-10-01/02/03 e pela PERFIL-MODO-01 do plano das 24 horas. Não se despacha pelo id.
 
 **ESPERA A ONDA A** — a tabela de controles precisa dos NOMES que a identidade
 vai publicar.

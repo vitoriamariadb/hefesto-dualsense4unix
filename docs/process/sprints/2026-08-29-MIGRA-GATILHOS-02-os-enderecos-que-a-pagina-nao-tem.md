@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-GATILHOS-02
+estado: absorvida
 onda: MIGRA-GATILHOS
 posse:
   M2:
@@ -14,6 +15,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/topo.html
   - src/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA GATILHOS · 02 — os endereços que a página não tem
 

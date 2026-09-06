@@ -1,5 +1,6 @@
 ---
 sprint: LEVA-2
+estado: feita
 posse:
   A:
     - src/hefesto_dualsense4unix/integrations/hotkey_daemon.py
@@ -92,6 +93,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/sanidade.py
   - src/hefesto_dualsense4unix/utils/repo_files.py
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # LEVA 2 — o que mente na tela, e o que não volta
 

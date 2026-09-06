@@ -1,5 +1,6 @@
 ---
 sprint: BATERIA-PARADA-01
+estado: aberta
 posse:
   B1:
     - src/hefesto_dualsense4unix/daemon/lifecycle.py
@@ -21,6 +22,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - docs/data/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — a bancada dos quatro remede (o CSV diz IGUAL para a bateria no cartão; o que ela viu foi o número parado no tempo).
 
 # BATERIA PARADA · 01 — o número que nunca muda
 

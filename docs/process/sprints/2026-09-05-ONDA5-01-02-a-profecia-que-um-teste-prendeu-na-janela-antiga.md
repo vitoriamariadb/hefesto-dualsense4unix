@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-01-02
+estado: aberta
 posse:
   01-Q1:
     - src/hefesto_dualsense4unix/app/actions/home_actions.py

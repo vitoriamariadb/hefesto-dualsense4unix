@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-SISTEMA-02
+estado: absorvida
 # onda: SISTEMA
 posse:
   S2:
@@ -30,6 +31,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - src/hefesto_dualsense4unix/integrations/storm_doctor.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 09). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA SISTEMA · 02 — O gamepad virtual muda-se da Emulação
 

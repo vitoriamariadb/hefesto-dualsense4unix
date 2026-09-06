@@ -1,4 +1,11 @@
+---
+sprint: ROTA-D
+estado: feita
+---
+
 # ONDA D — os dezesseis que dizem "aplicado" e não aplicam
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 ## O QUE FOI MEDIDO
 

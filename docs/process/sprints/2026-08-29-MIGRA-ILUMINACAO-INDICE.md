@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-ILUMINACAO-INDICE
+estado: absorvida
 onda: MIGRA-ILUMINACAO
 posse:
   QUEM-COORDENA:
@@ -12,6 +13,8 @@ nao_toca:
   - tests/
   - novo-layout/
 ---
+
+> **06/09/2026 — ESTA ONDA FOI ABSORVIDA.** As sprints deste índice estão `estado: absorvida` (as do enxerto na janela GTK, `caducou`): a tela é o HTML desde 02/09, a fila é o `docs/data/paridade-gtk-html.csv` (aba 04) e a ordem de agora é [AS VINTE E QUATRO HORAS](../2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md). O que este índice mediu continua valendo como diagnóstico; nada aqui se despacha pelo id.
 
 # MIGRA ILUMINAÇÃO — o índice
 

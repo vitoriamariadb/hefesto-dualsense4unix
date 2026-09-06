@@ -1,5 +1,6 @@
 ---
 sprint: EMULACAO-UM-DONO-SO-01
+estado: caducou
 posse:
   E1:
     - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
@@ -15,6 +16,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/app.py
   - docs/data/decisoes-dela.csv
 ---
+
+> **ESTADO 06/09/2026: caducou** — a aba Emulação morreu com a tira GTK; a máscara única por controle entrou em 29/08 (A-MASCARA-POR-CONTROLE-01) e o resto é linha da aba 01 no CSV.
+
 # EMULAÇÃO — UM DONO SÓ-01 — a máscara com cinco donos, e o verde que não tem alvo
 
 **24/08/2026.** **Onda 5 · Emulação** da leva das onze abas ([SPRINT_ORDER §0.3](../SPRINT_ORDER.md)).

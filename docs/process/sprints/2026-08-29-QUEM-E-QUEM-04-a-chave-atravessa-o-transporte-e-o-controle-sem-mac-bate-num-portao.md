@@ -1,5 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-04
+estado: aberta
 onda: QUEM-E-QUEM
 posse:
   QQ04:
@@ -31,6 +32,8 @@ nao_toca:
   - novo-layout/
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 
 # QUEM É QUEM · 04 — a chave atravessa o transporte, e o controle sem MAC bate num portão
 

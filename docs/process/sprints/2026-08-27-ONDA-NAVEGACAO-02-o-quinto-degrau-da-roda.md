@@ -2,6 +2,7 @@
 # onda: NAVEGACAO  (o campo `onda:` não existe no analisador de
 # `scripts/check_colisao_de_sprints.py:80` — vai como comentário até ele existir)
 sprint: ONDA-NAVEGACAO-02
+estado: absorvida
 posse:
   NAV-B:
     - src/hefesto_dualsense4unix/integrations/ponte_escada.py
@@ -21,6 +22,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/
   - src/hefesto_dualsense4unix/integrations/hotkey_daemon.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 06). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA NAVEGAÇÃO · 02 — O quinto degrau da roda
 

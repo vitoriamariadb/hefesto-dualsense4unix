@@ -1,5 +1,6 @@
 ---
 sprint: ORDEM-DE-SERVICO-01
+estado: feita
 posse:
   # A chave é o código do agente — o portão recusa lista solta, e com razão:
   # posse sem dono é o defeito que o formato existe para matar.
@@ -26,6 +27,8 @@ depois_de:
   # A faxina de 27/08 apagou daqui: PORTAS-DA-CASA-01, CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
 bancada: false
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 > **▲ DUAS DECISÕES FECHARAM DEPOIS QUE ESTA SPRINT FOI ESCRITA, e elas mandam
 > nela.** Leia antes de executar qualquer tarefa — o corpo abaixo ainda não foi

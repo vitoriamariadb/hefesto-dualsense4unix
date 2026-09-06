@@ -1,4 +1,11 @@
+---
+sprint: SENSOR-DE-VERDADE-01
+estado: feita
+---
+
 # SENSOR-DE-VERDADE-01 — giroscópio e acelerômetro desligam de verdade, em qualquer modo
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Decisão dela, 04/09/2026, tarde:** *"ele tem que funcionar de verdade.
 > ambos independente do modo e da mascara."* <!-- noqa-acento: citação literal dela -->

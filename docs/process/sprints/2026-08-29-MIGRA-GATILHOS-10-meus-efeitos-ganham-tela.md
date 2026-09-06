@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-GATILHOS-10
+estado: absorvida
 onda: MIGRA-GATILHOS
 posse:
   M10:
@@ -44,6 +45,8 @@ nao_toca:
   # 2026-08-25-LIGAR-OS-MODULOS-A-TELA-INDICE-dez-frentes-em-quatro-ondas.md).
   - tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA GATILHOS · 10 — "Meus efeitos" ganham tela
 

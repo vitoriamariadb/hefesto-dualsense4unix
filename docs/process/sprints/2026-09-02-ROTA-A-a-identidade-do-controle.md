@@ -1,4 +1,11 @@
+---
+sprint: ROTA-A
+estado: feita
+---
+
 # ONDA A — a identidade do controle
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **A raiz de metade do que ela viu.** Leia o
 [índice da rota](2026-09-02-ROTA-DO-HTML-INDICE.md) antes.

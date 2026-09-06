@@ -3,7 +3,7 @@
 **04/09/2026.** Levantadas por um agente que leu as linhas abertas desta aba no
 `docs/data/paridade-gtk-html.csv` e as transformou em escolhas.
 
-**ELAS NÃO ESTÃO RESPONDIDAS.** São a fila da próxima conversa, no formato que
+**RESPONDIDAS — pelo PO em 04/09 ([O PO DECIDE AS 54](../2026-09-04-O-PO-DECIDE-as-54-e-os-sete-conflitos.md)) e por ela em 05/09 (a [ONDA CINCO](2026-09-05-ONDA-CINCO-INDICE.md)); este arquivo é o registro das opções.** Eram a fila da conversa seguinte, no formato que
 ela pediu: *"um ponto por vez, o próximo depois do OK dela"*. As dezesseis que
 ela JÁ respondeu estão em
 [`2026-09-04-AS-DEZESSEIS-DECISOES-DELA`](../2026-09-04-AS-DEZESSEIS-DECISOES-DELA-e-as-sprints-que-nascem.md)

@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-JOGAR-02
+estado: absorvida
 onda: MIGRA-JOGAR
 posse:
   J2:
@@ -21,6 +22,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/fim.html
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 01). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA JOGAR · 02 — a aba 01 ganha gerador, e o HTML passa a viajar
 

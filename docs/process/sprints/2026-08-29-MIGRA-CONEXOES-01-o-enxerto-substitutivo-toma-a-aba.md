@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-CONEXOES-01
+estado: caducou
 onda: MIGRA-CONEXOES
 posse:
   M1:
@@ -37,6 +38,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
   - src/hefesto_dualsense4unix/daemon/
 ---
+
+> **ESTADO 06/09/2026: caducou.** O enxerto da página dentro da janela GTK morreu: o produto é a janela HTML (`interface/hefesto_vivo.py`), e a janela GTK sai nas 24 horas (D-19, liberada por ela em 06/09). Fica como registro do que se mediu.
 
 # MIGRA CONEXÕES · 01 — o enxerto substitutivo toma a aba
 

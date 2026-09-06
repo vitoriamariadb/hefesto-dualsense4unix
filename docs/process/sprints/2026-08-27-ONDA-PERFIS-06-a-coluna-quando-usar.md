@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-PERFIS-06
+estado: absorvida
 # onda: PERFIS
 posse:
   P6:
@@ -18,6 +19,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 10). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA PERFIS · 06 — a coluna "Quando usar" diz o ambiente e o alvo
 

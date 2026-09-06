@@ -1,5 +1,6 @@
 ---
 sprint: A-JANELA-GTK-SE-APOSENTA-DEPOIS-01
+estado: aberta
 posse:
   PLANO:
     - docs/process/sprints/2026-09-05-A-JANELA-GTK-SE-APOSENTA-DEPOIS-01-o-plano-e-a-data-em-que-ele-parou.md
@@ -13,10 +14,18 @@ nao_toca:
 
 # D-19 · A janela GTK se aposenta DEPOIS, em leva própria
 
-> **PARADA POR DECISÃO DELA, 05/09/2026.** Ninguém executa nada deste arquivo
-> hoje. Ele é o PLANO e a ORDEM — o que se mede antes, o que se desata antes, e
-> o que só então se apaga. Quem abrir uma tarefa a partir daqui sem a palavra
-> dela está furando a decisão.
+> **LIBERADA POR ELA EM 06/09/2026 — a leva INTEIRA, nas 24 horas.** Palavra
+> dela: *"a ideia sempre foi reaproveitar o que fiz no gtk e não apontar nada
+> mais pra lá mas pro html. só que o claude opus fez o contrário e isso foi
+> ficando aqui"*. <!-- noqa-acento: citação literal dela --> Os cinco passos abaixo viram
+> três sprints do orquestrador (GTK-1 inventário + portão "nada aponta para a
+> janela"; GTK-2 os dois leitores do glade ganham dono no motor; GTK-3 os 62
+> testes um a um, a remoção, `pyproject`/`packaging`/`install.sh`), na ordem de
+> `docs/process/2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md`.
+> **O motor (`app/actions/`, `app/widgets/`, `app/telas/`) fica: é reuso.**
+> A nota de 05/09 abaixo é história do porquê a ordem é esta.
+>
+> *(05/09/2026: parada por decisão dela; ninguém executava nada deste arquivo.)*
 
 **Por que ela não morre junto com a D-18:** nenhum lançador a abre, mas
 `app/actions/` é o **motor que a interface nova chama**. São coisas diferentes

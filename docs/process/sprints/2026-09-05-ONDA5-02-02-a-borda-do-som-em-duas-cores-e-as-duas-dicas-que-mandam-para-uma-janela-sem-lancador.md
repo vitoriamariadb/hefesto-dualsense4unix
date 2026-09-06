@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-02-02
+estado: aberta
 posse:
   02-Q9:
     - src/hefesto_dualsense4unix/interface/aba02.py

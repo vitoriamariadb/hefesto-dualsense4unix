@@ -1,5 +1,6 @@
 ---
 sprint: INFRA-DE-EXECUCAO-01
+estado: feita
 posse:
   A1:
     - scripts/despachar-agente.sh
@@ -30,6 +31,8 @@ nao_toca:
   - scripts/hooks/pre-commit
   - .pre-commit-config.yaml
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # INFRA DE EXECUÇÃO · 01 — o registro do que está em voo
 

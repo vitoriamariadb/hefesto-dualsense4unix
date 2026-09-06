@@ -1,6 +1,10 @@
 ---
+sprint: MIGRA-A-ORDEM
+estado: absorvida
 cria: nenhum módulo — este documento ordena, não constrói
 ---
+
+> **ESTADO 06/09/2026: absorvida** — pela ROTA DO HTML (02/09) e pelo plano das 24 horas (06/09). Não se despacha pelo id.
 
 # A ORDEM DAS DEZ ABAS — por onde o transplante entra, e o preço de cada posição
 

@@ -1,5 +1,6 @@
 ---
 sprint: A-INTERFACE-LIGADA
+estado: absorvida
 onda: MIGRA
 bancada: false
 nao_toca:
@@ -8,6 +9,8 @@ nao_toca:
   - install.sh
   - install-dev.sh
 ---
+
+> **ESTADO 06/09/2026: absorvida** — pela ROTA DO HTML (02/09). Não se despacha pelo id.
 
 # A interface ligada — plano de UMA HORA
 

@@ -1,6 +1,7 @@
 ---
 # onda: GATILHOS
 sprint: ONDA-GATILHOS-02
+estado: absorvida
 posse:
   G2:
     - src/hefesto_dualsense4unix/gui/main.glade
@@ -34,6 +35,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/footer_actions.py
   - src/hefesto_dualsense4unix/profiles/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA GATILHOS · 02 — um quadro só, e a tela que não pula
 

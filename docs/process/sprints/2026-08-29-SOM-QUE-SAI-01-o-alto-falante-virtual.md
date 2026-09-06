@@ -1,5 +1,6 @@
 ---
 sprint: SOM-QUE-SAI-01
+estado: aberta
 onda: CONTROLES
 posse:
   SQS:
@@ -29,6 +30,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.4 — áudio por rádio; o ensaio 1 da bancada vem antes (FECHO, com ela).
 
 # SOM QUE SAI · 01 — o alto-falante virtual, do sink ao byte no fio
 

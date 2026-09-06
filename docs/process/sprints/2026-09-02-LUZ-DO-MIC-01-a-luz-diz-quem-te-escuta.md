@@ -1,4 +1,11 @@
+---
+sprint: LUZ-DO-MIC-01
+estado: feita
+---
+
 # LUZ-DO-MIC-01 — a luz do microfone diz QUEM TE ESCUTA
+
+> **ESTADO 06/09/2026: feita** — a régua é `tests/unit/test_a_luz_do_mic_diz_quem_te_escuta.py`.
 
 > **Decisão dela, 02/09/2026, e ela nasceu de uma medição no aparelho.**
 > A luz do botão de mudo deixa de ser um espelho do mudo e passa a responder

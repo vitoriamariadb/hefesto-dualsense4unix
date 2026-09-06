@@ -1,5 +1,6 @@
 ---
 sprint: ONDA0-F-A-FOLHA-01
+estado: feita
 posse:
   F:
     - src/hefesto_dualsense4unix/interface/monta.py
@@ -23,6 +24,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba10.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — S-02 e S-03 FEITAS (índice da ONDA QUATRO).
 
 # ONDA0-F · A FOLHA — o botão cinza, e a linha que só nasce quando há o que dizer
 

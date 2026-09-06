@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-06
+estado: absorvida
 posse:
   A6:
     - src/hefesto_dualsense4unix/app/actions/config/secao_controles.py
@@ -20,6 +21,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/draft_config.py
   - src/hefesto_dualsense4unix/daemon/ipc_draft_applier.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 06 — o microfone muda de aba, e o botão dele ganha tela
 

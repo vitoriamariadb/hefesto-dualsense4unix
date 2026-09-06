@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-07-LANCADORES-01
+estado: feita
 posse:
   A07:
     - src/hefesto_dualsense4unix/interface/aba07.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba09.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-07 · A ABA LANÇADORES — o reparo manual sem caminho, e a frase que aponta o vazio
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba07.py`, o pacote `a07_lancadores.py`, o desenho `mockup/07-lancadores.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

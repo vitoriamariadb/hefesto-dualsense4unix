@@ -1,5 +1,6 @@
 ---
 sprint: DAEMON-ACORDADO-01
+estado: aberta
 posse:
   # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
   # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
@@ -14,6 +15,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
 depois_de:
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — o Passo 4 da A-TELA-SAMBA-01 mede o custo de `profile.list` (33 perfis com `FileLock` a cada ~3 s) e pode fechar parte disto.
 
 # DAEMON-ACORDADO-01 — quinze por cento de um núcleo sem ninguém jogando
 

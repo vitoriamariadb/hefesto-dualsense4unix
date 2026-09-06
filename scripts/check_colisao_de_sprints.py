@@ -60,6 +60,13 @@ Um bloco entre ``---`` no topo do arquivo de sprint::
              de proibi-la.
   nao_toca   o que esta sprint declara que NÃO é seu. É a metade que faltava.
   decisoes   quais decisões dela esta sprint responde (ex.: `01-Q1, 01-Q3`).
+  estado     aberta | feita | absorvida | caducou. Só `aberta` (o padrão) entra
+             no cruzamento de posse e pode ser despachada; as outras três são
+             registro. Nasceu em 06/09/2026: 591 arquivos de sprint e nenhum
+             campo que dissesse qual ainda vale.
+
+Uso:
+    scripts/check_colisao_de_sprints.py --abertas           só as `estado: aberta`
 
 Uso:
     scripts/check_colisao_de_sprints.py                 confere tudo
@@ -90,7 +97,14 @@ _CAMPOS_LISTA = ("cria", "depois_de", "nao_toca")
 # dizer QUAL delas responde para que o registro em
 # `docs/process/DECISOES-DELA-O-REGISTRO.md` tenha a outra ponta. Agrupa, não
 # restringe — o portão o LÊ e o ignora no cruzamento de posse.
-_CAMPOS_CONHECIDOS = ("sprint", "posse", "bancada", "onda", "decisoes", *_CAMPOS_LISTA)
+# `estado` nasceu em 06/09/2026, pela mesma porta: havia 591 arquivos de sprint,
+# sete filas empilhadas e nenhum campo que dissesse qual sprint ainda valia. O
+# despachante recusa o que não está `aberta`; o cruzamento de posse ignora o
+# que já fechou — duas sprints feitas "colidindo" é ruído, não achado.
+_ESTADOS = ("aberta", "feita", "absorvida", "caducou")
+_CAMPOS_CONHECIDOS = (
+    "sprint", "posse", "bancada", "onda", "decisoes", "estado", *_CAMPOS_LISTA
+)
 
 
 class FormatoInvalido(Exception):
@@ -188,7 +202,18 @@ def le_frontmatter(texto: str, onde: str = "<texto>") -> dict | None:
         dados.setdefault(campo, [])
     dados.setdefault("posse", {})
     dados.setdefault("bancada", "false")
+    estado = dados.setdefault("estado", "aberta")
+    if estado not in _ESTADOS:
+        raise FormatoInvalido(
+            f"{onde}: estado desconhecido {estado!r}. "
+            f"Os que existem são: {', '.join(_ESTADOS)}"
+        )
     return dados
+
+
+def aberta(dados: dict) -> bool:
+    """Só o que está `aberta` se despacha e disputa posse."""
+    return dados.get("estado", "aberta") == "aberta"
 
 
 def cobre(declarado: str, alvo: str) -> bool:
@@ -229,8 +254,14 @@ def _id_da_sprint(caminho: Path, dados: dict) -> str:
 
 
 def confere(anotadas: dict[Path, dict]) -> list[str]:
-    """As queixas. Lista vazia significa nenhuma colisão não declarada."""
+    """As queixas. Lista vazia significa nenhuma colisão não declarada.
+
+    Só as sprints ``aberta`` entram: uma feita não vai ser despachada, logo não
+    disputa arquivo com ninguém — e cruzá-la só produziria queixa sobre
+    trabalho que já aconteceu.
+    """
     queixas: list[str] = []
+    anotadas = {c: d for c, d in anotadas.items() if aberta(d)}
 
     for caminho, dados in sorted(anotadas.items()):
         contradiz = _comuns(reivindicacao(dados), set(dados.get("nao_toca", [])))
@@ -270,7 +301,8 @@ def carrega(pasta: Path) -> tuple[dict[Path, dict], list[Path], list[str]]:
     divida: list[Path] = []
     erros: list[str] = []
     for caminho in sorted(pasta.rglob("*.md")):
-        rel = caminho.relative_to(RAIZ)
+        # `--pasta` fora da raiz (o teste usa um diretório temporário) não é erro.
+        rel = caminho.relative_to(RAIZ) if caminho.is_relative_to(RAIZ) else caminho
         try:
             dados = le_frontmatter(caminho.read_text(encoding="utf-8"), str(rel))
         except FormatoInvalido as exc:
@@ -325,7 +357,12 @@ def _imprime_falha(titulo: str, linhas: list[str], rodape: str = "") -> None:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__ and __doc__.splitlines()[0])
     ap.add_argument("--divida", action="store_true", help="só a lista de dívida")
-    ap.add_argument("--exigir", metavar="ID", help="rc=1 se ESSA sprint não tem frontmatter")
+    ap.add_argument(
+        "--exigir",
+        metavar="ID",
+        help="rc=1 se ESSA sprint não tem frontmatter ou não está `estado: aberta`",
+    )
+    ap.add_argument("--abertas", action="store_true", help="só as sprints `estado: aberta`")
     ap.add_argument("--pasta", default=str(SPRINTS))
     args = ap.parse_args(argv)
 
@@ -351,7 +388,27 @@ def main(argv: list[str] | None = None) -> int:
                 file=sys.stderr,
             )
             return 1
-        print(f"OK: {args.exigir} declara posse.")
+        fechadas = [p for p in casam if p in anotadas and not aberta(anotadas[p])]
+        if fechadas:
+            print(
+                "ERRO: sprint que não está `estado: aberta` não se despacha:\n  "
+                + "\n  ".join(f"{p}  (estado: {anotadas[p]['estado']})" for p in fechadas)
+                + "\n\nSe o trabalho ainda falta, ele está numa linha do "
+                "docs/data/paridade-gtk-html.csv ou numa sprint aberta — "
+                "`--abertas` lista quais.",
+                file=sys.stderr,
+            )
+            return 1
+        print(f"OK: {args.exigir} declara posse e está aberta.")
+        return 0
+
+    if args.abertas:
+        vivas = sorted(
+            (_id_da_sprint(c, d), str(c)) for c, d in anotadas.items() if aberta(d)
+        )
+        for ident, caminho in vivas:
+            print(f"{ident}\t{caminho}")
+        print(f"\n{len(vivas)} sprint(s) aberta(s) de {len(anotadas)} com frontmatter.")
         return 0
 
     if args.divida:

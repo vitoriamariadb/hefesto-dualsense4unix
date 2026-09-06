@@ -1,5 +1,6 @@
 ---
 sprint: COOP-NA-CONEXAO-NATIVA-01
+estado: aberta
 posse:
   # A tela. É aqui que mora a maior parte do trabalho — o mecanismo (§3 e o fim
   # do §6) diz que o produto não tem como CRIAR jogador na Conexão Nativa; o
@@ -28,6 +29,7 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
   - install.sh
 depois_de:
+  - MESA-DE-QUATRO-01
   # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
   - BORDA-DE-QUEDA-01
@@ -38,6 +40,8 @@ depois_de:
   # serializada, como já fazem as outras quatro sprints de co-op.
 bancada: true
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
 # CO-OP NA CONEXÃO NATIVA-01 — o modo mais fiel é o único sem Jogador 2
 

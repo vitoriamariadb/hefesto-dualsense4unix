@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONTROLES-01
+estado: absorvida
 # onda: CONTROLES — o campo `onda:` ainda NÃO existe em
 # scripts/check_colisao_de_sprints.py:_CAMPOS_CONHECIDOS, e campo desconhecido
 # é erro duro no analisador. Fica como comentário até alguém acrescentá-lo.
@@ -18,6 +19,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - src/hefesto_dualsense4unix/gui/theme.css
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 02). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONTROLES · 01 — a faixa que a Steam guardava
 

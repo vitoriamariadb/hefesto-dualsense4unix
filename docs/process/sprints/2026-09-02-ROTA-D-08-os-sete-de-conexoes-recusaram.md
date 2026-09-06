@@ -1,4 +1,11 @@
+---
+sprint: ROTA-D-08
+estado: feita
+---
+
 # ROTA D · aba 08 — os sete "aplicados" que na verdade RECUSARAM
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **02/09/2026.** A ONDA D pede que os dezesseis gestos que *"dizem aplicado e
 não mudam nada"* sejam **classificados antes de consertados**, em três montes:

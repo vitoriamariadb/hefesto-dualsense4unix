@@ -1,5 +1,6 @@
 ---
 sprint: QUATRO-MICROFONES-01
+estado: feita
 posse:
   E3:
     - src/hefesto_dualsense4unix/cli/cmd_mic.py
@@ -14,6 +15,9 @@ nao_toca:
   - docs/data/mapa-controles.csv
   - docs/data/decisoes-dela.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
+
 # QUATRO-MICROFONES-01 — a ponte está desligada, e a conta diz que cabe
 
 **22/08/2026.** A mesa dela tem três adaptadores desde esta semana, e foi

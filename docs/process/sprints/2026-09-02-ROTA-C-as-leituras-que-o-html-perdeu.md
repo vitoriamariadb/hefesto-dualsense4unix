@@ -1,4 +1,11 @@
+---
+sprint: ROTA-C
+estado: feita
+---
+
 # ONDA C — as leituras que o HTML perdeu
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 Leia o [índice](2026-09-02-ROTA-DO-HTML-INDICE.md) e
 [O MAPA](../2026-09-02-O-MAPA-DA-INTERFACE-medido-clicando-e-as-ondas.md) antes.

@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-PERFIS-01
+estado: absorvida
 # onda: PERFIS  (campo `onda:` ainda não existe em check_colisao_de_sprints.py:83)
 posse:
   P1:
@@ -37,6 +38,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/footer_actions.py
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 10). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA PERFIS · 01 — a casca que ela desenhou
 

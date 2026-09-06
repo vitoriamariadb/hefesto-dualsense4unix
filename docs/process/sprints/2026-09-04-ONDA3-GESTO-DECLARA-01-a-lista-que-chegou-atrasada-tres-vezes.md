@@ -1,14 +1,18 @@
 ---
 sprint: ONDA3-GESTO-DECLARA-01
+estado: aberta
 onda: 3
 posse:
   DECLARA:
     - src/hefesto_dualsense4unix/interface/pacotes/__init__.py
+    - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
+    - tests/unit/test_todo_gesto_que_grava_esta_protegido.py
 nao_toca:
-  - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - docs/data/paridade-gtk-html.csv
-depois_de: []
+depois_de: [ONDA4-S10-O-TRANSPORTE-01, ONDA5-P-01, A-TELA-SAMBA-01]
 ---
+
+> **ROTA 06/09/2026:** `estado: aberta`, ONDA D do plano das 24 horas. `PERIGOSOS` mora em `hefesto_vivo.py`, e esta sprint o deriva do registro — logo o arquivo entrou na posse (só esse bloco) e saiu do `nao_toca`; espera a S-10 (mesmo `pacotes/__init__.py`), a A-TELA-SAMBA-01 e a P-01 (mesmo piloto).
 
 # A lista que chegou atrasada TRÊS VEZES no mesmo dia
 

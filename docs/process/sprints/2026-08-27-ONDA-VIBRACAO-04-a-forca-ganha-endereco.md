@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-VIBRACAO-04
+estado: absorvida
 # onda: ABA-VIBRACAO
 posse:
   V4:
@@ -24,6 +25,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - src/hefesto_dualsense4unix/profiles/schema.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 05). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA VIBRAÇÃO · 04 — a força ganha endereço
 

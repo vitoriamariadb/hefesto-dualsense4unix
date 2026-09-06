@@ -1,5 +1,6 @@
 ---
 sprint: BORDA-DE-QUEDA-01
+estado: aberta
 posse:
   # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
   # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
@@ -14,6 +15,8 @@ depois_de:
   # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
 # BORDA-DE-QUEDA-01 — o que fica para trás quando um controle cai
 

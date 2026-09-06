@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-10-PERFIS-01
+estado: feita
 posse:
   A10:
     - src/hefesto_dualsense4unix/interface/aba10.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba08.py
   - src/hefesto_dualsense4unix/interface/aba09.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-10 · A ABA PERFIS — a regra que a tela não sabe mostrar, e a coluna que mente
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba10.py`, o pacote `a10_perfis.py`, o desenho `mockup/10-perfis.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

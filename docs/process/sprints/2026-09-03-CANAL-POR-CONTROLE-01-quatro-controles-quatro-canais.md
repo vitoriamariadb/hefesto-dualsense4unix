@@ -1,4 +1,11 @@
+---
+sprint: CANAL-POR-CONTROLE-01
+estado: absorvida
+---
+
 # CANAL-POR-CONTROLE-01 — quatro controles, quatro canais
+
+> **ESTADO 06/09/2026: absorvida** — as PEÇAS B e C, e o `0x32` que devia seguir SUSPENDED/RUNNING da source, entram pela MIC-VIRTUAL-02 (plano das 24 horas, §5.4, ONDA C). Não se despacha pelo id.
 
 > **Decisão dela, 03/09/2026:** *"4 controles os 4 tem que ter canais de entrada
 > unico pra cada qual. Não faz sentido essas frases."* <!-- noqa-acento: citação literal dela -->

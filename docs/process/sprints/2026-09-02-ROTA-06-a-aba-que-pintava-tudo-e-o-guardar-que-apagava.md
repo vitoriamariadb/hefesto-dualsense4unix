@@ -1,4 +1,11 @@
+---
+sprint: ROTA-06
+estado: feita
+---
+
 # ROTA 06 — a aba que já pintava tudo, e o "Guardar" que apagava o perfil dela
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **02/09/2026.** Frente da aba `06-navegacao`. O enunciado mandava descobrir *por
 que `navega`, `teclado-estado`, `vel-cursor` e `vel-rolagem` não chegam à tela*.

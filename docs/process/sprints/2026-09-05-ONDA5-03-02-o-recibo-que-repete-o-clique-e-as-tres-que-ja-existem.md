@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-03-02
+estado: aberta
 decisoes: 03-Q1, 03-Q2, 03-Q3, 03-Q4 (a metade da ABA)
 posse:
   Q1-Q4-aba03:
@@ -117,6 +118,12 @@ achar que ninguém pensou nisso.
 ---
 
 ## 2. `03-Q3` — A PERGUNTA CHEGOU DEZENOVE HORAS DEPOIS DA ENTREGA
+
+> **DECIDIDO POR ELA EM 06/09/2026: o `↻` SAI.** Perguntada com o botão na tela
+> e a foto ao lado, escolheu *"sai"*. Esta sprint ganha um passo: o botão sai das
+> quatro colunas (`aba03.py`), o gesto `reenviar` sai do pacote com as cinco
+> réguas dele, `PISO_DA_ABA` volta a 4, e as linhas 106 e 108 do CSV fecham como
+> *DIFERENTE, decidida por ela*. A pergunta de uma linha abaixo está respondida.
 
 Ela leu: *"A coluna de cada controle **ganha** um botão para mandar o efeito de
 novo?"* e marcou **"Nada novo"**, aceitando o custo escrito na opção — *"para

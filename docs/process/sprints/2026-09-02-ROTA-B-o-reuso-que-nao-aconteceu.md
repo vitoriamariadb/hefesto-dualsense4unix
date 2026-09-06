@@ -1,4 +1,11 @@
+---
+sprint: ROTA-B
+estado: feita
+---
+
 # ONDA B — o reuso que não aconteceu
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **A pergunta dela, 02/09/2026, e ela reordenou o plano inteiro:**
 

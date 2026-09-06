@@ -1,5 +1,6 @@
 ---
 sprint: O-CONTROLE-SEM-MAC-01
+estado: aberta
 onda: QUEM-E-QUEM
 posse:
   SEMMAC:
@@ -16,6 +17,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.5 — controles externos.
 
 # O CONTROLE SEM MAC · 01 — o usuário que a mesa desta casa não tem
 

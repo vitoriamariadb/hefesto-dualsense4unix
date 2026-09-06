@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-PERFIS-09
+estado: absorvida
 # onda: PERFIS
 posse:
   P9:
@@ -33,6 +34,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/external_mask.py
   - src/hefesto_dualsense4unix/app/actions/home_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 10). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA PERFIS · 09 — o Modo, a máscara, e o "Automático" que o censo reprova
 

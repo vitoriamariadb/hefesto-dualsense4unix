@@ -1,4 +1,11 @@
+---
+sprint: IDENTIDADE-VEM-DE-CIMA-01
+estado: feita
+---
+
 # IDENTIDADE-VEM-DE-CIMA-01 — a fita manda nas dez abas
+
+> **ESTADO 06/09/2026: feita** — `scripts/check_identidade_vem_de_cima.py --aba NN` devolve zero nas dez abas (medido em 06/09).
 
 > **A lei, e ela é dela (03/09/2026):**
 >

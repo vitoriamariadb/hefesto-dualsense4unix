@@ -1,4 +1,11 @@
+---
+sprint: ROTA-B1
+estado: feita
+---
+
 # ONDA B1 — o inventário do motor, e o reuso que aconteceu no arquivo errado
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 **02/09/2026.** Esta onda não muda uma linha de produção. Ela mede o que o motor
 tem, o que a interface nova alcança, e devolve a lista de reuso disponível — o

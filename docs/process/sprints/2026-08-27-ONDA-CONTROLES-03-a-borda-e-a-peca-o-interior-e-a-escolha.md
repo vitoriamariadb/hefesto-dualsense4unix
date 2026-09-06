@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONTROLES-03
+estado: absorvida
 # onda: CONTROLES (ver a nota de frontmatter da ONDA-CONTROLES-01)
 posse:
   CTRL03:
@@ -21,6 +22,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/config/secao_controles.py
   - src/hefesto_dualsense4unix/app/actions/status_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 02). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONTROLES · 03 — a borda é a peça, o interior é a escolha
 

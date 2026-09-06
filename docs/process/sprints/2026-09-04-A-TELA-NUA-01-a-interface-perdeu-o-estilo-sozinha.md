@@ -1,4 +1,11 @@
+---
+sprint: A-TELA-NUA-01
+estado: feita
+---
+
 # A-TELA-NUA-01 — a interface perdeu o estilo sozinha
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Ela, 04/09/2026, 12h15, com foto:** *"interface quebrou sozinha oxi"*.
 

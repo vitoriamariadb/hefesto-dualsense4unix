@@ -1,6 +1,7 @@
 ---
 # onda: GATILHOS
 sprint: ONDA-GATILHOS-03
+estado: absorvida
 posse:
   G3:
     - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
@@ -18,6 +19,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/textos_de_aplicacao.py
   - src/hefesto_dualsense4unix/daemon/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA GATILHOS · 03 — o recibo dos dois lados
 

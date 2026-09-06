@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-02
+estado: absorvida
 posse:
   A2:
     - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
@@ -18,6 +19,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/widgets/mapa_da_mesa.py
   - src/hefesto_dualsense4unix/app/widgets/calibrar_entradas.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 02 — o inventário físico da mesa
 

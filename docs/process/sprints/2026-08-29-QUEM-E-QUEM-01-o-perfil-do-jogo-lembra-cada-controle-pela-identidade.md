@@ -1,5 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-01
+estado: feita
 onda: QUEM-E-QUEM
 posse:
   Q1:
@@ -12,6 +13,8 @@ nao_toca:
   - novo-layout/
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: feita** — a Fase 2 do perfil por controle fechou em 05/09; a régua é `tests/unit/test_quem_e_quem_01_na_tela.py`.
 
 # QUEM É QUEM · 01 — o perfil do jogo lembra cada controle pela identidade
 

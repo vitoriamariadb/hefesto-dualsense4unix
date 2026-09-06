@@ -1,5 +1,6 @@
 ---
 sprint: LEVA-3
+estado: feita
 posse:
   A:
     - src/hefesto_dualsense4unix/daemon/lifecycle.py
@@ -73,6 +74,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/window_detect.py
   - packaging/cosmic-applet/
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # LEVA 3 — a casa sabe, e o produto não faz
 

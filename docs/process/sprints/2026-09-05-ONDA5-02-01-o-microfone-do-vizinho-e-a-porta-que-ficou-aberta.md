@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-02-01
+estado: aberta
 posse:
   02-Q8:
     - src/hefesto_dualsense4unix/daemon/ipc_handlers.py

@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-ILUMINACAO-09
+estado: absorvida
 onda: MIGRA-ILUMINACAO
 posse:
   IL9:
@@ -39,6 +40,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/widgets/controller_card.py
   - src/hefesto_dualsense4unix/daemon/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 04). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA ILUMINAÇÃO · 09 — Os quatro que o contrato preserva e o mockup não desenha
 

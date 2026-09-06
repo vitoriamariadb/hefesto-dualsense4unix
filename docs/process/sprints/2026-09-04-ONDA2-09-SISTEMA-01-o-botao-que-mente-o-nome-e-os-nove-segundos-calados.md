@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-09-SISTEMA-01
+estado: feita
 posse:
   A09:
     - src/hefesto_dualsense4unix/interface/aba09.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba08.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-09 · A ABA SISTEMA — o botão que mente o nome, e os nove segundos calados
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba09.py`, o pacote `a09_sistema.py`, o desenho `mockup/09-sistema.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

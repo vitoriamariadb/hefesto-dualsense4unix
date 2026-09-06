@@ -1,5 +1,6 @@
 ---
 sprint: ONDA1-X-OS-FATOS-01
+estado: feita
 posse:
   X:
     - docs/data/paridade-gtk-html.csv
@@ -13,6 +14,8 @@ nao_toca:
   - docs/process/2026-09-04-O-PO-DECIDE-as-54-e-os-sete-conflitos.md
   - docs/process/SPRINT_ORDER.md
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou; o que sobra do CSV é a PARIDADE-REMEDIR-01 e a C1 do plano das 24 horas.
 
 # ONDA1-X · OS FATOS — a prosa que envelheceu, e a retriagem das 54
 

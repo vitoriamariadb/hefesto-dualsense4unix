@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-08-02
+estado: aberta
 decisoes: [08-Q8]
 posse:
   M08:

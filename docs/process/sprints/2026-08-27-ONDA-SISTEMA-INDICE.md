@@ -1,5 +1,7 @@
 # ONDA SISTEMA — o índice
 
+> **06/09/2026 — ESTA ONDA FOI ABSORVIDA.** As sprints deste índice estão `estado: absorvida`: a tela é o HTML desde 02/09, a fila é o `docs/data/paridade-gtk-html.csv` (aba 09) e a ordem de agora é [AS VINTE E QUATRO HORAS](../2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md). O que este índice mediu continua valendo como diagnóstico; nada aqui se despacha pelo id.
+
 *A aba do "o Hefesto está bem?" — do que o produto é hoje até o que o mockup
 aprovado mostra.* Sete sprints.
 

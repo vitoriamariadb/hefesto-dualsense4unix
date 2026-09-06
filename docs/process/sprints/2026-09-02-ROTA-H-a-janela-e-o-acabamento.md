@@ -1,4 +1,11 @@
+---
+sprint: ROTA-H
+estado: feita
+---
+
 # ONDA H — a janela e o acabamento
+
+> **ESTADO 06/09/2026: feita** — fase fechada em 02–03/09 (ONDE PARAMOS de 02/09, fim do dia; a aba 03 em 03/09).
 
 A menor das oito, e a única que não depende de nada.
 

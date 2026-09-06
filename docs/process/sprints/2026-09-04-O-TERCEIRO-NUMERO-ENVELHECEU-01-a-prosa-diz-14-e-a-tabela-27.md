@@ -1,4 +1,11 @@
+---
+sprint: O-TERCEIRO-NUMERO-ENVELHECEU-01
+estado: feita
+---
+
 # O-TERCEIRO-NUMERO-ENVELHECEU-01 — a prosa diz 14% e a tabela diz 27%
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 A tabela do terceiro número foi remedida pela leva da madrugada (a 08 foi de
 14% a 27%, a 04 de 20% a 17%) e **a prosa em volta não foi junto**:

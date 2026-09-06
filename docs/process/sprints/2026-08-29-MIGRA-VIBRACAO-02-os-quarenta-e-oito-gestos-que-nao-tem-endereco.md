@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-VIBRACAO-02
+estado: absorvida
 onda: MIGRA-VIBRACAO
 posse:
   MV2:
@@ -22,6 +23,8 @@ nao_toca:
   - install.sh
   - pyproject.toml
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 05). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA VIBRAÇÃO · 02 — os quarenta e oito gestos que não têm endereço
 

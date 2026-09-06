@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-09-01
+estado: aberta
 decisoes: [09-Q1, 09-Q2, 09-Q3 (a metade de tela)]
 posse:
   09A:

@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-CONEXOES-08
+estado: absorvida
 onda: MIGRA-CONEXOES
 posse:
   M8:
@@ -37,6 +38,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - scripts/telas/aba08.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA CONEXÕES · 08 — a ordem diz o que mover para onde
 

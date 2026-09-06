@@ -1,5 +1,6 @@
 ---
 sprint: A-BANCADA-QUE-O-RADIO-PEDE-INDICE
+estado: aberta
 onda: BANCADA-DO-RADIO
 posse:
   COORDENA:
@@ -14,6 +15,8 @@ nao_toca:
   - novo-layout/
   - install.sh
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 e §2.4 — o ensaio 1 (som no rádio) entra no FECHO das 24 horas, com ela; o resto depois.
 
 # A BANCADA QUE O RÁDIO PEDE — o índice
 

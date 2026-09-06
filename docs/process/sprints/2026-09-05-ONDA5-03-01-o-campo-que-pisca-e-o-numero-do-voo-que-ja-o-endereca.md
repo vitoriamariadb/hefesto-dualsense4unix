@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-03-01
+estado: feita
 decisoes: 03-Q4 (a metade do PILOTO)
 posse:
   Q4-piloto:
@@ -15,6 +16,8 @@ nao_toca:
   - mockup/
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — a piscada entrou em 05/09 (índice da ONDA CINCO, §0).
 
 # ONDA5-03-01 · DESENHO — o campo que pisca, e o número do voo que já o endereça
 

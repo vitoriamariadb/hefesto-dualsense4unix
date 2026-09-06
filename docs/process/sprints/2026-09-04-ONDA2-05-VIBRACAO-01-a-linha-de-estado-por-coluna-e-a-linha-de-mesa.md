@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-05-VIBRACAO-01
+estado: feita
 posse:
   A05:
     - src/hefesto_dualsense4unix/interface/aba05.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba09.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-05 · A ABA VIBRAÇÃO — a linha de estado por coluna, e a mesa que sumiu
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba05.py`, o pacote `a05_vibracao.py`, o desenho `mockup/05-vibracao.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

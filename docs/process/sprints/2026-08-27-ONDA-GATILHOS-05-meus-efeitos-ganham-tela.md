@@ -1,6 +1,7 @@
 ---
 # onda: GATILHOS
 sprint: ONDA-GATILHOS-05
+estado: absorvida
 posse:
   G5:
     - src/hefesto_dualsense4unix/profiles/curva_propria.py
@@ -32,6 +33,8 @@ nao_toca:
   # ("cinco frentes o tocariam; cada uma entrega um manifesto").
   - tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA GATILHOS · 05 — "Meus efeitos" ganham tela
 

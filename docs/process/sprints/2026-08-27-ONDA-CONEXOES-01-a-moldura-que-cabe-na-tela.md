@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-01
+estado: absorvida
 posse:
   A1:
     - src/hefesto_dualsense4unix/app/actions/config/secoes.py
@@ -19,6 +20,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
   - src/hefesto_dualsense4unix/app/actions/daemon_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 01 — a moldura que cabe na tela
 

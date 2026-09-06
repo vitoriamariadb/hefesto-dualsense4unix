@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-09-02
+estado: aberta
 decisoes: [09-Q3 (a metade de mecanismo)]
 posse:
   09B:

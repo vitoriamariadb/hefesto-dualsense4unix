@@ -1,3 +1,20 @@
+---
+sprint: CONEXOES-LIGAR-TUDO-01
+estado: aberta
+posse:
+  T-10:
+    - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
+    - src/hefesto_dualsense4unix/interface/aba08.py
+    - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
+    - tests/unit/test_a_aba_08_conexoes_fecha_as_linhas.py
+bancada: true
+depois_de: [ONDA5-08-01, ONDA5-08-02, ONDA5-02-01]
+nao_toca:
+  - docs/data/paridade-gtk-html.csv
+  - mockup/DIVERGENCIAS.md
+  - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
+---
+
 # CONEXOES-LIGAR-TUDO-01 — as dezesseis linhas da aba 08, nas três famílias
 
 > **Decisão dela, 04/09/2026, tarde:** *"tudo"* — as três famílias (fôlego,

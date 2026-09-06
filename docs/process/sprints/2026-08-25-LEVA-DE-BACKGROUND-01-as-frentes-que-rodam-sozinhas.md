@@ -1,5 +1,6 @@
 ---
 sprint: LEVA-DE-BACKGROUND-01
+estado: feita
 posse:
   # Frentes medidas em 25/08/2026 por um censo de quatro batedores sobre o
   # resto do projeto. Cada uma tem posse DISJUNTA das outras e das seis da
@@ -44,6 +45,8 @@ depois_de:
   # `mouse_actions.py` (a frente E2 dela, que JÁ FECHOU no merge da
   # madrugada). Serializar é honesto: ela chegou antes.
 ---
+
+> **ESTADO 06/09/2026: feita** — o cabeçalho ou os arquivos que ela cria dizem (conferido em 06/09).
 
 # LEVA DE BACKGROUND · 01 — as frentes que rodam sozinhas
 

@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-GATILHOS-06
+estado: absorvida
 onda: MIGRA-GATILHOS
 posse:
   M6:
@@ -17,6 +18,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/triggers_actions.py
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA GATILHOS · 06 — a caixa de ajustes cresce até onze
 

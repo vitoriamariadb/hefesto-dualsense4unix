@@ -1,4 +1,11 @@
+---
+sprint: UMA-LISTA-DE-COR-SO-01
+estado: absorvida
+---
+
 # UMA LISTA DE COR SÓ — as sete cores que o produto não sabe nomear
+
+> **ESTADO 06/09/2026: absorvida** — a dona era a ONDA-CONEXOES-12; o que falta é linha do `docs/data/paridade-gtk-html.csv` (abas 04 e 08). Não se despacha pelo id.
 
 **29/08/2026.** O desenho conhece **28** modelos de DualSense; o produto conhece
 **21**. Quem comprou um HyperPop abre o app, lê **"Não sei"** sobre o próprio

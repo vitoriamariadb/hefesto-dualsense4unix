@@ -1,4 +1,11 @@
+---
+sprint: A-TRAVA-QUE-NINGUEM-SOLTA-01
+estado: feita
+---
+
 # A TRAVA QUE NINGUÉM SOLTA · 01 — o teto de ociosidade, e a pergunta do número
+
+> **ESTADO 06/09/2026: feita** — executada em 29/08 (este arquivo).
 
 **Executada em 29/08/2026.** Irmã da
 [A-TRAVA-DO-LED-NÃO-SOLTA-01](2026-08-29-A-TRAVA-DO-LED-NAO-SOLTA-01-arma-em-dois-lugares-e-nao-solta-em-nenhum.md),

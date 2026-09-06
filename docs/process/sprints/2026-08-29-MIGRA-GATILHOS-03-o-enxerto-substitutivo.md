@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-GATILHOS-03
+estado: caducou
 onda: MIGRA-GATILHOS
 posse:
   M3:
@@ -64,6 +65,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: caducou.** O enxerto da página dentro da janela GTK morreu: o produto é a janela HTML (`interface/hefesto_vivo.py`), e a janela GTK sai nas 24 horas (D-19, liberada por ela em 06/09). Fica como registro do que se mediu.
 
 # MIGRA GATILHOS · 03 — o enxerto substitutivo
 

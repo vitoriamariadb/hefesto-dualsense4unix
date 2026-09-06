@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-LANCADORES-01
+estado: caducou
 onda: MIGRA-LANCADORES
 posse:
   ML1:
@@ -77,6 +78,8 @@ nao_toca:
   - novo-layout/
   - scripts/telas/
 ---
+
+> **ESTADO 06/09/2026: caducou.** O enxerto da página dentro da janela GTK morreu: o produto é a janela HTML (`interface/hefesto_vivo.py`), e a janela GTK sai nas 24 horas (D-19, liberada por ela em 06/09). Fica como registro do que se mediu.
 
 # MIGRA LANÇADORES · 01 — o enxerto substitutivo: a Emulação sai, e a 07 entra escondida
 

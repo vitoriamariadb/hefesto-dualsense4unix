@@ -1,5 +1,7 @@
 # ROTA DO HTML — o índice, e o contrato que segura as sete ondas
 
+> **06/09/2026 — A ROTA FECHOU E FOI ABSORVIDA.** As ondas A–F e H estão `estado: feita`; a G, `absorvida` (ONDA5-10-* e PERFIL-MODO-01). A regra do reuso e o ritual das quatro provas continuam valendo; a fila de agora é [AS VINTE E QUATRO HORAS](../2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md).
+
 **02/09/2026.** Ela decidiu, e a decisão não se reabre:
 
 > *"já investimos muitas horas, muito dinheiro, muita energia e muitos tokens.

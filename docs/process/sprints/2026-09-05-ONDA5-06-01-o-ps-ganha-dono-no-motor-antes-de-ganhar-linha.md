@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-06-01
+estado: aberta
 posse:
   M06:
     - src/hefesto_dualsense4unix/core/acoes_de_botao.py

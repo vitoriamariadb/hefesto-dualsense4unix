@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-CONTROLES-05
+estado: absorvida
 onda: MIGRA-CONTROLES
 posse:
   MC5:
@@ -20,6 +21,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 02). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA CONTROLES · 05 — A mesa é a dela, e zero é um estado
 

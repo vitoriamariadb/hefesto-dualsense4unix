@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-LANCADORES-10
+estado: absorvida
 onda: MIGRA-LANCADORES
 posse:
   ML10:
@@ -36,6 +37,8 @@ nao_toca:
   # MIGRA-CONTROLES-02 acrescenta, com a palavra dela.
   - scripts/telas/topo.html
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 07). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA LANÇADORES · 10 — o selo, e só então a aba existe na tira
 

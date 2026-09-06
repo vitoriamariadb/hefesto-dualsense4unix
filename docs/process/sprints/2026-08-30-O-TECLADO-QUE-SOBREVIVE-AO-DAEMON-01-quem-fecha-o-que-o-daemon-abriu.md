@@ -1,5 +1,6 @@
 ---
 sprint: O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01
+estado: aberta
 onda: MIGRA-NAVEGACAO
 posse:
   TECORF:
@@ -31,6 +32,8 @@ nao_toca:
   - novo-layout/
   - layout/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
 
 # O TECLADO QUE SOBREVIVE AO DAEMON · 01 — quem fecha o que o daemon abriu
 

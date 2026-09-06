@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-NAVEGACAO-02
+estado: absorvida
 onda: MIGRA-NAVEGACAO
 posse:
   NAV6-GERADOR:
@@ -22,6 +23,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba09.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 06). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA NAVEGAÇÃO · 02 — O gerador dá endereço a cada valor, e os sessenta selects param de sair brancos
 

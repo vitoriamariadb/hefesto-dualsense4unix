@@ -1,5 +1,6 @@
 ---
 sprint: ONDA2-04-ILUMINACAO-01
+estado: feita
 posse:
   A04:
     - src/hefesto_dualsense4unix/interface/aba04.py
@@ -27,6 +28,9 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba09.py
   - src/hefesto_dualsense4unix/interface/aba10.py
 ---
+
+> **ESTADO 06/09/2026: feita** — a leva de 04/09 entrou (as réguas que ela cria existem no `dev`); o que sobrou da aba está na ONDA CINCO e no CSV.
+
 # ONDA2-04 · A ABA ILUMINAÇÃO — o interruptor de verdade, e a cor que se grava ao desligar
 
 **Você é dono de QUATRO arquivos e mais nada** — o gerador `aba04.py`, o pacote `a04_iluminacao.py`, o desenho `mockup/04-iluminacao.html` e a página publicada. As outras nove frentes desta onda rodam ao mesmo tempo, e nenhuma toca os seus.

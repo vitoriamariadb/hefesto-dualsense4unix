@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-11
+estado: feita
 onda: CONEXOES
 posse:
   A11:
@@ -25,6 +26,8 @@ nao_toca:
   - scripts/ensaios/cor_do_plastico.py
   - docs/data/cores-do-dualsense.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — a cor se lê no rádio desde a noite de 27/08 e a identidade vem de cima desde 03/09.
 
 # ONDA CONEXÕES · 11 — a cor se lê no rádio, e a semente é `0x53`
 

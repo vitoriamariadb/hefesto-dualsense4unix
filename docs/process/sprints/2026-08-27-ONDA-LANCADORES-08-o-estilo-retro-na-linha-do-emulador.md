@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-LANCADORES-08
+estado: absorvida
 onda: ABA-LANCADORES
 posse:
   L8:
@@ -20,6 +21,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/profiles_actions.py
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 07). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA LANÇADORES · 08 — o Estilo Retrô/Emulador na linha do emulador
 

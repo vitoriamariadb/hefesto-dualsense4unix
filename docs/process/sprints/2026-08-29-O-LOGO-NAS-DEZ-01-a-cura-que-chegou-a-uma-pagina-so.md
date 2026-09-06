@@ -1,11 +1,14 @@
 ---
 sprint: O-LOGO-NAS-DEZ-01
+estado: aberta
 onda: O-LOGO-NAS-DEZ
 posse:
   L1:
     - layout/02-controles.html
     - layout/04-iluminacao.html
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` FECHO das 24 horas — os quatro `<title>` do logotipo ainda estão nos dez mockups (medido em 06/09); saem numa regeração só, antes do `--publicar`.
 
 **ESPERA AS TRAVAS CAÍREM.** `aba02.py` e `aba04.py` estavam travados por levas
 em voo em 29/08 — as duas páginas que faltam saem de uma regeração só.

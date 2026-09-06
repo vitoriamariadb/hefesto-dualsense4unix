@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-JOGAR-10
+estado: absorvida
 posse:
   J10:
     - src/hefesto_dualsense4unix/app/actions/jogar/pausa.py
@@ -15,6 +16,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/utils/session.py
   - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 01). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA JOGAR · 10 — a pausa que só o terminal desfaz
 

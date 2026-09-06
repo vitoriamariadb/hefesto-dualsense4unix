@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-04-01
+estado: feita
 decisoes: [04-Q3, 04-Q4]
 posse:
   A04:
@@ -17,6 +18,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
 depois_de: [ONDA1-X-OS-FATOS-01, ONDA2-04-ILUMINACAO-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-10-03]
 ---
+
+> **ESTADO 06/09/2026: feita** — o brilho aplica desde 05/09 (índice da ONDA CINCO, §0).
 
 # ONDA5-04 · DEFEITO — o brilho APLICA, e a tela para de justificar a falha
 

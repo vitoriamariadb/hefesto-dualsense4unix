@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-ILUMINACAO-03
+estado: absorvida
 # onda: ILUMINACAO (ver a nota de frontmatter da ONDA-ILUMINACAO-01)
 posse:
   ILUM03:
@@ -22,6 +23,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 04). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA ILUMINAÇÃO · 03 — A escolha do número desce do cabeçalho
 

@@ -280,8 +280,8 @@ aqui é esquecimento: é dívida com endereço.
 
 | o quê | onde está escrito |
 | --- | --- |
-| **A palavra do selo novo da coluna Atenção.** Nenhum dos sete de `ORDEM_DA_GRAVIDADE` (`src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py:147-149`) descreve o cabo USB do aparelho, e `RÁDIO` seria mentira — já é o selo do Bluetooth frágil. Selo é texto de tela, logo é dela | ONDA5-01-01 §3 |
-| **O `↻` de reenvio da aba 03 fica ou sai.** Ela respondeu *"Nada novo"* à 03-Q3 **dezenove horas depois** de o botão nascer (04/09, 20:14). Não se remove trabalho medido, e não se declara aprovado o que ela não viu. A pergunta está pronta na sprint | ONDA5-03-02 §2 |
+| **A palavra do selo novo da coluna Atenção** — **06/09: `CONTROLE`, revisto por ela na publicação** (`D-0609-CURA-USB-ENTRA`). Nenhum dos sete de `ORDEM_DA_GRAVIDADE` (`src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py:147-149`) descreve o cabo USB do aparelho, e `RÁDIO` seria mentira — já é o selo do Bluetooth frágil. Selo é texto de tela, logo é dela | ONDA5-01-01 §3 |
+| ~~O `↻` de reenvio da aba 03 fica ou sai.~~ **DECIDIDO POR ELA EM 06/09: SAI** — a ONDA5-03-02 ganhou o passo da remoção (`D-0609-REENVIO-SAI`). O que segue é a história: Ela respondeu *"Nada novo"* à 03-Q3 **dezenove horas depois** de o botão nascer (04/09, 20:14). Não se remove trabalho medido, e não se declara aprovado o que ela não viu. A pergunta está pronta na sprint | ONDA5-03-02 §2 |
 | **A tinta exata do pino do interruptor sob o portão.** A regra está escrita — *o portão pinta o CONTROLE e nunca encosta no que diz o LADO* —, mas se o verde cheio é demais para um interruptor apagado, quem decide é o olho dela, com as duas fotos lado a lado | ONDA5-06-02 |
 
 ### 5.2 · O que espera MEDIÇÃO na máquina, e nenhuma frente pôde medir

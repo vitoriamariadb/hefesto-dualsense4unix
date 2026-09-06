@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-ILUMINACAO-06
+estado: absorvida
 # onda: ILUMINACAO (ver a nota de frontmatter da ONDA-ILUMINACAO-01)
 posse:
   ILUM06:
@@ -20,6 +21,8 @@ depois_de:
 nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 04). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA ILUMINAÇÃO · 06 — Um botão só para o automático, e os nomes que não competem
 

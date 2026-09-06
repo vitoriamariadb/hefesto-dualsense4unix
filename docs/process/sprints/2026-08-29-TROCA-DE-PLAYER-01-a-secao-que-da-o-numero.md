@@ -1,5 +1,6 @@
 ---
 sprint: TROCA-DE-PLAYER-01
+estado: feita
 onda: MIGRA-ILUMINACAO
 posse:
   TP01:
@@ -56,6 +57,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/sensor_hub.py
   - src/hefesto_dualsense4unix/app/widgets/external_card.py
 ---
+
+> **ESTADO 06/09/2026: feita** — fechou em 29/08 (este arquivo).
 
 # TROCA DE PLAYER · 01 — a seção que dá o número, e por que ela não dava
 

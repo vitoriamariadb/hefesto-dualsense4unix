@@ -1,4 +1,11 @@
+---
+sprint: VIBRACAO-POR-MOTOR-01
+estado: feita
+---
+
 # VIBRACAO-POR-MOTOR-01 — as duas barras multiplicam o degrau
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Decisão dela, 04/09/2026, tarde — e ela recusou as três opções que eu
 > ofereci:** *"os slcers do botão esquerdo e direito (forte e fraco) se multiplicam (interagem com os botões economia, moderado,máximo, se eu tiver 150% do perfil de vibração e as duas linhas estiverem 100 entao a vibração dos 2 será 150%, mas se so a do motor fraco tiver 100 e a outrqa 50% então será 150 em um e 75% no outro entende?"* <!-- noqa-acento: citação literal dela -->

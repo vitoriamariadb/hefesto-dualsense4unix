@@ -1,5 +1,6 @@
 ---
 sprint: A-TRAVA-DO-LED-NAO-SOLTA-01
+estado: aberta
 onda: ILUMINACAO
 posse:
   LED-CLEAR:
@@ -9,6 +10,8 @@ cria:
   - tests/unit/test_toda_categoria_de_trava_tem_par.py
 bancada: false
 depois_de:
+  - CONEXOES-LIGAR-TUDO-01
+  - ONDA5-02-01
   # O gesto que vai soltar a trava é o "Voltar ao automático", e ele é da
   # ILUMINACAO-06 — primeiro o botão vira um só e obedece à fita, depois ele
   # ganha o que soltar.
@@ -37,6 +40,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 29/08 (`daemon/ipc_handlers.py` continua sem `clear` para `led`).
 
 # A TRAVA DO LED NÃO SOLTA · 01 — arma em dois lugares e não solta em nenhum
 

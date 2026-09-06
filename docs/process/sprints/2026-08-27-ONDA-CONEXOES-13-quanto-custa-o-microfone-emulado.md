@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-CONEXOES-13
+estado: absorvida
 onda: CONEXOES
 posse:
   A13:
@@ -21,6 +22,8 @@ nao_toca:
   - novo-layout/
   - docs/process/sprints/2026-08-27-ONDA-CONEXOES-06-o-microfone-muda-de-aba.md
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 08). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA CONEXÕES · 13 — quanto custa o microfone emulado
 

@@ -1,5 +1,6 @@
 ---
 sprint: ONDA1-D3-O-SENSOR-01
+estado: feita
 posse:
   D3:
     - src/hefesto_dualsense4unix/daemon/sensor_hub.py
@@ -20,6 +21,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/audio_saida.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — T-09 fechada (plano das 24 horas, §1).
 
 # ONDA1-D3 · O SENSOR — o interruptor que desliga de verdade
 

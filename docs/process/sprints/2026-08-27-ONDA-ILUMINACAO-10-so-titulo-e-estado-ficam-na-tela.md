@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-ILUMINACAO-10
+estado: absorvida
 # onda: ILUMINACAO (ver a nota de frontmatter da ONDA-ILUMINACAO-01)
 posse:
   ILUM10:
@@ -28,6 +29,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
   - src/hefesto_dualsense4unix/app/actions/status_actions.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 04). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA ILUMINAÇÃO · 10 — Só título e estado ficam na tela
 

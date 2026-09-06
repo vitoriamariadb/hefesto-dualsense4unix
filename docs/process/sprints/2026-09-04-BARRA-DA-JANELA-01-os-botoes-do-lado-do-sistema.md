@@ -1,4 +1,11 @@
+---
+sprint: BARRA-DA-JANELA-01
+estado: feita
+---
+
 # BARRA-DA-JANELA-01 — os botões do lado do sistema
+
+> **ESTADO 06/09/2026: feita** — medida no fonte e no git em 06/09 (plano das 24 horas, §1).
 
 > **Queixa 2 dela, 04/09/2026:** *"a barra de navegação fechar, maximizar
 > diminuir não é a mesma do sistema"*. A única das quinze que ficou aberta.

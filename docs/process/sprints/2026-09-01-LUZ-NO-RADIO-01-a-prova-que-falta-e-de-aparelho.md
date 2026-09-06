@@ -1,4 +1,12 @@
+---
+sprint: LUZ-NO-RADIO-01
+estado: aberta
+bancada: true
+---
+
 # LUZ-NO-RADIO-01 — a prova que falta é de aparelho, não de código
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — prova de aparelho, na bancada dos quatro (MESA-DE-QUATRO-01).
 
 **01/09/2026.** Ordem dela, com estas palavras:
 

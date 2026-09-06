@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-VIBRACAO-01
+estado: caducou
 onda: MIGRA-VIBRACAO
 posse:
   MV1:
@@ -73,6 +74,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: caducou.** O enxerto da página dentro da janela GTK morreu: o produto é a janela HTML (`interface/hefesto_vivo.py`), e a janela GTK sai nas 24 horas (D-19, liberada por ela em 06/09). Fica como registro do que se mediu.
 
 # MIGRA VIBRAÇÃO · 01 — a página troca de lugar, e o "Aplicar" para de mandar (0, 0)
 

@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-JOGAR-01
+estado: caducou
 onda: MIGRA-JOGAR
 posse:
   J1:
@@ -48,6 +49,8 @@ nao_toca:
   - novo-layout/
   - src/hefesto_dualsense4unix/app/actions/status_actions.py
 ---
+
+> **ESTADO 06/09/2026: caducou.** O enxerto da página dentro da janela GTK morreu: o produto é a janela HTML (`interface/hefesto_vivo.py`), e a janela GTK sai nas 24 horas (D-19, liberada por ela em 06/09). Fica como registro do que se mediu.
 
 # MIGRA JOGAR · 01 — a página entra no lugar da `tab_home_box`
 

@@ -1,5 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-02
+estado: aberta
 onda: QUEM-E-QUEM
 posse:
   QQ02:
@@ -8,6 +9,7 @@ cria:
   - tests/unit/test_quem_e_quem_02_o_campo_novo_nao_quebra_o_perfil_de_ontem.py
 bancada: false
 depois_de:
+  - PERFIS-SAO-PERFIS-01
   # SÉRIE por R5: divide `profiles/loader.py`.
   - LEVA-2
   - MIGRA-PERFIS-05
@@ -24,6 +26,8 @@ nao_toca:
   - novo-layout/
   - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08; espera a PERFIS-SAO-PERFIS-01 (mesmo `loader.py`).
 
 # QUEM É QUEM · 02 — o campo novo não pode quebrar os 29 perfis dela
 

@@ -1,5 +1,6 @@
 ---
 sprint: ESCONDE-SO-O-HIDRAW-01
+estado: aberta
 posse:
   # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
   # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
@@ -13,6 +14,8 @@ nao_toca:
   - install.sh
 depois_de:
 ---
+
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — daemon.
 
 # ESCONDE-SÓ-O-HIDRAW-01 — o jogo continua vendo o físico pelo evdev
 

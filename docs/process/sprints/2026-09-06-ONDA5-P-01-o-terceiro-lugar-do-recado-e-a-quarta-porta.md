@@ -1,5 +1,6 @@
 ---
 sprint: ONDA5-P-01
+estado: aberta
 posse:
   P:
     - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
@@ -8,7 +9,7 @@ posse:
 cria:
   - tests/unit/test_o_piloto_tem_o_terceiro_lugar_e_a_quarta_porta.py
 bancada: false
-depois_de: [MIGRA-CONTROLES-03, ONDA0-P-O-PILOTO-01, ONDA5-03-01]
+depois_de: [MIGRA-CONTROLES-03, ONDA0-P-O-PILOTO-01, ONDA5-03-01, A-TELA-SAMBA-01]
 nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/
   - src/hefesto_dualsense4unix/interface/monta.py

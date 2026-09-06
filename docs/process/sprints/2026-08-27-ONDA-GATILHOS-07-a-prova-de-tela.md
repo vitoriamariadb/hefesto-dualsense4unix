@@ -1,6 +1,7 @@
 ---
 # onda: GATILHOS
 sprint: ONDA-GATILHOS-07
+estado: absorvida
 posse:
   G7:
     - docs/usage/assets/readme_gatilhos.png
@@ -19,6 +20,8 @@ nao_toca:
   - tests/
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 03). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA GATILHOS · 07 — a prova de tela
 

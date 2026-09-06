@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-LANCADORES-07
+estado: absorvida
 onda: MIGRA-LANCADORES
 posse:
   ML7:
@@ -26,6 +27,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - scripts/telas/aba07.py
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 07). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA LANÇADORES · 07 — os cinco impedimentos ganham tela, e o Heroic para de mentir
 

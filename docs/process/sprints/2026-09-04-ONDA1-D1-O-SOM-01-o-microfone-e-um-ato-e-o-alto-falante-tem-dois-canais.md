@@ -1,5 +1,6 @@
 ---
 sprint: ONDA1-D1-O-SOM-01
+estado: feita
 posse:
   D1:
     - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
@@ -22,6 +23,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — T-02 e T-03 fechadas, medidas no fonte em 06/09; as réguas moram em outros nomes de arquivo (regra dela: menos arquivos).
 
 # ONDA1-D1 · O SOM — o microfone é um ato só, e o alto-falante tem dois canais
 

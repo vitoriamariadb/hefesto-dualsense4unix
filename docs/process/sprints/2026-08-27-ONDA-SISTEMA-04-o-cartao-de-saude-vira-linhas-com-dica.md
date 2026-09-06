@@ -1,5 +1,6 @@
 ---
 sprint: ONDA-SISTEMA-04
+estado: absorvida
 # onda: SISTEMA
 posse:
   S4:
@@ -26,6 +27,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/integrations/storm_doctor.py
   - src/hefesto_dualsense4unix/cli/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** O redesenho de 27/08 mirava a janela GTK; a tela é o HTML desde 02/09, e o que desta sprint ainda falta está como linha do `docs/data/paridade-gtk-html.csv` (aba 09). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # ONDA SISTEMA · 04 — O cartão de saúde vira linhas, e a explicação vira dica
 

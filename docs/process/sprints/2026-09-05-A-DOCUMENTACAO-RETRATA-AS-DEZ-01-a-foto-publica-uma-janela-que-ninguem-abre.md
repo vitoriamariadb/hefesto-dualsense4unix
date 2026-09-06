@@ -1,5 +1,6 @@
 ---
 sprint: A-DOCUMENTACAO-RETRATA-AS-DEZ-01
+estado: feita
 posse:
   D18:
     - README.md
@@ -28,6 +29,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/monta.py
   - src/hefesto_dualsense4unix/app/
 ---
+
+> **ESTADO 06/09/2026: feita** — as dez fotos existem e o README mostra o produto (05/09).
 
 # D-18 · A documentação passa a retratar as DEZ abas novas
 

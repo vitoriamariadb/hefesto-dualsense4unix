@@ -1,5 +1,6 @@
 ---
 sprint: MIGRA-SISTEMA-07
+estado: absorvida
 # onda: MIGRA-SISTEMA (a aba 09, no motor novo)
 posse:
   M7:
@@ -47,6 +48,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: absorvida.** A migração de 29/08 virou a ROTA DO HTML (02/09) e a paridade (04/09); o que desta sprint ainda falta é linha do `docs/data/paridade-gtk-html.csv` (aba 09). Não se despacha pelo id — ver `docs/process/SPRINT_ORDER.md` §3.
 
 # MIGRA SISTEMA · 07 — O pretérito espera o motor
 

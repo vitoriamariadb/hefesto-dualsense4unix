@@ -1,5 +1,6 @@
 ---
 sprint: ONDA1-D2-A-VIBRACAO-01
+estado: feita
 posse:
   D2:
     - src/hefesto_dualsense4unix/daemon/subsystems/gamepad.py
@@ -19,6 +20,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/audio_saida.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **ESTADO 06/09/2026: feita** — T-08 fechada (plano das 24 horas, §1).
 
 # ONDA1-D2 · A VIBRAÇÃO — o multiplicador por motor compõe com o degrau
 

@@ -1,5 +1,6 @@
 ---
 sprint: A-COR-PELA-PORTA-DO-BROKER-01
+estado: feita
 onda: CONEXOES
 posse:
   COR-BROKER:
@@ -23,6 +24,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/gui/main.glade
   - novo-layout/
 ---
+
+> **ESTADO 06/09/2026: feita** — `integrations/cor_do_plastico.py` lê pela `abrir_hidraw` (a docstring da própria função conta).
 
 # A COR PELA PORTA DO BROKER · 01 — o ensaio lê, o produto não
 
