@@ -220,3 +220,32 @@ aqui rodando os 68 arquivos de teste que leem estas duas abas: **1072 passaram,
 Deixei como está: a régua e `docs/usage/` não são posse desta sprint, e a cura é
 apontá-la para `interface/olhar.py --todas --doc`, que é quem fotografa as dez
 páginas hoje.
+
+---
+
+## NOTA DE QUEM COSTUROU — 06/09/2026: a foto do "depois" era a da MORDIDA
+
+A foto `EXTERNOS-NO-FRAME-depois-01-jogar.png` que veio neste commit mostrava os
+dois cartões **empilhados na primeira coluna**, que é o estrago da mordida C
+(`display:contents` → `display:block`), e não a cura. O relógio conta a
+história: `medida.json` (a medição boa, `display: contents`, `l=404/684`) é de
+18:09:59; a foto é de 18:14:33, **quatro minutos depois**, junto de
+`medida-mordida-c.json` (`display: block`, `l=404/404`). O script de medição
+grava a foto e o JSON no mesmo caminho, então a segunda passada — a da mordida —
+sobrescreveu a primeira.
+
+**O código estava certo o tempo todo.** Remedido na árvore de integração depois
+da costura, com o mesmo script apontado para `_integra-0609`:
+
+    01-jogar   display: contents · assentos t=404 l=404/684/964/1243 · externos t=540 l=404/684
+    08-conexoes display: contents · quatro linhas t=293..425 · externos t=456/486, l=405 w=1110
+
+A foto foi refeita a partir dessa medição e substituída. A da aba 08 não mudou
+(md5 idêntico), pelo motivo que o próprio agente declarou: na 08 a mordida C não
+desloca um pixel.
+
+**A REGRA QUE ISSO DEIXA:** *a mordida sobrescreve a prova se as duas escrevem no
+mesmo caminho.* Quem morde depois de fotografar tem de gravar a mordida noutro
+nome — ou refotografar a cura depois de devolvê-la. Uma foto de "depois" que
+mostra o estrago passa por qualquer conferência de prosa: o relatório dizia
+`l=404/684` e a imagem ao lado dizia o contrário, e só o md5 separou os dois.
