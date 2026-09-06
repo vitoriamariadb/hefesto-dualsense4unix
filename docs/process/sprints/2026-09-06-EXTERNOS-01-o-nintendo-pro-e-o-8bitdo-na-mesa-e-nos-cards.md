@@ -1,6 +1,6 @@
 ---
 sprint: EXTERNOS-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   EXT:
@@ -28,6 +28,8 @@ o `Contexto` só de `controllers` — e levar a lista num campo PRÓPRIO de `pac
 o desenho dos cards externos é o do `app/widgets/external_card.py` (leia, não copie). A ONDA5-P-01
 mexeu no `hefesto_vivo.py` hoje: **leia o arquivo de hoje antes de acreditar num endereço.**
 
+> **ESTADO 2026-09-06: feita** — o piloto passou a pedir `controller.list {external: true}` no tique lento (`hefesto_vivo._talvez_ler_os_externos`, com os DOIS tetos da janela antiga), a lista viaja em campo PRÓPRIO do `pacotes.Contexto` (`externos`, nunca dentro de `conectados`), e as duas abas a desenham com as frases dos donos da GTK — cartões na 01 e linhas na 08, com o aviso da armadilha do `hid-nintendo`. Endereço na BANCADA (a publicação é ato dela); régua com dublê do `controller.list` e DOZE mordidas em `tests/unit/test_a_interface_ve_os_controles_que_o_hefesto_so_ve.py`. SEM APARELHO — não havia Pro nem 8BitDo na mesa em 06/09, e a prova de aparelho fica para a `MESA-DE-QUATRO-01`. Entrega: `docs/process/agentes/2026-09-06/EXTERNOS-01-opus.md`.
+>
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.5 — fora das 24 horas por decisão dela (06/09).
 
 # EXTERNOS-01 · PARIDADE — o Nintendo Pro e o 8BitDo na mesa e nos cards

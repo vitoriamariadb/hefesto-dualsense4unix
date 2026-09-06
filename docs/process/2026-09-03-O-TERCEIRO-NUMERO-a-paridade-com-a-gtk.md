@@ -81,17 +81,17 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 <!-- TABELA-DA-PARIDADE -->
 | aba | feats | IGUAL | DIFER | FALTA | SO_HTML | ? | paridade |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 01-jogar | 42 | 13 | 16 | 8 | 4 | 1 | 31% |
+| 01-jogar | 42 | 13 | 17 | 7 | 4 | 1 | 31% |
 | 02-controles | 50 | 16 | 24 | 6 | 4 | 0 | 32% |
 | 03-gatilhos | 31 | 15 | 9 | 1 | 5 | 1 | 48% |
 | 04-iluminacao | 35 | 11 | 15 | 1 | 7 | 1 | 31% |
 | 05-vibracao | 31 | 14 | 9 | 5 | 3 | 0 | 45% |
 | 06-navegacao | 40 | 15 | 16 | 0 | 9 | 0 | 38% |
 | 07-lancadores | 30 | 15 | 5 | 0 | 9 | 1 | 50% |
-| 08-conexoes | 49 | 20 | 22 | 5 | 2 | 0 | 41% |
+| 08-conexoes | 49 | 20 | 23 | 4 | 2 | 0 | 41% |
 | 09-sistema | 38 | 11 | 15 | 5 | 7 | 0 | 29% |
 | 10-perfis | 50 | 14 | 20 | 7 | 9 | 0 | 28% |
-| TODAS | 396 | 144 | 151 | 38 | 59 | 4 | 36% |
+| TODAS | 396 | 144 | 153 | 36 | 59 | 4 | 36% |
 <!-- /TABELA-DA-PARIDADE -->
 
 A tabela é **gerada da contagem do CSV** e conferida pelo portão (regra
