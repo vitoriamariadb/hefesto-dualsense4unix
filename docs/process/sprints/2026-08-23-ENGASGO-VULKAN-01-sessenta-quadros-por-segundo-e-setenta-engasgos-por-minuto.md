@@ -1,6 +1,6 @@
 ---
 sprint: ENGASGO-VULKAN-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   REGUA:
@@ -20,7 +20,16 @@ reapontar para o dono de hoje, o registro `@gesto("09-sistema.html", "procurar-c
 `interface/pacotes/a09_sistema.py` (ande pela árvore com `ast`, não por texto). Nada de mexer no
 motor.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — o A/B é dela.
+> **ESTADO 2026-09-06: feita** — o P da ROTA CORRIGIDA fechou: a régua do botão
+deixou de ler `app/app.py` (apagado com a janela GTK) e passa a cobrar os TRÊS
+elos do clique de hoje — o `data-gesto="procurar-camadas"` na página servida, o
+`@gesto("09-sistema.html", "procurar-camadas")` lido por `ast` em
+`a09_sistema.py`, e o registro VIVO entregando o clique àquela função. Quatro
+mordidas, uma delas separando os dois últimos nós (decorador escrito, módulo
+fora do carregador). Motor intocado. Entrega em
+`docs/process/agentes/2026-09-06/ENGASGO-VULKAN-01-opus.md`.
+
+> **ESTADO 06/09/2026 (anterior): aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — **o A/B continua sendo dela**, e é o item 1 do "o que ficou aberto".
 
 # ENGASGO-VULKAN-01 — sessenta quadros por segundo, setenta engasgos por minuto
 
