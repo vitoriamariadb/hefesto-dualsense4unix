@@ -225,8 +225,15 @@ o vdf de mentira:        "UseSteamControllerConfig"  "2"   — INTACTO
 
 ```
 ANTES (medição pré-C que eu herdo)   0 mutações · custo do tique mediana 1,28 ms
-DEPOIS                               0 mutações em 100 tiques · mediana 1,39 ms
+DEPOIS, com o código do commit       0 mutações em 100 tiques (10,1 s)
 ```
+
+**O CUSTO DO TIQUE NÃO SE COMPARA HOJE, e digo em vez de publicar um número que
+enganaria:** a medição saiu `mediana 1,80 ms` com a máquina em `load average
+10,4` — **sete outras árvores desta leva rodando os portões ao mesmo tempo**. A
+mesma medição, feita cedo e com a máquina mais livre, deu `1,39 ms`. O que a
+comparação sustenta é o **zero de mutações**, que não depende de carga; o
+milissegundo, não.
 
 **A aba continua em ZERO com a mesa parada.** O `if extras:` de
 `com_o_que_o_daemon_diz` não é estilo: sem ele o `acoes is steam.acoes` de baixo
@@ -364,12 +371,24 @@ pela API, o que os deixa **independentes da forma do armazenamento**:
 
 ```
 git add -A && bash scripts/portoes.sh
-  → paridade-gtk-html  VERMELHO rc=1
-      divida-fechada: paridade-gtk-html.csv:251
-        o sinal 'add_appid_to_steam_input_allowlist' APARECEU em
-        src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py.
-        O CSV diz FALTA_NO_HTML e o lado HTML passou a ter o símbolo.
+  → paridade-gtk-html  VERMELHO rc=1 — 2 achados
+
+    divida-fechada: paridade-gtk-html.csv:251  "Este jogo não funciona"
+      o sinal 'add_appid_to_steam_input_allowlist' APARECEU em
+      src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py.
+    divida-fechada: paridade-gtk-html.csv:254  "Steam Input: conferir e desligar"
+      o sinal 'on_emulation_steam_input_disable' APARECEU em
+      src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py.
 ```
+
+**E A SEGUNDA LINHA ACUSA POR ACIDENTE, o que vale registro:** o sinal dela é
+`on_emulation_steam_input_disable`, um método do mixin da GTK — a régua só o
+achou porque eu o **nomeei num comentário**, ao dizer de onde vem o rótulo do
+botão. Se eu tivesse escrito o comentário de outro jeito, a dívida teria fechado
+em silêncio. **É a mesma cegueira da linha 250**, cujo sinal é
+`_build_steam_ready_confirm_dialog` — privado, sem razão nenhuma para eu o
+nomear, e por isso **ela continua `FALTA_NO_HTML` com a dívida fechada e nada
+acusa**. Ver §8.
 
 **ELE É VERMELHO POR DESENHO, e a prova está no frontmatter da sprint seguinte:**
 `PARIDADE-REMEDIR-01` tem `posse: [docs/data/paridade-gtk-html.csv]`,
@@ -386,7 +405,12 @@ pegou uma citação nova minha a `gui/main.glade` num comentário de rótulo. A
 janela está sendo aposentada (`D-0609-GTK-LEVA-INTEIRA`) e o que se reusa é a
 **função dona da palavra**; o ponteiro passou a ser o do motor.
 
-Os outros 42: verdes.
+```
+REPROVOU: 1 vermelho(s) de 44 -> paridade-gtk-html
+```
+
+**Os outros 43: verdes**, `casa-sabe` (127 s), `acentuacao` (75 s), `mypy`,
+`shellcheck`, `referencias-docs` e `anonimato` inclusos.
 
 ---
 
