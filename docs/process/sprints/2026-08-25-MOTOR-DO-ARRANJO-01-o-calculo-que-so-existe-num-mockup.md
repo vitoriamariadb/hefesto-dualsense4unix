@@ -35,6 +35,10 @@ nao_toca:
   - docs/data/mapa-controles.csv
 depois_de:
   # A faxina de 27/08 apagou daqui: CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
+  # 06/09/2026 — a GTK-3 mexe no `install.sh`, no `packaging/` e em
+  # `app/app.py`/`app/main.py` ANTES desta. Serializado pelo orquestrador
+  # das 24 horas; a janela sai primeiro, o id migra depois.
+  - GTK-3
 bancada: false
 ---
 

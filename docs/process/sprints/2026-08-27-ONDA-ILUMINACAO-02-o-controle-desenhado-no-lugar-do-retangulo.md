@@ -42,7 +42,7 @@ prévia da cor continua sendo um retângulo pintado à mão.
   (`:165`) e as cinco lâmpadas `led-jogador-1..5` (`:194-198`);
 - **consumidores em `src/`: zero.** `grep -rn 'control-svg' --include='*.py' src`
   não devolve nada; os únicos usos são `scripts/gerar-mapa.py:91` e
-  `scripts/migrar-mapa-v2.py:90`, que geram o `specs.html`;
+  `scripts/migrar-mapa-v2.py:90`, que geram o `specs.html`;  <!-- ref-externa: `scripts/migrar-mapa-v2.py` foi APAGADO em 05/09/2026 (commit 4cb7e97d). A migração que ele fez já está no mapa; a menção é histórica e o portão a cobrava desde ontem, sem ninguém ver. -->
 - a prévia de hoje: `GtkDrawingArea` `lightbar_preview` (`gui/main.glade:1247`),
   pintada por `_on_lightbar_preview_draw` (`lightbar_actions.py:1576`);
 - **o SVG não é instalado.** `install.sh:3053-3054` copia `assets/glyphs` para

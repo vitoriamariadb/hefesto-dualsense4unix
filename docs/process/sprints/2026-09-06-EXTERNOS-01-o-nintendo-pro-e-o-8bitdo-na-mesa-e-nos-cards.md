@@ -9,7 +9,7 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba08.py
     - mockup/01-jogar.html
     - mockup/08-conexoes.html
-depois_de: [ONDA5-01-01, ONDA5-01-03, ONDA5-07-03, ONDA5-08-01, ONDA5-08-02, MESA-DE-QUATRO-01, CONEXOES-LIGAR-TUDO-01, ONDA4-S10-O-TRANSPORTE-01, A-PALAVRA-MESA-SAI-01]
+depois_de: [ONDA5-01-01, ONDA5-01-03, ONDA5-07-03, ONDA5-08-01, ONDA5-08-02, MESA-DE-QUATRO-01, CONEXOES-LIGAR-TUDO-01, ONDA4-S10-O-TRANSPORTE-01, A-PALAVRA-MESA-SAI-01, JOGAR-O-QUE-FALTA-01]
 nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - src/hefesto_dualsense4unix/interface/monta.py

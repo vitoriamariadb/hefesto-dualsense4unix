@@ -289,7 +289,7 @@ atualizou 14 células de prosa e provou a mordida em três pontos.
 **51 para 46**. Nenhum `ate_onde_foi` foi mexido — as contagens de `MONTOU`,
 `SAIU NO FIO` e `O APARELHO OBEDECEU` são idênticas antes e depois.
 
-**O buraco que ficou:** `scripts/migrar-mapa-v2.py` escreve o CSV **inteiro** a
+**O buraco que ficou:** `scripts/migrar-mapa-v2.py` escreve o CSV **inteiro** a  <!-- ref-externa: `scripts/migrar-mapa-v2.py` foi APAGADO em 05/09/2026 (commit 4cb7e97d). A migração que ele fez já está no mapa; a menção é histórica e o portão a cobrava desde ontem, sem ninguém ver. -->
 partir do cabeçalho dele, e **nenhum teste** o compara com o cabeçalho real.
 Uma execução acidental reverte a renomeação sem uma linha de erro.
 
@@ -385,7 +385,7 @@ HIDP/L2CAP. Depois, `check_paridade_transporte.py` e `gerar-mapa.py`.
 | # | o quê |
 |---|---|
 | 13 | Teste unitário para as travas de `cor_do_plastico.py` — as mordidas foram exercidas só à mão, num terminal que morreu, e cabem num arquivo **sem hardware nenhum** |
-| 14 | Teste que compare o cabeçalho do `migrar-mapa-v2.py` com o cabeçalho real do CSV |
+| 14 | Teste que compare o cabeçalho do `migrar-mapa-v2.py` com o cabeçalho real do CSV |  <!-- ref-externa: `scripts/migrar-mapa-v2.py` foi APAGADO em 05/09/2026 (commit 4cb7e97d). A migração que ele fez já está no mapa; a menção é histórica e o portão a cobrava desde ontem, sem ninguém ver. -->
 | 15 | Versionar os brutos órfãos do ensaio pareado e a segunda corrida do E2 (o par é que é a medição: o mesmo vpad mede 0,30 Hz numa e 26,00 Hz na outra) |
 | 16 | Registrar o veredito das sete mutações M1 a M7 na sprint da máscara, e guardar o `morder.py` num lugar durável <!-- ref-externa: vive no scratchpad resgatado da sessão morta, fora desta árvore --> |
 | 17 | Substituir as três frases falsas ainda vivas no `src/` — a medição de 08/08 falsificada em 11/08. Importa porque, na própria sessão morta, **outra frente leu essa frase e a tratou como evidência**. O molde pronto está em `cli/cmd_lightbar_reset.py` |

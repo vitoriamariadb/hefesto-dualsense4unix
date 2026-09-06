@@ -36,6 +36,10 @@ depois_de:
   # do gabinete que a G7 pôs no install: as duas coisas têm de sobreviver.
   - LEVA-DE-BACKGROUND-01
   - MOTOR-DO-ARRANJO-01
+  # 06/09/2026 — a GTK-3 mexe no `install.sh`, no `packaging/` e em
+  # `app/app.py`/`app/main.py` ANTES desta. Serializado pelo orquestrador
+  # das 24 horas; a janela sai primeiro, o id migra depois.
+  - GTK-3
 ---
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — empacotamento; espera a PERFIS-SAO-PERFIS-01 porque as duas tocam `assets/`.

@@ -24,7 +24,7 @@ Doze arquivos, 5.208 linhas. O que importa deles, medido com `os.path.getsize`,
 | A tela | `specs.html` | no commit: 669.050 bytes = **653 KB**, 1.172 linhas, zero requisição de rede |
 | O dado | `docs/data/mapa-controles.csv` | **264 linhas** (88 chaves x 3 controles), 45 colunas |
 | O gerador | `scripts/gerar-mapa.py` | CSV → tela, com `--check` embutido |
-| A migração | `scripts/migrar-mapa-v2.py` | prova campo a campo do v1 para o v2 |
+| A migração | `scripts/migrar-mapa-v2.py` | prova campo a campo do v1 para o v2 |  <!-- ref-externa: `scripts/migrar-mapa-v2.py` foi APAGADO em 05/09/2026 (commit 4cb7e97d). A migração que ele fez já está no mapa; a menção é histórica e o portão a cobrava desde ontem, sem ninguém ver. -->
 | A bancada | `bancada.py` | a superfície de medição, que escreve no mesmo CSV |
 | O caderno | `scripts/eliminacao.py` + `docs/data/ensaios.csv` | **14 ensaios**, todos de 03/08 e 10/08 |
 | O v1 | `docs/data/mapa-controles-v1.csv` | 204 linhas, guardadas — medição não se apaga |

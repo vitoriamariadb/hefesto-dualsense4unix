@@ -137,7 +137,7 @@ num `fill`): nelas a tira mostra a hachura do gerador, e **inventar hex é
 proibido**.
 
 **Nenhuma linha da janela nunca o abriu**: os usos vivos estão todos em
-`scripts/` — `gerar-mapa.py`, `migrar-mapa-v2.py` e os dois de 27/08. Quem o
+`scripts/` — `gerar-mapa.py`, `migrar-mapa-v2.py` e os dois de 27/08. Quem o  <!-- ref-externa: `scripts/migrar-mapa-v2.py` foi APAGADO em 05/09/2026 (commit 4cb7e97d). A migração que ele fez já está no mapa; a menção é histórica e o portão a cobrava desde ontem, sem ninguém ver. -->
 abre primeiro é a **ONDA-VIBRACAO-01**, que o parte ao meio para acender cada
 lado com o seu motor (`D-O-SVG-VIBRA-POR-LADO`) e cria
 `app/widgets/desenho_do_controle.py`.  <!-- ref-externa: nasce na ONDA-VIBRACAO-01, ainda não executada -->
