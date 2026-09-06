@@ -1,6 +1,6 @@
 ---
 sprint: BATERIA-PARADA-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   B1:
@@ -25,6 +25,8 @@ B1: `core/backend_pydualsense.py:5683-5697` (`_read_battery_opt` lê só `Level`
 (`ControllerState`) e nos payloads de `describe_controllers` — por isso `controller.py` entrou na
 posse. B2: o journal. A RESERVA-DO-POSTO-01 saiu do `depois_de` (a medição dela é da bancada e não
 toca o que B1 toca); a COOP-QUE-NAO-DESMONTA-01 fica, porque as duas escrevem `backend_pydualsense.py`.
+
+> **ESTADO 2026-09-06: feita** — o estado de carga virou dado de primeira classe (`ControllerState.battery_state` e o par `_carga` no payload de `describe_controllers`, que o `controller.list` repassa verbatim à janela), traduzido pela tabela do DRIVER e não pelos nomes da pydualsense; e a varredura de bateria — `observar` + `ler_no_do_kernel` — passou a recusar os nós do nosso próprio vpad, NOMEANDO: o prefixo espelhado em três módulos ganhou portão contra o `player_mac()` que o forja. Medido ao vivo no sysfs dela: o nó `02:fe:…` diz `Charging`/100 com o controle dela `Full` e parado no cabo. A prova com a bateria de verdade carregando continua sendo da MESA-DE-QUATRO-01. Entrega: `docs/process/agentes/2026-09-06/BATERIA-PARADA-01-opus.md`.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — a bancada dos quatro remede (o CSV diz IGUAL para a bateria no cartão; o que ela viu foi o número parado no tempo).
 
