@@ -1,6 +1,6 @@
 ---
 sprint: O-LOGO-NAS-DEZ-01
-estado: aberta
+estado: caducou
 onda: O-LOGO-NAS-DEZ
 posse:
   L1:
@@ -14,6 +14,40 @@ posse:
 em voo em 29/08 — as duas páginas que faltam saem de uma regeração só.
 
 # O LOGO NAS DEZ — a cura que chegou a uma página só
+
+> **CADUCOU em 06/09/2026, e a premissa morreu por CIMA, não por baixo.**
+> Medido pelo coordenador na costura da ONDA D, com a árvore em `4070cf82`:
+>
+> ```
+> $ grep -o "<title>[^<]*</title>" assets/hefesto-logo.svg
+> <title>Borda</title>          <title>Bolinha rosa</title>
+> <title>Bolinha azul</title>   <title>Fogo</title>
+> <title>Chama amarela</title>  <title>Chama vermelha</title>
+> <title>Bigorna</title>        <title>Martelo</title>
+> ```
+>
+> **Os oito são dela e os oito são capitalizados.** O defeito que esta sprint
+> descreve — quatro nomes em minúscula e com hífen (`bolinha-rosa`) ao lado de
+> cinco irmãos maiúsculos — não existe em arquivo nenhum desta árvore. O que ela
+> pediu era o fim da MISTURA, e o fim da mistura chegou por outra porta: em
+> 30/08 o `interface/monta.py:87` passou a LER `assets/hefesto-logo.svg` em vez
+> de carregar o desenho digitado, e o desenho dela já nasce com os oito nomes na
+> mesma forma. As vinte páginas (dez da bancada, dez do publicado) trazem os
+> quatro `<title>` capitalizados, e é isso que o número 80 desta medição diz —
+> não oitenta defeitos, oitenta ocorrências do desenho CERTO.
+>
+> **E a posse desta sprint aponta para uma pasta que não existe:** `layout/` foi
+> aposentada em 31/08 e hoje as duas pontas são `mockup/` (a bancada) e
+> `interface/paginas/` (o publicado). Uma sprint cuja posse não existe não se
+> despacha — é a definição de `caducou` do glossário desta casa.
+>
+> **O QUE FICA DE LIÇÃO, e por isso a sprint não se apaga:** o defeito não era o
+> nome minúsculo. Era **desenho digitado num arquivo que não é o dono dele** — a
+> mesma doença da fita, das cores do plástico e do padrão das lâmpadas. Quem
+> curou em 29/08 editou os arquivos que tinha na frente e a terceira cópia
+> continuou viva sem ninguém saber. A cura que fechou foi dar um DONO ao
+> desenho. O comentário que guarda essa razão está em `interface/topo.html:635`
+> e viaja com o arquivo dela.
 
 **28/08/2026, decisão dela:** os quatro `<title>` minúsculos do logotipo saem.
 `<title>` dentro de um SVG é **tooltip**: passar o mouse na bolinha rosa escrevia
