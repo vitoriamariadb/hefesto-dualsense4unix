@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-09-02
-estado: aberta
+estado: feita
 decisoes: [09-Q3 (a metade de mecanismo)]
 posse:
   09B:
@@ -21,6 +21,49 @@ nao_toca:
 ---
 
 # ONDA5-09-02 · DEFEITO — o "Atualizar" não diz "Pronto." sem ter feito
+
+> ## FEITA — 06/09/2026, e a prova é do OUTRO LADO DO IPC
+>
+> Os quatro passos entraram. O gesto passou a ser
+> `_ok_e_motivo(p.chamar_detalhado("daemon.reload"))`, com `_LENTO.clear()` nos
+> dois desfechos e `raise RuntimeError(motivo or SEM_RESPOSTA_DO_SERVICO)`.
+>
+> **A PROVA, com um servidor JSON-RPC de verdade num socket de mentira** (o
+> `XDG_RUNTIME_DIR` desviado antes de qualquer import; o handler que ele executa
+> é o `_handle_daemon_reload` REAL, com o `reload_config` REAL do `Daemon`).
+> Nenhum byte foi ao serviço dela:
+>
+> | cena | chegou ao outro lado | o que o daemon fez | o que a tela diz |
+> | --- | --- | --- | --- |
+> | serviço de pé | `('daemon.reload', {})` | leitor de atalhos derrubado e subido · envs da Steam reescritas · `keys_changed=[]` | **"Pronto."** — e agora é verdade |
+> | serviço recusando | `('daemon.reload', {})` | respondeu `CODE_INVALID_PARAMS` | a frase DELE, em laranja |
+> | serviço parado, botão de HOJE | **NADA — nenhum byte saiu** | nada | `SEM_RESPOSTA_DO_SERVICO`, em laranja |
+> | serviço parado, gesto de ONTEM | **NADA — nenhum byte saiu** | nada | **"Pronto." em verde** ← o defeito, lado a lado |
+>
+> A última linha é a régua da própria sprint: o mesmo socket, o mesmo clique, os
+> dois gestos. **A `keys_changed=[]` da §2 foi confirmada correndo o handler**,
+> e não só lendo-o.
+>
+> ### DUAS AFIRMAÇÕES DESTA SPRINT CAÍRAM na execução
+>
+> **1. `FRASE_DE_RESERVA` não existia com o nome que o Passo 1 escreveu.** O
+> exemplo dizia `FRASE_SEM_CONFIRMACAO`, e não há constante com esse nome no
+> módulo — o que existe é `SEM_CONFIRMACAO`, que é outra coisa (o dicionário dos
+> cinco gestos que prometem perguntar antes). A constante nasceu no Passo 2, com
+> o nome que o que ela diz sustenta: **`SEM_RESPOSTA_DO_SERVICO`**.
+>
+> **2. A mordida do Passo 4 previa que a asserção 2 ficasse VERDE, e ela
+> reprova.** *"A 2 continua verde — e é assim que se sabe que ela mede outra
+> coisa"*. Medido: com o `if not ok: raise` arrancado **junto com a volta ao
+> `p.chamar`** — que é como o defeito realmente era —, a asserção do sucesso
+> também cai, porque ela cobra a PORTA (`chamar_detalhado`) além do desfecho.
+> Quatro das sete reprovam. A previsão valeria para uma mordida que tirasse
+> **só** o `raise`; a régua ficou mais dura que a sprint pediu, e isso se
+> registra em vez de se afrouxar.
+>
+> **O que NÃO foi construído**, e continua na §4: a piscada verde da `03-Q4`
+> (do piloto), a `suppress` do `materialize_launch_env` (do daemon) e o rótulo
+> (`ONDA5-09-01`, já fechada).
 
 > **O esclarecimento dela, 05/09/2026, sobre a 09-Q3:**
 >
