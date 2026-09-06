@@ -1,6 +1,6 @@
 ---
 sprint: BORDA-DE-QUEDA-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   E2:
@@ -11,6 +11,20 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
 ---
 
+> **ESTADO 2026-09-06: feita** — a E2 fechou: `_broker_sync_grab` no ramo
+`grab=False` (`daemon/subsystems/gamepad.py`) pede `client.restore(nó do P1)` em vez
+de `client.restore_all`, que restaurava a lease INTEIRA e desnudava o hidraw dos
+quatro quando só o Jogador 1 parava. Régua com o Broker REAL em socket unix, quatro
+nós numa lease: `tests/unit/test_borda_de_queda_01_o_restore_do_p1_e_por_no.py`. A
+mordida (devolver o `restore_all`) derruba sete testes e o servidor responde
+`escondidos=[]`. **A cura é neutra em número de linhas de propósito** — prosa no meio
+deste arquivo derivou `apply_game_rumble` e reprovou `citacoes-de-linha`,
+`citacoes-no-codigo` e `mapa-de-canais` em cascata; está contado na entrega. Entrega em `docs/process/agentes/2026-09-06/BORDA-DE-QUEDA-01-opus.md`.
+**E1, E3 e E4 já estavam no disco desde 26/08** — o corpo abaixo nunca foi atualizado, e
+os endereços dele (`gamepad.py:217`, `:279`, `:656-657`, `coop.py:905`,
+`connection.py:88-131`) estão todos velhos. **O que continua aberto é a prova no
+APARELHO, com quatro controles no rádio — ela é da MESA-DE-QUATRO-01.**
+
 > **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **A E2 mora em `gamepad.py`, não em `coop.py`** — posse corrigida, e por isso ela não
 espera mais a COOP-QUE-NAO-DESMONTA-01. Medido em 06/09: `daemon/subsystems/gamepad.py:326`,
 `_broker_sync_grab` no ramo `grab=False`, chama `client.restore_all` — e é chamado pelo `stop`
@@ -18,11 +32,11 @@ do P1 (`:2369`). Trocar por `client.restore(node)` do nó do P1. Régua com dubl
 registra QUAIS nós foram restaurados; a mordida é devolver o `restore_all` e ver o nó do P2
 aparecer na lista.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
+> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela. *(SUPERADA no mesmo dia pela linha de ESTADO acima: a E2 entrou no LOTE-1 e fechou. O que a MESA-DE-QUATRO-01 ainda decide é a prova no aparelho, não o código.)*
 
 # BORDA-DE-QUEDA-01 — o que fica para trás quando um controle cai
 
-- **Status:** PROPOSTA, escrita em 03/08/2026. Nenhuma linha de código tocada
+- **Status:** FEITA. Escrita como proposta em 03/08/2026; E1/E3/E4 em 26/08/2026 e E2 em 06/09/2026
 - **Prioridade:** **ALTA** — o rumble preso **voltou na sessão dela**, quatro
   vezes em 28 segundos, com valores altos nos dois jogadores
 - **Faixa:** 1 — o produto deixa o hardware num estado ruim
