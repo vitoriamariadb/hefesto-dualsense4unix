@@ -1,6 +1,6 @@
 ---
 sprint: GTK-1
-estado: aberta
+estado: feita
 decisoes: [D-0609-GTK-LEVA-INTEIRA]
 posse:
   GTK1:
@@ -20,6 +20,71 @@ nao_toca:
 ---
 
 # GTK-1 · A JANELA SAI (1 de 3) — o inventário, e o portão que impede a janela de crescer
+
+> ## FEITA — 06/09/2026. O número é **255 pares · 522 citações**.
+>
+> | veredito | pares | citações |
+> | --- | ---: | ---: |
+> | `MOTOR-MUDA-DE-CASA` | 186 | 391 |
+> | `SAI-COM-A-JANELA` | 57 | 108 |
+> | `NUNCA-DEVIA-CITAR` | 12 | 23 |
+>
+> **A RECOMENDAÇÃO QUE A `GTK-2`/`GTK-3` ESPERAM: `gui/aba_conexoes.py`,
+> `gui/aba_sistema.py`, `gui/ponte_da_tela.py` e `gui/widgets/` FICAM — e MUDAM
+> DE CASA.** Nenhum dos quatro é a janela; os quatro são motor com endereço
+> errado. Medido: `gui/aba_conexoes` é importado por `a08_conexoes.py` em 23
+> pontos e `gui/aba_sistema` por `a09_sistema.py` em 7 — apagá-los apaga as abas
+> 08 e 09 da interface NOVA. `gui/main.glade`, `gui/theme.css`, `app/app.py` e
+> `app/main.py` são os alvos que morrem.
+>
+> **E `gui/theme.css` NÃO É ARTEFATO DA JANELA**, ao contrário do que o plano
+> D-19 §Passo 5 lista: ele é a PALETA CANÔNICA da casa. `test_paleta_unica.py`
+> deriva dele a lista de cores aceitas e `scripts/paleta_da_casa.py` o nomeia
+> como fonte dos quatro HTML de `html/`. Removê-lo com a janela cega o portão da
+> paleta. Ele muda de casa; não sai.
+>
+> **A CONTA ESCONDIDA DA `GTK-3`, medida aqui e por ninguém antes: 233
+> documentos de `docs/` citam `main.glade` entre crases** (mais 104 com
+> `app/app.py`, 36 com `theme.css`, 16 com `app/main.py`). O
+> `validar-referencias-docs.py` varre `docs/` inteiro e reprova caminho que não
+> existe — então apagar o glade herda 233 documentos vermelhos no portão
+> `referencias-docs`, que esta casa levou a zero em 31/08 e 01/09. Não há atalho
+> automático.
+>
+> **A PROVA — as duas metades do portão, mordidas na árvore de verdade:**
+>
+> ```
+> # 1. import novo de gui/ num arquivo de interface/
+> src/hefesto_dualsense4unix/interface/aba_de_mentira_da_mordida.py:3: CITAÇÃO NOVA
+>   para a janela (gui.app). …declare-a em docs/data/o-que-ainda-aponta-para-a-janela.csv
+>   com veredito e razão.                                                    rc=1
+>
+> # 2. linha nova no CSV sem veredito
+> docs/data/o-que-ainda-aponta-para-a-janela.csv:257: veredito '(vazio)' não é um dos
+>   três (MOTOR-MUDA-DE-CASA, NUNCA-DEVIA-CITAR, SAI-COM-A-JANELA) —
+>   scripts/instrumento_de_mentira.py · gui/main.glade.                      rc=1
+>
+> # desfeitas as duas
+> OK: 255 pares (arquivo, alvo) · 522 citações à janela, todas declaradas.    rc=0
+> #  os 44 portões: TODOS VERDES.
+> ```
+>
+> **DOIS INSTRUMENTOS FALSOS CAÍRAM ESCREVENDO ISTO, e os dois são meus:**
+> o `tokenize` marcava `MAIN_GLADE = GUI_DIR / "main.glade"` como **prosa** (todo
+> token `STRING` contava como comentário) — a dependência mais dura da árvore
+> saía carimbada de "é só um comentário"; e a primeira peneira de desempenho,
+> escrita à mão, **perdia 20 pares e 35 citações** porque nenhuma das cadeias
+> cobria `hefesto_dualsense4unix.app.app` na forma pontuada. A peneira passou a
+> ser derivada das próprias agulhas, com régua provando a igualdade.
+>
+> **E O GRAFO NÃO SERVIU SOZINHO:** `code-review-graph query importers_of
+> gui/aba_sistema.py` devolveu **2** importadores e não achou
+> `a09_sistema.py:71` nem `sistema_viva.py:57` — os dois `from … import` de
+> topo de módulo. O inventário é do `tokenize`; o grafo corroborou, não mediu.
+> (Armadilha já escrita em `COMO-EXECUTAR-UMA-SPRINT.md` §9: *valide o
+> instrumento contra respostas que você já conhece*.)
+>
+> Relatório: `docs/process/agentes/2026-09-06/GTK-1.md`.
 
 > **A decisão dela, 06/09/2026** (`D-0609-GTK-LEVA-INTEIRA`): *"a ideia sempre
 > foi reaproveitar o que fiz no gtk e não apontar nada mais pra lá mas pro
