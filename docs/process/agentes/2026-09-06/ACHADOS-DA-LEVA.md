@@ -153,49 +153,18 @@ a mesa do desenho ainda diz `"USB"`; fica vazia em silêncio no dia em que a
 
 ---
 
-## A ABA 06 JÁ ESTÁ PUBLICADA, e a rodada de publicação dela tem de saber
+## O TÍTULO QUE A RÉGUA NUNCA LEU — e a declaração que não declarava
 
-**Isto saiu do `mockup/DIVERGENCIAS.md` em 06/09/2026 e veio para cá, porque o
-portão `desenho-aprovado` está certo: aquele arquivo é para divergência ABERTA,
-e a 06 não tem nenhuma — ela foi publicada.** *"Declaração que envelhece calada
-vira paisagem"*, diz o próprio portão.
+**06/09/2026, achado pela `NAVEGACAO-TECLAS-01`.** A seção da aba 06 em
+`mockup/DIVERGENCIAS.md` tinha o título `## 06-navegacao.html — **JÁ PUBLICADA,
+e ela precisa saber disso**`. A régua casa `^##\s+(\S+\.html)\s*$`
+(`check_o_desenho_aprovado.declaradas`), e o adorno fez a seção **não contar como
+declaração**. Ninguém viu enquanto a bancada e o publicado eram iguais; apareceu
+no primeiro dia em que deixaram de ser.
 
-**E o portão só conseguiu dizer isso hoje**, porque o título daquela seção
-carregava um adorno (`— **JÁ PUBLICADA…**`) e a régua casa
-`^##\s+(\S+\.html)\s*$`: **a declaração nunca contou como declaração**. Ela
-só apareceu no primeiro dia em que a bancada e o publicado divergiram. Achado
-pela `NAVEGACAO-TECLAS-01`. **A regra que fica: ênfase vai no CORPO; o título é
-endereço.**
+**Quem escreveu o adorno fui eu, na costura da ONDA B.** A regra que fica:
+**ênfase vai no CORPO; o título é endereço.**
 
-## 06-navegacao.html
-
-> **JÁ PUBLICADA, e ela precisa saber disso.** O adorno desta frase morava
-> no TÍTULO até 06/09/2026, e o título é o que a régua casa
-> (`^##\s+(\S+\.html)\s*$` em `check_o_desenho_aprovado.declaradas`) — logo
-> **esta declaração nunca contou como declaração**. Só apareceu no primeiro
-> dia em que a bancada e o publicado divergiram. Achado pela
-> `NAVEGACAO-TECLAS-01`. Ênfase vai no CORPO; o título é endereço.
-
-- **06/09/2026** — a `ONDA5-06-02` **publicou** `interface/paginas/06-navegacao.html`.
-  A aba passou a ter **22 linhas**: o **Botão PS** é a 19ª, e abre em *"Abrir a
-  Steam"*, que é o `padrao()["ps"]` do motor.
-
-  **Publicar é ato dela, e esta é a exceção do dia — declarada, não escondida.**
-  A decisão de manter foi do coordenador, na costura da ONDA B, com três razões:
-
-  1. **A sprint declarava a posse.** `interface/paginas/06-navegacao.html` está
-     em `posse:` da `ONDA5-06-02`, enquanto as irmãs da mesma leva (`ONDA5-05-01`,
-     `ONDA5-02-02`) a põem em `nao_toca:`. A diferença é do desenho da fila, não
-     escolha do agente.
-  2. **Desfazer criaria perda SILENCIOSA de trabalho dela**, que é o defeito que
-     esta casa mais persegue: a tela ficaria com 21 linhas sobre um produto de
-     22, e o «Guardar» **descartaria a escolha do PS sem dizer uma palavra**,
-     porque a varredura não a traria.
-  3. **O piloto renderiza o PUBLICADO.** Sem publicar não existe prova de tela —
-     e ela é obrigatória —, e duas das sete réguas que a `ONDA5-06-01` deixou
-     vermelhas leem a página publicada.
-
-  **O que isso muda para ela, no FECHO:** a volta única de publicação continua
-  acontecendo, e a aba 06 entra nela — só que **já publicada**. Se ela olhar a
-  linha do PS e disser que não, o desfazer é um comando:
-  `git checkout <commit> -- src/hefesto_dualsense4unix/interface/paginas/06-navegacao.html`.
+A nota sobre a 06 já estar publicada continua onde ela é útil — na seção
+`## 06-navegacao.html` do `mockup/DIVERGENCIAS.md`, agora com o título que a
+régua lê, e com a segunda entrada da `NAVEGACAO-TECLAS-01` embaixo dela.
