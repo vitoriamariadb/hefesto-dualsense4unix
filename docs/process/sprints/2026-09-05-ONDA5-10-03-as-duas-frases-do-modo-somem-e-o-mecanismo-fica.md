@@ -13,6 +13,17 @@ nao_toca:
 depois_de: [ONDA1-X-OS-FATOS-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-04-01]
 ---
 
+> **06/09/2026, costura da ONDA A — O PASSO 3 FECHOU; a sprint continua
+> `aberta`.** As duas linhas do CSV (*O preço da máscara* e *O aviso de rádio
+> frágil*) ganharam a nota datada da 10-Q6 e deixaram de ser dívida de TEXTO
+> para ser dívida de MECANISMO. Quem fez foi o coordenador, porque o CSV tem um
+> dono por leva e nesta leva é ele.
+>
+> **Os Passos 1 e 2 não têm o que fazer ainda**, e a própria sprint diz por quê
+> (§3): *o quadro Modo NÃO EXISTE na aba 10*. Eles fecham junto com a
+> **PERFIL-MODO-01** (onda D), que é quem constrói o quadro — e ela nasce com a
+> ordem de não construir as duas frases, escrita no §3 dela.
+
 # ONDA5-10-03 · DEFEITO — as duas frases do Modo somem, e o que fica no lugar é mecanismo
 
 > **A pergunta, 10-Q6:** *"Quando o quadro de Modo do perfil nascer nesta aba,

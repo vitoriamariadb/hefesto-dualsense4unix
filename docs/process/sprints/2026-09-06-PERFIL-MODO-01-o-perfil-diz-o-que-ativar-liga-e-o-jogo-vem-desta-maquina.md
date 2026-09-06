@@ -85,6 +85,40 @@ a escolha entra no `match` sem ela digitar.
 
 ---
 
+### Passo 4 — o que a costura da ONDA A pôs no seu colo
+
+**1. As duas frases do Modo NÃO nascem** (`ONDA5-10-03`, Passo 1, decisão dela
+10-Q6). O quadro entrega os quatro botões e **nada mais**: nem linha condicional
+para o rádio, nem dica com o preço do Xbox. As duas linhas do CSV já foram
+remedidas na costura — **elas são dívida de mecanismo agora, não de texto**.
+
+**A MORDIDA que a 10-03 encomendou:**
+`test_o_quadro_do_modo_nao_descreve_o_que_perde` varre o HTML gerado da aba 10
+atrás de `TEXTO_CUSTO_MASCARA_XBOX` e do retorno de `texto_do_radio_fragil`, e
+reprova se qualquer uma aparecer. **Ela LÊ as constantes de `home_actions`** —
+digitar o texto aqui a faria desligar sozinha no dia em que a frase mudasse uma
+vírgula.
+
+**2. Os NOVE gestos que gravam o perfil inteiro sem a carona**, censo por AST
+entregue pela `ONDA5-07-02`: `voltar-a-de-ontem` mais os oito de `_gravar` (com
+o `detectar` incluso). A casa compartilhada existe e chama-se
+`perfil.com_a_carona()`; o rodapé já a usa em «Aplicar», «Salvar Perfil» e
+«Importar».
+
+**`perfil.gravar_e_reaplicar` NÃO ganha a carona** — e a razão é medida: seis
+chamadores em cinco abas, ação imediata; seria uma varredura do vdf por clique,
+que é a opção que o dono recusou. **Não reabra isso.**
+
+**A MORDIDA:** arranque a carona de um dos nove e o portão por gesto (árvore de
+sintaxe, da 07-02) reprova **nomeando qual perdeu o fio**.
+
+**3. O que a `ONDA5-10-01` deixou para você**, medido por ela: pôr `"janela"` em
+`_IDS_COM_CAMPO_LIVRE` faz um perfil NOVO nessa opção **pré-selecionar o modo
+jogo** (`profiles_actions.py:2152`). É de propósito, mas é comportamento novo
+dentro do seu quadro — **decida com os olhos abertos e escreva o que decidiu**.
+
+---
+
 ## 3. O QUE ESTA SPRINT NÃO CONSTRÓI — e por decisão de quem
 
 * **O editor avançado de regra** (`window_class` · título da janela · nome do
