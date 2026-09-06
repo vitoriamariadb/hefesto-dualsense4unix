@@ -1,6 +1,6 @@
 ---
 sprint: A-TELA-SAMBA-01
-estado: aberta
+estado: feita
 posse:
   P0:
     - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
@@ -19,6 +19,35 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - src/hefesto_dualsense4unix/profiles/
 ---
+
+> **FEITA — 06/09/2026.** Medido com o instrumento do Passo 1
+> (`--conta-mutacoes N`, `--oculta`, mesa parada), com o daemon dela vivo e um
+> DualSense no cabo. **Oito das dez abas passaram a mutar ZERO**; a `01-jogar`
+> saiu de 7.100 mutações em 100 tiques para 0, e a `10-perfis` de 4.000 em 40
+> tiques para 0. A dica de modo da `03-gatilhos` fica de pé: os 8 nós vivos, o
+> `title` intacto e **0 mutações em 5 s** — com a cura arrancada, **1.166**. Os
+> 33 nós da lista de perfis sobrevivem aos 5 s e o clique pousa de primeira;
+> com a cura arrancada, **0 de 33** sobrevivem. Duas fotos, aos 0 s e aos 5 s,
+> saem BYTE A BYTE IDÊNTICAS nos dois casos — que é a razão de o defeito ter
+> sobrevivido a toda medição por foto.
+>
+> **UMA HIPÓTESE DA SPRINT CAIU:** os alvos `cor` e `plastico` **não** mutavam o
+> DOM ao reescrever o mesmo valor — o CSSOM só reescreve o atributo `style`
+> quando a declaração muda. Os dois ficaram como estavam. Quem mutava era o
+> `atributo` (o `title` da dica), o **selo da visita** (a maior parcela), o alvo
+> `html`, os **blocos** e o `classList` dos lugares vazios.
+>
+> **O ACHADO DA `ONDA4-S10-O-TRANSPORTE-01` ENTROU**: a `.fita` ganhou a mesma
+> guarda de `hef-em-voo` dos blocos — ela é o caso extremo, porque troca o
+> próprio nó. Mas a medição CORRIGE o mecanismo: a fita **não** é trocada a cada
+> tique (`06-navegacao` muta 0 em 40 tiques). O que mata
+> `a09_sistema._html_da_fita` e `a06_navegacao.chips_da_fita` é o endereço
+> `fita-chips` **deixar de existir** no DOM depois da única troca — sem
+> mutação, sem erro, sem churn. RELATO 6 do relatório.
+>
+> Relatório: `docs/process/agentes/2026-09-06/A-TELA-SAMBA-01.md`.
+> Régua: `tests/unit/test_a_tela_nao_samba.py` — 12 testes, nove mordidas
+> coladas no relatório.
 
 # A-TELA-SAMBA-01 · DEFEITO VIVO — a interface repinta sem parar, perde cliques e mata a dica
 
