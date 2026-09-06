@@ -52,10 +52,13 @@ depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01, ONDA5-05
 > `_indice`, e tem régua de unidade; o que se clicou foi o ramo que existe.
 >
 > **E UMA COISA QUE A SPRINT NÃO PREVIA:** encurtar as frases obrigou a mexer
-> em `tests/unit/test_a05_a_vibracao_aplica_e_fala.py` (posse da `ONDA5-05-02`,
-> já fechada), que exigia a oração INTEIRA do produto — 143 caracteres que não
-> cabem na faixa. O contrato foi invertido, não apagado: a régua passou a
-> exigir que a metade do FATO continue dentro da oração do produto.
+> em **duas** réguas de fora desta posse —
+> `tests/unit/test_a05_a_vibracao_aplica_e_fala.py` (`ONDA5-05-02`, já fechada)
+> e `tests/unit/test_a_forca_da_vibracao_e_por_controle.py`, que **só apareceu
+> ao rodar o BAIRRO** (34 arquivos, 482 casos, 22 s). As três exigiam a oração
+> INTEIRA do produto — 143 caracteres que não cabem na faixa. O contrato foi
+> invertido, não apagado: passa-se a exigir que a metade do FATO continue
+> dentro da oração do produto.
 
 > **A palavra dela, 05/09/2026, na pergunta 05-Q4** (*"depois de clicar num botão
 > desta aba, a tela confirma que deu certo?"*):
