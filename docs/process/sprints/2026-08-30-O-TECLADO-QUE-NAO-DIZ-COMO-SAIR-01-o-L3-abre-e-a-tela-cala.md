@@ -1,6 +1,6 @@
 ---
 sprint: O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   AVISO:
@@ -20,7 +20,16 @@ Para fechar, aperte R3."* — duas frases, sem termo da casa. A tabela da mordid
 abrir notifica · a frase diz R3 · não notifica se já aberto · não notifica sem binário. Dublar o
 binário como a irmã.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
+> **ESTADO 2026-09-06: feita** — o `open()` do teclado na tela avisa na tela, com a frase
+dela (`D-0609-A-FRASE-DO-TECLADO-NA-TELA`): *"Teclado na tela aberto pelo L3. Para fechar,
+aperte R3."* A régua `tests/unit/test_o_teclado_avisa_como_sair.py` mede as quatro linhas do
+§5 pelo caminho público, com o binário dublado; as quatro arrancadas estão em
+`docs/process/agentes/2026-09-06/O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01-opus.md`.
+>
+> **O §2(a) e o §4.1 CADUCARAM pela palavra dela de 02/09** — o L3 de fábrica é
+`__TOGGLE_OSK__` desde então, e o terceiro item do seletor que o §4.1 recomendava já existe.
+A régua exercita os DOIS tokens de abertura por causa disso. Fica UMA pergunta para ela: a
+frase nomeia só o R3, e hoje o próprio L3 também fecha.
 
 # O TECLADO QUE NÃO DIZ COMO SAIR · 01 — o L3 abre, e a tela cala
 
