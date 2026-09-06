@@ -1,6 +1,6 @@
 ---
 sprint: PARIDADE-CRUZA-O-MAPA-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   PORTAO:
@@ -19,6 +19,16 @@ nao_toca:
 ---
 
 # PARIDADE · CRUZA O MAPA — nenhuma linha IGUAL sem o mapa sustentar o transporte
+
+> **ESTADO 2026-09-06: feita** — o portão da paridade passou a perguntar ao mapa de
+> canais (regras 10 `ponte-morta`, 11 `transporte-nao-declarado` e 12 `ponte-encolheu`
+> em `scripts/check_paridade_gtk_html.py`, com 26 pontes declaradas e o veredito LIDO
+> do mapa a cada execução); `nao-medido` vira AVISO e nunca `rc=1`
+> (`D-0609-O-MAPA-INFORMA-NUNCA-VETA`); duas linhas que afirmavam paridade sem dizer o
+> transporte ganharam a declaração com endereço no dono; e as duas linhas de veredito
+> novo foram remedidas com medição de hoje — **as duas continuam `FALTA_NO_HTML`, e o
+> que mudou foi a razão**. Entrega:
+> `docs/process/agentes/2026-09-06/PARIDADE-CRUZA-O-MAPA-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —

@@ -269,7 +269,7 @@ paridade publicada vira propaganda no dia seguinte à primeira cura.
 para 27% sem que ninguém a "atualizasse" à mão: cada cura fez o portão reprovar,
 e a linha do CSV foi reescrita com o endereço novo lido no código.
 
-### As oito regras
+### As doze regras
 
 | regra | reprova quando |
 | --- | --- |
@@ -281,6 +281,10 @@ e a linha do CSV foi reescrita com o endereço novo lido no código.
 | `divida-fechada` | `AUSENTE` cujo símbolo **apareceu** no lado HTML. O caso bom |
 | `sinal-morto` | `AUSENTE` cujo símbolo não existe no lado GTK **e** não tem forma de endereço de tela: ninguém vai escrevê-lo, então a linha nunca morderia |
 | `numero-publicado` | a tabela da §2 diverge da contagem do CSV |
+| `aposentado-vivo` | arquivo declarado em `APOSENTADOS` que voltou à árvore |
+| `ponte-morta` | uma ponta de `PONTES` sumiu: o par `(aba, feature)` saiu do CSV, ou o `id` saiu do mapa de canais |
+| `transporte-nao-declarado` | a linha AFIRMA paridade e o mapa restringe um transporte do canal embaixo dela — e ela não diz `cabo` nem `rádio` em lugar nenhum |
+| `ponte-encolheu` | `PONTES` tem menos entradas que `PISO_DAS_PONTES` |
 
 A `sinal-morto` é a régua se auditando: ela pegou **quatro linhas minhas** na
 primeira execução, antes de eu ensinar o portão que `data-campo="fragil"` é um
@@ -311,8 +315,9 @@ uma linha que a árvore já tinha movido, e os três foram lidos e corrigidos:
 ## 6. Como usar
 
 ```bash
-scripts/check_paridade_gtk_html.py            # o portão (rc=1 no primeiro achado)
-scripts/check_paridade_gtk_html.py --tabela   # o número por aba
+scripts/check_paridade_gtk_html.py              # o portão (rc=1 no primeiro achado)
+scripts/check_paridade_gtk_html.py --tabela     # o número por aba
+scripts/check_paridade_gtk_html.py --cruzamento # a ponte com o mapa de canais
 ```
 
 Ele entra na camada **rápida** do `scripts/portoes.sh` (medido: 0,4 s) e no
@@ -322,6 +327,50 @@ Ele entra na camada **rápida** do `scripts/portoes.sh` (medido: 0,4 s) e no
 trabalho existe —, o conserto é na **linha do CSV**, com o endereço novo lido no
 código: veredito, `sinal`, `sinal_espera`, `sinal_escopo` e os dois `onde`. E
 regerar a tabela da §2. Nunca afrouxando a regra no script.
+
+---
+
+## 6.1 O CRUZAMENTO COM O MAPA DE CANAIS — 06/09/2026
+
+**O buraco que isto fecha:** `docs/data/paridade-gtk-html.csv` e
+`docs/data/mapa-controles.csv` eram lidos juntos por DOIS arquivos do produto
+(`interface/aba02.py` e `interface/mesa_viva.py`) e por **portão nenhum** — o
+achado §5.4 da A-TELA-NOVA-ENTRA-NA-RÉGUA-DO-MAPA-01. Uma linha podia dizer
+`IGUAL` — *a tela nova faz o que a janela fazia* — enquanto o mapa dizia que o
+CANAL embaixo dela só aciona num transporte. Os dois números concordavam consigo
+mesmos, e ninguém perguntava ao outro.
+
+**Ele INFORMA, nunca VETA.** `D-0609-O-MAPA-INFORMA-NUNCA-VETA`, palavra dela em
+06/09/2026: *"Esse mapa é funcional e real. tá desatualizado no sentido de não
+ter sido medido. foi e tudo funciona."* <!-- noqa-acento: citação literal dela -->
+Uma célula `nao-medido` vira **AVISO impresso**, e o `rc` continua ZERO. Quem a
+remede é a bancada, com o relatório de quem passou por ela
+(SPECS-A-PROCEDENCIA-01).
+
+**A ponte é declarada, e o veredito NÃO.** As duas planilhas não têm uma palavra
+em comum: o `sinal` da paridade é um símbolo do código (`rumble_ff`,
+`data-volume="microfone"`) e a `chave` do mapa é o endereço de um canal do
+aparelho (`audio.microfone.mudo`). Medido em 06/09/2026: **zero** dos 396 `sinal`
+contém uma das 110 `chave`, em qualquer forma. Então alguém declara que a fatia
+de tela X anda sobre o canal Y — e o que o portão NÃO deixa digitar é o FATO: ele
+lê `aciona` e a causa do mapa a cada execução, e nunca guarda *"esta feature é só
+no cabo"*. Três travas impedem a lista de apodrecer: as duas pontas mortas
+reprovam (`ponte-morta`) e a lista só pode CRESCER (`ponte-encolheu`, comparação
+por `>=`, a forma provada do `PISO_DA_REGUA`).
+
+**As 26 pontes de hoje**, e o que elas encontraram:
+
+| o que o mapa diz | pontes | o que acontece |
+| --- | --- | --- |
+| sustenta os dois transportes | 16 | nada a declarar; a régua se cala |
+| restringe um lado, com causa | 7 | a linha tem de dizer `cabo` ou `rádio` |
+| `nao-medido` nos dois lados | 3 | **AVISO**, nunca `rc=1` |
+
+**O achado que sai daqui, e é para a bancada:** as três linhas do BRILHO da barra
+(`04-iluminacao`) afirmam paridade sobre `luz.lightbar.brilho@dualsense`, e a
+célula diz `aciona=não` nos **dois** transportes com causa `nao-medido`. A tela
+tem um trilho de 0 a 100 que grava e reenvia a cor; o mapa nunca foi marcado.
+Não é veto — é a primeira linha da fila de remedição.
 
 ---
 
