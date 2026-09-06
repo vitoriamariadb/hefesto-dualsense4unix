@@ -13,11 +13,12 @@ sudo.** A decisão está registrada como `D-0609-A-MAQUINA-E-DO-OPUS`, sem ela.
 
 ## 0. O ESTADO EM UMA LINHA
 
-**A janela GTK saiu do disco e a tela dela não moveu um pixel** — as dez páginas
-foram refotografadas com a janela já apagada e saíram byte a byte idênticas. Em
-volta disso: **a palavra que ela baniu chegou a zero na tela**, **a interface
-parou de sambar**, **a paridade bateu a meta do dia**, e **seis ondas de agentes
-entraram sem um conflito de código**.
+**As ondas A-F fecharam, a janela GTK saiu do disco, e a segunda metade do dia
+foi ARRUMAÇÃO, não despacho:** o Fable leu a casa inteira e deixou a fila num
+arquivo só — **[O PLANO PARA O OPUS](2026-09-06-O-PLANO-PARA-O-OPUS-quatro-lotes-uma-mesa-e-o-produto-inteiro.md)**
+— com 34 sprints abertas em quatro lotes, dois scripts que fazem o despacho e a
+costura de um lote inteiro, e a MESA-DE-QUATRO-01 reescrita como a aceitação do
+produto. O que mais custou está na §2; os números, na §5.
 
 ---
 
@@ -106,16 +107,43 @@ lista viva convidava o próximo agente a refazer o que já estava pronto.**
 
 ---
 
-## 4. O QUE ESPERA A PALAVRA DELA — e são quatro atos, todos no FECHO
+## 4. O QUE SOBRA — e está num arquivo só
 
-1. **Publicar, numa volta só.** A bancada está adiante do produto em **nove**
-   das treze páginas, e `--publicar NN` é ato dela. As dez fotos `--oculta`
-   estão em `docs/usage/assets/`.
-2. **Dar a palavra para o `install.sh`.** O Opus roda `./install.sh --yes` na
-   árvore dela, e só com essa palavra — nunca por agente, nunca antes.
-3. **A bancada dos quatro** (`MESA-DE-QUATRO-01`), com o ensaio 1 do som por
-   rádio dentro. **A MIC-VIRTUAL-02 devolveu uma prova em falta**, e é honesta:
-   *não há DualSense no rádio nesta bancada*, medido no sysfs. A prova é dela.
-4. **Abrir pelo `.desktop` e jogar.** Ninguém substitui.
+A fila é o **[PLANO PARA O OPUS](2026-09-06-O-PLANO-PARA-O-OPUS-quatro-lotes-uma-mesa-e-o-produto-inteiro.md)**:
+quatro lotes (7 · 16 · 5 · 3 sprints), `scripts/despachar-onda.sh` e
+`scripts/costurar-onda.sh`, o checkpoint do limite semanal antes de cada lote,
+e o FECHO com os quatro atos dela — publicar numa volta, a palavra para o
+`install.sh`, a MESA-DE-QUATRO-01 de 21 linhas (com o ensaio 1 do som por
+rádio: a orelha dela escolhe entre os dois arranjos do `0x39` que o mapa já
+tem), e jogar.
+
+**O que esta metade do dia deixou de regra:**
+
+* **O mapa informa, nunca veta** (`D-0609-O-MAPA-INFORMA-NUNCA-VETA`). Uma
+  célula `aciona=não` sem causa era lida como "não funciona" e dois agentes
+  foram mandados parar por isso — ela corrigiu: *"tá desatualizado no sentido
+  de não ter sido medido. foi e tudo funciona."* As 265 células ganharam causa
+  (`nada-a-acionar` · `nao-medido`), o portão aprendeu o termo, e o preâmbulo
+  do despachante traz a ordem aparelho > mapa > sprint > lembrança.
+* **Toda sprint diz `estado:`** — as 253 que não diziam ganharam o campo, e a
+  lista viva é `--abertas`. A A-RECUSA-QUE-CITOU-O-MAPA-01 varreu o passado:
+  nenhuma sprint caducou por veto do mapa; a T6 da STATUS voltou à fila como o
+  quarto selo da CONTROLES-OS-TRES-SELOS-01.
+* **Fan-out de triagem custa limite semanal**: 26 agentes de verificação
+  levaram o uso de 15% a 27% numa hora e foram mortos no meio. O plano usa
+  `effort: 'high'`, zero verificadores, e a verificação são os 45 portões e a
+  mordida.
 
 ---
+
+## 5. OS NÚMEROS (06/09, fim da arrumação)
+
+| o quê | número |
+| --- | --- |
+| portões | **45**, todos verdes em `onda/atual-0609` |
+| sprints com frontmatter · abertas | 616 · **34** (colisão de posse: zero) |
+| paridade GTK→HTML | 396 linhas: 144 IGUAL · 151 DIFERENTE · 59 SÓ NO HTML · **38 FALTA** (36% publicado) — 22 das 38 decididas fora por ela, 13 em 8 sprints de aba |
+| mapa de canais | 265 células `aciona=não` com causa: 156 `nada-a-acionar` · 109 `nao-medido` |
+| decisões registradas hoje | 11 por delegação (`D-0609-*`), 4 dela |
+| commits no dia | 161 em `onda/atual-0609` |
+| o que falta para a definição de pronto | 31 sprints de agente em 4 lotes + 3 dela (MESA-DE-QUATRO-01, A-BANCADA-QUE-O-RADIO-PEDE ensaios 2-6, LUZ-NO-RADIO-01) |

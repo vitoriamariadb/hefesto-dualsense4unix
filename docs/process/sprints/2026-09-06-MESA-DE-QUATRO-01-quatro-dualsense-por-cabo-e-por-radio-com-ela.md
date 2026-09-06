@@ -40,7 +40,7 @@ resto do roteiro.
 
 ## 1. ANTES DE SENTAR (o coordenador, 15 min)
 
-1. o merge em `dev` feito, os 43 portões verdes, os doze lotes verdes;
+1. o merge em `dev` feito, os 45 portões verdes, os doze lotes verdes;
 2. o `install.sh --yes` rodado **por ele, na árvore dela, com a palavra dela**
    (`D-0609-INSTALL-PELO-OPUS`); o `doctor` sem FALHA;
 3. o journal indo para arquivo, nunca para o terminal dela:
@@ -48,7 +48,7 @@ resto do roteiro.
 4. a janela aberta pelo `.desktop`; um jogo dela aberto — o que ela escolher;
 5. os quatro DualSense carregados; dois cabos USB à mão.
 
-## 2. O ROTEIRO (40 min) — cada linha tem PASSA/REPROVA e a sprint antiga que fala disso
+## 2. O ROTEIRO (60 min) — cada linha tem PASSA/REPROVA e a sprint antiga que fala disso
 
 | # | o que se faz | passa quando | se reprovar, quem já descreveu isto |
 | --- | --- | --- | --- |
@@ -64,6 +64,29 @@ resto do roteiro.
 | 10 | Bateria: anota os quatro números; volta neles aos 20 min | mudaram | BATERIA-PARADA-01 |
 | 11 | **Som pelo rádio — o ensaio 1 da bancada do rádio** (4 min, a orelha dela) | o `0x39` com conteúdo variado produz som no alto-falante de um controle no rádio | A-BANCADA-QUE-O-RADIO-PEDE-INDICE, ensaio 1 · O-ALTO-FALANTE-VIRTUAL-01 |
 | 12 | fecha o jogo, fecha a janela, reabre as duas | os quatro continuam; o perfil ativo é o mesmo | AUTOMATISMO-MORTO-01 · CONECTA-E-DESLIGA-01 |
+| 13 | **Perfil vivo, por controle, sem Salvar:** muda o gatilho do P2 na aba 03, a cor do P4 na 04, a vibração do P1 na 05; troca de aba e volta; fecha e reabre a janela | cada aba mostra o que foi feito NAQUELE controle, e o outro não mudou — sem Aplicar nem Salvar em aba nenhuma | ONDA5-01-01 · ONDA5-02-01 · QUEM-E-QUEM-03 |
+| 14 | Gatilhos: "Todos" com três ligados; liga o quarto | o quarto herda o que "Todos" escreveu | GATILHOS-EM-TODOS-01 |
+| 15 | Lançadores: cria um lançador para o jogo aberto e abre o jogo por ele | o jogo abre, o perfil troca sozinho, os quatro seguem no jogo | a aba 07 do CSV · a01_jogar |
+| 16 | Conexões: pareia um controle pela aba, "a luz não acende" | a espera pelo PS, a contagem e o Cancelar aparecem e obedecem | CONEXOES-A-LUZ-QUE-NAO-ACENDE-01 |
+| 17 | Reserva do posto: desliga o P2 por 20 s e religa | o assento fica reservado; ele volta P2 | RESERVA-DO-POSTO-01 |
+| 18 | Modo Nativo com dois controles no jogo | os dois jogam; nenhum "jogador 2" fantasma | COOP-NA-CONEXAO-NATIVA-01 · QUATRO-NA-MESA-01 |
+| 19 | Som: escolhe "Alto-falante · P2" como saída de um tocador | só o P2 toca (no cabo); a lista de som tem um nó por controle | O-ALTO-FALANTE-VIRTUAL-01 |
+| 20 | Mudo no rádio: o botão do microfone do P3 (rádio) | o mudo obedece e o cartão diz | MIC-BT-DONO-01 |
+| 21 | Luz no rádio: uma cor no P4 (rádio) | obedece | LUZ-NO-RADIO-01 |
+
+**As linhas 13-21 são a ACEITAÇÃO DO PRODUTO** (06/09, arrumação da leva): a
+definição de pronto dela — *"migrar tudo do gtk pro html, adaptando o html pra
+funcionar pra 4 controles, cada perfil vivo, todas as features funcionando pra
+cabo e radio, e cada aba se lembrando das configs de cada controle dentro do
+perfil sem que eu precise aplicar ou salvar em cada aba e por fim tudo
+funcionando (incluindo a aba de lançadores), de conexão e afins"* — dita em
+gestos dela, um por sprint das ondas G-J. Cada sprint dessas constrói com dublê
+e deixa AQUI a sua linha de prova (`D-0609-A-BANCADA-PROVA-NAO-BLOQUEIA`).
+
+**E a passagem do `nao-medido`:** durante o roteiro, quem coordena anota pela
+`chave` do mapa cada célula `nao-medido` que a mesa exercitou (as 109 de 06/09
+estão em `grep -c nao-medido docs/data/mapa-controles.csv`); é a P2 da
+SPECS-A-PROCEDENCIA-01, e o `ensaios.csv` só ganha linha do que ela viu.
 
 A coluna da direita é **quem já mediu**, não quem executa: o que reprovar
 ganha sprint nova, escrita no molde de 05/09 e com a medição desta bancada como

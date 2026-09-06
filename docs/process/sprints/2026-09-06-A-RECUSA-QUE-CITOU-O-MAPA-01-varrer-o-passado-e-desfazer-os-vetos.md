@@ -1,6 +1,6 @@
 ---
 sprint: A-RECUSA-QUE-CITOU-O-MAPA-01
-estado: aberta
+estado: feita
 onda: F
 decisoes: [D-0609-O-MAPA-INFORMA-NUNCA-VETA]
 posse:
@@ -30,6 +30,8 @@ nao_toca:
   - docs/process/sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md
   - docs/process/agentes/2026-09-06/A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01.md
 ---
+
+> **ESTADO 06/09/2026: feita** — relatório em `docs/process/agentes/2026-09-06/A-RECUSA-QUE-CITOU-O-MAPA-01.md` (commit `af9b5255`, costurado na `onda/atual-0609`). A fila da §4 dele foi dobrada em duas rotas: itens 3-7 na SPECS-A-PROCEDENCIA-01, item 1 (a T6 da STATUS) na CONTROLES-OS-TRES-SELOS-01; o item 2 é a PARIDADE-CRUZA-O-MAPA-01.
 
 # A-RECUSA-QUE-CITOU-O-MAPA-01 — varrer o passado, e desfazer os vetos
 

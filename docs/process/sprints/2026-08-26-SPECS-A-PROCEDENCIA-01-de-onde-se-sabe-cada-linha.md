@@ -1,7 +1,7 @@
 ---
 sprint: SPECS-A-PROCEDENCIA-01
 estado: aberta
-onda: G
+onda: J
 posse:
   P1:
     - docs/data/mapa-controles.csv
@@ -10,6 +10,9 @@ posse:
     - src/hefesto_dualsense4unix/app/fatos_do_mapa.py
     - scripts/eliminacao.py
     - scripts/gerar-mapa.py
+    - scripts/gerar-fatos-de-tela.py
+    - scripts/check_paridade_transporte.py
+    - tests/unit/test_o_mouse_emulado_nao_pergunta_o_fio.py
 cria:
   - tests/unit/test_a_procedencia_da_linha_nao_e_vazia.py
 bancada: true
@@ -33,10 +36,12 @@ APARELHO OBEDECEU · O JOGO RECEBEU · O JOGO REAGIU) — prosa vai em `*_eviden
 `nao-medido` (06/09) é a palavra para "ninguém olhou" — **nunca promova uma célula sem a prova
 apontada.** Entram na P1, com endereço, as **cinco chaves da fila do F-MAPA**
 (`docs/process/agentes/2026-09-06/A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01.md` §3.1) e o que os
-relatórios de hoje em `docs/process/agentes/2026-09-06/` mediram e declararam por `chave`.
+relatórios de hoje em `docs/process/agentes/2026-09-06/` mediram e declararam por `chave` — **e, por isso, esta sprint roda no LOTE-4, depois dos lotes 1-3:** cada agente devolveu `mediu: [{chave, transporte, ate_onde_foi, viu}]`, guardado em `../_lotes/LOTE-N/saida.json`; é dali que as células `nao-medido` que a leva exercitou ganham prova apontada.
 Regerar `html/specs.html` e `app/fatos_do_mapa.py` (`gerar-mapa.py`, `gerar-fatos-de-tela.py`) —
 os dois estão na posse como saída gerada. `ensaios.csv` só ganha linha com ensaio feito; as
 linhas da bancada de hoje são da MESA-DE-QUATRO-01.
+
+> **O QUE A A-RECUSA-QUE-CITOU-O-MAPA-01 DEIXOU PARA ESTA SPRINT** (relatório §4, itens 3-7 — cinco atos pequenos, todos no mapa ou na régua dele): **(a)** `audio.microfone.volume@dualsense` (`mapa-controles.csv:29`) diz `divida` nos dois lados, mas a decisão está DATADA no código (`core/backend_pydualsense.py`, SOM-SEMPRE-01: o volume do microfone fica FORA da chamada porque o dono do microfone no Linux é o kernel, AUDIO-OWNER-01) — a causa certa é `decisao-tomada`, porque `divida` chama alguém para trabalhar e `decisao-tomada` não; **(b)** as duas linhas da emulação de mouse (`:308` e `:309`) citam na `radio_evidencia` um módulo que não existe nesta árvore — os donos são `daemon/subsystems/mouse.py` e `integrations/uinput_mouse.py`, e o mesmo endereço morto está no docstring de `tests/unit/test_o_mouse_emulado_nao_pergunta_o_fio.py:56` (por isso a régua entrou na posse); **(c)** `movimento.acelerometro@dualsense` é a ÚNICA linha com `aciona=sim` e `por_que_nao_aciona` preenchida (`so-ela-decide`), de propósito — o `check_paridade_transporte.py` ganha uma regra que AVISA quando `aciona != não` e a causa está preenchida, para a próxima pessoa não ler veto onde há decisão; **(d)** o portão `check_a_tela_nao_promete_o_que_o_mapa_nega.py` que a MIGRA-NAVEGACAO-04 previa NÃO EXISTE (conferido em 06/09; a ausência é o assunto) <!-- ref-externa: check_a_tela_nao_promete_o_que_o_mapa_nega.py — portão previsto pela MIGRA-NAVEGACAO-04 e nunca criado --> — não o crie: a régua desta casa é a `Fala` de `app/fala_do_mapa.py`, e o `fatos_do_mapa.py` regenerado é o que a tela lê; **(e)** posse de DIRETÓRIO inteiro faz o `colisao-de-sprints` nascer vermelho contra toda sprint que nomeie um arquivo lá dentro — esta sprint declara ARQUIVOS, e é regra da casa daqui em diante.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — a condição é dela: depois de a interface estar igual ao desenho e funcionando.
 

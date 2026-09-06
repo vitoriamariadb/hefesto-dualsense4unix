@@ -9,6 +9,7 @@ posse:
     - mockup/02-controles.html
 cria:
   - tests/unit/test_o_cartao_diz_se_o_som_tem_para_onde_ir.py
+decisoes: [D-0609-O-MAPA-INFORMA-NUNCA-VETA]
 bancada: false
 depois_de:
   - A-CONFISSAO-NO-BOTAO-01
@@ -26,6 +27,8 @@ nao_toca:
 > sprint aberta encarregada**. O enunciado de cada uma é a própria linha do CSV.
 
 Três selos e uma dica, todos LIDOS de estado que já existe: a guarda **sem endereço** vira o **botão apagado com a razão na dica** (`D-03` dela, 04/09: *"o botão apaga e a dica diz por quê"* — a classe `.apagado` e `razoes_do_cinza` já são a língua da casa); o selo **Saída muda** lê a camada 1 do PipeWire pelo dono em `app/audio_saida.py`; **acordado/dormindo** é a metade de tela da SOM-ACORDADO-01 (o drop-in 54 do WirePlumber); a **dica do título** lê `coop.mesa` para dizer qual gamepad virtual este controle alimenta — se a COOP-NA-CONEXAO-NATIVA-01 já tiver posto isso no cartão, confira e não duplique. Roda depois da A-CONFISSAO-NO-BOTAO-01 (mesmo `a02_controles.py`).
+>
+> **E o QUARTO selo é a T6 da STATUS-DIZ-O-QUE-VE-01, viva desde 25/08 e nunca executada** (a A-RECUSA-QUE-CITOU-O-MAPA-01 §4.1 a devolveu à fila; a STATUS está `absorvida` e não volta). A guarda do bloco de som ganha a SEGUNDA pergunta — o TRANSPORTE — e a resposta vem do mapa, nunca da cabeça de quem escreve: `audio.alto_falante@dualsense` tem `radio_aciona=não` com causa `divida`, e com `divida` a única `Fala` legal (`app/fala_do_mapa.py`, `CAUSA_DE_FORA`) é `AFIRMA_NADA` com `porque=` — a frase honesta no rádio é *"o Hefesto ainda não faz"*, NUNCA *"o controle não faz"*, e os gestos NÃO apagam (`audio.alto_falante.rota` é `radio_aciona=sim`; apagar quatro gestos por uma dívida nossa é empurrá-la para a mão dela). O mudo do microfone (`parcial`) fica sensível. **Quando a SOM-QUE-SAI-01 (ONDA I) virar a célula, o selo muda sozinho — por isso ele LÊ `fatos_do_mapa.py`, não digita a frase.** A régua: o teste desta sprint troca a célula num dublê do mapa e vê a frase trocar.
 
 ---
 

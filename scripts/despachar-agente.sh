@@ -341,6 +341,26 @@ Antes de todo caminho que pare o daemon, escreva no aparelho ou chame
 rc=1 significa ESPERAR e DIZER na entrega que está esperando — nunca contornar
 por outro caminho, que é como se inventa medição falsa. A bancada é dela.
 
+## O QUE A CASA ESPERA DE VOLTA — e é o que o costurador cobra
+
+1. **A entrega** em \`docs/process/agentes/AAAA-MM-DD/<SPRINT>-<AGENTE>.md\`
+   com os quatro cabeçalhos (\`## O que mudou\` · \`## Qual mordida prova\` ·
+   \`## O que NÃO verifiquei\` · \`## O que sobrou para o próximo\`). Sem ela a
+   costura recusa, por posição e não por conteúdo.
+2. **Toda medição no aparelho ou no dublê citada pela \`chave\` do mapa**
+   (\`docs/data/mapa-controles.csv\`, coluna 1) e pelo transporte, com o degrau da
+   escada que alcançou (MONTOU · SAIU NO FIO · O APARELHO OBEDECEU · O JOGO
+   RECEBEU · O JOGO REAGIU). É assim que a célula \`nao-medido\` vira medida —
+   quem escreve o mapa é a SPECS-A-PROCEDENCIA-01, a partir do seu relatório.
+3. **\`bancada: true\` não é licença.** Sem \`scripts/bancada.sh exigir\` com
+   rc=0 você constrói com dublê e deixa a linha de prova para a
+   MESA-DE-QUATRO-01 (\`D-0609-A-BANCADA-PROVA-NAO-BLOQUEIA\`). Esperar é
+   dizer que esperou — nunca inventar a medição.
+4. **O que caiu da sprint**, nomeado: toda linha do enunciado que o mapa ou o
+   aparelho derrubou, com a célula ao lado. Silêncio aqui vira sprint velha
+   despachada de novo.
+5. **\`estado: feita\`** no arquivo da sprint, no mesmo commit da entrega.
+
 ## AO FECHAR: OS PORTÕES SÃO UM COMANDO SÓ
 
     cd ${WT} && source .envrc-voo

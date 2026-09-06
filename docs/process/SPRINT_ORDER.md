@@ -41,6 +41,14 @@ Todo arquivo de sprint com frontmatter diz em que estado está, e a máquina lê
 
 ## 1. AGORA — as vinte e quatro horas (06/09)
 
+> **A SEGUNDA METADE, 06/09 à noite:** as ondas A-F da tabela abaixo FECHARAM
+> (a tabela fica como registro). A fila executável de agora é
+> **[O PLANO PARA O OPUS](2026-09-06-O-PLANO-PARA-O-OPUS-quatro-lotes-uma-mesa-e-o-produto-inteiro.md)**
+> — quatro lotes (7 · 16 · 5 · 3 sprints), `scripts/despachar-onda.sh` e
+> `scripts/costurar-onda.sh`, o checkpoint do limite semanal, e a
+> MESA-DE-QUATRO-01 com 21 linhas como aceitação do produto. As 34 abertas são
+> `python3 scripts/check_colisao_de_sprints.py --abertas`.
+
 A fila executável é
 **[AS VINTE E QUATRO HORAS](2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md)**,
 e o Opus é o PO e orquestrador. Em uma tela:
