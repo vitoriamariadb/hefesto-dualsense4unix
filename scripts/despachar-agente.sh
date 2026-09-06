@@ -249,6 +249,37 @@ ${ARQ_SPRINT}
 Leia-a inteira antes de tocar em código, e siga o protocolo em
 docs/process/COMO-EXECUTAR-UMA-SPRINT.md.
 
+## A ORDEM DE PRECEDÊNCIA — quando duas fontes discordam
+
+Regra dela, 06/09/2026: *"se ocorrer um conflito entre a sprint e o mapa dos
+controles ou o csv do specs, o csv do specs e o mapa vencem a sprint em termo de
+informações precisas. sempre."*
+
+    1. O APARELHO         — o que você mediu nele agora
+    2. O MAPA DE CANAIS   — docs/data/mapa-controles.csv (o csv do specs)
+    3. A SUA SPRINT
+    4. A lembrança de quem coordenou
+
+**2 vence 3, sempre, em informação precisa** — canal, report id, offset,
+comando, o que o aparelho aceita e o que ele aciona. O mapa é o DNA do aparelho
+e foi construído medindo; uma sprint é um plano, e planos envelhecem. Se a sua
+sprint disser um offset, um report id ou um caminho diferente do que está no
+mapa, **o mapa está certo e a sprint está velha**: siga o mapa, e diga no
+relatório qual linha da sprint caiu.
+
+**1 vence 2** — e as duas metades desta regra são de 06/09. Uma célula do mapa
+com \`aciona=não\`, ou com o grau da escada VAZIO, quer dizer **"ninguém remediu"**,
+não **"não funciona"**: palavra dela, *"tá desatualizado no sentido de não ter
+sido medido. foi e tudo funciona."* **Célula atrasada não veta trabalho.** Você
+constrói, mede, e RELATA o que viu com a \`chave\` do mapa ao lado, para a célula
+ser marcada — é essa a metade do fluxo que faltava nesta casa.
+
+**O que NUNCA se faz:** parar um passo da sprint citando uma célula do mapa. Se
+o que você mediu contradiz o mapa, o aparelho ganha e o mapa se remede.
+
+**Você não edita \`docs/data/mapa-controles.csv\`** a menos que ele esteja na sua
+\`posse:\`. Você o cita, e relata.
+
 ## A TELA DELA É UMA SÓ — E A SUA JANELA NÃO NASCE NELA
 
 Regra dela, 04/09/2026: *"o app de validação, os testes, a parte de navegar na
