@@ -107,6 +107,46 @@ aos **182 ms** e o som só volta aos **1000 ms**.
 **A chave dela é respeitada e não ganhou irmã:** quem lê `som_ligado()` é o
 motor, no primeiro dos sete degraus. O gesto chama sem opinião sobre `ligado`.
 
+### A guarda da máquina dela — e o defeito que ela cura era MEU
+
+`src/hefesto_dualsense4unix/interface/pacotes/ponte.py:dentro_da_janela`, e ela
+nasceu de uma medição que quase passou batida.
+
+**O que eu achei, depois de a cura já estar escrita e verde:** a régua irmã
+`test_a02_som_e_sensor_falam_quando_recusam.py` **dubla o `pactl`** e devolve
+uma lista com um sink de DualSense. Nesse cenário o veto por dispositivo USB não
+existe (não há `pactl list sinks` longa para casar), o `escolher_sink` casa pela
+regra do **um-para-um** — uma fonte, um controle na mesa — e o motor encontra o
+sink *"na lista viva"*. Só que a lista viva é de mentira e o `paplay` **não
+está dublado**. Medido, com o tocador espionado:
+
+```
+['paplay', '--device=alsa_output.usb-…DualSense_Wireless_Controller-00.analog-surround-40',
+ '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga']
+```
+
+Esse nome é o sink **real** do DualSense que está no cabo dela agora. **A suíte
+tocaria som no controle dela**, e eu rodei aquele arquivo algumas vezes hoje
+antes de medir isto — é possível que tenha tocado. Está dito porque aconteceu.
+
+**A guarda-mãe do `audio_saida` não alcança este caso de propósito:** ela confere
+o sink contra a lista viva, e numa régua a lista viva é de mentira. Quem sabe que
+ninguém clicou é a camada de cima — e o fato já existia sem eu inventar nada: **o
+piloto SUBSTITUI `ponte.escolher_arquivo` ao subir a janela**
+(`src/hefesto_dualsense4unix/interface/hefesto_vivo.py:2096`). Enquanto o ponto
+de extensão for o declarado na ponte, não há janela: quem chama o gesto é uma
+régua, um script ou um driver. `_fora_do_voo` passou a perguntar isso antes de
+abrir a linha do som.
+
+**É o mesmo desenho que o medidor de ondas já usa** (*"o piloto é o produto; é
+ele quem autoriza"*), com a diferença de que aqui não foi preciso tocar no
+piloto — que está no `nao_toca`.
+
+**A pergunta vai ao MÓDULO `ponte`, e não ao `p` que o gesto recebe:** o `p` é
+dublado nas réguas, e um dublê responde `True` a todo nome que não conhece —
+perguntar a ele receberia sempre *"sim"*, que é o instrumento respondendo por si
+mesmo.
+
 ### `docs/data/donos-de-comportamento.csv`, linha 44 — reclassificada pelo portão
 
 `audio.selos_de_saida` era `SO-GTK` ("só a janela lê este dono"). Ligar o
@@ -120,7 +160,7 @@ consequência direta da cura, não escopo novo.
 
 ## Qual mordida prova
 
-Onze mordidas, todas executadas: arranquei a cura, vi reprovar, devolvi. As
+Doze mordidas, todas executadas: arranquei a cura, vi reprovar, devolvi. As
 saídas inteiras estão no scratchpad (`mordidas.txt`, `mordidas2.txt`).
 
 | o que arranquei | o que reprovou |
@@ -134,6 +174,7 @@ saídas inteiras estão no scratchpad (`mordidas.txt`, `mordidas2.txt`).
 | chamar o som no corpo do gesto | `test_o_som_nao_segura_o_botao_em_voo` |
 | o `try` de dentro de `tocar` | `test_o_som_que_falha_nao_derruba_o_volume` |
 | passar `ligado=True` (a segunda chave) | `test_a_chave_dela_desliga_o_som_e_o_gesto_nao_recusa` |
+| o `dentro_da_janela` de `_fora_do_voo` | as duas da `TestAGuardaDaMaquinaDela` — e a segunda **imprime o `paplay` que sairia** |
 
 **A MORDIDA QUE SEPARA A CURA DA SUPERSTIÇÃO** é a segunda, e ela é
 parametrizada em três: alvo honrado, alvo desconhecido (`None`) e **o daemon que
@@ -250,7 +291,10 @@ reclassificar.
 
 1. **Não cliquei com o daemon REAL, nem com controle na mesa.** `bancada: false`.
    Todo clique foi contra um daemon de mentira, dentro do piloto oculto — e o
-   som, contra um tocador de mentira. **Nenhum som saiu na máquina dela.**
+   som, contra um tocador de mentira. **Mas não afirmo que nenhum som saiu:**
+   entre escrever a cura e achar a guarda, rodei três vezes a régua irmã que
+   dubla o `pactl`, e é exatamente ela que alcançava o `paplay`. Se saiu, saiu
+   pelo alto-falante do controle, com 67 ms. Está dito porque aconteceu.
 2. **Não medi o som chegando ao ouvido.** O que provei é o caminho: qual sink,
    em que linha, em que instante. Se o `paplay` produz som naquele sink é do
    motor, e ele tem régua própria.
@@ -265,11 +309,13 @@ reclassificar.
    que exercitam os gestos de som e o mudo (141 testes, verdes).
 6. **Não toquei no desenho, não publiquei e não mexi no CSV da paridade.**
 
-**E a medição que me deixou rodar isto em paz:** com `uniq` sintético (todos os
-desta casa), `audio_saida.sink_do_controle` devolve `""` — o casamento por
-dispositivo USB **veta** o sink real que está na máquina dela agora. Medido nos
-dois endereços de teste, com a mesa de um e de dois. Por isso a suíte não toca
-som, e `tocar_confirmacao("")` para em `sem_sink` sem abrir processo nenhum.
+**A medição que eu tomei por suficiente, e NÃO era:** com `uniq` sintético,
+`audio_saida.sink_do_controle` devolve `""` — o casamento por dispositivo USB
+veta o sink real da máquina. Verdade, e insuficiente: **numa régua que dubla o
+`pactl` esse veto não existe**, e foi assim que o `paplay` apareceu. A cura é a
+`ponte.dentro_da_janela`, na seção "a guarda da máquina dela". *Uma medição que
+cobre o caminho que eu imaginei não cobre o caminho que a régua do vizinho
+constrói.*
 
 ---
 
