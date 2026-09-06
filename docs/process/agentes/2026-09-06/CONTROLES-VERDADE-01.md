@@ -82,7 +82,7 @@ já vivo na tela.
 
 ### `giro-no-jogo` — o hertz medido, no vão do cabeçalho
 
-`texto_motion` (`controller_card.py:1213`) é o dono, com as **duas exceções**:
+`texto_motion` (`controller_card.py:1212`) é o dono, com as **duas exceções**:
 Modo Nativo (*"o jogo fala direto com o controle"*) e máscara Xbox 360 (*"a
 máscara Xbox 360 não tem giroscópio"*). Sem espelho vivo o dono devolve `None`,
 e a linha **some** — o silêncio é a resposta certa, e é decisão medida do motor:
@@ -129,7 +129,7 @@ conjunto de palavras é uma cópia da tradução"*.
 
 ### O que NÃO construí, e a régua que segura a decisão
 
-`test_a_linha_da_verdade_continua_FORA_do_cartao` reprova se qualquer campo do
+`test_a_linha_da_verdade_continua_fora_do_cartao` reprova se qualquer campo do
 cartão emitir a frase que ela removeu. É o único aviso que existe contra
 desfazer uma decisão dela por leitura de meia célula.
 
@@ -287,7 +287,7 @@ O arquivo é **posse declarada do coordenador na costura**. A seção
 >   **A LINHA DA VERDADE NÃO ENTROU, e é decisão dela:** ela saiu da tela da GTK
 >   em 17/08/2026 (*"remover guia dos status em tempo real"*) e continua criada
 >   e alimentada fora da tela. Há régua que impede a volta
->   (`test_a_linha_da_verdade_continua_FORA_do_cartao`).
+>   (`test_a_linha_da_verdade_continua_fora_do_cartao`).
 >
 >   **O que ela vê HOJE, até publicar:** exatamente a aba de ontem. O campo novo
 >   não é sequer emitido — o `_so_se_a_pagina_tiver` pergunta ao publicado.
@@ -301,8 +301,8 @@ Duas linhas mudam de veredito. **A 55 fechou:**
 ```
 veredito : FALTA_NO_HTML → IGUAL
 sinal    : _update_motion → texto_motion
-html_onde: src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py:2152 ·
-           src/hefesto_dualsense4unix/interface/aba02.py:1205
+html_onde: src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py:2207 ·
+           src/hefesto_dualsense4unix/interface/aba02.py:1228
 html_faz : Mostra "Giroscópio: fluindo para o jogo (~N Hz)" no vão do cabeçalho
            do card aberto, com o hertz do `rumble_ff.per_vpad` e as duas
            exceções (Nativo e máscara Xbox). Sem espelho vivo a linha some.
@@ -321,7 +321,7 @@ porque   : (…texto atual…) || CONFIRMADO em 06/09/2026 — CONTROLES-VERDADE
            desde 17/08, e `:2770` que a decisão é dela e não se apaga. Quem ocupa
            aquele lugar na GTK é o `_motion_label` (linha 55), que foi o que
            entrou. Há régua que impede a volta:
-           test_a_linha_da_verdade_continua_FORA_do_cartao.
+           test_a_linha_da_verdade_continua_fora_do_cartao.
 ```
 
 **A 44 e a 64 já estão fechadas no código e o veredito envelheceu** — a 44 diz
@@ -339,14 +339,16 @@ conferido. O diff que amplia o glob para as dez:
 +    for gerador in sorted(INTERFACE.glob("aba[01][0-9].py")):
 ```
 
-### 6.4 Um vermelho de `ruff` que é HERDADO
+### 6.4 O ÚNICO VERMELHO QUE SOBRA É HERDADO
 
 `test_a_palavra_do_transporte_tem_um_dono_so.py:140` —
 `N802 Function name test_a_mesa_do_DESENHO_tambem_publica_a_chave_crua should be
 lowercase`. Ele **nasceu na base desta branch** (o commit do coordenador que
 curou a contagem zerada do cabeçalho) e não toca nenhum arquivo desta posse. O
 diff é uma palavra: `_DESENHO_` → `_desenho_`. Medido antes e depois da minha
-entrada no índice: **o mesmo, e é o único**.
+entrada no índice: **o mesmo, e é o único vermelho da árvore**. Os meus três
+`N802` e um `E501` — todos nascidos nesta entrega, por nomes de teste com
+palavra em caixa alta — foram curados aqui.
 
 ### 6.5 A fita do topo ainda desenha a sigla
 
@@ -392,7 +394,7 @@ nome da função**. O portão `paridade-gtk-html` não distingue prosa de uso:
 *"o sinal `resumo_do_que_chega_ao_jogo` APARECEU em interface/aba02.py"*. O
 mesmo defeito que o `mesa_viva._via_do_transporte` já registra, na mesma semana.
 **O aviso virou o defeito que ele descrevia.** A forma desta casa é citar o
-ENDEREÇO (`controller_card.py:1728`), e é o que o comentário faz agora — com a
+ENDEREÇO (`controller_card.py:1729`), e é o que o comentário faz agora — com a
 razão escrita ao lado, para o próximo.
 
 **E o portão `donos-de-comportamento` acusou pela mesma causa**, o que é uma
