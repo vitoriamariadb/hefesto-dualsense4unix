@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-P-01
-estado: aberta
+estado: feita
 posse:
   P:
     - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
@@ -37,10 +37,10 @@ metade entregue.
 
 ## 1. O terceiro lugar — a página DECLARA onde o recado pousa
 
-Hoje `pintar_recados` (`hefesto_vivo.py:710`) conhece dois lugares: o cartão do
+Hoje `pintar_recados` (`hefesto_vivo.py:847`) conhece dois lugares: o cartão do
 controle (`data-controle`) e a tarja de rodapé para quem não tem cartão. O
 relógio, a poda e a tradução `uniq → pref` são do `_depositar`
-(`hefesto_vivo.py:2268`) e **continuam sendo** — a 05-03 diz por que um segundo
+(`hefesto_vivo.py:2617`) e **continuam sendo** — a 05-03 diz por que um segundo
 relógio dentro do pacote seria a segunda cópia da mesma regra.
 
 **O desenho:** um container da página pode carregar `data-hef-recados`. Quando
@@ -54,7 +54,7 @@ nada muda: cartão, depois tarja, como hoje.
 * **o `uniq` continua viajando**: o texto do recado nomeia a coluna
   (`P2 · …`, decisão 05-Q4), e é a aba quem escreve o prefixo, não o piloto;
 * **o container é bloco de outra frente** (`#vib-estado` é escrito por
-  `blocos` em `a05_vibracao.py:774`). O recado entra **ao lado** do conteúdo
+  `blocos` em `a05_vibracao.py:792`). O recado entra **ao lado** do conteúdo
   do bloco, nunca dentro do `innerHTML` que a pintura troca — senão o tique
   seguinte o apaga.
 
@@ -63,10 +63,15 @@ cartão; devolva-o e ponha DOIS containers — a régua reprova nomeando os dois
 
 ## 2. A quarta porta — `data-hef-vivo`, o gesto que LÊ e não grava
 
-As três portas de hoje (`hefesto_vivo.py:1034`, `:1035`, `:1055`) despacham
+As três portas de hoje (`hefesto_vivo.py:1304`, `:1305`, `:1325`) despacham
 o gesto de `data-hef-gesto`. Um `input` ligado ao mesmo atributo regravaria o
-perfil dela a cada tecla (`a10_perfis.py:1944`, `_so_mudou`, só recusa
-`click`).
+perfil dela a cada tecla.
+
+**FATO SUBSTITUÍDO NA EXECUÇÃO, 06/09/2026.** Esta linha dizia que `_so_mudou`
+*"só recusa `click`"*. Já não: a `ONDA5-10-02` o transformou em lista de
+PERMITIDOS no mesmo dia (`a10_perfis.py:2184`), e `input` **nasce barrado**. A
+guarda daquele lado está de pé desde antes desta sprint; o que faltava é o que
+esta sprint entrega.
 
 **O desenho:** um elemento pode carregar `data-hef-vivo="<gesto>"`. O evento
 `input` despacha **esse** gesto, com a mesma carga (`valor`, `controle`, o
@@ -87,7 +92,7 @@ nomeando o gesto; arranque a quarta porta e o `input` volta a não fazer nada.
 
 ## 3. O dono do campo — assento não é modelo
 
-`LER_CAMPOS` (`hefesto_vivo.py:1444`) e o ouvinte (`:1075`) resolvem o dono
+`LER_CAMPOS` (`hefesto_vivo.py:1868`) e o ouvinte (`:1417`) resolvem o dono
 por `closest('[data-controle],[data-uniq]')`. O SVG compartilhado leva
 `data-controle="dualsense"`, e o valor é **modelo**, não assento.
 
@@ -116,7 +121,7 @@ mudou** — é a régua de regressão das dez abas.
 * **a piscada da 03-Q4** (`MS_DA_PISCADA`, `hefesto_vivo.py:187`) e o
   `hef-deu-certo` continuam como a ONDA5-03-01 os deixou;
 * **as três portas de hoje** e o `_so_mudou` da aba 10 não perdem uma recusa;
-* **`PERIGOSOS`** (`hefesto_vivo.py:1591`) continua fora do `--prova-gesto`;
+* **`PERIGOSOS`** (`hefesto_vivo.py:2060`) continua fora do `--prova-gesto`;
 * **nenhuma página é regerada nem publicada** — o que nasce aqui é
   capacidade do piloto; quem a usa é a 05-03 e a 10-02, cada uma na sua
   página, e a publicação é ato dela.
