@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-08-01
-estado: aberta
+estado: feita
 decisoes: [08-Q5, 08-Q7]
 posse:
   A08:
@@ -22,6 +22,44 @@ depois_de: [ONDA2-08-CONEXOES-01]
 ---
 
 # ONDA5-08-01 · DEFEITO — a ordem calada fica na tela, e as duas listas que escondem
+
+> **FEITA — 06/09/2026, ONDA A.** Os sete passos entraram; as dez réguas nasceram
+> e **as onze mordidas foram coladas** no relatório
+> (`docs/process/agentes/2026-09-06/ONDA5-08-01.md`).
+>
+> **A prova é de TELA, no WebKit, `--oculta`,** e ela mede o ciclo inteiro num
+> tique real:
+>
+> ```
+> ANTES  linha 0: campo=exame-calada  apagada=False opacidade=1     dica='Ignora ESTE conselho enquanto os c'
+> 1º ⊘   grava {'dongle_atras_de_hub': {'quando': '2026-09-06', 'arranjo': '3-1|3-2'}}
+> DEPOIS linha 0: campo=exame-calada  apagada=True  opacidade=0.42  dica='Traz esta recomendação de volta pa'
+>        altura>0=True  ← ela CONTINUA no lugar dela
+> 2º ⊘   grava {'dongle_atras_de_hub': {'quando': '', 'arranjo': ''}}
+> DEPOIS linha 0: campo=exame-calada  apagada=False opacidade=1     dica='Ignora ESTE conselho enquanto os c'
+> exame-mais:   '+2 achados não couberam aqui'   altura=17
+> vizinho-mais: '<i class="nada"></i>'           altura=0   ← só custa linha no dia em que sobra
+> ```
+>
+> **O QUE FICA ABERTO, e não é desta posse:** a bancada está à frente do produto
+> e a **declaração em `mockup/DIVERGENCIAS.md` é do COORDENADOR** (decisão de
+> coordenação 3 de 06/09; a costura da ONDA A declara 02, 05, 08 e 09 juntas).
+> Até lá ficam vermelhos o portão `desenho-aprovado` **e o teste
+> `test_a_divergencia_do_quarto_selo_esta_declarada`** — os dois estão CERTOS, e
+> os dois fecham com a mesma seção, que o relatório traz pronta para colar.
+> **A publicação continua sendo ATO DELA** (`--publicar 08`).
+>
+> **E UMA RÉGUA DE OUTRO ARQUIVO CAIU COM O PASSO 4:**
+> `test_a08_o_selo_do_exame_tem_um_endereco_por_estado` achava a linha do exame
+> pelo `data-campo="exame"` — o endereço que esta sprint move — e devolveu ZERO
+> linha. *A régua digitava o que devia LER* (a forma de 26/08). Passou a achar
+> pela CLASSE, que é o que não muda com o endereço. O arquivo não está no
+> `nao_toca` e sprint aberta nenhuma o reivindica; está declarado no relatório.
+>
+> **UMA COISA FOI RELATADA, NÃO CONSERTADA:** a guarda do arranjo vazio que
+> falta em `integrations/ordens_da_mesa.ordens_novas`/`ordens_caladas` (§5.1) —
+> aquele arquivo tem outro dono e a janela estável também o lê.
+
 
 > **08-Q5, ela marcou "Fica na lista, apagada":**
 > *"A recomendação calada continua no lugar dela, em cinza, e o mesmo botão
