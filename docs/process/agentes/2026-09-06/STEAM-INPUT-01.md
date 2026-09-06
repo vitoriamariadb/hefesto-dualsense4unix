@@ -412,6 +412,15 @@ REPROVOU: 1 vermelho(s) de 44 -> paridade-gtk-html
 **Os outros 43: verdes**, `casa-sabe` (127 s), `acentuacao` (75 s), `mypy`,
 `shellcheck`, `referencias-docs` e `anonimato` inclusos.
 
+**A LEVA INTEIRA MEDIDA DUAS VEZES, e digo qual é qual:** a corrida acima é a do
+commit do código (`ec28701c`), e ela é a que vale. O commit de prosa que veio
+depois (§12) mexeu em **docstring e num `enabled` de um estado de mentira**, e
+sobre ele rodei à mão o que podia mudar de cor — `ruff`, `acentuacao` e os cinco
+arquivos de teste do escopo (124 verdes). A corrida completa desse último commit
+**ficou em `casa-sabe` quando esta entrega fechou**: a máquina estava com **oito
+árvores desta leva rodando os portões ao mesmo tempo**, e aquele portão sozinho
+leva 127 s com a máquina livre. **Não publico um verde que não vi.**
+
 ---
 
 ## 8. O TEXTO PRONTO PARA O CSV DA PARIDADE (não é desta posse)
