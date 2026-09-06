@@ -1,6 +1,6 @@
 ---
 sprint: ONDA4-S10-O-TRANSPORTE-01
-estado: aberta
+estado: feita
 posse:
   T:
     - src/hefesto_dualsense4unix/interface/mesa_viva.py
@@ -34,6 +34,54 @@ nao_toca:
 ---
 
 # ONDA4-S10 · O TRANSPORTE — "cabo" e "rádio", pela função que já tem dono
+
+> ## FEITA — 06/09/2026, e o enunciado mudou de forma na medição
+>
+> **O que entrou:** P1 (a separação) inteiro, P4 e P5 como escritos, mais a
+> fita da Lançadores e o descarte da Sistema. **A tela dela diz `cabo`** no
+> cartão da Jogar e na fita da Lançadores; a contagem do topo continua
+> `1 USB · 0 BT`, como a decisão de 06/09 manda.
+>
+> **P2 CADUCOU antes desta execução.** A §2 dizia que `mesa_viva.py:343` era
+> `"USB" if transporte == "usb" else "BT"`. Isso foi curado em 05/09: a linha já
+> é `_via_do_transporte(transporte)`, que LÊ `pacotes.VIA_DO_TRANSPORTE`. Não
+> havia cópia a matar ali.
+>
+> **P3 NÃO FOI FEITO, e é dívida declarada, não descuido.** `VIA_DO_TRANSPORTE`
+> não pôde morrer porque a chave `via` da mesa é **COMPARADA** em cinco pontos
+> que a §3 não viu, e nenhum deles é desta posse:
+>
+>     interface/monta.py:877                     o descarte que evita `P2 • BT • BT`
+>     interface/pacotes/a08_conexoes.py:2498     o agrupamento por adaptador de rádio
+>     interface/pacotes/a08_conexoes.py:2499
+>     interface/pacotes/a08_conexoes.py:2505
+>     interface/pacotes/a08_conexoes.py:2513
+>
+> `monta.py` está em `nao_toca:` desta sprint e `a08_conexoes.py` tem CINCO
+> sprints abertas com posse dele. Trocar a palavra de `via` sem tocar nesses
+> cinco faria a aba Conexões mostrar **zero controles no rádio com os dois no
+> rádio** — calado, sem log e sem régua vermelha, que é a família de defeito
+> que a §3 existe para impedir. Então a palavra da tela passou a sair da
+> **dona** em cada superfície desta posse, e a `via` ficou sendo a **sigla de
+> máquina** até os cinco migrarem para `transporte`. A troca é de UMA linha em
+> cada ponto, e o dado já está na mesa.
+>
+> **P6 é do coordenador**, por decisão dele no despacho. **A linha 18 do CSV
+> teve de ser remedida**: o sinal dela era o nome da função dona da palavra, e
+> a decisão dela D-05 fez esse símbolo APARECER no lado HTML — o portão da
+> paridade ficou vermelho sobre trabalho legítimo, pela segunda vez em dois
+> dias. O sinal virou um endereço de tela.
+>
+> **O que a foto mostrou e a §5 não previa:** a fita da aba **Sistema** não
+> mudou de palavra, e não é a cura que falhou. Medido com o daemon vivo, com e
+> sem cor lida: quem pinta a `.fita` das dez abas é `hefesto_vivo._fita` →
+> `monta.fita`, que troca o bloco INTEIRO **antes** de a pintura visitar campo
+> nenhum — o `data-campo="fita-chips"` que a 09 emite deixa de existir no DOM.
+> `a09_sistema._html_da_fita` está morto na tela hoje. Os dois arquivos são
+> `nao_toca:`; está relatado.
+>
+> **A prova:** seis mordidas, cada uma reprovando a régua nova; 43 portões; o
+> laudo em `docs/process/agentes/2026-09-06/ONDA4-S10-O-TRANSPORTE-01.md`.
 
 **Esta é a ÚNICA das treze sprints da fila das dezesseis que continua aberta.**
 As outras doze fecharam entre 04 e 05/09; a prova de cada uma está no
