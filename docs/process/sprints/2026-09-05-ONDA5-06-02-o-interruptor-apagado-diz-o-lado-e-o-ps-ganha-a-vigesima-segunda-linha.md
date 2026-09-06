@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-06-02
-estado: aberta
+estado: feita
 posse:
   A06:
     - src/hefesto_dualsense4unix/interface/aba06.py
@@ -31,6 +31,36 @@ nao_toca:
 ---
 
 # ONDA5-06-02 · DESENHO — o interruptor apagado diz o lado, e o PS ganha a 22ª linha
+
+> **FEITA — 06/09/2026**, na `voo/ONDA5-06-02-B0602`. Os cinco passos entraram e
+> **as SETE réguas que a ONDA5-06-01 deixou vermelhas estão verdes**. A prova, no
+> WebKit dela (`scripts/ensaios/a_linha_do_ps_no_webkit.py`, janela oculta, HOME
+> de mentira):
+>
+> ```
+> a linha nasce            22 linhas · acao-ps · valor "Abrir a Steam" · gesto linha-de-botao
+> ela escolhe F11          o `change` chega ao Python
+> clica no Guardar         o perfil no disco: {'ps': 'KEY_F11'}   ← o TOKEN, não o rótulo
+> portão + mouse LIGADO    pino rgb(80,250,123) · borda rgb(52,55,70) · ponteiro none
+> portão + mouse DESLIGADO pino rgb(68,71,90)   · borda rgb(52,55,70) · ponteiro none
+> sem portão + LIGADO      pino rgb(80,250,123) · borda rgb(80,250,123) · ponteiro auto
+> mutações de DOM          0 em 100 tiques (10,1 s)
+> ```
+>
+> **A §4-P3 estava errada sobre a mordida, e a correção virou portão.** Ela dizia
+> que tirar a entrada de `BOTOES` faria a autoconferência do gerador reprovar
+> *"nomeando quantas linhas achou contra quantas o produto declara"*. Não fazia:
+> aquela conferência conta `data-gesto` contra `len(BOTOES)`, **as duas pontas da
+> mesma lista deste arquivo** — tirar uma entrada diminuía os dois lados e o
+> gerador saía `OK` com 21 linhas. Nasceu a conferência 3-bis, que compara a
+> lista do desenho com `core.acoes_de_botao.BOTOES`.
+>
+> **A §9 (não publicar) foi vencida pelo frontmatter e pela rota de 06/09**, e
+> está relatada: `interface/paginas/06-navegacao.html` está em `posse:` (as
+> sprints irmãs o põem em `nao_toca:`), o plano das 24 horas roteia
+> `aba06 · a06 · paginas/06` a esta frente, o piloto renderiza o PUBLICADO — logo
+> não há prova de tela sem publicar — e duas das sete réguas leem a página
+> publicada. Ver `docs/process/agentes/2026-09-06/ONDA5-06-02.md`.
 
 **Você é dono de três arquivos da aba e da régua dela, e de mais nada.** Duas
 decisões dela desta rodada caem aqui porque tocam os mesmos três arquivos —
