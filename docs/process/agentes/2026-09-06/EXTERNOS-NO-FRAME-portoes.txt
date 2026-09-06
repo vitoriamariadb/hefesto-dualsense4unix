@@ -1,0 +1,52 @@
+portões — árvore /mnt/Apate/Desenvolvimento/hefesto-voo/hefesto-voo/EXTERNOS-NO-FRAME-01-opus
+         python  /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix/.venv/bin/python
+         camadas rapido completo
+         PYTHONPATH /mnt/Apate/Desenvolvimento/hefesto-voo/hefesto-voo/EXTERNOS-NO-FRAME-01-opus/src
+
+  contrato-ipc           ok          76 ms
+  citacoes-de-linha      ok         203 ms
+  citacoes-no-codigo     ok       73666 ms
+  mapa-de-canais         ok         376 ms
+  fatos-de-tela          ok          55 ms
+  fala-de-tela           ok         550 ms
+  caducos                ok         143 ms
+  palavra-de-tela        ok        1184 ms
+  version-consistency    ok          26 ms
+  curvas                 ok         110 ms
+  frases-de-tela         ok          36 ms
+  paridade-transporte    ok        1684 ms
+  paridade-gtk-html      ok         199 ms
+  donos-de-comportamento ok        1099 ms
+  nada-aponta-para-a-janela ok        3456 ms
+  test-data              ok          82 ms
+  endereco-de-radio      ok        3760 ms
+  serial-de-aparelho     ok        1424 ms
+  faixa-sintetica        ok          53 ms
+  mac-por-oui            ok       12561 ms
+  mac-de-fixture         ok        1418 ms
+  casa-sabe              ok      111319 ms
+  portao-tem-chamador    ok         628 ms
+  interpretador-do-portao ok        2041 ms
+  a-tela-dela            ok        1121 ms
+  o-instrumento-e-a-tela ok        1185 ms
+  a-frase-banida         ok        3018 ms
+  src-desta-arvore       ok        1120 ms
+  o-piloto-e-a-arvore    ok        3452 ms
+  desenho-aprovado       ok         119 ms
+  identidade-de-cima     ok         215 ms
+  cor-vem-do-aparelho    ok         216 ms
+  colisao-de-sprints     ok         125 ms
+  icones                 ok         102 ms
+  packaging-parity       ok        2086 ms
+  glifos                 ok        2843 ms
+  pecas-do-dualsense     ok       10073 ms
+  cores-do-dualsense     ok        3710 ms
+  regua-de-tela          ok          32 ms
+  ruff                   ok          13 ms
+  shellcheck             ok       11770 ms
+  referencias-docs       ok        3342 ms
+  anonimato              ok        6335 ms
+  acentuacao             ok       65849 ms
+  mypy                   ok         284 ms
+
+TODOS VERDES — 45 portões.
