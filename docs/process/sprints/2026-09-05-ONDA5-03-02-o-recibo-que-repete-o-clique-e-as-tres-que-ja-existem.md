@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-03-02
-estado: aberta
+estado: feita
 decisoes: 03-Q1, 03-Q2, 03-Q3, 03-Q4 (a metade da ABA)
 posse:
   Q1-Q4-aba03:
@@ -15,6 +15,13 @@ nao_toca:
   - docs/data/paridade-gtk-html.csv
 depois_de: [MIGRA-GATILHOS-04, MIGRA-GATILHOS-05, MIGRA-GATILHOS-06, MIGRA-GATILHOS-09, MIGRA-GATILHOS-10, ONDA2-03-GATILHOS-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-03-01, AS-DUAS-ABAS-FALAM-01]
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-ONDA5-03-02`).** O sucesso pleno desta
+> aba parou de escrever no cartão e passou a **piscar** (a `03-Q4` dela), e o
+> `↻` **saiu do desenho** (a decisão de 06/09). No caminho caiu um defeito que a
+> sprint não previa: **com os dois gatilhos preenchidos, o reenvio escreveria
+> `" · "` no cartão dela** — o separador sozinho, sem uma palavra em volta.
+> Relatório: `docs/process/agentes/2026-09-06/ONDA5-03-02.md`.
 
 # ONDA5-03-02 · DESENHO — o recibo que repete o clique, e as três que já existem
 

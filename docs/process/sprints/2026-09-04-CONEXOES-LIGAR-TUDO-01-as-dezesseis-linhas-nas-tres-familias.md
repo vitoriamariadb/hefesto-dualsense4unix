@@ -1,6 +1,6 @@
 ---
 sprint: CONEXOES-LIGAR-TUDO-01
-estado: aberta
+estado: feita
 posse:
   T-10:
     - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
@@ -14,6 +14,18 @@ nao_toca:
   - mockup/DIVERGENCIAS.md
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-CONEXOES-LIGAR-TUDO-01`).** Das
+> dezesseis do balde `LIGAR`, **cinco já estavam fechadas**, **cinco fecharam
+> aqui** (o hub em comum, as contagens do gabinete, o alvo de saída lido DE
+> VOLTA, o aviso do controle que o sistema não entregou, e o medidor de rádio),
+> **uma estava fechada e o CSV não sabia**, e as cinco que sobram estão nomeadas
+> com o que as segura. `daemon/ipc_handlers.py` **não foi tocado**, e é decisão
+> medida. No caminho caiu um defeito vivo que a costura do dia tinha aberto,
+> calado: a régua de Desempenho mostrava ZERO controle no rádio **com o controle
+> no rádio**. O arquivo da aba foi de 32 para 45 testes. As linhas do CSV
+> estavam no `nao_toca` e foram entregues prontas ao coordenador (a
+> `PARIDADE-REMEDIR-01` as recolhe). Relatório: `docs/process/agentes/2026-09-06/CONEXOES-LIGAR-TUDO-01.md`.
 
 # CONEXOES-LIGAR-TUDO-01 — as dezesseis linhas da aba 08, nas três famílias
 

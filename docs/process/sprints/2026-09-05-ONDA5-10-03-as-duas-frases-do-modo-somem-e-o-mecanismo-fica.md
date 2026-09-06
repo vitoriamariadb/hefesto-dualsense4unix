@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-10-03
-estado: aberta
+estado: absorvida
 decisoes: 10-Q6
 posse:
   10-Q6:
@@ -12,6 +12,17 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/profiles_actions.py
 depois_de: [ONDA1-X-OS-FATOS-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-04-01]
 ---
+
+> **ABSORVIDA — 06/09/2026.** Esta sprint tinha DUAS metades e elas foram por
+> caminhos diferentes. **A de tela fechou na `PERFIL-MODO-01`** (ONDA D): as duas
+> frases do modo **não nascem** no quadro do perfil, por decisão dela (`10-Q6`),
+> e a régua que o garante **não digita a frase** — lê do dono. O mecanismo ficou,
+> que era o ponto inteiro.
+>
+> **A metade que sobra é o CSV**, que é a única coisa na `posse:` deste arquivo,
+> e ela vive agora na **`PARIDADE-REMEDIR-01`** — a sprint que remede as linhas
+> `FALTA` envelhecidas por esta leva, com estas duas na lista de partida.
+> Relatório da metade fechada: `docs/process/agentes/2026-09-06/PERFIL-MODO-01.md`.
 
 > **06/09/2026, costura da ONDA A — O PASSO 3 FECHOU; a sprint continua
 > `aberta`.** As duas linhas do CSV (*O preço da máscara* e *O aviso de rádio

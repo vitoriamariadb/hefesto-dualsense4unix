@@ -1,6 +1,6 @@
 ---
 sprint: NAVEGACAO-TECLAS-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-PRIORIDADE-TODAS-AS-ABAS]
 posse:
   06B:
@@ -17,6 +17,17 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-NAVEGACAO-TECLAS-01`).** Nasceu a
+> pop-up **"Teclas do teclado"**, com um campo por botão do
+> `DOMINIO_DO_TECLADO` — ela digita `Ctrl + W`, `Alt + Shift + Tab`, `F5`,
+> **qualquer combinação**, e não uma opção nova numa lista. **Nenhuma tabela de
+> nomes de tecla nasceu aqui:** são quatro donos, e o quarto era o que faltava —
+> sem `uinput_keyboard.SUPPORTED_KEYS`, `KEY_BANANA` atravessava `parse_binding`,
+> era gravado no perfil, aparecia no campo e **não digitava nada**. O `↺` passou
+> a ser de UMA linha, o `guardar-teclas` preserva o que está fora do alcance
+> dele, e `atalhos_que_param_de_valer` parou de mentir por excesso. Relatório:
+> `docs/process/agentes/2026-09-06/NAVEGACAO-TECLAS-01.md`.
 
 # NAVEGACAO-TECLAS-01 · PARIDADE — a tela de escolher QUAL tecla, e o botão PS na lista
 

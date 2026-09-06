@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-07-03
-estado: aberta
+estado: feita
 decisoes: [07-Q2, 07-Q3]
 posse:
   L3:
@@ -20,6 +20,14 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
 depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-07-02, ONDA5-01-01, ONDA5-01-02]
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-ONDA5-07-03`).** A frase parou de
+> mandar ela copiar e passou a dizer o que o produto faz (`07-Q2`), e as duas
+> recusas calam tudo (`07-Q3`); **metade da sprint já estava feita por um caminho
+> melhor do que o que ela desenhava**. O achado do dia não estava no enunciado:
+> **a bancada da aba Jogar abria um arquivo que não existe desde a mudança para
+> `src/`** — imprimia "ERRO DE CARGA", marcava `voltas: 0` e **saía com `rc=0`**.
+> Relatório: `docs/process/agentes/2026-09-06/ONDA5-07-03.md`.
 
 # ONDA5-07-03 · DEFEITO — o aviso do jogo aberto não manda copiar, e cala nas duas telas
 

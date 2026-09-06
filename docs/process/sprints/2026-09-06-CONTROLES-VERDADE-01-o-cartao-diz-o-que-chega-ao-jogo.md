@@ -1,6 +1,6 @@
 ---
 sprint: CONTROLES-VERDADE-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-PRIORIDADE-TODAS-AS-ABAS, 02-Q6]
 posse:
   02C:
@@ -17,6 +17,15 @@ nao_toca:
   - mockup/DIVERGENCIAS.md
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-CONTROLES-VERDADE-01`), e o enunciado
+> estava errado — corrigi-lo foi a entrega.** A sprint pedia a "linha da
+> verdade" no cartão; a medição mostrou que **ela saiu da tela por decisão dela
+> em 17/08/2026**. O que faltava naquele mesmo lugar era a linha do
+> **giroscópio**, que é a que a janela antiga mostrava — e o que a tela nova
+> punha ali era um **número de catálogo**. Essa é a entrega, mais um defeito
+> vivo que a costura da ONDA B tinha aberto calado. Relatório:
+> `docs/process/agentes/2026-09-06/CONTROLES-VERDADE-01.md`.
 
 # CONTROLES-VERDADE-01 · PARIDADE — o cartão diz o que chega ao jogo
 

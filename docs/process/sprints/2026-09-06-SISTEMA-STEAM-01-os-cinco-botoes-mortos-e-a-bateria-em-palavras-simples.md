@@ -1,6 +1,6 @@
 ---
 sprint: SISTEMA-STEAM-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-STEAM-DIVIDIDO, D-0609-MESA-E-PALAVRA]
 posse:
   09B:
@@ -19,6 +19,14 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-SISTEMA-STEAM-01`).** **O tique da 09
+> caiu de 1.341 ms para 18,6 ms** — era o pior das dez abas —, **dois botões que
+> estavam mortos respondem, clicados no produto vivo**, a frase do exame parou de
+> mandar clicar num botão que não existe, e as duas linhas do Perfil de Bateria
+> deixaram de ser literal, em palavras simples, como ela pediu. Quinze mordidas
+> coladas. O CSV estava no `nao_toca` e o diff saiu pronto no relatório (§7.2 e
+> §10), para a `PARIDADE-REMEDIR-01`. Relatório: `docs/process/agentes/2026-09-06/SISTEMA-STEAM-01.md`.
 
 # SISTEMA-STEAM-01 · PARIDADE — os botões que estão na tela e não fazem nada, e a bateria em palavras simples
 

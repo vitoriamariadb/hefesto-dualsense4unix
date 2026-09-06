@@ -1,6 +1,6 @@
 ---
 sprint: MIC-VIRTUAL-02
-estado: aberta
+estado: feita
 decisoes: [D-0609-MIC-RADIO-ENTRA]
 posse:
   MIC2:
@@ -18,6 +18,15 @@ nao_toca:
   - install.sh
   - packaging/
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-MIC-VIRTUAL-02`), com UMA prova em
+> falta, e ela está declarada.** O rádio alimenta o nó por controle, os
+> chamadores de `escolher_fonte` passam pela regra 0 e a tela conta quatro. **A
+> prova que ela pediu — dois controles no rádio, os dois com o microfone ouvido
+> no canal de cada um — NÃO foi feita: não há DualSense no rádio nesta bancada**,
+> e isso é uma medição no sysfs, não uma desculpa. Ela entra na
+> `MESA-DE-QUATRO-01`, que é a hora dela com os quatro controles. 44 portões
+> verdes na entrega. Relatório: `docs/process/agentes/2026-09-06/MIC-VIRTUAL-02.md`.
 
 # MIC-VIRTUAL-02 · O microfone pelo rádio, e a tela que conta quatro
 

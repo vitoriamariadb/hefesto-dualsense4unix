@@ -1,6 +1,6 @@
 ---
 sprint: A-JANELA-GTK-SE-APOSENTA-DEPOIS-01
-estado: aberta
+estado: absorvida
 posse:
   PLANO:
     - docs/process/sprints/2026-09-05-A-JANELA-GTK-SE-APOSENTA-DEPOIS-01-o-plano-e-a-data-em-que-ele-parou.md
@@ -11,6 +11,27 @@ nao_toca:
   - tests/
   - scripts/
 ---
+
+> **ABSORVIDA — 06/09/2026. Ela era o PLANO, e o plano foi executado inteiro.**
+> A decisão dela de 06/09 (`D-0609-GTK-LEVA-INTEIRA`) tirou o "depois" do nome:
+> *"a ideia sempre foi reaproveitar o que fiz no gtk e não apontar nada mais pra
+> lá mas pro html"*. As três sprints que nasceram deste plano estão `feita`:
+> **GTK-1** (o inventário e o portão *"nada novo aponta para a janela"*),
+> **GTK-2** (os leitores do `main.glade` ganharam dono no motor) e **GTK-3** (a
+> remoção).
+>
+> **O que saiu do disco:** `gui/main.glade` (292 KB), `app/app.py`,
+> `app/main.py`, `scripts/portao_alvo_tem_dono.py` e `scripts/gui-captura/` —
+> 74 arquivos, +2.092 / −15.360 linhas. **O que ficou, de propósito:** o motor
+> (`app/actions/`, `app/widgets/`), o `gui/ponte_da_tela.py` (é do piloto HTML) e
+> `gui/aba_conexoes.py` / `gui/aba_sistema.py`, que são **donos de fato** que a
+> tela nova LÊ, não janela.
+>
+> **A prova de que a remoção não move um pixel:** com a janela já fora do disco,
+> as dez páginas foram refotografadas e saíram **byte a byte idênticas** às
+> commitadas (os dez sha256 em `docs/usage/assets/CONFERIDO-EM.txt`).
+> Relatórios: `docs/process/agentes/2026-09-06/GTK-1.md`, `GTK-2.md`,
+> `GTK-3-primeira-volta.md` e `GTK-3-segunda-volta.md`.
 
 # D-19 · A janela GTK se aposenta DEPOIS, em leva própria
 

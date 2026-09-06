@@ -1,6 +1,6 @@
 ---
 sprint: STEAM-INPUT-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-STEAM-DIVIDIDO, D-0609-PRIORIDADE-TODAS-AS-ABAS]
 posse:
   07B:
@@ -19,6 +19,15 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **FEITA — 06/09/2026, ONDA C (agente `C-STEAM-INPUT-01`), a última despachada
+> da onda, por ordem dela.** Os **três botões do Steam Input** nasceram no cartão
+> da Steam, a **linha de estado** entrou no corpo do cartão, e o **lembrete
+> ganhou a quarta condição que lhe faltava**. A divisão é a decisão
+> `D-0609-STEAM-DIVIDIDO`: Steam Input e a lista de exceções na aba 07;
+> "Consertar", "Restaurar de fábrica" e "Aplicar aos jogos" na 09
+> (`SISTEMA-STEAM-01`). O CSV ficou para a `PARIDADE-REMEDIR-01`, com o texto
+> pronto. Relatório: `docs/process/agentes/2026-09-06/STEAM-INPUT-01.md`.
 
 # STEAM-INPUT-01 · PARIDADE — o Hefesto desliga o que a Steam põe no meio
 
