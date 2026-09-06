@@ -12,9 +12,14 @@ zerada em toda página regerada. Sem o rebase, a 09 teria saído com `0 USB · 0
 
 **O tique da 09 caiu de 1.341 ms para 18,6 ms** · **dois botões que estavam
 mortos respondem, clicados no produto vivo** · **as duas linhas do Perfil de
-Bateria deixaram de ser literal** · **doze mordidas coladas** · 43 dos 44
-portões verdes — o que sobra é o CSV da paridade, que está no meu `nao_toca` e
-cujo diff exato está na §7.
+Bateria deixaram de ser literal** · **doze mordidas coladas** · **43 dos 44
+portões verdes** — o que sobra é o `paridade-gtk-html`, e ele está VERMELHO
+porque o CSV é o DONO do fato, o fato mudou, e o arquivo está no meu `nao_toca`
+(a sprint manda RELATAR). **O diff, linha a linha, está na §7.2 e na §10 —
+pronto para colar.**
+
+**E o `ruff` chega VERMELHO na base `f0811a23`**, por um nome de teste que a
+costura escreveu. Curado com uma letra; ver §8.
 
 ---
 
@@ -413,6 +418,16 @@ a um, no molde da `ONDA5-09-02`:
 | --- | --- | --- |
 | `tests/unit/test_a_09_sistema_sai_do_desenho.py` | o dublê do prontuário passou a ser `levantar_censo` e a cobrar `examinar=False` | a porta mudou; um dublê na porta velha daria VERDE sobre uma função que ninguém chama mais |
 | `tests/unit/test_a_aba_09_sistema_fecha_as_linhas.py` | `esperados` deixou de ser lista cravada e virou pergunta ao disco | ela media a lista de ontem — ver §5 |
+| `tests/unit/test_a_palavra_do_transporte_tem_um_dono_so.py` | UMA letra: `test_a_mesa_do_DESENHO_…` → `test_a_mesa_do_desenho_…` | **o `ruff` está VERMELHO NA BASE** — ver abaixo |
+
+**O `ruff` chega VERMELHO em `f0811a23`, e não é meu.** O portão reprova com
+`N802 Function name 'test_a_mesa_do_DESENHO_tambem_publica_a_chave_crua' should
+be lowercase`, num arquivo que a própria costura escreveu e que eu não toco por
+outro motivo. Conferido: o nome está assim no `git show f0811a23:`, e a função
+não é citada em lugar nenhum além da própria definição. Renomeei — é uma letra,
+sem alcance —, e fica declarado aqui para quem costurar não levar a mudança de
+surpresa. **É o mesmo arquivo cujo glob a §4 pede para ampliar**, então as duas
+edições chegam juntas.
 
 ---
 
@@ -431,8 +446,9 @@ a um, no molde da `ONDA5-09-02`:
   publicar é ato dela. O que ela vê hoje continua com as duas linhas do teto
   congeladas — o valor está CERTO hoje, e a divergência está declarada em
   `mockup/DIVERGENCIAS.md`.
-* **A suíte inteira.** Rodei o escopo da aba 09 e as réguas vizinhas: **163 +
-  os 33 novos = 196 verdes**. A suíte é de quem coordena e roda no fim.
+* **A suíte inteira.** Rodei o escopo da aba 09 e as réguas vizinhas — doze
+  arquivos, **186 verdes** (33 deles novos). A suíte é de quem coordena e roda
+  no fim.
 * **A bancada** (`scripts/bancada.sh`): **não foi reservada, e não precisou**.
   Nenhum caminho meu parou o serviço, chamou `systemctl` ou escreveu no
   aparelho. O que os cliques tocaram no disco dela foi **leitura**: o
