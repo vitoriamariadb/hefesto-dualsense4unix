@@ -20,6 +20,33 @@ nao_toca:
 > **Decisão dela, 04/09/2026, tarde:** *"tudo"* — as três famílias (fôlego,
 > desenho, IPC), não só as de fôlego que eu recomendei.
 
+> **UMA VOLTA FEITA — 06/09/2026, ONDA C.** O relatório com as doze mordidas, a
+> prova de tela e o texto pronto para o CSV e o `DIVERGENCIAS.md` está em
+> [`docs/process/agentes/2026-09-06/CONEXOES-LIGAR-TUDO-01.md`](../agentes/2026-09-06/CONEXOES-LIGAR-TUDO-01.md).
+>
+> **Fecharam CINCO** — a 4 (hub em comum), a 5 (contagens do gabinete), a 8
+> (alvo de saída lido de volta, que o `PINTOR-MARCADO-01` desbloqueou), a 14
+> (controle não adotado) e a 15 (rádio nativo frágil). As quatro últimas são
+> linha de ressalva e **medem zero pixel em repouso**, medido no WebKit.
+>
+> **DUAS CAÍRAM MEDINDO, e o enunciado desta sprint estava errado nas duas:**
+> a **1** (*exame da mesa*) já fechara em 03/09 pela `MIGRA-08-01` — o CSV é que
+> é de ontem; e a **2** (*ambiguidade fina*) **não tem superfície**, porque o
+> único consumidor de `ambigua` em toda a árvore é `resposta_ao_ja_movi`, do
+> botão "Já movi — reexaminar" que ela mandou tirar em 31/08.
+>
+> **AS QUATRO QUE SOBRAM, com o que segura cada uma** (§6 do relatório): a **6**
+> (selo de procedência do medidor — decisão dela; a metade do *"não sei"* é
+> fôlego e continua aberta), a **10** (a razão da luz numa linha VISÍVEL —
+> desenho, e desenho é dela), a **12** (contagem da Gestão — a cura mora em
+> `gui/aba_conexoes.py`, outra posse) e a **13** (controles EXTERNOS — precisa
+> de `controller.list` no tique ou de campo novo no `state_full`, e nenhuma das
+> duas se prova sem `install.sh`).
+>
+> **`daemon/ipc_handlers.py` NÃO FOI TOCADO**, e a razão é medida: as três
+> chaves de que as linhas 8, 14 e 15 precisavam **já estavam publicadas** no
+> daemon vivo (52 chaves de topo, conferidas em 06/09).
+
 ## 0. AS DEZESSEIS
 
 Lista do balde `LIGAR` da `08-conexoes`
