@@ -1,6 +1,6 @@
 ---
 sprint: ILUMINACAO-O-AVISO-DOS-N-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   AVISO:
@@ -17,6 +17,18 @@ nao_toca:
 ---
 
 # ILUMINAÇÃO · O AVISO DOS N — o mesmo desenho foi para N controles, e a tela diz
+
+> **ESTADO 2026-09-06: feita** — o `_Janela` deixou de cravar `_quantos_recebem_o_desenho`
+> = 0 e passou a emprestar do dono os três degraus; `_o_aviso_dos_n` lê a frase de
+> `_AVISO_MESMO_DESENHO_NOS_QUATRO`; e `_cobrar_a_frase_do_desenho`, que ENGOLIA o aviso
+> por construção (ele vem colado na frase do corpo real E na do corpo feliz, e o
+> `!=` calava), devolve a frase do dono para os quatro gestos de desenho a porem no
+> canal de recado verde de 6,0 s. **O aviso ainda não aparece na tela** porque a aba
+> não tem escopo "Todos" — decisão dela, em aberto no `aba04.py` —, e por isso a
+> linha 158 do CSV virou `DIFERENTE`, não `IGUAL`. Régua:
+> `tests/unit/test_a_iluminacao_avisa_quantos_receberam_o_desenho.py` (22 casos, três
+> mordidas). Entrega:
+> `docs/process/agentes/2026-09-06/ILUMINACAO-O-AVISO-DOS-N-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
