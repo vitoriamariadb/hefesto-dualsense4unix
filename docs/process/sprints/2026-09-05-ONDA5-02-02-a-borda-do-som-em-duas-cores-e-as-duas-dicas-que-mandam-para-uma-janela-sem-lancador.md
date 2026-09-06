@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-02-02
-estado: aberta
+estado: feita
 posse:
   02-Q9:
     - src/hefesto_dualsense4unix/interface/aba02.py
@@ -18,6 +18,40 @@ nao_toca:
   - scripts/check_o_desenho_aprovado.py
 depois_de: [A-PORTA-DA-ABA-CONTROLES-01, ONDA2-02-CONTROLES-01]
 ---
+
+> ## ESTADO 06/09/2026: **feita** — os cinco passos entraram, com a prova
+>
+> A entrega inteira está em
+> [`docs/process/agentes/2026-09-06/ONDA5-02-02.md`](../agentes/2026-09-06/ONDA5-02-02.md).
+> O que se mediu, em uma tabela:
+>
+> | | 🎙 do card 2 | ♪ com o alto-falante ATIVO |
+> | --- | --- | --- |
+> | antes | `rgb(255, 85, 85)` — o `--red`, escrito pelo gerador e congelado | `rgb(68, 71, 90)` — o neutro de "não sei" |
+> | depois | `rgb(68, 71, 90)` — igual ao do card 1 | `rgb(80, 250, 123)` — o `--green` da própria página |
+>
+> **O CLIQUE, pelo ouvinte do piloto de verdade** (`hefesto_vivo.BOOTSTRAP`
+> injetado na bancada, Chrome headless; só o carteiro do WebKit é dublê):
+> o gesto sai como `{gesto: "mudo", mudo: "alto-falante", controle: "p1",
+> campo: "alto-mudo"}`, e a resposta do tique seguinte leva a borda a
+> `rgb(255, 184, 108)` (âmbar), depois de volta ao verde, e ao neutro quando a
+> leitura some. **A régua vive no tempo**: `—`, `ATIVO`, `MUDO`, `ATIVO`, `—`
+> em tiques seguidos.
+>
+> **SEIS MORDIDAS**, duas na guarda do próprio gerador (que reprova antes de
+> qualquer teste) e quatro na régua nova. Saídas coladas na entrega.
+> `56 passed` em `test_a_aba_02_controles_fecha_as_linhas.py` (eram 51).
+>
+> **NADA FOI PUBLICADO** — `interface/paginas/02-controles.html` está intacto.
+> Publicar é ato dela.
+>
+> **O QUE A SPRINT PREVIA E NÃO ERA MAIS VERDADE:** a §5.7 diz que
+> `mockup/DIVERGENCIAS.md` *"hoje está vazia"* e passaria a ter a seção
+> `## 02-controles.html`. Ela **já tem** — foi escrita em 05/09, por outra
+> razão —, e o arquivo é `nao_toca` aqui. O portão `desenho-aprovado` fica
+> verde, mas o corpo daquela seção passou a mentir: ele diz que ela vê *"a
+> mesma aba Controles de ontem"*. **Relatado a quem costura, e sem dono nesta
+> leva.**
 
 # DESENHO · ONDA5-02-02 — o ♪ em duas cores, e as duas dicas que mandam para uma janela sem lançador
 
