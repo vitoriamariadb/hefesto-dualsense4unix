@@ -1,6 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-02
-estado: aberta
+estado: feita
 onda: G
 posse:
   LOADER:
@@ -17,7 +17,16 @@ nao_toca:
 A lista manual de `loader.py:1213` vira portão. Não acrescenta campo, não migra dado, não
 decide o que nasce ligado — só exige que a resposta esteja ESCRITA onde o portão a enxergue.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08; espera a PERFIS-SAO-PERFIS-01 (mesmo `loader.py`).
+> **ESTADO 2026-09-06: feita** — a lista escrita à mão de `loader.py` deixou de ser
+consultada: `_payload_do_perfil` omite toda seção de topo cujo VALOR é `None`
+(`is None`, não falsy — `key_bindings: {}` sobrevive), e a seção que nasce densa
+passou a ter contrato escrito em `_SECOES_DE_TOPO_QUE_NASCEM_DENSAS`. O portão
+`tests/unit/test_quem_e_quem_02_o_campo_novo_nao_quebra_o_perfil_de_ontem.py`
+(148 casos) exige que todo campo de topo do `Profile` esteja em EXATAMENTE uma
+das duas saídas, e NOMEIA quem faltar. Entrega em
+`docs/process/agentes/2026-09-06/QUEM-E-QUEM-02-opus.md`.
+>
+> **ESTADO 06/09/2026 (histórico): aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08; espera a PERFIS-SAO-PERFIS-01 (mesmo `loader.py`).
 
 # QUEM É QUEM · 02 — o campo novo não pode quebrar os 29 perfis dela
 
