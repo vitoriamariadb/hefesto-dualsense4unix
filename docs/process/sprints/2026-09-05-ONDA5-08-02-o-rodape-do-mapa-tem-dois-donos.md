@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-08-02
-estado: aberta
+estado: feita
 decisoes: [08-Q8]
 posse:
   M08:
@@ -17,6 +17,67 @@ depois_de: [LEVA-3, MIGRA-CONEXOES-12, ONDA2-08-CONEXOES-01, ONDA5-08-01]
 ---
 
 # ONDA5-08-02 · DEFEITO — o rodapé do mapa tem dois donos, e um deles é a aba
+
+> **FEITA — 06/09/2026, ONDA B.** Os três passos entraram. O dono ganhou a
+> frase irmã (`mapa_da_mesa.GRAVA_NO_CLIQUE`, ao lado de `ESPERA_O_APLICAR`), a
+> aba passou a LÊ-LA por `MAPA["GRAVA_NO_CLIQUE"]` e o `MAPA_JA_GRAVOU` virou o
+> comentário que explica a repartição. Relatório em
+> `docs/process/agentes/2026-09-06/ONDA5-08-02.md`.
+>
+> **O PIXEL NÃO MUDOU, e é a prova que esta sprint pediu.** A janelinha
+> fotografada `--oculta` antes e depois é **byte a byte a mesma** —
+> `md5 092fc0ddba818d0c33b865f6cf13db99` nas duas. O diff do HTML gerado tem
+> **duas linhas**, e as duas são comentário de CSS (ver a nota das cinco
+> citações, abaixo). A frase não perdeu um caractere.
+>
+> **O CLIQUE, no motor dela — WebKitGTK, `Gtk.OffscreenWindow`:**
+>
+> ```
+> BANCADA    ANTES  janelinha aberta=False (display=none)   rodapé 0x0 px
+> >>> CLIQUE em «Mapear Entradas»
+> BANCADA    DEPOIS janelinha aberta=True  (display=flex)   rodapé 622x17 px
+>            texto == mapa_da_mesa.GRAVA_NO_CLIQUE: True
+> PUBLICADA  DEPOIS janelinha aberta=True  (display=flex)   rodapé 622x17 px
+>            texto == mapa_da_mesa.GRAVA_NO_CLIQUE: True
+> ```
+>
+> **AS TRÊS MORDIDAS:**
+>
+> ```
+> 1 · Passo 1 — arranca GRAVA_NO_CLIQUE do dono; o gerador PARA:
+>   ERRO: …/app/widgets/mapa_da_mesa.py não tem mais ['GRAVA_NO_CLIQUE'] —
+>         a tela dependia deles.                                    (rc=1)
+>
+> 2 · Passo 2 — a aba volta a DIGITAR e o dono corrige a frase; regera:
+>   E  AssertionError: o rodapé da página da bancada não é o do dono:
+>   E      página: 'Cada mudança … no clique. Não há nada a aplicar depois.'
+>   E      dono:   'Cada mudança … no clique.'
+>
+> 3 · a anti-cópia — só a aba volta a digitar, o dono INTACTO. A página sai
+>     byte a byte igual, e a régua acha a segunda cópia mesmo assim:
+>   E  AssertionError: `aba08.py` voltou a DIGITAR a frase do rodapé
+>
+> A CURA DEVOLVIDA: 32 passed
+> ```
+>
+> **A MORDIDA 2 DERRUBOU UMA RÉGUA QUE JÁ EXISTIA, e a lição é do `in`:**
+> `test_o_rodape_do_mapa_diz_que_o_clique_ja_gravou` cobra `frase in html`, e na
+> mordida 2 a frase do dono virou PREFIXO da que a página trazia — a régua
+> **passou sobre o defeito**. É por isso que a régua nova compara por
+> IGUALDADE, contra o texto do nó `.mm-aplicar`, e não com um `in` sobre o
+> arquivo inteiro. *Um `in` frouxo passa em toda mudança que só acrescenta.*
+>
+> **AS CINCO CITAÇÕES QUE ESTA SPRINT DESLOCOU, e a §1.3 previu.** A frase irmã
+> nasce na linha 135 de `mapa_da_mesa.py`, e **empurrou 27 linhas para baixo**
+> as outras cinco citações de linha que `aba08.py` fazia àquele arquivo
+> (`:434-442`, `:515-523`, `:645`, `:667-675`, `:691-697`) — as cinco ficariam
+> erradas no mesmo commit em que a §1.3 mede esse custo. As cinco passaram a
+> citar o **símbolo** (`mapa_da_mesa.rotulo_do_aparelho`,
+> `_Janela._desenhar_uma_face`, …), que não desloca. Duas delas moram em
+> comentário de CSS, e são as duas únicas linhas do diff do HTML gerado.
+>
+> **`integrations/ordens_da_mesa.py` continua com o defeito que a 08-01 mediu** —
+> não é posse desta sprint. Relatado de novo, para a `CONEXOES-LIGAR-TUDO-01`.
 
 > **08-Q8, ela marcou "Trocar pela verdade":**
 > *"A mesma linha passa a dizer que cada mudança ali já foi gravada, e fica
@@ -149,11 +210,17 @@ há mais o que apontar de um arquivo para o outro.
   duas telas com dois comportamentos, e a decisão de 01/09 é o que as reparte.
   Unificá-las poria a mentira numa das duas — é o que a entrega de 04/09 recusou
   fazer, com razão (`aba08.py:1528-1531`).
-* **A frase que ela vê não muda um caractere.** `test_o_rodape_do_mapa_diz_que_o_clique_ja_gravou`
-  (`tests/unit/test_a_aba_08_conexoes_fecha_as_linhas.py:242`) e
-  `test_o_rodape_do_mapa_nao_manda_apertar_o_aplicar` (`:225`) continuam verdes
-  sem uma linha alterada. **Se um deles precisar mudar, você mudou o texto — e
-  não era para mudar texto nenhum.**
+* **A frase que ela vê não muda um caractere**, e o md5 das duas fotos prova.
+  `test_o_rodape_do_mapa_nao_manda_apertar_o_aplicar` continua verde **sem uma
+  linha alterada**.
+
+  **CORREÇÃO DE FATO — 06/09/2026:** esta linha dizia que
+  `test_o_rodape_do_mapa_diz_que_o_clique_ja_gravou` também ficaria intacto.
+  **Não podia.** Ele lia `aba08.MAPA_JA_GRAVOU`, e o Passo 2 manda essa
+  constante deixar de existir: sem tocar nele, o teste morre em `AttributeError`
+  — que não é "o texto mudou", é o ENDEREÇO que mudou de arquivo. **Uma linha
+  alterada, e o texto na página continua byte a byte o mesmo.** A régua da
+  frase passou a ler `mapa_da_mesa.GRAVA_NO_CLIQUE`, que é o dono.
 * **A tripwire do `_constantes` continua** (`aba08.py:102-128`, e a lista do mapa em `:2281-2286`): renomear no
   produto continua derrubando a geração da tela em vez de sumir dela em
   silêncio.
