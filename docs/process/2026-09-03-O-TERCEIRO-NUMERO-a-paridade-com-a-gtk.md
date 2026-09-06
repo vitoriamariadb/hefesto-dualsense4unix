@@ -79,21 +79,19 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 ## 2. O número, por aba
 
 <!-- TABELA-DA-PARIDADE -->
-
 | aba | feats | IGUAL | DIFER | FALTA | SO_HTML | ? | paridade |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 01-jogar | 42 | 13 | 15 | 9 | 4 | 1 | 31% |
-| 02-controles | 50 | 12 | 18 | 16 | 4 | 0 | 24% |
+| 01-jogar | 42 | 13 | 16 | 8 | 4 | 1 | 31% |
+| 02-controles | 50 | 16 | 23 | 7 | 4 | 0 | 32% |
 | 03-gatilhos | 31 | 15 | 9 | 1 | 5 | 1 | 48% |
-| 04-iluminacao | 35 | 11 | 14 | 2 | 7 | 1 | 31% |
-| 05-vibracao | 31 | 14 | 8 | 6 | 3 | 0 | 45% |
-| 06-navegacao | 40 | 14 | 16 | 1 | 9 | 0 | 35% |
-| 07-lancadores | 30 | 14 | 5 | 1 | 9 | 1 | 47% |
-| 08-conexoes | 49 | 19 | 21 | 7 | 2 | 0 | 39% |
-| 09-sistema | 38 | 11 | 13 | 7 | 7 | 0 | 29% |
+| 04-iluminacao | 35 | 11 | 15 | 1 | 7 | 1 | 31% |
+| 05-vibracao | 31 | 14 | 9 | 5 | 3 | 0 | 45% |
+| 06-navegacao | 40 | 15 | 16 | 0 | 9 | 0 | 38% |
+| 07-lancadores | 30 | 15 | 5 | 0 | 9 | 1 | 50% |
+| 08-conexoes | 49 | 20 | 22 | 5 | 2 | 0 | 41% |
+| 09-sistema | 38 | 11 | 15 | 5 | 7 | 0 | 29% |
 | 10-perfis | 50 | 14 | 20 | 7 | 9 | 0 | 28% |
-| TODAS | 396 | 137 | 139 | 57 | 59 | 4 | 35% |
-
+| TODAS | 396 | 144 | 150 | 39 | 59 | 4 | 36% |
 <!-- /TABELA-DA-PARIDADE -->
 
 A tabela é **gerada da contagem do CSV** e conferida pelo portão (regra
@@ -394,3 +392,36 @@ sendo a do dono da frase longa (`app/actions/home_actions.py:1333`): *"'?' não 
 resposta — é a tela encolhendo os ombros"*.
 
 Régua: `tests/unit/test_a_tela_nao_inventa_o_transporte.py`, com mordida.
+
+## Nota de verificação — 06/09/2026, a remedição das 57
+
+`PARIDADE-REMEDIR-01`. As **57** linhas `FALTA_NO_HTML` foram relidas uma a uma
+contra o fonte de hoje, depois de dez sprints fecharem. O número foi de
+**137 IGUAL · 139 DIFERENTE · 57 FALTA · 35 %** para
+**144 · 150 · 39 · 36 %** — e o que ele mede continua sendo a bancada, não o
+publicado (a caixa no topo desta página).
+
+**DEZOITO linhas mudaram de veredito, todas com o endereço lido no código** —
+sete viraram `IGUAL` e onze `DIFERENTE`. A maior parte é a aba **02-controles**,
+que foi de **24 % para 32 %**: os dois deslizantes de volume (do microfone e do
+alto-falante) existem na bancada **e na página publicada**, o número e a barra
+do alto-falante saem da curva medida no aparelho, e o hertz do giroscópio
+deixou de ser número de catálogo. As duas abas que **zeraram** os `FALTA` são a
+`06-navegacao` (o botão PS voltou à tabela, reversão dela na 06-Q3) e a
+`07-lancadores` (a carona do wrapper chegou ao rodapé).
+
+**VINTE E UMA linhas ficaram `FALTA_NO_HTML` e ganharam a segunda metade `||`
+datada** com o que a medição achou. O padrão delas tem nome, e é o oposto do
+que a fila costuma supor: **adiamento não é remoção**. As decisões de 06/09
+sobre controles externos, editor avançado de regra, "Mapear Entrada a Entrada"
+e o custo da máscara antes do clique são de **prazo** — a §10 da
+[24 HORAS](2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md)
+as põe fora das 24 horas e fecha dizendo *"o resto dos FALTA fica na régua, que
+é onde fila mora"*. Promovê-las a `DIFERENTE` esvaziaria a fila sobre trabalho
+que ninguém fez.
+
+**A régua de `DIFERENTE` que esta leva firmou:** ela exige que o lado HTML
+entregue a MESMA RESPOSTA por outro caminho, com endereço. Se a resposta não
+chega à tela, é `FALTA_NO_HTML` — e é por isso que a *linha da verdade* (56) e
+o *"Já movi — reexaminar"* (269) continuam `FALTA` mesmo sendo escolha dela: o
+que elas não são é **dívida a pagar**, e isso o `porque` diz.

@@ -1,6 +1,6 @@
 ---
 sprint: PARIDADE-REMEDIR-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-A-UNICA-FILA-E-A-PARIDADE]
 posse:
   PARIDADE:
@@ -14,6 +14,25 @@ nao_toca:
 ---
 
 # PARIDADE-REMEDIR-01 · A régua para de medir o mundo de ontem
+
+> **FEITA em 06/09/2026.** As 57 linhas `FALTA_NO_HTML` foram relidas uma a uma
+> contra o código de hoje: **18 mudaram de veredito com o endereço lido no
+> fonte** (7 viraram `IGUAL`, 11 viraram `DIFERENTE`) e **21 ficaram, com a
+> segunda metade `||` datada dizendo o que a medição achou**. O número saiu de
+> **137 IGUAL · 139 DIFERENTE · 57 FALTA · 35 %** para **144 · 150 · 39 · 36 %**.
+> O laudo é `docs/process/agentes/2026-09-06/PARIDADE-REMEDIR-01.md`.
+>
+> A **linha 30** (o cadeado) entrou no fim, por recado do coordenador,
+> depois de a `ONDA5-01-03` fechar: ela já era `IGUAL` e o que morreu
+> foram as duas metades abertas do `porque`. A branch teve de ser
+> **adiantada** para `ae9a8f71` antes — o código que o recado citava não
+> existia na base `72690101`.
+>
+> **A §2.4 desta sprint foi RECUSADA, com a fonte dela:** ela manda tratar as
+> features que decisões de 06/09 tiraram de cena como *"nenhuma delas é FALTA"*,
+> e a 24 HORAS — de onde a lista veio — as põe na §10, *O QUE NÃO ENTRA NAS 24
+> HORAS*, fechando com *"o resto dos FALTA fica na régua, que é onde fila
+> mora"*. Adiamento não é remoção. Ver a §4 do laudo.
 
 > **A fila desta casa é UMA, e é o CSV da paridade** (decisão de coordenação de
 > 06/09). Sprint antiga não se despacha pelo id: **se o que ela pedia ainda
