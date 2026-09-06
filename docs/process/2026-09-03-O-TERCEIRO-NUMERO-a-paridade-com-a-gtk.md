@@ -90,9 +90,9 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 06-navegacao | 40 | 14 | 16 | 1 | 9 | 0 | 35% |
 | 07-lancadores | 30 | 14 | 5 | 1 | 9 | 1 | 47% |
 | 08-conexoes | 49 | 19 | 21 | 7 | 2 | 0 | 39% |
-| 09-sistema | 38 | 10 | 12 | 9 | 7 | 0 | 26% |
+| 09-sistema | 38 | 11 | 13 | 7 | 7 | 0 | 29% |
 | 10-perfis | 50 | 14 | 17 | 10 | 9 | 0 | 28% |
-| TODAS | 396 | 129 | 130 | 74 | 59 | 4 | 33% |
+| TODAS | 396 | 130 | 131 | 72 | 59 | 4 | 33% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
