@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-10-01
-estado: aberta
+estado: feita
 decisoes: 10-Q2
 posse:
   10-Q2:
@@ -20,6 +20,31 @@ depois_de: [MIGRA-PERFIS-01, MIGRA-PERFIS-03, MIGRA-PERFIS-04, MIGRA-PERFIS-05, 
 ---
 
 # ONDA5-10-01 · DEFEITO — o Hefesto não manda ninguém para o terminal
+
+> **ESTADO 06/09/2026: feita.** Os quatro passos entraram, e as QUATRO bocas
+> caíram — as três da tabela do §1 mais uma quarta que a sprint não previa
+> (`perfis_web.GESTOS_SEM_MOTOR["voltar-a-de-ontem"]`, *"só a linha de comando
+> sabe restaurar. Falta a tela."* — e a tela existia desde 03/09).
+>
+> **A PROVA, medida no WebKit vivo** com
+> `scripts/ensaios/o_detectar_grava_o_jogo_de_fora_da_steam.py` (perfil num lar
+> de mentira, ponte dublada, `--oculta`):
+>
+> ```
+> a classe em foco    'GrimFandango' (NÃO é da Steam)
+> a regra ANTES       {'tipo': 'any',      'window_class': [],               'preset': 'any'}
+> a regra DEPOIS      {'tipo': 'criteria', 'window_class': ['GrimFandango'], 'preset': 'janela'}
+> [gesto] 10-perfis.html · detectar → aplicado, e a resposta foi para a tela
+> BANCADA reaberta:   o campo mostrou 'Jogo (pela janela)' · cadeado APAGADO
+> ```
+>
+> **O que ficou para ela:** o desenho da aba 10 andou (uma opção a mais no
+> seletor) e o publicado não — `--publicar 10` é ato dela, e a divergência está
+> declarada em `mockup/DIVERGENCIAS.md` **com o custo medido**: no publicado a
+> pintura escreve 2 de 3 valores e o campo fica com o "Jogo" do desenho.
+>
+> **§5.1 confirmado no disco:** os sete perfis de fábrica continuam travados —
+> nenhum tem `window_class` de UM elemento.
 
 > **A decisão dela, 05/09/2026, decisão 10-Q2.**
 > Pergunta: *"Depois que a tela avisar que não sabe mostrar a regra do perfil,
