@@ -1,6 +1,6 @@
 ---
 sprint: COOP-NA-CONEXAO-NATIVA-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   NATIVO:
@@ -33,6 +33,8 @@ saiu com a GTK-3 (a lápide do co-op vive em `ipc_handlers.py:6334`, `coop.py:30
 bancada (linhas de ensaio) — fora daqui. Roda depois da EXTERNOS-01 (mesmos `a01_jogar`/`aba01`)
 e da BORDA (por prudência: os dois mexem em quem segura o nó).
 
+> **ESTADO 2026-09-06: feita** — Caminhos A e B entregues: `resolve_player_numbers` passou a numerar pelo `identity_registry` na Conexão Nativa (leitura pura, `assign=False`), e a tela deixou de calar sobre jogadores nesse modo — a dica da posição Desligado e o `?` da linha Status por um dono só, mais a linha viva da coluna Atenção (selo `MODO`, com dois ou mais controles). Régua `tests/unit/test_o_coop_vive_na_conexao_nativa.py`, 16 testes, nove mordidas arrancadas uma a uma. **A §5 (NATIVA-0) continua com ela**, na MESA-DE-QUATRO-01; a NATIVA-3 (o mapa) é da SPECS e a NATIVA-4 (Caminho D) espera a §5. `should_be_active` NÃO foi aberto — §9.
+>
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
 # CO-OP NA CONEXÃO NATIVA-01 — o modo mais fiel é o único sem Jogador 2
