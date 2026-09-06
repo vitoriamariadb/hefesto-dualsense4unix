@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-07-01
-estado: aberta
+estado: feita
 decisoes: [07-Q1, 07-Q4]
 posse:
   L1:
@@ -26,6 +26,56 @@ depois_de: [DAEMON-ACORDADO-01, ONDA-SISTEMA-06, ONDA2-07-LANCADORES-01, ONDA4-S
 ---
 
 # ONDA5-07-01 · DEFEITO — a linha intocável é APLICADA, não explicada
+
+> **FEITA — 06/09/2026, ONDA B, árvore `ONDA5-07-01-B0701`.**
+>
+> A linha estendida à mão deixou de ser intocável. `subtrair_nosso_ignore`
+> trata a atribuição de IGNORE como o que ela é — um token só, com lista por
+> vírgula do lado direito — e tira o NOSSO par de dentro da lista DELA. A
+> atribuição sai inteira e volta inteira: nunca há um instante em que a vírgula
+> fique órfã, que era o medo legítimo escrito na §1.
+>
+> **O PASSO 5 SE CONFIRMOU, e era PIOR do que a leitura do fonte dizia.** Numa
+> linha `IGNORE_DEVICES=0x057e/0x2009,0x054c/0x0ce6` — o nosso par em SEGUNDO —
+> `has_poison` e `has_extended_ignore` respondiam os dois `False`, e
+> `migrate_value` **EMBRULHAVA a linha com o veneno vivo dentro**: o par que
+> manda ignorar o DualSense dela virava argumento do `env(1)` de dentro do
+> wrapper. O jogo seguia cego para o controle, com a tela dizendo que o atalho
+> estava no lugar. A cura é a mesma e fecha os dois buracos de uma vez.
+>
+> **O QUARTO ENDEREÇO, que a sprint não previu:** `transform_vdf_text:501`
+> tinha o mesmo portão `has_poison`, e sem ele as três curas de cima não
+> alcançavam o `--migrate`/`--strip` da linha de comando nem o passo do
+> install. Cobrir um chamador é o que faz a próxima pessoa remedir o defeito.
+>
+> **A PROVA NO ARQUIVO, com o «Consertar» clicado numa janela `--oculta`** (o
+> `HOME` e os quatro `XDG_*` desviados para um lar de mentira, appid sintético
+> `9990001`, nada do disco dela tocado):
+>
+> ```
+> antes:   SDL_GAMECONTROLLER_IGNORE_DEVICES=0x054c/0x0ce6,0x057e/0x2009 VKD3D_CONFIG=dxr %command%
+> depois:  sh -c '…hefesto-launch…' hefesto-launch SDL_GAMECONTROLLER_IGNORE_DEVICES=0x057e/0x2009 VKD3D_CONFIG=dxr %command%
+> ```
+>
+> O device que ELA escondeu sobreviveu, o `VKD3D_CONFIG` dela sobreviveu, o
+> nosso par saiu, e não sobrou token sem `=`.
+>
+> **A MORDIDA NA TELA:** com a cura arrancada, `--prova-clique consertar` não
+> acha o gesto em três voltas — porque o botão «Consertar» NÃO ESTÁ no cartão.
+> No lugar dele: o bloco com a linha, o «Copiar a linha» e o carimbo *"1 jogo
+> com a linha intocável — só reparo manual"*.
+>
+> **O QUE NÃO MORREU:** `has_extended_ignore` mudou de sentido — hoje responde
+> *"o nosso par está lá e a subtração NÃO o alcança"* —, e o `MOTIVO_ESTENDIDO`,
+> o terceiro ramo de `frase_do_aviso` e o botão «Copiar a linha» continuam
+> existindo para essa forma. O que mudou é a frequência, não a verdade.
+>
+> **E UM DEFEITO DE FORA DA SPRINT, na mesma posse:** a aba 07 publicava um
+> bloco em `.fita`, que é endereço do PILOTO. Dois donos por tique, **120
+> mutações em 40 tiques** (a única das dez que não zerou na cura do samba) — e
+> quem ganhava era o bloco, com um chip `Todos` que a fita viva não tem com um
+> controle só. Hoje a aba só escreve a fita quando o piloto se cala (mesa
+> vazia): **120 → 0**.
 
 > **A decisão dela, verbatim (07-Q1, 05/09/2026):**
 > *"Deve aplicar automaticamente como era no gtk"*
