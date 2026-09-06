@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-01-01
-estado: aberta
+estado: feita
 posse:
   01-Q1:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
@@ -19,6 +19,38 @@ depois_de: [ONDA2-01-JOGAR-01, ONDA4-S10-O-TRANSPORTE-01]
 ---
 
 # 01-Q1 · DEFEITO — a cura existe, o produto sabe se ela caiu, e a coluna Atenção não a conhece
+
+> **FEITA — 06/09/2026**, branch `voo/ONDA5-01-01-B0101`, base `eb7b844c`.
+> Relatório: `docs/process/agentes/2026-09-06/ONDA5-01-01.md`.
+>
+> **A PROVA, medida:** `_aviso_da_cura_do_travamento` nasceu em
+> `a01_jogar.py`, o selo `CONTROLE` entrou em `ORDEM_DA_GRAVIDADE` entre `JOGO`
+> e `RÁDIO`, e a coluna da aba 01 foi fotografada nos três estados da cura, com
+> a janela OCULTA e o piloto de verdade sobre a página publicada:
+>
+> | estado da cura | a coluna diz | a conta |
+> | --- | --- | --- |
+> | `[ OK ]` — o desta máquina | só a linha da PONTE | *1 aviso* |
+> | `[WARN]` — em lugar nenhum | `CONTROLE` + a frase do dono | *2 avisos* |
+> | `[INFO]` — agendada | `CONTROLE` + *"desconecte e reconecte"* | *2 avisos* |
+>
+> `ONDA5-01-01-antes.png`, `-depois.png` e `-agendada.png`, ao lado do
+> relatório. **As mutações da aba 01 ficaram em ZERO** em 40 tiques **com a
+> linha acesa** (`A-TELA-SAMBA-01` não voltou).
+>
+> **O CUSTO POR TIQUE, medido antes de ligar** (§3 passo 1): **0,030 ms** no
+> caminho `[ OK ]`, **0,075 ms** no `[WARN]`, **0,79 ms** na primeira chamada
+> do `[WARN]` (o `main.glade`, uma vez por processo). O tique é de 100 ms —
+> **não há cache**, e a razão está escrita no docstring: o que estes dois
+> arquivos dizem muda no replug, e uma memória aqui faria a coluna alarmar
+> depois de a pessoa fazer o que a frase mandou.
+>
+> **NO APARELHO, e não só no dublê:** na máquina dela o `quirk_flags` do
+> `snd_usb_audio` traz `054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m` **e** o
+> drop-in de `/etc/modprobe.d` está no disco — `[ OK ]`. É por isso que ela
+> *"não se lembra disso acontecer"*, e a frase confirma o §1 desta sprint.
+>
+> **OITO MORDIDAS**, uma por peça, todas feitas e coladas no relatório.
 
 > **A palavra dela, 05/09/2026, sobre o aviso do Modo Nativo:**
 >
@@ -80,8 +112,16 @@ que ela vai precisar da linha é o dia em que a cura cair — um kernel novo, um
 
 ## 2. O DEFEITO — a linha medida não chega à aba onde ela joga
 
-A coluna Atenção da aba Jogar tem **oito fontes** hoje — o número é do próprio
-`_avisos` (`a01_jogar.py:588`) —, e `check_snd_quirk` não é nenhuma delas.
+A coluna Atenção da aba Jogar tem **nove fontes** hoje, e `check_snd_quirk` não
+é nenhuma delas.
+
+<!-- FATO SUBSTITUÍDO — 06/09/2026. Esta linha dizia "oito fontes — o número é
+     do próprio `_avisos`", e o docstring de onde ele saiu tinha sido escrito em
+     03/09, ANTES de a ponte entrar (04/09). Contadas uma a uma, a tabela
+     abaixo já mostra nove: as seis puras, o opt-out, a ponte e o exame. O
+     docstring do produto deixou de cravar um número por isso mesmo — ele
+     envelhecia a cada fonte nova. -->
+
 
 | fontes | onde entram | chegam à aba 01? |
 | --- | --- | --- |
@@ -222,8 +262,9 @@ declara `home_actions.py` no `nao_toca` por isso.
 
 O que existe hoje nesta aba e tem de continuar existindo depois:
 
-1. **As oito fontes, na ordem em que estão** (`_avisos`, `a01_jogar.py:618-648`).
-   A nova entra ao lado, nunca no lugar de nenhuma.
+1. **As nove fontes, na ordem em que estão** (`_avisos`). A nova entra ao lado,
+   nunca no lugar de nenhuma. — *conferido em 06/09: a ordem não mudou, e a
+   décima entrou entre a ponte e o exame.*
 2. **A política do `except` largo:** fonte que levanta vira selo `ERRO` e a coluna
    sobrevive (`:631-634`, `:644-647`). A nova nasce com o `try` dela.
 3. **A D-09 dela, inteira:** *"Até três linhas, o mais grave em cima"*, *"com `+N`
