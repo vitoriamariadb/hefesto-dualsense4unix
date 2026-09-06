@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-05-01
-estado: aberta
+estado: feita
 decisoes: [05-Q1, 05-Q2, 05-Q5]
 posse:
   A05D:
@@ -20,6 +20,52 @@ depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01]
 ---
 
 # ONDA5-05-01 · DESENHO — a nota do Testar volta para a dica
+
+> **FEITA — 06/09/2026**, na `voo/ONDA5-05-01-A0501`. Os quatro passos fecharam
+> e a bancada foi regerada (`mockup/05-vibracao.html`); **publicar continua
+> sendo ato dela**, e a divergência está declarada em `mockup/DIVERGENCIAS.md`.
+>
+> **A PROVA, medida nos dois motores a 1920x1080:**
+>
+> | o que se mediu | antes | depois |
+> | --- | --- | --- |
+> | a frase na tela, embaixo da grade (`.vib-nota`) | existia | saiu, com a regra de CSS |
+> | a frase dentro do `?` do "Testar agora" | não | sim, uma vez só na página |
+> | a dica ABERTA, no Chrome, com o rato parado | — | **19,7 s, 40 amostras, sempre `display:block`** |
+> | a dica ABERTA, no WebKit, sob o piloto vivo | — | **29 s, 30 amostras, 322 tiques do piloto**; a marca no nó do `?` e no da `.dica` intacta nas 30 |
+>
+> **A DICA NÃO É `title`, e é por isso que ela não morre.** O aviso do
+> despachante (`A-TELA-SAMBA-01`: *o piloto reescreve o `title` dez vezes por
+> segundo e a dica nativa do WebKit fecha na mutação*) **não alcança este
+> caso**: o `?` desta casa é `<span class="ajuda">?<span class="dica">`, e quem
+> o abre é `.ajuda:hover .dica{display:block}` (`interface/topo.html:280`) —
+> CSS puro, sem atributo que o piloto escreva. Medido, e não deduzido: sob 322
+> tiques do piloto, o nó do `?` e o da `.dica` chegaram ao fim com a marca que
+> receberam no primeiro segundo. **O piloto nunca troca esses nós** — o que ele
+> substitui inteiro é o miolo do `#vib-estado`, um andar abaixo.
+>
+> **E APARECEU UM DEFEITO QUE A SPRINT NÃO PREVIA, vivo desde antes dela:** a
+> dica deste `?` carregava `style="left:auto;right:22px"`, o arranjo das dicas
+> do lado DIREITO da página (`.at-col:last-child` na 06, `.col-acao` na 09).
+> Este `?` mora na PRIMEIRA coluna da grade: a caixa de 330 px nascia em x=146
+> numa janela que começa em x=370 — **224 px, dois terços dela, fora da
+> janela**. Já era assim com as duas orações do par, e `interface/paginas/05-vibracao.html`
+> ainda está assim. Guardar a frase dela num lugar que a janela corta não é
+> cumprir *"as duas na dica"*, então o atributo saiu e a dica passou a abrir
+> pelo padrão da casa: x=505 a 835, **sangria zero**. Há régua no gerador.
+>
+> **A MORDIDA, nos três estados que a sprint pediu:**
+>
+> * frase no `?` **e** a linha de volta na tela → o gerador reprova com **uma
+>   falha só**, `a nota do Testar aparece mais de uma vez na mesma tela` — a
+>   metade que não tem lado, com a régua nova VERDE. É a prova de que os dois
+>   `exigir` medem coisas diferentes;
+> * Passo 1 desfeito **e as duas exigências novas do gerador arrancadas** → o
+>   gerador sai `rc=0` e a régua da suíte reprova SOZINHA, em
+>   `test_a_nota_do_testar_mora_na_dica`;
+> * `left:auto;right:22px` de volta → o gerador reprova nomeando os 224 px.
+>
+> O relatório está em `docs/process/agentes/2026-09-06/ONDA5-05-01.md`.
 
 > **A palavra dela, 05/09/2026, na pergunta 05-Q2** (*"as duas frases que
 > explicam a vibração continuam escondidas no `?`, ou sobem para a tela?"*):
