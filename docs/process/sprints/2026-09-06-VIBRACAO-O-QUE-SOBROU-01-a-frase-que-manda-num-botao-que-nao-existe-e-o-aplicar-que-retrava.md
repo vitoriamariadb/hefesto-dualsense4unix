@@ -1,6 +1,6 @@
 ---
 sprint: VIBRACAO-O-QUE-SOBROU-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   VIB:
@@ -19,6 +19,8 @@ nao_toca:
 ---
 
 # VIBRAÇÃO · O QUE SOBROU — a frase que manda num botão que não existe, e o Aplicar que retrava
+
+> **ESTADO 2026-09-06: feita** — a linha 177 fechou MAIOR do que o enunciado: eram OITO frases mandando clicar em botão inexistente, não cinco, e a oitava (`texto_do_alcance_da_intensidade`, *"Ligue “Jogar pelo Hefesto” na aba Início"*) era a única que chega à tela dela hoje. O dono passou a valer `"Parar"` e nasceu `COMO_DEVOLVER_AO_JOGO`; os rótulos saem das dez páginas publicadas, não da lembrança. **A linha 182 CAIU por medição**: `RumbleConfig` tem `extra="forbid"` e não guarda `weak`/`strong`, o draft do «Aplicar» nasce zerado, e `{0,0}` no applier é passthrough e não silêncio fixo — os três degraus viraram régua. Entrega: `docs/process/agentes/2026-09-06/VIBRACAO-O-QUE-SOBROU-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
