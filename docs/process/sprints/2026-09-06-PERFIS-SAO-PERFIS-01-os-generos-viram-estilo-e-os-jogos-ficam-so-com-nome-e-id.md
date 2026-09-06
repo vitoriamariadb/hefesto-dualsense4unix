@@ -1,6 +1,6 @@
 ---
 sprint: PERFIS-SAO-PERFIS-01
-estado: aberta
+estado: feita
 posse:
   PF:
     - src/hefesto_dualsense4unix/profiles/loader.py
@@ -21,6 +21,25 @@ nao_toca:
 ---
 
 # PERFIS-SAO-PERFIS-01 · DEFEITO — os gêneros viram Estilo de Jogo, e os perfis de jogo ficam só com nome e id
+
+> **ESTADO 06/09/2026: feita** — os quatro passos, 43 portões verdes, 12 réguas
+> novas em `tests/unit/test_os_generos_nao_sao_perfis.py` e **seis mordidas**
+> coladas em `docs/process/agentes/2026-09-06/PERFIS-SAO-PERFIS-01.md`.
+>
+> **O que ficou diferente do plano, e foi MEDIDO:**
+>
+> * a régua de "intocado" do Passo 2 é o **JSON decodificado**, não os bytes.
+>   Os oito do disco dela são byte-idênticos ao asset hoje, mas quem instalou
+>   antes da MODO-01 teve os cinco de gênero REESCRITOS por
+>   `migrate_modo_jogo_nos_presets` (que copia `mode` do próprio asset e regrava
+>   com `json.dumps(indent=2)`): uma régua byte a byte marcaria como "editado
+>   por ela" um arquivo que o PRODUTO reformatou;
+> * `load_profile` ganhou uma **última camada de busca** na subpasta. Sem ela,
+>   *"nada se perdeu"* seria falso na metade que importa: o `session.json` dela
+>   guarda o NOME do perfil ativo, e um gênero ativo bootaria sem perfil;
+> * o Passo 3 pedia a medição do esquema — **está no relatório**: seção ausente
+>   herda o **default do esquema**, NÃO o `Personalizado`. `profiles/schema.py`
+>   não é desta posse.
 
 > **A palavra dela, 06/09/2026:** *"os perfis que voltaram não fazem sentido.
 > ação, aventura, corrida. Isso não é perfil, isso é estilo de jogo."*
