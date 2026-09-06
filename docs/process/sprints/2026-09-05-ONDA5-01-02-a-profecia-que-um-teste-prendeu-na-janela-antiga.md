@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-01-02
-estado: aberta
+estado: feita
 posse:
   01-Q1:
     - src/hefesto_dualsense4unix/app/actions/home_actions.py
@@ -18,6 +18,39 @@ depois_de: [MIGRA-JOGAR-01, MIGRA-JOGAR-11, ONDA-JOGAR-01, ONDA-SISTEMA-01, ONDA
 ---
 
 # 01-Q1 · DEFEITO — a profecia que um teste prendeu na janela antiga
+
+> **FEITA — 06/09/2026.** Os quatro passos fecharam. A frase saiu do
+> `_MODE_DESCRIPTIONS["native"]` e as duas janelas passaram a dizer a mesma
+> coisa (medido dirigindo o `_render_home`, não lendo a constante); a terceira
+> guarda nasceu e lê o FONTE pelos dois canais — literais pelo `ast`,
+> comentários pelo `tokenize` —, com as duas isenções declaradas e PROVADAS por
+> mordida; a lápide foi relida com as três datas e a metade que guarda a coluna
+> Atenção ficou intacta.
+>
+> **O PASSO 3 FOI CUMPRIDO COM OUTRO TRECHO, e a razão é medida.** A sprint
+> propunha `"como no PS5"`; ele casa também com a `DICA_MIC_NO_RADIO` de
+> `app/actions/config/secao_controles.py:463` — *"Traz o microfone deste
+> controle pelo rádio, como no PS5"* —, que é frase medida e viva da D-12 dela.
+> Com esse trecho, a guarda nova reprovaria um arquivo inocente e **o funil de
+> execução recusaria a dica a caminho do WebView**: a régua contra o alarme sem
+> medição viraria ela mesma um alarme sem medição. O trecho que entrou é
+> `"gatilhos ficam duros"` — casa com as DUAS grafias que esta casa já teve, e
+> `grep -rn` mede duas ocorrências, as duas a frase banida, contra as quatro de
+> `"como no PS5"`, uma delas inocente.
+>
+> **E A MORDIDA DO §3 PASSO 3 SAIU MAIS FORTE DO QUE O ENUNCIADO.** Além de a
+> lista velha ficar VERDE sobre a frase viva (`1 passed`, com a profecia no
+> fonte), ficou medido que **o texto cru não a via**: a frase estava PARTIDA em
+> duas linhas do fonte e `grep -c "duros de apertar, como no PS5"` devolve `0`
+> sobre o arquivo que a contém. É por isso que a guarda lê pelo `ast`, e não
+> por `grep`.
+>
+> A saída de cada reprovação está colada em
+> `docs/process/agentes/2026-09-06/ONDA5-01-02.md`. Portões: 41 de 43 verdes —
+> `referencias-docs` e `acentuacao` já vinham vermelhos da base
+> (`onda/atual-0609`), medidos com `git stash` na mesma árvore, e nenhum dos
+> dois toca arquivo desta posse.
+
 
 > **A palavra dela, 05/09/2026:**
 >
