@@ -1,6 +1,6 @@
 ---
 sprint: ONDA3-MOTOR-01
-estado: aberta
+estado: feita
 onda: 3
 posse:
   MOTOR:
@@ -14,6 +14,22 @@ nao_toca:
   - docs/data/paridade-gtk-html.csv
 depois_de: [ONDA5-06-01]
 ---
+
+> **FEITA — 06/09/2026, ONDA B (agente BMOTOR).** Os dois defeitos fecharam, e
+> a prova é de MAPA EFETIVO e de EVENTO, nunca de tela. **1.** `— Nada —` cala
+> as vinte e duas: `set_button_actions` ganhou a sacola `calados`
+> (`integrations/uinput_mouse.py:289`, `:335-338`), montada pela porta nova
+> `core/acoes_de_botao.botoes_calados` (`:410`) — a mordida que a arranca faz
+> **7 casos reprovarem nomeando o botão e a tecla que continuou saindo**.
+> **2.** `resolver()` herda `key_bindings` por uma camada do meio
+> (`core/acoes_de_botao._tabela_efetiva`, `:367`), passada por
+> `apply_button_actions` (`profiles/manager.py:679`) — a mordida devolve
+> `('KEY_LEFTMETA',)` no lugar do `('KEY_F1',)` dela. O `r3` fica fora da camada
+> por derivação, e continua Botão do meio. **43 portões verdes**; escopo largo
+> 2.783 verdes, e os 8 vermelhos são declarados e alheios (7 réguas de tela da
+> `ONDA5-06-02` + 16 citações de linha byte a byte iguais às da base). O item 3
+> (a linha 213 do CSV) está RELATADO como fechável, com o endereço novo. Laudo:
+> `docs/process/agentes/2026-09-06/ONDA3-MOTOR-01.md`.
 
 > **ROTA 06/09/2026:** `estado: aberta`, ONDA B do plano das 24 horas — é o MOTOR da aba 06 (o `— Nada —` que não cala seis linhas e o `resolver()` que não herda `key_bindings`); a NAVEGACAO-TECLAS-01 (ONDA C) é a tela e espera por esta. `depois_de` passou a ser só a ONDA5-06-01 (mesmos `core/acoes_de_botao.py` e `profiles/manager.py`); os quatro ids antigos estão fechados.
 
