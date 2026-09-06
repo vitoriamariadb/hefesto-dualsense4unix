@@ -1,6 +1,6 @@
 ---
 sprint: CONTROLES-OS-TRES-SELOS-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   SELOS:
@@ -20,6 +20,8 @@ nao_toca:
 ---
 
 # CONTROLES · OS TRÊS SELOS — o cartão diz se o som tem para onde ir
+
+> **ESTADO 2026-09-06: feita** — as quatro linhas do CSV fecharam (45, 57, 89 e 90) mais o QUARTO selo: o cartão diz qual gamepad virtual alimenta, apaga as peças que MANDAM som quando não há endereço, mostra `· acordado`/`· dormindo` e o selo do alarme no rótulo da moldura (ZERO altura, medido no motor), e ressalva no rádio que **o Hefesto ainda não faz** — frase LIDA de `fatos_do_mapa`, com régua que troca a célula num dublê e vê a frase sumir. 44 casos, 12 mordidas. Entrega em `docs/process/agentes/2026-09-06/CONTROLES-OS-TRES-SELOS-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
