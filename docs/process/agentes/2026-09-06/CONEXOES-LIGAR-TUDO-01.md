@@ -15,6 +15,28 @@ a única conversa com ele foi UM `daemon.state_full`, que é leitura.
 medida — ver §6. As duas citações a `ipc_handlers.py:6435` que o despacho
 protege continuam apontando para `_handle_machine_declare`, na linha 6435.
 
+**Portões:** `bash scripts/portoes.sh` → **43 VERDES de 44**, e o único vermelho
+é `paridade-gtk-html`, que **é a régua acusando que a dívida FECHOU**:
+
+```
+FALHA: 4 achado(s) em docs/data/paridade-gtk-html.csv.
+  divida-fechada: :275 [08-conexoes] O hub em comum acima de todos os adaptadores
+  divida-fechada: :276 [08-conexoes] As contagens do gabinete
+  divida-fechada: :290 [08-conexoes] Alvo de saída — LER DE VOLTA qual é o alvo agora
+  divida-fechada: :306 [08-conexoes] Aviso "controle ligado que o sistema não entregou"
+```
+
+**O CSV está no `nao_toca:` do meu frontmatter e é do coordenador** (decisão de
+coordenação 3 de 06/09). As cinco linhas prontas, com o endereço novo lido no
+código, estão na §7.1 — e a quinta (`radio-fragil`) o portão nem vê, porque o
+`sinal` dela media a outra cura possível.
+
+**Testes do escopo:** o meu arquivo fecha **45** (eram 32; **nasceram 13**), e os
+**55 arquivos** que citam `a08_conexoes`, `aba08`, `08-conexoes`,
+`ordens_da_mesa` ou `exame_da_mesa` rodaram juntos. **Não rodei a suíte
+inteira** — é de quem coordena. Com a árvore parada: **10 vermelhos, 784 verdes, 7 pulados**, e os dez
+estão triados na §10.1.
+
 ---
 
 ## 0. O ESTADO EM UMA LINHA
@@ -682,6 +704,29 @@ novos — contá-la seria medir a aba de ontem e chamar de "sem regressão". O
 driver da bancada abre o quadro **Rádio e Adaptadores** de propósito: é lá que
 moram as duas ressalvas mais caras e a régua do rádio, que é o bloco trocado
 INTEIRO a cada tique — o mais capaz de sambar.
+
+---
+
+## 10.1 · OS VERMELHOS DE TESTE QUE SOBRAM, triados um a um
+
+| quantos | quais | de quem |
+| --- | --- | --- |
+| 9 | `test_os_dez_geradores_rodam::test_o_gerador_reproduz_a_bancada[aba01..07, 09, 10]` | **herdados.** Confirmado com `git stash` no `3f6855a6` LIMPO: os mesmos nove reprovam antes de eu escrever uma linha, e **o único que PASSA na base é o `aba08.py`** — o meu. Continua passando |
+| 1 | `test_portao_o_par_com_metade_ligada::…::test_toda_citacao_de_linha_em_comentario_de_codigo_confere` | **MEU, e o conserto é de outra posse.** `interface/aba03.py:94` cita `aba08.py:701`, e as minhas 200 linhas novas moveram aquela linha para o branco. O diff está na §7.3. **Ele não é portão** — não roda no `portoes.sh` —, e por isso pode atravessar a integração calado |
+
+### A ARMADILHA QUE EU MESMO ARMEI, e é de PROCESSO
+
+Na primeira volta do lote apareceram **DOIS vermelhos a mais** —
+`test_todo_gesto_que_grava_esta_protegido`, dizendo que `08-conexoes·alvo` e
+`·escolher-aparelho` passaram a gravar por `machine_declare`. **Eles não
+existiam**: aquela régua lê o fonte com `inspect.getsource`, que resolve por
+NÚMERO DE LINHA no arquivo em disco — e eu estava editando `a08_conexoes.py`
+enquanto o lote corria. O deslocamento fez a régua ler o corpo de outra função.
+
+Passam em isolamento, e passam no lote com a árvore parada. **A regra que isso
+deixa: enquanto um lote roda, a árvore não se edita** — e a memória desta casa
+já dizia metade disso (*"nunca rode pytest junto com a suíte"*); a metade que
+faltava é que **o próprio editor contamina**, sem precisar de um segundo pytest.
 
 ---
 
