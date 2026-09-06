@@ -1,6 +1,6 @@
 ---
 sprint: RESERVA-DO-POSTO-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   INSTRUMENTO:
@@ -23,6 +23,8 @@ nao_toca:
 (mesmo arquivo). **Os 30 s NÃO se mexem aqui**: *"ela mede antes de eu fixar"* — e a medição, com
 o roteiro da §5, entra na MESA-DE-QUATRO-01. Os dois CSV saíram da posse (a bancada escreve o
 ensaio; a SPECS anota a procedência).
+
+> **ESTADO 2026-09-06: feita** — o instrumento ficou de pé e o cronômetro é dela: a queda do primário saiu no journal com o campo `transporte` (§RESERVA-1), a janela de 3600 s da sessão de medição ganhou trava que a impede de atravessar a leva (§RESERVA-2, caminho (a), sem superfície nova), e a volta pelo CABO deixou de ser inferência — o deposto **retoma** o posto, medido em `test_a_volta_pelo_cabo_retoma_o_posto` (§RESERVA-5). Os 30 s não se mexeram. Entrega em `docs/process/agentes/2026-09-06/RESERVA-DO-POSTO-01-opus.md`; a §5 (medição) e a §RESERVA-3 (o número) seguem na MESA-DE-QUATRO-01, e a §RESERVA-4 (a célula do mapa) na SPECS-A-PROCEDENCIA-01.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
