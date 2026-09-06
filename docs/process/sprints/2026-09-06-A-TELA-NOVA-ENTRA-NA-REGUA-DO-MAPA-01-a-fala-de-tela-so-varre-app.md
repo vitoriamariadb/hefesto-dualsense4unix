@@ -1,6 +1,6 @@
 ---
 sprint: A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01
-estado: aberta
+estado: feita
 onda: F
 posse:
   REGUA:
@@ -18,6 +18,19 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/
   - mockup/
 ---
+
+> **FEITA — 06/09/2026, ONDA F (agente `F-MAPA`), `e5aaf77e`.** A régua passou a
+> varrer as duas raízes: **123 frases de `interface/` que ela nunca tinha visto**
+> (contra 47 em `app/`). O "quase não mediu" virou piso, contado e não digitado,
+> e a lista de abas só cresce. **A régua vê e não veta:** o censo deu 13 frases
+> que afirmam o que a célula do mapa ainda não registra — **fila de remedição do
+> mapa em 5 chaves** (`identidade.cor_do_aparelho`,
+> `identidade.cracha_nos_dois_transportes`, `audio.microfone`,
+> `luz.lightbar.release_leds`, `plataforma.taxa_relatorios`) —, 7 que o mapa
+> sustenta, e 103 que não afirmam. Dois achados para quem pegar a fila:
+> `audio.microfone` tem o veredito atrás do detalhe da própria célula, e duas
+> telas do produto se contradizem sobre o microfone pelo rádio. Cinco mordidas.
+> Relatório: `docs/process/agentes/2026-09-06/A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01.md`.
 
 # A-TELA-NOVA-ENTRA-NA-RÉGUA-DO-MAPA-01 — a fala de tela só varre `app/`
 
