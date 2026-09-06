@@ -400,6 +400,28 @@ razão escrita ao lado, para o próximo.
 **E o portão `donos-de-comportamento` acusou pela mesma causa**, o que é uma
 segunda régua independente vendo o mesmo fato — que é o que esta casa quer.
 
+### A ESPERA POR `pgrep` NASCEU IMORTAL — de novo, e agora com o vizinho junto
+
+A casa já registra que `until ! pgrep -f "<comando>"` casa o próprio laço. Numa
+leva de oito agentes ela tem uma SEGUNDA cara, pior: **o padrão casa o
+`portoes.sh` DOS OUTROS.** Medido nesta máquina enquanto eu esperava:
+
+```
+889233  .../CONTROLES-VERDADE-01-...      ← o meu
+891227  .../SISTEMA-STEAM-01-...          ← de outro agente
+898338  .../MIC-VIRTUAL-02-...            ← de outro agente
+```
+
+Minutos depois eram **quinze** `portoes.sh` de seis árvores diferentes. Uma
+espera por padrão nunca termina enquanto a leva estiver viva, e ela some no
+meio do relatório — não como erro, como silêncio. **Havia dois laços de OUTROS
+agentes já presos ali, dos quais um espera por um arquivo que não é o dele.**
+
+**A regra que sobra:** numa leva, espere pelo **PID** do seu processo ou pela
+notificação da tarefa; `pgrep -f` por nome de script é espera pela leva inteira.
+E para encerrar, PID conferido com `pwdx` — foi assim que separei os meus dos
+dos vizinhos sem tocar em nenhum deles.
+
 ---
 
 ## 8. OS PORTÕES E OS COMANDOS
