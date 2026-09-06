@@ -2,23 +2,31 @@
 
 Árvore: `hefesto-voo/SISTEMA-STEAM-01-C-SISTEMA-STEAM-01`, branch
 `voo/SISTEMA-STEAM-01-C-SISTEMA-STEAM-01`. Nasceu em `3f6855a6` e foi
-**adiantada para `f0811a23`** antes da primeira linha — o `onda/atual-0609`
-tinha andado dois commits, e um deles é a contagem do cabeçalho que voltava
-zerada em toda página regerada. Sem o rebase, a 09 teria saído com `0 USB · 0 BT`.
+**adiantada DUAS vezes** — para `f0811a23` antes da primeira linha (a contagem
+do cabeçalho que voltava zerada; sem ela a 09 sairia com `0 USB · 0 BT`) e para
+`6454caa1` no fecho, para herdar as três coisas que a costura pediu.
 
 ---
 
 ## 0. O ESTADO, EM UMA LINHA
 
 **O tique da 09 caiu de 1.341 ms para 18,6 ms** · **dois botões que estavam
-mortos respondem, clicados no produto vivo** · **as duas linhas do Perfil de
-Bateria deixaram de ser literal** · **doze mordidas coladas** · **43 dos 44
-portões verdes** — o que sobra é o `paridade-gtk-html`, e ele está VERMELHO
-porque o CSV é o DONO do fato, o fato mudou, e o arquivo está no meu `nao_toca`
-(a sprint manda RELATAR). **O diff, linha a linha, está na §7.2 e na §10 —
-pronto para colar.**
+mortos respondem, clicados no produto vivo** · **a frase do exame parou de
+mandar clicar num botão que não existe** · **as duas linhas do Perfil de
+Bateria deixaram de ser literal** · **quinze mordidas coladas** · **42 dos 44
+portões verdes**, e os dois vermelhos são registro que falta, não código:
 
-**E o `ruff` chega VERMELHO na base `f0811a23`**, por um nome de teste que a
+* **`paridade-gtk-html`** — o CSV é o DONO do fato, o fato mudou, e o arquivo
+  está no meu `nao_toca` (a sprint manda RELATAR). **O diff, linha a linha,
+  está na §7.2 e na §10 — pronto para colar.**
+* **`desenho-aprovado`** — chegou vermelho no rebase de fecho, da leva dos
+  gatilhos, e o texto que o fecha já está escrito por quem mediu. **§14.**
+
+**E DOIS CASOS DE `test_steam_input_ponteiros.py` ficam VERMELHOS de
+propósito** — é a consequência da cura que a costura pediu, o arquivo não é da
+minha posse, e o diff que os fecha já está escrito na §6.1 da `GTK-2`. Ver §12.
+
+**O `ruff` chegou VERMELHO na base `f0811a23`**, por um nome de teste que a
 costura escreveu. Curado com uma letra; ver §8.
 
 ---
@@ -527,3 +535,174 @@ medição de que **nenhum pixel muda** (os quatro atributos novos estão nos
 INVISÍVEIS do `check_o_desenho_aprovado.py`, que compara o que se VÊ — decisão
 dela em 01/09) e com o custo da espera dito por inteiro: o valor congelado está
 CERTO hoje, e o preço da divergência é futuro.
+
+---
+
+## 12. O DEFEITO VIVO DA COSTURA — a frase mandava clicar num botão que não existe
+
+A `GTK-2` achou e o coordenador confirmou: o `storm_doctor` diz *"clique
+'**Consertar problemas conhecidos**' na aba Sistema"*, e na aba Sistema que ela
+usa o botão se chama *"**Refazer os consertos automáticos**"*. A frase chega a
+essa tela — `a09_sistema._achados()` pinta o `storm_report` —, e é a forma que o
+glossário proíbe com todas as letras: *"qualquer frase que mande a pessoa
+procurar um botão ou uma janela que não existe"*.
+
+### O ACHADO: a cura proposta não curava
+
+A §6.1 da `GTK-2` propõe trocar o `se_faltar` dos dois `rotulo_do_botao`.
+**Medido antes de aplicar, com o glade ainda no disco:**
+
+```
+rotulo_do_botao('btn_storm_fix_safe', 'Refazer os consertos automáticos')
+  -> 'Consertar problemas conhecidos'      ← o GLADE venceu
+rotulos_de_reserva() == {}                  ← a reserva nem chegou a ser usada
+```
+
+`rotulo_do_botao` lê o glade PRIMEIRO e a leitura dá certo, então o `se_faltar`
+nunca sai. **Trocar o literal só passa a valer no dia em que a `GTK-3` apagar o
+XML** — é uma cura para o mês que vem, sobre a tela que ela tem hoje. É a mesma
+assinatura dos seis instrumentos falsos de 05/09: *o instrumento respondia sobre
+outra coisa que não o produto*.
+
+### QUAL LADO CEDEU, E POR QUÊ — a decisão é minha, e é medida
+
+**Cedeu a FRASE, e ela cedeu MUDANDO DE TELA, não de palavra.** Três medições:
+
+1. **`rotulo_do_botao` é um LEITOR, não um dono.** Ele existe exatamente para a
+   frase não virar o segundo dono do rótulo — o comentário dele conta a história
+   de 26/08, quando a frase citava um botão renomeado. O defeito não é o que ele
+   diz: **é a tela a quem ele pergunta.** Editar o literal seria dar-lhe o
+   defeito que ele foi escrito para não ter.
+2. **O rótulo da tela nova NÃO é palavra dela, e não está livre para mover.**
+   Ele é do mockup, e está sob dúvida DECLARADA desde 29/08 — a
+   `MIGRA-SISTEMA-07`, em *"O que é dela decidir"*, põe a ela justamente esta
+   pergunta e oferece três opções: *"'Consertar problemas conhecidos' é o nome
+   antigo e é honesto; 'Refazer os consertos automáticos' só vale depois de
+   haver o que refazer"*. **Ela nunca respondeu.** Mover uma palavra que espera
+   a decisão dela, para agradar a uma frase de uma janela que está saindo, é o
+   avesso da ordem das coisas.
+3. **A janela GTK sai inteira** (`D-0609-GTK-LEVA-INTEIRA`). Alinhar a tela viva
+   à que morre é trabalho para desfazer no mesmo mês.
+
+### A CURA: a ordem das fontes
+
+`storm_doctor.rotulo_do_botao` passou a ter TRÊS fontes, nesta ordem:
+
+1. **a página que o produto renderiza** — `_NA_TELA_VIVA` mapeia o id do glade
+   para `(página, data-gesto)`, e a leitura é por `data-gesto`, que é o endereço
+   que o desenho já tem;
+2. **o `gui/main.glade`**, enquanto ele existir;
+3. **`se_faltar`**, agora com a palavra da tela nova (a diff (a) da `GTK-2`, que
+   deixa de ser futura e passa a ser a rede).
+
+Medido depois: `-> 'Refazer os consertos automáticos'`, `rotulos_de_reserva() ==
+{}`. **E a página lida é a PUBLICADA, nunca a bancada:** citar o rótulo do
+`mockup/` mandaria clicar num nome que ela só vê depois de publicar.
+
+**O gêmeo está declarado e tem régua.** `a09_sistema._rotulo_do_desenho` lê o
+mesmo `<button>` pelo mesmo `data-gesto`; os dois não podem virar um só sem um
+ciclo de import (aquele módulo importa este). Quem segura o par é
+`test_os_dois_leitores_do_rotulo_nao_divergem`.
+
+### AS TRÊS MORDIDAS
+
+```
+===== M · o `_NA_TELA_VIVA` esvazia e o glade volta a vencer =====
+E AssertionError: o exame manda clicar em 'Consertar problemas conhecidos' e a
+  página que o produto renderiza não tem botão nenhum com esse nome. É a forma
+  que o glossário proíbe.
+
+===== N · o gêmeo aponta para outro botão =====
+E AssertionError: os dois leitores do mesmo botão discordam: o `storm_doctor`
+  lê 'Refazer a fixação do Proton' e o pacote lê 'Refazer os consertos
+  automáticos'.
+
+===== O · o `__main__` do `aba09.py` sai =====
+E AssertionError: ['aba09.py'] escrevem a bancada dela no nível do módulo:
+  qualquer `import` — inclusive a COLETA do pytest — reescreve o desenho
+  aprovado no disco, com o estado vivo da mesa dentro.
+```
+
+### O QUE FICA VERMELHO, e o diff que fecha
+
+**`tests/unit/test_steam_input_ponteiros.py`, dois casos** — exatamente os que a
+costura previu. A saída, colada:
+
+```
+E AssertionError: a mensagem "… O que fazer: clique 'Refazer os consertos
+  automáticos' na aba Sistema para desligar." manda procurar o botão 'Refazer
+  os consertos automáticos', que não existe NA JANELA
+E AssertionError: assert None == 'Sistema'
+   where None = _aba_do_botao('Refazer os consertos automáticos')
+```
+
+**Leia o "NA JANELA": a régua mede a tela que está morrendo.** Ela é o irmão do
+mesmo defeito — um instrumento apontado para o glade num dia em que a tela dela
+é outra. O diff que a reaponta para as páginas está escrito, palavra por
+palavra, na **§6.1 (b) da `GTK-2`**: as três funções de leitura (`_paginas`,
+`_aba_do_botao`, `_rotulos_de_botao`) passam a ler os `<button>` de
+`interface/paginas/*.html`, e `_ABA_CITADA` passa a casar o nome da aba com o do
+arquivo. **O arquivo não é da minha posse e a costura pediu o diff, não a
+edição** — ele fica aqui, e os dois casos ficam vermelhos até a costura aplicar.
+
+### OS TRÊS ARQUIVOS QUE TOQUEI POR CAUSA DISTO
+
+| arquivo | o que mudou |
+| --- | --- |
+| `integrations/storm_doctor.py` | `_NA_TELA_VIVA`, `_rotulo_na_tela_viva()`, a ordem das fontes em `rotulo_do_botao`, e as duas reservas |
+| `tests/unit/test_os_leitores_do_glade_tem_dono.py` | `RESERVA_DO_BOTAO` acompanha a tela viva, e nasceu `_sem_fonte_nenhuma()` — **os três casos da reserva passaram a medir o caminho feliz** quando a página respondia e só o `__file__` era desviado. Um caso que diz medir a ausência e mede a presença é o instrumento falso que aquele arquivo inteiro existe para pegar |
+| `tests/unit/test_a_palavra_do_transporte_tem_um_dono_so.py` | **`"aba09.py"` entrou em `CURADOS`** — a costura pediu o diff, e eu o APLIQUEI em vez de só relatá-lo, porque sem ele a guarda `__main__` que acabei de pôr no gerador não tem régua nenhuma. É uma string numa tupla; se colidir com a costura, a resolução é trivial |
+
+## 13. AS DUAS OUTRAS COISAS QUE A COSTURA MANDOU CONFERIR
+
+* **A `--prova-clique` passou a consultar `PERIGOSOS`.** Herdada no rebase e
+  conferida: os dois cliques que fiz (`refazer-consertos` e `procurar-camadas`)
+  continuam passando, porque **nenhum dos dois está em `PERIGOSOS` hoje** — e é
+  precisamente isso que a §7.1 pede que mude. **Depois que a costura aplicar
+  aquelas três linhas, os cliques desta entrega passam a exigir
+  `--incluir-perigosos`**, e isso é o certo: o primeiro clique é read-only por
+  desenho, mas quem roda é que decide correr o risco do segundo.
+* **`scripts/validar-palavra-de-tela.py` LÊ o glade** (`:132`, `:876`) e é
+  portão da camada `--rapido`. **A minha medição encostou nisso**: o `:168`
+  guarda o par `{"Aplicar correções": "Consertar problemas conhecidos"}`, que é
+  o registro da renomeação de 26/08 — e a palavra da direita acabou de deixar de
+  ser a que a tela dela mostra. O portão continua VERDE (conferido), porque ele
+  cobra a palavra VELHA sumir, não a nova aparecer. **Mas a linha envelheceu:**
+  no dia em que o glade sair, esse guarda mede uma tela a menos, calado, e o par
+  dele passa a apontar para um rótulo que não existe em tela nenhuma. Não está
+  no plano D-19 nem no inventário da `GTK-1`. **RELATADO, não tocado** — é
+  vizinhança, não posse.
+
+## 14. TRÊS PORTÕES CHEGARAM VERMELHOS NO REBASE DE FECHO — e dois eu fechei
+
+Medidos com o meu trabalho `git stash`-ado, contra o `6454caa1` puro:
+
+| portão | o que era | o que fiz |
+| --- | --- | --- |
+| `ruff` | `N806 Variable 'CURADOS' in function should be lowercase`, em `test_a_palavra_do_transporte_tem_um_dono_so.py` — a lista que a costura acabou de criar | renomeada para `curados`. É o **segundo** N806 desta mesma leva e do mesmo arquivo: o primeiro foi o `test_a_mesa_do_DESENHO_…` da §8 |
+| `acentuacao` | três `paginas` em `test_as_bancadas_vivas_abrem_a_pagina_que_prometem.py` | a palavra é o **nome da pasta no disco** (`interface/paginas/`) e as duas ocorrências de baixo estão DENTRO de comparações de string — acentuá-las quebraria o teste. O docstring foi reescrito para não citar o caminho, e as duas linhas de código levam `# (noqa-acento) pasta` |
+| `desenho-aprovado` | `03-gatilhos.html`: *"o produto está ATRÁS do desenho em 1 página(s), sem declaração"* | **NÃO TOQUEI — e o texto já existe, escrito por quem mediu.** Ver abaixo. |
+
+**O `desenho-aprovado` é uma COSTURA PELA METADE, e o conserto é um `cat`.** O
+commit `31542720` (`ONDA5-03-02`) trouxe o desenho novo da 03 e **não trouxe a
+declaração**. A frente escreveu o texto e o deixou para a costura — está dito na
+§6.1 do relato dela, e o arquivo continua no disco:
+
+```
+/tmp/claude-1000/.../scratchpad/C-ONDA5-03-02-DIVERGENCIAS.txt   (2.581 bytes)
+    ## 03-gatilhos.html
+    - **06/09/2026 — O BOTÃO DE REENVIO SAIU DO DESENHO** (`ONDA5-03-02`, …
+```
+
+**Não o apliquei de propósito:** a declaração é o registro de uma medição, e a
+medição é dela — copiá-la para o meu commit tiraria o nome de quem responde por
+ela. O que eu podia fazer era achar o arquivo e dizer onde está.
+
+*É o mesmo par de metades que o `paridade-gtk-html` cobra de mim: código que
+entra sem o registro que o explica.*
+
+**O `# noqa-acento` no fim de uma linha de código tem forma:** `# (noqa-acento)`,
+com parênteses. A forma `# noqa-acento: razão` faz o **ruff** avisar
+`Invalid # noqa directive` — ele lê o prefixo `# noqa` como diretiva dele. A
+árvore tem nove desses avisos hoje, todos de outras frentes; não são erro, mas
+são ruído que o portão imprime a cada volta.
