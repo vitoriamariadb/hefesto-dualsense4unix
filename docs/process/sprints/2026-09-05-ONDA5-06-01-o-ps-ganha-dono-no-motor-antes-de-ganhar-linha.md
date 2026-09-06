@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-06-01
-estado: aberta
+estado: feita
 posse:
   M06:
     - src/hefesto_dualsense4unix/core/acoes_de_botao.py
@@ -23,6 +23,28 @@ nao_toca:
 ---
 
 # ONDA5-06-01 · DEFEITO — o PS ganha dono no motor antes de ganhar linha
+
+> **FEITA — 06/09/2026.** O PS é a vigésima segunda linha do produto
+> (`core/acoes_de_botao.BOTOES`), tem valor de fábrica derivado do dono
+> (`padrao()` → `DaemonConfig.ps_button_action`), porta própria fora das três
+> sacolas (`acao_do_ps`), canal do perfil até o subsistema
+> (`ProfileManager.ps_action_sink` → `hotkey.definir_acao_do_ps`) e o toque faz
+> **as duas coisas, nesta ordem** (`hotkey.build_ps_solo_callback`: a tecla, e só
+> depois a Steam). **28 casos novos**, oito mordidas coladas no relatório
+> (`docs/process/agentes/2026-09-06/ONDA5-06-01.md`).
+>
+> **O QUE ELA DEIXA VERMELHO, e é por desenho:** **sete réguas da TELA** dizem
+> agora que o produto tem 22 linhas e o desenho tem 21. Elas estão certas — o
+> motor andou primeiro, de propósito (§7) — e a cura de todas é a MESMA: a linha
+> do PS na aba, que é a `ONDA5-06-02`. Estão nomeadas uma a uma no relatório.
+>
+> **O QUE MUDOU DE ROTA NO CAMINHO:** a §4-P2 pedia uma QUARTA POSIÇÃO na tupla
+> do `resolver()`. Medido, ela quebraria a aba que ela abre — três chamadores
+> desempacotam três (`profiles/manager.py` e duas vezes
+> `interface/pacotes/a06_navegacao.py`), e um quarto valor viraria
+> `ValueError: too many values to unpack` no produto de hoje, para servir uma
+> frente que roda depois. A quarta saída existe, e é PORTA (`acao_do_ps`) em vez
+> de posição. O destino é o mesmo, e nenhum chamador quebrou.
 
 ## 1. A DECISÃO DELA, VERBATIM
 
