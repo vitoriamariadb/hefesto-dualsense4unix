@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-02-01
-estado: aberta
+estado: feita
 posse:
   02-Q8:
     - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
@@ -18,6 +18,28 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
 depois_de: [A-TRAVA-DO-LED-NAO-SOLTA-01, LEVA-DE-BACKGROUND-01, MIGRA-CONTROLES-09, MIGRA-ILUMINACAO-11, MIGRA-JOGAR-10, MIGRA-NAVEGACAO-07, MIGRA-SISTEMA-09, MIGRA-VIBRACAO-04, MIGRA-VIBRACAO-05, MIGRA-VIBRACAO-06, ONDA-CONTROLES-07, ONDA-CONTROLES-08, ONDA-JOGAR-05, ONDA-LANCADORES-06, ONDA-PERFIS-03, ONDA-VIBRACAO-04, ONDA-VIBRACAO-05, ONDA-VIBRACAO-06, ONDA1-D1-O-SOM-01, ONDA2-02-CONTROLES-01, ONDA4-S10-O-TRANSPORTE-01, TROCA-DE-PLAYER-01]
 ---
+
+> **ESTADO 06/09/2026: feita.** Os cinco passos entraram. **A porta fechou:** com
+> endereço, `mic.volume.set` responde `sem_fonte` e não escreve em placa nenhuma
+> (`daemon/ipc_handlers.py`); a mesa entra por `recado_do_microfone.mesa_de_agora`
+> e a regra 4 do `escolher_fonte` passa a responder o caso de um controle só, que
+> antes só a rota global respondia — por acaso; as duas portas dormentes de
+> `audio_control` perderam o padrão de `fonte`; o `sem_fonte` ganhou frase própria
+> na aba 02; e a linha do `[L3]` registra a decisão 02-Q10 em vez de pedir a
+> palavra dela.
+>
+> **MEDIDO NA MÁQUINA DELA, sem escrever um byte** (o `default-source` dela É a
+> fonte de captura do DualSense no cabo, então nada foi gravado): um endereço que
+> não resolve devolve `None`, e o que a rota global entregaria no lugar é
+> **exatamente a fonte padrão dela**. O clique, ponta a ponta com o `pactl` vivo:
+> o deslizante de um controle ausente deposita o recado novo no cartão e escreve
+> ZERO; o do controle presente escreve na placa dele.
+>
+> **43 portões verdes** (os dois vermelhos eram meus: as citações de linha do
+> `ipc-unix-socket.md`, que as +54 linhas do handler moveram — reapontadas por
+> `scripts/gerar-contrato-ipc.py`). Régua nova:
+> `tests/unit/test_o_volume_do_mic_nao_cai_no_vizinho.py`, 13 casos, cinco
+> mordidas coladas no relatório de `docs/process/agentes/2026-09-06/`.
 
 # DEFEITO · ONDA5-02-01 — o microfone do vizinho, e a regra que já estava escrita um arquivo ao lado
 
