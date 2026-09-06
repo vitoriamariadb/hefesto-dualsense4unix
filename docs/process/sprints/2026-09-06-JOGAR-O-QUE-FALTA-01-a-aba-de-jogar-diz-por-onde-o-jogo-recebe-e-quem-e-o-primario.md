@@ -1,6 +1,6 @@
 ---
 sprint: JOGAR-O-QUE-FALTA-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-PRIORIDADE-TODAS-AS-ABAS, D-0609-EXTERNOS-FORA, 10-Q6]
 posse:
   01E:
@@ -18,6 +18,27 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/
   - docs/data/paridade-gtk-html.csv
 ---
+
+> **FEITA — 06/09/2026**, na árvore `JOGAR-O-QUE-FALTA-01-E`. O relatório com a
+> foto, o clique, as nove mordidas e os relatos está em
+> `docs/process/agentes/2026-09-06/JOGAR-O-QUE-FALTA-01.md`.
+>
+> **QUATRO DOS CINCO PASSOS FECHARAM AQUI. O PASSO 2 JÁ ESTAVA FECHADO** desde
+> 04/09 (`_aviso_da_ponte`, com a régua `test_a01_a_ponte_entra_na_coluna.py`),
+> e a §1 desta sprint descrevia o mundo de antes dele — está medido no relatório,
+> §2. O que esta sprint acrescentou ao Passo 2 foi a mordida que faltava: as
+> CINCO frases da ponte, uma por dublê, medidas contra as palavras proibidas.
+>
+> **O PASSO 5 FECHOU PELA METADE QUE É DESTA POSSE, e a outra tem endereço:** a
+> aba DIZ (a décima-primeira fonte da coluna Atenção, selo `SERVIÇO`) e PARA DE
+> AFIRMAR, medido no WebKit com o estado vazio. Só que hoje o piloto **não chega
+> a chamar o pacote** quando o socket fecha — `hefesto_vivo._tique` imprime
+> `[daemon mudo]` e retorna —, e `interface/hefesto_vivo.py` é `nao_toca` desta
+> sprint e posse da `ONDA5-P-01`. A cura de lá é uma linha, e está no relatório.
+>
+> **AS CINCO LINHAS DE RECADO da §3 NÃO couberam:** a `ONDA5-P-01` continua
+> `aberta`, logo o terceiro lugar do recado ainda não existe. Estão relatadas
+> uma a uma, com o endereço do dado que ninguém lê.
 
 # JOGAR-O-QUE-FALTA-01 · PARIDADE — por onde o jogo recebe, quem é o primário, e o que a aba faz com o serviço desligado
 
