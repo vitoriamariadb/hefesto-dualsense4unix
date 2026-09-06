@@ -11,7 +11,9 @@ O piloto ganhou **a quarta porta de escuta** (`data-hef-vivo`, o gesto que lê a
 cada tecla e não grava), **a recusa dos dois lugares** de recado que faltava ao
 terceiro lugar, e **o dono do campo virou assento** — e essa terceira era um
 defeito VIVO, não uma precaução: quatro campos da `05-vibracao` publicada
-voltavam com o nome do plástico no lugar do jogador.
+voltavam com o nome do plástico no lugar do jogador. Mais **a corrida do
+desfecho** que a `ONDA5-01-03` relatou, curada e mordida (§1.4), e o julgamento
+do segundo achado dela (§6b).
 
 ---
 
@@ -105,9 +107,26 @@ ouvinte, o `@controle` do `data-hef-forma`, o `LER_CAMPOS` e o `CLIQUE_COM_ALVO`
 
 **O VAZIO ENTRA, e essa é a divergência que relato com a sprint** — ver §5.
 
+### 1.4 O desfecho do pouso é o DESTA execução — achado da `ONDA5-01-03`
+
+**Chegou pelo coordenador enquanto eu fechava, e caiu na minha posse.** A chave
+de `self.desfechos` é `página:gesto`, e o MESMO gesto pode estar em voo duas
+vezes — o `click` e o `change` de um `<select>`, ou dois cliques em colunas
+diferentes. As duas threads escrevem na mesma chave, e o `finally` de cada uma
+lia **dali** para decidir a cor do pouso: com uma recusando e a outra aplicando,
+o botão de quem RECUSOU pisca verde.
+
+**Não pus o voo na chave**, que era a sugestão. `desfechos` é o RELATO, e a chave
+dele é lida por nome em toda régua desta casa e no `--prova-gesto`; um número de
+voo ali trocaria um verde falso raro por um relato ilegível em todas. O que mudou
+é que os dois ramos do `try` escrevem a MESMA tupla em dois lugares na mesma
+linha — o dicionário (o relato) e `desta_vez` (o pouso). O dono continua sendo
+um: quem mudar o desfecho muda o pouso junto, que era a razão de o `finally` ler
+o dicionário.
+
 ---
 
-## 2. AS MORDIDAS — cinco, todas reprovando, todas devolvidas
+## 2. AS MORDIDAS — seis, todas reprovando, todas devolvidas
 
 A cura foi devolvida do backup e o `md5sum` confere (`953b6017…` antes e depois).
 
@@ -119,11 +138,23 @@ A cura foi devolvida do backup e o `md5sum` confere (`953b6017…` antes e depoi
 | 4 | o descarte da resposta velha **e** a lista de chaves recusadas | *"a resposta velha pintou por cima da nova: `'o rótulo da tecla velha'`"* e *"a recusa do bloco não aparece"* |
 | 5 | o seletor do dono (voltou ao genérico, nos quatro lugares) | *"o dono do campo continua sendo o MODELO: `{'dualsense': ['treme-e', 'treme-d', 'treme-e', 'treme-d']}`"* e a régua do dono único |
 
+| 6 | o pouso voltou a ler `self.desfechos` | *"o botão do p1 piscou VERDE depois de o produto ter RECUSADO: o pouso leu o desfecho que o vizinho escreveu na mesma chave"* |
+
 **A mordida 5 é a prova de que o defeito era vivo**, e não uma precaução: com a
 cura arrancada, os quatro campos da página PUBLICADA voltam dizendo `dualsense`.
 
+**A MORDIDA 6 NÃO MORDEU NA PRIMEIRA VOLTA, e a lição é da forma do defeito.**
+A primeira versão dela fazia um gesto DEMORAR — e passou verde com a cura
+arrancada. Entre o `except` que escreve o desfecho e o `finally` que o lê não
+passa tempo nenhum, nem uma linha: **nenhum atraso abre essa fresta**. A fresta
+teve de ser aberta por dentro, no dicionário do produto — quando a thread que
+recusou escreve, ele a segura e deixa a vizinha escrever `"aplicou"` na mesma
+chave. É o entrelaçamento que o escalonador pode produzir sozinho e que ninguém
+consegue agendar de fora. *Uma régua que espera a corrida acontecer não mede
+corrida nenhuma.*
+
 Régua nova: `tests/unit/test_o_piloto_tem_o_terceiro_lugar_e_a_quarta_porta.py`
-— **13 testes**, WebKit de verdade, janela `--oculta`, página publicada, clique
+— **14 testes**, WebKit de verdade, janela `--oculta`, página publicada, clique
 no botão do produto e `Event('input')` no ouvinte do produto.
 
 ---
@@ -180,19 +211,22 @@ bash scripts/portoes.sh          → TODOS VERDES — 45 portões
 ```
 
 E as **108 réguas vizinhas** que leem o bootstrap, o `LER_CAMPOS`, o
-`CLIQUE_COM_ALVO` ou o piloto, rodadas em quatro lotes:
+`CLIQUE_COM_ALVO` ou o piloto, rodadas em quatro lotes — **duas vezes**, antes e
+depois da cura do desfecho (§1.4):
 
 ```
-468 passed · 438 passed · 357 passed · 320 passed + 1 FAILED
+468 passed · 438 passed · 357 passed · 321 passed
 ```
 
-**O único vermelho foi o `citacoes-de-linha`, e ele era meu**: o piloto cresceu
-+163 linhas antes do `_fita` e +297 antes do `_recusou_dizendo`, e quatro
-citações em prosa de código envelheceram junto.
+**O único vermelho, nas duas voltas, foi o `citacoes-de-linha`, e ele era meu**:
+o piloto cresceu +163 linhas antes do `_fita` e +297 antes do
+`_recusou_dizendo`, e **cinco** citações em prosa de código envelheceram junto.
 
-* **três estão em `interface/pacotes/`, que a minha sprint declara em
+* **quatro estão em `interface/pacotes/`, que a minha sprint declara em
   `nao_toca:`** → foram para `_CITACOES_PENDENTES` com o número certo já medido,
-  no molde que a `ONDA5-06-01` e a `ONDA3-MOTOR-01` deixaram hoje;
+  no molde que a `ONDA5-06-01` e a `ONDA3-MOTOR-01` deixaram hoje. **Duas delas
+  já estavam erradas antes desta leva** e só não reprovavam por não caírem em
+  linha vazia — a do `a09_sistema.py` apontava para o docstring do `_dialogo`;
 * **uma está em `interface/aba05.py`, que não é `nao_toca` de ninguém** → foi
   corrigida no lugar. E ao medi-la descobri que **as três citações daquele
   comentário já estavam erradas antes desta leva** (`:240` caiu numa linha em
@@ -246,6 +280,47 @@ metades. A razão está escrita no `SELETOR_DO_DONO` e no teste.
 
 ---
 
+## 6b. O RECADO DE PÁGINA NO CARTÃO DE CONTROLE — o segundo achado, e o meu julgamento
+
+O coordenador entregou o achado da `ONDA5-01-03` (relatório e foto em
+`ae9a8f71`): *a recusa do cadeado — um gesto de PÁGINA — pousa no cartão do P1 e
+cobre o nome dele*. Medi a causa antes de julgar, e ela **não** é o que o
+comentário do piloto dizia.
+
+**O fato errado, substituído no mesmo commit.** O `carga_do_alvo` trazia escrito
+que o alvo padrão *"é da RÉGUA — no produto fica indefinido"*. **Não fica.** O
+`_tique` escreve `carga["alvo"]` nas abas cuja fita ESCOLHE, e o `pintar` o
+guarda em `window.__hef.alvoPadrao` — e o comentário do próprio `_tique` diz por
+quê: *"A fita É a tela dizendo"*. No produto, um botão que não mora em coluna de
+controle nenhuma chega ao Python com o controle que ela apontou na fita, **e isso
+é desenho, não acidente**. A frase errada estava no piloto desde que a fita
+aprendeu a escolher; agora está corrigida, com o custo medido escrito ao lado.
+
+**O julgamento: NÃO é uma quarta peça — é esta sprint, e a saída já está de pé.**
+O terceiro lugar entrega exatamente isto: a `01-jogar` declara `data-hef-recados`
+num container de página e a recusa do cadeado para de pousar no cartão. Falta o
+atributo no desenho (frente da aba 01) e a publicação (ato dela). **Nada mais é
+preciso do piloto.**
+
+**O que SOBRA e é de verdade uma quarta**, com o diff pronto e não aplicado: se a
+página **não** declarar faixa, o recado de um gesto sem dono continua endereçado
+ao controle da fita. A cura seria o JS dizer se o `closest` achou dono de
+verdade, e o `_gesto` esvaziar o endereço do recado quando não achou:
+
+```
+carga_do_alvo:  semDono: dono ? '' : 'sim'
+_gesto:         alvo = "" if o.get("semDono") else norm_mac(...)
+```
+
+**Não a apliquei, e a razão é uma só:** ela muda para onde a frase aparece em
+TODO gesto sem dono das três abas que escolhem — não só no cadeado —, e o
+relatório da `ONDA5-01-03` já nomeia o ponto como *"decisão de tela (dela)"*. O
+alvo da fita é palavra dela (*"Esta aba passa a mirar o P2"*); decidir que o
+recado deixa de segui-lo é decidir por ela, em silêncio, na tela. Fica escrito,
+com a causa medida e o diff, para quem tiver a palavra.
+
+---
+
 ## 7. O QUE ACHEI E NÃO ERA DA MINHA POSSE
 
 1. **`a04_iluminacao.banco_de_luzes` pode perder a nota da disciplina.** O
@@ -270,7 +345,11 @@ metades. A razão está escrita no `SELETOR_DO_DONO` e no teste.
 ## 8. O QUE SOBROU PARA O PRÓXIMO
 
 * **ligar o rótulo do jogo à quarta porta** (aba 10) — o item 2 da §6;
-* **declarar o `data-hef-recados` nas páginas que o querem**, e publicar;
-* **apagar as três linhas de `_CITACOES_PENDENTES`** quando quem for dono de
-  `a03_gatilhos.py`, `a06_navegacao.py` e `a10_perfis.py` trocar os números que
-  já estão medidos ali.
+* **declarar o `data-hef-recados` nas páginas que o querem**, e publicar — a
+  `01-jogar` é a mais urgente das dez: é lá que a recusa do cadeado cobre o nome
+  do controle (§6b);
+* **a palavra dela sobre o endereço do recado sem dono** (§6b), com o diff
+  pronto;
+* **apagar as quatro linhas de `_CITACOES_PENDENTES`** quando quem for dono de
+  `a03_gatilhos.py`, `a06_navegacao.py`, `a09_sistema.py` e `a10_perfis.py`
+  trocar os números que já estão medidos ali.
