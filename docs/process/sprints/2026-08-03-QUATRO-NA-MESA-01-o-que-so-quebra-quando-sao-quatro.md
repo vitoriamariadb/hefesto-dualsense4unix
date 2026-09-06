@@ -1,6 +1,6 @@
 ---
 sprint: QUATRO-NA-MESA-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   ID:
@@ -20,6 +20,8 @@ numeração pintam a barra. **O aceite não é contra o sysfs** (ele mostra o n�
 contra o que o daemon AFIRMA (`player_slot`) e a régua usa dublê com quatro entradas. Não mexe na
 ordem por chegada (`_ordem_do_momento_locked`, decisão dela de 29/08). A COOP-QUE-NAO-DESMONTA-01
 não toca mais este arquivo; a O-CONTROLE-SEM-MAC-01 vem depois desta.
+
+> **ESTADO 2026-09-06: feita** — defeitos 1 e 2 fechados (a ROTA CORRIGIDA manda só esses dois). `_connected` passou a ter UM escritor: o provider de cor chama `numero_da_lampada(autoridade_de_presenca=False)` e não ressuscita mais o ausente a 10 Hz — medido antes da cura, uma leitura empurrava o quarto controle de 3 para 4 e a lightbar dele de verde para rosa. O defeito 2 não reproduz nesta árvore (a unicidade virou estrutural em 27/08); o que faltava era ela ser alcançável, e a régua nova tranca as duas metades. Entrega em `docs/process/agentes/2026-09-06/QUATRO-NA-MESA-01-opus.md`; os defeitos 3 e 4 seguem com a MESA-DE-QUATRO-01.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 
