@@ -1,6 +1,6 @@
 ---
 sprint: GATILHOS-EM-TODOS-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   TODOS:
@@ -18,6 +18,18 @@ nao_toca:
 ---
 
 # GATILHOS · EDITAR EM TODOS — escreve a seção global, e o terceiro controle herda
+
+> **ESTADO 2026-09-06: feita** — nasceu o gesto `em-todos` da aba 03: o par L2+R2
+> de uma coluna vai aos controles em BROADCAST, entra na seção GLOBAL do perfil e
+> SAI dos overrides por controle (a regra de
+> `draft_config.with_override_fields_cleared`, aplicada no `Profile`). A mordida
+> do terceiro controle está medida pelos dois donos da resolução —
+> `profiles/manager._controllers_to_specs` e `a03_gatilhos._modo_de_agora` —, e a
+> mordida A derruba seis réguas. **O BOTÃO ficou só na BANCADA e espera o
+> `--publicar 03`, que é ato dela**; a faixa de ação e o rótulo encurtado estão
+> declarados em `mockup/DIVERGENCIAS.md` com a medição que os obrigou. A leitura
+> da 04 e da 05 que a sprint pediu **derrubou a premissa dela** — ver a entrega.
+> Entrega: `docs/process/agentes/2026-09-06/GATILHOS-EM-TODOS-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
