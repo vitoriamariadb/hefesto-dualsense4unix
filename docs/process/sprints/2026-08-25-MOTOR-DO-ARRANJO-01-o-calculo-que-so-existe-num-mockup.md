@@ -1,46 +1,38 @@
 ---
 sprint: MOTOR-DO-ARRANJO-01
 estado: aberta
+onda: H
 posse:
-  # O motor e o censo. Traduzido em 25/08/2026 do bloco em prosa da §9, que
-  # `check_colisao_de_sprints.py` não conseguia ler — o formato dele é o
-  # frontmatter, e sem isto `despachar-agente.sh` recusa criar a árvore.
-  # SEPARADO em duas mãos em 25/08/2026: eram um bloco só, e dois agentes na
-  # mesma posse se atropelam (R1). O motor e o censo não dividem um arquivo.
-  G4:
+  MOTOR:
     - src/hefesto_dualsense4unix/integrations/arranjo_da_mesa.py
+    - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
     - tests/unit/test_arranjo_da_mesa_bate_com_o_mockup.py
     - tests/unit/test_arranjo_invariantes.py
-  G7:
-    - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
     - tests/unit/test_censo_do_gabinete.py
-    - install.sh
-  # A MOTOR-5 é a ÚNICA parte desta sprint que abre `app/`, e só para
-  # IMPORTAR. Os dois arquivos são de MAPA-C (Frente A) e da Frente C: a
-  # colisão é REAL, está declarada, e o `depois_de` a serializa em vez de
-  # proibi-la. Se a MOTOR-5 precisar de mais que o import, ela RELATA (R1).
-  MOTOR-5:
-    - src/hefesto_dualsense4unix/app/actions/config/secao_mesa.py
-    - src/hefesto_dualsense4unix/app/actions/config/secao_orcamento.py
+    - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
+    - src/hefesto_dualsense4unix/interface/aba08.py
 cria:
-  # MEDIDO em 25/08/2026: o motor e os dois testes dele JÁ NASCERAM (commit
-  # da madrugada). O que continua sem existir no disco é o censo do gabinete
-  # — a MOTOR-7, que é o pedido dela para o install e não virou código.
   - src/hefesto_dualsense4unix/integrations/censo_do_gabinete.py
   - tests/unit/test_censo_do_gabinete.py
-nao_toca:
-  - src/hefesto_dualsense4unix/daemon/
-  - src/hefesto_dualsense4unix/core/
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - docs/data/mapa-controles.csv
-depois_de:
-  # A faxina de 27/08 apagou daqui: CONEXOES-MAPA-2D-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
-  # 06/09/2026 — a GTK-3 mexe no `install.sh`, no `packaging/` e em
-  # `app/app.py`/`app/main.py` ANTES desta. Serializado pelo orquestrador
-  # das 24 horas; a janela sai primeiro, o id migra depois.
-  - GTK-3
 bancada: false
+depois_de:
+  - EXTERNOS-01
+nao_toca:
+  - install.sh
+  - src/hefesto_dualsense4unix/app/actions/config/
+  - src/hefesto_dualsense4unix/daemon/
+  - docs/data/mapa-controles.csv
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **MOTOR-1 a MOTOR-4 EXISTEM** (remedido em 06/09): `arranjo_da_mesa.py` (1.297 linhas),
+`censo_do_gabinete.py` (872), os três testes, e `install_censo_do_gabinete_host` em
+`install.sh:1254`/`:1578`. **Confira um a um antes de escrever** (`git log --follow`, o teste
+de cada MOTOR-N) e diga no relatório o que já estava. **O que falta é MOTOR-5 e MOTOR-6** — e a
+"aba" que consome não é mais `secao_mesa.py`/`secao_orcamento.py` (motor da GTK): é a
+`a08_conexoes.py` com o desenho da `aba08.py`, que entraram na posse. A decisão
+`D-QUAL-REGUA-MANDA-NO-ARRANJO` está no CSV: **leia-a antes**; se estiver aberta, o motor
+consome com a régua que a `a08` já usa hoje e o relatório declara a pergunta. `install.sh`
+não se toca (é do FECHO).
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — espera a `D-QUAL-REGUA-MANDA-NO-ARRANJO`, que é dela.
 

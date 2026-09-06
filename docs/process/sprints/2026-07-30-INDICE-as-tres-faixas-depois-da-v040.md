@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ7
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # As três faixas, depois da v0.4.0 — levantamento de 30/07/2026
 
 - **Levantado em:** 30/07/2026, sobre `HEAD e74077c`, com a **v0.4.0 publicada**

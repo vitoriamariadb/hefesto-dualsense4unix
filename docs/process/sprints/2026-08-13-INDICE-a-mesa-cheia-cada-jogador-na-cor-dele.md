@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ17
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # ÍNDICE — as ondas da mesa cheia: cada jogador na cor dele
 
 - **Escrito em:** 13/08/2026, na branch `restauro/inicio-da-sessao`, sobre

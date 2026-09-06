@@ -1,20 +1,23 @@
 ---
 sprint: DAEMON-ACORDADO-01
 estado: aberta
+onda: G
 posse:
-  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
-  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
-  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
-  # contra o disco, não citados de memória.
-  BG-03:
+  E2:
     - src/hefesto_dualsense4unix/core/escritor_cru.py
     - src/hefesto_dualsense4unix/integrations/steam_launch_options.py
-cria:
 bancada: false
-nao_toca:
-  - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
-depois_de:
+depois_de: []
+nao_toca: []
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **O que falta é a E2, item 1, e ela já tem desenho** (última seção desta sprint): o
+`pids_da_steam` do `escritor_cru` é a cópia que ficou de fora da troca `pgrep -f` → varredura
+nativa de `/proc` que o `PERF-PROC-SCAN-01` fez em `steam_launch_options.py:749`. Usar a
+varredura que já existe (ou o cache de 5 s do sentinela). O item 2 fechou em 25/08 (portão que
+CONTA em `test_daemon_acordado_01_o_laco_que_valida_quatro_vezes.py`). A cadência de leitura do
+controle **não se toca**. A medição com `ptrace_scope` é do coordenador, se sobrar tempo — não
+é pré-requisito.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — o Passo 4 da A-TELA-SAMBA-01 mede o custo de `profile.list` (33 perfis com `FileLock` a cada ~3 s) e pode fechar parte disto.
 

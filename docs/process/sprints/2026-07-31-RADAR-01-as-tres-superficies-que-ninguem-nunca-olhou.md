@@ -1,3 +1,14 @@
+---
+sprint: RADAR-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # RADAR-01 — as três superfícies que ninguém nunca olhou
 
 - **Status:** **PARCIAL — a E4 está ENTREGUE EM CÓDIGO (é portão, e portão se

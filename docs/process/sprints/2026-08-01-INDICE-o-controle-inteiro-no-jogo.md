@@ -1,3 +1,12 @@
+---
+sprint: INDICE-ARQ9
+estado: feita
+---
+
+> **ESTADO 06/09/2026: feita** — o próprio arquivo diz ENTREGUE/CONCLUÍDA no corpo; frontmatter
+> acrescentado na arrumação de 06/09 (Fable) para a sprint entrar na contagem de
+> `check_colisao_de_sprints.py`. Não foi remedida hoje.
+
 # O controle inteiro no jogo — índice das sprints de 01/08/2026 (noite)
 
 - **Escrito em:** 01/08/2026, sobre a `v0.7.0` publicada, na branch

@@ -7,7 +7,15 @@ posse:
 cria:
   - docs/process/2026-09-07-A-MESA-DE-QUATRO-o-que-a-bancada-mediu.md
 bancada: true
-depois_de: [A-TELA-SAMBA-01, ONDA4-S10-O-TRANSPORTE-01, ONDA5-01-01, ONDA5-02-01, CONEXOES-LIGAR-TUDO-01, ONDA5-MIC-VIRTUAL-01, A-PALAVRA-MESA-SAI-01]
+depois_de:
+  - A-PALAVRA-MESA-SAI-01
+  - A-TELA-SAMBA-01
+  - CONEXOES-LIGAR-TUDO-01
+  - ONDA4-S10-O-TRANSPORTE-01
+  - ONDA5-01-01
+  - ONDA5-02-01
+  - ONDA5-MIC-VIRTUAL-01
+  - SPECS-A-PROCEDENCIA-01
 nao_toca:
   - src/
   - tests/

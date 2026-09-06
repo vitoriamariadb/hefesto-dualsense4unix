@@ -1,6 +1,6 @@
 ---
 sprint: IDENTIDADE-01
-estado: aberta
+estado: feita
 posse:
   # Declarado em 25/08/2026, quando ela CONFIRMOU o id decidido em 21/08 e as
   # Fases 2 e 3 saíram do bloqueio. A posse é larga porque a migração é larga:
@@ -41,6 +41,13 @@ depois_de:
   # das 24 horas; a janela sai primeiro, o id migra depois.
   - GTK-3
 ---
+
+> **FEITA — marcada em 06/09/2026 (triagem da leva; Fable).** Executada em
+> `54b7ffd2` (25/08/2026, *"o app-id que ela decidiu vai para o código, e a migração
+> preserva os perfis"*, 51 arquivos) com relatório em `docs/process/agentes/2026-08-25/ID.md`.
+> Estava `aberta` por esquecimento de estado, não por trabalho faltando. A posse de
+> hoje inclui `utils/identidade.py`, `utils/migrate_legacy_paths.py` e `scripts/purge.sh`;
+> `app/app.py` e `app/main.py` saíram com a GTK-3.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — empacotamento; espera a PERFIS-SAO-PERFIS-01 porque as duas tocam `assets/`.
 

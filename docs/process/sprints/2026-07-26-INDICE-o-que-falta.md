@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ3
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # Leva de 26/07/2026 — o que falta, depois do rollback
 
 > **A frase que define o escopo**, dita pela mantenedora depois de olhar a tela:

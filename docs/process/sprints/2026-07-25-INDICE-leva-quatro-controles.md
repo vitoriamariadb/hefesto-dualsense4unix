@@ -1,3 +1,11 @@
+---
+sprint: INDICE
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # Leva de 25/07/2026 — "no final das contas teremos quatro controles funcionando"
 
 > **A frase que define o escopo**, dita pela mantenedora ao abrir a leva:

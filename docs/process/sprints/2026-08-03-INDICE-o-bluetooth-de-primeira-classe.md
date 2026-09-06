@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ10
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # O Bluetooth de primeira classe — índice da leva de 03/08/2026
 
 - **Escrito em:** 03/08/2026, sobre a `v0.8.0` publicada, na branch

@@ -1,3 +1,12 @@
+---
+sprint: INDICE-ARQ4
+estado: feita
+---
+
+> **ESTADO 06/09/2026: feita** — o próprio arquivo diz ENTREGUE/CONCLUÍDA no corpo; frontmatter
+> acrescentado na arrumação de 06/09 (Fable) para a sprint entrar na contagem de
+> `check_colisao_de_sprints.py`. Não foi remedida hoje.
+
 # A blindagem — índice da leva de 27/07/2026
 
 - **Aberto em:** 27/07/2026

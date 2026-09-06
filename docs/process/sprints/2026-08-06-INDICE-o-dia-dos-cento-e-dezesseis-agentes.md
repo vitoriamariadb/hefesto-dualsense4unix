@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ12
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # O dia dos cento e dezesseis agentes — índice de 06/08/2026
 
 - **Escrito em:** 06/08/2026, na branch `restauro/inicio-da-sessao`, **depois de

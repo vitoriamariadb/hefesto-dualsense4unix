@@ -1,19 +1,24 @@
 ---
 sprint: ENGASGO-VULKAN-01
 estado: aberta
+onda: G
 posse:
-  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
-  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
-  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
-  # contra o disco, não citados de memória.
-  BG-03b:
-    - src/hefesto_dualsense4unix/daemon/launch_env.py
-cria:
+  REGUA:
+    - tests/unit/test_o_botao_que_tira_o_que_faz_engasgar.py
+    - tests/unit/test_a_cura_do_engasgo_alcanca_todos_os_prefixos.py
 bancada: false
+depois_de: []
 nao_toca:
-  - install.sh
-depois_de:
+  - src/hefesto_dualsense4unix/integrations/camadas_vulkan.py
+  - assets/hefesto-launch.sh
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **A entrega central está na árvore desde `3a970dc6` (23/08):** `integrations/camadas_vulkan.py`
+(891 linhas), `assets/hefesto-launch.sh:338-405`, os pacotes. **O que falta é P:**
+`test_o_botao_que_tira_o_que_faz_engasgar.py:108-113` lê `app/app.py`, que a GTK-3 apagou —
+reapontar para o dono de hoje, o registro `@gesto("09-sistema.html", "procurar-camadas", …)` em
+`interface/pacotes/a09_sistema.py` (ande pela árvore com `ast`, não por texto). Nada de mexer no
+motor.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — o A/B é dela.
 

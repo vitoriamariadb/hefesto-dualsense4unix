@@ -1,26 +1,26 @@
 ---
 sprint: O-ALTO-FALANTE-VIRTUAL-01
 estado: aberta
-onda: CONTROLES
+onda: G
 posse:
-  AFV:
+  SOM:
     - src/hefesto_dualsense4unix/app/audio_saida.py
 cria:
-  - src/hefesto_dualsense4unix/integrations/alto_falante_virtual.py
   - tests/unit/test_o_alto_falante_virtual_esconde_o_transporte.py
 bancada: true
-depois_de:
-  # A ponte de SAÍDA por rádio é a P5 de lá, e sem ela o sink só tem para onde
-  # mandar no cabo. Esta sprint não a reescreve.
-  - CONTROLE-INTEIRO-NO-RADIO-01
-  # O seletor de rota e o "Liberar" que a tela vai mostrar.
-  - MIGRA-CONTROLES-11
+depois_de: []
 nao_toca:
   - src/hefesto_dualsense4unix/integrations/dualsense_bt_audio.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - novo-layout/
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira; o nó nasce nos DOIS transportes, e quem o alimenta no rádio é a SOM-QUE-SAI-01 (os arranjos do payload já estão no mapa, `audio.alto_falante@dualsense.radio_offset`).** As duas
+decisões que a sprint deixa para ela foram tomadas por delegação (registro
+`D-0609-UM-NO-DE-SOM-POR-CONTROLE`): **um nó por controle**, com o nome pelo assento —
+`Alto-falante · P1` … `P4` (é a língua do glossário; "controle 1" não). O `GerenciadorMicBluetooth`
+não se toca. Mordidas da própria sprint: o nó não pode depender do `flavor`; a régua não é a mesa
+desta casa (MACs sintéticos). **O aceite pela orelha dela é o ensaio 1 da MESA-DE-QUATRO-01.**
+`MIGRA-CONTROLES-11` está `absorvida` e `CONTROLE-INTEIRO-NO-RADIO-01` não tem arquivo — os dois
+saíram do `depois_de`.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.4 — áudio por rádio; o ensaio 1 da bancada vem antes (FECHO, com ela).
 

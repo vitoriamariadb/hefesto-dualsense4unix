@@ -1,3 +1,33 @@
+---
+sprint: MIC-BT-DONO-01
+estado: aberta
+onda: I
+posse:
+  POSSE:
+    - src/hefesto_dualsense4unix/core/backend_pydualsense.py
+cria:
+  - tests/unit/test_o_mudo_do_microfone_sobrevive_a_reconexao.py
+bancada: false
+depois_de:
+  - RESERVA-DO-POSTO-01
+  - BATERIA-PARADA-01
+nao_toca:
+  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
+  - docs/data/
+---
+
+> **REABERTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Estava `absorvida`
+> pela regra mecânica da §3; **o mapa a chama pelo nome**: `audio.microfone.mudo@dualsense`,
+> `radio_aciona=parcial`, `radio_ressalva`: *"MIC-BT-DONO-01 continua PROPOSTA: um `mic unmute`
+> evapora no próximo handle novo, em silêncio, e o firmware volta a mudo. Como reconexão é
+> rotina no rádio, o defeito é muito mais visível por BT."* É o ponto 4 dela (cabo E rádio) na
+> feature que ela mais usa. **O que falta é o E-posse:** `_mic_mute_desejado` é atributo do
+> handle (`backend_pydualsense.py:476`), e `_reapply_desired` (`:2111-2138`) re-pendura só os
+> `_OUTPUT_FIELDS` — o mudo tem de entrar na lista do que se re-pendura na reconexão. Roda depois
+> da RESERVA-DO-POSTO-01 (mesmo arquivo). A prova com o aparelho caindo e voltando no rádio é da
+> MESA-DE-QUATRO-01; a régua aqui simula a reconexão com dublê do handle. **Endereços de 03/08 —
+> confira cada um no arquivo de hoje antes de acreditar.**
+
 # MIC-BT-DONO-01 — a posse do mudo ganha dono e ciclo de vida
 
 - **Status:** PROPOSTA, escrita em 03/08/2026 **depois da medição no hardware**

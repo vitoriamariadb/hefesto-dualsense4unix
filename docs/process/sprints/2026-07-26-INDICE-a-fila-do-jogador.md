@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ2
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # A fila do jogador — o que atacar, em que ordem, e por quê
 
 - **Aberto em:** 26/07/2026, depois do checkpoint `v0.2.0`

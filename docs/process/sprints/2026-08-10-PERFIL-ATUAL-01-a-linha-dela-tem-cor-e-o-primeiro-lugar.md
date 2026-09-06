@@ -1,3 +1,14 @@
+---
+sprint: PERFIL-ATUAL-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # PERFIL ATUAL — a linha dela ganha cor e o primeiro lugar
 
 - **Estado:** CONCLUÍDA — `tests/unit/test_perfil_atual_01_a_linha_dela_tem_cor_e_o_primeiro_lugar.py:293` traz a mordida `test_a_cor_nao_volta_a_ser_um_foreground_de_celula`, commit `90d77d2`; o *Status* abaixo ainda pedia o olho dela (verificado em 21/08/2026)

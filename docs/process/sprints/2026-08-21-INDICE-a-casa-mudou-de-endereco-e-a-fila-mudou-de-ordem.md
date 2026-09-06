@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ22
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # ÍNDICE — a casa mudou de endereço, e a fila mudou de ordem
 
 **21/08/2026.** Este é o índice aberto mais recente: o que o `CLAUDE.md` manda

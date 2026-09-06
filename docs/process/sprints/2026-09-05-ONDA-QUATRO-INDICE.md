@@ -1,3 +1,12 @@
+---
+sprint: ONDA-QUATRO-INDICE
+estado: feita
+---
+
+> **ESTADO 06/09/2026: feita** — o próprio arquivo diz ENTREGUE/CONCLUÍDA no corpo; frontmatter
+> acrescentado na arrumação de 06/09 (Fable) para a sprint entrar na contagem de
+> `check_colisao_de_sprints.py`. Não foi remedida hoje.
+
 # ONDA QUATRO — as treze sprints das dezesseis decisões, medidas uma a uma
 
 **05/09/2026.** Ela escolheu a fila das dezesseis decisões como a próxima onda.

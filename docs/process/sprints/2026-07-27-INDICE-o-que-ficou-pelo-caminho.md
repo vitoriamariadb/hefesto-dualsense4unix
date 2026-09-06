@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ5
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # O que ficou pelo caminho — fechamento da sessão de 27/07/2026
 
 - **Fechado em:** 27/07/2026, 22h40, a pedido dela: *"levanta o que ficou pelo

@@ -1,3 +1,14 @@
+---
+sprint: CONFIGURACOES-FECHA-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # CONFIGURAÇÕES-FECHA-01 — o Aplicar que não responde e o campo que apaga o arquivo
 
 **24/08/2026. GRAU: MEDIDO**, exceto onde a linha diz DESENHO ou NÃO VERIFICADO.

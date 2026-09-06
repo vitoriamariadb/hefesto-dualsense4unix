@@ -1,3 +1,14 @@
+---
+sprint: PERFIL-MUDO-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # PERFIL-MUDO-01 — o perfil daquele jogo que não entrou, e a janela que não dizia
 
 - **Estado:** CONCLUÍDA — `profiles/porque_nao_entrou.py` nasceu desta sprint, seis arquivos de `src/` e quatro de `tests/` a citam, e o `if perfil.e_catch_all: continue` que passava arrancado MORREU de `profiles/simple_match.py` (verificado em 21/08/2026)

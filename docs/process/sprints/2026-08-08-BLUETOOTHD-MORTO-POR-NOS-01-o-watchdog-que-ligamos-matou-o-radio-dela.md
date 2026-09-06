@@ -1,3 +1,14 @@
+---
+sprint: BLUETOOTHD-MORTO-POR-NOS-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # BLUETOOTHD-MORTO-POR-NÓS-01 — o watchdog que nós ligamos matou o rádio dela
 
 - **Estado:** CONCLUÍDA — a cura está no `install.sh:2215` (`WatchdogSec=0`, com o nome da sprint dentro) e no drop-in de resiliência anunciado em `:2264`; `scripts/bt_health_watchdog.sh` e `tests/unit/test_bt_resilience_assets.py` de pé (verificado em 21/08/2026)

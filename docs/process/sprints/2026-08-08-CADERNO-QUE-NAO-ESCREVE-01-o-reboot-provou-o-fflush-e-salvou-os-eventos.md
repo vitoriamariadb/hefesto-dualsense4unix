@@ -1,3 +1,14 @@
+---
+sprint: CADERNO-QUE-NAO-ESCREVE-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # CADERNO-QUE-NÃO-ESCREVE-01 — o reboot provou o `fflush`, e os eventos sobreviveram
 
 - **Estado:** CONCLUÍDA — e o *"nenhuma linha de código foi tocada"* abaixo caducou: `scripts/storm_watch.sh:63` sonda `awk -W interactive` em tempo de execução, e `:81` registra que a cura é o `-W interactive`, não o `fflush()` do título; `tests/unit/test_caderno_que_nao_escreve_01.py` trava as duas metades (verificado em 21/08/2026)

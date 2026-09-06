@@ -1,34 +1,24 @@
 ---
 sprint: O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01
 estado: aberta
-onda: MIGRA-NAVEGACAO
+onda: H
 posse:
-  TECSAI:
+  AVISO:
     - src/hefesto_dualsense4unix/daemon/subsystems/keyboard.py
     - src/hefesto_dualsense4unix/integrations/desktop_notifications.py
 cria:
   - tests/unit/test_o_teclado_avisa_como_sair.py
 bancada: false
 depois_de:
-  # SÉRIE por R5 — `daemon/subsystems/keyboard.py` e
-  # `integrations/desktop_notifications.py` são os dois arquivos disputados.
-  # Esta sprint não tem dependência de CONTEÚDO com ninguém — o que ela precisa
-  # já está no `dev`; o que há é disputa de POSSE do `keyboard.py`, com três.
-  #
-  # As duas últimas entraram em 31/08/2026: a conferência que o comentário
-  # original mandava fazer ("Confira no DESPACHO quem mais os tem em posse")
-  # nunca aconteceu — a sessão de 30/08 morreu antes. O
-  # `check_colisao_de_sprints.py` acusou seis colisões, todas destas duas
-  # sprints; os nomes abaixo saem do próprio portão.
   - O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01
-  - ONDA-NAVEGACAO-01            # daemon/subsystems/keyboard.py
-  - MIGRA-NAVEGACAO-12           # daemon/subsystems/keyboard.py
-nao_toca:
-  - src/hefesto_dualsense4unix/core/keyboard_mappings.py   # mudar o default é decisão dela (§4)
-  - novo-layout/
-  - layout/
-  - docs/usage/
+nao_toca: []
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira; roda depois da irmã (mesmo `keyboard.py`).** A frase é palavra dela e foi
+decidida por delegação (`D-0609-A-FRASE-DO-TECLADO-NA-TELA`): *"Teclado na tela aberto pelo L3.
+Para fechar, aperte R3."* — duas frases, sem termo da casa. A tabela da mordida está na §5:
+abrir notifica · a frase diz R3 · não notifica se já aberto · não notifica sem binário. Dublar o
+binário como a irmã.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
 

@@ -1,27 +1,42 @@
 ---
 sprint: SPECS-A-PROCEDENCIA-01
 estado: aberta
+onda: G
 posse:
   P1:
     - docs/data/mapa-controles.csv
     - docs/data/ensaios.csv
-  P2:
+    - html/specs.html
+    - src/hefesto_dualsense4unix/app/fatos_do_mapa.py
     - scripts/eliminacao.py
     - scripts/gerar-mapa.py
 cria:
-  - docs/process/sprints/2026-08-26-SPECS-A-PROCEDENCIA-DE-CADA-LINHA-01.md
   - tests/unit/test_a_procedencia_da_linha_nao_e_vazia.py
 bancada: true
 depois_de:
-  - REDESENHO-DA-INTERFACE  # o gatilho: as dez abas construídas e funcionando como o mockup
-  - A-CASA-ARRUMADA-01      # scripts/gerar-mapa.py: ela chegou antes, e já fechou
-  - COOP-NA-CONEXAO-NATIVA-01  # os dois CSV: ela mede, esta sprint só anota de onde se sabe
-  - RESERVA-DO-POSTO-01     # idem — medição vem antes de procedência
-  - MESA-DE-QUATRO-01
+  - A-RECUSA-QUE-CITOU-O-MAPA-01
 nao_toca:
-  - src/hefesto_dualsense4unix/
-  - html/specs.html
+  - src/hefesto_dualsense4unix/interface/
+  - src/hefesto_dualsense4unix/daemon/
+  - mockup/
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **O gatilho dela ("depois do redesenho inteiro da interface") FOI ATINGIDO em 06/09:** a
+janela GTK saiu, as dez abas estão construídas e o produto roda o HTML. **A P1 abre agora; a P2
+(medir no aparelho) continua dela, na MESA-DE-QUATRO-01.** E ela é a sprint que faz o que ela
+pediu hoje com todas as letras: *"já validamos via testes individuais mas nunca marcamos num
+canto"*. A P1 é dar a cada linha do mapa o ponteiro para a prova que já existe — teste, ensaio,
+commit, sprint — nas colunas `*_de_onde_sei`, `provado_em`, `provado_por`, `teste_que_morde`.
+**Regras que já custaram:** `radio_ate_onde_foi` tem domínio fechado (MONTOU · SAIU NO FIO · O
+APARELHO OBEDECEU · O JOGO RECEBEU · O JOGO REAGIU) — prosa vai em `*_evidencia`;
+`teste_que_morde` pede node id completo de pytest; `csv.writer` precisa de `lineterminator="\n"`;
+`nao-medido` (06/09) é a palavra para "ninguém olhou" — **nunca promova uma célula sem a prova
+apontada.** Entram na P1, com endereço, as **cinco chaves da fila do F-MAPA**
+(`docs/process/agentes/2026-09-06/A-TELA-NOVA-ENTRA-NA-REGUA-DO-MAPA-01.md` §3.1) e o que os
+relatórios de hoje em `docs/process/agentes/2026-09-06/` mediram e declararam por `chave`.
+Regerar `html/specs.html` e `app/fatos_do_mapa.py` (`gerar-mapa.py`, `gerar-fatos-de-tela.py`) —
+os dois estão na posse como saída gerada. `ensaios.csv` só ganha linha com ensaio feito; as
+linhas da bancada de hoje são da MESA-DE-QUATRO-01.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — a condição é dela: depois de a interface estar igual ao desenho e funcionando.
 

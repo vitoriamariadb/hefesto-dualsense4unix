@@ -1,3 +1,12 @@
+---
+sprint: MIC-PRESENTE-01
+estado: feita
+---
+
+> **ESTADO 06/09/2026: feita** — o próprio arquivo diz ENTREGUE/CONCLUÍDA no corpo; frontmatter
+> acrescentado na arrumação de 06/09 (Fable) para a sprint entrar na contagem de
+> `check_colisao_de_sprints.py`. Não foi remedida hoje.
+
 # MIC-PRESENTE-01 — o microfone não pode sumir da faixa
 
 - **Status:** **CONCLUÍDA** (conferido em 31/07, reconferido em 21/08/2026:

@@ -1,20 +1,25 @@
 ---
 sprint: QUATRO-NA-MESA-01
 estado: aberta
+onda: H
 posse:
-  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
-  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
-  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
-  # contra o disco, não citados de memória.
-  BG-01c:
+  ID:
     - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
 cria:
+  - tests/unit/test_quatro_na_mesa_01_os_dois_escritores_e_a_numeracao.py
 bancada: false
+depois_de: []
 nao_toca:
-depois_de:
-  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
-  - COOP-QUE-NAO-DESMONTA-01
+  - src/hefesto_dualsense4unix/daemon/lifecycle.py
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Os defeitos 1 e 2 estão PROVADOS NO CÓDIGO e são de agente; os 3 e 4 são corridas e vão
+para a MESA-DE-QUATRO-01.** Defeito 1: `_connected` com dois escritores (`identity.py:729-730` o
+tique de 2 s SUBSTITUI; `:581-583` a leitura de cor a 10 Hz ADICIONA). Defeito 2: dois espaços de
+numeração pintam a barra. **O aceite não é contra o sysfs** (ele mostra o número do KERNEL) — é
+contra o que o daemon AFIRMA (`player_slot`) e a régua usa dublê com quatro entradas. Não mexe na
+ordem por chegada (`_ordem_do_momento_locked`, decisão dela de 29/08). A COOP-QUE-NAO-DESMONTA-01
+não toca mais este arquivo; a O-CONTROLE-SEM-MAC-01 vem depois desta.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

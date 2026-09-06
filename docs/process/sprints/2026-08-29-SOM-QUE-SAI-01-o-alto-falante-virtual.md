@@ -1,9 +1,9 @@
 ---
 sprint: SOM-QUE-SAI-01
 estado: aberta
-onda: CONTROLES
+onda: I
 posse:
-  SQS:
+  MOTOR:
     - src/hefesto_dualsense4unix/integrations/alto_falante_bt.py
     - src/hefesto_dualsense4unix/daemon/subsystems/alto_falante.py
     - scripts/ensaios/o_som_que_sai.py
@@ -11,25 +11,16 @@ cria:
   - src/hefesto_dualsense4unix/integrations/alto_falante_bt.py
   - src/hefesto_dualsense4unix/daemon/subsystems/alto_falante.py
   - scripts/ensaios/o_som_que_sai.py
-  - tests/unit/test_alto_falante_bt_escada_e_tabela.py
-  - tests/unit/test_alto_falante_bt_a_saida_esconde_o_transporte.py
+  - tests/unit/test_o_som_que_sai_do_sink_ao_byte.py
 bancada: true
 depois_de:
-  # O nó com nome de gente, o texto da lista de saída e a decisão de um-nó-por-
-  # controle são de lá. Esta sprint é o MOTOR por baixo daquele nó, não o nó.
   - O-ALTO-FALANTE-VIRTUAL-01
-  # O P4 de lá é o portão duro do lado do rádio: a casa tem DUAS respostas
-  # incompatíveis sobre por qual report o áudio sai, e nenhuma foi medida aqui.
-  - CONTROLE-INTEIRO-NO-RADIO-01
 nao_toca:
-  - src/hefesto_dualsense4unix/integrations/dualsense_bt_audio.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
   - src/hefesto_dualsense4unix/app/audio_saida.py
-  - src/hefesto_dualsense4unix/app/mic_monitor.py
-  - src/hefesto_dualsense4unix/core/backend_pydualsense.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - novo-layout/
+  - docs/data/mapa-controles.csv
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação). O MAPA JÁ TEM O QUE ESTA SPRINT PRECISAVA PESQUISAR — leia `audio.alto_falante@dualsense` INTEIRA antes de escrever uma linha.** Palavra dela: *"Tenho certeza que isso está mapeado."* Está: `radio_offset` traz o arranjo do `0x39` lido em DUAS fontes externas com commit e arquivo:linha — awalol/DS5Dongle (`src/audio.cpp:30-33`, `:118-173`: cadeia TLV, bloco `0x13` alto-falante / `0x16` fone, dois quadros Opus de 200 B, CRC-32 com semente `0xEADA2D49`, `src/utils.h:126-137`) e TechAntohere/Senshi (`DualSenseBtReportBuilder.kt:959-1014`: mesmo id, mesmo tamanho, arranjo ESPELHADO, 400 B de Opus em [13..412]). **As duas divergem; o mapa registra as duas sem escolher, e é o ENSAIO que escolhe.** O que falta está nomeado em `radio_codigo_ref`: (1) o ENCODER — `dualsense_bt_audio.py:480-523` prototipa só o decoder; `opus_encoder_create`/`opus_encode` não existem em `src/`; (2) o SINK — a ponte publica uma SOURCE (`_MODULO_PIPE_SOURCE`, `:579`) e não há `module-pipe-sink`; (3) o ARRANJO. **Os degraus D1-D3 constroem os três** e mandam o MESMO PCM pelos DOIS arranjos, cada um com a sua régua (o `common` de 47 B em [3..49] e o CRC nos quatro últimos bytes já estão medidos em `plataforma.escada_de_output`); **D4 é o ensaio 1 da MESA-DE-QUATRO-01** — a orelha dela decide qual arranjo soa, e os seis ensaios já estão escritos na `2026-08-15-ESCADA-QUE-RESPONDE-01`. Três ressalvas viajam com a cura e estão na `radio_ressalva`: o alto-falante interno é MONO (o encoder do DS5Dongle é estéreo e serve ao fone, tag `0x16`); o byte [2] tem três leituras; o DS5Dongle fala L2CAP e não hidraw. **Proibido, pelo próprio mapa:** escrever que "a ponte funciona" antes do ensaio — o honesto até lá é *o canal responde e o conteúdo vai pelos dois arranjos candidatos*. As três decisões dela foram tomadas por delegação, reversíveis numa frase (`D-0609-O-NO-DE-SOM-VIVE-COM-O-CONTROLE`): o nó vive só enquanto há controle; no cabo não vira saída padrão; a escolha 0x32/0x39 só depois do D5. A régua não é a mesa desta casa: dublês, um controle, MAC sintético.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.4 — áudio por rádio; o ensaio 1 da bancada vem antes (FECHO, com ela).
 

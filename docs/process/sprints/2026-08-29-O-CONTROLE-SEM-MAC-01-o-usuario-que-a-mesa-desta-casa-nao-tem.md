@@ -1,22 +1,27 @@
 ---
 sprint: O-CONTROLE-SEM-MAC-01
 estado: aberta
-onda: QUEM-E-QUEM
+onda: I
 posse:
-  SEMMAC:
+  CRACHA:
     - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
 cria:
   - tests/unit/test_o_controle_sem_mac_e_lembrado.py
 bancada: false
 depois_de:
-  # SÉRIE por R5: divide `daemon/subsystems/identity.py`.
   - QUATRO-NA-MESA-01
 nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - novo-layout/
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira, e é só mecanismo.** Roda depois da QUATRO-NA-MESA-01 (mesmo `identity.py`).
+Os cinco crachás candidatos (`0x05`, `0x09`, `0x0b`, `0x20`, `0x22`) estão em
+`docs/data/mapa-controles.csv`, chave `identidade.cracha_nos_dois_transportes` — **escolha por
+medição registrada, não por gosto, e DECLARE a forma da chave no relatório**, porque a
+QUEM-E-QUEM-04 abre a porta do perfil para essa forma e vem depois. A frase da desistência foi
+decidida por delegação (`D-0609-A-FRASE-DO-CONTROLE-SEM-CRACHA`): *"Este controle não tem
+identificação estável: o Hefesto não vai lembrar dele no próximo jogo."* As cinco mordidas da
+sprint valem inteiras; a que importa é *chaveie pelo `path` e veja reprovar*.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.5 — controles externos.
 

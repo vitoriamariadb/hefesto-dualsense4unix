@@ -1,31 +1,21 @@
 ---
 sprint: QUEM-E-QUEM-02
 estado: aberta
-onda: QUEM-E-QUEM
+onda: G
 posse:
-  QQ02:
+  LOADER:
     - src/hefesto_dualsense4unix/profiles/loader.py
 cria:
   - tests/unit/test_quem_e_quem_02_o_campo_novo_nao_quebra_o_perfil_de_ontem.py
 bancada: false
-depois_de:
-  - PERFIS-SAO-PERFIS-01
-  # SÉRIE por R5: divide `profiles/loader.py`.
-  - LEVA-2
-  - MIGRA-PERFIS-05
-  - ONDA-PERFIS-02
-  - ONDA-PERFIS-04
-  - ONDA-PERFIS-05
-  - ONDA-PERFIS-07
-  - ONDA-PERFIS-08
-  # A tabela de features que esta sprint protege é a do pai.
-  - QUEM-E-QUEM-01
+depois_de: []
 nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
-  - src/hefesto_dualsense4unix/app/draft_config.py
-  - novo-layout/
-  - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira.** A PERFIS-SAO-PERFIS-01 (`loader.py`) fechou hoje; nada mais espera.
+A lista manual de `loader.py:1213` vira portão. Não acrescenta campo, não migra dado, não
+decide o que nasce ligado — só exige que a resposta esteja ESCRITA onde o portão a enxergue.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08; espera a PERFIS-SAO-PERFIS-01 (mesmo `loader.py`).
 

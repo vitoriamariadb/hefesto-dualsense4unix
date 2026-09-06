@@ -1,3 +1,14 @@
+---
+sprint: MODO-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # MODO-01 — o modo jogo liga sozinho
 
 - **Status (09/08/2026):** **ENTREGUE EM CÓDIGO (B1, B2, B3, B5 e os presets) —

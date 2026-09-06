@@ -1,37 +1,24 @@
 ---
 sprint: QUEM-E-QUEM-04
 estado: aberta
-onda: QUEM-E-QUEM
+onda: J
 posse:
-  QQ04:
+  CHAVE:
     - src/hefesto_dualsense4unix/profiles/schema.py
 cria:
   - tests/unit/test_quem_e_quem_04_a_chave_atravessa_o_transporte.py
 bancada: false
 depois_de:
-  # SÉRIE por R5: divide `profiles/schema.py` — treze sprints o disputam.
-  - EMULACAO-UM-DONO-SO-01
-  - MIGRA-GATILHOS-09
-  - MIGRA-VIBRACAO-05
-  - MIGRA-VIBRACAO-06
-  - ONDA-CONTROLES-06
-  - ONDA-CONTROLES-07
-  - ONDA-GATILHOS-04
-  - ONDA-NAVEGACAO-01
-  - ONDA-NAVEGACAO-04
-  - ONDA-NAVEGACAO-05
-  - ONDA-PERFIS-09
-  - ONDA-VIBRACAO-03
-  - ONDA-VIBRACAO-05
-  - QUEM-E-QUEM-01
-  # A CURA que esta sprint deixa entrar no perfil nasce lá. Ver §3.
   - O-CONTROLE-SEM-MAC-01
 nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
-  - src/hefesto_dualsense4unix/profiles/loader.py
-  - novo-layout/
-  - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira; é a última, porque precisa da FORMA da chave que a O-CONTROLE-SEM-MAC-01
+declara no relatório dela.** Todos os outros `depois_de` estão `absorvida`/`caducou`/`feita` e
+saíram. As seis provas da §4 valem inteiras — inclusive *a mesa de UM*. Não escreve a cura do
+sem-MAC; só abre a porta do perfil para a forma que ela declarar, preservando as três rejeições
+medidas (`000000000001`, `ffffffffffff`, duas grafias).
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 

@@ -1,3 +1,14 @@
+---
+sprint: TRES-CONTROLES-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # TRES-CONTROLES-01 — o espelho do espelho, e o jogo com três controles
 
 - **Estado:** CONCLUÍDA — `PAR_STEAM_INPUT_VIRTUAL` em `daemon/launch_env.py:140` entra no VALOR de `SDL_GAMECONTROLLER_IGNORE_DEVICES`, com `tests/unit/test_tres_controles_no_pragmata_01.py` travando o par; o *Status* abaixo ainda pedia a contagem dela no Pragmata (verificado em 21/08/2026)

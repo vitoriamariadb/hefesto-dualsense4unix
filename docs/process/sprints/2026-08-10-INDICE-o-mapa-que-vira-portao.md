@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ15
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # ÍNDICE — o mapa que vira portão
 
 - **Escrito em:** 10/08/2026, na branch `restauro/inicio-da-sessao`

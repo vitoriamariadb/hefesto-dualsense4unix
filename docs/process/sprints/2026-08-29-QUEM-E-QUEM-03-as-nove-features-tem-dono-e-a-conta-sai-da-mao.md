@@ -1,23 +1,22 @@
 ---
 sprint: QUEM-E-QUEM-03
 estado: aberta
-onda: QUEM-E-QUEM
+onda: G
 posse:
-  QQ03:
+  CENSO:
     - tests/unit/test_quem_e_quem_03_o_censo_das_features_por_controle.py
 cria:
   - tests/unit/test_quem_e_quem_03_o_censo_das_features_por_controle.py
 bancada: false
-depois_de:
-  # A tabela que este censo congela é a da §2/E1 do pai.
-  - QUEM-E-QUEM-01
+depois_de: []
 nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
-  - src/hefesto_dualsense4unix/app/draft_config.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
-  - novo-layout/
-  - src/hefesto_dualsense4unix/gui/main.glade
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira, e é só um teste.** O censo das nove features por controle vira portão
+(a linha sem dono é o touchpad, nomeada). **Confira antes se o comentário `SÃO QUATRO` de
+`schema.py:928` ainda diz quatro** — se a ONDA-CONTROLES-06/07 já acrescentou `mic`/`sensors`, o
+censo nasce contando o que existe hoje, não o de 29/08.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 

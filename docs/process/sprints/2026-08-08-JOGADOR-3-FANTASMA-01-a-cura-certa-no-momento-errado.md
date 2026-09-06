@@ -1,6 +1,6 @@
 ---
 sprint: JOGADOR-3-FANTASMA-01
-estado: aberta
+estado: caducou
 posse:
   # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
   # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
@@ -15,6 +15,14 @@ depois_de:
   # A faxina de 27/08 apagou daqui: VPAD-SUSPENSO-MORTO-01, NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
   - COOP-QUE-NAO-DESMONTA-01
 ---
+
+> **CADUCOU — marcada em 06/09/2026 (triagem da leva; Fable).** O defeito (vpad de pé
+> com grab/hide pulados pela `excecao_por_appid`) morreu em `d8022ea5` (09/08), pela
+> decisão dela na ESCONDER-EM-VEZ-DE-SAIR-01. O único resto era
+> `tests/unit/test_jogador_3_fantasma_01.py::test_a_dispensa_morre_quando_o_jogo_sai_da_frente`,
+> um `xfail(strict=True)` que se declarava *"contrato da próxima cura"* de uma dispensa
+> que a decisão de 09/08 tornou desnecessária — um teste que nunca poderia passar e
+> nunca reprovaria. Apagado no mesmo commit; o resto do arquivo fica.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

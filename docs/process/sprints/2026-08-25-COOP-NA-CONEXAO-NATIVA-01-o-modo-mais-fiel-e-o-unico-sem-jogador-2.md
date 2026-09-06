@@ -1,45 +1,37 @@
 ---
 sprint: COOP-NA-CONEXAO-NATIVA-01
 estado: aberta
+onda: H
 posse:
-  # A tela. É aqui que mora a maior parte do trabalho — o mecanismo (§3 e o fim
-  # do §6) diz que o produto não tem como CRIAR jogador na Conexão Nativa; o
-  # que ele tem de fazer é dizer a verdade e oferecer a saída.
-  NATIVA-1:
-    - src/hefesto_dualsense4unix/app/widgets/painel_no_jogo.py
-    - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
-    - src/hefesto_dualsense4unix/gui/main.glade
-  # O número sem vpad. Posse de FUNÇÃO, não de arquivo: `resolve_player_numbers`
-  # e nada mais. `coop.py` colide com COOP-QUE-NAO-DESMONTA-01 e
-  # BORDA-DE-QUEDA-01 — o `depois_de` serializa.
-  NATIVA-2:
+  NATIVO:
     - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
-  NATIVA-3:
-    - docs/data/ensaios.csv
-    - docs/data/mapa-controles.csv
+    - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
+    - src/hefesto_dualsense4unix/interface/aba01.py
+    - src/hefesto_dualsense4unix/app/actions/jogar/painel.py
 cria:
-  - tests/unit/test_coop_na_conexao_nativa.py
-nao_toca:
-  # O contrato de ZERO ESCRITA no Modo Nativo é regra DELA, literal, e está
-  # soldado no `_output_mute` do backend. Nenhuma tarefa desta sprint o abre
-  # sem a decisão do §10.
-  - src/hefesto_dualsense4unix/core/backend_pydualsense.py
-  - src/hefesto_dualsense4unix/daemon/lifecycle.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/gamepad.py
-  - src/hefesto_dualsense4unix/daemon/subsystems/identity.py
-  - install.sh
-depois_de:
-  - MESA-DE-QUATRO-01
-  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
-  - COOP-QUE-NAO-DESMONTA-01
-  - BORDA-DE-QUEDA-01
-  - EMULACAO-UM-DONO-SO-01
-  - RESERVA-DO-POSTO-01
-  # A NAVEGACAO-UM-CONTROLE-SO-01 reivindica a PASTA
-  # `daemon/subsystems/` inteira; a colisão com `coop.py` é real e fica
-  # serializada, como já fazem as outras quatro sprints de co-op.
+  - tests/unit/test_o_coop_vive_na_conexao_nativa.py
 bancada: true
+depois_de:
+  - EXTERNOS-01
+  - BORDA-DE-QUEDA-01
+nao_toca:
+  - docs/data/ensaios.csv
+  - docs/data/mapa-controles.csv
+  - src/hefesto_dualsense4unix/app/widgets/painel_no_jogo.py
+  - src/hefesto_dualsense4unix/app/actions/emulation_actions.py
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **O defeito está inteiro no código de hoje** (remedido em 06/09): `coop.py:320-326`
+(`should_be_active` exige `_gamepad_device`) e `:1963-1964` (`resolve_player_numbers` devolve
+`[None]*n` no Nativo). **O Passo 0 (a §5, com dois DualSense num jogo de co-op local) é DELA, na
+MESA-DE-QUATRO-01 — não é pré-requisito do código; é a prova dele.** Posse de hoje: `main.glade`
+saiu com a GTK-3 (a lápide do co-op vive em `ipc_handlers.py:6334`, `coop.py:30`,
+`lifecycle.py:172`, leitura); o herdeiro do `TEXTO_NATIVO` é o chip Desligado de
+`aba01.py:159-160` e a dica `:1283`; o esmaecido do número é `a01_jogar._jogador_esperando
+:444-470`; o aviso do Modo Nativo entra na coluna Atenção por `painel.AVISOS_DA_TELA :655-664`.
+`painel_no_jogo.py` e `emulation_actions.py` são leitura. Os dois CSV são da SPECS (P1) e da
+bancada (linhas de ensaio) — fora daqui. Roda depois da EXTERNOS-01 (mesmos `a01_jogar`/`aba01`)
+e da BORDA (por prudência: os dois mexem em quem segura o nó).
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

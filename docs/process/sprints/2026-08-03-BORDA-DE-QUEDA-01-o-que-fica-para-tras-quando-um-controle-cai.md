@@ -1,20 +1,22 @@
 ---
 sprint: BORDA-DE-QUEDA-01
 estado: aberta
+onda: G
 posse:
-  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
-  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
-  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
-  # contra o disco, não citados de memória.
-  BG-01b:
-    - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
-cria:
+  E2:
+    - src/hefesto_dualsense4unix/daemon/subsystems/gamepad.py
 bancada: false
+depois_de: []
 nao_toca:
-depois_de:
-  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
-  - COOP-QUE-NAO-DESMONTA-01
+  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **A E2 mora em `gamepad.py`, não em `coop.py`** — posse corrigida, e por isso ela não
+espera mais a COOP-QUE-NAO-DESMONTA-01. Medido em 06/09: `daemon/subsystems/gamepad.py:326`,
+`_broker_sync_grab` no ramo `grab=False`, chama `client.restore_all` — e é chamado pelo `stop`
+do P1 (`:2369`). Trocar por `client.restore(node)` do nó do P1. Régua com dublê do broker que
+registra QUAIS nós foram restaurados; a mordida é devolver o `restore_all` e ver o nó do P2
+aparecer na lista.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

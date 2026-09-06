@@ -1,3 +1,12 @@
+---
+sprint: RADIO-ABERTO-01
+estado: feita
+---
+
+> **ESTADO 06/09/2026: feita** — o próprio arquivo diz ENTREGUE/CONCLUÍDA no corpo; frontmatter
+> acrescentado na arrumação de 06/09 (Fable) para a sprint entrar na contagem de
+> `check_colisao_de_sprints.py`. Não foi remedida hoje.
+
 # RADIO-ABERTO-01 — o que instalamos por padrão anula a autenticação
 
 - **Achado em:** 04/08/2026, por um cético de segurança numa auditoria de sete

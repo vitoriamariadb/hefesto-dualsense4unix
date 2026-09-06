@@ -1,3 +1,11 @@
+---
+sprint: INDICE-ARQ20
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # ÍNDICE — a tarde que só virou commit depois de morrer
 
 - **Escrito em:** 15/08/2026 às 17:39, na branch `restauro/inicio-da-sessao`,

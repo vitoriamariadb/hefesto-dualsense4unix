@@ -1,45 +1,27 @@
 ---
 sprint: A-TRAVA-DO-LED-NAO-SOLTA-01
 estado: aberta
-onda: ILUMINACAO
+onda: G
 posse:
-  LED-CLEAR:
+  LED:
     - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
     - src/hefesto_dualsense4unix/daemon/state_store.py
+    - src/hefesto_dualsense4unix/interface/pacotes/a04_iluminacao.py
 cria:
   - tests/unit/test_toda_categoria_de_trava_tem_par.py
 bancada: false
-depois_de:
-  - CONEXOES-LIGAR-TUDO-01
-  - ONDA5-02-01
-  # O gesto que vai soltar a trava é o "Voltar ao automático", e ele é da
-  # ILUMINACAO-06 — primeiro o botão vira um só e obedece à fita, depois ele
-  # ganha o que soltar.
-  - ONDA-ILUMINACAO-06
-  # SÉRIE por R5: `daemon/ipc_handlers.py` é bancada de uma sprint por vez.
-  - LEVA-DE-BACKGROUND-01
-  - MIGRA-CONTROLES-09
-  - MIGRA-ILUMINACAO-11
-  - MIGRA-JOGAR-10
-  - MIGRA-NAVEGACAO-07
-  - MIGRA-SISTEMA-09
-  - MIGRA-VIBRACAO-04
-  - MIGRA-VIBRACAO-05
-  - MIGRA-VIBRACAO-06
-  - ONDA-CONTROLES-07
-  - ONDA-CONTROLES-08
-  - ONDA-JOGAR-05
-  - ONDA-LANCADORES-06
-  - ONDA-PERFIS-03
-  - ONDA-VIBRACAO-04
-  - ONDA-VIBRACAO-05
-  - ONDA-VIBRACAO-06
+depois_de: []
 nao_toca:
-  - src/hefesto_dualsense4unix/profiles/autoswitch.py
-  - src/hefesto_dualsense4unix/app/actions/lightbar_actions.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - novo-layout/
+  - src/hefesto_dualsense4unix/interface/aba04.py
+  - mockup/
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **A E1 continua aberta** (remedido em 06/09): `grep -rn clear_manual_trigger_active src/`
+dá zero chamada com `"led"`; a única menção é a docstring de `state_store.py:410`. Abrir no
+daemon o caminho que solta SÓ `"led"` (rota nova, ou parâmetro em `_handle_led_set`
+`ipc_handlers.py:1408` / `_handle_lightbar_reset` `:4655`) e ligá-lo ao gesto `auto` de
+`a04_iluminacao.py:2462` — **`a04_iluminacao.py` entrou na posse por isso.** Todos os
+`depois_de` antigos estão `absorvida`/`feita`; a lista foi limpa.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 29/08 (`daemon/ipc_handlers.py` continua sem `clear` para `led`).
 

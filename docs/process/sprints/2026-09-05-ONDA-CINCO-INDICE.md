@@ -1,3 +1,11 @@
+---
+sprint: ONDA-CINCO-INDICE
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # ONDA CINCO — as vinte e quatro sprints das 41 decisões dela
 
 > **06/09/2026 — a ORDEM de despacho destas sprints é a de

@@ -1,3 +1,14 @@
+---
+sprint: STEAM-INPUT-01-ARQ2
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 > **06/09/2026 — O ID `STEAM-INPUT-01` FICOU COM DUAS DONAS, e esta não é a
 > que se despacha.** A leva de 06/09 escreveu
 > `2026-09-06-STEAM-INPUT-01-o-hefesto-desliga-o-que-a-steam-poe-no-meio.md`,

@@ -1,27 +1,30 @@
 ---
 sprint: BATERIA-PARADA-01
 estado: aberta
+onda: G
 posse:
   B1:
-    - src/hefesto_dualsense4unix/daemon/lifecycle.py
     - src/hefesto_dualsense4unix/core/backend_pydualsense.py
+    - src/hefesto_dualsense4unix/core/controller.py
+    - src/hefesto_dualsense4unix/daemon/lifecycle.py
   B2:
     - src/hefesto_dualsense4unix/daemon/battery_journal.py
 cria:
-  - docs/process/sprints/2026-08-26-BATERIA-PARADA-01-o-numero-que-nunca-muda.md
   - tests/unit/test_a_bateria_diz_se_esta_carregando.py
   - tests/unit/test_a_bateria_nao_le_o_no_do_vpad.py
 bancada: true
 depois_de:
-  - LEVA-1                   # ela fechou hoje e tocou os dois arquivos
-  - LEVA-2                   # idem
-  - LEVA-4                   # lifecycle.py: fechou hoje, na mesma leva
-  - COOP-QUE-NAO-DESMONTA-01 # backend_pydualsense: chegou antes
-  - RESERVA-DO-POSTO-01      # idem
+  - A-RECUSA-QUE-CITOU-O-MAPA-01
 nao_toca:
-  - src/hefesto_dualsense4unix/gui/main.glade
   - docs/data/
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira em código; a prova com a bateria de verdade carregando é da MESA-DE-QUATRO-01.**
+B1: `core/backend_pydualsense.py:5683-5697` (`_read_battery_opt` lê só `Level`) passa a ler
+`ds.battery.State`, e o estado de carga vira **campo NOVO com default** em `core/controller.py:116`
+(`ControllerState`) e nos payloads de `describe_controllers` — por isso `controller.py` entrou na
+posse. B2: o journal. A RESERVA-DO-POSTO-01 saiu do `depois_de` (a medição dela é da bancada e não
+toca o que B1 toca); a COOP-QUE-NAO-DESMONTA-01 fica, porque as duas escrevem `backend_pydualsense.py`.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — a bancada dos quatro remede (o CSV diz IGUAL para a bateria no cartão; o que ela viu foi o número parado no tempo).
 

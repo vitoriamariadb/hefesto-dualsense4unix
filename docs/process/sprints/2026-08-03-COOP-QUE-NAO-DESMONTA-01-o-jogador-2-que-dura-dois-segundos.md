@@ -1,27 +1,28 @@
 ---
 sprint: COOP-QUE-NAO-DESMONTA-01
 estado: aberta
+onda: G
 posse:
-  # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
-  # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
-  # RECUSA criar a árvore sem este bloco. Os caminhos foram conferidos
-  # contra o disco, não citados de memória.
-  BG-01:
-    - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
-    - src/hefesto_dualsense4unix/core/backend_pydualsense.py
-    - src/hefesto_dualsense4unix/core/evdev_reader.py
+  E3:
     - src/hefesto_dualsense4unix/integrations/uhid_gamepad.py
-    - src/hefesto_dualsense4unix/daemon/connection.py
     - tests/unit/test_subsystem_coop.py
     - tests/unit/test_coop_numeracao_sem_colisao.py
-cria:
 bancada: false
+depois_de: []
 nao_toca:
-  - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
-  - src/hefesto_dualsense4unix/app/actions/config/secao_exame.py
-depois_de:
-  # A faxina de 27/08 apagou daqui: NAVEGACAO-UM-CONTROLE-SO-01. Para onde cada uma foi, veja 2026-08-27-A-FAXINA-o-que-saiu-e-por-que.md.
+  - src/hefesto_dualsense4unix/core/backend_pydualsense.py
+  - src/hefesto_dualsense4unix/core/evdev_reader.py
+  - src/hefesto_dualsense4unix/daemon/connection.py
+  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Só a E3 falta.** E1, E2(a) e E4 fecharam em `8d84f495` (25/08, BG-01):
+`coop.py:507-597` (`ceder_ao_primario`, `_recolher_os_cedidos`). A posse encolheu para o
+que a E3 toca: em `integrations/uhid_gamepad.py:579-586` desacoplar o `player_mac` do
+`player_index` — hash estável do `uniq` nos últimos octetos, **mantendo o prefixo `02:fe`**
+(`backend_pydualsense.py:153`, `_VPAD_U…`). `coop.py`, `connection.py` e `evdev_reader.py`
+saem da posse: já estão curados e outras sprints desta onda os tocam. **A prova de bancada
+(dois controles, o primário cai e volta) é da MESA-DE-QUATRO-01**; aqui a régua usa dublê.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

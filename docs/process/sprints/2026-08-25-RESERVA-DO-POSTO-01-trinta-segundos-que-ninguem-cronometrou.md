@@ -1,30 +1,28 @@
 ---
 sprint: RESERVA-DO-POSTO-01
 estado: aberta
+onda: H
 posse:
-  # A constante e o caderno. `backend_pydualsense.py` colide com a
-  # COOP-QUE-NAO-DESMONTA-01, que é quem a criou hoje — o `depois_de` abaixo
-  # serializa em vez de proibir. A posse aqui é de LINHA, não de arquivo:
-  # esta sprint mexe em `PRIMARIO_RESERVA_SEC`, nos dois `logger.debug` da
-  # reserva e em nada mais. Precisou de outra linha, RELATA (R1).
-  RESERVA-1:
+  INSTRUMENTO:
     - src/hefesto_dualsense4unix/core/backend_pydualsense.py
     - tests/unit/test_coop_bancada_de_queda_do_primario.py
-  RESERVA-2:
-    - docs/data/ensaios.csv
-    - docs/data/mapa-controles.csv
 cria:
   - tests/unit/test_reserva_do_posto_de_primario.py
-nao_toca:
-  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
-  - src/hefesto_dualsense4unix/daemon/connection.py
-  - src/hefesto_dualsense4unix/gui/main.glade
-  - src/hefesto_dualsense4unix/app/
-depois_de:
-  - COOP-QUE-NAO-DESMONTA-01
-  - MESA-DE-QUATRO-01
 bancada: true
+depois_de:
+  - BATERIA-PARADA-01
+nao_toca:
+  - docs/data/ensaios.csv
+  - docs/data/mapa-controles.csv
+  - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Divide-se em duas: o INSTRUMENTO é de agente, a MEDIÇÃO é dela.** O journal de hoje é cego
+às voltas que estouram o prazo (§3 da sprint) — consertar isso é código em
+`backend_pydualsense.py` e no teste da bancada de queda, e roda depois da BATERIA-PARADA-01
+(mesmo arquivo). **Os 30 s NÃO se mexem aqui**: *"ela mede antes de eu fixar"* — e a medição, com
+o roteiro da §5, entra na MESA-DE-QUATRO-01. Os dois CSV saíram da posse (a bancada escreve o
+ensaio; a SPECS anota a procedência).
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — família do co-op; a MESA-DE-QUATRO-01 (FECHO, com ela) diz o que ainda está vivo; não se despacha pelo id antes dela.
 

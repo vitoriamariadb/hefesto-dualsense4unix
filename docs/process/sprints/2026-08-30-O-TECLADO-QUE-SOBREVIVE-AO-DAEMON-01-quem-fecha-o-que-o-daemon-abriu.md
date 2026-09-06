@@ -1,37 +1,26 @@
 ---
 sprint: O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01
 estado: aberta
-onda: MIGRA-NAVEGACAO
+onda: G
 posse:
-  TECORF:
+  OSK:
     - src/hefesto_dualsense4unix/daemon/connection.py
     - src/hefesto_dualsense4unix/daemon/subsystems/keyboard.py
 cria:
   - tests/unit/test_o_teclado_nao_sobrevive_ao_daemon.py
 bancada: false
-depois_de:
-  # SÉRIE por R5 — `daemon/connection.py` é bancada disputada (o `shutdown` mora
-  # nele) e `daemon/subsystems/keyboard.py` é disputado por três. Esta sprint vem
-  # ANTES da O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01 por dividirem o `keyboard.py`;
-  # não há dependência de CONTEÚDO com nenhuma das quatro abaixo — é serialização
-  # de POSSE, para duas não escreverem no mesmo arquivo ao mesmo tempo.
-  #
-  # A LISTA FICOU VAZIA e ninguém conferiu — 31/08/2026. O comentário original
-  # dizia "Confira no DESPACHO quem mais o tem em posse" e a sessão morreu (três
-  # boots em 30/08, ~3 h de máquina desligada entre 17h34 e 20h25) antes da
-  # conferência. O `check_colisao_de_sprints.py` acusou SEIS colisões de posse
-  # não declarada, e as seis eram destas duas sprints. Nomes abaixo derivados do
-  # próprio portão, não digitados de memória.
-  - COOP-QUE-NAO-DESMONTA-01     # daemon/connection.py
-  - LEVA-2                       # daemon/connection.py
-  - ONDA-NAVEGACAO-01            # daemon/subsystems/keyboard.py
-  - MIGRA-NAVEGACAO-12           # daemon/subsystems/keyboard.py
-nao_toca:
-  - src/hefesto_dualsense4unix/core/keyboard_mappings.py
-  - src/hefesto_dualsense4unix/daemon/lifecycle.py
-  - novo-layout/
-  - layout/
+depois_de: []
+nao_toca: []
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira, sem decisão dela e sem bancada.** Os três defeitos continuam no código
+(remedido em 06/09): `connection.py:1286` (`shutdown` não chama `osk.close()`),
+`keyboard.py:251` (`close()` volta se `_process is None`) e `:232` (o guarda do `open()` não
+conhece o órfão). A cura é um arquivo de sessão com o PID + `/proc/<pid>/comm` para adotar
+só o que é nosso. **Dublar o binário** (`_OSK_SPAWN_ARGS` + `_resolved_bin`/`_resolved_checked`/
+`_resolved_em`) — o teclado é `layer-shell` e nasce na tela dela; confira o NOME do atributo
+antes (o erro de 30/08 está no fim do arquivo). A COOP-QUE-NAO-DESMONTA-01 não toca mais
+`connection.py`, então esta sprint não espera ninguém.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — não remedida desde 30/08.
 

@@ -1,3 +1,14 @@
+---
+sprint: ESCONDER-EM-VEZ-DE-SAIR-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # ESCONDER EM VEZ DE SAIR — o controle duplicado curado pelo outro lado
 
 - **Estado:** CONCLUÍDA — o rótulo de 09/08 abaixo tem coordenadas velhas; hoje `esconder_o_fisico_para_o_jogo` está em `gamepad.py:544` (chamada em `:517`) e a caixinha em `main.glade:2359`, com doze arquivos de `tests/` citando a sprint (verificado em 21/08/2026)

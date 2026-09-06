@@ -1,3 +1,14 @@
+---
+sprint: CICLO-QUE-PROVA-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # CICLO-QUE-PROVA-01 — desinstalar, instalar, e comparar o que o produto recria sozinho
 
 - **Estado:** CONCLUÍDA — o achado mais caro do ciclo (12 snapshots de bond viravam 1) tem cura em `uninstall.sh:807`, que MOVE os bonds para `bt-bonds.pre-uninstall-<timestamp>` em vez de apagar, com `tests/unit/test_ciclo_que_prova_01.py` lendo o script e `scripts/retrato_do_estado.sh` de pé (verificado em 21/08/2026)

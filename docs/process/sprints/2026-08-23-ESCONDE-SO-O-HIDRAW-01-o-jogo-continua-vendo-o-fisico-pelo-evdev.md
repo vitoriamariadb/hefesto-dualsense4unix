@@ -1,6 +1,6 @@
 ---
 sprint: ESCONDE-SO-O-HIDRAW-01
-estado: aberta
+estado: feita
 posse:
   # Declarado em 25/08/2026 por quem coordena, e a razão é mecânica:
   # `despachar-agente.sh` roda `check_colisao_de_sprints.py --exigir` e
@@ -14,6 +14,12 @@ nao_toca:
   - install.sh
 depois_de:
 ---
+
+> **FEITA — marcada em 06/09/2026 (triagem da leva; Fable).** A E1 fechou em
+> `683b7b29` (25/08, *"a régua parava de mentir sobre a própria cura — três
+> superfícies, não uma"*) e `1e5b16f4` (26/08, *"o veredito do hide mede a MESA"*),
+> pela branch `voo/ESCONDE-SO-O-HIDRAW-C4`. **O que sobra não é código de agente:** a
+> E2 (estender o hide ao evdev) é decisão dela e entra na fila de perguntas do FECHO.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.6 — daemon.
 

@@ -1,3 +1,14 @@
+---
+sprint: O-DESLIGADO-DE-ONTEM-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # O DESLIGADO DE ONTEM — o produto inerte por uma decisão antiga, em silêncio
 
 - **Estado:** CONCLUÍDA — cinco marcas em `app/actions/home_actions.py`, `tests/unit/test_o_desligado_de_ontem_01.py` de pé, commit `86f1b23` e release `d0cbbcc` (0.9.3); o *Status* abaixo ainda pedia a palavra dela sobre a tela (verificado em 21/08/2026)

@@ -1,20 +1,32 @@
 ---
 sprint: EXTERNOS-01
 estado: aberta
+onda: G
 posse:
-  EX:
+  EXT:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
     - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py
     - src/hefesto_dualsense4unix/interface/aba01.py
     - src/hefesto_dualsense4unix/interface/aba08.py
+    - src/hefesto_dualsense4unix/interface/pacotes/__init__.py
+    - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
     - mockup/01-jogar.html
     - mockup/08-conexoes.html
-depois_de: [ONDA5-01-01, ONDA5-01-03, ONDA5-07-03, ONDA5-08-01, ONDA5-08-02, MESA-DE-QUATRO-01, CONEXOES-LIGAR-TUDO-01, ONDA4-S10-O-TRANSPORTE-01, A-PALAVRA-MESA-SAI-01, JOGAR-O-QUE-FALTA-01]
+bancada: false
+depois_de: []
 nao_toca:
-  - src/hefesto_dualsense4unix/interface/hefesto_vivo.py
-  - src/hefesto_dualsense4unix/interface/monta.py
-  - src/hefesto_dualsense4unix/daemon/
+  - src/hefesto_dualsense4unix/interface/paginas/
+  - docs/data/paridade-gtk-html.csv
 ---
+
+> **ROTA CORRIGIDA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** **Vale inteira; a bancada com o Pro e o 8BitDo é da MESA-DE-QUATRO-01, não pré-requisito.**
+Remedido em 06/09: as linhas 16 (01-jogar) e 305 (08-conexoes) da paridade seguem `FALTA`. O
+caminho: ler `controller.list {external:true}` no piloto — hoje `hefesto_vivo.py:2894-2910` monta
+o `Contexto` só de `controllers` — e levar a lista num campo PRÓPRIO de `pacotes.Contexto`
+(`pacotes/__init__.py:86`), **nunca dentro de `controllers`** (misturaria os assentos). Por isso
+`hefesto_vivo.py` e `pacotes/__init__.py` entraram na posse. Régua com dublê do `controller.list`;
+o desenho dos cards externos é o do `app/widgets/external_card.py` (leia, não copie). A ONDA5-P-01
+mexeu no `hefesto_vivo.py` hoje: **leia o arquivo de hoje antes de acreditar num endereço.**
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.5 — fora das 24 horas por decisão dela (06/09).
 

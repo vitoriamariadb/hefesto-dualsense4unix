@@ -1,3 +1,11 @@
+---
+sprint: DECISOES-DELA-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # Decisões dela — aba `01-jogar`
 
 **04/09/2026.** Levantadas por um agente que leu as linhas abertas desta aba no

@@ -7,7 +7,7 @@ posse:
     - docs/process/sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md
 cria: []
 bancada: true
-depois_de: []
+depois_de: [A-RECUSA-QUE-CITOU-O-MAPA-01]
 nao_toca:
   - src/
   - tests/

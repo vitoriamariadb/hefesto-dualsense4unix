@@ -1,3 +1,14 @@
+---
+sprint: MONITOR-QUE-VENCE-01
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # MONITOR-QUE-VENCE-01 e QUEM-DÁ-O-JOGADOR-2-01 — a regra que não podia disparar, e o dono que ninguém declarava
 
 - **Estado:** CONCLUÍDA nas duas Partes — a I em `scripts/fix_wireplumber_default_source.sh:87` (o drop-in `51-…`, invertido no commit `55e3c61`) com `tests/unit/test_monitor_que_vence_01.py`; a II em `app/actions/profiles_actions.py` e `app/actions/home_actions.py` (verificado em 21/08/2026)

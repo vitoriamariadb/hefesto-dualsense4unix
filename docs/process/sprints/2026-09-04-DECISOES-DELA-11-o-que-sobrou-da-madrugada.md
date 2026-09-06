@@ -1,3 +1,11 @@
+---
+sprint: DECISOES-DELA-11
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — índice ou folha de decisões, não é sprint
+> executável; o que ela lista vive nas sprints filhas e no `SPRINT_ORDER.md`.
+
 # Decisões dela — o que sobrou da madrugada das quinze queixas
 
 **04/09/2026, meio-dia.** Ela pediu: *"manda as duvidas em opções"*. São as <!-- noqa-acento: citação literal dela -->

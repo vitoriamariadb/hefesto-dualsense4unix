@@ -1,3 +1,14 @@
+---
+sprint: O-QUE-PRECISA-DE-VOCE
+estado: absorvida
+---
+
+> **ESTADO 06/09/2026: absorvida** — pela regra da §3 do `SPRINT_ORDER.md`
+> (*"história — não remedidas desde 27/08; o resto, se ainda faltar, é linha do
+> CSV"*): o que desta sprint ainda faltar é linha de `docs/data/paridade-gtk-html.csv`
+> ou célula de `docs/data/mapa-controles.csv`, e é lá que se cobra. **Se você achar
+> aqui um defeito vivo que não está em nenhum dos dois, ele é seu: abra a linha.**
+
 # O que precisa de você — 19/08/2026
 
 Fechei a **0.9.4.5** e rodei o install. Esta lista é só o que **não dá para eu
