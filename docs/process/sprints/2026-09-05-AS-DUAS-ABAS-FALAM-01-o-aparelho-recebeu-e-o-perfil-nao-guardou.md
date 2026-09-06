@@ -1,6 +1,6 @@
 ---
 sprint: AS-DUAS-ABAS-FALAM-01
-estado: aberta
+estado: feita
 posse:
   D17:
     - src/hefesto_dualsense4unix/interface/pacotes/a03_gatilhos.py
@@ -15,6 +15,39 @@ depois_de: [ONDA2-03-GATILHOS-01, ONDA4-S10-O-TRANSPORTE-01]
 ---
 
 # D-17 · Quando o aparelho recebeu e o perfil não guardou, AS DUAS ABAS FALAM
+
+> **ESTADO 06/09/2026: feita.** Os quatro passos entraram, e a frase foi vista
+> na tela com o daemon vivo e um DualSense no cabo — janela `--oculta`, `HOME` e
+> os quatro `XDG_*` desviados para um lar de mentira, que é o que PRODUZ o
+> meio-ato: o daemon publica `active_profile = 'Personalizado'` e esse arquivo
+> não existe para o leitor da prova.
+>
+> **O que a tela disse, no cartão do P1, em VERDE (`tom: sucesso`,
+> `rgb(80, 250, 123)`):**
+>
+> > *Gatilho esquerdo (L2): Rigid aplicado · o efeito FOI para o aparelho, mas
+> > não consegui ABRIR o perfil 'Personalizado' para guardá-lo. Ele vale até a
+> > próxima troca de perfil — no dia seguinte o gatilho volta a ser o de antes.*
+>
+> **O aparelho recebeu, e quem diz é o daemon:** o corpo da resposta veio
+> `{'status': 'ok', 'aplicado_em': [<o controle>], 'guardado_em': []}` — o mesmo
+> campo que `_chegou_ao_aparelho` lê para decidir se grava.
+>
+> **A soma mora no `_aplicar`, então TRÊS gestos passaram a poder dizê-la** —
+> `modo`, `pronto` e `ajuste` — sem que nenhum deles mudasse uma linha. O
+> `reenviar` continua sem frase de disco, e há régua que o prova.
+>
+> **A mordida, na tela:** devolvido o `except Exception: return`, o gesto
+> continua saindo `aplicado`, o gatilho continua indo ao aparelho, e a tela diz
+> *uma metade só* — `"Gatilho esquerdo (L2): Rigid aplicado"` sobre um perfil
+> que não guardou. Nas réguas ela reprova em QUATRO lugares.
+>
+> **O que a §5 declarou continua aberto:** a aba 02 levanta onde a 03 e a 06
+> devolvem frase, e o ramo do `save_profile` desta mesma função continua falando
+> pelo laranja. Os dois estão escritos no docstring, com a razão.
+>
+> O relatório é
+> [`docs/process/agentes/2026-09-06/AS-DUAS-ABAS-FALAM-01.md`](../agentes/2026-09-06/AS-DUAS-ABAS-FALAM-01.md).
 
 > **A pergunta, escrita no handoff de hoje**
 > (`docs/process/2026-09-05-ONDE-PARAMOS-a-onda-tres-e-as-reguas-que-mediam-o-mundo-de-ontem.md`,
