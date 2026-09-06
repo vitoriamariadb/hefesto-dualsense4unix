@@ -17,6 +17,30 @@ está em
 
 ---
 
+## 0. O QUE JÁ FECHOU — 05/09/2026, noite
+
+**Duas das três da FAIXA 0, e a que desbloqueia mais.**
+
+| sprint | o que fechou |
+| --- | --- |
+| **ONDA5-03-01** | **O campo pisca em verde.** Os cinco passos entraram: a classe `.hef-deu-certo` na folha do módulo (vale nas dez abas sem republicar desenho), o pouso levando o desfecho, o `voltouDoVoo` acendendo e apagando sozinho em `MS_DA_PISCADA = 1500`, e o `"Pronto."` **fora da tela** — a `FRASE_DE_SUCESSO` morreu por não ter mais chamador. A ordem contrária que o piloto carregava por escrito (*"não construa nenhum dos dois"*) foi substituída com a data e a atribuição certa: quem recusou foi o PO, não ela. |
+| **ONDA5-04-01** | **O brilho aplica em vez de justificar a falha.** O trilho passa a escrever no aparelho mesmo quando o motor não afirma a cor, e a régua foi INVERTIDA com a razão datada — ela exigia o contrário. |
+
+**As quatro réguas novas da 03-01 mordem em lugares diferentes**, e a quinta
+mordida NÃO PEGOU — está declarada: arrancar o `!important` da folha deixa
+`test_o_sucesso_calado_pisca_e_nao_fala` verde, porque o `.mudo-i` apagado que
+ela clica não declara `border-color` própria. Quem declara são `.mudo-i.on` e
+`select.modo`, e nenhum está no caminho daquele clique. O limite está escrito
+nos dois arquivos, não esquecido.
+
+**E TRÊS RÉGUAS IRMÃS TIVERAM DE MUDAR DE LEITURA** — o índice dizia que elas
+continuariam *"sem uma letra alterada"*, e a medição desmentiu: as três liam o
+`depois-do-sucesso`, que é o gesto CALADO, e ele deixou de depositar frase. A
+pergunta de cada uma continua inteira; o que mudou é onde há frase para medir
+(`com-a-frase-do-dono`). Uma quarta, na aba 09, foi invertida pela mesma razão.
+
+---
+
 ## 1. O PLACAR
 
 | | quantas |
