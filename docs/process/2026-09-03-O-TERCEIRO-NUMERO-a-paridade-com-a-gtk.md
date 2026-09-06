@@ -82,7 +82,7 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 
 | aba | feats | IGUAL | DIFER | FALTA | SO_HTML | ? | paridade |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 01-jogar | 42 | 9 | 14 | 14 | 4 | 1 | 21% |
+| 01-jogar | 42 | 10 | 13 | 14 | 4 | 1 | 24% |
 | 02-controles | 50 | 12 | 16 | 18 | 4 | 0 | 24% |
 | 03-gatilhos | 31 | 15 | 9 | 1 | 5 | 1 | 48% |
 | 04-iluminacao | 35 | 7 | 9 | 11 | 7 | 1 | 20% |
@@ -92,7 +92,7 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 08-conexoes | 49 | 14 | 21 | 12 | 2 | 0 | 29% |
 | 09-sistema | 38 | 10 | 12 | 9 | 7 | 0 | 26% |
 | 10-perfis | 50 | 14 | 16 | 11 | 9 | 0 | 28% |
-| TODAS | 396 | 118 | 126 | 89 | 59 | 4 | 30% |
+| TODAS | 396 | 119 | 125 | 89 | 59 | 4 | 30% |
 
 <!-- /TABELA-DA-PARIDADE -->
 
@@ -374,3 +374,23 @@ de atraso cada aba tem, que é o que não muda a cada cura.
 
 O que o CSV **não** decide é a ordem. Ele diz onde estão os buracos, com
 endereço; qual se fecha primeiro é dela.
+
+## Nota de verificação — 05/09/2026
+
+A linha `01-jogar` foi de **21% para 24%** e a `TODAS` de 118 para 119 iguais,
+por uma dívida que fechou: *A palavra do transporte no cartão* saiu de
+`DIFERENTE` para `IGUAL`.
+
+O que ela era: `interface/mesa_viva.py` montava a palavra curta com `"USB" if
+transporte == "usb" else "BT"`, e o `else` pegava a AUSÊNCIA — um controle cujo
+transporte o daemon não publicasse aparecia na aba 01 como **"BT"**, a tela
+afirmando rádio sobre um campo que ninguém leu. Havia quatro respostas vivas no
+produto para o mesmo campo.
+
+O que fechou: o `mesa_viva` passou a LER `pacotes.VIA_DO_TRANSPORTE`, cujo
+`.get(..., "")` já respondia certo na aba 02 — e cujo comentário AFIRMAVA (sem
+ser verdade) que as duas traduções eram a mesma. Agora são. A razão continua
+sendo a do dono da frase longa (`app/actions/home_actions.py:1333`): *"'?' não é
+resposta — é a tela encolhendo os ombros"*.
+
+Régua: `tests/unit/test_a_tela_nao_inventa_o_transporte.py`, com mordida.
