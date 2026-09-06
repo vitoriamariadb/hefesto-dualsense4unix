@@ -1,6 +1,6 @@
 ---
 sprint: PERFIL-MODO-01
-estado: aberta
+estado: feita
 decisoes: [D-0609-PRIORIDADE-TODAS-AS-ABAS, 10-Q2, D1]
 posse:
   10D:
@@ -20,6 +20,29 @@ nao_toca:
 ---
 
 # PERFIL-MODO-01 · PARIDADE — o perfil diz o que "Ativar" liga, e o jogo vem desta máquina
+
+> **FEITA — 06/09/2026.** As três linhas fecharam. O quadro **Modo** existe nas
+> três camadas (dado · desenho · motor), com os quatro rótulos LIDOS de
+> `_MODE_KIND_ITEMS` e as duas frases da 10-Q6 fora — e o clique dos quatro foi
+> provado no `WebKit2.WebView`, com o `.json` lido do outro lado. O **«Ativar»
+> chega às outras abas** por uma cura no DONO do estado
+> (`pacotes/perfil.nome_do_ativo`), e a causa medida NÃO era a que esta sprint
+> supunha: os tiques sempre reliam o disco; o que faltava era o NOME chegar,
+> porque o daemon responde `active_profile: null`. A **lista dos jogos desta
+> máquina** é um `<datalist>` que OFERECE sem fechar o campo — medido no
+> WebKitGTK 2.52, `input.list` resolve.
+>
+> **DUAS COISAS SOBRARAM PARA QUEM COSTURA, e as duas são de UMA LINHA em
+> arquivo de outra posse:** `hefesto_vivo.PERIGOSOS` precisa do
+> `("10-perfis.html", "editor.modo")` (é a QUARTA aparição do defeito que a
+> `ONDA3-GESTO-DECLARA-01` existe para curar), e `pacotes/__init__.topo:765`
+> continua lendo `state["active_profile"]` cru — o chip "Perfil ativo" das dez
+> abas. O laudo inteiro, com as fotos, as mordidas coladas e o texto pronto das
+> três linhas do CSV, está em
+> [`docs/process/agentes/2026-09-06/PERFIL-MODO-01.md`](../agentes/2026-09-06/PERFIL-MODO-01.md).
+>
+> **O DESENHO ESPERA O `--publicar 10`**, que é ato dela — declarado em
+> `mockup/DIVERGENCIAS.md` com o custo da espera medido nas duas páginas.
 
 > **A decisão dela, 06/09/2026**: todas as abas entram; **Estilo de Jogo não é
 > perfil** (os gêneros saem da lista — é a `PERFIS-SAO-PERFIS-01`); e o foco é
