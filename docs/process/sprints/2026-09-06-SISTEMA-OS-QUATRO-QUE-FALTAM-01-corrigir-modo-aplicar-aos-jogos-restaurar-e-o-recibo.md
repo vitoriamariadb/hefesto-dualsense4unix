@@ -1,6 +1,6 @@
 ---
 sprint: SISTEMA-OS-QUATRO-QUE-FALTAM-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   SIS:
@@ -20,6 +20,14 @@ nao_toca:
 ---
 
 # SISTEMA · OS QUATRO QUE FALTAM — corrigir modo, aplicar aos jogos, restaurar, e o recibo
+
+> **ESTADO 2026-09-06: feita** — os três gestos que faltavam nasceram
+> (`corrigir-modo`, `aplicar-aos-jogos`, `restaurar-de-fabrica`), `SEM_MOTOR`
+> ficou VAZIA, os dois botões novos entraram na bancada (o do modo improvisado
+> nasce escondido e troca de lugar com o «Reiniciar o serviço») e o recibo da
+> L323 foi MEDIDO no WebKit nos três que ninguém tinha clicado — `retomar`,
+> `reiniciar` e `autostart` piscam verde, e o que recusa não pisca. Entrega em
+> `docs/process/agentes/2026-09-06/SISTEMA-OS-QUATRO-QUE-FALTAM-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
