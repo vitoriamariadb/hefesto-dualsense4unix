@@ -1,6 +1,6 @@
 ---
 sprint: ONDA5-05-03
-estado: aberta
+estado: feita
 decisoes: [05-Q4]
 posse:
   A05C:
@@ -20,6 +20,45 @@ depois_de: [MIGRA-VIBRACAO-03, MIGRA-VIBRACAO-08, ONDA2-05-VIBRACAO-01, ONDA5-05
 ---
 
 # ONDA5-05-03 · DESENHO — a confirmação sai do cartão e vai para a faixa
+
+> **FEITA — 06/09/2026**, agente `B0503`, branch `voo/ONDA5-05-03-B0503`.
+> Relatório com as medições: `docs/process/agentes/2026-09-06/ONDA5-05-03.md`.
+>
+> **Os Passos 1, 2 e 3 fecharam. O Passo 4 fechou a metade que era desta posse**
+> — o `#vib-estado` declara `data-hef-recados="sucesso"` e
+> `data-hef-recado-classe="est recibo"`; a outra metade (`pintar_recados` ler
+> esses dois atributos) foi **aplicada, medida e revertida**, e o diff exato
+> está no relatório. `hefesto_vivo.py` é `nao_toca`.
+>
+> **A PROVA DE TELA**, com o daemon dela vivo, um DualSense no cabo e a janela
+> OCULTA. A frase que nasceu na faixa, com a coluna nomeada:
+>
+>     P1 · esta coluna vai continuar mostrando Balanceado: a sua escolha é
+>     igual à força geral, e só o que difere dela fica guardado no controle.
+>
+> `{"lugar": "faixa", "pai": "vib-estado", "classe": "hef-recado est recibo",
+> "cor": "rgb(80, 250, 123)", "alt": 16}` — uma linha, no `--green` da paleta.
+> **Nada se mexeu dentro das colunas:** as quatro ficaram com `topo=224
+> alt=452 desenho_topo=224 rotulo_topo=358 recados_dentro=0` nos três momentos,
+> e as fotos do ANTES e do DEPOIS são **byte a byte idênticas**
+> (`9514f7b6…`). **Sem o terceiro lugar**, o mesmo clique põe 94 px de tarja em
+> `y=228` sobre um desenho que começa em `y=224` — a mordida, com foto.
+> **0 mutações em 40 tiques** com a mesa parada.
+>
+> **UMA HIPÓTESE DA SPRINT CAIU, e o aparelho ganhou do enunciado:** a §2.1
+> pede os TRÊS ramos clicados, e **o ramo do `Auto` não é alcançável pelo
+> clique dela** — o botão saiu da tela em 05/09 (`aba05.FORCA` tem três, como
+> `RUMBLE_POLICY_MULT`). O ramo fica, pela mesma razão do `raise` de
+> `_indice`, e tem régua de unidade; o que se clicou foi o ramo que existe.
+>
+> **E UMA COISA QUE A SPRINT NÃO PREVIA:** encurtar as frases obrigou a mexer
+> em **duas** réguas de fora desta posse —
+> `tests/unit/test_a05_a_vibracao_aplica_e_fala.py` (`ONDA5-05-02`, já fechada)
+> e `tests/unit/test_a_forca_da_vibracao_e_por_controle.py`, que **só apareceu
+> ao rodar o BAIRRO** (34 arquivos, 482 casos, 22 s). As três exigiam a oração
+> INTEIRA do produto — 143 caracteres que não cabem na faixa. O contrato foi
+> invertido, não apagado: passa-se a exigir que a metade do FATO continue
+> dentro da oração do produto.
 
 > **A palavra dela, 05/09/2026, na pergunta 05-Q4** (*"depois de clicar num botão
 > desta aba, a tela confirma que deu certo?"*):
