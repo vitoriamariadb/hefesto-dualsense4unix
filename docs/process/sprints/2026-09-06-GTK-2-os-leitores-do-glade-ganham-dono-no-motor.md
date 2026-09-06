@@ -1,6 +1,6 @@
 ---
 sprint: GTK-2
-estado: aberta
+estado: feita
 decisoes: [D-0609-GTK-LEVA-INTEIRA]
 posse:
   GTK2:
