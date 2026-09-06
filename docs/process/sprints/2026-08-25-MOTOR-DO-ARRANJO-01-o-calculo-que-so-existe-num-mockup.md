@@ -1,6 +1,6 @@
 ---
 sprint: MOTOR-DO-ARRANJO-01
-estado: aberta
+estado: feita
 onda: H
 posse:
   MOTOR:
@@ -34,7 +34,7 @@ de cada MOTOR-N) e diga no relatório o que já estava. **O que falta é MOTOR-5
 consome com a régua que a `a08` já usa hoje e o relatório declara a pergunta. `install.sh`
 não se toca (é do FECHO).
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.7 — espera a `D-QUAL-REGUA-MANDA-NO-ARRANJO`, que é dela.
+> **ESTADO 2026-09-06: feita** — as duas réguas que faltavam nasceram em `tests/unit/test_arranjo_invariantes.py`: a varredura AST da MOTOR-5 (nenhum arquivo de `app/`, `interface/` ou `gui/` redigita a razão do motor nem reescreve a tabela de notas — acusa por PALAVRA e por NÚMERO, nomeando arquivo e função) e as duas mordidas da MOTOR-6 (`entrada vazia desenha sem caminho` — 16 buracos, 8 sem ligação, medidos pelo caminho do produto; e `a confirmação da ordem liga a entrada`, com a arrancada que mostra o mapa mentindo quando o produto presume a entrada que ele sugeriu). MOTOR-1 a MOTOR-4 e MOTOR-7 foram conferidos um a um e **já estavam**; nenhuma linha de `src/` mudou. A entrega está em `docs/process/agentes/2026-09-06/MOTOR-DO-ARRANJO-01-opus.md`, e ela leva DUAS coisas para quem vier: a `D-QUAL-REGUA-MANDA-NO-ARRANJO` continua sendo palavra dela (medido: a `a08` não importa `plano_de_radio` em uma única linha, então não há duas réguas na aba de HOJE — a divergência nasce com a ordem de serviço), e o achado de que **no produto o `id` do aparelho É o caminho de barramento** (`mapa_das_portas._aparelho_do_motor`), o que deixa o `reexame` estruturalmente cego — a §3 desta sprint supõe o contrário.
 
 # MOTOR DO ARRANJO-01 — o cálculo que só existe num mockup
 
