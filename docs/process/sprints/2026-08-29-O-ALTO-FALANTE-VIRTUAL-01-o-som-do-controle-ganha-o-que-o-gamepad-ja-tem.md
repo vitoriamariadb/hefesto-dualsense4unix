@@ -1,6 +1,6 @@
 ---
 sprint: O-ALTO-FALANTE-VIRTUAL-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   SOM:
@@ -21,6 +21,17 @@ não se toca. Mordidas da própria sprint: o nó não pode depender do `flavor`;
 desta casa (MACs sintéticos). **O aceite pela orelha dela é o ensaio 1 da MESA-DE-QUATRO-01.**
 `MIGRA-CONTROLES-11` está `absorvida` e `CONTROLE-INTEIRO-NO-RADIO-01` não tem arquivo — os dois
 saíram do `depois_de`.
+
+> **ESTADO 2026-09-06: feita** — o alto-falante virtual nasceu como SUPERFÍCIE em
+`app/audio_saida.py`: um nó por controle, `Alto-falante · P1`…`P4`, com nome e id que
+não sabem do transporte, o sink resolvido pela identidade (nunca pelo texto do nome), a
+máscara fora de toda assinatura, e a recusa COM FRASE quando não há rota — `argv=()`, e
+nunca um sink que engole o som. A régua é
+`tests/unit/test_o_alto_falante_virtual_esconde_o_transporte.py` (16 testes, quatro
+mordidas arrancadas e vistas reprovar). **Ela não carrega módulo nenhum:** devolve o plano
+`pactl`, e o aceite pela orelha dela continua sendo o ensaio 1 da MESA-DE-QUATRO-01.
+Medido de leitura só, com um DualSense no cabo — entrega em
+`docs/process/agentes/2026-09-06/O-ALTO-FALANTE-VIRTUAL-01-opus.md`.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.4 — áudio por rádio; o ensaio 1 da bancada vem antes (FECHO, com ela).
 
