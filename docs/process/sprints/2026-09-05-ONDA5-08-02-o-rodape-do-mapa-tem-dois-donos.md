@@ -137,9 +137,22 @@ veredito:
 citação foi escrita em 04/09.
 
 Isto não é preciosismo de endereço: é a medida do custo de manter em dois
-arquivos uma coisa que é uma. O portão `citacoes-de-linha`
-(`scripts/validar-citacoes-de-linha.py`) não alcança comentário de `.py`, então
-ninguém foi avisado.
+arquivos uma coisa que é uma.
+
+**CORREÇÃO DE FATO — 06/09/2026.** Esta linha dizia que *"o portão
+`citacoes-de-linha` não alcança comentário de `.py`, então ninguém foi
+avisado"*. **A régua existe**, e ela anda por âncora de SÍMBOLO, não pelo
+número:
+`tests/unit/test_portao_o_par_com_metade_ligada.py::TestTodaCitacaoDeLinhaConfere::test_toda_citacao_de_linha_em_comentario_de_codigo_confere`.
+O que é verdade é a metade que importa para quem fecha uma leva: **ela é TESTE,
+não portão** — não roda no `scripts/portoes.sh`, e por isso um vermelho dela
+atravessa a integração calado. Ela está vermelha na base `eb7b844c` com **17
+endereços deslocados**, nenhum deles nestes dois arquivos.
+
+**A LIÇÃO QUE SOBRA, e é o que esta sprint fez:** citação por número é dívida
+com juros — quem inserir uma linha acima dela paga. As cinco citações que esta
+sprint deslocou passaram a apontar o **símbolo**, que sobrevive a qualquer
+inserção.
 
 ### 1.4 A constante do dono é carregada aqui e não chega mais à tela
 
