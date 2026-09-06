@@ -1,6 +1,6 @@
 ---
 sprint: A-CONFISSAO-NO-BOTAO-01
-estado: aberta
+estado: feita
 onda: F
 decisoes: 02-Q8
 posse:
@@ -23,6 +23,18 @@ nao_toca:
 ---
 
 # A-CONFISSAO-NO-BOTAO-01 — o mudo confessa o alvo, e o som diz que o volume pegou
+
+> **ESTADO 06/09/2026: feita** — os dois passos entraram, com as mordidas e a
+> prova de tela em
+> [`docs/process/agentes/2026-09-06/A-CONFISSAO-NO-BOTAO-01.md`](../agentes/2026-09-06/A-CONFISSAO-NO-BOTAO-01.md).
+> **Duas coisas que esta sprint afirmava caíram na medição, e ficam aqui:** o
+> corpo de `mic.canal.set` **não traz `por_uniq`** (só o `mic.volume.set` traz),
+> então a confissão do Passo 1 entrou como trava armada e calada, com
+> régua-estopim; e a frase *"o registrador de volume do DualSense não tem
+> leitura"* virou **"não há leitura de volta hoje"** — `audio.leitura_de_volta`
+> é `existe=desconhecido` no `docs/data/mapa-controles.csv`, com as duas colunas
+> esperando a palavra dela. A condição de parada do Passo 2 foi medida e **não
+> se aplicava**: o gesto já roda fora do tique.
 
 **06/09/2026, ONDA F.** As duas metades nasceram do laudo da
 `PARIDADE-REMEDIR-01`, que as achou fora da posse dela e não tocou em nenhuma.
