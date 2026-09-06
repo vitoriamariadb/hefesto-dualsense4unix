@@ -1,6 +1,6 @@
 ---
 sprint: PERFIS-O-PRECO-E-O-RADIO-01
-estado: aberta
+estado: feita
 onda: G
 posse:
   PERFIS:
@@ -18,6 +18,15 @@ nao_toca:
 ---
 
 # PERFIS · O PREÇO E O RÁDIO — o preço da máscara no hover, e o aviso do rádio em linha
+
+> **ESTADO 2026-09-06: feita** — as linhas 385 e 386 NÃO foram construídas:
+> a decisão 10-Q6 dela (*"Essas frases devem sumir"*) as derrubou, e a régua
+> nova prova a ausência das duas na página PUBLICADA, que é o degrau que a
+> guarda da geração não cobria. A linha 370 era a dívida de verdade e fechou:
+> os sete gestos que gravam o perfil inteiro passaram a montar a base com o
+> que está VALENDO por cima do disco (`a10_perfis._com_o_que_esta_valendo`,
+> lendo de `rodape._draft_do_ativo`) — medido, o renomear apagava a cor que
+> ela acabou de clicar e o `profile.switch` a desfazia no controle.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
