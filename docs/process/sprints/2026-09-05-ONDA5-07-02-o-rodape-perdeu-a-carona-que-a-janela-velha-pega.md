@@ -1,12 +1,14 @@
 ---
 sprint: ONDA5-07-02
-estado: aberta
+estado: feita
 decisoes: [07-Q1]
 posse:
   L2:
     - src/hefesto_dualsense4unix/interface/pacotes/rodape.py
     - src/hefesto_dualsense4unix/interface/pacotes/perfil.py
     - tests/unit/test_carona_do_wrapper_01_salvar_repoe_o_que_a_steam_comeu.py
+cria:
+  - tests/unit/test_o_salvar_do_rodape_nao_recusa_pelo_teto_da_vibracao.py
 nao_toca:
   - src/hefesto_dualsense4unix/integrations/steam_launch_options.py
   - src/hefesto_dualsense4unix/integrations/sentinela_do_wrapper.py
@@ -18,6 +20,32 @@ nao_toca:
 ---
 
 # ONDA5-07-02 · DEFEITO — o rodapé perdeu a carona que a janela velha pega
+
+> **FEITA — 06/09/2026.** Os três gestos do rodapé («Aplicar», «Salvar Perfil»,
+> «Importar») pegam a carona por `perfil.com_a_carona()`, o módulo
+> compartilhado, e devolvem `{"recado": …}` quando há notícia — `None` quando
+> não há. O portão `test_a_interface_nova_tambem_pega_a_carona` conta POR GESTO
+> (árvore de sintaxe), e reprova nomeando qual perdeu o fio.
+>
+> **A PROVA foi no produto, com o daemon vivo e a janela `--oculta`:** o clique
+> sintético em «Salvar Perfil» trocou, no `localconfig.vdf` de um lar de
+> mentira, `"MANGOHUD=1 %command%"` por `sh -c '…hefesto-launch…' MANGOHUD=1
+> %command%` — o `MANGOHUD` dela preservado — e a tela pintou o recado verde
+> *"Reposta a Opção de Inicialização do Hefesto em 1 jogo da Steam…"*. Com a
+> chamada arrancada: gesto "aplicado", **tela muda e atalho ainda comido**.
+>
+> **E ABRIR A TELA ACHOU UM DEFEITO VIVO que nenhuma régua via:** o «Salvar
+> Perfil» **recusava** na máquina dela — `1 validation error for RumbleConfig:
+> custom_mult só é válido com policy='custom' (policy='balanceado')`. O daemon
+> publica o teto da vibração como MEMÓRIA e o rodapé o copiava solto; o perfil
+> dela não era gravado, e nada do Salvar chegava ao disco. Curado em
+> `_o_que_e_da_mesa_inteira`, com régua própria em
+> `tests/unit/test_o_salvar_do_rodape_nao_recusa_pelo_teto_da_vibracao.py`.
+>
+> **O que ficou para outra posse:** as DUAS linhas de `a10_perfis.py` — a
+> delegação de `_com_a_carona` e a carona no funil `_gravar` (OITO gestos, o
+> `detectar` incluso) mais o `voltar-a-de-ontem`, que somam NOVE. Relatado em
+> `docs/process/agentes/2026-09-06/ONDA5-07-02.md`.
 
 > **A decisão dela, verbatim (07-Q1, 05/09/2026):**
 > *"Deve aplicar automaticamente como era no gtk"*
