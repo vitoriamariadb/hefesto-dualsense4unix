@@ -607,3 +607,261 @@ razões, e a segunda é a que decide:
 
 **Para quem tem a posse: a medição acima é a entrega.** Reescrever as três
 linhas com esses endereços é trabalho de minutos, e nenhum deles é remedir.
+
+---
+
+## A conferência
+
+**06/09/2026, terceira volta.** Li a `ESPEC-A-VALIDACAO.md` inteira, abri a
+página no Chrome headless e a usei como ela usaria — comecei um teste, esperei o
+timer, registrei, avancei, voltei, recarreguei, matei o servidor no meio e fui
+ao índice. Não curei nada: o papel aqui é achar.
+
+O que se rodou: `pytest tests/unit/test_a_mesa_de_medicao.py
+tests/unit/test_a_prova_da_mesa_de_medicao.py -q` → **37 passaram**; seis
+arranques de cura, um a um, com o arquivo devolvido entre eles; os dez
+geradores de aba; e o portão da cor nos dois modos.
+
+### O que resistiu — e digo onde, em vez de calar
+
+* **A cena parada não mudou.** `git diff $(git merge-base HEAD
+  onda/atual-0609)..HEAD --stat` toca 13 arquivos e nenhum fora do escopo: o
+  `mesa_de_medicao.py`, o `validar.sh`, os dois testes, a entrada do agente, as
+  três fotos, a lápide do `casa-sabe`, o `monta.py` e uma citação de linha no
+  `a06_navegacao.py`. Rodei os DEZ geradores de aba (`aba01.py`…`aba10.py`) e
+  `git status --short` voltou **vazio** — as dez páginas publicadas saem byte a
+  byte idênticas com o `monta.py` novo.  `mockup/` não foi tocado.
+* **O portão da cor não subiu.** `check_a_cor_vem_do_aparelho.py` = **0** e
+  `--bancada` = **0**, nas três famílias.
+* **O registro sobrevive de verdade.** Matei o servidor **por PID conferido** no
+  meio de um teste, subi outro processo, recarreguei: o COMO, os rádios marcados
+  e o veredito do índice voltaram do disco. Isto é o ponto inteiro da página, e
+  ele está de pé.
+* **As curas MORDEM.** Seis arranques, seis vermelhos: sem o `estado.json` caem
+  3 réguas; sem o `.marcada` repetido caem 2; sem o `!important` caem 2; com o
+  COMO opcional caem 3; com o relógio parado cai 1; com o TEMPO 3 visível sozinho
+  caem 3. Nenhuma régua desta leva passa com a cura arrancada.
+* **Nenhum MAC nem serial em arquivo versionado.** A fixture monta o endereço em
+  tempo de execução; a máscara sai certa na tela e na fita.
+
+### 1. GRAVE — o transporte é lido pela chave errada, e a mesa inteira é sobre transporte
+
+`scripts/mesa_de_medicao.py:563` lê `c.get("transporte")`. O daemon publica
+**`transport`** — e quem diz isso é o laudo dos batedores que veio na entrada
+deste próprio agente: `…-01-entrada/_achados/OS-ENDERECOS.md:146`, *"Base
+(`backend_pydualsense.py:5413`): `index` `connected` `transport`"*, confirmado no
+fonte em `core/backend_pydualsense.py:5442`. A palavra `transporte` é da CAMADA
+DE CIMA (`interface/mesa_viva.py:389`, que traduz), não do `state_full` cru que
+esta página lê.
+
+**Medido**, alimentando `quem_esta_na_mesa()` com um `state_full` da forma real:
+
+```
+P1 {"nome":"Cosmic Red","transporte":"", …}   ← vazio nos quatro
+```
+
+O cartão imprime `sem transporte` nos quatro. A mesa existe para *"dois no cabo e
+dois no rádio"*; as linhas 1, 3, 7, 8, 9, 20 e 21 do roteiro dependem de ela ver
+de que transporte veio cada um. **Reproduzir:** suba o daemon, `./validar.sh
+--sem-abrir`, abra qualquer teste e olhe os quatro cartões.
+
+### 2. GRAVE — a barra de luz recebe uma LISTA e vira CSS inválido
+
+`scripts/mesa_de_medicao.py:574` faz `str(c.get("lightbar_rgb") or "")`. O daemon
+publica **lista**: `entry["lightbar_rgb"] = list(rgb)`
+(`daemon/ipc_handlers.py:3638`). **Medido:** o desenho sai com
+`style="--luz:[255, 0, 0]"` — declaração inválida, e a barra nunca mostra a cor
+que o controle está acendendo. **Reproduzir:** o mesmo roteiro do item 1, e
+`grep -o -- '--luz:[^"]*'` no HTML de `/desenhos`.
+
+### 3. GRAVE — a PORTA DA RÉGUA é o ponto cego que deixa os dois acima vivos
+
+`scripts/mesa_de_medicao.py:519-524`: com `MESA_DE_MEDICAO_MESA_DE_MENTIRA` posto,
+`quem_esta_na_mesa()` **retorna antes** de qualquer mapeamento. Todo teste de
+navegador desta leva — inclusive a §7.6, *"os quatro desenhos aparecem com
+transporte, modelo e lâmpada de jogador certos"* — come um dicionário já com a
+forma final, escrito à mão na fixture. `grep -n "_pergunta_ao_daemon\|state_full"`
+nos dois arquivos de teste devolve **zero linhas**.
+
+É a assinatura desta casa: *o instrumento responde sobre outra coisa que não o
+produto*. A prova de que é ponto cego e não teoria são os itens 1 e 2 — dois
+defeitos de chave, com **37 réguas verdes** por cima. A entrega declara o buraco
+("**1. A leitura do daemon VIVO**"), e a declaração é honesta; mas ela lista
+`transporte` entre as chaves *"vindas do fonte"*, e o fonte diz `transport`. O
+que falta é uma régua que atravesse `_pergunta_ao_daemon` com um payload da forma
+publicada — sem daemon, sem aparelho, sem tela.
+
+### 4. GRAVE — o índice pinta VERDE sobre uma reprovação do produto
+
+`veredito()` (`scripts/mesa_de_medicao.py:702-731`) ignora os papéis de
+propósito, e a docstring defende a escolha. Mas o índice é o instrumento que ela
+lê para saber o que falta, e a escolha produz isto — **medido, clicando**:
+
+* teste `roteiro-07`, *"Gatilhos: aplica um efeito no P3"*, passa quando **"só o
+  P3 muda"**. A tela mostra, certo, `P3 · DEVE REAGIR` e `P1/P2/P4 · NÃO PODE
+  REAGIR`;
+* marquei `obedeceu` nos QUATRO — que é o produto falhando: três controles
+  reagiram a um efeito que não era deles;
+* o índice diz **`obedeceu`**, em verde.
+
+O dado para julgar está na mesma linha do registro (`respostas` e os papéis do
+teste). É a mesma família do defeito que a prova curou seis horas antes — *os
+quatro disseram "nada" e o índice dizia "obedeceu"* — e sobreviveu porque a cura
+cobriu um caso e não a regra. **Reproduzir:** abrir `#roteiro-07`, INICIAR,
+marcar `obedeceu` nos quatro, salvar, ler a linha 7 do índice.
+
+### 5. GRAVE — a linha 1 do roteiro manda P2 e P3 ficarem calados
+
+`testes_do_roteiro` (`scripts/mesa_de_medicao.py:344-352`) chama
+`postos_citados`, que casa `\bP([1-4])\b`. A linha 1 diz *"cada um aparece na
+fita com **P1…P4**"* — a reticência não é dígito, então a régua vê **só P1 e P4**
+e pinta P2 e P3 como `calado`. **A tela então diz, na primeira coisa que ela vai
+fazer:**
+
+```
+P1  DEVE REAGIR      P2  não pode reagir
+P3  não pode reagir  P4  DEVE REAGIR
+```
+
+O oposto do que a linha exige. **Reproduzir:** abrir `#roteiro-01` e ler o
+bloco "O QUE OBSERVAR EM CADA UM". Régua nenhuma cobre isto: o teste dos papéis
+(`test_os_papeis_sao_distintos_quando_a_linha_nomeia_um_posto`) só exige que
+existam dois papéis distintos.
+
+### 6. MÉDIO — um número FALSO na lápide, e o portão que o guarda mede outra coisa
+
+`tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py:1187-1196` justifica
+`folha_das_cores` assim: *"nenhuma aba publica a folha inteira hoje; todas usam a
+podada de `_so_o_colorway`"* e *"a cura da família `zona` …, **hoje em 358 no
+publicado**"*.
+
+**As duas afirmações estão erradas, e as duas se medem em um comando:**
+
+* `check_a_cor_vem_do_aparelho.py` (e `--censo`, e `--bancada`) devolve **0**, nas
+  três famílias — não 358;
+* cinco das dez páginas publicadas já trazem a folha inteira. Contado:
+  `grep -o 'svg\[data-colorway="[a-z0-9-]*"\]' <aba> | sort -u | wc -l` dá **28**
+  em `01-jogar`, `04-iluminacao`, `05-vibracao`, `06-navegacao` e `08-conexoes`.
+
+Nenhuma linha desta branch mexeu no portão nem nas páginas, então o número já era
+falso quando foi escrito. A regra da casa é a que decide o que fazer: *fato
+errado se SUBSTITUI, em todos os lugares*. E vale reabrir a pergunta que o número
+sustentava — se a dívida da família `zona` é zero, `folha_das_cores` não é a cura
+que a lápide promete, e o que ela é ainda precisa de nome.
+
+### 7. MÉDIO — o botão VOLTAR do navegador dessincroniza a barra de endereço da tela
+
+`_JS` escreve `location.hash` a cada `ir()` (`scripts/mesa_de_medicao.py:822`) e
+**não escuta `hashchange`** — só `DOMContentLoaded`. **Medido:**
+
+```
+B. tres cliques no índice: hash #roteiro-04 | tela: "desliga um controle do rádio"
+C. apos go_back():         hash #roteiro-03 | tela: "desliga um controle do rádio"
+                                              contador: "teste 4 de 148"
+```
+
+Ela aperta Voltar — o gesto natural para "volta um teste" —, a URL anda, a tela
+não, e o que ela responder a seguir vai para o teste que está na tela enquanto a
+barra de endereço afirma outro. É a família *"salvar o COMO errado"* que a
+entrega já curou para os campos de texto, um degrau acima: aqui o que pode estar
+errado é a IDENTIDADE do teste. Um `window.addEventListener('hashchange', …)`
+fecha. **Reproduzir:** abrir a página, clicar dois números do índice, apertar
+Voltar, comparar `location.hash` com `#contador`.
+
+### 8. MÉDIO — a precedência do nome foi REINVENTADA, e a especificação nomeia o dono
+
+`scripts/mesa_de_medicao.py:566`: `"nome": declarado or modelo or transporte or "—"`.
+
+A §3 da especificação é explícita: *"A precedência do nome tem dono e não se
+reinventa — `interface/pacotes/__init__.py:1025` `identidade_de`"*. A cópia perde
+duas coisas do original: o **terceiro degrau** (o nome pela mesa viva, que é *"o
+que funciona HOJE"* enquanto o daemon dela não reinicia — `identidade_de:1040-1045`)
+e a guarda do `NOME_SEM_LEITURA` (*"'Não sei' vindo da mesa não é nome"*).
+Consequência prática: numa mesa em que o daemon ainda não decodificou o serial, a
+página cai no travessão onde a aba Jogar já sabe o nome.
+
+Do mesmo modo, o cartão imprime o token cru do daemon (`usb` / `bt`) onde a casa
+tem dono para a palavra curta — `mesa_viva._via_do_transporte` /
+`pacotes.VIA_DO_TRANSPORTE`, que dizem **cabo** e **rádio**.
+
+### 9. MÉDIO — a régua do lançador mede a PALAVRA, e nada nunca roda o `validar.sh`
+
+`tests/unit/test_a_mesa_de_medicao.py:463-474` abre o `validar.sh` e faz
+`assert "--sem-abrir" in fonte`, mais três `not in` para `install.sh`,
+`systemctl` e `pkill` — este último com um `.replace()` que apaga **uma frase de
+comentário exata** antes de procurar. Nada disto exercita o lançador: um
+`validar.sh` que aceitasse `--sem-abrir` e chamasse `xdg-open` assim mesmo
+passaria; e o dia em que alguém reescrever aquele comentário, a régua fica
+vermelha sobre nada.
+
+O `--censo` roda sem servir e sem abrir janela (`validar.sh:96`), e é o alvo
+óbvio de um teste que MEDE em vez de ler. Hoje `--censo` e `--pagina` não têm
+régua nenhuma.
+
+### 10. LEVE — as frases dos papéis têm DOIS donos, e já divergiram
+
+A mesma frase de tela é escrita em dois lugares:
+
+| onde | `reage` | `calado` | `observa` |
+| --- | --- | --- | --- |
+| `mesa_de_medicao.py:905` (TEMPO 1) | `DEVE REAGIR` | `não pode reagir` | **`observe e relate`** |
+| `mesa_de_medicao.py:1113-1115` (TEMPO 3) | `deve reagir` | `não pode reagir` | **`observe`** |
+
+O glossário diz o que fazer: *"dono — o único lugar que sabe um fato ou uma
+frase; a tela LÊ do dono, nunca redigita"*.
+
+### 11. LEVE — `SEGUNDOS_LONGO` promete um comportamento que o código não tem
+
+`scripts/mesa_de_medicao.py:115-117` diz: *"O teto do que a página conta sozinha.
+Acima disto ela mostra o alvo e um botão de 'já passou'"*. A constante é usada em
+**um** lugar (`:375`), como teto de `min(..., SEGUNDOS_LONGO * 20)`; não há ramo
+que mude nada aos 120 s, e o `#pular-timer` existe em **todo** teste, curto ou
+longo. O comentário afirma um mecanismo que não existe.
+
+### 12. LEVE — o vocabulário das peças acende o botão PS em teste de microfone
+
+`vocabulario_das_pecas` (`:243`) quebra `nome` + `apelidos` em fichas. A ficha
+`botao` mapeia para a peça `ps`. **Medido:**
+
+```
+roteiro-09  "Microfone: o botão físico em cada um"  → pecas: lightbar, mic, ps
+roteiro-20  "Mudo no rádio: o botão do microfone do P3" → pecas: mic, ps
+```
+
+O botão PS acende como peça a observar num teste de microfone. A docstring afirma
+*"Não há palavra genérica a filtrar"*, e a régua que deveria sustentar isso —
+`test_o_vocabulario_das_pecas_vem_do_csv_e_nao_e_generico` — mede **cardinalidade**
+(`nenhuma palavra acende mais de quatro peças`), não genericidade: `botao`, que
+acende UMA, passa folgado. Mesma forma em `esquerdo` / `direito`, que acendem
+motor + gatilho + analógico juntos.
+
+### 13. LEVE — o timer só "conta o que dura" em 21 dos 148 testes
+
+`testes_do_mapa` (`:398`) fixa `segundos=SEGUNDOS_PADRAO` para as 127 células do
+mapa. A §1 pede que o timer *"conta durante o que dura"*; isso vale só para as
+linhas do roteiro, onde `segundos_do_texto` lê o número da frase. Não é defeito de
+correção — é escopo, e ele não está declarado.
+
+### O que a §7 pede e ficou sem régua
+
+| item | régua |
+| --- | --- |
+| 7.1 … 7.3, 7.5 … 7.9 | têm, e mordem (arranquei seis e vi as seis reprovarem) |
+| **7.4, segunda metade** — *"a última avança para o índice"* | **nenhuma**. Medi à mão: no teste 148, `salvar e avançar` rola até `#indice` (`window.scrollY` 931) e **fica no 148**, com o TEMPO 3 aberto. É defensável, mas ninguém a fixou |
+| **§4 — a saída sem redigitar** (`ensaios.csv`, as células do mapa, o documento de 07/09) | **não existe**: `grep -rn ensaios scripts/mesa_de_medicao.py` = zero. Está declarado em "O que sobrou", e é o terço da especificação que falta |
+
+### O que eu NÃO consegui derrubar
+
+Procurei e não achei: **cor, nome de peça, nome de modelo ou lista de teste
+digitada** dentro do `mesa_de_medicao.py` — os 148 testes saem do CSV e do
+roteiro, o vocabulário sai do `pecas-do-dualsense.csv`, os 28 modelos saem do
+`cores-do-dualsense.csv` (contei 252 regras `data-colorway` na página viva, 28 × 9)
+e as lâmpadas saem de `monta.PADRAO_JOGADOR`. As três digitações que achei são
+menores e estão acima: as frases dos papéis (item 10), o `REALCE_PADRAO =
+"#ff79c6"` de `monta.py:1439` — que é o `--pink` da casa (`interface/topo.html:35`),
+onde `scripts/gerar-mapa.py:389` usa `var(--color-accent)` — e a palavra `posto`,
+que o glossário chama de **assento**
+(`docs/A-LINGUA-DESTA-CASA…:20`, *"o número é o assento, não o aparelho"*).
+
+**A pergunta que sobra para ela** está no item 4, e é de produto, não de código:
+*quando um controle que devia ficar calado obedece, o índice deve ficar verde?*
