@@ -1,6 +1,6 @@
 ---
 sprint: MIC-BT-DONO-01
-estado: aberta
+estado: feita
 onda: I
 posse:
   POSSE:
@@ -15,6 +15,18 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/coop.py
   - docs/data/
 ---
+
+> **ESTADO 2026-09-06: feita** — o E-posse da ROTA CORRIGIDA entregue: o mudo
+> ganhou mapa por-uniq no controlador (`_mic_mute_by_uniq`, FORA do
+> `_DesiredOutput`) e o `_reapply_desired` o re-pendura no handle novo, ao lado
+> dos `_raw_trigger_*`; `microphone_mute_for` passou a ler o mapa e parou de
+> responder "o kernel é o dono" na janela pós-hotplug. Régua que asserta o BYTE
+> do report do handle B nos dois transportes:
+> `tests/unit/test_o_mudo_do_microfone_sobrevive_a_reconexao.py`. **E3, E4, E5 e
+> E6 não entraram — a ROTA CORRIGIDA reduziu a sprint ao E-posse**, e o E1 nasceu
+> com UMA camada porque a `ponte_bt` sem o E5 seria código morto. **A prova no
+> aparelho continua sendo da MESA-DE-QUATRO-01.** Entrega:
+> `docs/process/agentes/2026-09-06/MIC-BT-DONO-01-opus.md`.
 
 > **REABERTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Estava `absorvida`
 > pela regra mecânica da §3; **o mapa a chama pelo nome**: `audio.microfone.mudo@dualsense`,
