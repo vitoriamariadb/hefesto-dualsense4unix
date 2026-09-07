@@ -1,6 +1,6 @@
 ---
 sprint: JOGAR-OS-SEIS-AVISOS-01
-estado: aberta
+estado: feita
 onda: I
 posse:
   AVISOS:
@@ -21,6 +21,20 @@ nao_toca:
 ---
 
 # JOGAR · OS SEIS AVISOS — o que a aba Jogar lia do daemon e parou de ler
+
+> **ESTADO 2026-09-06: feita** — as seis fecharam. Cinco entraram na coluna
+> Atenção — quatro por `painel.AVISOS_DA_TELA` (de sete para onze fontes) e a
+> divergência de máscara por `a01_jogar._aviso_da_divergencia_de_mascara`,
+> porque ela volta em markup e apontar de `app/` para a janela é citação que
+> o portão `nada-aponta-para-a-janela` reprova. **Sem selo novo**, e sem tocar
+> `ORDEM_DA_GRAVIDADE`, `AVISOS_VIVOS`, o gerador nem as páginas publicadas.
+> A sexta é o recibo do "Reconectar Controles", que
+> passou de dois `p.chamar` calados para dois `p.resultado` com os quatro
+> desfechos da janela antiga na tela. Régua: `tests/unit/test_a_aba_jogar_le_os_seis_avisos.py`, 39 testes,
+> mordido em três partes (7, 1 e 4 vermelhos). Prova de tela CLICADA, `--oculta`,
+> contra um dublê de socket — a bancada não foi tocada. Entrega e o texto
+> pronto das linhas dos dois CSV de `docs/data/` (que é `nao_toca:`) em
+> `docs/process/agentes/2026-09-06/JOGAR-OS-SEIS-AVISOS-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
