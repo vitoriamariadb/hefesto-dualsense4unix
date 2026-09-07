@@ -880,8 +880,11 @@ Tratar **MONTOU** como **funciona** é a mentira mais cara desta casa.
 ## `por_que_nao_aciona` — a coluna que separa dívida de decisão (22/08/2026)
 
 **O problema que ela resolve.** Contado no CSV em 22/08/2026: **41 células**
-dizem `de_onde_sei = medido` e `aciona = não` — 20 no cabo, 21 no rádio, e 13
-linhas com as duas assim. O `gerar-mapa.py` já as pintava de laranja
+diziam `de_onde_sei = medido` e `aciona = não` — 20 no cabo, 21 no rádio, e 13
+linhas com as duas assim. **São 43 em 07/09/2026** (22 no cabo, 21 no rádio), e
+a recontagem, com o que entrou e o que saiu de cada lado, está no cabeçalho de
+`tests/unit/test_o_mapa_separa_divida_de_decisao.py` — que é quem tem o
+contador. O retrato de 22/08 fica porque a frase abaixo o cita. O `gerar-mapa.py` já as pintava de laranja
 (`--color-lacuna`, *"a casa sabe e o produto não faz"*) e já as somava no cartão
 de cada controle. **Contar não bastava, e é por isso que nunca houve portão
 aqui:** as 41 não são a mesma coisa.
