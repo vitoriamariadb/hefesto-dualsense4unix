@@ -1,6 +1,6 @@
 ---
 sprint: O-CONTROLE-SEM-MAC-01
-estado: aberta
+estado: feita
 onda: I
 posse:
   CRACHA:
@@ -23,7 +23,11 @@ decidida por delegação (`D-0609-A-FRASE-DO-CONTROLE-SEM-CRACHA`): *"Este contr
 identificação estável: o Hefesto não vai lembrar dele no próximo jogo."* As cinco mordidas da
 sprint valem inteiras; a que importa é *chaveie pelo `path` e veja reprovar*.
 
-> **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.5 — controles externos.
+> **ESTADO 2026-09-06: feita** — o segundo conduíte existe em `identity.py` (`set_cracha_provider` · `resolver_crachas` · `avisos_sem_cracha` · `FRASE_SEM_CRACHA`), a desistência é anunciada, e a chave nova tem a FORMA DA VELHA: 12 hex canônicos, porque o crachá devolve o ENDEREÇO. Entrega: `docs/process/agentes/2026-09-06/O-CONTROLE-SEM-MAC-01-opus.md`.
+
+> **CAIU DA SPRINT, e foi o mapa que derrubou:** a escolha "entre os cinco candidatos" não tinha cinco. A célula `cabo_detalhe` de `identidade.cracha_nos_dois_transportes` (`docs/data/mapa-controles.csv`) já registrava que o `0x20` agrupa por revisão de placa, o `0x05` é calibração de IMU e é REESCRIVÍVEL pela família `0x80`, e o `0x22` só distingue porque EMBUTE o endereço. Sobra o `0x09` — que é de onde o `hid_playstation` tira o `HID_UNIQ`. Por isso o provider devolve um ENDEREÇO, não "um crachá", e a `QUEM-E-QUEM-04` não precisa de forma nova.
+
+> **O QUE NÃO ESTÁ FIADO:** `set_cracha_provider` não tem chamador — ler `0x09` é `backend_pydualsense.py`, fora da `posse:` desta sprint. Enquanto ninguém fiar, o produto é o de hoje MAIS o aviso.
 
 # O CONTROLE SEM MAC · 01 — o usuário que a mesa desta casa não tem
 
