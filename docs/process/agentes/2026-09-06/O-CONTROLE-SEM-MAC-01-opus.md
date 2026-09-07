@@ -245,6 +245,11 @@ compartilhado, e por isso confiro o tamanho aqui: **3 linhas mudaram de
 1959 KB**, e são as mesmas quatro citações. Se der conflito na costura, é
 regenerável com um comando.
 
+**3. E o `html/painel.html`, que eu DEVOLVI.** O `gerar-mapa.py` reescreve os
+dois, e o painel carimba `branch voo/O-CONTROLE-SEM-MAC-01-opus` e recontagens
+da árvore inteira. Portão nenhum o consulta — conferido rodando os 45 com ele
+devolvido, mesma leitura —, então ele voltou ao que era (commit `1b46fa94`).
+
 **Se quem costura preferir, os dois consertos são descartáveis:** reverter
 `docs/data/mapa-controles.csv` e `html/specs.html` devolve o `citacoes-de-linha`
 ao vermelho e não toca em uma linha do mecanismo.
