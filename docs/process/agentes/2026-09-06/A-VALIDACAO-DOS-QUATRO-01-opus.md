@@ -393,3 +393,217 @@ cd /mnt/Apate/Desenvolvimento/hefesto-voo/hefesto-voo/A-VALIDACAO-DOS-QUATRO-01-
 O registro dela fica em
 `$XDG_STATE_HOME/hefesto-dualsense4unix/mesa-de-medicao/`, e o cabeçalho da
 página mostra o caminho, para ela nunca ter de perguntar onde foi parar.
+
+---
+
+## A prova
+
+**06/09/2026, à noite.** As nove da §7 foram dirigidas pelo Playwright, com o
+Chrome **headless** (`launch()` sem `headless=False`, o mesmo caminho dos
+portões `pecas-do-dualsense` e `cores-do-dualsense`) — **nenhuma janela nasceu
+na tela dela**. Cada linha abaixo traz o NÚMERO medido, não a palavra "ok".
+
+**17 de 17 provas verdes · 6 de 6 mordidas morderam · 37 testes no arquivo do
+construtor e no da prova.**
+
+### As três que mais importam, e as três são mordidas nos ARQUIVOS DE VERDADE
+
+Não em cópia de `tmp_path`: no `docs/data/mapa-controles.csv` desta árvore e no
+`scripts/mesa_de_medicao.py`, com `md5` conferido antes e depois.
+
+| § | o que se mordeu | o que a régua mediu |
+| --- | --- | --- |
+| **7.1** | promovi a célula `audio.microfone.mudo@dualsense [cabo]` a `O APARELHO OBEDECEU` e apaguei o `nao-medido` | a página caiu de **148 para 147 testes** e `mapa-audio.microfone.mudo-cabo` **sumiu** dela. Uma lista copiada à mão teria continuado com 148 |
+| **7.7** | troquei a coluna `peca` daquela linha de `mic` para `touchpad` | o `<g class="marcada">` saiu do `mic` e foi para o `touchpad` nos **quatro** desenhos: touchpad **4/4** e mic **0/4** mordido; devolvido, mic **4/4** e touchpad **0/4** |
+| **7.9** | arranquei a recusa de `Registro.gravar` (`if not gesto: raise ValueError`) | com a cura arrancada o servidor devolveu **HTTP 200 e gravou em disco**; devolvida, **HTTP 400 e nenhum arquivo no registro**. A régua reprovou exatamente onde devia |
+
+O mapa voltou byte a byte — `md5 292167d2c29a99a1e00e446d3df2a212` antes e
+depois; o módulo, `48fafadba9a9…` antes e depois.
+
+### As outras seis, e o que cada uma mediu
+
+| § | prova | o número |
+| --- | --- | --- |
+| 7.2 | nada acontece antes do INICIAR | `#antes` visível, `#contagem` e `#depois` ocultos; **0 svg** e **0 respostas** na tela; **0 pedidos** a `/desenhos` e **0** a `/registro`; **0 arquivos** no registro em disco. E o INICIAR aparece no **primeiro, no do meio e no último** dos 148 |
+| 7.3 | o timer conta ANTES de aplicar | o relógio foi de **5 para 3 em 2,4 s**; `#depois` oculto, **0 pedidos** a `/desenhos` e **0 desenhos** montados durante a contagem. Os tempos distintos da mesa são **[5, 20, 240, 1200] s** — a linha 10 do roteiro pede os **1200** |
+| 7.4 | avançar e voltar | `roteiro-07` → `#roteiro-08` ao salvar, e o campo do COMO voltou **vazio** (não herdou); `anterior` devolveu a `#roteiro-07`; salvar o **último** deixou o índice na viewport |
+| 7.5 | sobrevive a recarregar **e está em disco** | o servidor foi **morto por PID** (`rc=-15`), um processo **NOVO** subiu no mesmo lar e releu o gesto e o rádio marcado. A fita tinha **4 linhas** e o `estado.json`, **3 testes** |
+| 7.6 | os quatro desenhos | colorways `['cosmic-red','starlight-blue','nova-pink','midnight-black']`; transporte **USB/USB/BT/BT** no cartão; os quatro modelos escritos; lâmpadas acesas **`['3','24','135','1245']`** — o padrão canônico do produto, lido de `monta.PADRAO_JOGADOR`, não digitado |
+| 7.8 | o índice | **12 seções** com contador (`O ROTEIRO — A ACEITAÇÃO DO PRODUTO — 1 DE 21`…), **148 linhas**, e o número 1 levou a `#roteiro-01` |
+
+E o endereço saiu mascarado **nas duas camadas**: `AA:BB:CC:00:00:01` na tela e
+na fita, com **zero** ocorrências do endereço cru (`AA:BB:CC:D1:E1:01`) em
+qualquer das duas.
+
+### A RÉGUA QUE IMPEDE A CURA PREGUIÇOSA — e ela vem primeiro no arquivo
+
+Quatro das provas acima conferem **ausência** (`0 svg`, `0 pedidos`, `0
+arquivos`) ou um punhado de elementos. **Uma página que não renderizasse nada
+passaria em todas elas.** Por isso a primeira régua do arquivo novo é um PISO DE
+CONTEÚDO, com a mordida no mesmo teste — a página vazia é medida pela **mesma
+função**, porque duas cópias mediriam coisas diferentes.
+
+| o que se conta | medido | piso |
+| --- | --- | --- |
+| elementos no DOM | 2.041 | 400 |
+| testes em `__TESTES__` | 148 | 140 |
+| palavras na tela | 2.651 | 200 |
+| formas nos quatro desenhos | 212 | 200 |
+| regras `data-colorway` na folha | 252 | 28 |
+| linhas do índice | 148 | 140 |
+
+Medido: `<html><body></body></html>` reprova nos **seis de seis**.
+
+### O DEFEITO QUE A PROVA ACHOU — e ele era um VERDE SOBRE NADA
+
+`veredito()`, a função que decide a cor de cada linha do índice:
+
+```
+ANTES:  veredito({P1..P4: "nada"})  ->  "obedeceu"
+DEPOIS: veredito({P1..P4: "nada"})  ->  "falhou"
+```
+
+**Os quatro controles disseram *"nada aconteceu"* e o índice pintava a linha de
+VERDE.** A regra era `all(v in ("obedeceu", "nada"))`, e um conjunto só de
+`nada` a satisfaz. O índice é o instrumento que ela lê para saber o que ainda
+falta medir: dar verde à linha em que o gesto não produziu efeito em controle
+NENHUM é a leitura errada que uma mesa de medição não pode produzir. Uma
+resposta só (`{"P1": "nada"}`) dava verde do mesmo jeito.
+
+**E `falhou` era INALCANÇÁVEL.** A docstring nomeia quatro estados, o CSS tem
+`.e-falhou` e o JS tem o ramo que a escolhe — e **nenhum caminho da função
+jamais o devolvia**. Uma paleta com quatro cores para três estados é o
+instrumento afirmando uma medida que ele não faz.
+
+A cura **não julga papel**, que é a decisão do construtor e continua de pé:
+`obedeceu` passou a exigir que **ao menos um** controle tenha obedecido; nenhum
+obedeceu e ninguém viu coisa estranha = `falhou`. Os quatro casos que o teste do
+construtor já cobrava continuam idênticos. Medido na TELA, e não só na função: a
+linha do teste com os quatro em `nada` aparece no índice como
+`falhou` / `class="e-falhou"`.
+
+Duas réguas nasceram com ela, e as duas mordem:
+`test_mordida_os_quatro_disseram_nada_e_o_indice_dizia_obedeceu` e
+`test_todo_estado_que_o_indice_pinta_e_alcancavel`, que compara os estados do JS
+com os que a função consegue devolver — é ela que teria pego o `falhou` órfão no
+dia em que ele nasceu.
+
+### As seis mordidas do arquivo novo
+
+Arranquei cada cura, vi a régua reprovar e devolvi byte a byte (`md5
+48fafadba9` nos seis antes e depois):
+
+| arranquei | reprovou |
+| --- | --- |
+| `if (tempo === 3) desenhar()` → `desenhar()` sempre | `…nada_acontece_antes_do_iniciar…` |
+| o `resta -= 1` do tique | `…o_timer_desce…` |
+| o `os.replace(tmp, self.estado)` | `…sobrevive_ao_servidor_morrer…` |
+| `jogador=lampada` → `jogador=1` nos quatro | `…a_lampada_do_padrao_do_produto` |
+| a cura do veredito (a regra velha de volta) | `…os_quatro_disseram_nada…` |
+| a recusa do COMO | `…a_recusa_do_como_nao_deixa_rastro_no_disco` |
+
+### O que a prova NÃO alcançou
+
+**1. O daemon vivo continua sem prova, e o buraco é o mesmo que o construtor
+declarou.** `systemctl --user is-active hefesto-dualsense4unix` = `inactive`
+durante toda a prova, e **eu não iniciei o daemon dela — não é ato meu**. Os
+quatro cartões foram medidos pela porta declarada da régua
+(`MESA_DE_MEDICAO_MESA_DE_MENTIRA`), com endereço FICTÍCIO (OUI `AA:BB:CC`). O
+que continua sem prova é o nome das chaves de `daemon.state_full` e o casamento
+`modelo` → `colorway` pelo nome de fábrica. **A primeira coisa a fazer quando o
+daemon dela subir é abrir a página e conferir os quatro cartões.**
+
+**2. Nenhum controle na mesa.** Nada nesta prova tocou hardware, e nada
+escreveu um byte em aparelho nenhum.
+
+**3. A tela dela.** Não abri o `validar.sh` sem `--sem-abrir`. As três fotos
+são do Chrome headless:
+
+* `A-VALIDACAO-DOS-QUATRO-01-prova-01-antes-do-iniciar.png` — o TEMPO 1, inerte;
+* `A-VALIDACAO-DOS-QUATRO-01-prova-02-durante-o-timer.png` — o TEMPO 2, contando;
+* `A-VALIDACAO-DOS-QUATRO-01-prova-03-depois-do-registro.png` — o TEMPO 3, com
+  os quatro modelos, as lâmpadas e o COMO preenchido.
+
+### O que sobrou, e a primeira é uma PERGUNTA PARA ELA
+
+**1. O realce acende na peça certa, mas quase não se distingue da vizinha no
+MESMO desenho — e a cor tem dono, então eu não a escolhi.** Medido no
+`getComputedStyle`, a razão de contraste entre a peça marcada e a zona de
+plástico ao lado dela:
+
+```
+P1  Cosmic Red       marcada rgb(124,133,152)  vizinha rgb(174, 51, 90)   1,66:1
+P2  Starlight Blue   marcada rgb(124,133,152)  vizinha rgb(126,184,212)   1,71:1
+P3  Nova Pink        marcada rgb(255,121,198)  vizinha rgb(227, 91,140)   1,43:1
+P4  Midnight Black   marcada rgb(124,133,152)  vizinha rgb( 96, 96, 98)   1,69:1
+```
+
+O que o desenho separa BEM é o papel — entre desenhos, `--reage` contra
+`--calado` são cores francamente diferentes, e a §7.7 mede isso. O que ele
+separa MAL é **qual peça acendeu dentro de um controle**, que é a leitura que
+ela vai fazer com o plástico na mão: o pior caso é o Nova Pink, com o realce
+rosa sobre plástico rosa. Não curei porque a tinta tem dono
+(`monta.REALCE_PADRAO` e as `--reage`/`--calado`/`--observa` do CSS da página), e
+uma cor digitada por mim seria a decisão cravada que esta casa proíbe. **A cura
+que não escolhe cor existe** — um contorno de espessura, que é independente de
+matiz —, e cabe numa linha da `folha_de_realce`. É pergunta dela.
+
+**2. `SEGUNDOS_LONGO` descreve um comportamento que a página não tem.** A
+docstring diz *"o teto do que a página conta sozinha. Acima disto ela mostra o
+alvo e um botão de 'já passou'"* — mas a constante só é usada como
+`min(segundos, SEGUNDOS_LONGO * 20)`, e a página conta os 1200 s da linha 10 de
+segundo em segundo, como conta os 5. O botão "já passou" está sempre lá, em todo
+teste. Não é defeito de comportamento; é uma frase que descreve outro. Medido:
+os tempos da mesa são `[5, 20, 240, 1200]` e o teto real é 2400.
+
+**3. Os dois portões vermelhos: MEDIDOS na base, e a medição que falta está
+feita — mas a linha não é minha para reescrever.**
+
+**Placar do fecho: 43 de 45 verdes.** Os dois que sobram são
+`paridade-gtk-html` e `donos-de-comportamento`, e eu não os herdei de boato:
+abri uma árvore descartável em `ae1c3d82` — a ponta de `onda/atual-0609`, antes
+da primeira linha desta frente — e rodei os dois scripts lá.
+
+```
+ae1c3d82 (base, árvore limpa):
+  check_paridade_gtk_html.py        rc=1   divida-fechada em :315 e :343
+  check_donos_de_comportamento.py   rc=1   VERMELHO em donos-de-comportamento.csv:47
+```
+
+**Os mesmos três achados, byte a byte.** E `git diff ae1c3d82 --name-only`
+mostra que esta branch não tocou `paridade-gtk-html.csv`, nem
+`donos-de-comportamento.csv`, nem `a09_sistema.py`.
+
+**O QUE OS TRÊS PEDEM É UMA MEDIÇÃO, E EU A FIZ** — o portão diz *"meça-a de
+novo e reescreva-a"*, e a metade de medir não custa posse de arquivo nenhum:
+
+| a linha | o que ela afirma | o que eu MEDI no código de hoje |
+| --- | --- | --- |
+| `paridade-gtk-html.csv:315` "Corrigir modo de execução" — `FALTA_NO_HTML`, `html_faz` = *"Nada. Não existe o botão nem o gesto em página nenhuma"* | que o lado HTML não tem o ato | **tem.** `@gesto("09-sistema.html", "corrigir-modo", grava="_systemctl")` em `a09_sistema.py:2472`, com os três tempos da janela antiga: `_read_daemon_pid` → `_o_avulso_saiu` (que consulta o `is_alive` do produto e espera `SEGUNDOS_ATE_O_AVULSO_SAIR`) → `ativar_o_servico` |
+| `paridade-gtk-html.csv:343` "Restaurar de fábrica" — `FALTA_NO_HTML`, `html_faz` = *"NÃO TEM DONO… o clique cai em `gesto_da_pagina() -> None`"* | que o gesto não tem motor | **tem.** `@gesto("09-sistema.html", "restaurar-de-fabrica", grava="gravar_e_reaplicar")` em `a09_sistema.py:2580`: chama `_rodape._meu_perfil_asset()`, valida o `Profile`, e grava por `perfil.gravar_e_reaplicar`. E `a09_sistema.SEM_MOTOR` está **VAZIO desde 06/09** — o comentário lá dentro registra o número indo de 5 → 3 → 1 → 0 em quatro dias |
+| `donos-de-comportamento.csv:47` `migrar_para_systemd` marcado `SO-GTK` | que só a janela faz isto | **a janela saiu do disco nesta leva** (`GTK-3`, `D-0609-GTK-LEVA-INTEIRA`) e o ato mora na tela nova, no endereço acima |
+
+**E POR QUE EU NÃO REESCREVI AS LINHAS, que é a parte que importa.** Duas
+razões, e a segunda é a que decide:
+
+1. **a troca do `sinal` é uma armadilha conhecida, e esta linha já caiu nela
+   duas vezes.** O `porque` das duas linhas registra que elas foram promovidas
+   a `DIFERENTE` em 03/09 porque o símbolo *"apareceu no lado HTML"* — e
+   aparecia **dentro de um docstring**. Hoje é a mesma forma:
+   `on_daemon_migrate_to_systemd` está em `a09_sistema.py:2442` e `:2480`, nos
+   dois casos em PROSA, não em ato. A reescrita certa troca o `sinal` por
+   `corrigir_modo` / `restaurar_de_fabrica`, que são funções com corpo — e o
+   próprio portão avisa *"não troque o sinal por outro que só passe"*, o que faz
+   dessa troca uma decisão de quem tem posse, não uma correção mecânica;
+2. **`paridade-gtk-html.csv` tem DONO nesta leva, e não sou eu.** As árvores
+   `voo/PARIDADE-CRUZA-O-MAPA-01-opus` e
+   `voo/PARIDADE-REMEDIR-01-F-PARIDADE-REMEDIR-01` estão em voo sobre esse
+   arquivo, e `a09_sistema.py` é de `voo/SISTEMA-OS-QUATRO-QUE-FALTAM-01-opus`.
+   A leva é dividida POR POSSE DE ARQUIVO justamente para não haver conflito;
+   editar o CSV daqui criaria o conflito que o desenho da onda evita. Some-se a
+   isso que a `regra 8` do portão exige regerar a tabela publicada — o número de
+   paridade da 09-sistema e o `TODAS` mudam junto —, e o custo de fazer isso
+   sem posse é uma segunda verdade sobre a porcentagem que a casa publica.
+
+**Para quem tem a posse: a medição acima é a entrega.** Reescrever as três
+linhas com esses endereços é trabalho de minutos, e nenhum deles é remedir.
