@@ -95,6 +95,23 @@ ganha sprint nova, escrita no molde de 05/09 e com a medição desta bancada com
 §1. O item 11 é o único que não é dos quatro: entra aqui porque ela mandou
 (*"deixa pras últimas etapas da 24h mas ainda nessas 24"*).
 
+
+### As seis seções das 21
+
+As 21 não são uma fila plana: elas se agrupam pelo que MEDEM, e é assim que a
+bancada anda — fecha uma seção, passa à seguinte. A tabela abaixo é a fonte
+disso, e **a mesa de medição a lê**; a seção de uma linha não se digita na
+página. O agrupamento é o da especificação da mesa (§4), de 06/09/2026.
+
+| seção | linhas |
+| --- | --- |
+| Chegada e identidade | 1 · 5 · 17 |
+| Co-op e queda | 2 · 3 · 4 · 18 |
+| Uma feature por controle | 6 · 7 · 8 · 9 · 20 · 21 |
+| Bateria e som | 10 · 11 · 19 |
+| Perfil vivo, sem Salvar | 12 · 13 · 14 |
+| Lançadores e conexões | 15 · 16 |
+
 ## 3. O QUE SAI DAQUI
 
 * `docs/process/2026-09-07-A-MESA-DE-QUATRO-o-que-a-bancada-mediu.md`: a tabela
