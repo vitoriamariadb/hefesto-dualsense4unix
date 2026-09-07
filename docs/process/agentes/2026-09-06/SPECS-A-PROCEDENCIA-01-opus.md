@@ -108,20 +108,21 @@ coluna que a mesa lê, a régua reprovou nomeando 20 células.
 | **(d)** | `check_a_tela_nao_promete_o_que_o_mapa_nega.py` não existe | **não foi criado**, como a rota mandou. A régua desta casa é a `Fala` de `app/fala_do_mapa.py`, e o `fatos_do_mapa.py` regenerado é o que a tela lê |
 | **(e)** | posse de DIRETÓRIO faz o `colisao-de-sprints` nascer vermelho | esta sprint declara ARQUIVOS no frontmatter, e o portão nasceu verde |
 
-### 6. A LEVA DE HOJE ENTROU NO MAPA — 11 células
+### 6. A LEVA DE HOJE ENTROU NO MAPA — nove células
 
 A `ROTA CORRIGIDA` manda transcrever o que os agentes de hoje devolveram em
 `mediu: [{chave, transporte, ate_onde_foi, viu}]`. Cruzei `_lotes/LOTE-1` e
 `LOTE-2` (`saida.json`) com o mapa: **onze células tinham `ate_onde_foi` VAZIO e
-um agente declarou `MONTOU` nelas.** As onze receberam `MONTOU` e uma linha de
-evidência datada com a sprint, o commit e o relatório:
+um agente declarou `MONTOU` nelas.** Nove receberam `MONTOU` e uma linha de
+evidência datada com a sprint, o commit e o relatório; **as duas de
+`combinacao.slot_jogador.estabilidade@dualsense` ficaram sem o degrau** porque
+uma régua de 03/09 o proíbe — ver §8. As nove:
 
 `luz.lightbar.release_leds@dualsense` (2) · `energia.bateria.leitura_hefesto@dualsense` (2) ·
 `audio.alto_falante@dualsense` [rádio] · `audio.saida_dedicada@dualsense` [cabo] ·
-`audio.microfone.mudo@dualsense` [rádio] · `combinacao.slot_jogador.estabilidade@dualsense` (2) ·
-`plataforma.slot_jogador@dualsense` (2).
+`audio.microfone.mudo@dualsense` [rádio] · `plataforma.slot_jogador@dualsense` (2).
 
-**`MONTOU` é o degrau que a suíte sustenta sozinha** — nenhuma das onze exigiu
+**`MONTOU` é o degrau que a suíte sustenta sozinha** — nenhuma das nove exigiu
 ensaio no caderno, e nenhum aparelho foi tocado por esta escrita.
 
 ### 7. As saídas geradas
@@ -130,6 +131,25 @@ ensaio no caderno, e nenhum aparelho foi tocado por esta escrita.
 (308 chaves) regenerados pelos donos (`gerar-mapa.py`, `gerar-fatos-de-tela.py`).
 `docs/data/ensaios.csv` **não ganhou linha nenhuma** — ensaio só entra com ensaio
 feito, e as linhas da bancada de hoje são da MESA-DE-QUATRO-01.
+`docs/data/LEIA-PRIMEIRO.md` regerado por `check_paridade_transporte.py
+--leia-primeiro --escrever`, que é o dono dos quatro números que a minha
+mudança moveu (bytes do mapa, do `specs.html`, deste portão, e a última linha da
+docstring dele).
+
+### 8. UM DEGRAU QUE EU ESCREVI E DESFIZ — a régua de 03/09 ganhou
+
+Eu escrevi `MONTOU` nos dois lados de
+`combinacao.slot_jogador.estabilidade@dualsense` transcrevendo o que dois
+agentes de hoje declararam (`COOP-QUE-NAO-DESMONTA-01`, `RESERVA-DO-POSTO-01`,
+os dois em dublê). **Uma régua que já existia reprovou:**
+`tests/unit/test_mapa_combinacao_enderecos.py::test_nada_desta_frente_afirma_ter_ido_ao_aparelho`
+exige que o `radio_ate_onde_foi` daquela linha continue VAZIO — *"nada desta
+frente foi ao aparelho"*.
+
+**Desfiz o degrau nos dois lados e mantive o ponteiro**, com a razão escrita na
+própria célula. A régua de 03/09 ganha da minha transcrição, e a pergunta que
+sobra — *`MONTOU` em dublê conta como degrau nesta linha?* — é de quem tem
+aquela régua na posse. **As outras nove ficaram**: nenhuma tem régua que proíba.
 
 ---
 
@@ -159,6 +179,28 @@ nada; mordida que não arranca tudo não é mordida.*
 **Os portões:** `git add -A && bash scripts/portoes.sh` — a saída inteira está em
 `/tmp/portoes-SPECS-A-PROCEDENCIA-01.txt`, e a camada rápida fechou
 **TODOS VERDES — 28 portões** antes da completa.
+
+---
+
+### E DOIS ARQUIVOS FORA DA `posse:` — declarados, e por quê
+
+**Nenhum dos dois é escolha: os dois são movidos por construção pela mudança do
+mapa, e deixá-los velhos entregaria a suíte vermelha a quem costura.**
+
+| arquivo | o que mudou | por que era forçado |
+| --- | --- | --- |
+| `tests/unit/test_o_mapa_separa_divida_de_decisao.py` | `TETO_DA_DIVIDA` de **25 para 23**, com a razão datada no idioma do próprio arquivo | as duas células de `audio.microfone.volume@dualsense` saíram de `divida`, e `test_o_teto_e_um_numero_deste_arquivo_e_nao_do_csv` exige que o teto seja EXATAMENTE a conta de hoje. **Nenhuma dívida foi paga com código:** o que mudou é a classificação |
+| `docs/data/LEIA-PRIMEIRO.md` | quatro números regerados pelo dono | `check_paridade_transporte.py --leia-primeiro --escrever` é o comando que o próprio teste manda rodar |
+
+E um TERCEIRO, este **dentro** da posse, que chegou VERMELHO da base:
+`tests/unit/test_o_mouse_emulado_nao_pergunta_o_fio.py` cravava
+`por_que_nao_aciona = ""` para `luz.recursos_proprios@dualsense`, com o
+comentário *"a causa fica VAZIA de propósito"*. **A frase caducou em 06/09**: a
+regra 16 do portão deixou de valer só para o `medido` e passou a cobrar causa de
+TODO `aciona = não`, e vazio deixou de ser defensável. A expectativa passou a
+`nao-medido`, que é o que o mapa diz hoje — e fica em aberto, para quem escreveu
+a célula, se `nao-medido` (*"ninguém olhou"*) é a causa certa para uma linha cujo
+`cabo_detalhe` chama a causa de MISTA.
 
 ---
 
@@ -244,7 +286,28 @@ nada; mordida que não arranca tudo não é mordida.*
    é de outro dono** — hoje um agente pode relatar por uma `chave` que não casa
    com nada e ninguém percebe.
 
-6. **`ponte_de_onde_sei` continua vazia em 298 de 308 linhas**, e isso **não** é
+6. **CINCO TESTES DA SUÍTE JÁ CHEGAVAM VERMELHOS DA BASE, e nenhum é meu.**
+   Rodei os **1.287 testes que leem o mapa, o `specs.html`, o
+   `fatos_do_mapa.py`, o portão ou a mesa** (`3m32s`) e depois **repeti os
+   vermelhos com os meus arquivos trocados pelos de `onda/atual-0609`** — é a
+   única forma de separar o que eu quebrei do que já estava quebrado, e ela
+   respondeu:
+
+   | teste | veredito |
+   | --- | --- |
+   | `test_a_fala_de_tela_alcanca_a_interface_nova::test_o_portao_de_hoje_esta_no_piso_e_diz_qual_e` | **vermelho na base** |
+   | `test_causa_nao_declarada_z6_05::test_causa_vazia_com_de_onde_sei_inferido_nao_reprova` | **vermelho na base** — e a causa tem nome: a **regra 16 foi ALARGADA em 06/09** para cobrir todo `aciona = não`, e este nó ainda afirma o contrário (*"causa vazia com `de_onde_sei` inferido NÃO reprova"*). É a régua medindo o mundo de ontem, pela terceira vez em três dias |
+   | `test_as_fotos_acompanham_a_versao::test_as_fotos_nao_ficam_atras_do_codigo_da_tela` | **vermelho na base** |
+   | `test_o_lexico_da_aba_configuracoes::test_o_rodape_nao_perde_o_campo_que_nao_tem_secao` | **vermelho na base** |
+   | `test_o_mapa_separa_divida_de_decisao::test_a_populacao_nao_depende_da_coluna_que_ela_confere` | **vermelho na base** — o recorte de 02/09 diz 41 células `medido` + `não` e o mapa tem 43. O próprio assert diz o que fazer: *"o retrato deste arquivo envelheceu e o texto precisa ser recontado"*. **Não recontei**: recontar é reescrever a prosa do arquivo, e ela é de quem a escreveu |
+
+   **Os três que eu quebrei foram consertados** (o teto da dívida, o
+   `LEIA-PRIMEIRO`, e o degrau da `combinacao.slot_jogador.estabilidade` que a
+   régua de 03/09 recusou). **Nenhum dos cinco de cima entra na lista de
+   portões** — os 45 fecham verdes com eles vermelhos, e é por isso que só
+   aparecem para quem roda a suíte. Quem costurar vai encontrá-los.
+
+7. **`ponte_de_onde_sei` continua vazia em 298 de 308 linhas**, e isso **não** é
    dívida desta régua: a coluna responde *por qual PONTE a feature chega ao
    jogo*, e a regra 15 do portão já cobra o caso que importa (afirmação forte
    por `uhid` sem `ponte_alcanca` — hoje ZERO). Não a cobrei de propósito:
