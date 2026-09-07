@@ -88,10 +88,10 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 05-vibracao | 31 | 14 | 9 | 5 | 3 | 0 | 45% |
 | 06-navegacao | 40 | 15 | 16 | 0 | 9 | 0 | 38% |
 | 07-lancadores | 30 | 15 | 5 | 0 | 9 | 1 | 50% |
-| 08-conexoes | 49 | 20 | 23 | 4 | 2 | 0 | 41% |
+| 08-conexoes | 49 | 21 | 23 | 3 | 2 | 0 | 43% |
 | 09-sistema | 38 | 11 | 17 | 3 | 7 | 0 | 29% |
 | 10-perfis | 50 | 14 | 20 | 7 | 9 | 0 | 28% |
-| TODAS | 396 | 144 | 156 | 33 | 59 | 4 | 36% |
+| TODAS | 396 | 145 | 156 | 32 | 59 | 4 | 37% |
 <!-- /TABELA-DA-PARIDADE -->
 
 A tabela é **gerada da contagem do CSV** e conferida pelo portão (regra
