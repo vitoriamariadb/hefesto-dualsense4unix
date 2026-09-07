@@ -1,6 +1,6 @@
 ---
 sprint: PARIDADE-REMEDIR-02
-estado: aberta
+estado: feita
 onda: J
 posse:
   PARIDADE:
@@ -30,6 +30,8 @@ nao_toca:
 ---
 
 # PARIDADE · REMEDIR 02 — as linhas que as ondas G a J fecharam voltam ao CSV
+
+> **ESTADO 2026-09-06: feita** — as 32 linhas `FALTA_NO_HTML` foram relidas contra o fonte de hoje: **NOVE mudaram de veredito** com o endereço aberto no código (12, 17, 26, 28, 35 e 323 para `DIFERENTE`; 25 para `IGUAL`; 177 e 182 para `DIFERENTE`), e o número foi de `145 · 156 · 32 · 37 %` para `146 · 164 · 23 · 37 %` — a `01-jogar` caiu de sete `FALTA` para UMA. **SEIS ficaram `FALTA` pela MESMA causa, medida ocorrência a ocorrência:** o mecanismo fechou e a OFERTA está só no `mockup/` (45, 57, 89, 90 esperam `--publicar 02`; 110 espera o 03; 340 espera o 09) — publicar é ato dela. As nove foram mordidas DUAS vezes, pelo `sinal` e pela CURA NO CÓDIGO, 9/9 nas duas — e a segunda derrubou três sinais que os laudos propunham, que davam VERDE com a cura arrancada porque o símbolo sobrevivia na docstring do mesmo arquivo. Entrega: `docs/process/agentes/2026-09-06/PARIDADE-REMEDIR-02-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
