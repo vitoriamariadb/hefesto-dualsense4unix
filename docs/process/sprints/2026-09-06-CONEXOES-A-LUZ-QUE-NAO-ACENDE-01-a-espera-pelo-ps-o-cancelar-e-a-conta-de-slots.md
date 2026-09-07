@@ -1,6 +1,6 @@
 ---
 sprint: CONEXOES-A-LUZ-QUE-NAO-ACENDE-01
-estado: aberta
+estado: feita
 onda: I
 posse:
   LUZ:
@@ -20,6 +20,15 @@ nao_toca:
 ---
 
 # CONEXÕES · A LUZ QUE NÃO ACENDE — a espera pelo PS, o Cancelar, e a conta de slots
+
+> **ESTADO 2026-09-06: feita** — a espera pelo PS entrou na interface nova reusando
+> `secao_controles.EsperaPeloPS` inteiro (contagem em segundos de relógio monotônico, o
+> mesmo botão virando **Cancelar**, e o recado do fim numa `monta.ressalva` que some em
+> repouso); a conta de slots por adaptador entrou na seção Desempenho lendo
+> `plano_de_radio` (o *cabe mais um?*, o declarado que não subiu, e os dois estados
+> honestos de `secao_orcamento`). No caminho caiu um terceiro defeito, medido no DOM: o
+> botão da linha do P1 nascia `apagado` para sempre, e o Cancelar nasceria cinza.
+> Entrega em `docs/process/agentes/2026-09-06/CONEXOES-A-LUZ-QUE-NAO-ACENDE-01-opus.md`.
 
 > **ROTA — 06/09/2026, arrumação da leva (Fable, PO por delegação).** Esta sprint nasceu da
 > definição de pronto dela — *"migrar tudo do gtk pro html … todas as features funcionando"* —
