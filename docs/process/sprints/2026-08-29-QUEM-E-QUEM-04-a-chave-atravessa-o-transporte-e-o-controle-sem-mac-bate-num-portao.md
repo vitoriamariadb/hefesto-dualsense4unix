@@ -1,6 +1,6 @@
 ---
 sprint: QUEM-E-QUEM-04
-estado: aberta
+estado: feita
 onda: J
 posse:
   CHAVE:
@@ -19,6 +19,15 @@ declara no relatório dela.** Todos os outros `depois_de` estão `absorvida`/`ca
 saíram. As seis provas da §4 valem inteiras — inclusive *a mesa de UM*. Não escreve a cura do
 sem-MAC; só abre a porta do perfil para a forma que ela declarar, preservando as três rejeições
 medidas (`000000000001`, `ffffffffffff`, duas grafias).
+
+> **ESTADO 2026-09-06: feita** — a régua nomeada nasceu com 40 casos e quatro
+mordidas rodadas no fonte (`tests/unit/test_quem_e_quem_04_a_chave_atravessa_o_transporte.py`);
+a §3 item 1 CAIU — a `O-CONTROLE-SEM-MAC-01` mediu que o crachá é o ENDEREÇO, e
+a forma da chave continua sendo a de sempre, então nada foi alargado em
+`schema.py` além do bloco que declara isso. Entrega:
+`docs/process/agentes/2026-09-06/QUEM-E-QUEM-04-opus.md`. O segundo controle da §4
+trocou de faixa para `3c9d07…`: o endereço que ela nomeia é recusado pelos portões
+`test-data` e `mac-de-fixture`, que só aceitam as faixas forjadas desta casa.
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.3 — régua do esquema do perfil, não remedida desde 29/08.
 
