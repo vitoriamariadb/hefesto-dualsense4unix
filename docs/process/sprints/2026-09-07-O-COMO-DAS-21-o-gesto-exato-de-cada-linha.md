@@ -106,16 +106,18 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 2. Anote qual boneco é de qual controle, antes de mexer em nada.
 3. Largue os quatro controles na mesa e ponha as mãos só no P1.
 4. Empurre o analógico esquerdo do P1 para um lado e depois para o outro.
-5. Olhe o jogo: só o boneco 1 pode se mexer.
+5. Veja o jogo: só o boneco 1 pode se mexer.
 6. Empurre o analógico direito do P1 para os dois lados.
-7. Aperte as quatro direções do direcional do P1, uma de cada vez: cima, baixo, esquerda e direita.
-8. Solte o P1 e confira que nenhum boneco continua andando sozinho.
-9. Repita os cinco passos acima com o P2, com as mãos só nele.
-10. Repita com o P3.
-11. Repita com o P4.
-12. Jogue uns vinte segundos com os quatro juntos, do jeito que se joga mesmo, e veja se alguém troca de boneco no meio.
-13. Vá ao Hefesto, aba Controles, e clique no chip "Todos" da fita, se algum boneco errado tiver se mexido.
-14. Mexa de novo no analógico do controle suspeito e veja em qual cartão o pontinho anda — o cartão diz de qual aparelho veio o movimento.
+7. Veja o jogo de novo: só o boneco 1 pode se mexer.
+8. Aperte as quatro direções do direcional do P1, uma de cada vez: cima, baixo, esquerda e direita.
+9. Veja o jogo mais uma vez: só o boneco 1 pode se mexer.
+10. Solte o P1.
+11. Confira que nenhum boneco continua andando sozinho.
+12. Refaça a mesma volta com o P2, depois com o P3 e depois com o P4, sempre com as mãos só naquele controle e os outros três largados na mesa.
+13. Jogue uns vinte segundos com os quatro juntos, do jeito que se joga mesmo.
+14. Repare se alguém troca de boneco no meio.
+15. Se algum boneco errado tiver se mexido, vá ao Hefesto, aba Controles, clique no chip "Todos" da fita e mexa de novo no analógico do controle suspeito.
+16. Veja em qual cartão o pontinho anda — o cartão diz de qual aparelho veio o movimento.
 
 **Passa quando.** Nas quatro voltas, o boneco que se mexeu foi o do controle que estava na sua mão, e só ele: nenhum outro boneco andou junto, nenhum boneco ficou parado quando o dono dele mexeu, e nada continuou andando depois que você soltou. E nos vinte segundos com os quatro jogando juntos ninguém trocou de boneco no meio.
 
@@ -126,7 +128,7 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 * **P3** — Segure só o P3 e faça os mesmos gestos. Só o boneco 3 pode responder — e ele está no rádio, que é onde este defeito costuma aparecer.
 * **P4** — Segure só o P4 e faça os mesmos gestos. Só o boneco 4 pode responder — este é o último a entrar e o mais propenso a nascer sem dono.
 
-**A armadilha.** Mexer em dois controles ao mesmo tempo esconde exatamente o defeito que este teste procura. Quando um aparelho está alimentando dois jogadores, os dois bonecos andam JUNTOS — e com as duas mãos ocupadas isso parece que cada dono mexeu no seu. Um de cada vez, com os outros três largados na mesa, é o que revela. E se você mexer no P1 e o boneco 3 responder, não conclua nada olhando só o jogo: pode ser o jogo que embaralhou a ordem dos jogadores, não o Hefesto. Quem separa os dois é o cartão da aba Controles, e é para isso que ele está nos passos.
+**A armadilha.** Mexer em dois controles ao mesmo tempo esconde exatamente o defeito que este teste procura. Quando um aparelho está alimentando dois jogadores, os dois bonecos andam JUNTOS — e com as duas mãos ocupadas isso parece que cada dono mexeu no seu. Um de cada vez, com os outros três largados na mesa, é o que revela. E se você mexer no P1 e o boneco 3 responder, não conclua nada olhando só o jogo: pode ser o jogo que embaralhou a ordem dos jogadores, não o Hefesto. Quem separa os dois é o cartão da aba Controles, e é para isso que ele está nos passos. E este teste é longo de propósito, com DEZ atos: os três gestos do P1 — o analógico esquerdo, o analógico direito e o direcional — são atos separados porque cada um tem de ter a olhada no jogo colada nele. Empacotados num ato só, quem lê mexe nos três e olha o jogo no fim, e um boneco alheio que andou no analógico direito passa despercebido — que é exatamente o defeito que esta linha existe para pegar.
 
 ---
 
@@ -280,22 +282,18 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 1. Abra a aba Gatilhos.
 2. Confira que as quatro colunas têm etiqueta de controle no alto, e que nenhuma diz que o lugar está vazio.
-3. Aperte o L2 e o R2 do P1 e repare em como eles estão agora.
-4. Aperte o L2 e o R2 do P2 e repare em como eles estão agora.
-5. Aperte o L2 e o R2 do P3 e repare em como eles estão agora.
-6. Aperte o L2 e o R2 do P4 e repare em como eles estão agora.
-7. Abra o campo Modo da linha Gatilho esquerdo, na coluna do P3.
-8. Escolha «Rígido».
-9. Aperte o L2 do P3 e sinta se ele travou duro do começo ao fim do curso.
-10. Abra o campo Modo da linha Gatilho direito, na mesma coluna do P3.
-11. Escolha «Rígido».
-12. Aperte o R2 do P3 e sinta se ele travou também.
-13. Aperte o L2 e o R2 do P1 de novo e compare com o que você sentiu no começo.
-14. Aperte o L2 e o R2 do P2 de novo e compare com o que você sentiu no começo.
-15. Aperte o L2 e o R2 do P4 de novo e compare com o que você sentiu no começo.
-16. Escolha «Desligado» no campo Modo da linha Gatilho esquerdo do P3.
-17. Escolha «Desligado» no campo Modo da linha Gatilho direito do P3 (com isto o teste está desfeito, e a troca automática de perfil, que o efeito tinha pausado, volta a valer).
-18. Aperte o L2 e o R2 do P3 e confirme que os dois voltaram a ficar leves.
+3. Aperte o L2 e o R2 de cada um dos quatro controles, um por vez, para guardar na mão como cada um está ANTES.
+4. Escolha «Rígido» no campo Modo da linha Gatilho esquerdo, na coluna do P3.
+5. Aperte o L2 do P3.
+6. Confira, na mão, que ele travou duro do começo ao fim do curso.
+7. Escolha «Rígido» no campo Modo da linha Gatilho direito, na mesma coluna do P3.
+8. Aperte o R2 do P3.
+9. Confira, na mão, que ele travou também.
+10. Aperte o L2 e o R2 do P1, do P2 e do P4 de novo, um por vez.
+11. Compare com o que você sentiu no começo: os três têm de estar iguais, nenhum mais duro e nenhum mais solto.
+12. Escolha «Desligado» no campo Modo das duas linhas do P3, o Gatilho esquerdo e o Gatilho direito (com isto o teste está desfeito, e a troca automática de perfil, que o efeito tinha pausado, volta a valer).
+13. Aperte o L2 e o R2 do P3.
+14. Confira que os dois voltaram a ficar leves.
 
 **Passa quando.** Só o L2 e o R2 do P3 ficam duros. Os gatilhos do P1, do P2 e do P4 continuam exatamente como estavam antes — nenhum endureceu e nenhum ficou mais solto. E, ao escolher «Desligado» nas duas linhas do P3, os dois gatilhos dele voltam a ficar leves na sua mão.
 
@@ -321,23 +319,20 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 1. Abra a aba Iluminação.
 2. Leia a etiqueta no alto das quatro colunas e anote qual controle está por cabo e qual está por rádio.
 3. Clique numa das oito bolinhas da linha Cor, na coluna do P1.
-4. Olhe a barra de luz do P1 no aparelho e confirme que ela acendeu nessa cor.
+4. Confira, no aparelho, que a barra de luz do P1 acendeu nessa cor.
 5. Clique numa bolinha de cor diferente na linha Cor da coluna do P2.
-6. Olhe a barra do P2 e confirme a cor; confira também que a do P1 continua na cor dela.
+6. Confira a barra do P2 e veja que a do P1 continua na cor dela.
 7. Clique numa terceira cor na linha Cor da coluna do P3.
-8. Olhe a barra do P3 e confirme a cor; confira que as do P1 e do P2 não mudaram.
+8. Confira a barra do P3 e que as do P1 e do P2 não mudaram.
 9. Clique numa quarta cor na linha Cor da coluna do P4.
-10. Olhe os quatro controles juntos: quatro barras acesas, quatro cores diferentes, ao mesmo tempo.
+10. Veja os quatro controles juntos: quatro barras acesas, quatro cores diferentes, ao mesmo tempo.
 11. Traga para a frente a janela de um jogo que já tenha perfil próprio no Hefesto.
-12. Olhe o «Perfil ativo» no alto da tela: agora ele NÃO deve trocar — pintar a cor à mão pausa a troca automática, e é isso que a segunda metade do teste vai destravar.
+12. Confira o «Perfil ativo» no alto da tela: agora ele NÃO deve trocar — pintar a cor à mão pausa a troca automática, e é isso que a segunda metade do teste vai destravar.
 13. Volte para a janela do Hefesto.
-14. Clique em «Automático» na linha Opções da coluna do P1.
-15. Olhe a barra do P1: ela passa a acender a cor do número dele.
-16. Clique em «Automático» na coluna do P2 e olhe a barra dele.
-17. Clique em «Automático» na coluna do P3 e olhe a barra dele.
-18. Clique em «Automático» na coluna do P4 e olhe a barra dele.
-19. Traga a janela do mesmo jogo para a frente de novo.
-20. Olhe o «Perfil ativo»: agora ele tem de trocar para o perfil daquele jogo.
+14. Clique em «Automático» na linha Opções de cada uma das quatro colunas, uma coluna de cada vez.
+15. Confira, a cada clique, que a barra daquele controle passa a acender a cor do número dele.
+16. Traga a janela do mesmo jogo para a frente de novo.
+17. Confira o «Perfil ativo»: agora ele tem de trocar para o perfil daquele jogo.
 
 **Passa quando.** As quatro barras de luz ficam acesas ao mesmo tempo, cada uma na cor que você escolheu para ela — inclusive as dos dois controles que estão por rádio —, e pintar uma nunca muda a cor de outra. Depois dos quatro cliques em «Automático», o «Perfil ativo» no alto da tela volta a trocar sozinho quando um jogo com perfil próprio vem para a frente.
 
@@ -430,24 +425,23 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 **Os passos.**
 
-1. Confira que o P3 está só no rádio: nenhum cabo plugado nele.
-2. Deixe o som da máquina num volume que dê para ouvir.
-3. Abra a janela do Hefesto e clique na aba Controles.
+1. Clique na aba Controles.
+2. Confira que o P3 está só no rádio: nenhum cabo plugado nele.
+3. Toque uma música ou um vídeo qualquer, num volume que dê para ouvir nas caixas.
 4. Clique na linha do P1 para abrir o card dele.
-5. Procure o bloco Alto-falante dentro do card do P1.
-6. Arraste o deslizante de volume desse bloco até o fim da direita.
-7. Encoste o ouvido no P1 e ouça o som curto de confirmação que o controle deve dar.
-8. Clique em Todo o som do PC, no mesmo bloco do P1.
-9. Toque uma música ou um vídeo qualquer e ouça com o ouvido encostado no P1.
-10. Clique em Sons do jogo, no bloco do P1, para devolver o som às caixas — não pule este passo.
-11. Clique na linha do P3 para abrir o card dele; o do P1 fecha sozinho.
-12. Leia a linha de ressalva embaixo do bloco Alto-falante do P3 e anote se ela apareceu e o que diz.
-13. Arraste o deslizante de volume do alto-falante do P3 até o fim da direita.
-14. Encoste o ouvido no P3 e ouça.
-15. Clique em Todo o som do PC, no bloco do P3.
-16. Toque a mesma música e encoste o ouvido no P3 de novo.
-17. Encoste o ouvido no P4 e confirme que ele ficou mudo o tempo todo.
-18. Clique em Sons do jogo, no bloco do P3, para devolver o som às caixas.
+5. Encoste o ouvido nos nove furinhos do P1 e deixe-o ali pela rodada inteira dele.
+6. Arraste o deslizante de volume do bloco Alto-falante do P1 até o fim da direita.
+7. Confira que o P1 deu o som curto de confirmação que o controle deve dar ao receber o volume.
+8. Clique em Todo o som do PC, no bloco do P1.
+9. Confira que a música passou a sair pelo alto-falante do P1.
+10. Clique em Sons do jogo, no bloco do P1, para devolver o som às caixas, e clique na linha do P3 para abrir o card dele; o do P1 fecha sozinho.
+11. Leia a linha de ressalva embaixo do bloco Alto-falante do P3 e anote se ela apareceu e o que diz.
+12. Encoste o ouvido nos nove furinhos do P3 e deixe-o ali pela rodada inteira dele.
+13. Refaça no P3, com o ouvido encostado, os dois gestos de tela que fez no P1: o volume até o fim da direita e o Todo o som do PC.
+14. Confira se o P3 deu o som de confirmação no volume e se a música saiu por ele no Todo o som do PC — e anote a resposta como ela vier, porque o silêncio também é resposta.
+15. Encoste o ouvido no P4, em que ninguém tocou, e escute.
+16. Confira que o P4 ficou mudo do começo ao fim.
+17. Clique em Sons do jogo, no bloco do P3, para devolver o som às caixas.
 
 **Passa quando.** Sai som pelo alto-falante do P3, o controle que está no rádio, e ela ouve com o controle encostado no ouvido. Para o resultado valer, o P1 — que está no cabo — tem de ter tocado antes: é ele que prova que o ouvido dela e o caminho de som do Hefesto estão funcionando. E o P4 tem de ficar mudo do começo ao fim.
 
@@ -458,7 +452,7 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 * **P3** — No rádio, e é ESTE que tem de receber o som. Todos os gestos de som são nele, e é nele que ela encosta o ouvido.
 * **P4** — No rádio, e não pode tocar. No fim, encoste o ouvido nele e confirme o silêncio.
 
-**A armadilha.** Três. Se o P1, que está no cabo, também não tocar, o teste não mediu nada — pode ser o volume do sistema, a saída de som errada ou o alto-falante calado, e não o rádio; conserte isso antes de olhar o P3. O botão Todo o som do PC tira o som das caixas e o joga no controle: se ela esquecer de clicar em Sons do jogo depois, a máquina fica muda e isso parece defeito sem ser. E um controle por vez: som nos dois ao mesmo tempo não deixa saber qual tocou. Por fim, silêncio no P3 é uma resposta válida e não é erro dela — o Hefesto ainda não montou o caminho de som pelo rádio, e é isso que a linha de ressalva do card diz. Anote 'não saiu som' e siga adiante, sem ficar tentando.
+**A armadilha.** Três. Se o P1, que está no cabo, também não tocar, o teste não mediu nada — pode ser o volume do sistema, a saída de som errada ou o alto-falante calado, e não o rádio; conserte isso antes de olhar o P3. O botão Todo o som do PC tira o som das caixas e o joga no controle: se ela esquecer de clicar em Sons do jogo depois, a máquina fica muda e isso parece defeito sem ser. E um controle por vez: som nos dois ao mesmo tempo não deixa saber qual tocou. Por fim, silêncio no P3 é uma resposta válida e não é erro dela — o Hefesto ainda não montou o caminho de som pelo rádio, e é isso que a linha de ressalva do card diz. Anote 'não saiu som' e siga adiante, sem ficar tentando. E o tamanho, declarado: são DEZ atos, dois a mais que o alvo de oito. O instrumento deste teste é o ouvido dela encostado no plástico, e ele é ato numerado três vezes — no P1, no P3 e no P4 —, cada uma ANTES dos cliques que ela vai escutar. Encostar o ouvido não é conferência: escrito como 'confira, com o ouvido encostado', ele vira linha cinza sem número, e quem executa clica primeiro e ouve depois, quando o som já passou. É por isso que os três encostares têm número próprio, e é o que faz este teste caber numa mão.
 
 ---
 
@@ -502,44 +496,37 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 **O que isto prova.** Prova que o que você muda num controle vale nele na hora, não encosta nos outros três, e continua lá depois de fechar e reabrir o Hefesto — sem você clicar uma única vez em Salvar Perfil.
 
-**Onde olhar.** Nos aparelhos: a barra de luz do controle 1 (as duas tiras dos lados do touchpad), e o que a sua mão sente no L2, no R2 e no punho esquerdo dele. Na tela: a coluna do controle 1 nas abas Iluminação, Vibração e Gatilhos — cada controle tem a sua coluna, e o nome dele está no cabeçalho. E, no fim, a aba Perfis, na tabela de baixo, coluna "Ajuste próprio": ali cada controle tem uma linha, e acendem os nomes das peças que têm ajuste só dele (L2, R2, Motor de vibração esquerdo).
+**Onde olhar.** Nos aparelhos: a barra de luz do controle 1 (as duas tiras dos lados do touchpad), e o que a sua mão sente no L2, no R2 e no punho esquerdo dele. Na tela: a coluna do controle 1 nas abas Iluminação, Vibração e Gatilhos — cada controle tem a sua coluna, e o nome dele está no cabeçalho. No alto da tela, o nome em "Perfil ativo". E, no fim, a aba Perfis, na tabela de baixo, coluna "Ajuste próprio": ali cada controle tem uma linha, e acendem os nomes das peças que têm ajuste só dele (L2, R2, Motor de vibração esquerdo).
 
 **Os passos.**
 
-1. Ligue o controle 1 e o controle 2 pelo cabo.
-2. Ligue o controle 3 e o controle 4 pelo rádio.
-3. Feche a Steam por inteiro, se ela estiver aberta.
-4. Abra o Hefesto.
-5. Leia o nome que aparece no alto da tela, em "Perfil ativo", e anote-o num papel.
-6. Deixe o botão "Salvar Perfil", no rodapé, sem tocar — do começo ao fim deste teste.
-7. Abra a aba Iluminação.
-8. Ache a coluna do controle 1.
-9. Clique, na linha "Cor" dessa coluna, num quadradinho de cor bem diferente da que a barra tem agora.
-10. Olhe a barra de luz do controle 1 no aparelho e confirme que ela mudou para a cor nova.
-11. Olhe as barras de luz dos controles 2, 3 e 4 e confirme que nenhuma delas mudou.
-12. Abra a aba Vibração.
-13. Arraste até 0 a barra do "Motor esquerdo", na coluna do controle 1 — o número ao lado tem de mostrar 0.
-14. Pegue o controle 1 na mão.
-15. Clique em "Testar" na coluna do controle 1 e sinta: só o punho direito treme.
-16. Pegue o controle 2 na mão.
-17. Clique em "Testar" na coluna do controle 2 e sinta: os dois punhos tremem.
-18. Abra a aba Gatilhos.
-19. Escolha "Rígido" na lista "Modo" do L2, na coluna do controle 1.
-20. Escolha "Rígido" na lista "Modo" do R2, na mesma coluna.
-21. Aperte o L2 e o R2 do controle 1 e sinta a resistência nova.
-22. Aperte o L2 e o R2 dos controles 2, 3 e 4 e confirme que continuam soltos como antes.
-23. Feche a janela do Hefesto pelo X.
-24. Abra o Hefesto de novo.
-25. Confira que o nome em "Perfil ativo" é o mesmo que você anotou.
-26. Olhe a barra de luz do controle 1 no aparelho e confirme que ela continua na cor nova.
-27. Abra a aba Vibração e confirme que a barra do "Motor esquerdo" do controle 1 continua em 0.
-28. Clique em "Testar" na coluna do controle 1 e sinta de novo: só o punho direito treme.
-29. Abra a aba Gatilhos e confirme que o L2 e o R2 do controle 1 continuam em "Rígido".
-30. Aperte o L2 do controle 1 e confirme que a resistência continua lá.
-31. Abra a aba Perfis.
-32. Olhe a tabela de baixo, na coluna "Ajuste próprio".
-33. Confirme que a linha do controle 1 tem acesos o L2, o R2 e o Motor de vibração esquerdo.
-34. Confirme que as linhas dos controles 2, 3 e 4 estão apagadas nessas três peças.
+1. Abra a aba Iluminação.
+2. Leia o nome que aparece no alto da tela, em "Perfil ativo", e anote-o num papel.
+3. Clique, na linha "Cor" da coluna do controle 1, num quadradinho de cor bem diferente da que a barra tem agora.
+4. Confira que a barra de luz do controle 1 mudou para a cor nova.
+5. Confira que as barras de luz dos controles 2, 3 e 4 não mudaram.
+6. Abra a aba Vibração.
+7. Arraste até 0 a barra do "Motor esquerdo", na coluna do controle 1.
+8. Confira que o número ao lado da barra mostra 0.
+9. Clique em "Testar" na coluna do controle 1, com ele na mão.
+10. Confira que só o punho direito treme.
+11. Clique em "Testar" na coluna do controle 2, com ele na mão.
+12. Confira que os dois punhos tremem.
+13. Abra a aba Gatilhos.
+14. Escolha "Rígido" na lista "Modo" do L2 e na do R2, na coluna do controle 1.
+15. Confira, apertando o L2 e o R2 do controle 1, que os dois ganharam resistência.
+16. Confira, apertando o L2 e o R2 dos controles 2, 3 e 4, que continuam soltos como antes.
+17. Feche a janela do Hefesto pelo X.
+18. Abra o Hefesto de novo.
+19. Confira que o nome em "Perfil ativo" é o mesmo que você anotou.
+20. Confira que a barra de luz do controle 1 continua na cor nova.
+21. Confira, na aba Vibração, que a barra do "Motor esquerdo" do controle 1 continua em 0.
+22. Clique em "Testar" na coluna do controle 1.
+23. Confira que só o punho direito treme de novo.
+24. Confira, na aba Gatilhos, que o L2 e o R2 do controle 1 continuam em "Rígido", e que o seu dedo ainda sente a resistência.
+25. Abra a aba Perfis.
+26. Confira, na tabela de baixo, coluna "Ajuste próprio", que a linha do controle 1 tem acesos o L2, o R2 e o Motor de vibração esquerdo.
+27. Confira que as linhas dos controles 2, 3 e 4 estão apagadas nessas três peças.
 
 **Passa quando.** As três mudanças do controle 1 aparecem no aparelho no mesmo instante do clique, sem você passar por Salvar Perfil; os controles 2, 3 e 4 continuam exatamente como estavam; e, depois de fechar e reabrir o Hefesto, as três continuam lá — a cor acesa na barra do controle 1, o punho esquerdo mudo no Testar dele e a resistência no L2 e no R2. Na tabela da aba Perfis, só a linha do controle 1 acende L2, R2 e Motor de vibração esquerdo.
 
@@ -550,7 +537,7 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 * **P3** — Não toque nele. É a testemunha do rádio, e serve para provar que a mudança não vazou por cima do sem fio. A luz, o tremor e os gatilhos dele têm de estar como estavam.
 * **P4** — Não toque nele. É a segunda testemunha do rádio. Se o 3 ficou intacto e o 4 mudou, o defeito não é do rádio — é de alguma coisa que escreveu no controle errado.
 
-**A armadilha.** Feche só a JANELA do Hefesto, pelo X. Não desligue o serviço pela aba Sistema: com o serviço parado a luz e o gatilho voltam ao que o aparelho faz sozinho, e o teste reprova sem haver defeito. Faça este teste com a Steam fechada — com ela aberta a barra de luz pode apagar sozinha depois de cada comando, porque quem escreve por último ganha e a Steam escreve direto no aparelho. Não tente provar nada pelo "Brilho": ele não muda a luz do aparelho nem no cabo nem no rádio. E não confie só na tela dos gatilhos: ela mostra o que o Hefesto mandou, não o que o gatilho está fazendo — o controle não sabe responder isso, e a prova é o seu dedo. Uma coisa que NÃO é reprovação: a peça "Lightbar" pode ficar apagada na tabela da aba Perfis mesmo com a barra acesa na cor nova — clicar numa cor manda a cor ao controle, mas quem grava a cor no perfil é o "Salvar Perfil", que este teste proíbe de propósito.
+**A armadilha.** POR QUE ESTE TESTE É LONGO (onze atos, e não oito): ele é o mesmo teste feito DUAS vezes — três mudanças em três abas antes de fechar a janela, e as três conferidas de novo depois de reabrir. Cortar a segunda metade seria cortar exatamente o que ele prova, que é o perfil sobreviver ao fechar. NÃO TOQUE NO "SALVAR PERFIL", no rodapé, do começo ao fim deste teste: é ele que o teste existe para dispensar, e um clique nele apaga a prova. Feche só a JANELA do Hefesto, pelo X — não desligue o serviço pela aba Sistema: com o serviço parado a luz e o gatilho voltam ao que o aparelho faz sozinho, e o teste reprova sem haver defeito. Faça este teste com a Steam fechada por inteiro — com ela aberta a barra de luz pode apagar sozinha depois de cada comando, porque quem escreve por último ganha e a Steam escreve direto no aparelho. Não tente provar nada pelo "Brilho": ele não muda a luz do aparelho nem no cabo nem no rádio. E não confie só na tela dos gatilhos: ela mostra o que o Hefesto mandou, não o que o gatilho está fazendo — o controle não sabe responder isso, e a prova é o seu dedo. Uma coisa que NÃO é reprovação: a peça "Lightbar" pode ficar apagada na tabela da aba Perfis mesmo com a barra acesa na cor nova — clicar numa cor manda a cor ao controle, mas quem grava a cor no perfil é o "Salvar Perfil", que este teste proíbe de propósito.
 
 ---
 
@@ -562,28 +549,21 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 **Os passos.**
 
-1. Ligue o controle 1 e o controle 2 pelo cabo.
-2. Ligue o controle 3 pelo rádio.
-3. Deixe o controle 4 desligado e longe da mesa.
-4. Abra o Hefesto.
-5. Confira que há um nome escrito no alto da tela, em "Perfil ativo".
-6. Abra a aba Gatilhos.
-7. Confirme que há três colunas na tela, uma para cada controle ligado.
-8. Aperte o L2 e o R2 dos controles 1, 2 e 3 e guarde na mão como eles estão hoje.
-9. Vá à coluna do controle 1.
-10. Escolha "Metralhadora" na lista "Modo" do L2 dessa coluna.
-11. Escolha "Metralhadora" na lista "Modo" do R2 da mesma coluna.
-12. Aperte o L2 e o R2 do controle 1 e sinta o efeito novo.
-13. Clique no botão roxo "Em todos", no pé da coluna do controle 1.
-14. Leia a tarja verde que nasce no alto dessa coluna.
-15. Aperte o L2 e o R2 do controle 2 e sinta se o efeito novo chegou.
-16. Aperte o L2 e o R2 do controle 3 e sinta se o efeito novo chegou.
-17. Ligue agora o controle 4.
-18. Espere ele aparecer na tela como uma quarta coluna.
-19. Aperte o L2 e o R2 do controle 4 e sinta se ele já nasceu com o efeito.
-20. Abra a aba Perfis.
-21. Olhe a tabela de baixo, na coluna "Ajuste próprio".
-22. Confirme que o L2 e o R2 estão apagados nas quatro linhas de controle.
+1. Abra a aba Gatilhos.
+2. Desligue o controle 4 e deixe-o longe da mesa: ele entra só depois do clique.
+3. Confira que há um nome escrito no alto da tela, em "Perfil ativo".
+4. Confira que sobraram três colunas na tela, uma para cada controle ligado.
+5. Aperte o L2 e o R2 dos controles 1, 2 e 3 e guarde na mão como eles estão hoje.
+6. Escolha "Metralhadora" nas duas listas "Modo" da coluna do controle 1, a do L2 e a do R2.
+7. Aperte o L2 e o R2 do controle 1 e sinta o efeito novo.
+8. Clique no botão roxo "Em todos", no pé da coluna do controle 1.
+9. Leia a tarja verde que nasce no alto dessa coluna.
+10. Aperte o L2 e o R2 do controle 2 e os do controle 3, e sinta se o efeito novo chegou aos dois.
+11. Ligue o controle 4.
+12. Veja-o aparecer na tela como uma quarta coluna.
+13. Aperte o L2 e o R2 do controle 4 e sinta se ele já nasceu com o efeito.
+14. Abra a aba Perfis.
+15. Confira, na tabela de baixo, coluna "Ajuste próprio", que o L2 e o R2 estão apagados nas quatro linhas de controle.
 
 **Passa quando.** Um clique só põe o mesmo efeito no L2 e no R2 dos três controles ligados, e você sente isso no dedo nos três. A tarja verde confirma que o efeito passou a valer para todos. O controle 4, que estava desligado na hora do clique, já nasce com o efeito quando você o liga. E na tabela da aba Perfis o L2 e o R2 ficam apagados nas quatro linhas — apagado ali quer dizer "usa o do perfil inteiro", que é justamente o que o "Em todos" tinha de escrever.
 
@@ -594,7 +574,7 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 * **P3** — Não escolha nada nele. Ele também recebe pelo "Em todos", e é o único do rádio nesta rodada. Aperte o L2 e o R2 dele depois do clique.
 * **P4** — Fica desligado durante o clique — é a testemunha. Ligue-o só depois. Se ele nascer com o efeito, o Hefesto guardou o efeito como o de todo mundo, que é o ponto inteiro do teste; se nascer sem, o efeito ficou preso nos três de antes e o teste reprovou.
 
-**A armadilha.** Se o botão roxo "Em todos" não estiver no pé da coluna, pare aqui: o botão está pronto, mas ainda não foi publicado na tela do produto, e publicar é decisão sua. Não é defeito, é fila. A tarja verde não diz um número: ela diz que o efeito passou a valer para todos e que um controle ligado depois já nasce com ele — se você esperar uma contagem, um teste bom vai parecer reprovado. Sem nome em "Perfil ativo", o botão recusa e explica: o efeito vai para os controles ligados, mas não há onde guardá-lo, e o controle 4 não vai herdar nada. E não decida pelo que a tela dos gatilhos mostra: ela mostra o que o Hefesto mandou, não o que o gatilho está fazendo — sem apertar o L2 e o R2 de cada controle, este teste dá verde sem prova.
+**A armadilha.** Este teste tem NOVE atos de propósito, e cortar qualquer um deles tira prova: ele mede o mesmo dedo antes e depois em quatro controles, e o quarto só entra na mesa depois do clique — é essa entrada tardia que prova que o efeito virou o de todo mundo, e não uma cópia mandada aos três que estavam lá. Se o botão roxo "Em todos" não estiver no pé da coluna, pare aqui: o botão está pronto, mas ainda não foi publicado na tela do produto, e publicar é decisão sua. Não é defeito, é fila. A tarja verde não diz um número: ela diz que o efeito passou a valer para todos e que um controle ligado depois já nasce com ele — se você esperar uma contagem, um teste bom vai parecer reprovado. Sem nome em "Perfil ativo", o botão recusa e explica: o efeito vai para os controles ligados, mas não há onde guardá-lo, e o controle 4 não vai herdar nada. E não decida pelo que a tela dos gatilhos mostra: ela mostra o que o Hefesto mandou, não o que o gatilho está fazendo — sem apertar o L2 e o R2 de cada controle, este teste dá verde sem prova.
 
 ---
 
@@ -606,51 +586,32 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 **Os passos.**
 
-1. Ligue o controle 1 e o controle 2 pelo cabo.
-2. Ligue o controle 3 e o controle 4 pelo rádio.
-3. Abra o Hefesto.
-4. Abra a aba Jogar.
-5. Ache a caixinha "Não trocar de perfil sozinho ao abrir um jogo", dentro do quadro "Modo".
-6. Desmarque essa caixinha, se ela estiver marcada.
-7. Abra a Steam.
-8. Abra o jogo que você quer testar.
-9. Deixe o jogo chegar ao menu.
-10. Volte ao Hefesto com Alt+Tab.
-11. Abra a aba Lançadores.
-12. Clique em "Detectar o jogo que está aberto".
-13. Leia a frase que aparece: ela diz o nome do jogo e se ele abre ou não pelo atalho do Hefesto.
-14. Abra a aba Perfis.
-15. Clique em "Novo".
-16. Escreva o nome do jogo no campo "Nome:".
-17. Escreva 90 no campo "Prioridade:".
-18. Clique no botão "Detectar", ao lado de "Nome do Jogo:".
-19. Leia a frase que responde e confira que o jogo reconhecido é o seu, e não o lançador que estava por cima.
-20. Confira que o campo "Funciona em:" mudou sozinho para "Jogo da Steam" ou "Jogo".
-21. Clique no nome desse perfil novo na lista "Perfis Salvos".
-22. Clique em "Ativar".
-23. Abra a aba Iluminação.
-24. Clique no quadradinho verde da linha "Cor", na coluna do controle 1.
-25. Confirme que a barra de luz do controle 1 ficou verde.
-26. Clique em "Salvar Perfil", no rodapé.
-27. Feche o jogo.
-28. Feche a Steam por inteiro.
-29. Volte à aba Lançadores.
-30. Clique no botão verde "Consertar" do cartão da Steam, se ele estiver lá.
-31. Leia a frase que responde ao "Consertar".
-32. Abra a aba Perfis.
-33. Clique no nome de outro perfil qualquer da lista e clique em "Ativar".
-34. Confira que o alto da tela passou a mostrar esse outro nome em "Perfil ativo".
-35. Olhe a barra de luz do controle 1 e confirme que ela deixou de ser verde.
-36. Abra a Steam.
-37. Abra o jogo.
-38. Espere o jogo chegar ao menu.
-39. Olhe a barra de luz do controle 1 assim que o jogo abrir.
-40. Volte ao Hefesto com Alt+Tab e leia o nome em "Perfil ativo".
-41. Volte ao jogo com Alt+Tab.
-42. Aperte um botão do controle 1 e veja o jogo responder.
-43. Aperte um botão do controle 2 e veja o jogo responder.
-44. Aperte um botão do controle 3 e veja o jogo responder.
-45. Aperte um botão do controle 4 e veja o jogo responder.
+1. Abra a aba Jogar.
+2. Desmarque a caixinha "Não trocar de perfil sozinho ao abrir um jogo", dentro do quadro "Modo".
+3. Abra pela Steam o jogo que você quer testar.
+4. Volte ao Hefesto com Alt+Tab e clique na aba Lançadores.
+5. Clique em "Detectar o jogo que está aberto".
+6. Leia a frase que responde: ela diz o nome do jogo e se ele abre ou não pelo atalho do Hefesto.
+7. Clique na aba Perfis e clique em "Novo".
+8. Preencha o campo "Nome:" com o nome do jogo e o campo "Prioridade:" com 90.
+9. Clique no botão "Detectar", ao lado de "Nome do Jogo:".
+10. Leia a frase que responde e confira que o jogo reconhecido é o seu, e não o lançador que estava por cima.
+11. Confira que o campo "Funciona em:" mudou sozinho para "Jogo da Steam" ou "Jogo".
+12. Clique no nome desse perfil novo, na lista "Perfis Salvos", e clique em "Ativar".
+13. Clique na aba Iluminação e clique no quadradinho verde da linha "Cor", na coluna do controle 1.
+14. Confira que a barra de luz do controle 1 ficou verde.
+15. Clique em "Salvar Perfil", no rodapé.
+16. Feche o jogo e saia da Steam por inteiro.
+17. Clique na aba Lançadores e clique no botão verde "Consertar" do cartão da Steam, se ele estiver lá.
+18. Leia a frase que responde ao "Consertar".
+19. Clique na aba Perfis, escolha outro perfil qualquer da lista e clique em "Ativar".
+20. Confira que o alto da tela passou a mostrar esse outro nome em "Perfil ativo" e que a barra de luz do controle 1 deixou de ser verde.
+21. Abra pela Steam o mesmo jogo outra vez.
+22. Veja a barra de luz do controle 1 assim que o jogo abrir.
+23. Volte ao Hefesto com Alt+Tab.
+24. Leia o nome que está em "Perfil ativo".
+25. Volte ao jogo com Alt+Tab e aperte um botão de cada controle, um por vez, do P1 ao P4.
+26. Confira que o jogo responde aos quatro.
 
 **Passa quando.** Ao abrir o jogo, sem você tocar em nada, o nome em "Perfil ativo" vira o do perfil que você criou para ele, e a barra de luz do controle 1 fica verde — os dois sinais da troca automática. E dentro do jogo os quatro controles respondem: os dois do cabo e os dois do rádio.
 
@@ -661,9 +622,9 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 * **P3** — O primeiro do rádio. Só tem de responder dentro do jogo. É o que costuma cair primeiro quando alguma coisa dá errado sem fio, então aperte um botão dele com atenção.
 * **P4** — O segundo do rádio. Só tem de responder dentro do jogo. Se três responderem e ele não, o defeito é do rádio ou do quarto lugar na fila — não da troca de perfil.
 
-**A espera.** O jogo leva minutos para chegar ao menu, e você não precisa ficar olhando. Deixe-o carregando e vá fazer outra coisa; volte quando ouvir o som do menu. A troca de perfil acontece sozinha e continua feita quando você voltar — nada se desfaz por você ter saído da frente. Ao voltar, o primeiro lugar a olhar é a barra de luz do controle 1; se ela já apagou o verde, confirme pelo nome em "Perfil ativo", com Alt+Tab para o Hefesto.
+**A espera.** O jogo leva minutos para chegar ao menu, nas duas vezes em que você o abre, e você não precisa ficar olhando. Deixe-o carregando e vá fazer outra coisa; volte quando ouvir o som do menu. A troca de perfil acontece sozinha e continua feita quando você voltar — nada se desfaz por você ter saído da frente. Ao voltar da segunda vez, o primeiro lugar a olhar é a barra de luz do controle 1; se ela já apagou o verde, confirme pelo nome em "Perfil ativo", com Alt+Tab para o Hefesto.
 
-**A armadilha.** A caixinha "Não trocar de perfil sozinho ao abrir um jogo", na aba Jogar, desliga a troca automática inteira: marcada, o perfil nunca troca e o teste reprova sem haver defeito. Confira que ela está desmarcada antes de começar. Perfil com "Funciona em: Todos" nunca conta como o perfil daquele jogo — a troca só acontece com um perfil que nomeia o jogo, e foi assim que quatro perfis feitos por você nunca entraram em partida nenhuma. O botão "Criar perfil para um jogo", na aba Lançadores, não faz nada por enquanto: quem cria perfil é a aba Perfis, e ter dois caminhos para o mesmo lugar foi recusado de propósito. O "Consertar" precisa do jogo E da Steam fechados; com a Steam aberta o atalho não entra. E se, ao abrir o jogo, a barra de luz do controle 1 piscar verde e apagar, olhe a Steam antes de reprovar: com ela aberta, quem escreve por último na luz ganha — nesse caso confie no nome em "Perfil ativo", não na luz.
+**A armadilha.** A caixinha "Não trocar de perfil sozinho ao abrir um jogo", na aba Jogar, desliga a troca automática inteira: marcada, o perfil nunca troca e o teste reprova sem haver defeito. Confira que ela está desmarcada antes de começar. Perfil com "Funciona em: Todos" nunca conta como o perfil daquele jogo — a troca só acontece com um perfil que nomeia o jogo, e foi assim que quatro perfis feitos por você nunca entraram em partida nenhuma. O botão "Criar perfil para um jogo", na aba Lançadores, não faz nada por enquanto: quem cria perfil é a aba Perfis, e ter dois caminhos para o mesmo lugar foi recusado de propósito. O "Consertar" precisa do jogo E da Steam fechados; com a Steam aberta o atalho não entra. E se, ao abrir o jogo, a barra de luz do controle 1 piscar verde e apagar, olhe a Steam antes de reprovar: com ela aberta, quem escreve por último na luz ganha — nesse caso confie no nome em "Perfil ativo", não na luz. Por fim, o tamanho: este é o teste mais longo dos 21, e é longo de propósito. Ele encadeia quatro coisas que só provam juntas — criar o atalho, criar o perfil que nomeia o jogo, marcar esse perfil com uma cor que se enxerga de dentro da partida, e só então fechar tudo e abrir de novo para ver a troca acontecer sem a sua mão. Tirar qualquer um dos quatro elos deixa o teste sem provar a troca automática, que é a única coisa que ele existe para provar.
 
 ---
 
