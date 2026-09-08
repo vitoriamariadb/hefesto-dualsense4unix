@@ -8,12 +8,13 @@
 
 | | |
 |---|---|
-| Árvore de integração | `/mnt/Apate/Desenvolvimento/hefesto-voo/_integra-0609`, branch `onda/atual-0609`, em **`1bebb847`** |
+| Árvore de integração | `/mnt/Apate/Desenvolvimento/hefesto-voo/_integra-0609`, branch `onda/atual-0609`, em **`2129b797`** |
 | A mesa dela | `/mnt/Apate/Desenvolvimento/hefesto-dualsense4unix`, branch `dev`, em `20a3304a`, **instalada e rodando** |
-| Portões | **50 verdes**, árvore limpa |
+| Portões | **51 verdes**, árvore limpa |
 | **A conferência dela** | **7 ✓ / 0 falta — a coluna da direita está VAZIA.** Liberada para o merge |
-| A suíte | **98 vermelhos**, e portão nenhum os alcança. É o achado central do dia |
-| Falta para o merge | só a leva de QA (`wt8dg1u48`) pousar e ser conferida |
+| A suíte | **98 → 8 vermelhos.** As três frentes de QA entraram e a costura foi medida |
+| Falta para o merge | só a leva das RESSALVAS (`w1f3uydal`) pousar — quatro frentes |
+| **Ordem dela** | **o `install.sh` roda no fim**, na árvore dela. Ver a §5 |
 
 ## §1 — O que fechou e está commitado
 
@@ -90,7 +91,23 @@ sozinho dá conflito nos sete arquivos. As três decisões dela:
    produto passou a dizer o que descartou. **Esconder o campo seria melhor, e é
    PIXEL — decisão dela.**
 
-## §3 — O ACHADO CENTRAL: a suíte tem ~100 vermelhos e portão nenhum os vê
+### AS TRÊS REGRESSÕES QUE A INTEGRAÇÃO CRIOU — `2129b797`
+
+**Nenhum dos três conferentes as viu**, e a razão é estrutural: cada um mediu a
+PRÓPRIA frente, isolada, contra a base. *Conferente que mede a frente isolada não
+vê o que a integração cria* — só quem costura ocupa essa posição.
+
+1 e 2. **A citação dela foi CORRIGIDA ao ser citada.** A leva dos lançadores
+   trouxe o pedido dela do botão novo para o código e limpou a digitação dela.
+   O `noqa-acento` que sobrou ficou mudo e estourou o teto dos escapes.
+   Restaurada como ela escreveu. **Nesta casa a fala dela não se limpa.**
+3. **O dublê do co-op vazava — reincidência de 04/09.** `external_mask` é
+   importado TARDE, nascia dentro da janela do `monkeypatch` e copiava o dublê;
+   o `undo` desfaz o que ele trocou, não o que nasceu torto. **A mordida
+   revelou que o dublê nunca foi preciso** — 37 testes passam com a função real.
+   Saiu inteiro. *Um dublê que não muda nenhum resultado só pode esconder.*
+
+## §3 — O ACHADO CENTRAL: a suíte tinha ~100 vermelhos e portão nenhum os via
 
 O advogado do diabo da leva da tela mediu a base `20a3304a` por NOME DE TESTE,
 duas vezes, em caminho real: **101 falhas**. Um laudo anterior publicou "6
@@ -128,13 +145,18 @@ PYTHONPATH=$PWD/src <python> scripts/check_a_conferencia_dela.py   # o portão d
 git add -A && bash scripts/portoes.sh  # 50 verdes
 ```
 
-E o merge é na ÁRVORE DELA, que fica em `dev`:
+E O FIM É ORDEM DELA — *"não esquece do install ao fim também"*, 08/09/2026.
+O merge e o install são na ÁRVORE DELA, que fica em `dev` e não troca de branch:
 
 ```bash
 cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix
 git merge onda/atual-0609
-./install.sh --yes        # NUNCA com sudo: o HOME vira /root
+./install.sh --yes        # NUNCA com sudo: o HOME viraria /root
 ```
+
+**A senha dela entra no `sudo` que o PRÓPRIO `install.sh` pede** (os três módulos
+DKMS), nunca antes do comando. E ele reinicia o daemon — que é o único momento em
+que isso é permitido, porque é o install que o faz, não nós.
 
 ## §6 — As regras que este dia acrescentou
 
