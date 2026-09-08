@@ -32,6 +32,28 @@ propósito, porque foi a mistura das duas que produziu a repetição de hoje.
 
 ---
 
+## 08/09/2026
+
+Ela abriu o produto INSTALADO, com os quatro DualSense na mesa (P1/P2 no cabo,
+P3/P4 no rádio), fotografou a tela e apontou quatro coisas.
+
+| data | o que ela decidiu | verbatim | prova |
+| --- | --- | --- | --- |
+| 08/09 | **O desenho ESTICA com a janela, com teto.** Ela viu a sobra da cor da casa em volta do desenho na janela maximizada; a recomendação foi levada a ela com as razões e ela aprovou | *"o background fica completamente preto"* · e sobre a recomendação: *"eu confio em vc, manda ver"* | `interface/topo.html`, `.janela{width:min(100%,1600px)}`; o teto é hipótese medida nas dez abas em quatro larguras — a coluna por jogador da Gatilhos ganha 46% (228 -> 333px) e a linha de leitura dobra em vez de triplicar. Régua: `tests/unit/test_a_janela_estica_com_teto.py` |
+| 08/09 | **A barra de título não fala a língua de dentro.** O subtítulo dizia *"as dez abas, vivas"* — o nome que ESTA CASA deu ao piloto | *"Temos o Termo as dez abas vivas no title da janela"* | saiu de `interface/hefesto_vivo.py`; a moldura fica só com "Hefesto". Portão novo: `scripts/check_a_janela_nao_confessa.py`, que na primeira corrida achou a SEGUNDA ocorrência — a mesma frase na dica do `.desktop`, que a dock mostra antes de a janela existir |
+| 08/09 | **Nas abas em que a fita não escolhe, o chip marcado fica cinza como os outros** | *"o player 1 tipo no caso cosmic red - cabo, fica sempre selecionado com borda diferente mesmo nas abas que cada player tem sua propria config. conseguimos deixar ele cinza como os demais?"* <!-- noqa-acento: citação literal dela --> | `interface/topo.html`, `.fita.inerte .chip.on`; vale para as sete abas de fita inerte. Régua: `tests/unit/test_a_fita_inerte_nao_acende_ninguem.py`, que mede a cor COMPUTADA na página publicada |
+| 08/09 | **O "Não trocar de perfil sozinho" vai para o canto superior direito do bloco Modo**, na linha do título, com a gramática do "Banco de provas" da Navegação. Embaixo dos modos ele lia como um quinto modo | *"esse não trocar de perfil. Pode colocar ele no canto superior direito do bloco tipo esse banco de provas na guia navegação."* | `interface/aba01.py`; o gesto não mudou. Régua: `tests/unit/test_o_cadeado_mora_no_canto_do_bloco.py`, que mede a geometria E prova que `data-gesto`, `data-campo` e o rótulo continuam os mesmos |
+
+**E uma decisão de 26/08 caducou de vez.** *"A caixa 'Não trocar de perfil
+sozinho' SAI — o perfil ativo já diz isso"* foi desfeita por delegação em 04/09
+(decisão [03] do PO) e a caixa está viva desde então. Em 08/09 ela pediu para
+MOVÊ-LA, o que confirma a caixa. **A legenda das duas páginas
+(`interface/aba01.py` e `interface/fim.html`) ainda dizia que a caixa "saiu"** —
+descrevia uma remoção desfeita havia quatro dias. Foi a legenda que estava
+velha, e é ela que foi corrigida.
+
+---
+
 ## 05/09/2026
 
 | data | o que ela decidiu | verbatim | prova |
