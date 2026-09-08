@@ -8,10 +8,12 @@
 
 | | |
 |---|---|
-| Árvore de integração | `/mnt/Apate/Desenvolvimento/hefesto-voo/_integra-0609`, branch `onda/atual-0609`, em **`9d95e05c`** |
+| Árvore de integração | `/mnt/Apate/Desenvolvimento/hefesto-voo/_integra-0609`, branch `onda/atual-0609`, em **`1bebb847`** |
 | A mesa dela | `/mnt/Apate/Desenvolvimento/hefesto-dualsense4unix`, branch `dev`, em `20a3304a`, **instalada e rodando** |
-| Portões | 49 verdes em `9d95e05c`. A leva da tela traz o **50º** |
-| A suíte | **~100 vermelhos**, e portão nenhum os alcança. É o achado central do dia |
+| Portões | **50 verdes**, árvore limpa |
+| **A conferência dela** | **7 ✓ / 0 falta — a coluna da direita está VAZIA.** Liberada para o merge |
+| A suíte | **98 vermelhos**, e portão nenhum os alcança. É o achado central do dia |
+| Falta para o merge | só a leva de QA (`wt8dg1u48`) pousar e ser conferida |
 
 ## §1 — O que fechou e está commitado
 
@@ -36,7 +38,7 @@ mesma publicação já o tinha levado; e o `mockup/LEIA-PRIMEIRO.md` mandava rod
 
 ## §2 — As duas levas em voo, e o que cada uma precisa na costura
 
-### `voo/A-TELA-DELA-01-opus` — `51e688ad`, **de_pe: TRUE**
+### `voo/A-TELA-DELA-01-opus` — DENTRO, em `d63bbd73`
 
 Os quatro pontos que ela fotografou: o fundo (`width:min(100%,1600px)`, o 1600
 medido em 40 PNGs), o subtítulo *"as dez abas, vivas"* fora do `HeaderBar`, o
@@ -48,12 +50,12 @@ tela mediam o **corpo** das páginas, e a barra de título é GTK: *a régua par
 na borda da `<body>`*. Na primeira corrida ela achou o `.desktop` dizendo *"As
 dez abas, com o dado do aparelho."*
 
-**O QUE FALTA, e as duas são a MESMA coisa:** a aba 07 é posse da outra leva e
-ficou de fora. Ela carrega a regra VELHA do chip e a largura VELHA (1180 contra
-1600). Numa janela maximizada, ir da Sistema para a Lançadores **encolhe a
-moldura em 420px na frente dela**. A regressão medida
-(`test_o_gerador_reproduz_a_bancada[aba07.py]`) é a mesma causa.
-→ **Cura: regerar e publicar a 07 DEPOIS de integrar a leva dos lançadores.**
+**AS DUAS RESSALVAS FECHARAM EM `1bebb847`.** A aba 07 era posse da outra leva e
+ficou de fora, com a regra VELHA do chip e a largura VELHA — numa janela
+maximizada, ir da Sistema para a Lançadores encolhia a moldura em 420px na
+frente dela. Depois de integrar os lançadores, a 07 foi regerada e publicada:
+`.janela` em `min(100%,1600px)` como as outras nove, chip cinza em fita inerte,
+e a regressão (`test_o_gerador_reproduz_a_bancada[aba07.py]`) fechou junto.
 
 **Fragilidade plantada:** `check_a_janela_nao_confessa.py:115-129` fixa
 `app/tray.py` e `app/compact_window.py` em `A_MOLDURA` e levanta `SystemExit`
@@ -61,16 +63,32 @@ para caminho inexistente. Os dois estão numa pasta em demolição
 (`D-0609-GTK-LEVA-INTEIRA`); no dia em que saírem, o portão **para a corrida
 inteira** em vez de reprovar uma linha.
 
-### `voo/LANCADORES-DELA-02-opus` — em voo, task `wrw1obesi`
+### `voo/LANCADORES-DELA-02-opus` — DENTRO, em `d1f17040` + `1bebb847`
 
-Segunda volta. A primeira (`0bce87d4`) foi derrubada por quatro pontos; carrega
-os dois defeitos confirmados mais as três decisões dela:
+Segunda volta, `de_pe: true`. **Integrada como PAR** (`cbb3a697..branch`): a
+primeira volta era a base da segunda, e um cherry-pick do commit de cima
+sozinho dá conflito nos sete arquivos. As três decisões dela:
 
 * **A palavra:** cartão não-localizado → `Localizar este Lançador`; botão global
   → `Adicionar novo Lançador`. Selo e botão passam a falar a mesma palavra.
 * **NÃO HÁ CARTÃO DA EPIC GAMES.** Decisão final dela, *"melhor deixar so heróic
   e tirar epic games não?"*, posterior ao *"ao lado do Heroic"*.
 * **O Heroic continua `(Epic · GOG)`** e vira a única porta para os dois.
+
+### OS TRÊS RESÍDUOS DO CONFERENTE — fechados em `1bebb847`
+
+1. **O «Tirar daqui» da Steam não tinha régua nenhuma.** Arrancar o botão
+   inteiro deixava 76 testes verdes. *Um botão que se pode apagar com a suíte
+   verde não está entregue.*
+2. **O beco estava fechado em UM estado de três, e o aberto era o da máquina
+   dela.** A recusa citava o «Localizar este Lançador», que o cartão só mostra
+   quando o Hefesto não achou. A régua ficava verde porque montava uma `Leitura`
+   vazia — *uma régua que só mede o estado em que a cura foi escrita não mede a
+   cura*. Agora a frase pergunta ao cartão, e quando nenhum botão serve ela diz
+   o fato e para.
+3. **A tela oferecia um campo que ela digita e o produto joga fora, calado.** O
+   produto passou a dizer o que descartou. **Esconder o campo seria melhor, e é
+   PIXEL — decisão dela.**
 
 ## §3 — O ACHADO CENTRAL: a suíte tem ~100 vermelhos e portão nenhum os vê
 
@@ -99,12 +117,23 @@ processo único, roda em doze lotes. Foi assim que os quatro da §1 atravessaram
 
 ## §5 — O próximo comando
 
+A leva de QA (`wt8dg1u48`) é a última coisa entre esta árvore e o `dev`. Quando
+ela pousar, conferir os três vereditos e integrar; depois:
+
 ```bash
 cd /mnt/Apate/Desenvolvimento/hefesto-voo/_integra-0609
-git cherry-pick 51e688ad                      # a leva da tela
-# e quando a dos lançadores pousar, DEPOIS de integrá-la:
-PYTHONPATH=$PWD/src .venv/bin/python src/hefesto_dualsense4unix/interface/aba07.py
-scripts/check_o_desenho_aprovado.py --publicar 07
+PYTHONPATH=$PWD/src <python> src/hefesto_dualsense4unix/interface/olhar.py \
+    --todas --publicado --doc          # as fotos do README, na largura nova
+PYTHONPATH=$PWD/src <python> scripts/check_a_conferencia_dela.py   # o portão do merge
+git add -A && bash scripts/portoes.sh  # 50 verdes
+```
+
+E o merge é na ÁRVORE DELA, que fica em `dev`:
+
+```bash
+cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix
+git merge onda/atual-0609
+./install.sh --yes        # NUNCA com sudo: o HOME vira /root
 ```
 
 ## §6 — As regras que este dia acrescentou
