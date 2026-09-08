@@ -329,7 +329,7 @@ Fora da minha posse. Veredito de `FALTA_NO_HTML` para **`DIFERENTE`**, com
 * `html_onde`:
   `src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py:_confirmar_com_som`
 * `html_faz`: *"Toca `audio_saida.tocar_confirmacao` no sink DAQUELE controle
-  nos três gestos do bloco (deslizante, ♪ e rota), fora do voo do botão
+  nos três gestos do bloco (deslizante, [nota] e rota), fora do voo do botão
   (`_fora_do_voo`), com `saida_muda` lido do dono. O motor é o mesmo da janela."*
 * acrescentar ao `porque`: *"FECHADA em 06/09/2026 pela
   A-CONFISSAO-NO-BOTAO-01. DIFERENTE e não IGUAL por um motivo declarado: a

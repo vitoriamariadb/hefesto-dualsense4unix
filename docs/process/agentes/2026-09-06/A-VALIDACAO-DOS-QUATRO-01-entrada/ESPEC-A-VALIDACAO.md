@@ -102,7 +102,7 @@ roteiro) mostra os 20 minutos.
 │   │        │  │        │  │ ACESA  │  │        │                      │
 │   └────────┘  └────────┘  └────────┘  └────────┘                      │
 │   Cosmic Red   Starlight   Midnight    Nova Pink                      │
-│   cabo · 87% carreg.  cabo · 64%  rádio · 41% rádio · 92%✓                   │
+│   cabo · 87% carreg.  cabo · 64%  rádio · 41% rádio · 92%[OK]                   │
 │   P1 · lâmpada 1  P2 · lâmpada 2  P3 · lâmpada 3  P4 · lâmpada 4      │
 │                                                                        │
 │   ( )obedeceu   ( )obedeceu   (•)obedeceu  ( )obedeceu                │

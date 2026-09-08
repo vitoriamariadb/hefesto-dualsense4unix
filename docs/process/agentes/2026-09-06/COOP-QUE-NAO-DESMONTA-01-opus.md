@@ -234,7 +234,7 @@ instrumento falso que esta casa já pagou várias vezes.
 6. **Dois vermelhos que vieram DA BASE e não são meus, achados de passagem.**
    `tests/unit/test_saida_de_agente_sanitizada.py` reprova em
    `docs/process/agentes/2026-09-06/A-CONFISSAO-NO-BOTAO-01.md` e
-   `PARIDADE-REMEDIR-01.md`, os dois por **glifo proibido** (um `♪` que devia
+   `PARIDADE-REMEDIR-01.md`, os dois por **glifo proibido** (um `[nota]` que devia
    ser `[nota]`) — nada de MAC nem de segredo. Os dois arquivos entraram em
    `cce9b47f`, antes desta árvore nascer, e as minhas três entradas passam.
    **Este teste NÃO está no `scripts/portoes.sh`**, então os 45 portões ficam
