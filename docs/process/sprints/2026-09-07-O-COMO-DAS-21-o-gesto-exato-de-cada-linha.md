@@ -1,6 +1,6 @@
 ---
 sprint: O-COMO-DAS-21
-estado: aberta
+estado: feita
 posse:
   O-COMO-DAS-21:
     - docs/process/sprints/2026-09-07-O-COMO-DAS-21-o-gesto-exato-de-cada-linha.md
@@ -723,10 +723,12 @@ Onde a fonte não bastava, está escrito *"a fonte não diz"* — declarar a lac
 
 * **P1** — Fica ligado e entra no jogo. É o controle base: abra o jogo com ele e confirme que responde antes de mexer no segundo.
 * **P2** — Fica ligado e entra depois. É ele que responde a pergunta do teste: com o jogo já aberto e o P1 respondendo, aperte um botão no P2 e veja se o jogo abre um segundo jogador.
-* **P3** — Fica fora. Desligue-o antes de começar, segurando o PS até apagar, e confira que a linha da coluna Atenção conta 2 controles e não 3.
+* **P3** — Fica fora. Desligue-o antes de começar, segurando o PS até apagar, e confira no cabeçalho da janela que a conta diz 2 controles e não 3.
 * **P4** — Fica fora. Desligue-o antes de começar, do mesmo jeito, e não o religue no meio do teste — religar muda a conta que o jogo faz no meio da medição.
 
-**A armadilha.** Sem a contraprova este teste mente: um jogo que simplesmente não tem dois jogadores locais reprovaria o Modo Nativo sem culpa nenhuma. Segunda armadilha: a troca de modo só vale para o PRÓXIMO jogo que abrir — se o jogo já estava aberto quando você clicou, você vai medir o modo anterior; feche e abra de novo. Terceira: o Modo Nativo não é por controle, ele vale para a máquina inteira — por isso "ficar fora" aqui quer dizer desligado, e por isso a linha da coluna Atenção precisa dizer 2 e não 3 ou 4. E não julgue este teste pelas lampadinhas de número: neste modo o Hefesto não escreve nada no aparelho, então o que estiver aceso ali foi o sistema que pôs.
+**A armadilha.** Sem a contraprova este teste mente: um jogo que simplesmente não tem dois jogadores locais reprovaria o Modo Nativo sem culpa nenhuma. Segunda armadilha: a troca de modo só vale para o PRÓXIMO jogo que abrir — se o jogo já estava aberto quando você clicou, você vai medir o modo anterior; feche e abra de novo. Terceira: o Modo Nativo não é por controle, ele vale para a máquina inteira — por isso "ficar fora" aqui quer dizer desligado, e por isso a conta do cabeçalho precisa dizer 2 e não 3 ou 4.
+
+> **Duas correções de endereço, 07/09/2026.** Esta linha dizia *"a linha da coluna Atenção"*, e estava errada em duas camadas. A coluna **Atenção** da aba Jogar nunca contou CONTROLES — ela contava AVISOS; quem conta controles é o cabeçalho da janela (*"2 controles: 1 USB · 1 BT"*), que está em todas as abas. E a coluna Atenção **saiu da aba Jogar** em 07/09, por ordem dela (*"em jogar remover essa seção do atenção, nenhum aviso esse — deixar só o reconectar controles"*). O gesto que este teste pede sempre foi o do cabeçalho. E não julgue este teste pelas lampadinhas de número: neste modo o Hefesto não escreve nada no aparelho, então o que estiver aceso ali foi o sistema que pôs.
 
 ---
 

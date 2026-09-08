@@ -1,6 +1,6 @@
 ---
 sprint: O-COMO-DO-MAPA
-estado: aberta
+estado: feita
 posse:
   O-COMO-DO-MAPA:
     - docs/process/sprints/2026-09-07-O-COMO-DO-MAPA-o-gesto-das-178-celulas.md
@@ -6299,14 +6299,16 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 
 **O que isto prova.** Prova que o Hefesto cria um controle virtual para cada um dos dois controles do cabo, e que cada aparelho está preso ao controle virtual certo.
 
-**Onde olhar.** Na aba Controles. Passe o mouse sobre o NOME do controle, no alto do card dele — a parte onde estão a cor do plástico e a palavra cabo ou rádio. Aparece uma dica dizendo "Alimenta o gamepad virtual do Jogador N", com um endereço entre parênteses; quando não há nenhum, a dica diz "Este controle ainda não alimenta gamepad virtual nenhum". Na mesma faixa, ao lado do nome, está a máscara — DualSense, Xbox 360 ou Nintendo Pro —, que é o desenho de botões que o jogo vê; um asteriscozinho ao lado dela quer dizer que a emulação saiu no modo simples, e o motivo aparece ao passar o mouse nele. Na aba Jogar, a linha "Status" diz Ligado ou Desligado, e a coluna Atenção, à direita, traz o selo GAMEPAD com a frase "O gamepad virtual subiu no modo simples: a vibração e a separação do controle físico não estão garantidas. Reinicie o Hefesto na aba Sistema." quando é o caso.
+**Onde olhar.** Na aba Controles. Passe o mouse sobre o NOME do controle, no alto do card dele — a parte onde estão a cor do plástico e a palavra cabo ou rádio. Aparece uma dica dizendo "Alimenta o gamepad virtual do Jogador N", com um endereço entre parênteses; quando não há nenhum, a dica diz "Este controle ainda não alimenta gamepad virtual nenhum". Na mesma faixa, ao lado do nome, está a máscara — DualSense, Xbox 360 ou Nintendo Pro —, que é o desenho de botões que o jogo vê; um asteriscozinho ao lado dela quer dizer que a emulação saiu no modo simples, e o motivo aparece ao passar o mouse nele. Na aba Jogar, a linha "Status" diz Ligado ou Desligado. O aviso do modo simples NÃO fica na aba Jogar: ele é o asteriscozinho ao lado da máscara, na aba Controles, e o motivo aparece ao parar o mouse nele.
+
+> **A coluna Atenção saiu da aba Jogar em 07/09/2026**, por ordem dela (*"em jogar remover essa seção do atenção, nenhum aviso esse — deixar só o reconectar controles"*). O selo GAMEPAD morava lá. O fato não se perdeu — o asteriscozinho da aba Controles diz a mesma coisa, e diz por CONTROLE em vez de para a mesa inteira, que é o que esta célula precisa.
 
 **Os passos.**
 
 1. Feche o jogo, se ele estiver aberto.
 2. Abra o Hefesto e clique na aba Jogar.
 3. Confira que a linha "Status" está em "Ligado" — no Modo Nativo não existe controle virtual nenhum e este teste não roda.
-4. Olhe a coluna Atenção e anote se há um selo GAMEPAD e o que ele diz.
+4. Na aba Controles, olhe se há asteriscozinho ao lado da máscara de cada controle; havendo, pare o mouse nele e anote o que a dica diz.
 5. Clique na aba Controles.
 6. Passe o mouse sobre o nome do P1, no alto do card dele, e espere a dica aparecer.
 7. Leia a dica e anote de qual jogador é o controle virtual que o P1 alimenta.
@@ -6317,7 +6319,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 12. Passe o mouse sobre o nome do P3 e do P4 e anote as dicas dos dois.
 13. Confira que as quatro dicas nomeiam quatro jogadores diferentes, sem nenhum repetido.
 
-**Passa quando.** Cada um dos dois controles do cabo tem uma dica dizendo que alimenta o controle virtual de um jogador, e os dois jogadores são diferentes. Nenhum dos dois diz "ainda não alimenta gamepad virtual nenhum", nenhum dos dois traz o asteriscozinho da emulação em modo simples, e o selo GAMEPAD não aparece na coluna Atenção da aba Jogar.
+**Passa quando.** Cada um dos dois controles do cabo tem uma dica dizendo que alimenta o controle virtual de um jogador, e os dois jogadores são diferentes. Nenhum dos dois diz "ainda não alimenta gamepad virtual nenhum", e nenhum dos dois traz o asteriscozinho da emulação em modo simples ao lado da máscara.
 
 **Por controle.**
 
@@ -6336,14 +6338,14 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 
 **O que isto prova.** Prova que os dois controles do rádio também ganham cada um o seu controle virtual — e que esse controle virtual nasce sempre com cara de cabo, mesmo com o aparelho sem fio.
 
-**Onde olhar.** Na aba Controles. Passe o mouse sobre o NOME do controle, no alto do card dele — onde estão a cor do plástico e a palavra cabo ou rádio. A dica diz "Alimenta o gamepad virtual do Jogador N", com um endereço entre parênteses, e às vezes acrescenta com que nome ele aparece no sistema; quando não há nenhum, ela diz "Este controle ainda não alimenta gamepad virtual nenhum". Ao lado do nome fica a máscara — DualSense, Xbox 360 ou Nintendo Pro — com um asteriscozinho quando a emulação saiu em modo simples. Na aba Jogar, a linha "Status" e a coluna Atenção, à direita, com os selos. Para saber se o JOGO enxerga o controle virtual como de cabo ou de rádio, a fonte não diz onde se lê isso dentro do Hefesto: o lugar mais próximo é a lista de controles da Steam, e se ela não disser por onde cada um está ligado, anote que não deu para ler.
+**Onde olhar.** Na aba Controles. Passe o mouse sobre o NOME do controle, no alto do card dele — onde estão a cor do plástico e a palavra cabo ou rádio. A dica diz "Alimenta o gamepad virtual do Jogador N", com um endereço entre parênteses, e às vezes acrescenta com que nome ele aparece no sistema; quando não há nenhum, ela diz "Este controle ainda não alimenta gamepad virtual nenhum". Ao lado do nome fica a máscara — DualSense, Xbox 360 ou Nintendo Pro — com um asteriscozinho quando a emulação saiu em modo simples. Na aba Jogar, a linha "Status". (A coluna **Atenção** saiu da aba Jogar em 07/09/2026, por ordem dela; o aviso do modo simples é o asteriscozinho ao lado da máscara, na aba Controles.) Para saber se o JOGO enxerga o controle virtual como de cabo ou de rádio, a fonte não diz onde se lê isso dentro do Hefesto: o lugar mais próximo é a lista de controles da Steam, e se ela não disser por onde cada um está ligado, anote que não deu para ler.
 
 **Os passos.**
 
 1. Feche o jogo, se ele estiver aberto.
 2. Abra o Hefesto e clique na aba Jogar.
 3. Confira que a linha "Status" está em "Ligado".
-4. Olhe a coluna Atenção e anote os selos que estiverem lá.
+4. Na aba Controles, olhe se há asteriscozinho ao lado da máscara de cada controle e anote o que a dica dele diz.
 5. Clique na aba Controles.
 6. Confira, no alto do card do P3, que depois da cor do plástico está escrita a palavra rádio.
 7. Passe o mouse sobre o nome do P3 e espere a dica aparecer.
@@ -6638,7 +6640,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 13. Repita a volta inteira com o P2: segure com uma mão em cada punho, provoque a vibração dele, diga o punho em voz alta e só então olhe o desenho.
 14. Segure o P3 e provoque uma vibração para o jogador dele.
 15. Confira que no P3 os DOIS punhos tremem.
-16. Leia a linha do pé da grade e confira a contagem por jogador.
+16. Pare o mouse na linha Motor de vibração esquerdo da coluna daquele jogador e leia a dica com o número que o jogo pediu.
 17. Devolva as oito barras aos números que você escreveu no começo.
 
 **Passa quando.** No P1 e no P2 — os dois do cabo —, com a barra esquerda em 0, só o punho DIREITO tremeu com a vibração do jogo, e no desenho só o lado direito acendeu em laranja; o punho esquerdo desses dois ficou parado. No P3 e no P4, com as duas barras em 100, os dois punhos tremeram: é isso que prova que o motor esquerdo está vivo e que quem o calou foi a barra, não um defeito. E nenhum controle tremeu quando a vibração era de outro jogador.
@@ -6682,7 +6684,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 14. Repita a volta inteira com o P4: segure com uma mão em cada punho, provoque a vibração dele, diga o punho em voz alta e só então olhe o desenho.
 15. Segure o P1 e provoque uma vibração para o jogador dele.
 16. Confira que no P1 os DOIS punhos tremem.
-17. Leia a linha do pé da grade e confira a contagem por jogador.
+17. Pare o mouse na linha Motor de vibração esquerdo da coluna daquele jogador e leia a dica com o número que o jogo pediu.
 18. Devolva as oito barras aos números que você escreveu no começo.
 
 **Passa quando.** No P3 e no P4 — os dois do rádio —, com a barra esquerda em 0, só o punho DIREITO tremeu, e no desenho só o lado direito acendeu em laranja. O P1 e o P2, que ficaram com as duas barras em 100, tremeram dos dois lados quando a vibração era deles: é a prova de que o motor esquerdo está vivo e de que quem o calou no rádio foi a barra. E nenhum dos quatro tremeu quando a vibração era de outro jogador.
@@ -6726,7 +6728,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 14. Refaça no P2 os quatro gestos de mão que você fez no P1.
 15. Segure o P3 e provoque uma vibração para o jogador dele.
 16. Confira que ali os DOIS punhos tremem.
-17. Leia a linha do pé da grade e confira a contagem por jogador.
+17. Pare o mouse na linha Motor de vibração esquerdo da coluna daquele jogador e leia a dica com o número que o jogo pediu.
 18. Devolva as oito barras aos números que você anotou.
 
 **Passa quando.** No P1 e no P2, com a barra direita em 0, o peso do tremor ficou no punho ESQUERDO — e segurando só pelo punho direito não há tremor próprio, só o eco que atravessa o plástico. No desenho, só o lado esquerdo acendeu em laranja. No P3 e no P4, com as duas barras em 100, os dois punhos tremeram, provando que o motor direito está vivo e que quem o calou foi a barra. E nenhum controle tremeu quando a vibração era de outro jogador.
@@ -6769,7 +6771,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 15. Repita os atos 5 a 7 com o P4.
 16. Segure o P1 e provoque uma vibração para o jogador dele.
 17. Confira que ali os DOIS punhos tremem, e que nenhum dos quatro treme quando a vibração é de outro jogador.
-18. Leia a linha do pé da grade e confira a contagem por jogador.
+18. Pare o mouse na linha Motor de vibração esquerdo da coluna daquele jogador e leia a dica com o número que o jogo pediu.
 19. Devolva as oito barras aos números que você anotou no papel.
 
 **Passa quando.** No P3 e no P4, com a barra direita em 0, o peso do tremor ficou no punho ESQUERDO, e segurando só pelo punho direito não há tremor próprio. No desenho, só o lado esquerdo acendeu em laranja. O P1 e o P2, com as duas barras em 100, tremeram dos dois lados quando a vibração era deles. E nenhum dos quatro tremeu quando a vibração era de outro jogador.
@@ -6791,14 +6793,16 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 
 **O que isto prova.** Prova que, nos dois controles do cabo, a vibração que o jogo pede chega com a força pedida e DURA o tempo que o jogo segurou — sem ser cortada num piscar.
 
-**Onde olhar.** Na aba Vibração, na linha do pé da grade, embaixo das quatro colunas: ela começa com um pontinho e, com os quatro na mesa, conta por jogador — algo como o jogo pediu vibração — Jogador 1: 12x · Jogador 2: nenhuma. Quando ninguém pediu nada, ela diz o jogo ainda não pediu vibração nenhuma; quando o Hefesto está fora do meio, ela diz não há gamepad virtual — nenhum jogo tem onde pedir vibração. No alto de cada coluna, o desenho acende em laranja o lado que está tremendo. Parando o mouse em cima da linha de um motor, com o jogo vibrando, aparece a dica dizendo quanto o jogo pediu naquele motor agora, de 0 a 255. E a duração quem mede são as suas mãos e a sua contagem em voz alta.
+**Onde olhar.** Na aba Vibração, na COLUNA de cada jogador — a testemunha aqui é por controle, e não mais uma linha só embaixo de todas. No alto da coluna, o desenho acende em laranja o punho que está tremendo: é ele que responde *chegou força agora, neste controle?*. Parando o mouse em cima da linha Motor de vibração esquerdo ou direito daquela coluna, com o jogo vibrando, aparece a dica dizendo quanto o jogo pediu naquele motor agora, de 0 a 255 — e quando o jogo não está pedindo nada ali, **não aparece dica nenhuma**, porque o Hefesto apaga o aviso em vez de deixar um número velho. É esse par (punho aceso + dica com número) que diz quem recebeu. E a duração quem mede são as suas mãos e a sua contagem em voz alta.
+
+> **A contagem do pé da grade saiu da tela em 07/09/2026**, por ordem dela (*"Vibração remove essa última frase também"*). Ela era cumulativa — dizia quantas vezes o jogo já pediu — e o que a substitui é mais forte para este teste: o punho e a dica são AO VIVO e são por jogador, então dizem quem está recebendo AGORA, que é o que estas células perguntam.
 
 **Os passos.**
 
 1. Abra o Hefesto e clique na aba Jogar.
 2. Confira que o Status está em Ligado.
 3. Clique na aba Vibração.
-4. Leia a linha do pé da grade e confira que ela NÃO diz que falta gamepad virtual.
+4. Vá à aba Controles, pare o mouse no NOME de cada controle e confira que a dica diz que ele alimenta o gamepad virtual de um jogador — e não que ainda não alimenta nenhum. Volte à aba Vibração.
 5. Clique em Parar em cada uma das quatro colunas, para soltar qualquer vibração fixada de um teste anterior.
 6. Escolha Balanceado nas quatro colunas.
 7. Confira que as oito barras de motor estão em 100.
@@ -6808,12 +6812,12 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 11. Conte os segundos em voz alta enquanto ela dura, e segure o gatilho o tempo todo.
 12. Solte o gatilho e confira que a vibração parou junto.
 13. Provoque agora uma vibração CURTA e forte, de um tiro ou de uma batida, e confira que ela chega com força.
-14. Leia a linha do pé da grade e confira que a contagem do jogador do P1 subiu.
+14. Confira que o punho do desenho na coluna do P1 acendeu em laranja enquanto a vibração chegava.
 15. Pare o mouse em cima da linha Motor de vibração esquerdo da coluna do P1 enquanto o jogo vibra, e leia a dica.
 16. Repita os sete passos acima com o P2.
 17. Provoque uma vibração longa no P1 e, sem soltar, provoque outra no P3 — e confira que a do P1 não encolhe.
 
-**Passa quando.** Nos dois do cabo, a vibração que o jogo segurou por vários segundos durou esses segundos inteiros na mão, e parou quando o jogo parou de pedir — não virou um estalo de meio segundo. A vibração curta e forte chegou forte. A contagem do pé da grade subiu no jogador daquele controle. E a vibração de um não encurtou a do outro.
+**Passa quando.** Nos dois do cabo, a vibração que o jogo segurou por vários segundos durou esses segundos inteiros na mão, e parou quando o jogo parou de pedir — não virou um estalo de meio segundo. A vibração curta e forte chegou forte. O punho do desenho acendeu em laranja na coluna daquele controle, e a dica da linha do motor daquela coluna trouxe o número que o jogo pediu. E a vibração de um não encurtou a do outro.
 
 **Por controle.**
 
@@ -6822,7 +6826,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 * **P3** — Está no RÁDIO e é testemunha. Ele entra no último passo: uma vibração provocada nele não pode encurtar a que já está correndo no P1. Se encurtar, um está cortando a vibração do outro.
 * **P4** — Também no rádio e também testemunha, com a mesma conferência — e é o último da fila, o primeiro a perder a vez quando alguma coisa disputa a saída. Repita nele o último passo se o P3 não mostrar nada.
 
-**A armadilha.** O corte em meio segundo é um defeito CONHECIDO desta casa e já foi medido por dose: o Hefesto re-afirma o estado dos motores de meio em meio segundo, e essa re-afirmação já zerava a vibração de quem não fosse ele — esticando esse meio segundo para oito, a vibração passou a durar oito segundos exatos, nos dois transportes. O conserto está escrito e ligado; este teste existe para dizer se ele continua de pé. Por isso a contagem em voz alta é o instrumento, e não um detalhe. Segunda: se você clicou em Testar pouco antes, aquele controle pode ficar com a vibração FIXADA, e nesse estado a vibração do jogo é ignorada — é a queixa testei os motores e o jogo não vibra mais. O Parar em cada coluna, no começo, é o que evita isso. Terceira: um jogo pode simplesmente não pedir vibração, e a linha do pé da grade é quem separa os dois casos — se ela conta pedidos e a mão não sente nada, a perda é dentro do Hefesto, e a própria frase diz isso com todas as letras. Quarta: se a linha disser que o jogo fala direto com o controle, o Hefesto saiu do meio e este teste não está medindo o caminho dele.
+**A armadilha.** O corte em meio segundo é um defeito CONHECIDO desta casa e já foi medido por dose: o Hefesto re-afirma o estado dos motores de meio em meio segundo, e essa re-afirmação já zerava a vibração de quem não fosse ele — esticando esse meio segundo para oito, a vibração passou a durar oito segundos exatos, nos dois transportes. O conserto está escrito e ligado; este teste existe para dizer se ele continua de pé. Por isso a contagem em voz alta é o instrumento, e não um detalhe. Segunda: se você clicou em Testar pouco antes, aquele controle pode ficar com a vibração FIXADA, e nesse estado a vibração do jogo é ignorada — é a queixa testei os motores e o jogo não vibra mais. O Parar em cada coluna, no começo, é o que evita isso. Terceira: um jogo pode simplesmente não pedir vibração, e quem separa os dois casos é a dica da linha do motor daquela coluna — se ela traz um número e a mão não sente nada, a perda é dentro do Hefesto; se não há dica nenhuma, o jogo não pediu. Quarta: se a aba Controles disser que aquele controle não alimenta gamepad virtual nenhum, o Hefesto saiu do meio e este teste não está medindo o caminho dele.
 
 ---
 
@@ -6832,7 +6836,9 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 
 **O que isto prova.** Prova que, nos dois controles do rádio, a vibração que o jogo pede chega com a força pedida e dura o tempo que o jogo segurou — igual à dos dois do cabo.
 
-**Onde olhar.** Na aba Vibração, na linha do pé da grade, embaixo das quatro colunas: ela começa com um pontinho e conta os pedidos por jogador quando os quatro estão na mesa. Nas colunas do P3 e do P4 — cabeçalho com a palavra rádio — o desenho acende em laranja o lado que treme, e parando o mouse na linha de um motor, com o jogo vibrando, a dica diz quanto o jogo pediu naquele motor agora, de 0 a 255. A duração quem mede são as suas mãos e a contagem em voz alta.
+**Onde olhar.** Na aba Vibração, nas colunas do P3 e do P4 — cabeçalho com a palavra rádio. O desenho acende em laranja o punho que treme, e parando o mouse na linha de um motor, com o jogo vibrando, a dica diz quanto o jogo pediu naquele motor agora, de 0 a 255; onde o jogo não está pedindo, não há dica. A duração quem mede são as suas mãos e a contagem em voz alta.
+
+> **A contagem do pé da grade saiu da tela em 07/09/2026**, por ordem dela. O que responde *chegou a este controle?* passa a ser a própria coluna dele — punho aceso e dica com número —, que é por jogador e ao vivo.
 
 **Os passos.**
 
@@ -6840,7 +6846,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 2. Confira que o Status está em Ligado.
 3. Clique na aba Vibração.
 4. Confira que o cabeçalho das colunas do P3 e do P4 diz rádio.
-5. Leia a linha do pé da grade e confira que ela NÃO diz que falta gamepad virtual.
+5. Vá à aba Controles, pare o mouse no NOME de cada controle e confira que a dica diz que ele alimenta o gamepad virtual de um jogador — e não que ainda não alimenta nenhum. Volte à aba Vibração.
 6. Clique em Parar em cada uma das quatro colunas.
 7. Escolha Balanceado nas quatro colunas.
 8. Confira que as oito barras de motor estão em 100.
@@ -6850,12 +6856,12 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 12. Conte os segundos em voz alta enquanto ela dura.
 13. Solte o gatilho e confira que a vibração parou junto.
 14. Provoque uma vibração CURTA e forte e confira que ela chega forte.
-15. Leia a linha do pé da grade e confira que a contagem do jogador do P3 subiu.
+15. Confira que o punho do desenho na coluna do P3 acendeu em laranja enquanto a vibração chegava.
 16. Repita os cinco passos acima com o P4.
 17. Faça a mesma vibração longa no P1 e conte os segundos dela.
 18. Compare os segundos do rádio com os segundos do cabo.
 
-**Passa quando.** Nos dois do rádio, a vibração longa durou o tempo em que o jogo a segurou e parou quando ele parou de pedir; a curta chegou forte; e a contagem do pé da grade subiu no jogador daquele controle. Comparados com o P1, os segundos batem: se o rádio durar menos que o cabo na mesma vibração, isso é o achado do teste.
+**Passa quando.** Nos dois do rádio, a vibração longa durou o tempo em que o jogo a segurou e parou quando ele parou de pedir; a curta chegou forte; e o punho do desenho acendeu em laranja na coluna daquele controle, com a dica da linha do motor trazendo o número pedido. Comparados com o P1, os segundos batem: se o rádio durar menos que o cabo na mesma vibração, isso é o achado do teste.
 
 **Por controle.**
 
@@ -6883,7 +6889,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 3. Confira que o Status está em Ligado.
 4. Confira que o Modo escolhido não é o Modo Nativo.
 5. Clique na aba Vibração.
-6. Leia a linha do pé da grade e confira que ela diz que o jogo ainda não pediu vibração nenhuma.
+6. Confira que nenhum punho do desenho está aceso em coluna nenhuma, e que parar o mouse nas linhas de motor não abre dica de pedido em nenhuma delas.
 7. Escolha Balanceado nas quatro colunas.
 8. Ponha as oito barras de motor em 100.
 9. Segure o P1 nas duas mãos.
@@ -6955,7 +6961,9 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 
 **O que isto prova.** Prova que a vibração que o jogo manda para UM jogador chega ao controle daquele jogador quando ele está no cabo — e não chega a mais nenhum.
 
-**Onde olhar.** Na aba Vibração. Embaixo das quatro colunas, a linha que começa com um pontinho conta os pedidos do jogo por jogador, algo como o jogo pediu vibração — Jogador 1: 12x · Jogador 2: nenhuma. No alto de cada coluna, o desenho do controle acende em laranja o lado que está tremendo — é ele que diz, na tela, qual controle recebeu. E os quatro controles na mesa dizem o resto: um controle solto no tampo chacoalha de forma audível.
+**Onde olhar.** Na aba Vibração, coluna por coluna. No alto de cada uma, o desenho do controle acende em laranja o punho que está tremendo — é ele que diz, na tela, qual controle recebeu. Parando o mouse na linha Motor de vibração esquerdo ou direito de uma coluna, a dica diz quanto o jogo pediu naquele motor agora, de 0 a 255; **onde o jogo não está pedindo, não há dica** — o Hefesto apaga o aviso em vez de deixar número velho, e é isso que torna o silêncio dos outros três mensurável. E os quatro controles na mesa dizem o resto: um controle solto no tampo chacoalha de forma audível.
+
+> **A contagem do pé da grade saiu da tela em 07/09/2026**, por ordem dela. Para esta célula a troca é ganho: aquela linha era cumulativa e ficava embaixo de TODAS as colunas, enquanto o punho e a dica são por jogador e ao vivo — que é exatamente o que "chegou a um e a mais nenhum" precisa medir.
 
 **Os passos.**
 
@@ -6970,12 +6978,12 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 9. Provoque no jogo uma vibração só para o jogador do P1 — um dano levado só por ele.
 10. Olhe e escute os quatro na mesa: só o do jogador 1 pode chacoalhar.
 11. Olhe os desenhos das quatro colunas: só o da coluna do P1 pode acender em laranja.
-12. Leia a linha do pé da grade e confira que o número subiu no Jogador 1 e continua em nenhuma nos outros.
+12. Confira na tela que só a coluna do Jogador 1 respondeu: o punho dela acendeu em laranja e a dica da linha do motor traz o número pedido, enquanto nas outras três o punho ficou apagado e a linha do motor não abre dica nenhuma.
 13. Repita os quatro passos acima com o P2.
 14. Provoque uma vibração para o jogador do P3 e confira que o P1 e o P2 ficam parados.
 15. Repita com o P4.
 
-**Passa quando.** A vibração de cada jogador chegou ao controle daquele jogador e a mais nenhum: os outros três ficaram parados na mesa e apagados no desenho. A contagem por jogador do pé da grade bateu com quem levou o dano — o número subiu no jogador certo e ficou em nenhuma nos outros.
+**Passa quando.** A vibração de cada jogador chegou ao controle daquele jogador e a mais nenhum: os outros três ficaram parados na mesa e apagados no desenho. E a tela bateu com quem levou o dano nos DOIS sentidos — na coluna de quem levou, o punho acendeu em laranja e a dica da linha do motor trouxe o número que o jogo pediu; nas outras três, o punho ficou apagado e parar o mouse na linha do motor **não abriu dica nenhuma**.
 
 **Por controle.**
 
@@ -6984,7 +6992,7 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 * **P3** — Está no RÁDIO e é testemunha: tem de ficar parado quando a vibração é do jogador do P1 ou do P2. Se chacoalhar junto, a vibração perdeu o endereço.
 * **P4** — Também no rádio e também testemunha, com a mesma conferência. Ele é o último a entrar, e é nele que a falta de endereço costuma aparecer primeiro.
 
-**A armadilha.** São DOIS retratos do MESMO defeito, e os dois enganam de jeitos opostos. Se os quatro chacoalharem juntos quando só um levou dano, a vibração perdeu o endereço e foi para a mesa inteira — é o defeito clássico desta célula. Mas se o controle CERTO ficar mudo enquanto a linha do pé da grade conta os pedidos dele, é o mesmo endereço perdido: hoje o Hefesto prefere descartar a espalhar, e o descarte não aparece em campo nenhum da tela. Nos dois casos o que fura é a comparação entre a contagem do jogador e o que a mesa fez. Segunda, e é o tamanho da prova: no mapa esta célula parou em MONTOU — está provado que o Hefesto MONTA o comando, e não que o aparelho obedeceu. O que você está fazendo aqui é o degrau seguinte, e é a primeira vez que ele é medido; um vermelho aqui não é regressão, é a resposta que faltava. Terceira: controle apoiado no mesmo tampo transmite o tremor do vizinho — deixe-os separados, ou levante um de cada vez para decidir. Quarta: se você clicou em Testar pouco antes, aquele controle pode ter ficado com a vibração fixada, e nesse estado a do jogo é ignorada — o Parar em cada coluna, no começo, é o que evita.
+**A armadilha.** São DOIS retratos do MESMO defeito, e os dois enganam de jeitos opostos. Se os quatro chacoalharem juntos quando só um levou dano, a vibração perdeu o endereço e foi para a mesa inteira — é o defeito clássico desta célula. Mas se o controle CERTO ficar mudo enquanto a dica da linha do motor daquela coluna mostra o número que o jogo pediu, é o mesmo endereço perdido: hoje o Hefesto prefere descartar a espalhar, e o descarte não aparece em campo nenhum da tela. Nos dois casos o que fura é a comparação entre o que a COLUNA daquele jogador diz e o que a mão dele sentiu. Segunda, e é o tamanho da prova: no mapa esta célula parou em MONTOU — está provado que o Hefesto MONTA o comando, e não que o aparelho obedeceu. O que você está fazendo aqui é o degrau seguinte, e é a primeira vez que ele é medido; um vermelho aqui não é regressão, é a resposta que faltava. Terceira: controle apoiado no mesmo tampo transmite o tremor do vizinho — deixe-os separados, ou levante um de cada vez para decidir. Quarta: se você clicou em Testar pouco antes, aquele controle pode ter ficado com a vibração fixada, e nesse estado a do jogo é ignorada — o Parar em cada coluna, no começo, é o que evita.
 
 ---
 
@@ -7010,12 +7018,12 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 10. Provoque no jogo uma vibração só para o jogador do P3.
 11. Olhe e escute os quatro na mesa: só o do jogador 3 pode chacoalhar.
 12. Olhe os desenhos das quatro colunas: só o da coluna do P3 pode acender em laranja.
-13. Leia a linha do pé da grade e confira que o número subiu no Jogador 3 e continua em nenhuma nos outros.
+13. Confira na tela que só a coluna do Jogador 3 respondeu: o punho dela acendeu em laranja e a dica da linha do motor traz o número pedido, enquanto nas outras três o punho ficou apagado e a linha do motor não abre dica nenhuma.
 14. Repita os quatro passos acima com o P4.
 15. Provoque uma vibração para o jogador do P1 e confira que o P3 e o P4 ficam parados.
 16. Anote, com estas palavras, se os dois do rádio chacoalharam ou ficaram mudos.
 
-**Passa quando.** A vibração do jogador do P3 chegou ao P3 e a mais nenhum, e a do P4 chegou ao P4; os outros três ficaram parados na mesa e apagados no desenho em cada rodada. A contagem por jogador do pé da grade bateu com quem levou o dano. E os dois do rádio responderam como os dois do cabo respondem.
+**Passa quando.** A vibração do jogador do P3 chegou ao P3 e a mais nenhum, e a do P4 chegou ao P4; os outros três ficaram parados na mesa e apagados no desenho em cada rodada. Na coluna de quem levou o dano o punho acendeu e a dica do motor trouxe o número pedido; nas outras três o punho ficou apagado e a linha do motor não abriu dica. E os dois do rádio responderam como os dois do cabo respondem.
 
 **Por controle.**
 
@@ -7024,4 +7032,4 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 * **P3** — Está no RÁDIO e é um dos dois que têm de reagir. É a metade desta célula que ninguém nunca mediu: escreva o que aconteceu com ele, mesmo que tenha sido nada.
 * **P4** — Também no rádio, mesma medição. Se um dos dois receber e o outro não, anote qual — é diferente de o rádio inteiro ficar mudo.
 
-**A armadilha.** A metade do rádio desta célula está EM BRANCO no mapa: ninguém nunca mediu isto por rádio, e o branco não quer dizer não funciona, quer dizer que não houve resposta. Então aqui um mudo é resultado, não falha sua — anote com todas as letras. E há história: houve um tempo em que o comando montado para o rádio saía malformado e o controle o descartava inteiro, calado; o rádio vibrava zero e nada na tela dizia isso. O comando de hoje sai certo, mas o aparelho nunca confirmou. Se o P3 e o P4 ficarem mudos enquanto a linha do pé da grade conta os pedidos deles, e o P1 chacoalhar no mesmo teste, é exatamente essa pergunta que você acabou de responder. Segunda: o defeito irmão anda ao contrário — se os QUATRO chacoalharem quando só um levou dano, a vibração perdeu o endereço e foi para a mesa inteira. Terceira: controle apoiado no mesmo tampo transmite o tremor do vizinho; separe-os, ou levante um de cada vez. Quarta: bateria baixa no rádio abaixa a força do motor — um chacoalho fraco demais para ouvir não é o mesmo que mudo; levante o controle e sinta antes de decidir.
+**A armadilha.** A metade do rádio desta célula está EM BRANCO no mapa: ninguém nunca mediu isto por rádio, e o branco não quer dizer não funciona, quer dizer que não houve resposta. Então aqui um mudo é resultado, não falha sua — anote com todas as letras. E há história: houve um tempo em que o comando montado para o rádio saía malformado e o controle o descartava inteiro, calado; o rádio vibrava zero e nada na tela dizia isso. O comando de hoje sai certo, mas o aparelho nunca confirmou. Se o P3 e o P4 ficarem mudos enquanto a dica da linha do motor das colunas deles traz o número que o jogo pediu, e o P1 chacoalhar no mesmo teste, é exatamente essa pergunta que você acabou de responder. Segunda: o defeito irmão anda ao contrário — se os QUATRO chacoalharem quando só um levou dano, a vibração perdeu o endereço e foi para a mesa inteira. Terceira: controle apoiado no mesmo tampo transmite o tremor do vizinho; separe-os, ou levante um de cada vez. Quarta: bateria baixa no rádio abaixa a força do motor — um chacoalho fraco demais para ouvir não é o mesmo que mudo; levante o controle e sinta antes de decidir.
