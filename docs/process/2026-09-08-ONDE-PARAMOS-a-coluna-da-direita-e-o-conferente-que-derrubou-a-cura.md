@@ -127,7 +127,7 @@ REAL, e achou CINCO coisas. As três primeiras sozinhas derrubam:
    hash `2c228352` e a prosa do botão morto — o defeito que a frente diz curar,
    na mesma página, pela mão do conserto.
    A régua nova não pega: `_BOTAO_MORTO = "autom"+"ático"` só casa a palavra
-   ACENTUADA, e o bloco vazado escreve "automatico".
+   ACENTUADA, e o bloco vazado escreve "automatico".  <!-- noqa-acento: a forma SEM acento é o objeto da régua -->
    **E a árvore fica internamente incoerente:** o HTML commitado não é o que o
    gerador commitado emite. Os portões só passam porque ninguém regerou.
 
