@@ -303,7 +303,7 @@ A guarda NÃO cobre o que você inventar: um script novo seu, um \`python -c\`
 com GTK, um navegador chamado à mão. Para esses, valem os três passos:
 
 1. **Prefira não abrir janela nenhuma** — \`Gtk.OffscreenWindow\`, \`--oculta\`,
-   Playwright \`headless\`, \`scripts/gui-captura/retratar_abas.py\`. É quase
+   Playwright \`headless\`, \`interface/olhar.py\`. É quase
    sempre possível, e aí não há workspace a errar. Se o seu script novo abre
    \`Gtk.Window\`, chame a guarda — há régua que reprova quem não chama:
 
