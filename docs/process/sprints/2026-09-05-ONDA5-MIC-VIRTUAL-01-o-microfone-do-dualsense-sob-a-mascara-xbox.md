@@ -187,7 +187,7 @@ fixou o device perde o microfone; o nome que ele guardou deixou de existir.
 **O custo disso já está pago, e dá para medi-lo.** Responder *"qual nó é o
 microfone DESTE controle"* custa hoje uma função de quatro regras mais um censo
 do dispositivo USB pai — `escolher_fonte`
-(`integrations/fontes_de_captura.py:164-227`) — e ela tem **quatro chamadores
+(`integrations/fontes_de_captura.py:192-227`) — e ela tem **quatro chamadores
 independentes**:
 
     integrations/eleicao_de_microfone.py:397     a eleição

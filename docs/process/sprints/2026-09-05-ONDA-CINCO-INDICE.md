@@ -239,7 +239,7 @@ quem coordena decide.**
 ### 3.3 · UMA COLISÃO QUE NÃO É DE ARQUIVO, e por isso não aparece na tabela
 
 **`escolher_fonte` tem dois interessados e um dono.** A função vive em
-`src/hefesto_dualsense4unix/integrations/fontes_de_captura.py:164`, que é posse
+`src/hefesto_dualsense4unix/integrations/fontes_de_captura.py:192`, que é posse
 da `ONDA5-MIC-VIRTUAL-01`. A `ONDA5-02-01` **não** abre esse arquivo — declara-o
 em `nao_toca` — mas o Passo 2 dela depende do contrato dele: hoje
 `src/hefesto_dualsense4unix/integrations/audio_control.py:368` chama
