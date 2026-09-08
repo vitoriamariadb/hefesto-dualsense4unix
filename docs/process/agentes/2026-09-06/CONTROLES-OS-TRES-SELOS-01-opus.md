@@ -215,7 +215,7 @@ guarda acesa nas duas de som.
 
 O "antes" é o `HEAD` desta branch; as três de "depois" são a bancada, com as duas
 últimas dirigidas por dentro para acender o estado. Na do sem-endereço vê-se o
-que a guarda apaga e o que ela deixa: os dois volumes, o `[nota]`, o `🎙`, a rota e o
+que a guarda apaga e o que ela deixa: os dois volumes, o `[nota]`, o `[mic]`, a rota e o
 modo do mic esmaecem; a onda, os rótulos e o selo `ATIVO` do microfone ficam.
 
 ---
@@ -279,7 +279,7 @@ para a `SPECS-A-PROCEDENCIA-01`.
 | `audio.alto_falante` | rádio | `aciona=não`, causa `divida` | **MONTOU (dublê).** A célula passou a TER LEITOR na tela: `ressalva_do_transporte` a lê a cada tique e escreve a frase honesta. **Não medi no aparelho** — não há DualSense nesta árvore. O que provei é que a tela troca a frase quando a célula troca |
 | `audio.alto_falante` | cabo | `aciona=parcial`, `ate_onde_foi=O APARELHO OBEDECEU` | **MONTOU (dublê).** Nenhuma ressalva é escrita no cabo, e a assimetria é a do mapa — a `A-CONFISSAO-NO-BOTAO-01` mediu o sink e o `paplay` ali ontem |
 | `audio.alto_falante.rota` | cabo e rádio | `aciona=sim` nos dois | **MONTOU (dublê).** É a célula que DECIDE que os quatro gestos NÃO apagam por causa da dívida do alto-falante. Régua: `test_os_gestos_nao_apagam_por_uma_divida_nossa` |
-| `audio.microfone.mudo` | rádio | `aciona=parcial`, causa `divida` | **MONTOU (dublê).** O `🎙` fica sensível — a dívida não o apaga. Só a guarda de ENDEREÇO o apaga |
+| `audio.microfone.mudo` | rádio | `aciona=parcial`, causa `divida` | **MONTOU (dublê).** O `[mic]` fica sensível — a dívida não o apaga. Só a guarda de ENDEREÇO o apaga |
 | `audio.saida_dedicada` | cabo | `aciona=parcial` · `canal=alsa-pipewire` | **MONTOU (dublê).** O sono do canal é lido por este caminho (`pactl list sinks short` + o sink que `sink_do_controle` casa por dispositivo USB). No rádio não há placa ALSA e a leitura não entra — o que a tela mostra é silêncio, não "acordado" |
 
 **A afirmação que NÃO fiz:** nenhuma frase nova promete alcance por transporte
@@ -344,7 +344,7 @@ propósito — a cura chama os donos, não copia os símbolos.
 * `html_onde`: o mesmo par de arquivos (a emissão e o bloco de CSS
   `A GUARDA SEM ENDEREÇO`)
 * `html_faz`: *"Sem `uniq`, o `title` das duas molduras recebe a frase do dono e
-  a folha esmaece as peças que MANDAM som (os dois volumes, o `[nota]`, o `🎙`, a rota
+  a folha esmaece as peças que MANDAM som (os dois volumes, o `[nota]`, o `[mic]`, a rota
   e o modo do mic). Os dois `?` passam a dizer a razão. A leitura fica ligada."*
 * ao `porque`: *"DIFERENTE e não IGUAL por dois motivos declarados: (a) esta tela
   não tem o botão de devolução do alto-falante, que ela mandou tirar em 30/08,

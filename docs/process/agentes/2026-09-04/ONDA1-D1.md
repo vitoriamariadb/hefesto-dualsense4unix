@@ -19,7 +19,7 @@
 | `app/ipc_bridge.py` | `mic_canal_set`, `mic_canal_set_detalhado`, `frase_do_ato_do_microfone`; `mic_set_detalhado` passou a DELEGAR ao ato |
 
 **Uma função, dois chamadores, por nome.** `mic_button_loop` (a borda do
-plástico) e `_handle_mic_canal_set` (o 🎙 da tela) apontam os dois para
+plástico) e `_handle_mic_canal_set` (o [mic] da tela) apontam os dois para
 `ligar_o_microfone`. `_eleger_ou_devolver` passou a DEVOLVER o
 `ResultadoDaEleicao` que já produzia — sem isso o ato não tinha como saber se
 metade dele aconteceu.
@@ -298,7 +298,7 @@ script é de quem coordena.
 
 Três linhas, e as três já têm o dado do lado do daemon:
 
-1. **O 🎙 vira o ato explícito.** O gesto `mudo`, ramo `microfone`, hoje faz
+1. **O [mic] vira o ato explícito.** O gesto `mudo`, ramo `microfone`, hoje faz
    `p.mic_set(not agora, uniq=uniq)` — **e isso já executa o ato inteiro**,
    porque `ipc_bridge.mic_set_detalhado` passou a delegar. O que falta é a
    FRASE: troque por `p.mic_canal_set(ligado=not agora, uniq=uniq)` e, na

@@ -206,6 +206,18 @@ def _mascarar_trio(m: re.Match[str]) -> str:
 #: atende o microfone e a nota", "a nota nasce `disabled` quando `alto_pode` é
 #: falso". Ela caía em `_FAIXAS_DO_HOOK` (Miscellaneous Symbols) e era APAGADA
 #: sem troca, deixando a frase sem sujeito. Rótulo de botão não é decoração.
+#:
+#: NOTA DATADA — 08/09/2026: o MICROFONE (U+1F399) entrou pelo mesmo motivo, e
+#: entrou JUNTO com o alargamento das faixas abaixo — de propósito, porque uma
+#: coisa é consequência da outra. Ele é o rótulo do botão do microfone na
+#: mesma aba Controles, o par exato da nota musical: os dois são `<button>`
+#: irmãos (`.mudo-i`), e o código do produto fala deles como "o mic e a nota".
+#: Ele estava FORA de `_FAIXAS_DO_HOOK` e sobrevivia inteiro; ao ler a faixa
+#: do dono, `U+1F300-U+1F5FF` passou a alcançá-lo — e sem esta linha o
+#: alargamento o teria APAGADO de nove relatórios de agente, repetindo em
+#: 08/09 exatamente o defeito que a nota musical documenta em 03/09.
+#: *Rótulo de botão não é decoração — e o segundo rótulo não é menos rótulo
+#: que o primeiro.*
 _EMOJI_COM_SENTIDO = {
     "\u2705": "[OK]",   # WHITE HEAVY CHECK MARK
     "\u274c": "[X]",    # CROSS MARK
@@ -215,6 +227,7 @@ _EMOJI_COM_SENTIDO = {
     "\u2718": "[X]",    # HEAVY BALLOT X
     "\u2716": "[X]",    # HEAVY MULTIPLICATION X
     "\u26a0": "[!]",    # WARNING SIGN
+    "\U0001f399": "[mic]",  # STUDIO MICROPHONE - o mic, a mesma aba Controles
     "\u266a": "[nota]",  # EIGHTH NOTE — o botão do alto-falante, aba Controles
     "\U0001f6a8": "[!]",   # POLICE CARS REVOLVING LIGHT
     "\U0001f534": "[X]",   # LARGE RED CIRCLE
@@ -260,9 +273,44 @@ _ADR011_PRESERVADOS = (
 #: Quem sanitiza para o repositório tem de obedecer ao MAIS ESTRITO, senão o
 #: material passa no portão do repositório e trava no commit — que foi
 #: exatamente o que aconteceu na primeira tentativa desta leva.
+#:
+#: A LISTA ERA CÓPIA A MÃO, E ESTAVA CURTA — medido em 08/09/2026
+#: -------------------------------------------------------------
+#: *"O mais estrito dos dois" só é tão estrito quanto uma lista copiada a
+#: mão.* O dono destas faixas é o `EMOJI_RE` do hook de pre-commit da casa, e
+#: ele declara OITO faixas; esta cópia trazia DUAS delas. Faltavam
+#: `1F300-1F5FF`, `1F600-1F64F`, `1F680-1F6FF`, `1F900-1F9FF`, `1FA00-1FA6F` e
+#: `1FA70-1FAFF` — as seis dos planos suplementares, que são justamente onde
+#: mora quase todo emoji moderno.
+#:
+#: O QUE A FALTA CUSTAVA, medido, e é UM ponto de código: `U+1F399` (STUDIO
+#: MICROPHONE) atravessava os dois portões — este, por não estar na cópia; e o
+#: `validar-glifos.py`, porque tem apresentação de TEXTO. Ele sobrevivia em
+#: nove relatórios de agente já versionados.
+#:
+#: E É POR ISSO QUE ELE ENTROU EM `_EMOJI_COM_SENTIDO` NA MESMA EDIÇÃO: alargar
+#: sem isso o teria APAGADO dos nove, e ele é o RÓTULO do botão do microfone —
+#: o par da nota musical, cuja lápide de 03/09 está vinte linhas acima. Uma
+#: régua que fica mais estrita apagando o nome de um botão do produto não ficou
+#: melhor; trocou um defeito por outro. Ver o teste
+#: `test_a_faixa_do_hook_nao_se_copia_a_mao`, que compara esta lista com a do
+#: DONO e reprova a divergência em vez de confiar nela.
+#:
+#: POR QUE A LISTA CONTINUA AQUI, e não é preguiça: o hook mora fora da árvore
+#: (é configuração de máquina, `core.hooksPath`) e NÃO EXISTE no runner do CI.
+#: Um sanitizador que dependesse dele seria não-determinístico exatamente onde
+#: mais precisa ser determinístico. Então a cópia fica — e a régua acima é o
+#: que impede que ela volte a envelhecer em silêncio.
 _FAIXAS_DO_HOOK = (
     (0x2600, 0x26FF),  # Miscellaneous Symbols
     (0x2700, 0x27BF),  # Dingbats: mora aqui o CHECK MARK que derrubou o commit
+    # AS SEIS DOS PLANOS SUPLEMENTARES — as que faltavam (08/09/2026)
+    (0x1F300, 0x1F5FF),  # Misc Symbols and Pictographs: o U+1F399 mora aqui
+    (0x1F600, 0x1F64F),  # Emoticons
+    (0x1F680, 0x1F6FF),  # Transport and Map
+    (0x1F900, 0x1F9FF),  # Supplemental Symbols and Pictographs
+    (0x1FA00, 0x1FA6F),  # Symbols and Pictographs Extended-A (primeira metade)
+    (0x1FA70, 0x1FAFF),  # Symbols and Pictographs Extended-A (segunda)
     (0x2934, 0x2935),
     (0x2B1B, 0x2B1C),
     (0x2B50, 0x2B50),

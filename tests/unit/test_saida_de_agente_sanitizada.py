@@ -26,6 +26,7 @@ if str(RAIZ) not in sys.path:
 
 from scripts.sanitizar_saida_de_agente import (
     _OUIS_COMO_TRIO,
+    _bloqueado_pelo_hook,
     mascarar_enderecos,
     normalizar_glifos,
     recusar,
@@ -115,8 +116,186 @@ def test_nenhum_arquivo_de_agente_tem_glifo_proibido(arquivo: Path) -> None:
     assert normalizar_glifos(texto) == texto, (
         f"{arquivo.relative_to(RAIZ)} tem glifo que o hook de pre-commit bloqueia "
         "— não é MAC, é emoji/símbolo. Os que carregam sentido viram texto "
-        "(`[OK]`, `[X]`, `[!]`, `[nota]`); os decorativos saem."
+        "(`[OK]`, `[X]`, `[!]`, `[nota]`, `[mic]`); os decorativos saem."
     )
+
+
+# ---------------------------------------------------------------------------
+# A LISTA COPIADA A MÃO, e o dono que ninguém consultava — 08/09/2026
+# ---------------------------------------------------------------------------
+
+
+#: O QUE O DONO DECLARA. Procedência: a variável `EMOJI_RE` do hook de
+#: pre-commit da casa (o `_lib.sh` da pasta apontada por `core.hooksPath`),
+#: transcrita em 08/09/2026. São as OITO faixas, na ordem em que ele as
+#: escreve.
+#:
+#: POR QUE ISTO É TRANSCRIÇÃO E NÃO LEITURA AO VIVO — e a razão é da casa, não
+#: minha. O hook mora em configuração de MÁQUINA, fora da árvore, e alcançá-lo
+#: exigiria resolver o `$HOME` REAL de quem roda. A suíte **proíbe isso por
+#: desenho**: o `tests/conftest.py` desvia `HOME` e os quatro `XDG_*` para um
+#: lar de mentira, e a própria mensagem de reprovação dele manda procurar
+#: "`pwd`/`getpwuid` (que ignoram o HOME)" como sintoma de teste que furou o
+#: isolamento. Um teste que lesse o hook de verdade seria esse furo. E no
+#: runner do CI o hook não existe de todo.
+#:
+#: A transcrição não é acreditada: `_faixas_do_dono()` abaixo LÊ o hook quando
+#: ele está ao alcance **sem consultar `$HOME`** — o `.git/hooks` da própria
+#: árvore, ou o `EMOJI_RE` que a variável `HEFESTO_HOOK_EMOJI_RE` trouxer — e
+#: só cai nesta lista quando nenhum dos dois responde. Não há `skip`: a régua
+#: mede sempre, e mede mais fundo onde pode.
+_FAIXAS_QUE_O_HOOK_DECLARA = (
+    (0x1F600, 0x1F64F),
+    (0x1F300, 0x1F5FF),
+    (0x1F680, 0x1F6FF),
+    (0x2600, 0x26FF),
+    (0x2700, 0x27BF),
+    (0x1F900, 0x1F9FF),
+    (0x1FA00, 0x1FA6F),
+    (0x1FA70, 0x1FAFF),
+)
+
+
+def _faixas_do_dono() -> tuple[list[tuple[int, int]], str]:
+    """As faixas do `EMOJI_RE`, e de onde elas vieram.
+
+    Devolve `(faixas, procedência)`. Tenta o hook ao vivo por dois caminhos que
+    **não** consultam o `$HOME` — a variável `HEFESTO_HOOK_EMOJI_RE` e a pasta
+    `.git/hooks` da própria árvore —, e cai na transcrição acima quando nenhum
+    responde. A procedência entra na mensagem de reprovação para que ninguém
+    confunda "medido contra o dono" com "medido contra a cópia".
+    """
+    import os
+    import re
+
+    def _extrair(texto: str) -> list[tuple[int, int]]:
+        m = re.search(r"EMOJI_RE[^\n]*?\[((?:\\x\{[0-9A-Fa-f]+\}-?)+)\]", texto)
+        alvo = m.group(1) if m else texto
+        return [
+            (int(a, 16), int(b, 16))
+            for a, b in re.findall(
+                r"\\x\{([0-9A-Fa-f]+)\}-\\x\{([0-9A-Fa-f]+)\}", alvo
+            )
+        ]
+
+    cru = os.environ.get("HEFESTO_HOOK_EMOJI_RE", "")
+    if cru:
+        faixas = _extrair(cru)
+        if faixas:
+            return faixas, "o hook AO VIVO (via HEFESTO_HOOK_EMOJI_RE)"
+
+    for nome in ("_lib.sh", "pre-commit"):
+        arq = RAIZ / ".git" / "hooks" / nome
+        try:
+            texto = arq.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        faixas = _extrair(texto)
+        if faixas:
+            return faixas, f"o hook AO VIVO (.git/hooks/{nome})"
+
+    return list(_FAIXAS_QUE_O_HOOK_DECLARA), "a transcrição de 08/09/2026"
+
+
+def test_a_faixa_do_hook_nao_se_copia_a_mao() -> None:
+    """A lista deste repositório cobre TODA faixa que o dono declara.
+
+    A CAUSA MEDIDA, 08/09/2026: `_FAIXAS_DO_HOOK` era cópia à mão do `EMOJI_RE`
+    do hook, e trazia DUAS das OITO faixas que ele declara. Faltavam as seis
+    dos planos suplementares — entre elas `U+1F300-U+1F5FF`, onde mora o
+    `U+1F399`, que atravessava OS DOIS portões da casa (este por ausência na
+    cópia; o `validar-glifos.py` porque o ponto de código tem apresentação de
+    TEXTO) e sobrevivia em **nove relatórios de agente já versionados**.
+
+    *"O mais estrito dos dois" só é tão estrito quanto uma lista copiada a
+    mão.* Esta régua tira a cópia da confiança: o `_FAIXAS_DO_HOOK` do script
+    deixa de ser a única afirmação sobre o assunto e passa a ser medido contra
+    uma segunda, com procedência declarada.
+
+    **NÃO HÁ `skip` AQUI, DE PROPÓSITO.** A primeira escrita desta régua pulava
+    quando o hook não estava ao alcance — e como a suíte isola o `$HOME`, ela
+    pulava SEMPRE. Uma régua que só sabe pular é um verde sobre nada, que é a
+    forma exata que esta leva inteira existe para matar. Ela agora mede sempre:
+    contra o hook onde ele responde, contra a transcrição onde não responde, e
+    diz na reprovação qual dos dois usou.
+
+    A MORDIDA: apague `(0x1F300, 0x1F5FF)` de `_FAIXAS_DO_HOOK` e este teste
+    nomeia a faixa que ficou descoberta.
+    """
+    faixas, procedencia = _faixas_do_dono()
+    assert faixas, "não consegui obter faixa nenhuma — nem do hook, nem da transcrição"
+
+    descobertas: list[str] = []
+    for lo, hi in faixas:
+        faltando = [cp for cp in range(lo, hi + 1) if not _bloqueado_pelo_hook(cp)]
+        if faltando:
+            descobertas.append(
+                f"U+{lo:04X}-U+{hi:04X}: {len(faltando)} pontos de código fora "
+                f"da cópia (o primeiro é U+{faltando[0]:04X})"
+            )
+
+    assert not descobertas, (
+        f"`_FAIXAS_DO_HOOK` não cobre o que o hook bloqueia (medido contra "
+        f"{procedencia}):\n  " + "\n  ".join(descobertas)
+        + "\n\nQuem sanitiza para o repositório obedece ao MAIS ESTRITO dos "
+        "dois portões, e o hook é o mais estrito. O que escapar daqui passa no "
+        "repositório e trava no commit — ou pior, entra versionado, que foi o "
+        "que se mediu com o U+1F399 em nove relatórios. Acrescente a faixa em "
+        "`scripts/sanitizar_saida_de_agente.py`; e ANTES de acrescentar, "
+        "meça se ela não engole um RÓTULO de botão do produto, que vira "
+        "entrada em `_EMOJI_COM_SENTIDO` em vez de sumir."
+    )
+
+
+def test_a_transcricao_do_hook_tem_as_oito_faixas() -> None:
+    """A transcrição não encolhe sem alguém reparar — foi assim que encolheu.
+
+    O defeito de origem não foi a lista estar errada no dia em que nasceu: foi
+    ela ter ficado para trás em silêncio, e ninguém ter como notar. Este teste
+    é o alarme mais barato possível: a transcrição declara OITO faixas, e as
+    oito têm de continuar lá.
+    """
+    assert len(_FAIXAS_QUE_O_HOOK_DECLARA) == 8, (
+        "a transcrição do `EMOJI_RE` mudou de tamanho. Se o hook da casa mudou, "
+        "atualize as DUAS pontas (esta lista e `_FAIXAS_DO_HOOK`) e meça o que "
+        "a faixa nova engole antes de fechar."
+    )
+    assert all(lo <= hi for lo, hi in _FAIXAS_QUE_O_HOOK_DECLARA)
+    assert not _bloqueado_pelo_hook(ord("a")), "letra comum virou emoji"
+
+
+def test_o_rotulo_do_microfone_sobrevive_ao_alargamento() -> None:
+    """As seis faixas novas apagam decoração e PRESERVAM o nome do botão.
+
+    A outra metade da cura de 08/09, e a que roda em toda parte — inclusive no
+    CI, onde o hook não existe. Ela mede os pontos de código NOMEADOS em vez de
+    comparar listas.
+
+    O RISCO QUE ELA GUARDA: alargar `_FAIXAS_DO_HOOK` para as faixas do dono
+    faz `U+1F300-U+1F5FF` alcançar o `U+1F399`, que é o RÓTULO do botão do
+    microfone na aba Controles — o par exato do `U+266A` do alto-falante, cuja
+    lápide de 03/09 diz *"rótulo de botão não é decoração"*. Sem a linha em
+    `_EMOJI_COM_SENTIDO` o alargamento o apagaria de nove relatórios, repetindo
+    o defeito de 03/09 no ato de consertar outro.
+
+    A MORDIDA: tire `"\\U0001f399"` de `_EMOJI_COM_SENTIDO` e este teste
+    reprova dizendo que o rótulo sumiu sem troca.
+    """
+    mic = "\U0001f399"
+    assert normalizar_glifos(f"o {mic} nasce disabled") == "o [mic] nasce disabled", (
+        "o rótulo do botão do microfone deixou de virar `[mic]`. Se ele está "
+        "sendo APAGADO, a frase fica sem sujeito — é o defeito que a nota "
+        "musical (U+266A) documenta em 03/09/2026, repetido. Rótulo de botão "
+        "vira texto; decoração é que sai."
+    )
+
+    # E a decoração das faixas novas continua saindo, senão o alargamento não
+    # alargou nada. Um por faixa, e nenhum deles é rótulo de coisa nenhuma.
+    for cp in (0x1F30D, 0x1F600, 0x1F680, 0x1F9E0, 0x1FA01, 0x1FA79):
+        assert normalizar_glifos(f"a{chr(cp)}b") == "ab", (
+            f"U+{cp:04X} sobreviveu ao sanitizador. Ele está numa faixa que o "
+            "hook de pre-commit bloqueia: passa aqui e trava no commit."
+        )
 
 
 def test_o_sanitizador_recusa_a_forma_que_vazou() -> None:

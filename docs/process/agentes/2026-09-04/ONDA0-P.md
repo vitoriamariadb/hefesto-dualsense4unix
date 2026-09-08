@@ -174,7 +174,7 @@ FAILED test_o_botao_diz_que_esta_trabalhando
 FAILED test_o_rotulo_publicado_entra_no_lugar
 2 failed, 12 passed in 17.72s
 
-AssertionError: o rótulo em voo não entrou: '🎙'
+AssertionError: o rótulo em voo não entrou: '[mic]'
 ```
 
 **Curas devolvidas:** `14 passed in 17.73s`.
@@ -250,7 +250,7 @@ botão do produto e a leitura do DOM ao lado:
 
 | foto | o que ela mostra | medido no DOM |
 | --- | --- | --- |
-| `01-antes.png` | a aba 02 em repouso | `recados: []`, botão `🎙`, opacidade 1 |
+| `01-antes.png` | a aba 02 em repouso | `recados: []`, botão `[mic]`, opacidade 1 |
 | `02-em-voo.png` | o botão **durante** um gesto de 2,5 s | texto `Calando…`, `em_voo: true`, opacidade `0.6`, cursor `progress` |
 | `03-sucesso.png` | o recibo no cartão do p1 | `"Pronto."`, tom `sucesso`, `rgb(80, 250, 123)` |
 | `04-recusa.png` | a recusa no mesmo cartão | tom `recusa`, `rgb(255, 184, 108)` |
@@ -353,7 +353,7 @@ da mesma folha já carrega desde sempre. Curado; a foto seguinte devolve
 
 ### 7. O rótulo em voo NÃO CABE em botão de ícone
 
-Publiquei `data-hef-em-voo="Calando…"` num 🎙 de 20 px para medir, e o texto
+Publiquei `data-hef-em-voo="Calando…"` num [mic] de 20 px para medir, e o texto
 **transborda**. Não é defeito do mecanismo: **quem publica o atributo é quem
 responde por caber**, e num botão de ícone a resposta certa é não publicar e
 deixar o sinal da classe falar. A decisão dela (`09` [03]) é sobre o
@@ -459,7 +459,7 @@ sempre "ficar com o número maior". Nenhum comportamento mudou.
    `"Reaplicando…"`, junto com o rótulo novo do botão (`"Reaplicar ajustes"`,
    decisão `09` [01]). Sem o atributo o botão ganha só a classe `hef-em-voo` —
    sinal sem palavra inventada. **Não publique em botão de ícone:** medido, o
-   texto transborda um 🎙 de 20 px.
+   texto transborda um [mic] de 20 px.
 
 6. **O botão cinza da S-03 (frente da FOLHA) já tem o que faltava.** Ponha
    `data-hef-atributo="aria-disabled"` ao lado do `data-hef-alvo="classe"` no

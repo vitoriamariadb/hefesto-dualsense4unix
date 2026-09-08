@@ -7,7 +7,7 @@ Base conferida: `3399773e` (`onda/atual-0609`), sem adiantar — nasceu na ponta
 
 ## Em uma linha
 
-As duas linhas fecharam: o 🎙 passou a perguntar **de quem era o microfone** ao
+As duas linhas fecharam: o [mic] passou a perguntar **de quem era o microfone** ao
 mesmo dono que o deslizante já pergunta, e o som de confirmação do alto-falante
 voltou nos **três** gestos que esta aba tem — numa linha própria, medido: o
 desfecho do clique chega aos **182 ms** com o tocador segurado em **1000 ms**.
@@ -60,7 +60,7 @@ tem para este estado (`TEXTO_MIC_ALVO_NAO_HONRADO`) começa com *"O volume foi
 para o microfone de OUTRO controle"* — ela nasceu para o deslizante e já veio
 marcada `PROVISÓRIO — decisão dela` no próprio dono
 (`src/hefesto_dualsense4unix/app/widgets/controller_card.py:613`). Dita depois de
-um clique no 🎙, ela nomeia um gesto que ela não fez. Escrever outra aqui é o que
+um clique no [mic], ela nomeia um gesto que ela não fez. Escrever outra aqui é o que
 esta casa proíbe (texto de tela é dela), e o dono é `app/`, que é `nao_toca`.
 Enquanto o daemon não disser `por_uniq`, ninguém lê a frase errada; o dia em que
 disser, **a palavra é dela** — e há régua-estopim cobrando isso antes de a frase
@@ -198,7 +198,7 @@ estão no scratchpad, fora do repositório.
 
 ### O clique, e em qual cartão a recusa pousou
 
-Com o daemon respondendo `por_uniq: false`, o clique no 🎙 do **P2**:
+Com o daemon respondendo `por_uniq: false`, o clique no [mic] do **P2**:
 
 ![antes](A-CONFISSAO-NO-BOTAO-01-antes.png)
 ![a recusa no cartão do P2](A-CONFISSAO-NO-BOTAO-01-depois-a-recusa-no-cartao-do-p2.png)
@@ -351,7 +351,7 @@ de ser parcial no CÓDIGO e continua inerte no APARELHO: o corpo de
 régua-estopim de `test_a02_o_botao_confessa_o_alvo_e_o_som_confirma.py` reprova
 no dia em que trouxer."*
 
-### A frase da confissão precisa da palavra dela antes de valer no 🎙
+### A frase da confissão precisa da palavra dela antes de valer no [mic]
 
 `TEXTO_MIC_ALVO_NAO_HONRADO` fala de **volume**. O dia em que `mic.canal.set`
 disser `por_uniq`, ela passa a ser dita depois de um clique no botão de MUDO. São

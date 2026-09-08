@@ -190,7 +190,7 @@ treme-d@p2 → o seletor genérico responde "dualsense"
 A chave de cada linha (`treme-e@p1`) é o dono pelo seletor NOVO; o valor é o dono
 pelo antigo. Quatro campos, quatro respostas trocadas.
 
-**O clique** está na régua, não na foto: o roteiro clica no 🎙 do cartão do p1 na
+**O clique** está na régua, não na foto: o roteiro clica no [mic] do cartão do p1 na
 `02-controles` (o botão do produto, com o `data-mudo` que a página publicada
 traz) **três vezes** — sem faixa, com uma, com duas — e dispara `input` e
 `change` de verdade no ouvinte, seis vezes, com os atributos ligados e

@@ -2,7 +2,7 @@
 
 **Sprint:** `docs/process/sprints/2026-09-04-ONDA2-02-CONTROLES-01-a-maior-de-desenho-e-o-microfone-que-ja-tem-motor.md`
 **Árvore:** `hefesto-voo/ONDA2-02-CONTROLES-A2` · branch `voo/ONDA2-02-CONTROLES-A2`
-**Bancada:** reservada e liberada uma vez, para o clique de verdade no 🎙 com o
+**Bancada:** reservada e liberada uma vez, para o clique de verdade no [mic] com o
 DualSense dela no cabo. Nenhuma escrita ficou de pé: o `mic_mudo` do aparelho e
 a fonte de captura padrão do sistema foram lidos antes e depois, e voltaram
 IDÊNTICOS.
@@ -23,7 +23,7 @@ morreu por decisão (conflito C-1), e a [05] e a [10] já estavam feitas.**
 | **[03]** | o selo diz o estado COMPOSTO (C-2, pela D-12) | `selo_composto` lê as QUATRO faces. ATIVO só quando elas concordam |
 | **[09]** | a rota lê as DUAS camadas | `aceso_da_rota` monta o `RotaDasDuasCamadas` da ONDA1-D1. O byte 3 sozinho **não acende mais** "Todo o som do PC" |
 | **[08]** | o mudo que caiu no controle errado | o gesto `volume` lê o TERCEIRO estado (`por_uniq`) e confessa no cartão, com a frase do produto |
-| **S-05** | o microfone é UM ATO | o 🎙 chama `mic.canal.set`, e a recusa diz **qual metade** faltou |
+| **S-05** | o microfone é UM ATO | o [mic] chama `mic.canal.set`, e a recusa diz **qual metade** faltou |
 | **[07]** | a degradação do vpad | `pacotes.degradacao_de` ganhou o primeiro chamador em dez pacotes |
 
 ### As que são DESENHO — na bancada, e declaradas em `mockup/DIVERGENCIAS.md`
@@ -32,7 +32,7 @@ morreu por decisão (conflito C-1), e a [05] e a [10] já estavam feitas.**
 | --- | --- | --- |
 | **D-06 / S-11** | *"casco borda externa lightbar borda interna"* | um anel de 1px dentro dos 2px do casco, com o MESMO `data-campo` do retângulo da Barra de luz |
 | **[02]** | palavra curta no lugar do travessão | `Jogo` · `Steam` · `Não sei` · `Apagada`, e a frase inteira no `title` da linha |
-| **[04]** | o botão avisa antes do clique (D-03) | o 🎙 e o [nota] apagam com a razão no `?`. **O `disabled` do [nota] saiu** |
+| **[04]** | o botão avisa antes do clique (D-03) | o [mic] e o [nota] apagam com a razão no `?`. **O `disabled` do [nota] saiu** |
 | **[06]** | o "Devolver" do alto-falante | fica FORA, e o `title` do [nota] passou a dizer o preço |
 | **T-07** | o décimo alvo | `data-hef-alvo="marcado"` no rádio do acordeão |
 
@@ -63,7 +63,7 @@ em `mordidas-saida.txt` no rascunho desta sessão; abaixo, o que cada uma disse.
 | 3 | a frase some do hover | `test_a_frase_inteira_vai_para_o_hover` |
 | 4 | os dois botões param de avisar | `test_as_duas_razoes_chegam_ao_card` |
 | 5 | a rota volta a acender pelo byte | `test_o_byte_do_pc_com_a_saida_em_outro_lugar_nao_acende_nada` |
-| 6 | o 🎙 volta a `mic_set` | `test_o_gesto_chama_o_ato_e_nao_a_metade_do_firmware` |
+| 6 | o [mic] volta a `mic_set` | `test_o_gesto_chama_o_ato_e_nao_a_metade_do_firmware` |
 | 7 | o volume volta ao `bool` | `test_o_volume_do_microfone_confessa_quando_cai_na_rota_global` |
 | 8 | a degradação some do card | `test_o_motivo_da_degradacao_chega_ao_card` |
 | 9 | o cinza sai da folha | `test_o_botao_de_som_apaga_e_ainda_assim_responde` |
@@ -133,7 +133,7 @@ impede a terceira.
 
 | foto | o que ela mostra |
 | --- | --- |
-| `01-antes.png` | a aba publicada de hoje — o 🎙 e o [nota] com um `?` que não existia |
+| `01-antes.png` | a aba publicada de hoje — o [mic] e o [nota] com um `?` que não existia |
 | `02-depois.png` | a bancada publicada em cima, e **um defeito que só a foto pegou** (abaixo) |
 | `03-depois-curado.png` | os dois `?` invisíveis, como têm de ser com os botões clicáveis |
 | `04-vivo-antes-do-clique.png` | o card em repouso, com os dois anéis |
@@ -176,7 +176,7 @@ aparelho no começo: {'mic_mudo': False, …}
 
 ### 1. O DAEMON INSTALADO NÃO CONHECE `mic.canal.set` — e a frase de recusa não continha o caso que acontece
 
-**É o achado do dia, e quem o revelou foi o clique, não a régua.** O 🎙 foi
+**É o achado do dia, e quem o revelou foi o clique, não a régua.** O [mic] foi
 clicado na tela viva e o ato foi RECUSADO — não porque o gesto esteja errado,
 mas porque **o daemon que roda na máquina dela é o INSTALADO**, mais velho que
 esta janela: `mic.canal.set` nasceu na ONDA1-D1 e o `install.sh` não rodou
@@ -318,7 +318,7 @@ teste são asserção e docstring; a da ponte é reexport.
    `classe` veste** — ele é derivado, e não é um segundo campo.
 
 2. **`interface/monta.py` — a folha do botão cinza não alcança botão de ÍCONE.**
-   A peça casa `.btn` e `.seg button`; o 🎙/[nota] é `.mudo-i`, 22px quadrados, e
+   A peça casa `.btn` e `.seg button`; o [mic]/[nota] é `.mudo-i`, 22px quadrados, e
    virar `.btn` seria trocar o desenho que ela aprovou. Esta aba tem **três
    linhas de CSS** que copiam a cara da folha, declaradas como cópia. O dia em
    que `.mudo-i` entrar naquela lista, elas somem daqui. É a mesma dívida que a
@@ -349,7 +349,7 @@ teste são asserção e docstring; a da ponte é reexport.
 ### Para quem coordena
 
 * **O `install.sh` precisa rodar antes de ela ver o microfone funcionar** (§1).
-  Enquanto o daemon instalado for o de antes da ONDA1-D1, o 🎙 recusa dizendo —
+  Enquanto o daemon instalado for o de antes da ONDA1-D1, o [mic] recusa dizendo —
   honestamente, e com a causa certa na frase desde esta leva.
 * **A publicação desta aba muda pixel**, e é o único item que muda: o ANEL
   INTERNO (D-06). Os outros seis são invisíveis em repouso.
