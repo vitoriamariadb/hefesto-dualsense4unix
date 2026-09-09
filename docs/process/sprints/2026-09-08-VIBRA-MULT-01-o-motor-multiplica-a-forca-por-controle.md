@@ -1,6 +1,6 @@
 ---
 sprint: VIBRA-MULT-01
-estado: aberta
+estado: feita
 posse:
   VIBRA-MULT-01:
     - src/hefesto_dualsense4unix/interface/pacotes/a05_vibracao.py
@@ -11,6 +11,18 @@ posse:
 bancada: false
 depois_de: []
 ---
+> **ESTADO 2026-09-09: feita** — o botão "Testar" passa a mandar o par reduzido pela
+> barra de cada motor, por controle. Eram DOIS defeitos empilhados: `_par_das_barras`
+> lia `last_weak`/`last_strong` de dentro do bloco `per_vpad`, **que não tem essas
+> chaves**, e por isso mandava `(160, 220)` com a barra em zero; e o caminho do rumble
+> FIXADO não aplica a barra em lugar nenhum — `_mults_por_motor` só é chamado pelo FF do
+> JOGO. Régua nova com 9 casos e três mordidas em
+> `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py`. A `(a)`, a premissa física,
+> continua sendo da mão dela; a cura do daemon que cobre o `hef test rumble` e a janela
+> GTK está nomeada linha a linha na entrega, e ela vem casada com um ajuste no
+> `scripts/ensaios/o_multiplicador_chega_ao_motor.py`. Entrega:
+> `docs/process/agentes/2026-09-09/VIBRA-MULT-01-opus.md`.
+
 > **09/09/2026 — os dois motores RESPONDEM, e o caminho até aqui é a lição.** A primeira
 > medição deu *"não funciona, mas na interface isso funciona"*, e quem estava errado era
 > o INSTRUMENTO: a folha de ensaios ligava só o `VALID_FLAG0_COMPATIBLE_VIBRATION`, e o
@@ -151,3 +163,41 @@ A multiplicação é aplicada em `gamepad.py:1347`, no MESMO caminho por onde
 passa o rumble do jogo — a docstring de `:1321` diz com todas as letras que *"o
 slider vale também para o rumble do jogo"*. Provado por unidade; a prova NO
 jogo é a mesma mão de (a).
+
+### (d) O BOTÃO QUE ELA APERTA — **era o único que não multiplicava**
+
+Este caminho não estava na lista de (a)/(b)/(c), e é por ele que a mão dela
+passa: o **"Testar"**. Dois defeitos empilhados, medidos em 09/09 nesta árvore:
+
+1. `a05_vibracao._par_das_barras` lia `last_weak`/`last_strong` de dentro do
+   bloco `per_vpad` do `state_full`. **Aquele bloco não tem essas chaves** —
+   elas moram no topo do `rumble_ff` (`ipc_handlers.py:3529`). A leitura dava
+   zero sempre, e o "Testar" mandava o par fixo `(160, 220)` **com a barra em
+   ZERO**: o motor que ela mandou calar tremia igual ao outro;
+2. o caminho do rumble FIXADO não aplica a barra. `_mults_por_motor` tem UM
+   chamador — `apply_game_rumble`, o FF do jogo. O `rumble.set`
+   (`ipc_handlers:4959`) e o reassert de 5 Hz (`subsystems/rumble:288-290`)
+   aplicam **um fator só, o degrau**, igual nos dois motores.
+
+**Curado a metade que cabe na posse:** a aba manda o par já reduzido pela
+barra, e o degrau segue sendo dos três andares do daemon que já o aplicavam —
+o produto na mão dela vira `base × barra × degrau`, o mesmo de
+`_mults_por_motor`. A metade do daemon, que cobriria também o `hef test rumble`
+e a janela GTK, está nomeada linha a linha na entrega — **e vem casada com um
+ajuste no `scripts/ensaios/o_multiplicador_chega_ao_motor.py`**, que
+pré-multiplica o par e passaria a multiplicar duas vezes.
+
+Réguas em `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py`, nove, com
+as três mordidas escritas e a saída de cada uma na entrega.
+
+**E A CURA PROVISÓRIA TEM ALARME — reparo de 09/09, §3 daquele arquivo.** Quem
+for fazer a metade do daemon leia isto antes: **a barra passaria a ser contada
+DUAS vezes**, e o que ela sente viraria `base × barra² × degrau` — com a barra
+em 50 %, o motor em 25 %. Três réguas reprovam nesse dia, nomeando a dobra e
+dizendo o que tirar da aba (`_reduzido_pela_barra`, no MESMO commit):
+`test_o_rumble_fixado_aplica_um_fator_so_nos_dois_motores`,
+`test_o_reassert_de_5hz_aplica_um_fator_so_nos_dois_motores` e
+`test_a_conta_inteira_da_barra_vale_uma_vez_so`. Elas não impedem a cura —
+exigem que as duas metades andem juntas, como o ajuste do
+`o_multiplicador_chega_ao_motor.py` acima. Vermelho ali **não é regressão: é o
+recado chegando na hora certa.**

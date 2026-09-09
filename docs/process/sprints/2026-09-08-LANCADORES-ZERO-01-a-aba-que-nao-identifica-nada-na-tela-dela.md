@@ -1,6 +1,6 @@
 ---
 sprint: LANCADORES-ZERO-01
-estado: aberta
+estado: feita
 posse:
   LANCADORES-ZERO-01:
     - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
@@ -9,11 +9,24 @@ posse:
     - src/hefesto_dualsense4unix/integrations/jogos_locais.py
 cria:
   - src/hefesto_dualsense4unix/integrations/censo_dos_lancadores.py
+  - src/hefesto_dualsense4unix/integrations/cura_por_estrada.py
+  - src/hefesto_dualsense4unix/integrations/sandbox_dos_lancadores.py
 bancada: false
 depois_de: []
 ---
 
 # LANCADORES-ZERO-01 — a aba ACHA os seis e não identifica nenhum: o censo por lançador
+
+> **ESTADO 2026-09-09: feita** — os itens 3 e 4 fecharam o que faltava.
+> `integrations/cura_por_estrada.py` leva o ambiente da ponte aos outros
+> lançadores por duas estradas (o `config.json` do Heroic e o arquivo de
+> override do Flatpak dos demais), atrás do botão «Consertar» que os cinco
+> cartões ganharam; `integrations/sandbox_dos_lancadores.py` lê a permissão de
+> dispositivo de cada caixa e o cartão «Flatpak» passou a responder *"5
+> lançadores por aqui, e o controle entra em todos"*. Medido na tela viva: o
+> clique escreveu as cinco variáveis, o recibo pousou na tarja e a mordida (sem
+> o `default.env` do serviço) recusou dizendo. **O Lutris por jogo caiu** — a
+> razão medida está na §5.3 e no cabeçalho do módulo.
 
 **Reportado por ELA em 08/09/2026, à noite, com o produto instalado e um print.**
 Palavras dela: *"a aba lançadores tá identificando nada."* E, com o print:
@@ -240,12 +253,65 @@ Mordida: apagar o leitor do Heroic reprova **oito**.
 **Achado pela régua:** o `ISOPaths = 2` do Dolphin entrava na lista como uma
 pasta chamada "2" — `startswith("isopath")` casa com a CONTAGEM.
 
-### O que FALTA (itens 3 e 4)
+## O QUE FECHOU EM 09/09/2026, à tarde — os itens 3 e 4
 
-* **Item 3, a cura por estrada:** Heroic e Lutris por jogo
-  (`enviromentOptions`, `system: env:`), emuladores por `flatpak override`. É a
-  mesma conta do `launch_env.py`; muda a chave e o arquivo. **Não foi feito** —
-  é escrita em configuração de programas dela, e pede a palavra dela antes.
-* **Item 4, o cartão «Flatpak» muda de pergunta:** hoje ele diz `LOCALIZADO` e
-  não afirma nada sobre o sandbox. Ler `flatpak info --show-permissions` é a
-  entrega, e depende do item 3 para ter o que consertar.
+### Item 3 — a cura por estrada
+
+`integrations/cura_por_estrada.py`. O ambiente NÃO se recalcula: ele é o
+`default.env` que o daemon publicou, filtrado pela `ENV_ALLOWLIST` do wrapper —
+**sem ele a cura RECUSA dizendo**, e a frase manda ligar o serviço. Uma segunda
+conta ao lado da do daemon envelheceria calada.
+
+| cartão | estrada | arquivo |
+| --- | --- | --- |
+| `heroic` | `defaultSettings.enviromentOptions` | `…/config/heroic/config.json` |
+| os demais | `[Environment]` | `~/.local/share/flatpak/overrides/<app-id>` |
+
+**O `flatpak override` é o que o produto escreve, e não o que ele chama:** o
+arquivo é o mesmo, byte a byte no mesmo formato (`chave=valor`, sem espaço), e
+continua reversível por `flatpak override --user --reset`.
+
+**O LUTRIS POR JOGO CAIU, e a razão é medida.** A §4 previa `system: env:` no
+`.yml` de cada jogo. Duas coisas derrubaram: **não há dependência de YAML nesta
+casa** (o `pyproject.toml` não declara `pyyaml`, e o `censo_dos_lancadores` já
+tinha recusado importá-la), e **o Lutris nunca foi aberto no disco dela** —
+`~/.var/app/net.lutris.Lutris` não existe, medido em 09/09. O override alcança
+o mesmo destino: o jogo que ele lança roda dentro da caixa dele.
+
+**A ESCRITA NÃO APAGA O QUE É DELA.** As duas estradas leem, fundem e regravam:
+um `MANGOHUD` no Heroic e a `[Context]` de um override continuam lá.
+
+### Item 4 — o cartão «Flatpak» muda de pergunta
+
+`integrations/sandbox_dos_lancadores.py` lê `[Context] devices=` do `metadata`
+do pacote e aplica os `overrides` na ordem do Flatpak — o `global` e o do
+aplicativo, do lado do sistema e do lado do usuário —, inclusive a negação com
+`!`. **Sem chamar o binário:** são `read_text()` dos arquivos que existirem,
+dentro do tique de uma aba.
+
+Medido no disco dela, 09/09/2026 — os cinco trazem `devices=all`, e a linha do
+cartão passou de `—` para **«5 lançadores por aqui, e o controle entra em
+todos»**.
+
+**O DEFEITO QUE A PRIMEIRA CORRIDA MOSTROU:** ela dizia **4** numa máquina com
+cinco. Um cartão pode ser DOIS programas — «Dolphin · mGBA» é achado pelo
+`.desktop` de um só —, e o mGBA tinha caixa e não entrava na conta porque
+ninguém perguntava por ele. `app_ids_do_cartao` soma as duas fontes.
+
+### O que a TELA VIVA mediu, e o que ela derrubou
+
+**O RECIBO NÃO CABE NO CORPO DO CARTÃO.** A primeira versão escrevia a frase no
+`diz`, como o `ver-o-que-impede` faz com o da Steam. Fotografada **1,6 s** depois
+do clique, ela já não estava lá: o tique repinta o corpo a partir do disco, dez
+vezes por segundo, e o recibo vivia 100 ms. Quem tem prazo próprio é o canal de
+`recado` (6 s, D-01 dela) — é um depósito DO PILOTO, não um valor da página.
+
+**E A TARJA DIZIA A CHAVE INTERNA:** *"Ajustei o ambiente de heroic"*, com o
+`data-lancador` na frente dela, e a contagem duas vezes. A frase agora sai do
+NOME do cartão e usa a palavra do glossário para este fato — *"para o jogo
+enxergar o controle pelo Hefesto"*.
+
+**A ROLAGEM NÃO PIOROU:** `.miolo 627>564` antes e depois, medido com
+`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py 07`. O botão entra numa fileira
+que já existia e a linha do censo já tinha lugar. O 627 é herança da
+ROLAGEM-01.

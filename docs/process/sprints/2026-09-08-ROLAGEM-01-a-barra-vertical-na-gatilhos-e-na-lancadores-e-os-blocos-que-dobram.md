@@ -1,6 +1,6 @@
 ---
 sprint: ROLAGEM-01
-estado: aberta
+estado: feita
 posse:
   ROLAGEM-01:
     - src/hefesto_dualsense4unix/interface/aba03.py
@@ -12,7 +12,21 @@ bancada: false
 depois_de: [TELA-TRES-01, LANCADORES-ZERO-01]
 ---
 
-> **ESTADO 09/09/2026: a metade da Gatilhos ESTÁ FEITA** (`8404faf8`) — o
+> **ESTADO 2026-09-09: feita** — as três abas fecharam. A `03` pelo acordeão
+> (`8404faf8`); a `09-sistema` porque a caixa «Detalhes técnicos» arrastava a
+> fileira do grid (`.avancado` 438 onde a lista pede 136 — `position:absolute`
+> devolve a fileira ao irmão, e o `.miolo` cai de 866 para 564, o par
+> `ALTURA, MIOLO_H = 530, 564` que o arquivo já documentava); e a
+> `07-lancadores` pela rede da `10-perfis` — a GRADE rola por dentro, não a
+> página, porque o conteúdo **não tem teto** (medida crescendo de 493 a 534px
+> sozinha numa sessão, quando o cartão da Steam ganhou um jogo pendente). No
+> caminho caiu também a coluna da direita que saía pela borda, defeito ANTERIOR
+> a esta sprint (`1fr` é `minmax(auto,1fr)`, e o caminho no `<code>` não tem
+> onde quebrar). As dez abas passam no
+> `scripts/ensaios/a_janela_cabe_no_que_ela_ve.py` com o dado vivo. Entrega em
+> `docs/process/agentes/2026-09-09/ROLAGEM-01-opus.md`.
+>
+> **ESTADO 09/09/2026 (a primeira volta): a metade da Gatilhos ESTÁ FEITA** (`8404faf8`) — o
 > acordeão dos ajustes, a opção (A) da §6, medido no WebKit vivo: `DIV.miolo
 > 863>564` sumiu da 03. **Sobram DUAS**, e são a segunda volta desta sprint:
 > `07-lancadores` (627>564) e `09-sistema` (866>564) — as duas com o `.miolo`
@@ -296,11 +310,88 @@ mas quem for medir a Iluminação encontra o número em vez de o descobrir de no
 
 As duas que sobram **não têm blocos L2/R2 a dobrar**, então a proposta dela não
 se aplica: a cura de cada uma sai da medição própria. O instrumento é o mesmo
-(`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py`, com `--dentro
---alvo=<seletor>` para a lista de filhos com altura), e o teto é o mesmo: **564
-px de `.miolo`**.
+(`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py`, com `--dentro` para a lista
+de filhos com altura), e o teto é o mesmo: **564 px de `.miolo`**.
+
+**CORREÇÃO DE FATO, 09/09/2026:** esta linha dizia `--dentro --alvo=<seletor>`,
+e **o `--alvo` não faz nada**. `medir()` grava `window.__hef_alvo`, mas a JS de
+`LER` usa `j.querySelector('.ctrl') || j.querySelector('.miolo')` e nunca lê a
+variável. `--dentro` sozinho funciona, e nas duas abas desta volta ele cai no
+`.miolo` — que era o alvo desejado. Não foi consertado aqui porque `scripts/` é
+posse da TUDO-FUNCIONA-01 nesta leva; para medir mais fundo usei sonda de
+rascunho, fora do repositório.
 
 | aba | sobra | onde olhar |
 | --- | --- | --- |
 | `07-lancadores` | 63px | `interface/aba07.py`; os cartões dos seis lançadores e o bloco `ajustes` |
 | `09-sistema` | 302px | `interface/aba09.py`; era 866 e a TELA-TRES-01 acrescentou 16 (caixa «Detalhes técnicos», 110 → 136, a pedido dela) — o estouro já existia |
+
+---
+
+## §8 — A SEGUNDA VOLTA FECHOU — 09/09/2026, e as duas causas eram diferentes
+
+A `63px` da tabela acima virou **104** durante a própria medição: a `07` cresceu sozinha
+durante a sessão. É esse fato que decide as duas curas, e elas não são a mesma.
+
+### `09-sistema` — a caixa mandava na fileira, e o número certo já estava escrito
+
+`.avancado` fechava em **438px** onde a lista dos quatro botões pede **136**: os
+302px que estouravam eram a caixa «Detalhes técnicos» **arrastando a fileira do
+grid**. O comentário do arquivo já prometia o contrário — *"a altura do irmão
+CHEGA aqui sozinha"* —, e a promessa valia no Chrome, com as quatro linhas de
+registro do desenho. Com o daemon vivo o registro tem dezenas de linhas, e
+`white-space:pre` não quebra nenhuma.
+
+A cura são duas linhas em `interface/aba09.py`: `.col-log{position:relative}` e
+`.col-log > .log{position:absolute;inset:0}`. **Um filho absoluto não conta para
+o tamanho do pai**, então a fileira volta a ser medida pela `.lista`. Medido:
+`.avancado` 438 → **136**, `.miolo` 866 → **564**. A página fecha em 530 de
+conteúdo para 530 de espaço útil — o par `ALTURA, MIOLO_H` que o topo do arquivo
+declara desde 06/09. *O número já estava certo; faltava a caixa obedecer a ele.*
+
+`max-height:136px` seria a segunda verdade sobre a altura da lista, que é
+exatamente o que aquele comentário proíbe.
+
+### `07-lancadores` — o conteúdo não tem teto, e por isso ganhou rede
+
+A grade foi de **493 a 534px sozinha**, em meia hora da mesma sessão, quando o
+cartão da Steam saiu de «CHEGAM» para «NÃO CHEGAM» com um jogo pendente. A lista
+de pendências tem o tamanho que os jogos dela tiverem, e «Adicionar novo
+Lançador» cria cartão. *Quantos lançadores ela tem, e quantos jogos com
+pendência, é dela — e a caixa não pode crescer com eles*: é a frase que já
+declara o `DIV.rolo` da `10-perfis`, e a cura é a mesma. O `.quadro` vira
+`estica`, a GRADE rola, e o que fica pregado é o que ela precisa ler sem rolar —
+o título, a conta e os três botões. Hoje o inverso acontecia.
+
+**TRÊS ARRANJOS MEDIDOS QUE NÃO SERVIRAM**, para ninguém os repetir:
+
+| arranjo | `.miolo` | por quê |
+| --- | --- | --- |
+| **três colunas** | **669** (era 627) | a coluna estreita quebra a prosa em mais linhas do que a fileira que se poupa |
+| **o caminho numa linha só** (`<code>` com reticências) | **668** | `display:inline-block` joga o `<code>` para uma linha de caixa própria |
+| botões à direita da prosa **+** a fileira de botões subindo para o título | 592 | 28px acima — e sem teto, quebra de novo amanhã |
+
+### A largura maximizada, que é como ela viu — e que nunca foi a cura
+
+A §2 pedia as duas larguras. Com a janela do piloto em 1900 (a `.janela` bate no
+teto de `min(100%,1600px)`, `.miolo` 1598), **sem** a cura: `07` fecha em
+**636>564** e `09` em **866>564**. A barra estava lá maximizada também. E a
+largura maior tira só **32px** da `07` (668 → 636): a prosa quebra menos, e não
+o bastante. Com a cura, as duas em 564/564 nas duas pontas.
+
+### E a coluna da direita saía pela borda — defeito ANTERIOR a esta sprint
+
+A foto do ANTES mostra o cartão da direita cortado ao meio, sem borda. `1fr` é
+`minmax(auto,1fr)`, e o mínimo `auto` de uma coluna de grade é o **min-content**
+do que há dentro: o caminho do lançador num `<code>` não tem espaço onde quebrar
+e mede ~470px. `repeat(2,minmax(0,1fr))` mais `overflow-wrap:anywhere` no
+`<code>` — as duas juntas, porque sem a segunda o caminho vazaria do cartão em
+vez de vazar da grade.
+
+### O que a prosa do cartão ainda custa, e é de outro dono
+
+*"Achei este lançador aqui (`/home/…/net.lutris.Lutris.desktop`)"* nasce em
+`interface/desenho_dos_lancadores.py`, que não está na posse desta sprint. O
+caminho absoluto é o que leva o cartão de 2 para 4 linhas; se ele virasse dica
+(`title`) em vez de prosa, a grade cairia ~90px de uma vez. Relatado, não
+editado.

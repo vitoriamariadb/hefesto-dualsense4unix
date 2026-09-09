@@ -1,6 +1,6 @@
 ---
 sprint: TUDO-FUNCIONA-01
-estado: aberta
+estado: feita
 posse:
   TUDO-FUNCIONA-01:
     - docs/data/mapa-controles.csv
@@ -10,6 +10,14 @@ depois_de: [NADA-MOCKADO-01]
 ---
 
 # O inventário honesto: o que funciona, o que não, e por quê
+
+> **ESTADO 2026-09-09: feita** — nasceu o portão `ate-onde-a-prova-chegou`, a
+> QUINTA pergunta: *até onde a PROVA de cada feature da tela chegou?* Das 12
+> features de aparelho da tela, **4 têm a prova no destino e 8 pararam antes**,
+> cada uma com CUSTO (`horas` · `médio` · `grande`) e com a sprint DONA — e o
+> relatório sai agrupado por custo, **nunca somado**, que é a regra que esta
+> sprint deixa. A entrega está em
+> [docs/process/agentes/2026-09-09/TUDO-FUNCIONA-01-opus.md](../agentes/2026-09-09/TUDO-FUNCIONA-01-opus.md).
 
 ## A cobrança dela, e ela é justa
 
@@ -72,6 +80,9 @@ corrida, *"o que esta casa promete e ainda não faz?"* — a mesma forma do
    perguntar ao mapa (`sem_dono()` aparecendo na tela, como o módulo promete),
    ou os dois saem — código que promete e ninguém chama é a próxima régua
    falsa.
+   **Os itens 1 e 2 caíram na medição de 09/09** — a coluna do JOGO existe, e o
+   destino dos dois módulos já estava decidido: ver *"O QUE A MEDIÇÃO DERRUBOU
+   DESTE ENUNCIADO"*, no fim desta página.
 3. O portão cobra: toda feature com selo forte na tela tem prova de APARELHO ou
    ressalva declarada.
 
@@ -88,3 +99,28 @@ corrida, *"o que esta casa promete e ainda não faz?"* — a mesma forma do
 | | |
 | --- | --- |
 | cabo / BT / perfil / controle | a lista «o que NÃO funciona» passa a ter as quatro colunas, lidas da [CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md). Em 08/09 ela acrescenta o que faltava aqui: o **fone** (saída 2) sem campo no perfil e nunca ouvido; o **brilho** da barra `nao-medido` nos dois transportes; a **máscara por controle** fora do perfil (`controller_masks.json`); o **volume do mic** com campo e sem ato; e **modo** e **navegação** que são por perfil e não por controle — decisões dela |
+
+---
+
+## O QUE A MEDIÇÃO DERRUBOU DESTE ENUNCIADO — 09/09/2026
+
+**1. *"A coluna que falta no mapa é «chega ao JOGO»"* — ela NÃO falta.** Existe
+desde 19/08/2026: os degraus `O JOGO RECEBEU` e `O JOGO REAGIU` da escada
+`*_ate_onde_foi`, com critério escrito, direção declarada e domínio guardado
+por `check_paridade_transporte` (regras 13 e 14). O que falta é a MEDIÇÃO —
+**zero de 622 células**, medido hoje. A metade certa do enunciado sobrevive
+inteira, e ganhou teto: `CELULAS_QUE_CHEGARAM_AO_JOGO = 0` reprova no dia em que
+a primeira subir sem alguém escrever o número novo.
+
+**2. O destino de `mapa.py` e `fatos_do_mapa.py` JÁ ESTAVA DECIDIDO, e um
+portão novo aqui seria o segundo dono da pergunta.**
+
+| | o que a medição diz |
+| --- | --- |
+| `interface/pacotes/mapa.py` | `canal`, `confere` e `da_familia` são **lápides declaradas** em `tests/unit/portao_a_casa_sabe_e_o_produto_nao_faz.py`, cada uma com a condição que a fecha — *"fecha quando a Vibração e os Gatilhos apagarem o que o transporte de agora não aciona"*. A `canal` VOLTOU para a lista em 07/09: tinha saído por **ponto cego da referência plana**, não por cura |
+| `app/fatos_do_mapa.py` | **não é órfão**, e a produção não o importa **por decisão medida em 03/09** — há teste que reprova o import, porque as chaves do dicionário gerado põem `mapa.py::canal` ao alcance da régua PLANA do `casa-sabe` e a lápide passa a "ter caminho" sem ganhar um chamador |
+
+**A decisão registrada: os dois FICAM**, declarados onde já estão. *"Os dois
+saem"* apagaria a única recusa a inventar valor de tela que existe; *"a tela
+pergunta ao mapa"* tem preço medido e escrito. Quem os fecha é a condição que a
+lápide nomeia — a Vibração e os Gatilhos —, não esta sprint.

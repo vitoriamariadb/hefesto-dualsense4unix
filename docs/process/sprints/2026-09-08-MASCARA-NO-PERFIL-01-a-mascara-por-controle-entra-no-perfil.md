@@ -1,10 +1,25 @@
 ---
 sprint: MASCARA-NO-PERFIL-01
-estado: aberta
+estado: feita
 posse:
   MASCARA-NO-PERFIL-01:
-    - src/hefesto_dualsense4unix/daemon/subsystems/external_mask.py
-    - src/hefesto_dualsense4unix/profiles/schema.py
+    - src/hefesto_dualsense4unix/daemon/subsystems/external_mask.py  # o registro que virou cache
+    - src/hefesto_dualsense4unix/profiles/schema.py  # o campo — colide com SOM-POR-CONTROLE-01, serializada pelo depois_de
+    - src/hefesto_dualsense4unix/profiles/manager.py  # o applier apply_controller_mascaras
+    - src/hefesto_dualsense4unix/daemon/ipc_handlers.py  # a rota gamepad.mask.set gravando no perfil
+    - src/hefesto_dualsense4unix/app/draft_config.py  # with_controller_mascara, o escritor do rascunho
+    - src/hefesto_dualsense4unix/app/actions/perfis_web.py  # a seção na lista do editor de perfis
+    - src/hefesto_dualsense4unix/interface/aba10.py  # a sétima célula de Ajuste próprio
+    - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py  # a coluna e o número por extenso
+    - src/hefesto_dualsense4unix/interface/paginas/10-perfis.html  # a página publicada, regerada
+    - mockup/10-perfis.html  # o desenho de onde a página sai
+    - src/hefesto_dualsense4unix/core/acoes_de_botao.py  # SÓ citação de linha
+    - src/hefesto_dualsense4unix/core/rumble.py  # SÓ citação de linha — POSSE DA VIBRA-MULT-01, que está ABERTA
+    - src/hefesto_dualsense4unix/interface/monta.py  # SÓ citação de linha
+    - src/hefesto_dualsense4unix/interface/pacotes/a08_conexoes.py  # SÓ citação de linha
+    - src/hefesto_dualsense4unix/interface/pacotes/a09_sistema.py  # SÓ citação de linha
+    - src/hefesto_dualsense4unix/integrations/virtual_pad.py  # SÓ citação de linha (reparo de 09/09)
+    - src/hefesto_dualsense4unix/interface/pacotes/perfil.py  # SÓ citação de linha (reparo de 09/09)
 bancada: false
 depois_de: [SOM-POR-CONTROLE-01]
 nao_toca:
@@ -13,6 +28,30 @@ nao_toca:
 ---
 
 # MASCARA-NO-PERFIL-01 — a máscara por controle entra no perfil
+
+> **ESTADO 2026-09-09: feita** — `ControllerOverrides.mascara` no esquema,
+> `manager.apply_controller_mascaras` como applier por peça (o último da leva,
+> porque é o único que pode derrubar vpad), a ordem de decisão escrita em
+> `mascara_efetiva` (`controllers[uniq].mascara` > `mode.gamepad_flavor` > o
+> padrão), o `controller_masks.json` rebaixado a CACHE do perfil ativo, o
+> `gamepad.mask.set` gravando no perfil pela estrada do `rumble.motores.set` sem
+> mudar de forma, a sétima coluna da aba Perfis regerada e publicada, e o
+> escritor do rascunho. Entrega:
+> `docs/process/agentes/2026-09-09/MASCARA-NO-PERFIL-01-opus.md`.
+>
+> **09/09/2026 — ELA DECIDIU, E FOI O CONTRÁRIO DO QUE A ENTREGA ESCREVEU.** A
+> pergunta que ficou provisória era *"perfil que não fala de máscara devolve
+> todo mundo ao padrão, ou deixa cada um como está?"*; a resposta dela:
+> **"Default é Hefesto dualsense padrão"**. O perfil calado DEVOLVE. O custo que
+> a entrega alegava (*"derrubaria os quatro vpads"*) foi medido e é falso no caso
+> que importa: caem só os vpads de quem estava FORA do padrão — **0 de 4** com a
+> mesa já no padrão, mesmo com quatro entradas apagadas do cache. Ver a §Reparo
+> da entrega.
+>
+> **E O `posse:` ACIMA FOI ALARGADO PARA A REALIDADE.** Ele declarava dois
+> arquivos e a sprint tocou dezessete. Cinco dos treze que faltavam (sete com o
+> reparo) são só reaponte de citação de linha — e um deles, `core/rumble.py`, é
+> **posse da VIBRA-MULT-01, que está ABERTA**.
 
 **Decisão dela, 08/09/2026, à noite.** A pergunta: *a máscara por controle deve
 entrar no perfil, junto com luz, gatilho, vibração, som, mic e sensores — ou
