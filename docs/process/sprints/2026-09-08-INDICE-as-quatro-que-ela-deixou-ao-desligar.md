@@ -56,7 +56,7 @@ no perfil · por controle — lidas do mapa e do esquema. As seis famílias que
 ela nomeou (gatilho, luz, vibração, som, mic, sensores) **já são por controle no
 esquema**; o que falta é transporte (som e mic por BT, sensores até o jogo),
 campo que não existe (o fone) ou morava fora (a máscara por controle — ela
-decidiu: entra), e duas decisões dela que sobram: modo e navegação por controle.
+decidiu: entra), e as duas que sobravam — modo e navegação por controle — decididas à noite: nenhuma é por controle (*"concordo com as 5"*).
 
 Máscara, modo e transporte não são três listas: são uma tabela, e ela está na
 [NADA-MOCKADO-01](2026-09-08-NADA-MOCKADO-01-a-varredura-do-que-e-de-verdade.md).

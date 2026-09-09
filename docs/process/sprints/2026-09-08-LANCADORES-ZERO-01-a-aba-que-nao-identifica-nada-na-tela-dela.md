@@ -115,7 +115,10 @@ outros, a chave é o jogo do lançador (Heroic `app_name`, Lutris `slug`) ou o
    **LOCALIZADO / NÃO LOCALIZADO** (uma pergunta só: *"está aqui?"*); a linha
    de baixo diz **«37 jogos na biblioteca · 0 instalados»** (o censo); e o
    veredito **CHEGAM / NÃO CHEGAM** só aparece quando o censo existe — como na
-   Steam. **A palavra do selo é decisão dela** e vai para a
+   Steam. **A palavra é dela** (*"Deveria ter Não Localizado"*, 08/09 pela
+   manhã — já em `SELOS["off"]`; `D-0809-O-SELO-DOS-LANCADORES-DIZ-LOCALIZADO`):
+   o positivo é **LOCALIZADO**, o cabeçalho «6 encontrados» passa a «6
+   localizados», e o par vai para a
    [LÍNGUA DESTA CASA](../../A-LINGUA-DESTA-CASA-o-glossario-que-a-tela-e-o-codigo-falam.md)
    antes da tela.
 3. **A cura por estrada** (§4): Heroic e Lutris por jogo, emuladores por

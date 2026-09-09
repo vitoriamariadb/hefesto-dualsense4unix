@@ -43,22 +43,22 @@ Legenda: ✓ medido no aparelho · ○ só inferido do código (`MONTOU`) · ✗
 | aba | feature (o gesto na tela) | cabo | BT | no perfil | por controle | o que falta |
 | --- | --- | --- | --- | --- | --- | --- |
 | 01 | Status Ligado/Desligado (`hefesto`) | ✓ | ✓ | — (é do serviço) | — | — |
-| 01 | Modo: Hefesto · Nativo · Controlar o PC · Não mexer (`modo-*`) — **uma fileira para a mesa toda**, na aba Jogar | ✓ | ✓ | ✓ `mode.kind` (`gravar_o_modo_no_ativo`) | **✗** — um modo por perfil (`native.mode.set` é global) | decisão dela: modo por controle existe? Hoje o vpad é por controle e o modo não |
+| 01 | Modo: Hefesto · Nativo · Controlar o PC · Não mexer (`modo-*`) — **uma fileira para a mesa toda**, na aba Jogar | ✓ | ✓ | ✓ `mode.kind` (`gravar_o_modo_no_ativo`) | — **DECIDIDO por ela, 08/09 à noite: um modo para todos** (*"concordo com as 5"*, `D-0809-O-MODO-E-UM-PARA-TODOS-OS-CONTROLES`); o que é por controle é a máscara | — |
 | 01 | Máscara: DualSense · Xbox 360 · Nintendo Pro (`mascara`) — **um chip por CARTÃO**, na aba Jogar (`gamepad.mask.set` recebe `uniq`) | ✓ | ✓ | ✓ `mode.gamepad_flavor` — **uma** por perfil | ✓ mas **fora do perfil**: `controller_masks.json` (`external_mask.py:175`, `mascara_efetiva` `:617`) | **DECIDIDO por ela, 08/09 à noite: entra no perfil** (*"pode entrar sim"*) — [MASCARA-NO-PERFIL-01](2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md) |
 | 01 | Reconectar Controles · cadeado do perfil | ✓ | ✓ | — | — | JOGAR-02 (a frase) |
 | 02 | Microfone: ligar e ser ouvido no canal dele (`mic-modo`) | ✓ um eleito | ✓ com a ponte de pé (07/09) | ✓ `mic` + `ControllerMicOverride` | ✓ campo · **✗ ato** (um eleito por vez) | **quatro microfones VIRTUAIS, um por controle, com nome estável** — MIC-OS-QUATRO-01 (medido 08/09 23h: 2 fontes USB, 0 BT, 0 virtual) |
 | 02 | Mudo do microfone (`mudo`) | ✓ | ○ `parcial` | ✓ | ✓ | medir o mudo por BT no aparelho (linha 20 da mesa) |
 | 02 | Volume do microfone | ✗ `decisao-tomada` | ✗ | ✓ `ControllerMicOverride.volume` | ✓ | **contradição**: campo no perfil sem ato no aparelho — sai do perfil ou ganha ato |
 | 02 | Alto-falante — **saída 1**: rota e volume (`rota`, `volume`) | ✓ rota obedeceu (16/08) · ○ volume | **✗** `divida` — seis passadas em silêncio (08/09) | ✓ `speaker` + `ControllerOverrides.speaker` | ✓ | o som por BT — ensaio 13 do índice do rádio; o **nó de som por controle** VIVO na lista (medido 08/09 23h: nenhum «Alto-falante do Controle N» na mesa dela, apesar de duas sprints `feita`); e a **fonte por controle — o mix completo (HDMI) ou só o canal de SFX** — [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) |
-| 02 | Fone — **saída 2** (`audio.jack.volume`, `audio.jack.deteccao`) | ○ | ○ | **✗** não há campo | **✗** | o fone não tem campo no perfil e nunca foi ouvido: nasce sprint |
+| 02 | Fone — **saída 2** (`audio.jack.volume`, `audio.jack.deteccao`) | ○ `MONTOU` | ○ `MONTOU` | **✗** não há campo: o byte do fone sai com o MESMO valor do alto-falante em todo `set_speaker_volume` (mapa, `audio.jack.volume`) | **✗** | nunca foi ouvido, e o kernel não define o bit de autorização do fone (bit4) — decisão dela, com opções na §2 do SPRINT_ORDER: campo próprio ou um volume só com a rota dizendo para onde vai |
 | 02 | Giroscópio / acelerômetro — interruptor (`sensor`) | ✓ | ✓ | ✓ `ControllerSensoresOverride` | ✓ | a ENTREGA ao jogo — SENSORES-NO-JOGO-01 |
 | 02 | Touchpad | ✓ até o vpad | ✓ até o vpad · **✗ no jogo** (16/08, sem causa) | — | — | o mesmo degrau dos sensores |
 | 03 | Efeito do L2 e do R2 (`modo`, `pronto`) | ✓ obedeceu (11/08) | ✓ obedeceu | ✓ `triggers` + `ControllerOverrides.triggers` | ✓ | «Todos» e herdar (linha 14 da mesa) |
 | 04 | Cor da barra (`cor`) | ✓ (12/08) | ✓ (12/08) | ✓ `leds` + `ControllerOverrides.leds` | ✓ | a troca de cor — COR-TROCA-01 |
-| 04 | Brilho da barra (`brilho`) | **?** `nao-medido` | **?** `nao-medido` | ✓ `lightbar_brightness` | ✓ | a tela oferece o que o mapa nunca mediu — medir nos dois |
+| 04 | Brilho da barra (`brilho`) | ○ é a cor escalada em Python (o caminho é o da cor, ✓ 12/08; o escuro em si ninguém olhou) | ○ idem | ✓ `lightbar_brightness` | ✓ | **fato corrigido 08/09:** o `nao-medido` do mapa é o brilho de HARDWARE (`luz.lightbar.brilho`, `common[42]`, 3 níveis), outra grandeza — nem o kernel a escreve, e o produto não a oferece. Decisão dela: fica a cor escalada, ou medir a de hardware na bancada |
 | 04 | Luzes de jogador · cores automáticas (`player`, `auto-cores`) | ✓ (11/08) | ✓ | ✓ `player_leds`, `auto_player_colors` | ✓ | `release_leds` só BT `parcial` |
 | 05 | Força/degrau · barra por motor · testar (`forca`, `intensidade`, `motor`) | ✓ obedeceu (15/08) | ✓ obedeceu | ✓ `rumble` + `ControllerRumbleOverride` | ✓ | a premissa física por motor — VIBRA-MULT-01; haptics VCM `divida` nos dois |
-| 06 | Controlar o PC: mouse, teclado, remapeamento, atalhos | ✓ | ✓ | ✓ `mouse`, `key_bindings`, `button_actions`, `teclado_emulado` | **✗** — global no perfil | decisão dela: navegação por controle? |
+| 06 | Controlar o PC: mouse, teclado, remapeamento, atalhos | ✓ | ✓ | ✓ `mouse`, `key_bindings`, `button_actions`, `teclado_emulado` | — **DECIDIDO por ela, 08/09 à noite: global no perfil** (`D-0809-A-NAVEGACAO-E-GLOBAL-NO-PERFIL`) | — |
 | 07 | Lançadores: a biblioteca e «os controles chegam» | — | — | ✓ `match` por jogo (só Steam hoje) | — | os cinco além da Steam — LANCADORES-ZERO-01 |
 | 08 | Pareamento · luz que não acende · entradas e hub · teto da vibração | ✓ | ✓ | — (é da máquina: `maquina.json`) | — | LUZ-NO-RADIO-01 (a prova por BT) |
 | 09 | Autostart · perfil da mesa · corrigir modo · Proton | — | — | — (é do serviço/máquina) | — | — |
@@ -73,7 +73,7 @@ três tipos, e cada um tem uma cura diferente:
 | --- | --- | --- |
 | **transporte** | alto-falante por BT · mic (os quatro) · touchpad no jogo por BT | bancada + ensaio; são as sprints MIC-OS-QUATRO-01, o índice do rádio e SENSORES-NO-JOGO-01 |
 | **campo que não existe ou mora fora** | fone (sem campo) · máscara por controle (fora do perfil — **decidido: entra**) · volume do mic (campo sem ato) | decisão dela + `schema.py` |
-| **decisão de produto** | modo por controle · navegação por controle | dela — e a tabela é o que ela precisa ver para decidir |
+| **decisão de produto** | modo por controle · navegação por controle | **decididas em 08/09 à noite: nenhuma das duas** — um modo para todos, navegação global (*"concordo com as 5"*) |
 
 ## §2 — O que esta sprint entrega
 
@@ -87,8 +87,10 @@ três tipos, e cada um tem uma cura diferente:
    por BT · no perfil · por controle»** — feito em 08/09 à noite, nas onze.
    Uma sprint que fecha uma feature sem as quatro colunas não fecha.
 3. **As decisões dela.** Uma já está tomada (08/09 à noite): **a máscara por
-   controle entra no perfil** — [MASCARA-NO-PERFIL-01](2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md). Sobram duas, no formato das dezesseis de 04/09: modo por controle;
-   navegação por controle.
+   controle entra no perfil** — [MASCARA-NO-PERFIL-01](2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md). As outras duas também (08/09 à noite, *"concordo com as 5"*): o modo é
+   um para todos os controles; a navegação é global no perfil. Sobram as
+   três menores do item 4 — fone, brilho de hardware, volume do mic — com
+   opções escritas na §2 do SPRINT_ORDER.
 4. **As sprints que nascem da tabela**: [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) (nasceu hoje, do recado dela: o mix completo ou o canal de SFX, por controle, cabo e BT — e o fone como segunda saída, pela rota); e, se ela confirmar: **FONE-01** (a
    saída 2 ganha campo próprio no perfil e ouvido dela nos dois transportes);
    **BRILHO-01** (o brilho da barra medido nos dois transportes);

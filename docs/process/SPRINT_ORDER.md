@@ -86,20 +86,26 @@ Aqui, a ordem e uma linha:
 
 ## 2. O QUE É DELA DECIDIR
 
-**Decididas em 08/09 à noite** (verbatim no `docs/data/decisoes-dela.csv`):
-a Epic fica **dentro do Heroic** (*"dentro heróic"*, <!-- noqa-acento: citação literal dela --> `D-0809-A-EPIC-FICA-DENTRO-DO-HEROIC`);
-a máscara por controle **entra no perfil** (*"pode entrar sim"*,
-`D-0809-A-MASCARA-POR-CONTROLE-ENTRA-NO-PERFIL`).
+**Decididas em 08/09** (verbatim no `docs/data/decisoes-dela.csv`, sete
+linhas `D-0809-*`): a Epic fica **dentro do Heroic** (*"dentro heróic"*); <!-- noqa-acento: citação literal dela -->
+a máscara por controle **entra no perfil** (*"pode entrar sim"*); e, com
+*"concordo com as 5"*: **o modo é um para todos os controles**; **a navegação
+é global no perfil**; **no cabo o som nasce em `sfx`**; **o nó de som por
+controle vive sempre**; **o selo dos lançadores diz LOCALIZADO / NÃO
+LOCALIZADO** — a palavra dela da manhã, não o ENCONTRADO que a lista da noite
+ofereceu por engano.
 
-**Sobram**, no formato das dezesseis de 04/09 — e nenhuma trava a §1:
+**Sobram quatro, menores, com as opções escritas** — a recomendação é a (a):
 
-| a pergunta | onde está a medição |
-| --- | --- |
-| **modo por controle?** — hoje é uma fileira para a mesa toda (`mode.kind`, no perfil) e o vpad é por controle | CABO-BT-PERFIL-CONTROLE-01 §1 |
-| **navegação por controle?** — mouse, teclado e remapeamento são globais no perfil | idem |
-| o fone (saída 2) ganha campo próprio no perfil? · o brilho da barra (`nao-medido` nos dois transportes) · o volume do mic (campo sem ato) | idem, §2.4 |
-| a palavra do selo dos lançadores (LOCALIZADO?) · o nome dos nós de som e de mic na lista do sistema · o nó vive sempre ou só com o controle na mesa · no cabo, o padrão é o mix ou o SFX | LANCADORES-ZERO-01 · SOM-POR-CONTROLE-01 §4 · MIC-OS-QUATRO-01 |
-| a frase do Reconectar quando algo mudou (as palavras são dela) | JOGAR-02 |
+| a pergunta | a) recomendada | b) | c) | onde está a medição |
+| --- | --- | --- | --- | --- |
+| **o fone (saída 2)** — hoje o byte do fone sai com o MESMO valor do alto-falante, e o kernel não define o bit que o autoriza; ninguém ouviu | um volume só; a **rota** diz para onde vai (0 estéreo→fone, 2 L→fone R→alto-falante); a tela deixa de oferecer volume do fone separado; uma linha da bancada: plugar e ouvir | campo próprio `fone` em `ControllerOverrides.speaker`, por controle, medido com o ouvido (sprint FONE-01) | sai da tela até ser ouvido | CABO-BT-PERFIL-CONTROLE-01 §1, linha do fone; mapa `audio.jack.volume` |
+| **o brilho da barra** — o da tela é a cor escalada em Python; o de HARDWARE (`common[42]`, 3 níveis) nem o kernel escreve | fica a cor escalada, que é o que a tela oferece; o brilho de hardware sai da fila (o mapa já diz por quê) | medir o de hardware na bancada: escrever `common[42]` com o bit `flag2` e olhar (1 linha da mesa) | tirar o brilho da tela | mapa `luz.lightbar.brilho`; régua §1 linha 04 |
+| **o volume do mic** — campo `ControllerMicOverride.volume` sem ato: o byte 6 nunca é escrito (`decisao-tomada`, 06/09) | o campo passa a agir no **nó virtual** daquele controle (volume da fonte no sistema), junto com a MIC-OS-QUATRO-01; o byte do aparelho continua quieto | o campo sai do perfil e da tela | ligar o byte 6 do aparelho (teto `0x40`; revoga a decisão de 06/09; bancada) | mapa `audio.microfone.volume`; MIC-OS-QUATRO-01 |
+| **o nome dos nós na lista de som do sistema** | «Alto-falante do Controle 1» · «Microfone do Controle 1» | «Jogador 1 — alto-falante» · «Jogador 1 — microfone» | «DualSense 1 · som» · «DualSense 1 · mic» | SOM-POR-CONTROLE-01 §3; MIC-OS-QUATRO-01 |
+
+E a frase do Reconectar quando algo mudou (JOGAR-02): as palavras são dela,
+quando a sprint chegar.
 
 ---
 

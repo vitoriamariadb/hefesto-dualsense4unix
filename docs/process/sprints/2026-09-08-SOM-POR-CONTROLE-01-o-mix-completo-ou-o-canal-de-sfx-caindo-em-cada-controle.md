@@ -90,14 +90,16 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
    linha em `docs/data/ensaios.csv`; quem coordena a bancada escreve
    (`nao_toca` aqui), senão a próxima pessoa repete as seis.
 
-## §4 — O que é DELA decidir (as duas perguntas das sprints anteriores continuam de pé)
+## §4 — O que era dela decidir — decidido em 08/09 à noite (*"concordo com as 5"*)
 
-1. **O nó vive sempre, ou só com o controle na mesa?** (SOM-QUE-SAI-01 §6.1) —
-   quatro nós fixos na lista de som são ruído para quem tem um controle; nós
-   que somem quebram o jogo que os escolheu.
-2. **No cabo, o padrão é `mix` ou `sfx`?** A casa mantém que o controle não vira
-   saída padrão sozinho (§6.2 daquela sprint); o `mix` por padrão mudaria isso.
-3. **O nome na lista.** *«Alto-falante do Controle 1»* é proposta.
+1. **O nó vive SEMPRE** (`D-0809-O-NO-DE-SOM-POR-CONTROLE-VIVE-SEMPRE`): quatro
+   nós fixos na lista; sem controle, o nó diz que não tem para onde ir — e a
+   tela não confessa dívida (07/09). A pergunta da SOM-QUE-SAI-01 §6.1 fecha.
+2. **No cabo, o padrão é `sfx`** (`D-0809-NO-CABO-O-PADRAO-DO-SOM-E-SFX`):
+   `ControllerOverrides.speaker.fonte` nasce `sfx`; `mix` é escolha no perfil,
+   por controle. A casa continua não fazendo do controle a saída padrão.
+3. **O nome na lista** ainda é dela, com opções na §2 do SPRINT_ORDER —
+   *«Alto-falante do Controle 1»* é a proposta.
 
 ## §5 — Critério de pronto — por cabo · por BT · no perfil · por controle
 
