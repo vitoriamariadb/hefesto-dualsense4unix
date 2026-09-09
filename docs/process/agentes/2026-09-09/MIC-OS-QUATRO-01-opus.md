@@ -214,6 +214,10 @@ A célula `radio_aciona=parcial` continua valendo; nada aqui a contradiz.
    que já sabe distinguir `RUNNING` de `IDLE`); (b) aceitar que o número
    envelhece até o próximo ciclo e dizê-lo. **Isto é decisão dela** — o custo
    de (a) é o nó sumir por um instante na mão de quem estiver gravando.
+   **ESCRITO COMO PENDÊNCIA NA SPRINT em 09/09** (seção «PENDÊNCIA ABERTA — É
+   DELA»), com o custo das duas medido e a terceira saída eliminada: o `pactl`
+   16.1 desta máquina não tem verbo que reescreva a proplist de uma source
+   carregada. Ver «Reparo 09/09 · 4».
 3. **O alimentador do cabo captura mesmo sem ouvinte.** Já está declarado no
    cabeçalho de `canal_do_microfone` (*"o nó ALSA fica em RUNNING mesmo sem
    ninguém gravando"*) e era da ONDA5-MIC-VIRTUAL-02 junto com o `0x32`. **O
@@ -221,12 +225,13 @@ A célula `radio_aciona=parcial` continua valendo; nada aqui a contradiz.
    sob o botão dela, a conta passou a ser cobrável: enquanto o microfone dela
    estiver "ligado" num controle do fio, há um `parec` lendo. Arquivo:
    `integrations/canal_do_microfone.py` (fora da minha posse).
-4. **`canal_do_microfone.py` guarda um FATO ERRADO.** O cabeçalho diz *"O caso
-   B é defeito vivo de `integrations/dualsense_bt_audio.py`, que esta sprint não
-   toca — está RELATADO, não curado"*. **Ele foi curado**: `propriedades_da_source`
-   põe o `source_properties` entre aspas duplas desde 06/09, e há régua
-   (`test_a_prioridade_chega_ao_no_e_nao_so_ao_argv`). A frase precisa ser
-   substituída pela certa. Não a toquei: o arquivo não está na minha posse.
+4. ~~**`canal_do_microfone.py` guarda um FATO ERRADO.**~~ **CURADO NO REPARO DE
+   09/09** — ver «Reparo 09/09 · 1». A frase (*"O caso B é defeito vivo de
+   `integrations/dualsense_bt_audio.py` (…) RELATADO, não curado"*) foi
+   SUBSTITUÍDA pela verdade, e a posse da sprint foi alargada para
+   `canal_do_microfone.py` com a razão escrita no frontmatter. **A decisão de
+   apenas RELATAR estava errada**, e a regra que sobra é a que o conferente
+   escreveu: *fato errado vivo é pior que posse alargada*.
 5. **O ALTO-FALANTE não tem o nome dela.** `alto_falante_bt.DESCRICAO_PROVISORIA`
    ainda é `"Alto-falante do controle"`, sem número, marcado `PROVISÓRIO —
    decisão dela`. A decisão saiu (a mesma de 09/09, o par), e o gancho do
@@ -312,3 +317,160 @@ outros 42: **ok**.
 
 Fora dos portões, rodei o escopo: **251 passed, 1 xfailed** nos catorze arquivos
 que tocam microfone, canal, eleição e ponte de rádio.
+
+---
+
+## Reparo 09/09
+
+Os três achados do conferente, curados. A quarta linha dele — a pergunta do
+rótulo — **não é minha**: está escrita como pendência na sprint, com as duas
+saídas e o custo de cada uma.
+
+### 1. O FATO ERRADO VIVO caiu — e ele nasceu errado, não envelheceu
+
+`integrations/canal_do_microfone.py` dizia, no `propriedades_do_canal`:
+
+> *"O caso B é defeito vivo de `integrations/dualsense_bt_audio.py`, que esta
+> sprint não toca — está RELATADO, não curado."*
+
+**Nunca foi verdade depois das 07h11 de 06/09.** Medido pelo próprio git:
+
+| | |
+| --- | --- |
+| a frase entrou | `752d688e`, 06/09/2026 **04h50** |
+| a cura entrou | `d8901de0`, 06/09/2026 **07h11** — `propriedades_da_source` passou a devolver o argumento inteiro entre aspas duplas |
+
+Duas horas e vinte e um minutos de distância, e a frase ficou de pé por três
+dias porque ninguém releu o outro arquivo. A metade que faltava — o
+`device.description` publicando o endereço do controle — foi a desta sprint.
+
+**Por que aleguei posse e não curei da primeira vez, e por que isso estava
+errado:** `canal_do_microfone.py` não está no `posse:` da MIC-OS-QUATRO-01, e
+eu escrevi o achado no «O que sobrou para o próximo» (item 4) em vez de
+consertá-lo. **Fato errado vivo é pior que posse alargada** — a posse existe
+para evitar que duas frentes disputem o mesmo arquivo, não para preservar uma
+mentira que a próxima pessoa vai ler como verdade. A posse fica alargada, com a
+razão, e o texto foi SUBSTITUÍDO — a medição A/B/C fica (é ela que explica por
+que estas propriedades vão no STREAM e não no nó), o diagnóstico falso sai.
+
+Conferido que a frase não vive em outro lugar: `grep -rn "defeito vivo"` nos
+`integrations/` devolve só a linha nova, que diz o contrário.
+
+### 2. As duas leituras da mesa concordam — e a que estava errada era a do assento
+
+`describe_controllers()` devolve **uma entrada por HANDLE ABERTO**, não por
+controle na mesa (está escrito no fonte: *"Uma entrada por handle aberto"*), e o
+handle de um controle desligado continua na lista com `connected: False` e
+`index` próprio.
+
+| | antes | agora |
+| --- | --- | --- |
+| `uniqs_na_mesa` | filtrava por `connected` | idem, pelo `_conectados_da_mesa` |
+| `numero_do_assento` | **não filtrava**, e lia o `index` do item | enumera `_conectados_da_mesa` |
+
+O defeito era das DUAS pontas, não de uma: com o controle do assento 1
+desligado, ele **ganhava** o assento 1 (que a mesa não lhe dava) e **empurrava**
+os outros três para 2, 3 e 4 — quando a tela dela já mostrava 1, 2 e 3.
+
+**O assento é o da TELA, e isso foi conferido no produto, não deduzido:**
+`interface/hefesto_vivo._contexto` monta `ctx.conectados` com
+`[c for c in controllers if c.get("connected", True)]` e numera os cards por
+`enumerate` dessa lista; a aba Gatilhos monta o `_target_uniq_by_index` do mesmo
+jeito. **Nenhum dos dois lê o `index`** — só o `numero_do_assento` lia.
+
+A invariante que fecha, e ela está escrita na docstring:
+`numero_do_assento(u) is not None` **se e somente se** `u in uniqs_na_mesa()`.
+
+**A MORDIDA** — `test_um_controle_desligado_nao_ocupa_assento`, com o P1
+desligado numa mesa de quatro. Arrancada a cura (devolvendo o `enumerate` sobre
+a lista inteira e a leitura do `index`):
+
+```
+FAILED ...::test_um_controle_desligado_nao_ocupa_assento
+AssertionError: um controle DESLIGADO ganhou assento na mesa dela
+assert 1 is None
+ +  where 1 = numero_do_assento('aa:bb:cc:00:00:01')
+1 failed, 13 passed
+```
+
+Cura devolvida: **14 passed**. O teste cobre as três coisas — o ausente sem
+assento, os três presentes em 1·2·3, e a invariante controle a controle.
+
+### 3. Os dois VERMELHOS são HERDADOS — provado, e o dono não sou eu
+
+`.venv/bin/python -m pytest` nos **36 arquivos** de `tests/` que importam
+`dualsense_bt_audio`, `canal_do_microfone`, `bt_mic`, `eleicao_de_microfone` ou
+`alto_falante_bt`, mais o `test_som_02_devolucao_da_posse.py` que o conferente
+nomeou:
+
+```
+2 failed, 746 passed, 1 xfailed em 153,49s
+FAILED tests/unit/test_som_02_devolucao_da_posse.py::TestPonteDaJanela::test_release_manda_a_chave_e_o_uniq
+FAILED tests/unit/test_som_02_devolucao_da_posse.py::TestPonteDaJanela::test_volume_continua_indo_explicito
+```
+
+**A prova de que não são meus, e são três provas independentes:**
+
+```
+git diff e5f4b3da..HEAD -- tests/unit/test_som_02_devolucao_da_posse.py        → 0 linhas
+git diff e5f4b3da..HEAD -- src/hefesto_dualsense4unix/app/ipc_bridge.py        → 0 linhas
+```
+
+* os dois arquivos envolvidos não têm **uma linha** de diferença entre a base
+  `e5f4b3da` e o meu `HEAD` — nem no commit, nem na árvore de trabalho;
+* **reprovam com o arquivo rodando SOZINHO** (`2 failed, 38 passed`), então não
+  é contaminação por ordem de teste vinda das minhas réguas;
+* `git diff HEAD dev` nos dois arquivos é **vazio**: o `dev` de agora
+  (`bb87d7df`) tem os mesmos bytes e o mesmo vermelho.
+
+**A causa, medida:** `TypeError: <lambda>() got an unexpected keyword argument
+'timeout'`. `app/ipc_bridge._corpo_do_daemon` ganhou um parâmetro `timeout` em
+**`edfcc9b4`** (*"as seis que ela deixou ao desligar — e o teto que fazia a tela
+mentir"*), que já estava na minha base. Os dublês de `_safe_call` nesses dois
+testes são lambdas de DOIS parâmetros.
+
+**E a docstring cinco linhas acima da assinatura AVISAVA, com o número de
+casualidades certo:** *"Sem parâmetro de `timeout`, de propósito. (…) há dublês
+de `_safe_call` em testes de outras abas escritos como uma lambda de DOIS
+parâmetros, e acrescentar um `timeout=` aqui os quebra sem que nada do produto
+tenha mudado (medido em 23/08, **dois testes da SOM-02**)."* O aviso foi lido,
+o parâmetro entrou, e os dois testes que ele nomeava caíram. É a armadilha que
+esta casa já nomeou — *aviso no cabeçalho que ninguém lê* —, desta vez pelo
+avesso: o aviso estava certo e ainda assim não segurou.
+
+**NÃO CUREI, e a razão não é posse — é que a cura é uma ESCOLHA de quem tem o
+arquivo.** São duas, e elas se excluem: (a) o dublê da SOM-02 passa a aceitar
+`**kwargs` — e aí a docstring do `_corpo_do_daemon` tem de ser substituída,
+porque ela ainda afirma que a função **não tem** parâmetro de `timeout`, o que
+deixou de ser verdade em `edfcc9b4`; ou (b) as três rotas de áudio param de
+passar `timeout=_TETO_DO_ATO_DE_AUDIO` por dentro do `_corpo_do_daemon` e
+chamam o `_safe_call` direto, que é o que a própria docstring manda quem precisa
+de folga fazer. Escolher por fora seria eu decidir o desenho do teto que aquela
+sprint acabou de erguer. **Vai para quem tem `app/ipc_bridge.py`, com o
+`edfcc9b4` no endereço.**
+
+### 4. A pergunta do rótulo — ABERTA, e é dela
+
+Está escrita na sprint, seção **«PENDÊNCIA ABERTA — É DELA: o rótulo não se
+reescreve quando os assentos andam»**, com as duas saídas e o custo medido de
+cada uma.
+
+**A terceira saída não existe, e isso é medição nova de hoje:** o `pactl` desta
+máquina é o **16.1** (pipewire-pulse) e a lista de verbos dele não tem
+`update-source-proplist` — não há como reescrever a proplist de uma source já
+carregada. Pela porta que este código usa, trocar a descrição é derrubar e subir
+o nó.
+
+**E o reparo 2 aumentou a aposta, de propósito:** o assento agora anda toda vez
+que alguém desconecta um controle (antes o handle desligado segurava o número
+dos outros, escondendo o envelhecimento em troca de discordar do card). Seguir a
+tela é o certo; o preço é que o rótulo gravado envelhece com mais frequência —
+e é por isso que a pergunta não podia ficar sem dono.
+
+### O escopo, no fim do reparo
+
+| | |
+| --- | --- |
+| arquivos tocados | `daemon/subsystems/bt_mic.py`, `integrations/canal_do_microfone.py` (posse alargada), o teste da sprint, a sprint e este laudo |
+| lote dos importadores | **2 failed, 746 passed, 1 xfailed** — os dois vermelhos provados herdados acima |
+| o teste da sprint | **14 passed** (13 antes do reparo) |
