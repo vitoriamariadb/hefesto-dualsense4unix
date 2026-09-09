@@ -1,6 +1,6 @@
 ---
 sprint: NADA-MOCKADO-01
-estado: aberta
+estado: feita
 posse:
   NADA-MOCKADO-01:
     - tests/unit
@@ -116,3 +116,65 @@ se houver teste. Decidir se `mapa.py` passa a ser chamado ou sai é da
 | | |
 | --- | --- |
 | cabo / BT / perfil / controle | o inventário do item 1 usa as QUATRO colunas da [CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md) — a tabela lida do mapa e do esquema, nunca digitada. Uma feature com selo forte na tela e uma coluna em ✗ ou `nao-medido` é o que este portão reprova |
+
+
+---
+
+## O PORTÃO NASCEU — 09/09/2026
+
+`tests/unit/test_portao_nada_e_afirmado_sem_prova.py`, declarado em
+`scripts/portoes.sh` (camada **rápida** — lê um CSV, custa milissegundos) e no
+`ci.yml`. São **52 portões** agora.
+
+**A pergunta dela não se responde com uma resposta — ela se responde com um
+portão**, senão a resposta envelhece no dia seguinte.
+
+### O inventário, medido nas 311 linhas do mapa
+
+```
+afirmações fortes (aciona = sim)         208
+sem `provado_por`                        104
+  dessas, COM ressalva declarada          68
+  dessas, sem prova E sem ressalva        36   <- a dívida travada
+```
+
+Das 104 sem prova, **81 dizem `de_onde_sei = inferido-do-codigo`**: o mapa
+afirma que o aparelho aciona porque alguém LEU o código. *Ler o código e tocar
+o aparelho são coisas diferentes, e esta casa tem quatro cicatrizes provando
+isso.*
+
+### O que o portão faz, e por que é teto e não exigência
+
+Exigir prova de aparelho nas 104 hoje pararia a casa — e o item 1 desta sprint
+diz o contrário: *"comece por ali, não do zero"*. O portão **trava a dívida
+onde ela está**: uma linha NOVA que afirme forte tem de trazer `provado_por` ou
+ressalva, e os números só descem. É o mesmo desenho das listas de isenção
+declarada dos outros portões.
+
+**E o teto não pode sobrar:** há uma régua que reprova se a dívida cair e
+ninguém baixar a constante. *Régua com folga acumulada dá verde sobre o defeito
+seguinte* — é a cicatriz de 03/09.
+
+### Um achado ao escrever o portão, e um erro meu
+
+**Vinte linhas dizem `de_onde_sei = medido` e deixam `provado_por` em branco**
+— o mapa discordando de si: as duas colunas respondem perguntas diferentes
+(*"de onde eu sei?"* e *"quem provou?"*), mas `medido` só pode vir de um dos
+quatro jeitos que `provado_por` lista. Ganhou teto próprio.
+
+**O erro:** na primeira volta contei **seis**, que é o subconjunto sem
+ressalva. As outras catorze têm ressalva e continuam sem dizer quem provou —
+uma ressalva não responde *"quem mediu?"*. *Contar o subconjunto e chamá-lo do
+conjunto é a mesma família do número que envelhece calado.*
+
+### A mordida
+
+Uma linha nova no mapa com `cabo_aciona=sim`, sem `provado_por` e sem
+`cabo_ressalva`, reprova **três** das quatro réguas.
+
+### O que fica
+
+Os itens 1 e 3 estão feitos — o inventário existe (é o próprio mapa, com a
+coluna que já havia) e o portão o guarda. **O item 2, "reconhecido no jogo",
+continua sendo a [SENSORES-NO-JOGO-01](2026-09-08-SENSORES-NO-JOGO-01-o-giroscopio-e-o-acelerometro-provados-ate-o-jogo.md)** — e ela é de bancada: precisa de um jogo
+e da mão dela.

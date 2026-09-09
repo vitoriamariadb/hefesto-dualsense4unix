@@ -1,6 +1,6 @@
 ---
 sprint: JOGAR-02
-estado: aberta
+estado: feita
 posse:
   JOGAR-02:
     - src/hefesto_dualsense4unix/interface/pacotes/a01_jogar.py
@@ -108,3 +108,50 @@ fonte.
 | cabo / BT | o gesto é da mesa e vale igual nos dois — o recibo, quando houver, nomeia o assento que voltou, não o transporte |
 | no perfil | — (nada se grava) |
 | por controle | — (é da mesa); a única coisa por controle aqui é a IDENTIDADE do cartão, que o recado não pode cobrir |
+
+
+---
+
+## FEITA em 09/09/2026 — os cinco itens
+
+| item | como fechou |
+| --- | --- |
+| 1 · sem notícia, sem frase | `painel._sem_noticia` — `renumbered` vazio e `sessao_de_jogo_aberta` devolvem `""`, e o gesto traduz o vazio em `None`. Um `{"recado": ""}` não serve: o piloto pousaria uma caixa verde VAZIA sobre a identidade |
+| 2 · a frase na língua da tela | `painel._na_lingua_da_tela` — «Os controles foram renumerados: **P1, P2**.» Os números saem do próprio `renumbered`; dizer *"2 controle(s)"* obriga ela a descobrir quais |
+| 3 · o recado sai de cima da identidade | `aba01.py` declara `data-hef-recados="sucesso"` na linha do botão, como a 05 fez com a 05-Q4. **Só o sucesso muda de lugar** — a recusa é sobre AQUELE controle e fica no cartão |
+| 4 · `reconciliar_toast` fica onde está | ela não é mais chamada por aqui; sai com a janela GTK (`D-0609-GTK-LEVA-INTEIRA`) |
+| 5 · as palavras entram na lista | `PALAVRAS_BANIDAS += ("reconciliad", "compactada")` |
+
+### Os quatro desfechos, medidos
+
+```
+{'ok': True,  'renumbered': {}}                  ->  ''
+{'ok': False, 'reason': 'sessao_de_jogo_aberta'} ->  ''
+{'ok': True,  'renumbered': {'a':1,'b':2}}       ->  'Os controles foram renumerados: P1, P2.'
+{'ok': False, 'reason': 'x'}                     ->  'Não consegui ajustar a numeração dos controles.'
+None                                             ->  'Não consegui conferir a numeração dos controles.'
+```
+
+**As duas falhas continuam sendo notícia:** *"não consegui"* é o produto
+dizendo que não fez, e silêncio sobre isso é a mentira que esta casa persegue.
+
+### `compactada`, e não `compacta`
+
+A raiz curta é o verbo `compactar`, que é a palavra certa em código e em
+comentário; banir a raiz acusaria toda prosa que explica o que o daemon faz. A
+régua casa por borda de palavra, então `compactada` pega a frase e deixa o
+verbo em paz.
+
+### As réguas
+
+`test_a_aba_jogar_le_os_seis_avisos.py`: três substituídas (mediam a frase da
+janela GTK) e uma nova —
+`test_a_numeracao_ja_compacta_nao_vira_recado`, que é o caso exato do print
+dela. Mordida: `_sem_noticia` devolvendo `False` traz a frase de volta em cima
+do cartão do P1.
+
+### O que ficou para o olho dela
+
+As palavras do item 2 eram **proposta**. Elas estão na tela agora, e são
+reversíveis numa linha (`painel._RENUMEROU`). Se ela quiser outras, é trocar a
+constante.

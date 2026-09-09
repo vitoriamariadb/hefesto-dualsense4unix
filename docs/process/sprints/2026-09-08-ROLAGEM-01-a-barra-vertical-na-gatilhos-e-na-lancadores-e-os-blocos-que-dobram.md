@@ -181,3 +181,43 @@ maior.
 
 Na Gatilhos, **299px**. Dobrar o bloco do R2 num acordeão tira ~300 — o que
 fecha exatamente. É o que a proposta dela previa, e agora tem número.
+
+## §6 — Quanto a proposta dela tira, em pixel — medido no vivo
+
+A coluna da Gatilhos, filho a filho, com os quatro controles na mesa:
+
+```
+cabeca:24  DIV:36  DIV:36  ajustes e:230  vao:1  DIV:36  DIV:36  ajustes d:230  guardar:34
+```
+
+**663px de coluna**, e o `.miolo` fecha em **863** contra uma caixa de **564**.
+
+| arranjo | coluna | miolo | cabe? |
+| --- | --- | --- | --- |
+| hoje (os dois abertos) | 663 | 863 | **não** — 299 de sobra |
+| um bloco dobrado | 433 | 633 | **não** — 69 de sobra |
+| os dois dobrados | 203 | 403 | **sim** — 161 de folga |
+
+**A proposta dela cura, e o número diz COMO:** com os dois blocos nascendo
+fechados — como o acordeão da `02-controles`, em que *"a linha fechada mantém o
+resumo de hoje"* — a aba cabe com folga. Com um aberto sobram **69px**, e é aí
+que a decisão dela decide o desenho:
+
+* **A)** os dois nascem fechados e **só um abre por vez**; ao abrir, 69px
+  rolam — e nesse instante ela está mexendo naquele bloco;
+* **B)** os dois nascem fechados e o bloco aberto encolhe 69px (o `ajustes`
+  passa de 230 para ~161) — nada rola nunca, e o conteúdo aperta;
+* **C)** os dois nascem fechados e o `Guardar / Em todos` (34px) vira rodapé
+  único da grade em vez de uma linha por coluna — tira 34 dos 69, e sobram 35.
+
+**Isto é desenho, e a §2 desta sprint é uma pergunta dela** (*"o que vc
+acha?"*). A recomendação, com os números na mão, é a **(A)**: é a que não
+aperta nada e a que copia o acordeão que ela já aprovou na `02-controles`; a
+rolagem de 69px só existe enquanto um bloco está aberto, que é exatamente o
+momento em que ela quer ver aquele bloco inteiro.
+
+**A `07-lancadores` (63px) e a `09-sistema` (302px) não são desta proposta** —
+elas não têm blocos L2/R2. Ficam para uma segunda volta, com a mesma régua.
+
+**A régua:** `scripts/ensaios/a_janela_cabe_no_que_ela_ve.py`, no piloto oculto
+com o dado vivo. `--dentro` lista os filhos da coluna com a altura de cada um.

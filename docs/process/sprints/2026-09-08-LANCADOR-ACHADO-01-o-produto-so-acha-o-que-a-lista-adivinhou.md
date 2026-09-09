@@ -1,6 +1,6 @@
 ---
 sprint: LANCADOR-ACHADO-01
-estado: aberta
+estado: feita
 posse:
   LANCADOR-ACHADO-01:
     - src/hefesto_dualsense4unix/integrations/jogos_locais.py
@@ -129,3 +129,74 @@ não pode virar cartão. Busca que acha tudo não achou nada.
 | cabo / BT | — (o lançador não sabe de transporte) |
 | no perfil | o lançador achado por conteúdo entra no MESMO censo da LANCADORES-ZERO-01, e o jogo dele ganha `match` |
 | por controle | — |
+
+
+---
+
+## O DEGRAU 2 FECHOU — 09/09/2026
+
+`jogos_locais.e_lancador_de_jogos` e `jogos_locais.lancadores_por_conteudo`: a
+pergunta deixou de ser *"existe um arquivo com este nome?"* e virou *"existe um
+programa que declara fazer isso?"* — a mesma pergunta que o cartão do Flatpak
+já fazia, e a assimetria que a §2 nomeia.
+
+### A regra, e por que `Game` sozinho não bastava
+
+**Medido na máquina dela:** `~/.local/share/applications` tem **23** `.desktop`
+com `Categories=Game` — quase todos JOGOS instalados. Um cartão por jogo daria
+23 onde ela espera seis.
+
+O que separa lançador de jogo é a segunda categoria, declarada pelo próprio
+programa: `PackageManager` (instala jogos) ou `Emulator` (roda jogos de outra
+plataforma). Nos sete `Game` do flatpak dela:
+
+```
+org.DolphinEmu.dolphin-emu   Game;Emulator;        -> lançador
+io.mgba.mGBA                 Game;Emulator;        -> lançador
+org.libretro.RetroArch       Game;Emulator;        -> lançador
+com.heroicgameslauncher.hgl  Game;PackageManager;  -> lançador
+net.lutris.Lutris            Game;PackageManager;  -> lançador
+io.github.dummerle.rare      Game;                 -> não decide
+net.davidotek.pupgui2        Game;Utility;         -> não decide
+```
+
+**Os cinco de fábrica aparecem sozinhos, sem que ninguém digite o nome deles.**
+É a entrega inteira do degrau 2.
+
+### A armadilha que a máquina dela deu de graça
+
+`debian-uxterm` declara `Categories=System;TerminalEmulator;`. Uma comparação
+por **substring** o transformaria num lançador de jogos. A spec XDG diz que
+`Categories` é lista separada por `;` — então o que se compara é o item
+inteiro, e `TerminalEmulator` entrou numa lista de exclusão explícita.
+
+### A ligação com a aba, e por que ela não duplica nada
+
+O achado entra por `desenho.procurados`, a MESMA porta do lançador declarado —
+e lá **chave repetida ENSINA o primeiro cartão em vez de criar um segundo**.
+Um achado cujo `stem` já é atalho de fábrica não vira cartão novo.
+
+**Medido:** na máquina dela o degrau 2 produz **zero** cartões novos, porque os
+cinco que ele acha já são os cinco de fábrica. É a resposta certa, e prova que
+a soma não duplica.
+
+`declarado=False`: ela não declarou nada, então o cartão não ganha o botão
+«Tirar» — não há declaração a esquecer.
+
+### As réguas — 15 testes, com as mordidas da §5
+
+| mordida | reprova |
+| --- | --- |
+| busca por nome em vez de conteúdo | Bottles e ES-DE somem |
+| `"Game" not in cats` fora | o editor de texto vira cartão |
+| `_CATEGORIAS_DE_LANCADOR` fora | os 23 jogos dela viram 23 cartões |
+| `Categories` por substring | `debian-uxterm` vira lançador |
+| `NoDisplay` sem guarda | o que a spec manda esconder aparece |
+| `PackageManager` fora da tupla | Heroic e Lutris somem |
+| `if stem not in de_fabrica` fora | cinco cartões duplicados |
+
+### O que fica para depois
+
+O **degrau 3** (o AppImage solto, que não publica nada) continua sendo o
+registro à mão do degrau 1 — que já entrou em 08/09. O que muda é que agora
+ele é a exceção, e não a regra.
