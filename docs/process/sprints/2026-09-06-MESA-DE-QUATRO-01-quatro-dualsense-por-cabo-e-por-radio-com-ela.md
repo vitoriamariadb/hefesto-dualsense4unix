@@ -25,6 +25,18 @@ nao_toca:
 
 # MESA-DE-QUATRO-01 · BANCADA — quatro DualSense, por cabo e por rádio, com ela
 
+> **ESTADO 08/09/2026, 22h:** o §1 está PAGO — merge em `dev`, **51 portões**,
+> `install.sh` rodado (daemon reiniciado às 21h38, `doctor` sem falha), os quatro
+> na mesa dela (P2 e P3 no cabo, P1 e P4 no rádio). Do roteiro, o que já tem
+> medição no caderno: **linha 9/20** — o mic pelo rádio ENTREGA VOZ com a ponte de
+> pé, um de cada vez, e o negativo do mudo (`mic-radio-a-voz-sai-0907`,
+> `mic-radio-negativo-do-mudo-0907`, 07/09); **linha 11** — a bomba MONTOU os dois
+> arranjos sem escrever (07/09) e em 08/09 seis passadas escrevendo deram
+> silêncio nas seis, **ainda sem linha no caderno**. A conferência dela de 08/09
+> fechou `7 ✓ / 0 falta`. O documento de `cria:` ainda não existe — nasce da hora
+> dela. **O giroscópio não tem linha neste roteiro:** é a
+> [SENSORES-NO-JOGO-01](2026-09-08-SENSORES-NO-JOGO-01-o-giroscopio-e-o-acelerometro-provados-ate-o-jogo.md).
+
 > **A palavra dela, 06/09/2026:** *"o foco do programa hoje é fazer os 4
 > dualsense funcionar seja via bt ou cabo."* E, sobre quando: a bancada dos
 > quatro é *"no FECHO, junto com o ensaio do som BT"*.
@@ -40,9 +52,10 @@ resto do roteiro.
 
 ## 1. ANTES DE SENTAR (o coordenador, 15 min)
 
-1. o merge em `dev` feito, os 45 portões verdes, os doze lotes verdes;
-2. o `install.sh --yes` rodado **por ele, na árvore dela, com a palavra dela**
-   (`D-0609-INSTALL-PELO-OPUS`); o `doctor` sem FALHA;
+1. o merge em `dev` feito, os portões verdes (51 em 08/09), a suíte pelo
+   `scripts/rodar-a-suite.sh` (24 partes) — 8 vermelhos conhecidos em 08/09;
+2. o `install.sh --yes` rodado **na árvore dela, com a palavra dela**
+   (`D-0609-INSTALL-PELO-OPUS`); o `doctor` sem FALHA — feito em 08/09;
 3. o journal indo para arquivo, nunca para o terminal dela:
    `journalctl --user -u hefesto-dualsense4unix -f > ~/.local/state/hefesto-dualsense4unix/bancada-0907.log &` (anote o PID; é por ele que se mata);
 4. a janela aberta pelo `.desktop`; um jogo dela aberto — o que ela escolher;
@@ -86,8 +99,9 @@ gestos dela, um por sprint das ondas G-J. Cada sprint dessas constrói com dubl�
 e deixa AQUI a sua linha de prova (`D-0609-A-BANCADA-PROVA-NAO-BLOQUEIA`).
 
 **E a passagem do `nao-medido`:** durante o roteiro, quem coordena anota pela
-`chave` do mapa cada célula `nao-medido` que a mesa exercitou (as 109 de 06/09
-estão em `grep -c nao-medido docs/data/mapa-controles.csv`); é a P2 da
+`chave` do mapa cada célula `nao-medido` que a mesa exercitou — **21 células em
+12 linhas em 08/09**, por `grep -o nao-medido docs/data/mapa-controles.csv | wc -l`
+(o `grep -c` conta LINHAS e mentiria; o «109» que estava aqui era de outra régua); é a P2 da
 SPECS-A-PROCEDENCIA-01, e o `ensaios.csv` só ganha linha do que ela viu.
 
 A coluna da direita é **quem já mediu**, não quem executa: o que reprovar

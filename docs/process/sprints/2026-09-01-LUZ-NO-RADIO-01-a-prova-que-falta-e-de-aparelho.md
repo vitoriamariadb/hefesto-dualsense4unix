@@ -7,6 +7,13 @@ bancada: true
 # LUZ-NO-RADIO-01 — a prova que falta é de aparelho, não de código
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 — prova de aparelho, na bancada dos quatro (MESA-DE-QUATRO-01).
+>
+> **ESTADO 08/09/2026:** a premissa «um controle, e no cabo» CADUCOU — a mesa dela
+> tem o P1 e o P4 no rádio desde 08/09. A prova é a **linha 21** da
+> MESA-DE-QUATRO-01 (uma cor no P4, pelo rádio) mais o clique `luz-nao-acende` da
+> 08 com um deles. O roteiro abaixo continua valendo; a árvore do comando é a dela
+> (`dev`), onde o produto instalado roda — e o piloto dispara as migrações no
+> `~/.config` real: confira antes que já rodaram.
 
 **01/09/2026.** Ordem dela, com estas palavras:
 

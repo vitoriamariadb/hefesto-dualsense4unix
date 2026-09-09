@@ -64,6 +64,55 @@ reconhece.
   cura alcançou o não-primário, que era metade da mesa dela;
 * **máscara Nintendo**: `FLAVORS["nintendo"] = 0x057E:0x2009`, conferido pela
   régua dela;
-* **modo (PS + R3)**: `hotkey.py` responde ao gesto — mas o **funcionamento
-  mútuo** que ela pergunta (uma feature ligada quebrando outra) é exatamente o
-  que nenhuma régua cobre hoje.
+* **modo (PS + R3)**: o gesto PS+R3 gira a PONTE (`hotkey.py:633`,
+  `FEAT-HOTKEY-PONTE-CYCLE-01`: DualSense/uhid → Xbox → Nativo), e o PS longo
+  alterna o modo jogo (`:263`) — mas o **funcionamento mútuo** que ela pergunta
+  (uma feature ligada quebrando outra) é exatamente o que nenhuma régua cobre
+  hoje. A tabela abaixo é o começo dele.
+
+## A comunhão: máscara × modo × transporte — o que o mapa e o código já dizem
+
+É a pergunta dela (*"o funcionamento mútuo delas"*), respondida com o que está
+MEDIDO ou escrito no dono. Onde diz «inferido», ninguém pôs o aparelho na mesa.
+
+| | Jogar pelo Hefesto (`gamepad`) · **DualSense** (`uhid`) | Jogar pelo Hefesto · **Xbox 360** / **Nintendo Pro** (`uinput`) | Conexão Nativa (`native`) | Controlar o PC (`desktop`) |
+| --- | --- | --- | --- | --- |
+| botões, sticks, gatilhos analógicos | sim | sim | sim (o jogo lê o físico) | vira mouse/teclado |
+| giroscópio / acelerômetro | até o vpad: medido 16/08 (rádio) e 19/08 (cabo); **até o jogo: nunca** — e o SDL abriu o vpad por evdev em 04/09 | **não há onde pôr** (pacote fixo do Xbox; o `uhid` só nasce para `dualsense`) | sim, por HIDAPI, medido 04/09 | não |
+| touchpad | até o vpad: medido 16/08; **no jogo, no rádio: não responde** (16/08, sem causa) | não há onde pôr | sim | vira cursor |
+| vibração (FF do jogo) | sim, pela conta de `_mults_por_motor` | sim, por evdev — *"rumble por evdev que funciona em tudo"* | o jogo escreve direto; o degrau da casa não vale | — |
+| gatilho adaptativo do jogo | `vibracao.rumble.passthrough` / `gatilho.adaptativo`: medido no cabo e no rádio | não há onde pôr | sim | — |
+| barra de luz do jogo | `luz.replica_output_jogo`: cabo sim, rádio `parcial` | não | sim | — |
+| **cabo × rádio** | o transporte foi INOCENTADO no giroscópio (15/08) e na cor (12/08); as assimetrias vivas são as do mapa: `audio.alto_falante` rádio (dívida), `audio.microfone` rádio (só com a ponte), `release_leds` só rádio | idem | idem | idem |
+
+A linha que decide se «funciona de fato» é a segunda, e ela é a
+[SENSORES-NO-JOGO-01](2026-09-08-SENSORES-NO-JOGO-01-o-giroscopio-e-o-acelerometro-provados-ate-o-jogo.md).
+As células de máscara Xbox/Nintendo não são dívida: são o aparelho que a
+máscara imita — e vão para o mapa como DECISÃO, porque a tela não confessa.
+
+## O mapa NÃO é lido pelo produto — medido em 08/09/2026
+
+Ela mandou conferir *"se o mapa do specs .csv tá sendo lido de fato"*. Está — por
+**réguas e scripts**, e por NENHUMA linha do produto em execução:
+
+| leitor | quem chama |
+| --- | --- |
+| `interface/pacotes/mapa.py` — `canal()`, `da_familia()`, `confere()`, `sem_dono()`, escrito em 01/09 para *"o valor da tela CITAR a linha"* | **zero chamadores** em `src/`, `tests/` e `scripts/` |
+| `app/fatos_do_mapa.py` — GERADO do CSV, `FATOS[id]` | **zero importadores** fora da própria docstring |
+| `scripts/check_paridade_transporte.py`, `gerar-mapa.py`, `mesa_de_medicao.py`, `bancada.py` e ~100 arquivos de teste | é aqui que o CSV é lido |
+
+Então a promessa de `mapa.py` — *"todo valor que a tela AFIRMA tem de ter linha
+aqui, ou dizer que não tem dono"* — não acontece em tempo de execução: a
+conferência é feita pelas réguas, uma vez, e a tela não pergunta ao mapa. O
+inventário do item 1 tem de saber disso: **um selo forte na tela hoje não foi
+conferido contra o mapa por ninguém no produto** — foi conferido por um teste,
+se houver teste. Decidir se `mapa.py` passa a ser chamado ou sai é da
+[TUDO-FUNCIONA-01](2026-09-08-TUDO-FUNCIONA-01-o-que-falta-para-nada-ser-de-brinquedo.md).
+
+## Critério de pronto — por cabo · por BT · no perfil · por controle
+
+É a régua dela de 08/09 ([CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md)); a sprint só fecha com as quatro respondidas.
+
+| | |
+| --- | --- |
+| cabo / BT / perfil / controle | o inventário do item 1 usa as QUATRO colunas da [CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md) — a tabela lida do mapa e do esquema, nunca digitada. Uma feature com selo forte na tela e uma coluna em ✗ ou `nao-medido` é o que este portão reprova |

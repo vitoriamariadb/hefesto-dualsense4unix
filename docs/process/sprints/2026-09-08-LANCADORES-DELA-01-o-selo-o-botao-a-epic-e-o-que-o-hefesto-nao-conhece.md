@@ -1,14 +1,15 @@
 ---
 sprint: LANCADORES-DELA-01
-estado: aberta
+estado: feita
 posse:
   LANCADORES-DELA-01:
-    - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
-    - src/hefesto_dualsense4unix/interface/aba07.py
-    - src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py
     - src/hefesto_dualsense4unix/utils/maquina.py
 bancada: false
 depois_de: []
+nao_toca:
+  - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
+  - src/hefesto_dualsense4unix/interface/aba07.py
+  - src/hefesto_dualsense4unix/interface/pacotes/a07_lancadores.py
 ---
 
 # LANCADORES-DELA-01 — o selo, o botão, a Epic, e o que o Hefesto não conhece
@@ -23,9 +24,28 @@ DualSense na mesa.** Verbatim:
 > *"Pensei em outro botão pra Adicionar novo Emulador Ou novo lançador algo
 > assim, pra devs mais experimentais e permitir que o user adicione algo novo"*
 
-**EM VOO** na `voo/LANCADORES-DELA-01-opus` desde 08/09. Esta sprint é o
-registro do pedido e do desenho decidido — o que ela pediu não pode viver só na
-conversa. *Regra da casa: fila combinada com ela vira arquivo no mesmo dia.*
+> **FEITA em 08/09/2026 — `7b1cdf27` + `d1f17040` + `1bebb847`, em `dev`; o quarto item
+> DECIDIDO por ela à noite.** A leva tinha lido uma PERGUNTA dela como decisão; ela
+> cobrou — *"como assim caducou por decisão minha?"* — e depois decidiu com uma
+> palavra: *"dentro heróic"*. <!-- noqa-acento: citação literal dela -->
+>
+> | # | o que ficou |
+> | --- | --- |
+> | 1 | o selo diz **NÃO LOCALIZADO** (`desenho_dos_lancadores.py:64`, `SELOS["off"]`) |
+> | 2 | o botão do cartão diz **Localizar este Lançador** — selo e botão falam a mesma palavra; *«Launcher»* saiu da tela, o projeto é em português e há portão |
+> | 3 | **DECIDIDO — a Epic fica DENTRO do Heroic** (*"dentro heróic"*, 08/09 à noite). Não há cartão próprio; o Heroic diz `(Epic · GOG)` e, pela LANCADORES-ZERO-01, passa a LER a biblioteca da Epic (35 jogos na máquina dela em 08/09). A frase da tarde (*"melhor deixar so heróic e tirar epic games não?"* <!-- noqa-acento: citação literal dela -->) era pergunta; a decisão é esta |
+> | 4 | o botão global diz **Adicionar novo Lançador**; o registro é o `LancadorDeclarado` do `maquina.json` (`utils/maquina.py:581`), com os mesmos três campos do `SemCenso` — um procurador só, como a §3 mandava |
+>
+> Os três resíduos do conferente (o «Tirar daqui» sem régua, o beco da recusa aberto no
+> estado da máquina dela, o campo digitado que o produto descartava calado) fecharam em
+> `1bebb847` — está em `docs/process/2026-09-08-ONDE-PARAMOS-as-duas-levas-da-tela-e-os-cem-vermelhos.md` §2.
+>
+> **O que ela viu DEPOIS disto** — *"a aba lançadores tá identificando nada"* — é a
+> [LANCADORES-ZERO-01](2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md).
+
+Esta sprint é o registro do pedido e do desenho decidido — o que ela pediu não
+pode viver só na conversa. *Regra da casa: fila combinada com ela vira arquivo
+no mesmo dia.*
 
 ## §1 — Os quatro, com endereço
 

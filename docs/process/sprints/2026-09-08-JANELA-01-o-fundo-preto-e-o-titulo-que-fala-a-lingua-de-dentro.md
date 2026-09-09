@@ -1,6 +1,6 @@
 ---
 sprint: JANELA-01
-estado: aberta
+estado: feita
 posse:
   JANELA-01:
     - src/hefesto_dualsense4unix/interface/topo.html
@@ -11,6 +11,17 @@ depois_de: []
 ---
 
 # JANELA-01 — o fundo preto quando ela maximiza, e o título que fala a língua de dentro
+
+> **FEITA em 08/09/2026 — `d63bbd73` (leva `A-TELA-DELA-01`), em `dev`.** O subtítulo
+> saiu (`hefesto_vivo.py:2328`: *"A MOLDURA NÃO TEM SEGUNDA LINHA"*); a barra diz só
+> **Hefesto**. A sobra preta fechou pela saída **esticar**: `.janela{width:min(100%,1600px)}`
+> (`topo.html:187`), e o 1600 foi MEDIDO em quarenta fotos, não escolhido. A régua nova
+> é `scripts/check_a_janela_nao_confessa.py` (o 50º portão) — na primeira corrida achou o
+> `.desktop` dizendo *"As dez abas, com o dado do aparelho"*.
+>
+> **O que NÃO mudou:** a altura, `--alt-janela:777px` (`topo.html:701`). A barra vertical
+> que ela viu na Gatilhos e na Lançadores depois disto é a
+> [ROLAGEM-01](2026-09-08-ROLAGEM-01-a-barra-vertical-na-gatilhos-e-na-lancadores-e-os-blocos-que-dobram.md).
 
 **Achado por ELA em 08/09/2026, com o produto instalado e os quatro DualSense na
 mesa.** Palavras dela: *"o background fica completamente preto. Temos o Termo as

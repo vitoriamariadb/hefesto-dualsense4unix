@@ -1,6 +1,6 @@
 ---
 sprint: FITA-01
-estado: aberta
+estado: feita
 posse:
   FITA-01:
     - src/hefesto_dualsense4unix/interface/monta.py
@@ -9,6 +9,13 @@ depois_de: []
 ---
 
 # FITA-01 — o chip do P1 fica aceso nas abas em que a fita não escolhe nada
+
+> **FEITA em 08/09/2026 — `d63bbd73`, e a 07 em `1bebb847`.** A terceira regra passou a
+> dizer o mesmo que as duas de cima: `.fita.inerte .chip.on{border-color:var(--border-sutil);
+> background:transparent}` (`topo.html:285`, com a razão escrita em `:258-284`). As três
+> abas que ESCOLHEM (`01`, `02`, `08`) saíram byte-idênticas — a cura é só da fita inerte,
+> como a §2 mandava. A 07 ficou de fora na primeira leva por ser posse de outra frente e
+> entrou regerada em `1bebb847`. A régua é `tests/unit/test_a_fita_inerte_nao_acende_ninguem.py`.
 
 **Achado por ELA em 08/09/2026, na aba Gatilhos.** Palavras dela: *"o player 1
 tipo no caso cosmic red - cabo, fica sempre selecionado com borda diferente mesmo

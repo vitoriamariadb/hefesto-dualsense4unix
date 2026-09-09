@@ -43,7 +43,7 @@ aparelho."*
 | *"ao invés de não achei. Deveria ter Não Localizado"* | o selo diz **NÃO LOCALIZADO** |
 | *"o Botão Abrir o Lançador deveria ser o Adicionar Launcher"* | o botão do cartão diz **Localizar este Lançador** — selo e botão passam a falar a mesma palavra |
 | *"Pensei em outro botão pra Adicionar novo Emulador ou novo lançador"* | o botão global diz **Adicionar novo Lançador**, e registra o que o Hefesto não conhece |
-| *"melhor deixar só heróic e tirar epic games não?"* | **não há cartão da Epic.** O Heroic diz `(Epic · GOG)` e é a única porta para as duas |
+| *"melhor deixar só heróic e tirar epic games não?"* | **não há cartão da Epic** — e isto foi lido como decisão quando era PERGUNTA dela (cobrada à noite: *"como assim caducou por decisão minha?"*). O Heroic diz `(Epic · GOG)` e é a porta para as duas enquanto ela não decidir |
 
 **A palavra «Launcher» saiu da tela** — o projeto é em português e há portão.
 

@@ -5,7 +5,7 @@ posse:
   LANCADOR-ACHADO-01:
     - src/hefesto_dualsense4unix/integrations/jogos_locais.py
 bancada: false
-depois_de: []
+depois_de: [LANCADORES-ZERO-01]
 ---
 
 # LANCADOR-ACHADO-01 — o produto só acha o lançador que a lista adivinhou, e a culpa não é dela
@@ -27,15 +27,15 @@ o defeito nasceu ali, não na escolha dela.
 
 ## §1 — O que o produto faz hoje, medido
 
-`desenho_dos_lancadores.py:518-561` declara SEIS `SemCenso`, e cada um traz duas
-listas ADIVINHADAS na hora em que alguém escreveu o arquivo:
+`desenho_dos_lancadores.py:685-722` declara cinco `SemCenso` mais a `A_STEAM`, e
+cada um traz duas listas ADIVINHADAS na hora em que alguém escreveu o arquivo:
 
 ```python
 SemCenso("lutris", "Lutris", ("net.lutris.Lutris", "lutris"), ("lutris",))
 #                             ^^^^ os `stem` de .desktop        ^^^^ o PATH
 ```
 
-`a07_lancadores._onde_estao_os_lancadores()` (`:312`) percorre
+`a07_lancadores._onde_estao_os_lancadores()` (`:367`) percorre
 `jogos_locais.pastas_de_atalhos()` procurando aqueles `stem`, e depois o `PATH`
 procurando aqueles comandos. **Achou = cartão aceso. Não achou = NÃO ACHEI.**
 
@@ -44,7 +44,11 @@ procurando aqueles comandos. **Achou = cartão aceso. Não achou = NÃO ACHEI.**
 `~/.local/share/flatpak/exports/share/applications`. **O caminho do flatpak É
 coberto** — a pasta está em `pastas_de_atalhos()`, que segue a spec XDG.
 
-Então o defeito NÃO é o flatpak. **É a lista.**
+Então o defeito NÃO é o flatpak. **É a lista.** E em 08/09 às 22h o ambiente do
+PROCESSO dela foi lido (`/proc/<pid>/environ`): o `XDG_DATA_DIRS` tem as duas
+pastas do flatpak. A hipótese do ambiente está morta duas vezes — o que ela viu
+à noite (*"identificando nada"*) é a
+[LANCADORES-ZERO-01](2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md).
 
 ## §2 — O DEFEITO DE VERDADE: a busca é por NOME ADIVINHADO
 
@@ -71,12 +75,12 @@ mundo.**
 
 ## §3 — O QUE ESTA SPRINT ENTREGA, em três degraus
 
-### Degrau 1 — a saída de emergência, e ela já está sendo construída
+### Degrau 1 — a saída de emergência — ENTROU em 08/09 (`d1f17040` + `1bebb847`)
 
-A `voo/LANCADORES-DELA-01-opus` (em voo em 08/09) traz o **"Adicionar Launcher"**
-no cartão não-localizado e o **botão global** de registrar um lançador ou
-emulador que o Hefesto não conhece, gravando em `maquina.json`. Isso NÃO fecha
-esta sprint — é o que permite ela não ficar travada enquanto a cura de verdade
+O cartão não-localizado diz **«Localizar este Lançador»** e o botão global diz
+**«Adicionar novo Lançador»**, gravando um `LancadorDeclarado` em `maquina.json`
+(`utils/maquina.py:581`) — os mesmos três campos do `SemCenso`, um procurador
+só. Isso NÃO fecha esta sprint — é o que permite ela não ficar travada enquanto a cura de verdade
 não vem. **Registrar à mão é a confissão de que a busca falhou.**
 
 ### Degrau 2 — procurar pelo que a coisa É, não pelo nome que ela tem
@@ -115,3 +119,13 @@ ENCONTRE. Com a busca de hoje ele não aparece — é essa reprova que prova a c
 
 E o negativo que importa: um `.desktop` que NÃO é lançador (um editor de texto)
 não pode virar cartão. Busca que acha tudo não achou nada.
+
+## Critério de pronto — por cabo · por BT · no perfil · por controle
+
+É a régua dela de 08/09 ([CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md)); a sprint só fecha com as quatro respondidas.
+
+| | |
+| --- | --- |
+| cabo / BT | — (o lançador não sabe de transporte) |
+| no perfil | o lançador achado por conteúdo entra no MESMO censo da LANCADORES-ZERO-01, e o jogo dele ganha `match` |
+| por controle | — |

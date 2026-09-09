@@ -1,6 +1,6 @@
 ---
 sprint: JOGAR-01
-estado: aberta
+estado: feita
 posse:
   JOGAR-01:
     - src/hefesto_dualsense4unix/interface/aba01.py
@@ -10,6 +10,13 @@ depois_de: []
 ---
 
 # JOGAR-01 — o "Não trocar de perfil sozinho" vai para o canto do bloco
+
+> **FEITA em 08/09/2026 — `d63bbd73`.** O cadeado mora na linha do título do bloco Modo
+> (`aba01.py:1564-1567`, `.cadeado{margin-left:auto}` em `:675`), com a gramática do
+> *"Banco de provas"* da Navegação. O gesto não mudou. A régua de POSIÇÃO é
+> `tests/unit/test_o_cadeado_mora_no_canto_do_bloco.py`. A armadilha da §3 fechou junto:
+> `fim.html:65` passou a dizer *"está no canto do bloco Modo"* — a legenda velha descrevia
+> uma remoção que tinha sido desfeita, e foi substituída.
 
 **Pedido por ELA em 08/09/2026, olhando a aba Jogar.** Palavras dela: *"esse não
 trocar de perfil. Pode colocar ele no canto superior direito do bloco tipo esse

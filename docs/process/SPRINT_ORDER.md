@@ -1,14 +1,16 @@
 # SPRINT_ORDER — o que está aberto e em que ordem
 
-> **06/09/2026 — ESTE ARQUIVO FOI REESCRITO, e a fila é UMA.** O que estava
-> aqui (as quatro filas de 04–05/09, as dez ondas de 27/08, as 120 antigas em
-> seis faixas, os buracos de texto de 22/08) está no git:
-> `git show f0e264e6:docs/process/SPRINT_ORDER.md`. Ela pediu com todas as
-> letras: *"arrumar tudo em sprints, deixar só as que prestam agora e as
-> depois, corrigir pra guiar o projeto sempre na direção correta"*. <!-- noqa-acento: citação literal dela -->
+> **08/09/2026, à noite — ESTE ARQUIVO FOI REESCRITO, e a fila é UMA.** A fila
+> anterior (as 24 horas de 06/09, o FECHO, o «depois das 24 horas») está no
+> git: `git show b618a8aa:docs/process/SPRINT_ORDER.md`. As 24 horas fecharam em
+> 07/09 (146 branches costuradas), o produto foi instalado em 08/09, e o que
+> ela achou **com o produto instalado e os quatro DualSense na mesa** é a fila
+> de agora. Pedido dela: *"organiza a Sprint order também"*.
 >
-> **Fila combinada com ela vira arquivo no mesmo dia, e é uma.** Fila nova
-> aposenta a anterior com data e ponteiro para o git — não empilha banner.
+> **O que a fila velha listava como «depois» FECHOU nas 24 horas** — as
+> dezoito que a bancada remederia, os externos, o daemon, o teclado na tela, a
+> identidade: todas `feita` ou `absorvida` em 08/09 (medido pelo `estado:` de
+> cada arquivo). Não se repete aqui o que já tem lápide.
 
 ## 0. COMO SE LÊ UMA SPRINT AGORA — o campo `estado:`
 
@@ -22,162 +24,136 @@ Todo arquivo de sprint com frontmatter diz em que estado está, e a máquina lê
 | **caducou** | a premissa morreu (a janela GTK, o enxerto, uma decisão dela) | quem coordena |
 
 * **A lista viva:** `python3 scripts/check_colisao_de_sprints.py --abertas`
-  — 59 em 06/09 às 04:30, 34 delas dentro das 24 horas.
-* **Sem frontmatter é história.** São 253 arquivos, todos de antes de 27/08
-  mais alguns documentos (índices, manifestos, as folhas de decisão). Para
-  executar um deles, escreve-se o frontmatter com `estado: aberta`, o portão
-  de colisão fica verde e ele entra na §2 — antes disso, ninguém o despacha.
+  — 18 em 08/09 às 23h30, de 637 com frontmatter.
+* **Não há mais arquivo sem frontmatter:** os 637 dizem `estado:` desde as 24
+  horas (medido em 08/09). O que é história está `feita`, `absorvida` ou
+  `caducou`. Para executar um deles, troca-se para `estado: aberta` com a
+  razão na nota do topo, o portão de colisão fica verde e ele entra na §1 —
+  antes disso, ninguém o despacha.
 * **Quem fecha uma sprint troca o `estado:` no mesmo commit** e escreve a
   prova na nota do topo. Este arquivo LISTA; ele não guarda estado.
-* **A régua da fila de produto é o `docs/data/paridade-gtk-html.csv`**
-  (396 feats · 119 IGUAL · 125 DIFERENTE · 89 FALTA · 30 % em 06/09). Sprint
-  antiga não se despacha pelo id: se o que ela pedia ainda falta, é linha do
-  CSV, e é por essa linha que nasce trabalho.
+* **A régua de pronto é uma, e é dela (08/09):** toda feature da tela responde
+  **por cabo · por BT · no perfil · por controle** —
+  [CABO-BT-PERFIL-CONTROLE-01](sprints/2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md). Toda sprint aberta carrega o bloco;
+  sprint que fecha uma feature sem as quatro colunas não fecha.
+* **A régua da paridade continua sendo o `docs/data/paridade-gtk-html.csv`**
+  (396 feats · 144 IGUAL · 160 DIFERENTE · 29 FALTA · 59 só no HTML — 36 % em
+  08/09). Sprint antiga não se despacha pelo id: se o que ela pedia ainda
+  falta, é linha do CSV, e é por essa linha que nasce trabalho.
 * **A língua é uma:**
   [A LÍNGUA DESTA CASA](../A-LINGUA-DESTA-CASA-o-glossario-que-a-tela-e-o-codigo-falam.md).
   Texto de tela novo passa por ela antes de nascer.
+* **Sem agentes nesta fila.** Ordem dela de 08/09: *"Não use agentes"*. É
+  trabalho de quem conversa com ela, ponto a ponto, com o navegador.
 
 ---
 
-## 1. AGORA — as vinte e quatro horas (06/09)
+## 1. AGORA — a fila de 08/09, à noite
 
-> **A SEGUNDA METADE, 06/09 à noite:** as ondas A-F da tabela abaixo FECHARAM
-> (a tabela fica como registro). A fila executável de agora é
-> **[O PLANO PARA O OPUS](2026-09-06-O-PLANO-PARA-O-OPUS-quatro-lotes-uma-mesa-e-o-produto-inteiro.md)**
-> — quatro lotes (7 · 16 · 5 · 3 sprints), `scripts/despachar-onda.sh` e
-> `scripts/costurar-onda.sh`, o checkpoint do limite semanal, e a
-> MESA-DE-QUATRO-01 com 21 linhas como aceitação do produto. As 34 abertas são
-> `python3 scripts/check_colisao_de_sprints.py --abertas`.
+O «por quê» de cada posição, com a medição que a sustenta, está no
+[INDICE-0908-NOITE](sprints/2026-09-08-INDICE-as-quatro-que-ela-deixou-ao-desligar.md).
+Aqui, a ordem e uma linha:
 
-A fila executável é
-**[AS VINTE E QUATRO HORAS](2026-09-06-AS-VINTE-E-QUATRO-HORAS-a-ordem-que-o-orquestrador-despacha-e-as-rotas-corrigidas.md)**,
-e o Opus é o PO e orquestrador. Em uma tela:
-
-| quando | o quê | agentes |
+| # | sprint | o que fecha |
 | --- | --- | --- |
-| Passo 0 | o lançador em `dev`, a árvore de integração, a casa | coordenador |
-| **Passo 1 · h0–h1,5** | **A-TELA-SAMBA-01**, sozinha — a interface repinta, perde cliques e mata a dica. É P0: um produto que perde cliques invalida toda prova de tela feita sobre ele | 1 |
-| ONDA A · h1,5–h5,5 | S-10 · P-01 · 01-02 · 02-02 · 05-01 · 05-02 · 06-01 · 07-02 · 08-01 · 09-01 · 10-01 · MIC-VIRTUAL-01 (passos 2–4) · C1 (o registro) | 12 + coord. |
-| ONDA B · h5,5–h10 | 01-01 · AS-DUAS-ABAS-FALAM-01 · 02-01 · 05-03 · 06-02 · 07-01 · 08-02 · 09-02 · LUZES-01 · **PERFIS-SAO-PERFIS-01** · **ONDA3-MOTOR-01** · **GTK-1** | 12 |
-| ONDA C · h10–h15 | 03-02 · 07-03 · 10-02 · MIC-VIRTUAL-02 · T-10 (CONEXOES-LIGAR-TUDO-01) · STEAM-INPUT-01 · SISTEMA-STEAM-01 · CONTROLES-VERDADE-01 · NAVEGACAO-TECLAS-01 · **GTK-2** | 10 |
-| ONDA D · h15–h19 | PERFIL-MODO-01 · PARIDADE-REMEDIR-01 · **ONDA3-GESTO-DECLARA-01** · **GTK-3** (começa) | 3 + coord. |
-| ONDA E · h19–h21 | JOGAR-O-QUE-FALTA-01 (com a 01-03) · **A-PALAVRA-MESA-SAI-01** · GTK-3 (termina) · O-LOGO-NAS-DEZ-01 (o coordenador, na costura) | 3 |
-| FECHO · h21–h24 | merge em `dev` · 43 portões · doze lotes · as dez fotos · **ela:** publicar numa volta só · `install.sh` pelo Opus com a palavra dela · **MESA-DE-QUATRO-01**, com o ensaio 1 do som por rádio · o handoff | coord. + ela |
+| 0 | [CABO-BT-PERFIL-CONTROLE-01](sprints/2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md) | **a régua dela** vira portão: o portão que a sprint cria, com a tabela lida do mapa e do esquema, nunca digitada |
+| 1 | [LANCADORES-ZERO-01](sprints/2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md) | o censo por lançador: o produto ACHA os seis e só lê a biblioteca da Steam; o Heroic tem 35 jogos da Epic — **a Epic fica dentro do Heroic**, decisão dela |
+| 2 | [JOGAR-02](sprints/2026-09-08-JOGAR-02-o-reconectar-responde-sem-a-lingua-de-dentro.md) | a frase «Jogadores reconciliados…» sai; quando nada mudou, piscada e silêncio |
+| 3 | [MIC-OS-QUATRO-01](sprints/2026-09-08-MIC-OS-QUATRO-01-os-quatro-microfones-funcionando.md) | **quatro microfones VIRTUAIS**, um por controle, cabo e BT — hoje: 2 fontes USB, 0 BT, 0 virtual |
+| 4 | [SOM-POR-CONTROLE-01](sprints/2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) | o mix completo (HDMI) ou o canal de SFX, **caindo em cada controle**, cabo e BT; os nós de duas sprints `feita` não existem na mesa dela |
+| 5 | [MASCARA-NO-PERFIL-01](sprints/2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md) | **decisão dela:** a máscara por controle entra no perfil (`ControllerOverrides`) |
+| 6 | [VIBRA-MULT-01](sprints/2026-09-08-VIBRA-MULT-01-o-motor-multiplica-a-forca-por-controle.md) | degrau × barra por motor: a conta existe; a premissa física e o número da tela nunca foram medidos |
+| 7 | [COR-TROCA-01](sprints/2026-09-08-COR-TROCA-01-a-cor-repetida-troca-de-lugar-em-vez-de-recusar.md) | a cor repetida troca de lugar, como o número do jogador — e escreve na camada em que a cor mora |
+| 8 | [ROLAGEM-01](sprints/2026-09-08-ROLAGEM-01-a-barra-vertical-na-gatilhos-e-na-lancadores-e-os-blocos-que-dobram.md) | a barra vertical na 03 e na 07 (medir no WebKit), e os blocos L2/R2 que dobram |
+| 9 | [SENSORES-NO-JOGO-01](sprints/2026-09-08-SENSORES-NO-JOGO-01-o-giroscopio-e-o-acelerometro-provados-ate-o-jogo.md) · bancada | giroscópio e acelerômetro até o JOGO — zero células «O JOGO RECEBEU» no mapa inteiro |
+| 10 | [TELA-TRES-01](sprints/2026-09-08-TELA-TRES-01-a-altura-o-selo-e-a-caixa-alta.md) | a altura do «Detalhes técnicos»; `CABO`/`RÁDIO` em caixa alta |
+| 11 | [LANCADOR-ACHADO-01](sprints/2026-09-08-LANCADOR-ACHADO-01-o-produto-so-acha-o-que-a-lista-adivinhou.md) | a busca por conteúdo (`Categories=Game`), depois do censo |
+| 12 | [NADA-MOCKADO-01](sprints/2026-09-08-NADA-MOCKADO-01-a-varredura-do-que-e-de-verdade.md) | o portão «nada em sandbox ou mockado»; a tabela máscara × modo × transporte; o mapa **não é lido pelo produto** |
+| 13 | [TUDO-FUNCIONA-01](sprints/2026-09-08-TUDO-FUNCIONA-01-o-que-falta-para-nada-ser-de-brinquedo.md) | o inventário honesto com o custo de cada falta; o destino de `pacotes/mapa.py` e `fatos_do_mapa.py` |
 
-As sprints em negrito entraram na fila em 06/09; as que o plano marca como
-*nova* (LUZES-01, STEAM-INPUT-01, SISTEMA-STEAM-01, CONTROLES-VERDADE-01,
-NAVEGACAO-TECLAS-01, PERFIL-MODO-01, PARIDADE-REMEDIR-01, JOGAR-O-QUE-FALTA-01,
-MIC-VIRTUAL-02, GTK-1/2/3) o Opus escreve no molde de 05/09 **antes** de
-despachar, com frontmatter e `estado: aberta`, e roda o portão de colisão.
+**Bancada — a hora dela, não de código:**
 
-**O que estas 24 horas NÃO fazem, por decisão dela:** controles externos, o
-editor avançado de regra, "Mapear Entrada a Entrada", o resto dos 89 FALTA
-que não é de jogar, o som por rádio além do ensaio 1. Está tudo na §2.
-
----
-
-## 2. DEPOIS DAS 24 HORAS — em ordem, e com a direção corrigida
-
-Tudo o que vem depois **já tem sprint escrita com `estado: aberta` ou tem
-linha no CSV**. A ordem é de valor para quem joga com quatro DualSense, que é
-o foco que ela nomeou.
-
-### 2.1 O que a bancada dos quatro remede (nasce no FECHO)
-
-A [MESA-DE-QUATRO-01](sprints/2026-09-06-MESA-DE-QUATRO-01-quatro-dualsense-por-cabo-e-por-radio-com-ela.md)
-tem doze linhas com PASSA/REPROVA; **cada REPROVA vira uma sprint nova com
-posse**, e cada PASSA fecha a sprint antiga com a linha da bancada como prova.
-As antigas que ela remede — todas *não remedidas desde 27/08*:
-
-* com frontmatter, `aberta`: COOP-QUE-NAO-DESMONTA-01 · BORDA-DE-QUEDA-01 ·
-  QUATRO-NA-MESA-01 · JOGADOR-3-FANTASMA-01 · RESERVA-DO-POSTO-01 ·
-  COOP-NA-CONEXAO-NATIVA-01 · BATERIA-PARADA-01 · LUZ-NO-RADIO-01;
-* sem frontmatter (história até a bancada dizer): DUAS-CONTABILIDADES-01,
-  PARTIDA-PICOTADA-01, POSSE-POR-CONTROLE-01, LUGAR-A-MESA-01,
-  ORDEM-DE-CHEGADA-01, QUATRO-NO-RADIO-01, DOIS-CAIRAM-DE-UMA-VEZ-01,
-  AUTOMATISMO-MORTO-01, CONECTA-E-DESLIGA-01, JOGAVEL-EM-TODOS-01.
-
-**Ninguém despacha uma destas pelo id antes da bancada.** Em 03/08 elas eram
-propostas sobre um daemon que mudou vinte vezes; a bancada é mais barata que
-reler as dezoito.
-
-### 2.2 A janela GTK sai — e sai DENTRO das 24 horas
-
-Decisão dela de 06/09 (`D-0609-GTK-LEVA-INTEIRA`): *"a ideia sempre foi
-reaproveitar o que fiz no gtk e não apontar nada mais pra lá mas pro html."* <!-- noqa-acento: citação literal dela -->
-O plano é a
-[A-JANELA-GTK-SE-APOSENTA-DEPOIS-01](sprints/2026-09-05-A-JANELA-GTK-SE-APOSENTA-DEPOIS-01-o-plano-e-a-data-em-que-ele-parou.md),
-liberada; as três sprints (GTK-1 inventário e portão *"nada aponta para a
-janela"*; GTK-2 os leitores do `main.glade` ganham dono no motor; GTK-3 os 62
-testes, a remoção, `pyproject`/`packaging`/`install.sh`) estão nas ondas B, C
-e D–E. **O motor fica** (`app/actions/`, `app/widgets/`, `daemon/`): é reuso.
-`gui/ponte_da_tela.py` é do piloto HTML e não sai.
-
-### 2.3 O resto da paridade, por aba — o CSV é a fila
-
-FALTA por aba em 06/09, antes das ondas: `02-controles` 18 · `01-jogar` 14 ·
-`08-conexoes` 12 · `04-iluminacao` 11 · `10-perfis` 11 · `09-sistema` 9 ·
-`05-vibracao` 6 · `07-lancadores` 5 · `06-navegacao` 2 · `03-gatilhos` 1. A
-meta das 24 horas é FALTA ≤ 60; o que sobrar continua na régua, e a
-PARIDADE-REMEDIR-01 é quem diz o número. **Fora por decisão dela:** o editor
-avançado de regra (10-Q2), a cerimônia "Mapear Entrada a Entrada" (08), o
-custo da máscara antes do clique (10-Q6, *a máscara não custa feature*).
-
-As réguas do esquema do perfil por controle — QUEM-E-QUEM-02, 03 e 04 —
-ficam aqui, `aberta`, não remedidas desde 29/08; a 02 espera a
-PERFIS-SAO-PERFIS-01 (mesmo `loader.py`).
-
-### 2.4 Áudio pelo rádio
-
-O **ensaio 1** da bancada do rádio (som no rádio, 4 min, a orelha dela) é no
-FECHO, dentro da MESA-DE-QUATRO-01. Depois dele, e só se ele der som:
-[O-ALTO-FALANTE-VIRTUAL-01](sprints/2026-08-29-O-ALTO-FALANTE-VIRTUAL-01-o-som-do-controle-ganha-o-que-o-gamepad-ja-tem.md)
-(o nó que o sistema vê) e
-[SOM-QUE-SAI-01](sprints/2026-08-29-SOM-QUE-SAI-01-o-alto-falante-virtual.md)
-(o motor, do sink ao byte). Os outros 22 ensaios da
-[A BANCADA QUE O RÁDIO PEDE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md)
-são dela, na ordem daquele índice. O microfone pelo rádio **não está aqui**:
-é a MIC-VIRTUAL-02, nas 24 horas.
-
-### 2.5 Controles externos
-
-[EXTERNOS-01](sprints/2026-09-06-EXTERNOS-01-o-nintendo-pro-e-o-8bitdo-na-mesa-e-nos-cards.md)
-(escrita em 06/09 por ordem dela, e fora das 24 horas por ordem dela),
-[O-CONTROLE-SEM-MAC-01](sprints/2026-08-29-O-CONTROLE-SEM-MAC-01-o-usuario-que-a-mesa-desta-casa-nao-tem.md),
-e a família 8BitDo sem frontmatter (IDENT-01, IDENTIDADE-DUPLA-01,
-REGRA-NAO-REGISTRO-01, N-IGUAL-A-UM-01, UMA-FAIXA-NAO-E-UM-FABRICANTE-01) —
-esta última destrava com dois minutos dela: ligar o 8BitDo em cada modo e
-anotar o endereço.
-
-### 2.6 Daemon, teclado na tela, empacotamento
-
-* [DAEMON-ACORDADO-01](sprints/2026-08-23-DAEMON-ACORDADO-01-quinze-por-cento-de-um-nucleo-sem-ninguem-jogando.md)
-  — o Passo 4 da A-TELA-SAMBA-01 mede o custo de `profile.list` (33 perfis com
-  `FileLock` a cada ~3 s) e pode fechar parte disto;
-* [ESCONDE-SO-O-HIDRAW-01](sprints/2026-08-23-ESCONDE-SO-O-HIDRAW-01-o-jogo-continua-vendo-o-fisico-pelo-evdev.md);
-* [O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01](sprints/2026-08-30-O-TECLADO-QUE-NAO-DIZ-COMO-SAIR-01-o-L3-abre-e-a-tela-cala.md)
-  e [O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01](sprints/2026-08-30-O-TECLADO-QUE-SOBREVIVE-AO-DAEMON-01-quem-fecha-o-que-o-daemon-abriu.md)
-  — o L3 que abre um teclado na tela dela; não remedidas desde 30/08;
-* [A-TRAVA-DO-LED-NAO-SOLTA-01](sprints/2026-08-29-A-TRAVA-DO-LED-NAO-SOLTA-01-arma-em-dois-lugares-e-nao-solta-em-nenhum.md)
-  — a linha 8 da bancada confirma ou fecha;
-* [IDENTIDADE-01](sprints/2026-08-21-IDENTIDADE-01-o-projeto-ainda-se-chama-pelo-nome-dele.md)
-  — o id do aplicativo e a migração, juntos;
-* os oito de instalação sem frontmatter (CURA-QUE-FERE-01 primeiro, é o portão
-  do padrão), quando a GTK-3 tiver mexido no `install.sh`.
-
-### 2.7 O que só ela decide, e nenhuma sprint fecha
-
-| a pergunta | trava |
+| sprint | o que espera |
 | --- | --- |
-| `D-QUAL-REGUA-MANDA-NO-ARRANJO` — o juízo por entrada ou a receita | [MOTOR-DO-ARRANJO-01](sprints/2026-08-25-MOTOR-DO-ARRANJO-01-o-calculo-que-so-existe-num-mockup.md) |
-| o A/B do Vulkan | [ENGASGO-VULKAN-01](sprints/2026-08-23-ENGASGO-VULKAN-01-sessenta-quadros-por-segundo-e-setenta-engasgos-por-minuto.md) |
-| quando abrir a [SPECS-A-PROCEDENCIA-01](sprints/2026-08-26-SPECS-A-PROCEDENCIA-01-de-onde-se-sabe-cada-linha.md) — a condição é dela: *"a interface ficou igual nos mockups e tudo tá funcionando"* | a sprint inteira |
-| as 20 caixas do `DECISOES.md` (22/08) — a maioria caducou com o HTML; dois minutos com ela fecham o arquivo | nada de código |
-| a tradução — *"não são prioridades"* (05/09) | nada |
+| [MESA-DE-QUATRO-01](sprints/2026-09-06-MESA-DE-QUATRO-01-quatro-dualsense-por-cabo-e-por-radio-com-ela.md) | o roteiro das 21 linhas com os quatro na mão (`./validar.sh`); o §1 está pago |
+| [LUZ-NO-RADIO-01](sprints/2026-09-01-LUZ-NO-RADIO-01-a-prova-que-falta-e-de-aparelho.md) | a linha 21 da mesa — há dois no rádio agora |
+| [A-BANCADA-QUE-O-RADIO-PEDE-INDICE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md) | o ensaio 13 (o envelope do som por BT); as seis passadas de 08/09 ainda sem linha no caderno |
+
+**Feitas em 08/09**, com a prova no topo: JANELA-01 · FITA-01 · JOGAR-01 ·
+[LANCADORES-DELA-01](sprints/2026-09-08-LANCADORES-DELA-01-o-selo-o-botao-a-epic-e-o-que-o-hefesto-nao-conhece.md).
 
 ---
 
-## 3. O QUE CADUCOU OU FOI ABSORVIDO — por família, uma linha cada
+## 2. O QUE É DELA DECIDIR
+
+**Decididas em 08/09 à noite** (verbatim no `docs/data/decisoes-dela.csv`):
+a Epic fica **dentro do Heroic** (*"dentro heróic"*, <!-- noqa-acento: citação literal dela --> `D-0809-A-EPIC-FICA-DENTRO-DO-HEROIC`);
+a máscara por controle **entra no perfil** (*"pode entrar sim"*,
+`D-0809-A-MASCARA-POR-CONTROLE-ENTRA-NO-PERFIL`).
+
+**Sobram**, no formato das dezesseis de 04/09 — e nenhuma trava a §1:
+
+| a pergunta | onde está a medição |
+| --- | --- |
+| **modo por controle?** — hoje é uma fileira para a mesa toda (`mode.kind`, no perfil) e o vpad é por controle | CABO-BT-PERFIL-CONTROLE-01 §1 |
+| **navegação por controle?** — mouse, teclado e remapeamento são globais no perfil | idem |
+| o fone (saída 2) ganha campo próprio no perfil? · o brilho da barra (`nao-medido` nos dois transportes) · o volume do mic (campo sem ato) | idem, §2.4 |
+| a palavra do selo dos lançadores (LOCALIZADO?) · o nome dos nós de som e de mic na lista do sistema · o nó vive sempre ou só com o controle na mesa · no cabo, o padrão é o mix ou o SFX | LANCADORES-ZERO-01 · SOM-POR-CONTROLE-01 §4 · MIC-OS-QUATRO-01 |
+| a frase do Reconectar quando algo mudou (as palavras são dela) | JOGAR-02 |
+
+---
+
+## 3. DEPOIS — o que resta depois da §1, e onde está escrito
+
+### 3.1 O resto da paridade, por aba — o CSV é a fila
+
+FALTA no HTML em 08/09, 29 linhas: `10-perfis` 7 · `02-controles` 6 ·
+`04-iluminacao` 5 · `05-vibracao` 4 · `08-conexoes` 3 · `09-sistema` 2 ·
+`01-jogar` 1 · `03-gatilhos` 1. As 160 DIFERENTE são a régua dizendo *o HTML
+faz de outro jeito* — cada uma tem `porque`, e só vira trabalho a que ela
+sentir. **Fora por decisão dela:** o editor avançado de regra (10-Q2), a
+cerimônia «Mapear Entrada a Entrada» (08), o custo da máscara antes do clique
+(10-Q6, *a máscara não custa feature*).
+
+### 3.2 O que a bancada dos quatro REABRE
+
+A MESA-DE-QUATRO-01 tem 21 linhas com PASSA/REPROVA. As dezoito sprints
+antigas do co-op, da queda e do posto (COOP-QUE-NAO-DESMONTA-01,
+BORDA-DE-QUEDA-01, QUATRO-NA-MESA-01, RESERVA-DO-POSTO-01,
+DUAS-CONTABILIDADES-01, QUATRO-NO-RADIO-01…) estão **todas `feita` ou
+`absorvida`** em 08/09 — a fila velha as listava como pendentes e não estavam.
+**Cada REPROVA da bancada vira sprint NOVA com posse**, com a linha da bancada
+como enunciado; ninguém reabre uma antiga pelo id.
+
+### 3.3 A janela GTK — SAIU
+
+Decisão dela de 06/09 (`D-0609-GTK-LEVA-INTEIRA`), executada nas 24 horas: o
+`main.glade` não existe mais na árvore, e o `olhar.py` fotografa as dez abas
+da interface nova. **O motor fica** (`app/actions/`, `app/widgets/`,
+`daemon/`): é reuso. `gui/ponte_da_tela.py` é do piloto HTML e não sai. O que
+ainda aponta para a janela está em
+`docs/data/o-que-ainda-aponta-para-a-janela.csv`, e o portão
+`nada-aponta-para-a-janela` é quem vigia.
+
+### 3.4 Áudio pelo rádio
+
+O som por BT é a metade que falta da SOM-POR-CONTROLE-01: **seis passadas em
+08/09, silêncio nas seis**, e a hipótese que sobra é o ENVELOPE (HIDP/L2CAP) —
+ensaio 13 do índice do rádio. Os outros 22 ensaios de
+[A BANCADA QUE O RÁDIO PEDE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md)
+são dela, na ordem daquele índice. O microfone pelo rádio **já entrega voz**
+com a ponte de pé (07/09) — o que falta é a MIC-OS-QUATRO-01.
+
+### 3.5 Fora do foco, por palavra dela
+
+*"o foco do programa hoje é fazer os 4 dualsense funcionar"* (06/09): os
+controles externos ([EXTERNOS-01](sprints/2026-09-06-EXTERNOS-01-o-nintendo-pro-e-o-8bitdo-na-mesa-e-nos-cards.md) `feita`; a família 8BitDo,
+`absorvida`) só voltam quando ela chamar. A tradução: *"não são prioridades"*
+(05/09).
+
+---
+
+## 4. O QUE CADUCOU OU FOI ABSORVIDO — por família, uma linha cada
 
 A nota datada está no topo de cada arquivo; o `estado:` está no frontmatter.
 
@@ -185,30 +161,40 @@ A nota datada está no topo de cada arquivo; o `estado:` está no frontmatter.
 | --- | ---: | --- | --- |
 | 27/08 · **ONDA-\*** — o redesenho das dez abas na janela GTK | 90 + 10 índices | `absorvida` (a CONEXOES-11, `feita`) | o CSV, por aba |
 | 29/08 · **MIGRA-\*** — a migração aba a aba | 109 + 10 índices + a ordem | `absorvida`; os onze *enxerto na janela GTK* e a CONEXOES-12, `caducou` | o CSV, por aba; a ROTA DO HTML |
-| 29/08 · avulsas | 17 | 6 `feita` · 1 `absorvida` · 8 `aberta` (§2) · 2 documentos | — |
+| 29/08 · avulsas | 17 | 13 `feita` · 3 `absorvida` · 1 `caducou` | — |
 | 25/08 · LIGAR OS MÓDULOS À TELA | 1 índice | `absorvida` | — |
-| 24/08 · EMULACAO-UM-DONO-SO-01 | 1 | `caducou` | A-MASCARA-POR-CONTROLE-01 (`feita`) |
+| 24/08 · EMULACAO-UM-DONO-SO-01 | 1 | `caducou` | A-MASCARA-POR-CONTROLE-01 (`feita`) — e a MASCARA-NO-PERFIL-01 é a continuação |
 | 31/08 · o plano de uma hora | 1 | `absorvida` | a ROTA DO HTML |
 | 02/09 · **ROTA-\*** | 12 | `feita` (a G, `absorvida`) | ONDA5-10-\*, PERFIL-MODO-01 |
-| 03/09 | 2 | IDENTIDADE-VEM-DE-CIMA-01 `feita` · CANAL-POR-CONTROLE-01 `absorvida` | MIC-VIRTUAL-02 |
+| 03/09 | 2 | IDENTIDADE-VEM-DE-CIMA-01 `feita` · CANAL-POR-CONTROLE-01 `absorvida` | MIC-VIRTUAL-02 (`feita`) → MIC-OS-QUATRO-01 |
 | 04/09 · T-01…T-09 · ONDA0–ONDA2 · as folhas DECISOES-DELA | 9 + 16 + 11 | `feita` · respondidas | a ONDA CINCO |
-| 05/09 · ONDA QUATRO | 13 | 12 `feita` · S-10 `aberta` (ONDA A) | — |
-| antes de 27/08 · as 120 do antigo §4 e tudo sem frontmatter | 253 arquivos | história — não remedidas desde 27/08 | a §2.1 nomeia as que a bancada remede; o resto, se ainda faltar, é linha do CSV |
+| 05/09 · ONDA QUATRO | 13 | nenhuma `aberta` | — |
+| 06–07/09 · as 24 horas: os quatro lotes, 146 branches | 34 | `feita`, costuradas em 07/09 | O PLANO PARA O OPUS, §3 |
+| o «depois» da fila de 06/09: a bancada dos quatro, externos, daemon, teclado na tela, identidade, os oito de instalação | 30 | `feita` · `absorvida` · 1 `caducou` | `git show b618a8aa:docs/process/SPRINT_ORDER.md`, §2 |
+| antes de 27/08 · as 120 do antigo §4 e o resto da história | ~250 | com frontmatter desde 06/09: `feita` · `absorvida` · `caducou` — nenhuma `aberta` | se ainda faltar, é linha do CSV |
 
-A fila em ondas de 23/08 e a FAXINA de 27/08 já eram lápide; continuam no git.
+A fila em ondas de 23/08, a FAXINA de 27/08 e as 24 horas de 06/09 continuam
+no git.
 
 ---
 
-## 4. A REGRA DESTE ARQUIVO
+## 5. A REGRA DESTE ARQUIVO
 
 1. **Quem fecha uma sprint muda o `estado:` no frontmatter dela**, com a prova
    na nota do topo, no mesmo commit — e não toca este arquivo para isso.
 2. **Fila combinada com ela vira arquivo no mesmo dia, e é uma.** Fila nova
    aposenta a anterior com data e ponteiro para o git; não empilha banner.
-3. **Sprint se cita pelo id do frontmatter** (`ONDA5-03-02`), nunca por número
-   de onda solto: a fila já foi renumerada três vezes.
-4. **Sprint nova nasce com frontmatter completo, `estado: aberta` e o portão
-   de colisão verde.** O despachante recusa o resto — inclusive a que está
-   `feita`.
+3. **Sprint se cita pelo id do frontmatter** (`SOM-POR-CONTROLE-01`), nunca por
+   número de onda solto: a fila já foi renumerada quatro vezes.
+4. **Sprint nova nasce com frontmatter completo, `estado: aberta`, o bloco
+   «Critério de pronto — por cabo · por BT · no perfil · por controle» e o
+   portão de colisão verde.** O despachante recusa o resto — inclusive a que
+   está `feita`.
 5. **Decisão dela vira linha no `docs/data/decisoes-dela.csv` no mesmo dia**,
    com a palavra dela verbatim. Sem isso a próxima leitura repete a pergunta.
+6. **Este arquivo se mede antes de se escrever.** A fila de 06/09 listou como
+   «depois» trinta sprints que já estavam fechadas: quem reescreve lê o
+   `estado:` de cada id que cita (`grep -m1 '^estado:'`), nunca a memória.
+7. **Sem agentes nesta fila** — ordem dela de 08/09. Quem executa é quem
+   conversa com ela, com o navegador, `--oculta`, e mostra a lista atualizada a
+   cada ponto.

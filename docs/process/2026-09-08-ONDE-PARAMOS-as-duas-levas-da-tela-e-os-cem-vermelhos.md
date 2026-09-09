@@ -72,8 +72,9 @@ sozinho dá conflito nos sete arquivos. As três decisões dela:
 
 * **A palavra:** cartão não-localizado → `Localizar este Lançador`; botão global
   → `Adicionar novo Lançador`. Selo e botão passam a falar a mesma palavra.
-* **NÃO HÁ CARTÃO DA EPIC GAMES.** Decisão final dela, *"melhor deixar so heróic
-  e tirar epic games não?"*, posterior ao *"ao lado do Heroic"*.
+* **NÃO HÁ CARTÃO DA EPIC GAMES** — e a frase que sustentou isso, *"melhor deixar so heróic
+  e tirar epic games não?"*, era uma PERGUNTA dela, não decisão: ela cobrou à noite
+  (*"como assim caducou por decisão minha?"*). Fica em aberto na LANCADORES-DELA-01.
 * **O Heroic continua `(Epic · GOG)`** e vira a única porta para os dois.
 
 ### OS TRÊS RESÍDUOS DO CONFERENTE — fechados em `1bebb847`

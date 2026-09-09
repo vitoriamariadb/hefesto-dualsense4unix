@@ -17,6 +17,16 @@ nao_toca:
 ---
 
 > **ESTADO 06/09/2026: aberta, fora das 24 horas** — `docs/process/SPRINT_ORDER.md` §2.1 e §2.4 — o ensaio 1 (som no rádio) entra no FECHO das 24 horas, com ela; o resto depois.
+>
+> **ESTADO 08/09/2026:** o ensaio 1 ANDOU e não fechou. Em 07/09 a bomba montou os
+> dois arranjos do `0x39` sem escrever (`sfx-radio-a-bomba-monta-os-dois-arranjos-0907`,
+> `MONTOU`); em 08/09 **seis passadas escrevendo no rádio, silêncio nas seis**
+> (`docs/process/2026-09-08-A-SESSAO-INTEIRA-o-que-mudou-e-como-fazer-o-merge.md` §7)
+> — **sem linha no caderno**: o negativo tem de ser registrado, senão a próxima
+> pessoa repete as seis. A hipótese que sobra é de TRANSPORTE (o enquadramento
+> HIDP/L2CAP), o que muda o alvo do ensaio 13: o conteúdo já foi variado; o que
+> falta variar é o envelope. E o microfone pelo rádio, que este índice não lista,
+> foi MEDIDO em 07/09 e entrega voz (`mic-radio-a-voz-sai-0907`).
 
 # A BANCADA QUE O RÁDIO PEDE — o índice
 

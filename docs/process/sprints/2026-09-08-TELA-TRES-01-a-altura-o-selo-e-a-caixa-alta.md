@@ -6,12 +6,20 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba09.py
     - src/hefesto_dualsense4unix/interface/topo.html
     - src/hefesto_dualsense4unix/interface/monta.py
-    - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
 bancada: false
-depois_de: [FITA-01, JANELA-01, LANCADORES-DELA-01]
+depois_de: [LANCADORES-ZERO-01]
 ---
 
 # Três de tela, e a segunda é uma contradição
+
+> **ESTADO 08/09/2026, 22h:** as três dependências fecharam (FITA-01, JANELA-01 e
+> LANCADORES-DELA-01 estão `feita`). A **§2 foi ABSORVIDA** pela
+> [LANCADORES-ZERO-01](2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md)
+> — ela reportou a mesma aba como vazia pela segunda vez no dia, e isso é defeito
+> de resposta, não só de palavra. A §1 e a §3 seguem abertas, medidas: nenhuma
+> `RÁDIO`/`CABO` em caixa alta em `monta.py` nem em `topo.html`, e a altura dos
+> dois quadros da Sistema não foi medida ainda. O chip da fita da 07 é montado pelo
+> `desenho_dos_lancadores.py`, que agora é posse da ZERO — daí o `depois_de`.
 
 ## 1. O «Detalhes técnicos» é mais baixo que o bloco da esquerda
 
@@ -31,23 +39,10 @@ fechem na mesma linha de base.
 
 > *"parece que não identificou."*
 
-E ela tem razão em duvidar, porque **a tela se contradiz**. No print de 08/09,
-cinco cartões da aba Lançadores mostram ao mesmo tempo:
-
-```
-Heroic (Epic · GOG)   [NÃO SEI]
-Achei este lançador aqui (/home/…/com.heroicgameslauncher.hgl.desktop).
-```
-
-O selo responde *"sei ler a biblioteca dele?"* e o corpo responde *"ele está
-instalado aqui?"* — **duas perguntas diferentes com uma palavra só na tela**, que
-é exatamente o defeito que `SemCenso` documenta ter nascido para curar
-(*"os dois saberes são separados, e confundi-los foi o defeito que este arquivo
-nasceu para curar"*).
-
-O `NÃO SEI` está tecnicamente certo e **lê-se como falha**. O selo precisa de uma
-palavra que diga a verdade dos dois saberes juntos — e essa palavra é decisão
-dela, porque é texto de tela.
+**ABSORVIDA em 08/09/2026 pela
+[LANCADORES-ZERO-01](2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md)**,
+que leva a medição (`cartao_sem_censo`, `desenho_dos_lancadores.py:1454-1509`:
+um lançador ACHADO recebe o selo `nao_sei`) e a decisão da palavra — que é dela.
 
 ## 3. «cabo» e «rádio» em CAIXA ALTA na fita
 
@@ -69,6 +64,16 @@ quebrar — ela mede aparência, não texto.
 
 * os dois quadros da Sistema com alturas diferentes → reprova com os dois
   números em pixel, medidos no navegador;
-* um cartão com selo `NÃO SEI` e corpo `Achei este lançador aqui` → reprova,
-  porque a tela está dizendo as duas coisas;
+* o selo e o corpo dizendo coisas opostas → é a mordida da LANCADORES-ZERO-01,
+  e não se repete aqui;
 * um chip da fita com `cabo` minúsculo → reprova nomeando o chip.
+
+## Critério de pronto — por cabo · por BT · no perfil · por controle
+
+É a régua dela de 08/09 ([CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md)); a sprint só fecha com as quatro respondidas.
+
+| | |
+| --- | --- |
+| cabo / BT | é tela; o chip diz CABO ou RÁDIO em caixa alta, e diz o certo para cada um dos quatro |
+| no perfil | — |
+| por controle | o chip é por controle, e é o único dado por controle aqui |
