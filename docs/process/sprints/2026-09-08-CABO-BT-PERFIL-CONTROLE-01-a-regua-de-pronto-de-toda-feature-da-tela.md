@@ -1,11 +1,12 @@
 ---
 sprint: CABO-BT-PERFIL-CONTROLE-01
-estado: aberta
+estado: feita
 posse:
   CABO-BT-PERFIL-CONTROLE-01:
     - docs/process/sprints/2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md
 cria:
   - scripts/check_cabo_bt_perfil_controle.py
+  - tests/unit/test_portao_a_regua_das_quatro_respostas.py
 bancada: false
 depois_de: []
 nao_toca:
@@ -106,3 +107,69 @@ três tipos, e cada um tem uma cura diferente:
 * acrescentar um `data-gesto` novo numa página sem linha na tabela → reprova
   «feature sem as quatro respostas». **É a mordida que importa:** a próxima
   feature nasce com a régua em cima dela, e não com a tabela envelhecendo.
+
+## §4 — FECHADA em 09/09/2026, e o que a régua mediu quando nasceu
+
+O portão está de pé, nos dois lugares (`portoes.sh` → `quatro-respostas` e
+`quatro-respostas-morde`; `ci.yml`, os dois jobs), e é da **camada rápida**:
+lê dez HTML, um CSV e o fonte do `schema.py` em milissegundos.
+
+**O NÚMERO:** **76 gestos** lidos das dez páginas publicadas — **12 são feature
+de aparelho** e respondem as quatro perguntas; **64 não são** (tela, máquina,
+serviço ou perfil) e cada um tem a razão escrita, no molde do `_NAO_E_PROMESSA`
+do `casa-sabe`. Nenhum gesto ficou sem classificação, e nenhuma classificação
+ficou sem gesto.
+
+**A ÚNICA DÍVIDA VIVA é o `volume` da 02**, declarada em `A_DIVIDA_CONHECIDA`
+com a dona: [MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md).
+O trilho MEXE hoje — na fonte do PipeWire —, e o que não é escrito é o byte do
+aparelho (`audio.microfone.volume`, output `0x02` `common[6]`, `decisao-tomada`).
+A bancada dela decide, e a regra é a das três sprints de byte: *byte que o
+aparelho não obedece não ganha campo*.
+
+### As DUAS leituras erradas que a própria régua revelou, e as duas foram substituídas
+
+**1. `parcial` NÃO é `não`.** A primeira versão lia só `{sim, 1, true}` e
+reprovava **quatro features vivas na mesa dela**: o microfone, o mudo e as cinco
+lâmpadas de jogador pelo rádio. `parcial` é o terceiro valor de `*_aciona` (24
+linhas por rádio, 22 por cabo — `docs/data/LEIA-PRIMEIRO.md`) e quer dizer
+*aciona, com a dívida escrita na ressalva*. Passou a ser lido como **com
+ressalva**, e há teste que trava a leitura.
+
+**2. O `brilho` da tela não é `luz.lightbar.brilho`.** O trilho termina em
+`_escrever_a_cor` (`src/hefesto_dualsense4unix/interface/pacotes/a04_iluminacao.py:2909`):
+o que viaja no fio é **RGB já escalado**, logo a chave é `luz.lightbar.cor` —
+`sim` nos dois transportes desde 12/08. `luz.lightbar.brilho` é o byte de
+firmware de 3 níveis que a tela **não oferece**, e é o objeto da
+[BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md).
+A §1 já dizia isso em prosa desde 08/09; a régua é que digitava a chave errada.
+
+### Três coisas que o desenho do portão ganhou, e nenhuma estava no enunciado
+
+* **um gesto responde por VÁRIAS chaves, e pela PIOR delas.** O `volume` da 02
+  mexe no microfone OU no alto-falante conforme o `data-qual`, e o `auto-cores`
+  da 04 governa a paleta E a numeração. Responder pela melhor metade é a família
+  do número que envelhece calado — a mesma de contar o subconjunto e chamá-lo do
+  conjunto;
+* **só a linha do `dualsense` responde.** O mapa tem uma linha por
+  (chave, controle), e as do `pro` e do `sn30` dizem `não` em quase tudo. Varrer
+  todas responderia pelo aparelho errado nos dois sentidos: um `sim` do 8BitDo
+  daria por pronta feature que o DualSense não tem, e um `não` do Pro reprovaria
+  feature viva. A tela é dos quatro DualSense (decisão dela de 06/09);
+* **a dívida declarada morde nos DOIS sentidos.** Dívida nova reprova; dívida
+  que FECHOU reprova também, pedindo que a linha saia. É a régua `divida-fechada`
+  do `check_paridade_gtk_html.py`: sem ela a lista vira propaganda no dia
+  seguinte à primeira cura.
+
+### As CINCO mordidas, todas provadas arrancando
+
+| # | o que se arranca | o que a régua diz |
+| --- | --- | --- |
+| 1 | um `data-gesto` novo numa página | *feature sem as quatro respostas* — a mordida da §3 |
+| 2 | a linha de `A_DIVIDA_CONHECIDA` de uma dívida já curada | *a declaração ficou velha* |
+| 3 | uma classificação de gesto que saiu da tela | *a razão ficou sem dono* |
+| 4 | `speaker` de `ControllerOverrides` (§3) | *rota: não é por controle* |
+| 5 | `radio_aciona` de `luz.lightbar.cor@dualsense` (§3) | *cor · brilho · apagar · reenviar: rádio: `nao`* — os QUATRO, não um <!-- noqa-acento: `nao` é o valor cru que a régua imprime, não prosa -->|
+
+A leitura do `parcial` também foi arrancada: três testes caem, inclusive o do
+estado de hoje.
