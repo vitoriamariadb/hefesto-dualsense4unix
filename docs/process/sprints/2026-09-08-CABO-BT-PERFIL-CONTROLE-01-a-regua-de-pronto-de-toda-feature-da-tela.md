@@ -48,14 +48,14 @@ Legenda: ✓ medido no aparelho · ○ só inferido do código (`MONTOU`) · ✗
 | 01 | Reconectar Controles · cadeado do perfil | ✓ | ✓ | — | — | JOGAR-02 (a frase) |
 | 02 | Microfone: ligar e ser ouvido no canal dele (`mic-modo`) | ✓ um eleito | ✓ com a ponte de pé (07/09) | ✓ `mic` + `ControllerMicOverride` | ✓ campo · **✗ ato** (um eleito por vez) | **quatro microfones VIRTUAIS, um por controle, com nome estável** — MIC-OS-QUATRO-01 (medido 08/09 23h: 2 fontes USB, 0 BT, 0 virtual) |
 | 02 | Mudo do microfone (`mudo`) | ✓ | ○ `parcial` | ✓ | ✓ | medir o mudo por BT no aparelho (linha 20 da mesa) |
-| 02 | Volume do microfone | ✗ `decisao-tomada` | ✗ | ✓ `ControllerMicOverride.volume` | ✓ | **contradição**: campo no perfil sem ato no aparelho — sai do perfil ou ganha ato |
+| 02 | Volume do microfone | ✓ na FONTE do sistema (`mic.volume.set`, MIC-VOLUME-01) · ✗ o byte do aparelho, `decisao-tomada` (06/09) | ✓ idem · ✗ idem | ✓ `ControllerMicOverride.volume` | ✓ | **fato corrigido 09/09:** o campo TEM ato (o ganho da fonte); o que não tem é o byte `common[6]`. **DECIDIDO por ela, 09/09 (*"3-c"*): liga o byte, depois da bancada** — [MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md) |
 | 02 | Alto-falante — **saída 1**: rota e volume (`rota`, `volume`) | ✓ rota obedeceu (16/08) · ○ volume | **✗** `divida` — seis passadas em silêncio (08/09) | ✓ `speaker` + `ControllerOverrides.speaker` | ✓ | o som por BT — ensaio 13 do índice do rádio; o **nó de som por controle** VIVO na lista (medido 08/09 23h: nenhum «Alto-falante do Controle N» na mesa dela, apesar de duas sprints `feita`); e a **fonte por controle — o mix completo (HDMI) ou só o canal de SFX** — [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) |
-| 02 | Fone — **saída 2** (`audio.jack.volume`, `audio.jack.deteccao`) | ○ `MONTOU` | ○ `MONTOU` | **✗** não há campo: o byte do fone sai com o MESMO valor do alto-falante em todo `set_speaker_volume` (mapa, `audio.jack.volume`) | **✗** | nunca foi ouvido, e o kernel não define o bit de autorização do fone (bit4) — decisão dela, com opções na §2 do SPRINT_ORDER: campo próprio ou um volume só com a rota dizendo para onde vai |
+| 02 | Fone — **saída 2** (`audio.jack.volume`, `audio.jack.deteccao`) | ○ `MONTOU` | ○ `MONTOU` | **✗** não há campo: o byte do fone sai com o MESMO valor do alto-falante em todo `set_speaker_volume` (mapa, `audio.jack.volume`) | **✗** | o fone TOCA no cabo (caderno `sfx-o-fone-manda-por-cima`, 15/08); o VOLUME dele nunca foi variado sozinho, e o kernel não define o bit que o autoriza. **DECIDIDO por ela, 09/09 (*"1-b"*): campo próprio, depois da bancada** — [FONE-01](2026-09-09-FONE-01-a-segunda-saida-ganha-volume-proprio-no-perfil-por-controle.md) |
 | 02 | Giroscópio / acelerômetro — interruptor (`sensor`) | ✓ | ✓ | ✓ `ControllerSensoresOverride` | ✓ | a ENTREGA ao jogo — SENSORES-NO-JOGO-01 |
 | 02 | Touchpad | ✓ até o vpad | ✓ até o vpad · **✗ no jogo** (16/08, sem causa) | — | — | o mesmo degrau dos sensores |
 | 03 | Efeito do L2 e do R2 (`modo`, `pronto`) | ✓ obedeceu (11/08) | ✓ obedeceu | ✓ `triggers` + `ControllerOverrides.triggers` | ✓ | «Todos» e herdar (linha 14 da mesa) |
 | 04 | Cor da barra (`cor`) | ✓ (12/08) | ✓ (12/08) | ✓ `leds` + `ControllerOverrides.leds` | ✓ | a troca de cor — COR-TROCA-01 |
-| 04 | Brilho da barra (`brilho`) | ○ é a cor escalada em Python (o caminho é o da cor, ✓ 12/08; o escuro em si ninguém olhou) | ○ idem | ✓ `lightbar_brightness` | ✓ | **fato corrigido 08/09:** o `nao-medido` do mapa é o brilho de HARDWARE (`luz.lightbar.brilho`, `common[42]`, 3 níveis), outra grandeza — nem o kernel a escreve, e o produto não a oferece. Decisão dela: fica a cor escalada, ou medir a de hardware na bancada |
+| 04 | Brilho da barra (`brilho`) | ○ é a cor escalada em Python (o caminho é o da cor, ✓ 12/08; o escuro em si ninguém olhou) | ○ idem | ✓ `lightbar_brightness` | ✓ | **fato corrigido 08/09:** o `nao-medido` do mapa é o brilho de HARDWARE (`luz.lightbar.brilho`, `common[42]`, 3 níveis), outra grandeza — nem o kernel a escreve, e o produto não a oferece. **DECIDIDO por ela, 09/09 (*"2b"*): medir a de hardware na bancada** — [BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md) |
 | 04 | Luzes de jogador · cores automáticas (`player`, `auto-cores`) | ✓ (11/08) | ✓ | ✓ `player_leds`, `auto_player_colors` | ✓ | `release_leds` só BT `parcial` |
 | 05 | Força/degrau · barra por motor · testar (`forca`, `intensidade`, `motor`) | ✓ obedeceu (15/08) | ✓ obedeceu | ✓ `rumble` + `ControllerRumbleOverride` | ✓ | a premissa física por motor — VIBRA-MULT-01; haptics VCM `divida` nos dois |
 | 06 | Controlar o PC: mouse, teclado, remapeamento, atalhos | ✓ | ✓ | ✓ `mouse`, `key_bindings`, `button_actions`, `teclado_emulado` | — **DECIDIDO por ela, 08/09 à noite: global no perfil** (`D-0809-A-NAVEGACAO-E-GLOBAL-NO-PERFIL`) | — |
@@ -72,7 +72,7 @@ três tipos, e cada um tem uma cura diferente:
 | tipo | quais | cura |
 | --- | --- | --- |
 | **transporte** | alto-falante por BT · mic (os quatro) · touchpad no jogo por BT | bancada + ensaio; são as sprints MIC-OS-QUATRO-01, o índice do rádio e SENSORES-NO-JOGO-01 |
-| **campo que não existe ou mora fora** | fone (sem campo) · máscara por controle (fora do perfil — **decidido: entra**) · volume do mic (campo sem ato) | decisão dela + `schema.py` |
+| **campo que não existe ou mora fora** | fone (sem campo — **decidido 09/09: ganha**, FONE-01) · máscara por controle (fora do perfil — **decidido: entra**) · volume do mic (o byte do aparelho quieto — **decidido 09/09: liga**, MIC-VOLUME-02) | as três sprints, com a bancada antes do campo |
 | **decisão de produto** | modo por controle · navegação por controle | **decididas em 08/09 à noite: nenhuma das duas** — um modo para todos, navegação global (*"concordo com as 5"*) |
 
 ## §2 — O que esta sprint entrega
@@ -88,13 +88,14 @@ três tipos, e cada um tem uma cura diferente:
    Uma sprint que fecha uma feature sem as quatro colunas não fecha.
 3. **As decisões dela.** Uma já está tomada (08/09 à noite): **a máscara por
    controle entra no perfil** — [MASCARA-NO-PERFIL-01](2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md). As outras duas também (08/09 à noite, *"concordo com as 5"*): o modo é
-   um para todos os controles; a navegação é global no perfil. Sobram as
-   três menores do item 4 — fone, brilho de hardware, volume do mic — com
-   opções escritas na §2 do SPRINT_ORDER.
-4. **As sprints que nascem da tabela**: [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) (nasceu hoje, do recado dela: o mix completo ou o canal de SFX, por controle, cabo e BT — e o fone como segunda saída, pela rota); e, se ela confirmar: **FONE-01** (a
-   saída 2 ganha campo próprio no perfil e ouvido dela nos dois transportes);
-   **BRILHO-01** (o brilho da barra medido nos dois transportes);
-   **MIC-VOLUME-01** (o campo sem ato: sai ou ganha ato).
+   um para todos os controles; a navegação é global no perfil. As três
+   menores também, em 09/09 de madrugada (*"1-b;2b;3-c;4a"*): o fone ganha
+   campo, o brilho de hardware se mede, o byte do mic liga — item 4.
+4. **As sprints que nascem da tabela**: [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) (nasceu em 08/09, do recado dela: o mix completo ou o canal de SFX, por controle, cabo e BT); e as três que ela decidiu em 09/09: [FONE-01](2026-09-09-FONE-01-a-segunda-saida-ganha-volume-proprio-no-perfil-por-controle.md)
+   (a saída 2 ganha campo próprio, depois de a orelha dela ouvir o byte);
+   [BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md)
+   (o byte de 3 níveis, medido com e sem o bit); [MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md)
+   (o byte do aparelho, medido e ligado ao campo que já age na fonte).
 
 ## §3 — O que MORDE
 

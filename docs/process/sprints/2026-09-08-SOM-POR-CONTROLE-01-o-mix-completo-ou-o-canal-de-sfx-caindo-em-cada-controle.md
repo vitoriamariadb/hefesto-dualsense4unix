@@ -69,7 +69,7 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
 
 1. **O nó por controle, VIVO na mesa dela**, nos dois transportes: quatro
    entradas na lista de saída do sistema — *«Alto-falante do Controle 1..4»*
-   (nome é palavra dela) —, que não somem quando o controle troca de cabo para
+   (**palavra dela, 09/09:** *"4a"*, `D-0909-OS-NOS-SE-CHAMAM-ALTO-FALANTE-E-MICROFONE-DO-CONTROLE-N`) —, que não somem quando o controle troca de cabo para
    rádio. É o contrato da O-ALTO-FALANTE-VIRTUAL-01; o que muda é que ele passa
    a ser **medido na lista viva** (`pactl list short sinks`), não numa régua.
 2. **A fonte, por controle, no perfil:** `ControllerOverrides.speaker` ganha
@@ -98,8 +98,9 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
 2. **No cabo, o padrão é `sfx`** (`D-0809-NO-CABO-O-PADRAO-DO-SOM-E-SFX`):
    `ControllerOverrides.speaker.fonte` nasce `sfx`; `mix` é escolha no perfil,
    por controle. A casa continua não fazendo do controle a saída padrão.
-3. **O nome na lista** ainda é dela, com opções na §2 do SPRINT_ORDER —
-   *«Alto-falante do Controle 1»* é a proposta.
+3. **O nome na lista — decidido em 09/09** (*"4a"*): *«Alto-falante do
+   Controle 1»* e *«Microfone do Controle 1»*; o par vai para a LÍNGUA DESTA
+   CASA antes de nascer no sistema.
 
 ## §5 — Critério de pronto — por cabo · por BT · no perfil · por controle
 

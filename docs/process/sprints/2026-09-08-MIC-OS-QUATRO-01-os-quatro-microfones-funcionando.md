@@ -19,7 +19,7 @@ depois_de: []
 > controles do cabo (`alsa_input.usb-…DualSense…-00` e `-00.2`), a primeira como
 > entrada padrão; **zero** fonte para os dois do rádio (a ponte está desligada); e
 > **zero** nó virtual com nome de controle. O que ela pede é o mesmo contrato do
-> alto-falante: **«Microfone do Controle 1..4» na lista de entrada do sistema**,
+> alto-falante: **«Microfone do Controle 1..4» na lista de entrada do sistema** (nome decidido por ela em 09/09, *"4a"*),
 > um por controle, que não some quando o controle troca de cabo para rádio — por
 > cima da fonte USB no cabo, por cima da ponte no BT.
 

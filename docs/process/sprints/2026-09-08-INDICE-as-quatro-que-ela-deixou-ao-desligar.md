@@ -23,7 +23,9 @@ estado: aberta
 | 1 | **[LANCADORES-ZERO-01](2026-09-08-LANCADORES-ZERO-01-a-aba-que-nao-identifica-nada-na-tela-dela.md)** | o print dela decidiu: o produto ACHA os seis e diz «NÃO SEI» porque não lê a biblioteca de nenhum além da Steam. A sprint virou o CENSO por lançador — onde cada biblioteca mora (Heroic: 35 jogos da Epic na máquina dela), como o ambiente entra no sandbox (`devices=all` nos cinco; o wrapper de hoje só fala `SteamAppId`), e o selo que responde uma pergunta só |
 | 2 | **[JOGAR-02](2026-09-08-JOGAR-02-o-reconectar-responde-sem-a-lingua-de-dentro.md)** | a frase «Jogadores reconciliados…» cobre a identidade do P1 por seis segundos. Pedido dela com print; a cura é pequena e o mecanismo (piscada sem palavra) já existe |
 | 3 | **[MIC-OS-QUATRO-01](2026-09-08-MIC-OS-QUATRO-01-os-quatro-microfones-funcionando.md)** | é o que ela pediu com todas as letras — **quatro microfones VIRTUAIS, um por controle, cabo e BT**. **Corrigida hoje:** o rádio ENTREGA voz com a ponte de pé (medido 07/09); às 23h a mesa dela tem 2 fontes USB, 0 BT, 0 virtual — o trabalho é o nó por controle com nome estável, a ponte subir por controle e a eleição valer para quatro |
+| 3a | **[MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md)** · bancada | decisão dela de 09/09 (*"3-c"*): o byte do mic no aparelho, medido no pico da captura antes de ligar ao campo — o campo já age na fonte do sistema (MIC-VOLUME-01) |
 | 3b | **[SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md)** | o recado dela: *"os sons seja hdmi completo seja o canal do sfx caindo pra cada controle"* <!-- noqa-acento: citação literal dela -->. Medido às 23h: os nós por controle de duas sprints `feita` **não existem na mesa dela**; a fonte (mix/SFX) não tem campo; o BT espera o ensaio 13 |
+| 3b' | **[FONE-01](2026-09-09-FONE-01-a-segunda-saida-ganha-volume-proprio-no-perfil-por-controle.md)** · bancada | decisão dela de 09/09 (*"1-b"*): a segunda saída ganha volume próprio, por controle — depois de a orelha dela ouvir `common[4]` variar sozinho |
 | 3c | **[MASCARA-NO-PERFIL-01](2026-09-08-MASCARA-NO-PERFIL-01-a-mascara-por-controle-entra-no-perfil.md)** | decisão dela à noite: *"pode entrar sim"* — a máscara de cada controle passa a viver em `ControllerOverrides`, e trocar de perfil passa a trocar as quatro |
 | 4 | **[VIBRA-MULT-01](2026-09-08-VIBRA-MULT-01-o-motor-multiplica-a-forca-por-controle.md)** | **corrigida hoje:** a conta existe e está no caminho do rumble do jogo (`_mults_por_motor`); o que nunca foi medido é a premissa física (o ensaio existe, o caderno não tem a linha) e o número da tela |
 | 5 | **[COR-TROCA-01](2026-09-08-COR-TROCA-01-a-cor-repetida-troca-de-lugar-em-vez-de-recusar.md)** | decisão de produto dela. **Corrigida hoje:** o modelo é o gesto `player` da aba 04, não `identity.py`; e a troca tem de escrever na camada em que a cor mora (o override por MAC vence a automática — foi assim que P1 e P2 colidiram) |
@@ -40,7 +42,9 @@ estado: aberta
 [LUZ-NO-RADIO-01](2026-09-01-LUZ-NO-RADIO-01-a-prova-que-falta-e-de-aparelho.md)
 (a premissa «um controle, no cabo» caducou — há dois no rádio) e
 [A-BANCADA-QUE-O-RADIO-PEDE-INDICE](2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md)
-(o ensaio 1 andou: seis passadas em silêncio, ainda sem linha no caderno).
+(o ensaio 1 andou: seis passadas em silêncio, ainda sem linha no caderno), e
+[BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md)
+(decisão dela de 09/09, *"2b"*: uma linha da mesa para o byte de 3 níveis que nem o kernel escreve).
 
 **FEITAS em 08/09/2026**, com a prova na nota do topo de cada uma:
 [JANELA-01](2026-09-08-JANELA-01-o-fundo-preto-e-o-titulo-que-fala-a-lingua-de-dentro.md) ·
