@@ -5,11 +5,21 @@ posse:
   ROLAGEM-01:
     - src/hefesto_dualsense4unix/interface/aba03.py
     - src/hefesto_dualsense4unix/interface/aba07.py
+    - src/hefesto_dualsense4unix/interface/aba09.py
     - src/hefesto_dualsense4unix/interface/topo.html
     - src/hefesto_dualsense4unix/gui/ponte_da_tela.py
 bancada: false
 depois_de: [TELA-TRES-01, LANCADORES-ZERO-01]
 ---
+
+> **ESTADO 09/09/2026: a metade da Gatilhos ESTÁ FEITA** (`8404faf8`) — o
+> acordeão dos ajustes, a opção (A) da §6, medido no WebKit vivo: `DIV.miolo
+> 863>564` sumiu da 03. **Sobram DUAS**, e são a segunda volta desta sprint:
+> `07-lancadores` (627>564) e `09-sistema` (866>564) — as duas com o `.miolo`
+> estourando, as duas sem blocos L2/R2 a dobrar. A `aba09.py` entrou na posse
+> por isso: o `.miolo` da 09 é dela, e de sprint aberta nenhuma. A régua ficou
+> mais fina no mesmo commit — `auto`/`scroll` é BARRA e reprova, `hidden` é
+> CORTE e só informa, e `POR_DESENHO` declara a lista da 10. Ver §7.
 
 # ROLAGEM-01 — a barra vertical que nasceu na Gatilhos e na Lançadores, e os blocos que dobram
 
@@ -221,3 +231,76 @@ elas não têm blocos L2/R2. Ficam para uma segunda volta, com a mesma régua.
 
 **A régua:** `scripts/ensaios/a_janela_cabe_no_que_ela_ve.py`, no piloto oculto
 com o dado vivo. `--dentro` lista os filhos da coluna com a altura de cada um.
+
+## §7 — A metade FEITA, 09/09/2026, e o que a segunda volta herda
+
+**A Gatilhos curou.** O acordeão dos ajustes é a opção (A) da §6 — os dois
+blocos nascem fechados, só um abre por vez —, e as três condições da §3 caíram
+de graça no desenho escolhido:
+
+* *a linha fechada DIZ o estado*: **Modo** e **Efeito pronto** ficam à vista,
+  vivos e editáveis. O que se dobra é o ajuste fino (posição, força), que é o
+  que ninguém precisa ler para saber o que o gatilho está fazendo;
+* *dobra por LINHA, não por coluna*: a trilha é da GRADE e as quatro colunas a
+  partilham por `subgrid` — dobrar uma coluna só é **impossível por
+  construção**, não por disciplina;
+* *«Guardar / Em todos» fica fora*: é a trilha 9, e nenhuma das duas dobras a
+  toca.
+
+O gesto é **rádio** (`name="dobra"`, `#dobra-nenhum` marcado), a gramática da
+`02-controles` que ela já aprovou. O que essa gramática não tem é o FECHAR: com
+um `<label>` só, o único jeito de fechar um bloco é abrir o outro. A cura são
+**dois labels sobrepostos** no glifo da seção — `abre` aponta para o rádio da
+seção, `fecha` aponta para `#dobra-nenhum` — e o CSS troca qual dos dois é
+visível. Medido no Chrome sobre o mockup: coluna 315 fechada, 407 com o L2
+aberto, 361 com o R2, e abrir um FECHA o outro sozinho.
+
+### A régua ficou mais fina, e ela estava reprovando o desenho aprovado
+
+A primeira versão tratava `overflow:hidden` como `auto`. Resultado: **vermelho
+em quatro abas por causa de caixa fechada DE PROPÓSITO** — o corpo do acordeão
+da `02-controles` (`DIV.corpo-cx 267>0`), o que esta sprint acabou de criar na
+`03` (`DIV.rot-l2-3 16>0`) e o `DIV.desfecho 15>0` da `10-perfis`.
+
+*Régua que reprova sempre não ensina nada, e a que reprova o desenho aprovado
+ensina errado.* A separação, agora:
+
+| valor de `overflow-y` | o que é | o relato |
+| --- | --- | --- |
+| `auto` · `scroll` | **BARRA** — o navegador desenha | reprova |
+| `hidden` | **CORTE** — esconde calado | informa, sem vermelho |
+| declarado em `POR_DESENHO` | rola porque alguém quis | sai na tabela, fora do vermelho |
+
+`POR_DESENHO` tem uma linha hoje: `10-perfis.html → DIV.rolo`, *"a lista de
+perfis rola por desenho — quantos perfis ela tem é dela, e a caixa não pode
+crescer com eles"*, que é o que a §1 já dizia em 08/09. Caixa nova que role sem
+estar lá reprova.
+
+### O estado da régua depois da cura, com os quatro na mesa
+
+```
+CORTE (não é barra, `overflow:hidden` esconde calado): 3
+  02-controles.html: DIV.corpo-cx 267>0
+  03-gatilhos.html: DIV.rot-l2-3 no-topo 16>0
+  04-iluminacao.html: DIV.moldura 153>144
+REPROVA: 2 aba(s) com barra de rolagem:
+  07-lancadores.html: DIV.miolo 627>564
+  09-sistema.html: DIV.miolo 866>564
+```
+
+**A `DIV.moldura 153>144` da `04` fica no relato de propósito**: ela esconde 9px
+de desenho do controle, e isso pode ser dívida. Não é barra, então não reprova —
+mas quem for medir a Iluminação encontra o número em vez de o descobrir de novo.
+
+### O que a segunda volta herda
+
+As duas que sobram **não têm blocos L2/R2 a dobrar**, então a proposta dela não
+se aplica: a cura de cada uma sai da medição própria. O instrumento é o mesmo
+(`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py`, com `--dentro
+--alvo=<seletor>` para a lista de filhos com altura), e o teto é o mesmo: **564
+px de `.miolo`**.
+
+| aba | sobra | onde olhar |
+| --- | --- | --- |
+| `07-lancadores` | 63px | `interface/aba07.py`; os cartões dos seis lançadores e o bloco `ajustes` |
+| `09-sistema` | 302px | `interface/aba09.py`; era 866 e a TELA-TRES-01 acrescentou 16 (caixa «Detalhes técnicos», 110 → 136, a pedido dela) — o estouro já existia |
