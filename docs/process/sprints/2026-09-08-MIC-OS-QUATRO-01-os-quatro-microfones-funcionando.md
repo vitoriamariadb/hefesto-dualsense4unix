@@ -73,7 +73,7 @@ por controle de CABO. Nenhuma para os dois do rádio.
 
 ## O que MORDE
 
-* `pactl list short sources` tem **quatro** nós do Hefesto com nome de controle, com os quatro na mesa — dois no cabo, dois no rádio; tirar o cabo de um e o nó dele continua na lista;
+* `scripts/ensaios/os_nos_de_som_por_controle.py` (09/09) conta um «Microfone do Controle N» por controle físico e nomeia a falta; `pactl list short sources` tem **quatro** nós do Hefesto com nome de controle, com os quatro na mesa — dois no cabo, dois no rádio; tirar o cabo de um e o nó dele continua na lista;
 * os QUATRO com `canal_ativo=True` e quatro `canal_fonte` distintas;
 * a voz dela sai no canal de CADA um, um de cada vez — e este teste é dela, com
   a orelha, como o do alto-falante;

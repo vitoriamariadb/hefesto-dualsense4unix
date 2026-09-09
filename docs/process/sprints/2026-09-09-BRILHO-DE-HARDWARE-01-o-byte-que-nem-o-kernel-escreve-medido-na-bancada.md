@@ -32,8 +32,10 @@ O mapa está certo e a régua cabo · BT · perfil · controle estava errada at�
 
 ## §2 — A bancada (uma linha da mesa)
 
-`scripts/ensaios/o_brilho_de_hardware_da_barra.py`, com o daemon dela de pé e
-**só leitura de tudo o que não seja o report do ensaio**:
+`scripts/ensaios/o_brilho_de_hardware_da_barra.py` — **pronto em 09/09** —, com
+o daemon dela de pé e **só leitura de tudo o que não seja o report do ensaio**
+(`--listar`; `--alvo <MAC>` faz a escada 0·2·1·0 com o bit; `--sem-bit` a
+mesma sem ele; martela a 10 Hz no cabo porque o daemon reescreve `42 = 0`):
 
 1. cor fixa (branco, 100 %) no P2 (cabo);
 2. escrever `common[42] = 0`, `1`, `2` **com** `flag2` bit0 ligado, dez

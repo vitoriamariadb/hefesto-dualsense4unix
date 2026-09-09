@@ -68,7 +68,7 @@ primeiras somam **29 minutos** e movem sete células.
 | 10 | Qual tipo o SN30 declara (byte 17) | Pro + SN30 | 15 min | decide se a OUI continua sendo o único discriminador |
 | 11 | Haptics E-B — o `0x12` faz alguma coisa | DualSense | 30 min | só se o 2 der verde; a mão dela é o instrumento |
 | 12 | Sniff ou cadência | Pro + SN30 | 40 min | decide se o no-sniff do adaptador ainda se justifica |
-| 13 | O degrau que fala — áudio por rádio de verdade | DualSense | 40 min | a outra metade do ensaio 1 |
+| 13 | O degrau que fala — áudio por rádio de verdade — **instrumento (09/09): `scripts/ensaios/o_envelope_do_som_no_radio.py`**, o mesmo Opus em DOIS envelopes HID (DATA vs SET_REPORT), passo 0 de luz e `--crc-errado` | DualSense | 40 min | a outra metade do ensaio 1 |
 | — | **↓ daqui para baixo tudo começa por um PAREAMENTO NOVO ↓** | | | |
 | **14** | **Ensaio A — o pareamento, e as duas linhas que decidem** | SN30 | **20 min** | abre os nove seguintes; 2 células |
 | 15 | A contradição do MAC por modo | SN30 | +5 min sobre o 14 | duas páginas da casa que não podem estar as duas certas |

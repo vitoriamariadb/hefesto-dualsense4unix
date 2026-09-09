@@ -8,6 +8,9 @@ posse:
     - src/hefesto_dualsense4unix/daemon/subsystems/alto_falante.py
     - src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py
     - src/hefesto_dualsense4unix/profiles/schema.py
+cria:
+  - scripts/ensaios/os_nos_de_som_por_controle.py
+  - scripts/ensaios/o_envelope_do_som_no_radio.py
 bancada: true
 depois_de: []
 nao_toca:
@@ -62,7 +65,7 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
 | | cabo | BT |
 | --- | --- | --- |
 | a placa | existe, uma por controle (medido: duas na mesa dela); **e ela é do fio** — sai do cabo, some a placa (15/08) | não existe |
-| o caminho | o nó do controle → canais 1-2 do sink USB daquele controle, resolvido pela identidade (item 2 da O-ALTO-FALANTE-VIRTUAL-01) | o nó do controle → o sink de `alto_falante_bt.py` → escada `0x32`-`0x39`. **Seis passadas em 08/09, silêncio nas seis**; a hipótese que sobra é o ENVELOPE (HIDP/L2CAP) — ensaio 13 do [índice do rádio](2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md) |
+| o caminho | o nó do controle → canais 1-2 do sink USB daquele controle, resolvido pela identidade (item 2 da O-ALTO-FALANTE-VIRTUAL-01) | o nó do controle → o sink de `alto_falante_bt.py` → escada `0x32`-`0x39`. **Seis passadas em 08/09, silêncio nas seis**; a hipótese que sobra é o ENVELOPE (HIDP/L2CAP) — ensaio 13 do [índice do rádio](2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md); **instrumento (09/09):** `scripts/ensaios/o_envelope_do_som_no_radio.py`, o mesmo Opus pelos arranjos do produto em DOIS envelopes (DATA por `write`, SET_REPORT por `HIDIOCSOUTPUT`), com o passo 0 de luz que prova que o envelope chega |
 | o som sai? | ✓ orelha dela, 15-16/08 (`sfx-cabo-*`, `sfx-canal*` no caderno) | ✗ até o ensaio 13 dar som |
 
 ## §3 — O que esta sprint entrega
@@ -72,6 +75,9 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
    (**palavra dela, 09/09:** *"4a"*, `D-0909-OS-NOS-SE-CHAMAM-ALTO-FALANTE-E-MICROFONE-DO-CONTROLE-N`) —, que não somem quando o controle troca de cabo para
    rádio. É o contrato da O-ALTO-FALANTE-VIRTUAL-01; o que muda é que ele passa
    a ser **medido na lista viva** (`pactl list short sinks`), não numa régua.
+   **Instrumento (09/09):** `scripts/ensaios/os_nos_de_som_por_controle.py` —
+   leitura pura, um nó de saída e um de entrada por controle físico, a fonte
+   (mix/sfx) pelo loopback, e `--observar 60` para a mordida de tirar o cabo.
 2. **A fonte, por controle, no perfil:** `ControllerOverrides.speaker` ganha
    `fonte: "mix" | "sfx"`. `mix` liga o loopback do monitor da saída padrão ao
    nó; `sfx` deixa o nó livre para a corrente do jogo. A rota do plástico segue
@@ -113,7 +119,8 @@ recebe o mix ou o SFX — e, sem nó estável, não há para onde apontar.
 
 ## §6 — O que MORDE
 
-* com dois controles no cabo, `pactl list short sinks` tem **dois** nós do
+* `os_nos_de_som_por_controle.py` sai `rc=0` com os quatro na mesa e nomeia a
+  falta (`rc=1`) sem eles; com dois controles no cabo, `pactl list short sinks` tem **dois** nós do
   Hefesto com nome estável; tirar o cabo de um e o nó dele **continua na
   lista** (e diz que não tem para onde ir); pôr de volta e o som volta — sem
   o jogo reescolher nada;

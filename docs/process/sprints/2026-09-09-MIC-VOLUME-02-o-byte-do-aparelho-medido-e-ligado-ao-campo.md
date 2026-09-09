@@ -41,7 +41,10 @@ kernel dizem que existe e tem nome. Ela decidiu ligar o byte — logo, medir.
 
 ## §2 — A bancada primeiro
 
-`scripts/ensaios/o_byte_do_microfone_muda_a_captura.py`: com o P2 no cabo e a
+`scripts/ensaios/o_byte_do_microfone_muda_a_captura.py` — **pronto em 09/09**
+(`--listar` mostra a placa de cada controle; `--alvo <MAC>` grava os três
+níveis; `--sem-bit` é o negativo; a razão 1,5 entre picos é a régua declarada,
+e entre 1,2 e 1,5 ele diz «não sei»): com o P2 no cabo e a
 fonte do controle a 100 % no sistema (para isolar o ganho do aparelho), gravar
 três segundos de voz com `common[6]` em `0x00`, `0x20` e `0x40`, flag0 `0x40`
 ligado, e comparar o **pico** das três capturas (`parecord` + o RMS). Depois o

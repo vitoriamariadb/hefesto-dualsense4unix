@@ -38,7 +38,10 @@ divergir — quem pluga um headset nunca cai no silêncio.
 
 ## §2 — O que esta sprint entrega, na ordem
 
-1. **A bancada primeiro** (`scripts/ensaios/o_fone_tem_volume_proprio.py`):
+1. **A bancada primeiro** — instrumento pronto em 09/09,
+   `scripts/ensaios/o_fone_tem_volume_proprio.py` (`--listar`, depois
+   `--alvo <MAC>`; martela o byte a 10 Hz porque o daemon reescreve fone e
+   alto-falante juntos; no rádio só monta, e diz):
    com o fone plugado no P2 (cabo) e depois no P1 (rádio), escrever
    `common[4]` em `0x00`, `0x40` e `0x7F` **com o alto-falante fixo**, flag0
    `0x10` ligado, e ela ouvir. Três respostas possíveis, e cada uma decide o
