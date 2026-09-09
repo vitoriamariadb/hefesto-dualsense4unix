@@ -341,3 +341,152 @@ linha a marcar. O único ambiente que a cura escreve é o que o daemon já publi
 * **§5.4, «lendo as permissões … de cada flatpak achado»** — cumprido, com uma
   correção: a lista não sai só do `.desktop` achado. **Um cartão pode ser DOIS
   programas**, e por isso a conta dizia *4* numa máquina com *5*.
+
+---
+
+## Reparo 09/09
+
+O conferente achou **seis defeitos** neste commit. Cinco estão curados abaixo; o
+sexto era decisão dela, e veio decidido — está no item 5.
+
+### 1. Os dois vermelhos da SUÍTE, invisíveis ao `portoes.sh`
+
+Os dois foram vistos REPROVANDO antes da cura (`rc=1`) e passando depois.
+
+**a) `test_toda_declaracao_a_arvore_confirma`** — *"07-lancadores.html·consertar-lancador
+declara `grava='escrever_a_estrada'` e a árvore acha NADA"*. A declaração estava
+certa; o que faltava era a outra metade dela: **`escrever_a_estrada` não estava
+em `ESCREVEM`**, e a régua lê a ÁRVORE, não o texto. Um nome que a lista não
+conhece é uma porta que a régua não enxerga — e a direção B existe justamente
+para a declaração não virar palavra solta. O nome entrou, com a razão do lado.
+
+**b) `test_nenhuma_aba_declara_orfao_que_tem_dono`** — a lista congelada ainda
+dizia `"07-lancadores.html": ["criar-perfil", "heroic"]`. O `heroic` saiu do
+`SEM_DONO` porque foi **curado** (o censo abre os cinco catálogos), e a régua
+morde nos DOIS sentidos de propósito: um órfão a menos sem esta lista mudar
+junto é dívida virando fantasma. A lista acompanhou, com a cura escrita nela.
+
+### 2. O tique voltou a NÃO bater no disco — e o custo está medido
+
+`pacote()` → `_resposta()` → `desenho.cartoes(lida)` abria, **a cada tique**, a
+biblioteca de cada lançador (`biblioteca_do_cartao`), as caixas do Flatpak
+(`app_ids_do_cartao` + `resposta_do_flatpak`) e a pergunta da estrada
+(`tem_estrada`) — contra o que o próprio `a07_lancadores` escreve: *"a pintura
+NUNCA bloqueia"*.
+
+**Medido nesta bancada, com os cinco lançadores dela no disco (30 voltas):**
+
+| | mediana | máximo |
+| --- | --- | --- |
+| antes | **6,37 ms** | 18,55 ms |
+| depois | **0,03 ms** | 0,13 ms |
+
+A leitura voltou para a `_Vigia`, na thread de fundo: nasceu
+`desenho.medir_no_disco()` (BLOQUEIA, e só a vigia a chama) e a resposta viaja
+fria na `Leitura`, num campo novo — `desenho.DoDisco`, com o resumo de cada
+cartão e as chaves que têm estrada. A tela diz **exatamente o mesmo** depois da
+mudança (mesma linha do «Flatpak», os mesmos quatro cartões com «Consertar»),
+e a régua nova mede o que nenhum `assert` de conteúdo alcança: **quais arquivos
+foram abertos** (`test_a_pintura_do_tique_nao_abre_arquivo`).
+
+De quebra, o gerador ficou determinístico: `cartoes(None)` nunca mais abre um
+arquivo da máquina de quem gera a página.
+
+### 3. A escrita atômica devolve o MODO (e o dono) do arquivo dela
+
+`NamedTemporaryFile` nasce **0600** e `replace()` leva o modo do temporário
+junto: o `config.json` do Heroic dela, **0644** antes da cura, ficava **0600**
+depois. O módulo promete *"nunca apaga o que já estava lá"*, e a permissão é
+parte do que estava lá.
+
+`_escrever_atomico` agora mede o `stat()` ANTES de escrever (depois do
+`replace()` não há mais o que perguntar), repõe o modo e tenta o dono — o
+`chown` para outro usuário falha sem privilégio, e o `OSError` é o caso normal.
+**O que NASCE herda a PASTA** (`_modo_de_nascimento`, `dir & 0o666`): 0755 dá
+0644. O `umask` NÃO se consulta, e a razão é de thread — `os.umask` é a única
+forma de lê-lo e lê-lo é escrevê-lo, com a janela viva ao lado.
+
+### 4. A régua nova ficou dentro do lar de mentira — e o cabeçalho passou a ser verdade
+
+O Flatpak tem DUAS instalações. `permissao_de(app, lar=tmp)` honrava o `lar` e
+deixava `raiz_sistema` valendo `/var/lib/flatpak`, **no disco de verdade**.
+Nesta bancada essa pasta nem existe, então nada mudava aqui — numa máquina com
+um flatpak instalado para todo mundo, a resposta de uma medição de mentira
+passaria a depender da máquina.
+
+Os dois viajam juntos em `_lar_de_mentira()`, o `tem_estrada` ganhou o
+`raiz_sistema` que lhe faltava, e o cabeçalho da régua **diz o que é verdade**,
+com o escape nomeado. A guarda é `test_a_regua_nao_sai_do_lar_de_mentira`, que
+grava todo caminho consultado e reprova o que estiver fora do `tmp_path` — e
+ela pegou, na primeira corrida, um escape que sobrava dentro da minha própria
+cura (`medir_no_disco` chamava `tem_estrada` sem o `raiz_sistema`).
+
+### 5. O «Consertar» pergunta antes de escrever — PROVISÓRIO, por palavra dela
+
+> *"Preciso vêr como fica e se faz sentido um botão pra isso"* <!-- noqa-acento: citação literal dela -->
+
+Enquanto ela não vê, o botão **não escreve na configuração dela num clique**: o
+primeiro clique arma e devolve a frase pelo canal de recado; só o segundo, com o
+`data-v` que **só existe no botão armado**, escreve. É o mesmo consentimento de
+dois tempos que esta aba já usa para fechar a Steam
+(`_este_clique_confirma`), e o consentimento é do ATO **e do alvo** — perguntar
+no «Heroic» não confirma no «Dolphin · mGBA».
+
+**Reversível numa frase, nas duas direções, e as duas estão escritas no código
+(`PERGUNTA_DA_CURA`):** ela aprova como está → tire o `if not
+_este_clique_confirma(...)` do gesto; ela decide que o botão não deve existir →
+tire o ramo do `consertar` em `cartao_sem_censo`, e o resto continua de pé.
+
+### A tela, com o daemon vivo e os quatro DualSense na mesa
+
+Janela `--oculta`, aba 07, foto antes e depois de UM clique:
+
+* `scratchpad/tela-07-antes-do-clique.png` — «Consertar» em Heroic, Lutris,
+  RetroArch e Dolphin · mGBA; **nenhum** no «Flatpak» nem na Steam;
+* `scratchpad/tela-07-armado.png` — o botão do Heroic verde, dizendo **«Ajustar
+  e continuar»**, e a tarja: *"Vou escrever na configuração de Heroic (Epic ·
+  GOG) o que faz o jogo enxergar o controle pelo Hefesto. Clique de novo para
+  confirmar."* Os outros três cartões continuam dizendo «Consertar»;
+* **o disco dela não mudou**: `config.json` do Heroic com o mesmo `md5`, o mesmo
+  `mtime` e o mesmo **0644** antes e depois do clique, e nenhum override nasceu.
+
+O custo do tique da janela inteira, medido pelo próprio piloto nessa corrida:
+**mediana 3,27 ms**, teto 100 ms.
+
+### As quatro mordidas deste reparo
+
+Cada cura foi arrancada e vista reprovar antes de ser devolvida:
+
+| arrancado | quem reprovou |
+| --- | --- |
+| a leitura de volta para dentro de `cartao_sem_censo` | `test_a_pintura_do_tique_nao_abre_arquivo` — *"a pintura abriu 24 caminho(s)"* |
+| o `raiz_sistema` de `_lar_de_mentira` | `test_a_regua_nao_sai_do_lar_de_mentira` — nomeou os seis caminhos em `/var/lib/flatpak` |
+| o `os.chmod` de `_escrever_atomico` | `test_a_cura_devolve_a_permissao_do_arquivo_dela` — *"a cura fechou um arquivo de configuração DELA"* |
+| o `_este_clique_confirma` do gesto | `test_o_consertar_pergunta_antes_de_escrever` — *"o PRIMEIRO clique escreveu na configuração dela"* |
+
+### Os portões, e o vermelho que sobra
+
+`bash scripts/portoes.sh` COMPLETO (54 portões), com `git add -A` antes:
+**53 verdes**. O único vermelho é `acentuacao`, com **20 violações em três
+arquivos que esta sprint nunca tocou** — `check_cabo_bt_perfil_controle.py`
+(10), `test_portao_a_regua_das_quatro_respostas.py` (9) e
+`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py` (1). Os três **já estão
+curados no `dev`** (`git diff HEAD dev` mostra a cura nos três); esta árvore
+nasceu antes daquele commit e é por isso que ela ainda os vê.
+
+**UM VERMELHO ERA MEU, e caiu:** o `anonimato` pegou uma linha que eu tinha
+acabado de escrever — *"um arquivo criado por outra thread"*. O padrão do
+portão é `\bcriado por\b`, que existe para caçar assinatura de autoria; a
+frase foi reescrita e ele voltou ao verde. Régua cega é régua: quem escreve é
+que desvia.
+
+### O vermelho que NÃO é meu
+
+`test_todo_gesto_que_escreve_declara_grava` (direção A) reprova com
+**`04-iluminacao.html·apagar`, `·cor` e `·reenviar` (escrevem por
+`save_profile`)**. Medido: ele reprova **sem** a minha linha em `ESCREVEM`, o
+arquivo é `a04_iluminacao.py` (que esta sprint não toca), e a causa é o commit
+`4f616f3e` *"fix(iluminação): a cor escolhida vai ao disco"* — **que já está no
+`dev`**. Os três gestos aprenderam a gravar e não declararam `grava=` no mesmo
+commit. É a quinta repetição do mesmo defeito, e o conserto é de quem tem a
+posse daquele arquivo.
