@@ -91,3 +91,70 @@ si mesmo.
 | `tomadas` ignorado em `fileira_de_tons` | `test_a_guia_desenha_o_x_exatamente_no_que_o_gesto_recusa` |
 | o `if ligado` da conta do `on` | `test_um_lugar_sem_controle_nao_ganha_anel_nem_x` |
 | a recusa devolvendo `(rgb, None)` | `test_escolher_o_tom_do_vizinho_recusa_e_diz_de_quem_e` |
+
+## §6 — DUAS CORREÇÕES DELA, 09/09/2026 à tarde, com os QUATRO na mesa
+
+Ela abriu o produto instalado e viu as duas de uma vez. Nenhuma é defeito de
+execução: a §3 desta sprint especificava a primeira, e a segunda foi escolha
+dela mesma. Palavra dela: *"o seu trabalho ficou certo, só surgiu um imprevisto
+que eu não notei e foi escolha errada minha. não sua."* <!-- noqa-acento: citação literal dela -->
+
+### 1. O X FICA, O AVISO SAI — *"no caso o X fica o aviso saí"*
+
+O botão com X guardava o `data-gesto="cor"` do lado. Ela clicava, o
+`_sem_repetir_a_cor_do_vizinho` levantava, e **três linhas de recusa cobriam o
+desenho do controle por 30 s** — a foto dela mostra a frase por cima do P1.
+
+A §3.2 pedia isso ("*o clique não muda a cor do P2, e a tela diz de quem é*"), e
+a §3.2 estava errada: a decisão de origem dela diz **impeça**, não **avise**.
+Prevenir e recusar não são duas camadas que se somam — quando a prevenção
+funciona, a recusa nunca deveria ser alcançada pelo dedo dela.
+
+**A cura:** a casa tomada perde `data-gesto` e `data-hex`, e ganha
+`aria-disabled="true"`. O `BOOTSTRAP` casa por `[data-gesto]`, então o clique
+morre no botão. O `title` continua nomeando o dono, e a explicação passa a
+custar ZERO clique — que é a regra dela de 07/09.
+
+**O `RuntimeError` do pacote FICA.** Ele é a rede, não a porta: o gesto `cor`
+chega por outros caminhos (a prova botão a botão, um tique entre a leitura e o
+clique), e duas peças da mesma cor não podem passar por nenhum deles.
+
+### 2. O X É PRETO COM BORDA BRANCA — e a razão é o controle BRANCO dela
+
+> *"deixa o nosso x preto com borda branca pra destacar. Falo isso pois ficou
+> perfeito o nosso x, o complicado é que são tons pasteis e o controle branco
+> por exemplo não ajuda nisso o x dele fica invisível."* <!-- noqa-acento: citação literal dela -->
+
+O X saía em `var(--dono)` — a cor do PLÁSTICO de quem tem o tom —, pela mesma
+regra que pinta a borda da coluna (`D-A-BORDA-E-A-IDENTIDADE-DA-PECA`): o
+desenho diria de quem é a cor sem palavra nenhuma.
+
+**A bancada derrubou a ideia com um caso só:** branco sobre um tom pastel não
+tem contraste, e o X do controle branco dela fica invisível — exatamente na
+casa em que ela precisa ver que não pode clicar. *Um X que aparece em três dos
+quatro controles é pior do que um X neutro que aparece nos quatro.*
+
+O contorno é `filter:drop-shadow` em quatro direções, e não um segundo X por
+baixo: o `drop-shadow` segue a forma alfa do gradiente, então ele contorna as
+duas hastes de verdade — e custa zero nó a mais (um `::before` custaria 56, com
+quatro colunas de 14 tons).
+
+### O que a tela mede hoje, com os quatro dela
+
+Sonda no WebKit vivo, `.tom` por coluna:
+
+| coluna | tons | clicáveis | com X | de quem |
+| --- | --- | --- | --- | --- |
+| P1 | 14 | 11 | 3 | P2 · P3 · P4 |
+| P2 | 14 | 11 | 3 | P1 · P3 · P4 |
+| P3 | 14 | 11 | 3 | P1 · P2 · P4 |
+| P4 | 14 | 11 | 3 | P1 · P2 · P3 |
+
+`data-gesto` e `data-hex` são `null` nas doze casas com X; `aria-disabled` é
+`"true"`; o `::after` computa `rgb(0,0,0)` com `drop-shadow(rgb(255,255,255)
+1px …)` — inclusive na coluna do White.
+
+### As duas mordidas, provadas arrancando
+
+* devolver `data-gesto` à casa tomada → `test_a_guia_desenha_o_x_exatamente_no_que_o_gesto_recusa` cai nomeando o endereço que voltou;
+* devolver `var(--dono)` ao `background` do `::after` → `test_o_x_e_preto_com_borda_branca_e_nao_a_cor_do_dono` cai dizendo que o X do controle branco some sobre o pastel.
