@@ -189,3 +189,15 @@ pré-multiplica o par e passaria a multiplicar duas vezes.
 
 Réguas em `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py`, nove, com
 as três mordidas escritas e a saída de cada uma na entrega.
+
+**E A CURA PROVISÓRIA TEM ALARME — reparo de 09/09, §3 daquele arquivo.** Quem
+for fazer a metade do daemon leia isto antes: **a barra passaria a ser contada
+DUAS vezes**, e o que ela sente viraria `base × barra² × degrau` — com a barra
+em 50 %, o motor em 25 %. Três réguas reprovam nesse dia, nomeando a dobra e
+dizendo o que tirar da aba (`_reduzido_pela_barra`, no MESMO commit):
+`test_o_rumble_fixado_aplica_um_fator_so_nos_dois_motores`,
+`test_o_reassert_de_5hz_aplica_um_fator_so_nos_dois_motores` e
+`test_a_conta_inteira_da_barra_vale_uma_vez_so`. Elas não impedem a cura —
+exigem que as duas metades andem juntas, como o ajuste do
+`o_multiplicador_chega_ao_motor.py` acima. Vermelho ali **não é regressão: é o
+recado chegando na hora certa.**

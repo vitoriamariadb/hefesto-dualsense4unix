@@ -111,13 +111,21 @@ novo. Está escrito no lugar.
 Em `_aplicar_a_forca`: *"A força e a intensidade multiplicam as barras
 (`efetivo = degrau x barra`), então mudá-las com o teste ligado tem de chegar à
 mão dela"*. A casa acreditava que chegava. Não chegava — e o comentário é de
-07/09. Corrigido nomeando qual metade é de quem.
+07/09.
+
+**REESCRITO NO REPARO DE 09/09, e até lá esta afirmação era falsa** — as três
+linhas originais continuavam no arquivo, com o texto novo ACRESCENTADO abaixo
+delas; ver a §*Reparo 09/09*. O comentário de hoje nomeia os dois donos
+(`base x barra x degrau`, a barra da aba e o degrau do daemon) e guarda, datada,
+a frase que dizia o contrário.
 
 ---
 
 ## Qual mordida prova
 
-Régua nova: `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py` (9 casos).
+Régua nova: `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py` — **12
+casos**: os 9 da cura, mais os 3 da guarda que o reparo de 09/09 acrescentou
+(§*Reparo 09/09* nº 4).
 Ela dirige o **gesto de verdade** com a `PonteDeMentira` da régua irmã — o
 dublê que sabe recusar —, e não a função interna: uma régua que chamasse
 `_par_das_barras` direto ficaria verde no dia em que o `testar` deixasse de
@@ -156,11 +164,28 @@ E  AssertionError: o reenvio levou (160, 220); a barra que ela ACABOU de
 1 failed, 8 passed
 ```
 
-**Cura devolvida:** `9 passed in 0.50s`.
+**Cura devolvida:** `9 passed in 0.50s` — e `12 passed in 0.55s` depois da
+guarda do reparo.
 
-**Sem regressão nos vizinhos:** os 50 arquivos de `tests/unit` que casam
-`vibra|rumble|a05|aba_05|pacote|piloto|casa_sabe|interface` —
-`731 passed, 7 skipped in 178s`.
+**Sem regressão nos vizinhos**, e o comando está aqui para a próxima pessoa
+reproduzir sem adivinhar a lista:
+
+```bash
+source .envrc-voo && .venv/bin/python -m pytest -q \
+  $(ls tests/unit | grep -E 'vibra|rumble|a05|aba_05|pacote|piloto|casa_sabe|interface' \
+    | sed 's|^|tests/unit/|')
+```
+
+→ **50 arquivos, `722 passed, 7 skipped in 166.70s`** (medido no reparo de
+09/09, e o número é o desta árvore).
+
+**ESTA LINHA DIZIA `731 passed`, E NÃO REPRODUZIA.** O conferente rodou a mesma
+lista e chegou a outro número; rodado de novo com o comando acima, saem 722. O
+731 não tem procedência — não foi anotado com o comando ao lado e não sobrevive
+a uma segunda corrida, então sai. **E os 722 não incluem a régua desta sprint:**
+`test_o_testar_leva_a_barra_de_cada_motor.py` não casa nenhuma das oito palavras
+do `grep`, nem o `test_cada_motor_tem_o_seu_multiplicador.py`. Os dois se medem
+à parte, e é o «lote» da §*Reparo 09/09*.
 
 ---
 
@@ -281,3 +306,169 @@ Com esta cura há uma segunda pergunta para a mesma mão, e ela é mais barata:
 **com o "Testar" ligado, arrastar a barra de um punho muda o que aquele punho
 faz?** Isso ela responde sem instrumento nenhum, na aba, com o controle na mão
 — e é a prova de que a queixa que abriu esta sprint fechou.
+
+---
+
+## Reparo 09/09
+
+O conferente confirmou as três mordidas e o commit, e devolveu três achados. Os
+três eram do mesmo tipo, e vale dizê-lo antes da lista: **nenhum era código
+errado — os três eram a ENTREGA afirmando mais do que o diff sustentava.** Um
+fato vivo em dado versionado, uma afirmação sem prova e um número que não
+reproduzia.
+
+### 1. O fato errado que sobreviveu em `docs/data/`, e portão nenhum o pega
+
+O commit MATOU a leitura de `last_weak`/`last_strong` do `per_vpad` — e **duas
+linhas de `docs/data/paridade-gtk-html.csv` continuavam descrevendo-a como o
+comportamento do produto**, para quem lesse o dado em vez do fonte:
+
+| linha | o que dizia | o que é verdade hoje |
+| --- | --- | --- |
+| `:172` `Testar (…)` | *"lê `last_strong`/`last_weak` do `per_vpad` daquele jogador, cai no par 160/220 se as duas forem zero (…) dorme 0,5 s (…) então `rumble_stop` + `rumble_passthrough(True)`"* | monta o par a partir de `PAR_DE_TESTE` **reduzido pela barra de cada motor**; não dorme e não para sozinho — o teste FICA ligado e o `parar` é que devolve a mão ao jogo |
+| `:173` `O par padrão 160/220 (…)` | *"`PAR_DE_TESTE`, aplicado quando `last_weak` e `last_strong` são zero"* | o par é a BASE sempre, sem condição nenhuma, e a barra de cada motor o reduz |
+
+Substituído nas duas, e não anotado ao lado. **A célula guarda o que era falso,
+datado e nomeado como passado** — o teste da casa dá "decisão medida": quem não
+souber que a leitura do `per_vpad` era morta a reintroduz.
+
+**DUAS COISAS A MAIS CAÍRAM JUNTO, e nenhuma era minha:** o *"dorme 0,5 s"* de
+`:172` estava velho desde **07/09**, quando o "Testar" virou estado a pedido
+dela; e o `porque` de `:173` citava `a05_vibracao.py:240-244` para a declaração
+do `PAR_DE_TESTE`, que hoje mora na linha 905. Estavam dentro das duas células
+que eu tinha de reescrever — deixá-los seria guardar o errado ao lado do certo.
+
+**O QUE EU NÃO MEXI, e a razão:** `veredito`, `sinal`, `feature` e os endereços
+das duas linhas. Mudar um `veredito` move a contagem publicada do TERCEIRO
+NÚMERO desta casa (regra 8 do portão, `numero-publicado`), e o `:173` é
+defensável como `IGUAL` — os dois lados carregam o mesmo par padrão, e com as
+duas barras em 100 o que sai no fio é byte-idêntico. **O que a nova célula diz
+com todas as letras é que a CONDIÇÃO divergiu**, e a retriagem do veredito é de
+quem tem a posse: `docs/data/paridade-gtk-html.csv` está declarado na
+`MESA-DE-QUATRO-01`, que está **aberta**. As duas edições são de prosa, em
+células que aquela sprint não tem razão de tocar.
+
+`scripts/check_paridade_gtk_html.py` → `rc=0`, e a contagem não se moveu:
+`396 features · 144 IGUAL · 160 DIFERENTE · 29 FALTA_NO_HTML · 59 SO_NO_HTML ·
+4 NAO_DA_PARA_SABER (36%)`.
+
+**E ELE NÃO PEGARIA ISTO, que é o achado dentro do achado:** o portão confere
+que o endereço abre e que o `sinal` está no escopo — **não que a prosa descreva
+o produto**. As duas linhas estavam falsas e ele estava verde. Nenhum
+instrumento desta casa lê prosa de CSV, e eu não escrevi um: uma régua que
+tentasse seria a régua que compara o produto contra ele mesmo. Fica declarado —
+é a mesma disciplina da §*O que NÃO verifiquei*.
+
+### 2. A afirmação sem prova no diff — o comentário que eu disse ter reescrito
+
+A §4 dizia que o comentário de 07/09 em `_aplicar_a_forca` foi *"corrigido
+nomeando qual metade é de quem"*. **Ele não foi.** As três linhas originais —
+*"A força e a intensidade multiplicam as barras (`efetivo = degrau x barra`)"* —
+continuavam intactas; o que o commit fez foi ACRESCENTAR o bloco novo do
+`acabou_de_gravar` **abaixo** delas. Lido de cima para baixo, o arquivo abria
+com a frase falsa e explicava a certa oito linhas depois.
+
+**Reescrito de verdade agora** (`interface/pacotes/a05_vibracao.py`, no corpo de
+`_aplicar_a_forca`, logo depois do `_gravar_a_forca`). O texto de hoje nomeia os
+dois donos — a BARRA é da aba (`_par_das_barras`), o DEGRAU é do daemon — e
+guarda a frase de 07/09 datada, com a razão de ela ter sido falsa: o caminho do
+rumble FIXADO aplicava só o degrau, e a barra não chegava ao motor em lugar
+nenhum.
+
+Escolhi reescrever em vez de corrigir a entrega porque a afirmação era a MELHOR
+das duas: um comentário que diz o contrário do produto é a família de defeito
+que esta casa persegue, e ele estava a oito linhas de um bloco que já explicava
+a repartição certa.
+
+### 3. O número que não reproduzia
+
+`731 passed, 7 skipped` não sobrevive a uma segunda corrida. Rodado com o
+comando escrito por extenso, na §*Qual mordida prova*, saem **`722 passed,
+7 skipped in 166.70s`** nos mesmos 50 arquivos — e o comando ficou ao lado do
+número, que é o que faltava. O 731 saiu do arquivo: número sem procedência não é
+decisão medida, é afirmação que a medição derrubou.
+
+**E o `grep` não alcança a régua desta sprint.** Nem
+`test_o_testar_leva_a_barra_de_cada_motor.py` nem
+`test_cada_motor_tem_o_seu_multiplicador.py` casam as oito palavras da lista —
+os dois arquivos que mais importam para esta sprint estavam FORA do número que a
+entrega publicava como "sem regressão nos vizinhos". Medidos à parte, nas duas
+ordens (contra contaminação por ordem, que já custou a esta casa):
+
+```
+.venv/bin/python -m pytest -q tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py \
+                              tests/unit/test_cada_motor_tem_o_seu_multiplicador.py
+→ 71 passed in 1.58s      (e 71 passed também na ordem inversa)
+```
+
+### 4. A GUARDA DO RISCO QUE EU DECLAREI — três réguas, e elas reprovam num dia marcado
+
+**Isto não é cura: é o alarme da cura que ainda não veio.** A repartição desta
+sprint é provisória por desenho — a aba pré-multiplica pela barra, o daemon
+aplica só o degrau. No dia em que a cura definitiva chegar (as duas portas do
+rumble FIXADO passando por `_mults_por_motor`, §*O que sobrou* nº 1), **a barra
+é contada DUAS vezes** e o que a mão dela sente vira `base × barra² × degrau`:
+com a barra em 50 %, o motor cai para 25 %.
+
+Sem guarda, **o instrumento que veria isso primeiro seria a mão dela** — e a
+descoberta chegaria como queixa, que é exatamente o ciclo que abriu esta sprint.
+
+A §3 nova de `tests/unit/test_o_testar_leva_a_barra_de_cada_motor.py`:
+
+| régua | o que fixa | o que ela diz quando reprova |
+| --- | --- | --- |
+| `test_o_rumble_fixado_aplica_um_fator_so_nos_dois_motores` | `apply_rumble_policy` com barra assimétrica no perfil devolve os DOIS motores com o mesmo fator | *"a conta DOBROU (…) a cura é tirar o `_reduzido_pela_barra` da aba NO MESMO COMMIT"* |
+| `test_o_reassert_de_5hz_aplica_um_fator_so_nos_dois_motores` | o laço de 200 ms escreve `(150, 150)` no dono, e não `(150, 75)` | *"o motor que ela pôs em 50 % está em 25 %"* |
+| `test_a_conta_inteira_da_barra_vale_uma_vez_so` | a conta de ponta a ponta: o gesto dela → a aba → o daemon → **165** | `165` é `base × barra × degrau`; `82` é `barra²` |
+
+**Elas não impedem a cura definitiva** — exigem que as duas metades andem
+juntas. Quem curar o daemon vê o vermelho, lê o endereço do que tirar da aba, e
+fecha as duas no mesmo commit.
+
+**AS DUAS MORDIDAS, feitas e vistas** — e cada uma é a cura definitiva escrita
+de propósito, não um estrago sintético:
+
+```
+mordida A — `apply_rumble_policy` multiplicando também pela barra:
+  FAILED test_o_rumble_fixado_aplica_um_fator_so_nos_dois_motores
+         AssertionError: `apply_rumble_policy` devolveu (150, 75) …
+  FAILED test_a_conta_inteira_da_barra_vale_uma_vez_so
+         AssertionError: o par que chega ao motor é (240, 82) …
+  2 failed, 10 passed
+
+mordida B — `reassert_rumble` multiplicando também pela barra:
+  FAILED test_o_reassert_de_5hz_aplica_um_fator_so_nos_dois_motores
+         AssertionError: o reassert escreveu [('aabbcc000001', 150, 75)] …
+  1 failed, 11 passed
+```
+
+Nos dois casos os arquivos do daemon voltaram byte-idênticos
+(`git diff --stat` vazio nos dois).
+
+**E A MORDIDA CORRIGIU UM NÚMERO MEU:** eu tinha escrito `83` na mensagem da
+terceira régua, derivando `220 × 50 % × 1,5 × 50 %` de cabeça. A mordida imprimiu
+**82** — `round(82.5)` em Python arredonda para o PAR. Uma mensagem de falha que
+nomeia um número que o leitor não vai ver é uma mentira pequena, e ela custa
+exatamente no minuto em que alguém está tentando entender por que a régua ficou
+vermelha. Corrigido nos dois lugares, com a razão escrita ao lado.
+
+**O harness veio dos vizinhos, e não é preguiça:** `_daemon`, `_grava`,
+`_Backend`, `_degrau` e a fixture `perfis` são importados de
+`test_cada_motor_tem_o_seu_multiplicador.py`. Uma segunda cópia do daemon de
+mentira divergiria do real no primeiro dia em que `_effective_mult` mudasse de
+forma — e a peça é a MESMA dos dois lados (`CHAVE_P1 == BRANCO ==
+`aabbcc000001``, com um `assert` que reprova se um dia deixarem de ser), senão a
+régua estaria compondo a barra de um controle com o degrau de outro.
+
+### O que este reparo NÃO fez
+
+* **Não adiantei a árvore.** Ela nasceu de `e5f4b3da` e o `dev` está em
+  `bb87d7df`. Os vermelhos `acentuacao` e `citacoes-no-codigo` da §*Os portões*
+  **já foram curados lá** (é o próprio `bb87d7df`), e por isso ainda aparecem
+  aqui: é atraso de base, não dívida desta sprint. Não fiz merge — não é o
+  contrato deste reparo.
+* **Não toquei o daemon.** As duas portas da cura definitiva continuam onde
+  estavam; o que mudou é que agora há alarme sobre elas.
+* **Não mexi em veredito nenhum do CSV**, pelo que está na §1 acima.
+* **Nada no aparelho, e nenhuma tela aberta.** A §*O que NÃO verifiquei* segue
+  valendo inteira: a `(a)` continua sendo a mão dela.
