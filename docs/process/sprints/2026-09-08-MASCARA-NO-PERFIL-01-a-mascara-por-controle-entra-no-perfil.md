@@ -1,6 +1,6 @@
 ---
 sprint: MASCARA-NO-PERFIL-01
-estado: aberta
+estado: feita
 posse:
   MASCARA-NO-PERFIL-01:
     - src/hefesto_dualsense4unix/daemon/subsystems/external_mask.py
@@ -13,6 +13,19 @@ nao_toca:
 ---
 
 # MASCARA-NO-PERFIL-01 — a máscara por controle entra no perfil
+
+> **ESTADO 2026-09-09: feita** — `ControllerOverrides.mascara` no esquema,
+> `manager.apply_controller_mascaras` como applier por peça (o último da leva,
+> porque é o único que pode derrubar vpad), a ordem de decisão escrita em
+> `mascara_efetiva` (`controllers[uniq].mascara` > `mode.gamepad_flavor` > o
+> padrão), o `controller_masks.json` rebaixado a CACHE do perfil ativo, o
+> `gamepad.mask.set` gravando no perfil pela estrada do `rumble.motores.set` sem
+> mudar de forma, a sétima coluna da aba Perfis regerada e publicada, e o
+> escritor do rascunho. Entrega:
+> `docs/process/agentes/2026-09-09/MASCARA-NO-PERFIL-01-opus.md`. **Uma coisa é
+> dela e está marcada como provisória:** perfil que não fala de máscara NÃO
+> devolve ninguém ao padrão (`None` = sem opinião) — a alternativa derrubaria os
+> quatro vpads ao ativar um perfil calado.
 
 **Decisão dela, 08/09/2026, à noite.** A pergunta: *a máscara por controle deve
 entrar no perfil, junto com luz, gatilho, vibração, som, mic e sensores — ou
