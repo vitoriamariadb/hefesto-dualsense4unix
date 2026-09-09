@@ -11,6 +11,14 @@ posse:
 bancada: false
 depois_de: []
 ---
+> **09/09/2026 — os dois motores RESPONDEM, e o caminho até aqui é a lição.** A primeira
+> medição deu *"não funciona, mas na interface isso funciona"*, e quem estava errado era
+> o INSTRUMENTO: a folha de ensaios ligava só o `VALID_FLAG0_COMPATIBLE_VIBRATION`, e o
+> produto liga QUATRO bits (`+ HAPTICS_SELECT + MOTOR_POWER + COMPATIBLE_VIBRATION2`).
+> Curado e remedido na mesma sessão: *"todos eles funcionaram perfeitamente"*.
+>
+> **O que esta sprint pergunta continua aberto:** que os motores respondam ao byte já se
+> sabia; o que ninguém mediu é se o degrau de 150% chega MULTIPLICADO ao motor.
 
 # O motor multiplica a força, por controle, e o jogo respeita
 

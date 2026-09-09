@@ -15,6 +15,17 @@ nao_toca:
   - src/hefesto_dualsense4unix/profiles/schema.py
   - src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py
 ---
+> **A BANCADA RESPONDEU EM 09/09/2026: o fone tem volume PRÓPRIO.** Ela mediu com o fone
+> plugado no controle do cabo: *"O som sem fone sai no auto falante do controle. com fone
+> o slicer funciona porém tem que assumir"*. O `common[4]` varia o fone sozinho, logo
+> `speaker.fone_volume` por controle tem o que gravar, e a decisão
+> `D-0909-O-FONE-GANHA-CAMPO-PROPRIO` está sustentada por medição.
+>
+> **DOIS ACHADOS DE TABELA vieram junto, e o segundo fecha uma pergunta desta casa:**
+> sem fone plugado, o som endereçado ao fone sai no alto-falante do controle; e o
+> PRÉ-AMPLIFICADOR (`common[37]`) **não altera nada** — *"o slicer em si não altera
+> nada"*. Pela mesma régua, byte que não obedece NÃO ganha campo: o pré-amp não vira
+> controle de tela.
 
 # FONE-01 — a segunda saída ganha volume próprio no perfil, por controle
 

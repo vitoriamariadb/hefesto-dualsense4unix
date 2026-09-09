@@ -1,6 +1,6 @@
 ---
 sprint: BRILHO-DE-HARDWARE-01
-estado: aberta
+estado: feita
 posse:
   BRILHO-DE-HARDWARE-01:
     - docs/process/sprints/2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md
@@ -13,6 +13,21 @@ nao_toca:
   - docs/data/mapa-controles.csv
   - src/
 ---
+> **MEDIDA EM 09/09/2026, e a premissa da sprint CAIU JUNTO.** O `common[42]` obedece
+> nos dois transportes e exige o `flag2` bit0 — mas o que ele atenua **não é a barra**,
+> são as lâmpadas de numeração. Palavra dela: *"o que o slicer altera não são as cores
+> do lightbar mas os leds que indicam qual player é o dono daquele controle, tipo player
+> 1...2 e tanto no cabo quanto bt eles tem o mesmo impacto e precisam da autorização do
+> byte"*. <!-- noqa-acento: citação literal dela -->
+>
+> A fonte externa já dizia o certo (`flag_2: SET_PLAYER_LED_BRIGHTNESS 0x01`) e ninguém
+> tinha olhado. O mapa ganhou a chave `luz.led_jogador.brilho`; a `luz.lightbar.brilho`
+> foi reescrita e continua `aciona = não`, agora por MEDIÇÃO. O comentário de
+> `ds_output_report.py` foi substituído, e a dívida do produto — que manda o brilho da
+> BARRA nesse byte — está nomeada no código e guardada por
+> `tests/unit/test_o_brilho_do_common42_e_dos_leds_de_jogador.py`, com a mordida provada.
+>
+> **O que sobra é decisão dela:** o brilho das lâmpadas vira campo de tela?
 
 # BRILHO-DE-HARDWARE-01 — o byte que nem o kernel escreve, medido na bancada
 

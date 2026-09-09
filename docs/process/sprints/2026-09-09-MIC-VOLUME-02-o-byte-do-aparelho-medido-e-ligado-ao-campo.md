@@ -14,6 +14,14 @@ nao_toca:
   - src/hefesto_dualsense4unix/daemon/subsystems/mic_da_mesa.py
   - src/hefesto_dualsense4unix/profiles/schema.py
 ---
+> **A BANCADA RESPONDEU EM 09/09/2026: o byte AGE.** Ela mediu no painel de ajustes, no
+> cabo, e disse *"Deu certo. funciona"*. Pela régua desta sprint (§2), byte que obedece
+> GANHA campo — logo o volume do microfone passa a ter os dois degraus (a fonte do
+> sistema e o `common[6]` do aparelho), e a decisão de 06/09 fica revogada como a
+> `D-0909-O-VOLUME-DO-MIC-LIGA-O-BYTE-DO-APARELHO` previa.
+>
+> Falta a IMPLEMENTAÇÃO, que é o corpo desta sprint. Medido só no CABO: o controle no
+> rádio não publica microfone nenhum, e isso é a MIC-OS-QUATRO-01.
 
 # MIC-VOLUME-02 — o byte do aparelho, medido e ligado ao campo
 
