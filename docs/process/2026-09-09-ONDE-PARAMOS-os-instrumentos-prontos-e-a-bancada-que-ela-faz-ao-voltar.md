@@ -43,7 +43,7 @@ cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix
 | # | sprint | comando | o que ela faz | minutos |
 | --- | --- | --- | --- | --- |
 | 1 | FONE-01 | `scripts/ensaios/o_fone_tem_volume_proprio.py --alvo <MAC do P2>` | fone plugado no P2; cinco passos; diz o que ouviu | 5 |
-| 2 | BRILHO-DE-HARDWARE-01 | `scripts/ensaios/o_brilho_de_hardware_da_barra.py --alvo <MAC>` e depois `--sem-bit` | olha a barra nos níveis 0·2·1·0; repete no P1 (rádio) | 5 |
+| ~~2~~ | ~~BRILHO-DE-HARDWARE-01~~ · **FEITA 09/09** | — | o ensaio rodou e a premissa CAIU: o `common[42]` obedece nos dois transportes, mas o que ele atenua são as **lâmpadas de numeração**, não a barra. O mapa ganhou `luz.led_jogador.brilho`; `luz.lightbar.brilho` continua `não`, agora por medição | 0 |
 | 3 | MIC-VOLUME-02 | `scripts/ensaios/o_byte_do_microfone_muda_a_captura.py --alvo <MAC do P2>` e depois `--sem-bit` | fala «aaaa» nas três gravações; o pico decide | 5 |
 | 4 | ensaio 13 · SOM-POR-CONTROLE-01 | `scripts/ensaios/o_envelope_do_som_no_radio.py --alvo <MAC do P1> --so-a-luz`, depois sem `--so-a-luz`, depois `--crc-errado` | a luz azul chegou pelos dois envelopes? saiu som em algum? | 15 |
 | 5 | SENSORES-NO-JOGO-01 | `scripts/ensaios/o_jogo_para_de_ver_o_giro.py` (os sete passos da §3 da sprint) | a mira por giroscópio num jogo que ela escolher | 20 |

@@ -100,7 +100,7 @@ ofereceu por engano.
 
 **Decididas em 09/09, de madrugada** (*"1-b;2b;3-c;4a"*, quatro linhas
 `D-0909-*`): **o fone ganha campo próprio** no perfil, por controle, depois da
-bancada (FONE-01); **o brilho de hardware se mede** (BRILHO-DE-HARDWARE-01);
+bancada (FONE-01); **o brilho de hardware foi MEDIDO** e a premissa caiu junto (BRILHO-DE-HARDWARE-01, **feita** em 09/09: o `common[42]` obedece nos dois transportes, mas atenua as **lâmpadas de numeração**, não a barra — *"o que o slicer altera não são as cores do lightbar mas os leds que indicam qual player é o dono"*); <!-- noqa-acento: citação literal dela -->
 **o volume do mic liga o byte do aparelho**, revogando a decisão de 06/09 se a
 bancada mostrar o byte agindo (MIC-VOLUME-02); **os nós se chamam
 «Alto-falante do Controle N» e «Microfone do Controle N»**.

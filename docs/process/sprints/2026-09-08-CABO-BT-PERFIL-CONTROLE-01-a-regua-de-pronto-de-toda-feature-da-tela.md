@@ -56,7 +56,7 @@ Legenda: ✓ medido no aparelho · ○ só inferido do código (`MONTOU`) · ✗
 | 02 | Touchpad | ✓ até o vpad | ✓ até o vpad · **✗ no jogo** (16/08, sem causa) | — | — | o mesmo degrau dos sensores |
 | 03 | Efeito do L2 e do R2 (`modo`, `pronto`) | ✓ obedeceu (11/08) | ✓ obedeceu | ✓ `triggers` + `ControllerOverrides.triggers` | ✓ | «Todos» e herdar (linha 14 da mesa) |
 | 04 | Cor da barra (`cor`) | ✓ (12/08) | ✓ (12/08) | ✓ `leds` + `ControllerOverrides.leds` | ✓ | a troca de cor — COR-TROCA-01 |
-| 04 | Brilho da barra (`brilho`) | ○ é a cor escalada em Python (o caminho é o da cor, ✓ 12/08; o escuro em si ninguém olhou) | ○ idem | ✓ `lightbar_brightness` | ✓ | **fato corrigido 08/09:** o `nao-medido` do mapa é o brilho de HARDWARE (`luz.lightbar.brilho`, `common[42]`, 3 níveis), outra grandeza — nem o kernel a escreve, e o produto não a oferece. **DECIDIDO por ela, 09/09 (*"2b"*): medir a de hardware na bancada** — [BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md) |
+| 04 | Brilho da barra (`brilho`) | ○ é a cor escalada em Python (o caminho é o da cor, ✓ 12/08; o escuro em si ninguém olhou) | ○ idem | ✓ `lightbar_brightness` | ✓ | **MEDIDO 09/09, e a premissa caiu:** o `nao-medido` do mapa era o brilho de HARDWARE, outra grandeza — e o `common[42]` que se supunha ser dela atenua as **lâmpadas de numeração**. O mapa ganhou `luz.led_jogador.brilho`; `luz.lightbar.brilho` continua `aciona = não`, agora por medição. A tela não oferece nenhuma das duas: o trilho dela manda RGB escalado, que é `luz.lightbar.cor` — [BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md), **feita** |
 | 04 | Luzes de jogador · cores automáticas (`player`, `auto-cores`) | ✓ (11/08) | ✓ | ✓ `player_leds`, `auto_player_colors` | ✓ | `release_leds` só BT `parcial` |
 | 05 | Força/degrau · barra por motor · testar (`forca`, `intensidade`, `motor`) | ✓ obedeceu (15/08) | ✓ obedeceu | ✓ `rumble` + `ControllerRumbleOverride` | ✓ | a premissa física por motor — VIBRA-MULT-01; haptics VCM `divida` nos dois |
 | 06 | Controlar o PC: mouse, teclado, remapeamento, atalhos | ✓ | ✓ | ✓ `mouse`, `key_bindings`, `button_actions`, `teclado_emulado` | — **DECIDIDO por ela, 08/09 à noite: global no perfil** (`D-0809-A-NAVEGACAO-E-GLOBAL-NO-PERFIL`) | — |
@@ -95,7 +95,8 @@ três tipos, e cada um tem uma cura diferente:
 4. **As sprints que nascem da tabela**: [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md) (nasceu em 08/09, do recado dela: o mix completo ou o canal de SFX, por controle, cabo e BT); e as três que ela decidiu em 09/09: [FONE-01](2026-09-09-FONE-01-a-segunda-saida-ganha-volume-proprio-no-perfil-por-controle.md)
    (a saída 2 ganha campo próprio, depois de a orelha dela ouvir o byte);
    [BRILHO-DE-HARDWARE-01](2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md)
-   (o byte de 3 níveis, medido com e sem o bit); [MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md)
+   (**feita no mesmo dia**: o byte obedece, mas é das lâmpadas de numeração — a
+   premissa da sprint caiu na bancada dela); [MIC-VOLUME-02](2026-09-09-MIC-VOLUME-02-o-byte-do-aparelho-medido-e-ligado-ao-campo.md)
    (o byte do aparelho, medido e ligado ao campo que já age na fonte).
 
 ## §3 — O que MORDE
