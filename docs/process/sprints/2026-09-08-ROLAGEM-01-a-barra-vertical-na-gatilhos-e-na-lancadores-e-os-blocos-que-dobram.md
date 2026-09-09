@@ -131,3 +131,53 @@ o OK dela — a direção é `mockup/` → produto, nunca o contrário.
 | cabo / BT | é tela: a sonda da §2 roda com os quatro na mesa, dois em cada transporte, e a barra não pode depender de qual está no rádio |
 | no perfil | —; se os blocos dobrados guardarem estado (aberto/fechado), ele é da TELA, não do perfil |
 | por controle | a dobra é por LINHA (as quatro colunas juntas), de propósito — §3 |
+
+---
+
+## §5 — A CAUSA ESTÁ MEDIDA — 09/09/2026, no WebKit vivo, com os QUATRO na mesa
+
+**Não é a `.janela`. É o `.miolo` dentro dela.**
+
+`scripts/ensaios/a_janela_cabe_no_que_ela_ve.py` abre o piloto oculto, visita
+cada aba, **espera o tique pintar com o dado do daemon** e pergunta ao DOM:
+
+| aba | `.janela` | documento | quem estourou |
+| --- | --- | --- | --- |
+| 01-jogar | 775/775 | 809/809 | — |
+| 02-controles | 775/775 | 809/809 | `DIV.corpo-cx 267>0` |
+| **03-gatilhos** | 775/775 | 809/809 | **`DIV.miolo 863>564`** |
+| 04-iluminacao | 775/775 | 809/809 | `DIV.moldura 153>144` |
+| 05-vibracao | 775/775 | 809/809 | — |
+| 06-navegacao | 775/775 | 809/809 | — |
+| **07-lancadores** | 775/775 | 809/809 | **`DIV.miolo 627>564`** |
+| 08-conexoes | 775/775 | 809/809 | — |
+| 09-sistema | 775/775 | 809/809 | `DIV.miolo 866>564` |
+| 10-perfis | 775/775 | 809/809 | `DIV.desfecho 15>0` |
+
+**As duas abas que ela nomeou são as duas com o maior estouro de `.miolo`** —
+299px na Gatilhos e 63px na Lançadores. A `.janela` fecha em `775/775` nas dez,
+que é exatamente por que a medição de 08/09 no Chrome não achou nada: ela olhava
+o continente.
+
+**A ARMADILHA QUE ISSO DEIXA, e ela pegou este instrumento na primeira volta:**
+a primeira versão desta régua olhava só a `.janela` e o documento — os dois
+fecham — e deu **PASSA** com a barra na tela dela. *Uma régua que mede o
+continente dá verde sobre o conteúdo que transborda dentro dele.* A `.janela` é
+`overflow:hidden` por desenho: ela NUNCA rola. Quem rola é o filho.
+
+**E O QUE ISSO CONFIRMA:** a hipótese 1 da §1 (*"a caixa que cresce com os
+quatro controles vivos"*) está certa, e as outras duas caem — o `div.nota` está
+fora da `.janela` e o documento fecha em `809/809`.
+
+### Uma nota honesta sobre a 09
+
+A `09-sistema` passou de `866` para `882` na mesma sessão: a TELA-TRES-01 §1
+esticou a caixa «Detalhes técnicos» de 110 para 136px, a pedido dela. **O
+estouro dela já existia** (866 antes) e não é dessa cura — mas ela agora carrega
+16px a mais, e isso fica escrito porque o próximo a medir vai ver o número
+maior.
+
+### O que a §2 (a proposta dela) tem de tirar
+
+Na Gatilhos, **299px**. Dobrar o bloco do R2 num acordeão tira ~300 — o que
+fecha exatamente. É o que a proposta dela previa, e agora tem número.

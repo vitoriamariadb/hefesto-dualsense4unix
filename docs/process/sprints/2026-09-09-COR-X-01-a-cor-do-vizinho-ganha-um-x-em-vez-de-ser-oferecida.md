@@ -1,6 +1,6 @@
 ---
 sprint: COR-X-01
-estado: aberta
+estado: feita
 posse:
   COR-X-01:
     - src/hefesto_dualsense4unix/interface/aba04.py
@@ -28,7 +28,7 @@ comportamentos funcionando, e serve de especificação viva: a escolhida com a
 borda do plástico, a tomada com o X na cor do plástico de quem a tem, e o
 clique recusando com o nome do dono.
 
-## §2 — O que falta, e a razão técnica de não ter saído junto
+## §2 — FEITA em 09/09/2026 — e a razão técnica que a atrasava
 
 **O alvo `classe` do pintor compara por IGUALDADE** (`hefesto_vivo.py`, ramo
 `alvo === 'classe'`: `aceso = (t === quando)`). "Esta cor está na lista das que
@@ -53,3 +53,41 @@ quem tem qual cor.
 **COR-TROCA-01** desenhava o oposto: a cor repetida **trocava de lugar** entre
 os dois controles, "como o número do jogador". As duas não coexistem — uma
 troca e a outra impede. A decisão dela de 09/09 é a mais nova.
+
+
+## §5 — Como fechou, 09/09/2026
+
+**`fileira_de_tons`** no pacote, o mesmo "um dono, dois chamadores" da
+`fileira_de_players`: o gerador desenha a bancada com ela, o pacote pinta o
+produto a cada tique. A `.guia` ganhou dentro um `<span class="tons">` com
+`data-hef-alvo="html"` — dois endereços em dois elementos, porque o pintor
+aceita UM `data-campo` por elemento. O `display:contents` mantém os catorze
+botões como itens do flex do avô.
+
+**O gesto passou a RECUSAR.** `_sem_repetir_a_cor_do_vizinho` deslocava para o
+primeiro tom livre — uma terceira coisa, nem a troca nem o bloqueio: ela
+clicava num tom e o aparelho acendia OUTRO, escolhido pelo produto. Agora
+levanta com o nome do dono e "Nada foi mudado".
+
+**As duas metades leem a MESMA mesa** (`_a_cor_de_agora`, pré-brilho): a tela
+não oferece o que o gesto recusa.
+
+### Medido com os QUATRO na mesa (2 cabo · 2 rádio)
+
+| coluna | anel | X |
+| --- | --- | --- |
+| P1 | `#0000FF` | `#FF0000` `#00FF00` `#FF0080` |
+| P2 | `#FF0000` | `#0000FF` `#00FF00` `#FF0080` |
+| P3 | `#00FF00` | `#0000FF` `#FF0000` `#FF0080` |
+| P4 | `#FF0080` | `#0000FF` `#FF0000` `#00FF00` |
+
+Nenhuma coluna tem X na própria cor — senão o `reenviar` ficaria bloqueado por
+si mesmo.
+
+### As mordidas
+
+| arrancar | reprova |
+| --- | --- |
+| `tomadas` ignorado em `fileira_de_tons` | `test_a_guia_desenha_o_x_exatamente_no_que_o_gesto_recusa` |
+| o `if ligado` da conta do `on` | `test_um_lugar_sem_controle_nao_ganha_anel_nem_x` |
+| a recusa devolvendo `(rgb, None)` | `test_escolher_o_tom_do_vizinho_recusa_e_diz_de_quem_e` |

@@ -162,3 +162,90 @@ A busca por **conteúdo** de `.desktop` (`Categories=Game`, `MimeType` de ROM) �
 a [LANCADOR-ACHADO-01](2026-09-08-LANCADOR-ACHADO-01-o-produto-so-acha-o-que-a-lista-adivinhou.md)
 — ela acha lançadores que a lista não conhece; esta lê a biblioteca dos que já
 foram achados. As duas dividem `jogos_locais.py`: a ACHADO vem depois.
+
+---
+
+## O QUE FECHOU EM 09/09/2026 — os itens 1, 2 e 5
+
+### Item 5 — o fato errado (o mais barato, e o primeiro)
+
+`hefesto_vivo.SEM_PACOTE` dizia que a `07-lancadores` era *"a aba que NÃO tem
+pacote"*. **Nenhuma linha a lia** — era prosa com forma de código — e a régua do
+despachante já mede o mundo certo (`test_o_despachante_serve_as_dez.SEM_PACOTE`
+é o conjunto VAZIO). A constante saiu, e com ela os **três** comentários deste
+arquivo mais as **duas** prosas de fora (`pacotes/__init__.py`,
+`test_o_lugar_vazio_para_de_mostrar_o_desenho.py`) que a citavam. Correção pela
+metade deixa as duas versões vivas.
+
+### Item 1 — `integrations/censo_dos_lancadores.py`
+
+Um leitor por lançador, com o contrato do prontuário da Steam: devolve jogos e
+**nunca diz "funciona"**. Quatro estados, e cada um é uma resposta:
+
+| estado | o que a tela diz |
+| --- | --- |
+| `LIDO` | «37 jogos na biblioteca · 0 instalados» |
+| `NUNCA_ABERTO` | «Abra o Lutris uma vez e o Hefesto lê a biblioteca.» |
+| `ILEGIVEL` | «A biblioteca está aqui e não pôde ser lida: …» |
+| `SEM_BIBLIOTECA` | nada — é o «Flatpak», que é o runtime dos outros |
+
+**O `SEM_BIBLIOTECA` nasceu na primeira corrida na máquina dela:** sem ele, o
+cartão «Flatpak» dizia *"Abra Flatpak uma vez e o Hefesto lê a biblioteca"* —
+frase falsa sobre um programa que ela não abre.
+
+**Medido no disco dela, 09/09/2026:**
+
+```
+Heroic     lido           37 jogos na biblioteca · 0 instalados
+Lutris     nunca_aberto   Abra Lutris uma vez e o Hefesto lê a biblioteca.
+RetroArch  nunca_aberto   …
+Dolphin    nunca_aberto   …
+mGBA       nunca_aberto   …
+Flatpak    sem_biblioteca (sem frase)
+```
+
+Os 35 da Epic + 2 da GOG que a §3 mediu à mão, agora ditos pelo produto. **Zero
+instalados não é defeito:** a biblioteca lista o que a CONTA tem; o
+`*_install_info.json` diz o que está no disco, e o dela não existe.
+
+**A CHAVE DO CARTÃO NÃO É O NOME DO LANÇADOR**, e ignorar isso deu cartão mudo
+na primeira ligação: o desenho chama o cartão de `heroic` e o exibe como
+*"Heroic (Epic · GOG)"*, e `emuladores` é UM cartão com DOIS programas dentro.
+`biblioteca_do_cartao` faz a ponte, e soma as duas bibliotecas do cartão duplo.
+
+### Item 2 — o selo diz LOCALIZADO
+
+`SELOS["localizado"] = "LOCALIZADO"`, e o cabeçalho passou de «6 encontrados» a
+**«6 localizados»** — a mesma palavra do selo, para ela não traduzir uma na
+outra ao ler. O resumo da biblioteca vai para a linha `jogos`, que é onde a
+Steam já imprime «23 jogos instalados».
+
+**MEDIDO NA TELA VIVA e corrigido:** com o resumo colado no corpo, o texto
+estourava a caixa nas colunas da direita. Fotografado antes e depois.
+
+### A régua que PREVIU este dia, e virou do avesso
+
+`test_os_cinco_lancadores_sem_fonte_continuam_sem_fonte` varria `src/` com
+`tokenize` para provar que ninguém olhava os cinco — e escrevia o próprio
+gatilho: *"Ele SAI do `SEM_FONTE` e ganha cartão com fonte — o `NÃO SEI` dele
+virou mentira no minuto em que esta linha nasceu."*
+
+Esta sprint escreveu a linha. A régua agora se chama
+`test_os_cinco_lancadores_ganharam_leitor_de_biblioteca` e cobra o contrário.
+
+`tests/unit/test_o_censo_dos_lancadores_le_a_biblioteca.py` traz 13 testes com
+lar de mentira — é o que permite medir os CINCO leitores tendo UM instalado.
+Mordida: apagar o leitor do Heroic reprova **oito**.
+
+**Achado pela régua:** o `ISOPaths = 2` do Dolphin entrava na lista como uma
+pasta chamada "2" — `startswith("isopath")` casa com a CONTAGEM.
+
+### O que FALTA (itens 3 e 4)
+
+* **Item 3, a cura por estrada:** Heroic e Lutris por jogo
+  (`enviromentOptions`, `system: env:`), emuladores por `flatpak override`. É a
+  mesma conta do `launch_env.py`; muda a chave e o arquivo. **Não foi feito** —
+  é escrita em configuração de programas dela, e pede a palavra dela antes.
+* **Item 4, o cartão «Flatpak» muda de pergunta:** hoje ele diz `LOCALIZADO` e
+  não afirma nada sobre o sandbox. Ler `flatpak info --show-permissions` é a
+  entrega, e depende do item 3 para ter o que consertar.

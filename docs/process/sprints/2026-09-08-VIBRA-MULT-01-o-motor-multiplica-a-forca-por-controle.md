@@ -100,3 +100,54 @@ As peças, com dono:
 | cabo / BT | ✓ o rumble obedeceu nos dois em 15/08 (`vibracao.rumble.*@dualsense`); pronto = o PRODUTO degrau × barra medido nos dois transportes, e não só no cabo |
 | no perfil | ✓ `rumble` (global) + `ControllerRumbleOverride` (`motor_forte_pct`, `motor_fraco_pct`, `policy`, `custom_mult`) |
 | por controle | ✓ o gesto RECUSA sem `uniq`; pronto = P1 em 100 % e P2 em 50 % ao mesmo tempo, e trocar um não mexe no outro |
+
+---
+
+## MEDIDO EM 09/09/2026, com os QUATRO na mesa (2 cabo · 2 rádio)
+
+### (b) A conta — **PASSA**
+
+`gamepad._mults_por_motor` faz `degrau × barra`, por controle, e é o único  <!-- noqa-acento: símbolo de multiplicação -->
+lugar onde a multiplicação acontece. 55 réguas em
+`tests/unit/test_cada_motor_tem_o_seu_multiplicador.py`, incluindo o caso dela
+por extenso: `degrau 150 · forte 50 → 0,75`.
+
+### (c) A tela — **REPROVAVA, e era ali que a queixa dela morava**
+
+O que a aba imprimia, lido do pintor com a mesa viva:
+
+| | `mult` | barras (esq · dir) | efetivo real |
+| --- | --- | --- | --- |
+| P1 | `100%` | 100 · 100 | 100% |
+| **P2** | **`200%`** | **0 · 0** | **0%** |
+| P3 | `100%` | 100 · 100 | 100% |
+| P4 | `150%` | 100 · 100 | 150% |
+
+**O P2 dizia `200%` sobre dois motores que não saem do lugar.** A conta estava
+certa e a tela não a mostrava em lugar nenhum — ela teria de multiplicar de
+cabeça, que é exatamente o que a queixa dela descreve.
+
+**Curado.** A dica de cada motor — que só falava quando o jogo tremia — passa a
+dizer os três números: `"Este motor a 0%, força 200% — sai 0% do que o jogo
+pedir."` O `mult` continua sendo o DEGRAU, porque é ele que o trilho ao lado
+move; trocar o significado do campo faria o número discordar do cursor.
+
+A conta não é redigitada na tela: `barras[lado]` vem do
+`state_full.rumble_motores`, o mesmo mapa que `apply_game_rumble` multiplica.
+
+Réguas novas em `TestATelaDizOProduto`, quatro, com as mordidas escritas.
+
+### (a) A premissa física — **PRECISA DA MÃO DELA**
+
+`scripts/ensaios/o_multiplicador_chega_ao_motor.py` continua sem linha no
+`docs/data/ensaios.csv`. Se o firmware iguala os dois motores por baixo, a
+barra é um número bonito sobre um aparelho que não a cumpre — e nenhuma régua
+verde teria visto. **É o que falta para esta sprint fechar**, e é de bancada:
+o par assimétrico sentido na mão.
+
+### (3) Chegar ao jogo
+
+A multiplicação é aplicada em `gamepad.py:1347`, no MESMO caminho por onde
+passa o rumble do jogo — a docstring de `:1321` diz com todas as letras que *"o
+slider vale também para o rumble do jogo"*. Provado por unidade; a prova NO
+jogo é a mesma mão de (a).

@@ -1,6 +1,6 @@
 ---
 sprint: TELA-TRES-01
-estado: aberta
+estado: feita
 posse:
   TELA-TRES-01:
     - src/hefesto_dualsense4unix/interface/aba09.py
@@ -77,3 +77,54 @@ quebrar — ela mede aparência, não texto.
 | cabo / BT | é tela; o chip diz CABO ou RÁDIO em caixa alta, e diz o certo para cada um dos quatro |
 | no perfil | — |
 | por controle | o chip é por controle, e é o único dado por controle aqui |
+
+
+---
+
+## FEITA em 09/09/2026 — as duas que restavam
+
+### §1 — a altura, **medida no Chrome, não no CSS**
+
+Na página publicada, antes da cura:
+
+```
+.avancado .lista   136px   base 700
+.avancado .log     110px   base 674
+```
+
+Vinte e seis pixels. A causa era `height:110px` cravado em `aba09.py`,
+calibrado num dia em que a lista tinha TRÊS botões — o quarto entrou em 06/09
+e levou os 26px com ele.
+
+Curado com `flex:1;min-height:110px`: o `.avancado` já é grid com
+`align-items:stretch` e o `.col-log` já é coluna flex, então a altura do irmão
+CHEGA sozinha. Um segundo `136px` digitado seria a segunda verdade sobre a
+altura da lista, e envelheceria no dia do quinto botão.
+
+**Depois:** `136px` e `136px`, mesma base — `700`.
+
+### §3 — CABO e RÁDIO
+
+A caixa é CSS, e a regra é do próprio `monta.rotulo`: *"quem escreve em
+maiúscula no HTML tira da pessoa a chance de copiar o nome do plástico"*.
+
+* `monta.rotulo_do_chip(c)` MARCA a via do que `rotulo(c, "curta")` devolveu,
+  num `<span class="via">` — não remonta o rótulo (seria a sexta gramática do
+  nome de um controle nesta janela);
+* `topo.html`: `.fita .chip .via{text-transform:uppercase}` — só a via, para o
+  nome do plástico não subir junto.
+
+**O que apareceu no caminho:** a `MESA` do desenho ainda escreve `USB`/`BT`,
+enquanto a mesa VIVA traz `cabo`/`rádio` — é a `A-PALAVRA-MESA-SAI-01`, e a
+régua diz isso por escrito em vez de exigir minúscula nas duas.
+
+### A régua
+
+`tests/unit/test_tela_tres_a_altura_e_a_caixa_alta.py`, quatro testes, dois
+deles lendo a **geometria computada** no Chrome. Mordidas provadas: devolver
+`height:110px` reprova a §1 com os dois números; tirar a regra CSS da via
+reprova a §3 com `['none','none']`.
+
+### §2
+
+Continua **absorvida** pela LANCADORES-ZERO-01 — a palavra é decisão dela.
