@@ -1,6 +1,6 @@
 ---
 sprint: MIC-OS-QUATRO-01
-estado: aberta
+estado: feita
 posse:
   MIC-OS-QUATRO-01:
     - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
@@ -12,6 +12,19 @@ depois_de: []
 ---
 
 # Os quatro microfones funcionando — um microfone VIRTUAL por controle, cabo e BT
+
+> **ESTADO 2026-09-09: feita** — o nó do microfone passou a se chamar «Microfone
+> do Controle N» (decisão dela, *"4a"*) e deixou de publicar o endereço dela na
+> lista de áudio da máquina; o **CABO ganhou supervisor de canal** — até aqui
+> `canal_do_microfone.abrir` tinha UM chamador em `src/` e era a ponte de rádio,
+> então quatro nós era impossível por construção; e a palavra dela sobre o
+> microfone de um controle NO FIO parou de evaporar (o supervisor lia só o
+> rádio e apagava o pedido na varredura seguinte — medido). **Sem bancada:**
+> tudo com dublê, e as quatro respostas de aparelho ficam para a
+> MESA-DE-QUATRO-01. **Uma linha do enunciado CAIU:** *"os QUATRO com
+> `canal_ativo=True`"* é impossível — `canal_ativo` é *"sou o padrão do
+> sistema"*, e o padrão é UM; é a decisão dela da CANAL-POR-CONTROLE-01.
+> Laudo: [`docs/process/agentes/2026-09-09/MIC-OS-QUATRO-01-opus.md`](../agentes/2026-09-09/MIC-OS-QUATRO-01-opus.md).
 
 > **A palavra dela, 08/09 à noite:** *"o lance dos 4 mic virtuais via bt pra cada controle e cavbo"* <!-- noqa-acento: citação literal dela, palavra por palavra --> — e a metade do SOM é a [SOM-POR-CONTROLE-01](2026-09-08-SOM-POR-CONTROLE-01-o-mix-completo-ou-o-canal-de-sfx-caindo-em-cada-controle.md).
 >
