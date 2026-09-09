@@ -1,6 +1,6 @@
 ---
 sprint: COR-TROCA-01
-estado: aberta
+estado: caducou
 posse:
   COR-TROCA-01:
     - src/hefesto_dualsense4unix/interface/pacotes/a04_iluminacao.py
@@ -9,6 +9,15 @@ posse:
 bancada: false
 depois_de: []
 ---
+> **CADUCOU EM 09/09/2026 — a premissa foi revogada por ela.** Esta sprint
+> desenhava a cor repetida TROCANDO de lugar entre os dois controles. Na
+> bancada do mesmo dia ela decidiu o oposto: a cor do vizinho ganha um X e o
+> clique é IMPEDIDO — *"de forma que me impeça de setar alguma cor de um
+> coleguinha"*. As duas não coexistem.
+>
+> O que sobra vive em [COR-X-01](2026-09-09-COR-X-01-a-cor-do-vizinho-ganha-um-x-em-vez-de-ser-oferecida.md)
+> e na decisão `D-0909-A-COR-DE-OUTRO-CONTROLE-SE-RECUSA-COM-X`.
+
 
 # A cor repetida troca de lugar, em vez de mostrar recado
 
