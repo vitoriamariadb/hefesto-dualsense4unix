@@ -16,6 +16,22 @@ depois_de: [DICA-DA-COR-01]
 >
 > *"semi aprovado. ainda joga pra baixo e abre a barra de navegação. tem espaço vertical pra aproveitar aqui"* <!-- noqa-acento: citação literal dela -->
 
+
+> **DECIDIDO POR ELA, 09/09/2026: «1 + rodapé».** A opção (C) da §3 — a altura
+> passa a seguir a vista E o cabeçalho da página encolhe — **mais o RODAPÉ**,
+> que a lista não tinha oferecido. São as duas faixas de cromo que sobram
+> depois de a altura ficar fluida.
+>
+> **O QUE ISSO OBRIGA A MEDIR, e é trabalho da sprint:** a §3 mediu 54px de
+> folga só com o cabeçalho; com o rodapé junto a folga cresce, e o número tem
+> de sair medido, não somado de cabeça. O rodapé é a faixa de «Aplicar · Salvar
+> Perfil · Importar · Exportar» — ela existe nas DEZ abas, então encolhê-la
+> alcança as dez de uma vez, e nenhum dos quatro botões pode ficar menor do que
+> a mão dela alcança.
+>
+> **E o `4 controles: 2 USB · 2 BT` continua precisando de casa** — ele mora no
+> cabeçalho que vai encolher. Proponha onde ele pousa e mostre a foto.
+
 # ALTURA-DA-VISTA-01 — a janela mede 777 px numa vista de 840, e os 31 que sobram morrem
 
 **O acordeão da ROLAGEM-01 foi aprovado; o que ela reporta agora é o que ele

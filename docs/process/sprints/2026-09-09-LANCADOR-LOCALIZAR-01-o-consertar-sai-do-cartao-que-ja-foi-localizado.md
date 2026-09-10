@@ -20,6 +20,20 @@ depois_de: []
 > *identificado não tem pq ter o botão de consertar. Ou no Máximo Localizar o*  <!-- noqa-acento: citação literal dela -->
 > *lançador. aí eu mesmo abro a tela e procuro o .desktop."*  <!-- noqa-acento: citação literal dela -->
 
+
+> **DECIDIDO POR ELA, 09/09/2026: a opção (C) — «Campo + botão que abre o
+> seletor».** Ela aponta o `.desktop` com o mouse pelo seletor do sistema (a
+> estrada já existe: `ponte.escolher_arquivo` → `hefesto_vivo._escolher_arquivo`,
+> com precedente vivo no `Importar` do rodapé), **e o campo de texto FICA** —
+> ele é o único caminho para um AppImage solto, que não tem `.desktop`, e o
+> próprio cartão promete cobrir esse caso.
+>
+> Os quatro preços medidos na §3 valem e entram na sprint: o seletor só resolve
+> nas quatro pastas XDG; a pasta de partida precisa ser posta (duas delas ficam
+> dentro de `~/.local`); com `--oculta` não há diálogo, logo o gesto entra em
+> `PERIGOSOS` e é mordido por dublê; e é a metade que muda a PÁGINA, logo pede
+> o `--publicar 07`, que é ato dela.
+
 # LANCADOR-LOCALIZAR-01 — o «Consertar» sai do cartão que já foi localizado
 
 Ela respondeu à pergunta que o próprio código pendurou em 09/09 — o bloco

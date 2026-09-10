@@ -15,6 +15,27 @@ depois_de: []
 > *"aí a ideia é cada um dos lançadores passarem a ter os jogos com perfis
 > dentro da aba perfis."* <!-- noqa-acento: citação literal dela -->
 
+
+> **A PREMISSA DA PERGUNTA CAIU — 09/09/2026, e foi ela quem a derrubou:**
+> *"deixei baixando um jogo já"*. <!-- noqa-acento: citação literal dela -->
+>
+> A §3 oferecia (A) mostrar os 36 do Heroic desde já e (B) só depois de ela
+> abrir uma vez, e as duas nasciam do mesmo fato medido: **`is_installed:
+> False` nos 35 da Epic**, nenhum binário no disco, nenhum campo com executável
+> nas 37 entradas da biblioteca. Com um jogo do Heroic INSTALADO, esse fato
+> deixa de valer para ele — e é a primeira vez que esta casa pode olhar a
+> biblioteca do Heroic com um jogo de verdade dentro.
+>
+> **ENTÃO A SPRINT COMEÇA MEDINDO DE NOVO, e a decisão espera essa medição:**
+> quando o jogo terminar de baixar, releia a biblioteca e responda —
+> `is_installed` virou `True`? Nasceu campo de executável, de prefixo ou de
+> caminho de instalação? O que o Heroic passa a entregar que não entregava?
+> **Se nascer um executável, a pergunta (A) contra (B) pode nem se fazer**: o
+> jogo instalado dá a chave que faltava, e o perfil casa como o da Steam casa.
+>
+> Ela pediu, ao decidir: *"seguinte só materializa as spRinTs certinho tá
+> bom?"* <!-- noqa-acento: citação literal dela -->
+
 # JOGOS-DOS-LANCADORES-01 — os jogos de cada lançador na aba Perfis, e a chave que só a Steam tem
 
 ## §1 — O que ela viu, e o que está MEDIDO

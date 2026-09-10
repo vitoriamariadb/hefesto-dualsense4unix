@@ -14,6 +14,20 @@ depois_de: []
 
 > *"com o mouse parado na frente da cor ele fica piscando e tirando o aviso e voltando"* <!-- noqa-acento: citação literal dela -->
 
+
+> **DECIDIDO POR ELA, 09/09/2026: «As dez abas de uma vez».** A cura não para
+> nos 56 `title` da guia — os **660** das dez páginas publicadas saem da
+> janelinha do GTK na mesma leva (03-gatilhos 195, 08-conexões 124,
+> 04-iluminação 97, e as sete restantes). A §3 continua valendo para o
+> mecanismo; o que muda é o ESCOPO, e com ele o preço: cada aba que ganha dica
+> própria é superfície de tela nova, e a PROVA-DE-TELA-01 pede o olho dela em
+> cada uma. Divida em passos por aba, com foto antes e depois, e não publique
+> as dez de uma vez.
+>
+> O X ganhar pixel continua sendo a metade que NÃO pode esperar: com zero de
+> largura na janela ao abrir, tirar o `title` sem dar corpo ao X deixaria a
+> tela sem NENHUM canal dizendo de quem é a cor.
+
 # DICA-DA-COR-01 — o aviso sai da janelinha do GTK, e o X ganha pixel
 
 **É a segunda vez que ela reporta este sintoma.** A primeira foi em 06/09
