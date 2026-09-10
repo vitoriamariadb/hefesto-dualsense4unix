@@ -1,6 +1,6 @@
 ---
 sprint: SOM-POR-CONTROLE-01
-estado: aberta
+estado: feita
 posse:
   SOM-POR-CONTROLE-01:
     - src/hefesto_dualsense4unix/app/audio_saida.py
@@ -19,6 +19,21 @@ nao_toca:
 ---
 
 # SOM-POR-CONTROLE-01 — o mix completo ou o canal de SFX, caindo em cada controle, por cabo e por BT
+
+> **ESTADO 2026-09-09: feita** — o nó por controle ganhou ROTA (o
+> `module-loopback` sobe junto com o `module-null-sink`, e a pergunta *"onde
+> este nó entrega?"* passou a ter UM dono, em `integrations/alto_falante_bt`,
+> porque o daemon não importa `app/`), ganhou o NOME dela («Alto-falante do
+> Controle N», `D-0909`, com o `sink_name` reduzido a UM — o do aparelho), e
+> ganhou a FONTE por controle no perfil (`speaker.fonte` = `mix`/`sfx`, padrão
+> `sfx` por `D-0809`, aditivo e omitido do disco sem opinião). O nó passou a
+> viver SEMPRE, com a frase de recusa ao lado (`D-0809`). **O instrumento
+> continua `rc=1` na mesa dela e isso é o retrato honesto:** faltam as TRÊS
+> linhas do registro do subsystem (`daemon/subsystems/__init__.py`,
+> `daemon/lifecycle.py`, `daemon/connection.py`), os três fora da posse — e a
+> §3.3 (a tela da aba 02) cai com elas, por não se pôr botão sobre nó que não
+> existe. Entrega:
+> `docs/process/agentes/2026-09-09/SOM-POR-CONTROLE-01-opus.md`.
 
 **A palavra dela, 08/09/2026, à noite:** *"o lance dos 4 mic virtuais via bt pra
 cada controle e cavbo e os somns seja hdmi completo seja o canal do sfx caindo
