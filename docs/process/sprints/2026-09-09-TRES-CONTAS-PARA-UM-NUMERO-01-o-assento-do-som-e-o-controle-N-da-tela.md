@@ -104,6 +104,47 @@ uma janela.
 * a régua da §2 sai quando esta sprint fechar: uma divergência travada que já
   foi curada é propaganda.
 
+## §6 — O instrumento do censo casa pela DESCRIÇÃO, e o dono trocou
+
+**Achado em 09/09/2026 pelo agente do microfone, e ela mandou anotar aqui.**
+
+`scripts/ensaios/os_nos_de_som_por_controle.py:186,192` decide de quem é o nó
+comparando o TEXTO do `Description` do PipeWire com
+`«Alto-falante do Controle N»` / `«Microfone do Controle N»`
+(`NOME_DO_ALTO_FALANTE`, `NOME_DO_MICROFONE`, linhas 58-59). O N desse texto é o
+`numero_do_assento` — a terceira conta da §1. Entre duas corridas do
+instrumento, com a mesa mudando, **o mesmo nó virtual passou a ser atribuído a
+outro controle**: o assento andou, o texto do `Description` andou junto, e o
+censo seguiu o texto.
+
+Não é defeito novo: é a §2 outra vez, medida por um terceiro lado. O que ele
+acrescenta é que **a divergência já contamina INSTRUMENTO**, não só tela — quem
+for medir o som por controle mede errado sem perceber.
+
+**A RESSALVA DELA, 09/09/2026, e ela é sobre o produto, não sobre a bancada:**
+
+> *"aí é foda pq a ideia não é termos nada focado pro meu caso apenas, mas como
+> produto que possa funcionar com outra pessoa."*  <!-- noqa-acento: citação literal dela -->
+
+O que isso decide: **casar por texto de rótulo é a cura errada**, mesmo que
+funcionasse na mesa dela. O rótulo é prosa em português, muda com tradução,
+muda quando o assento anda, e some se alguém renomear o nó. A âncora tem de ser
+o que o daemon ESCREVE e não muda de forma: a propriedade do nó, não a frase
+que o usuário lê.
+
+Então a cura da §4(a) ganha uma segunda metade:
+
+1. o `Description` continua sendo o rótulo humano — «Microfone do Controle N»,
+   com o N da tela (§4a);
+2. o nó ganha uma **propriedade de posse** (`hefesto.controle.uniq`, ou o que a
+   ponte já tiver de identidade estável do aparelho), e **é por ela que
+   instrumento e produto casam** — nunca pelo texto.
+
+A §5 ganha, com isso, uma mordida a mais:
+
+* renomeie o `Description` de um nó à mão e o censo **continua** acertando o
+  dono. Se ele errar, ele ainda está lendo prosa.
+
 ## Critério de pronto — por cabo · por BT · no perfil · por controle
 
 É a régua dela de 08/09 ([CABO-BT-PERFIL-CONTROLE-01](2026-09-08-CABO-BT-PERFIL-CONTROLE-01-a-regua-de-pronto-de-toda-feature-da-tela.md)).
