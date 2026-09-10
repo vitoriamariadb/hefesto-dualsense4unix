@@ -78,7 +78,7 @@ nada*. O perfil ganhou o P2 com `{"volume": 120}` e ela passou a morder.
 
 **E o perfil do teste nascia INVÁLIDO:** faltava o `match`, obrigatório no
 schema. O produto o recusava pelo `except` (comportamento certo) e a régua
-media o dublê quebrado em vez da fiação.
+média o dublê quebrado em vez da fiação.
 
 ## §4 — O QUE FALTA, E É SEU — nada aqui é de agente
 
