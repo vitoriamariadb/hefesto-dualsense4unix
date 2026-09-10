@@ -93,7 +93,7 @@ Desbloqueia sozinho. É a dívida que 10/09 deixou explícita.
 | # | sprint | o que fecha |
 | --- | --- | --- |
 | A1 | **SOM-FIADO-01** — a ponte por controle sobe em produção | **FEITA em 10/09/2026** — a fábrica por controle, o subsystem no daemon (as três pontas) e a guarda «sem rota, sem nó». `casa-sabe` fechou. [A sprint](2026-09-10-SOM-FIADO-01-a-ponte-por-controle-sobe-em-producao.md) |
-| A2 | **SFX-POR-CONTROLE-01** — o efeito sonoro chega ao controle certo | a rota por controle nos DOIS transportes, sem um herdar o som do outro |
+| A2 | **SFX-POR-CONTROLE-01** — o efeito sonoro chega ao controle certo | **FEITA em 10/09/2026** — `fonte_por_controle` era o mesmo defeito da A1: parâmetro sem chamador. O `mix` de um não vira o do vizinho, provado no daemon. [A sprint](2026-09-10-SFX-POR-CONTROLE-01-o-som-de-cada-um-e-do-dono.md) |
 | A3 | **SOM-NA-TELA-01** — ligar/desligar o som por controle | o botão existe; falta ele valer só para aquele controle |
 
 ### LOTE B — O MICROFONE DE CADA UM (3 sprints)
@@ -162,10 +162,13 @@ cd /mnt/Apate/Desenvolvimento/hefesto-dualsense4unix
 git log --since=midnight --format='%h %s'     # o que esta casa fechou hoje
 ```
 
-**A1 (SOM-FIADO-01) está FEITA.** A próxima a rodar é a **A2
-(SFX-POR-CONTROLE-01)**: a fiação de A1 deu a cada controle nó e rota próprios;
-falta provar que o tiro do P2 não sai no plástico do P1.
+**A1 e A2 estão FEITAS**, e as duas fecharam o mesmo defeito de família: um
+parâmetro por controle que ninguém injetava. O lote A tem agora nó, rota e
+fonte **por controle**, provados num `Daemon` de verdade com quatro DualSense.
 
-O que é DELA e não espera código: o **negativo de rota** e o **teste cego** do
-som (§3), que são o que falta para `audio.alto_falante@dualsense` sair de
-`radio_aciona: não`.
+**A PRÓXIMA A RODAR É A A3 (SOM-NA-TELA-01)** — e ela é de outra natureza:
+toca a TELA, então fecha com o olho dela, nunca com régua.
+
+**O QUE ESPERA A BANCADA DELA está reunido num lugar só:**
+[OS GESTOS QUE SÓ ELA PODE FAZER](2026-09-10-OS-GESTOS-QUE-SO-ELA-PODE-FAZER.md)
+— sete gestos, com o tempo de cada um e o que cada um desbloqueia.
