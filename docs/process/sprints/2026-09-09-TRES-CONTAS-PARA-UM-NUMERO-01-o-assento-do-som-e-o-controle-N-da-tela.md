@@ -14,6 +14,17 @@ nao_toca:
   - src/hefesto_dualsense4unix/app/actions/base.py
 ---
 
+> **DEIXOU DE SER TEÓRICA — 09/09/2026, 22h, na tela DELA.** A divergência foi
+> achada em teste e virou PUBLICADA: o nó do microfone do controle BRANCO existe
+> no PipeWire dela com `Description: Microfone do Controle 2`, e a tela chama o
+> mesmo aparelho de **P1** — o cabeçalho do cartão diz `P1 • White • cabo` e o
+> chip da fita diz `P1 • White • CABO`.
+>
+> **Dois números para o mesmo aparelho, nas duas janelas ao mesmo tempo**, que é
+> exatamente o defeito que o `numero_do_controle` foi criado para matar. A §4
+> continua valendo e a recomendação (a) ficou mais forte: a lista de som do
+> sistema é mais uma janela, e ela já está mentindo nela.
+
 # TRÊS CONTAS PARA UM NÚMERO — o assento do som e o «Controle N» da tela
 
 **Achado em 09/09/2026 pelo CONFERENTE da SOM-POR-CONTROLE-01**, e o achado é
@@ -40,6 +51,16 @@ Com o **P1 desligado** e o P2 na mesa:
 * a conta da casa chama o P2 de **Controle 2** — o `player_slot` é a identidade
   ESTÁVEL, que sobrevive a desconectar e reconectar;
 * a conta nova o chama de **Controle 1** — ele é o primeiro conectado.
+
+**E A PROVA NA MESA DELA, 09/09 às 22h** — quatro controles, dois no cabo e
+dois no rádio, um só nó de microfone de pé:
+
+```
+$ pactl list sources | grep -A3 hefesto_mic
+        Name: hefesto_mic_13ebab
+        Description: Microfone do Controle 2      ← o daemon
+tela:   P1 • White • cabo                          ← a interface
+```
 
 Régua que fixa isto:
 `tests/unit/test_o_som_por_controle_cai_em_cada_um.py::test_o_terceiro_numerador_do_mesmo_rotulo_esta_medido_e_confinado`.
