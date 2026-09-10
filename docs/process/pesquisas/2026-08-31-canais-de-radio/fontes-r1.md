@@ -625,6 +625,19 @@ dos arquivos, com o `hid-playstation.c` do disco como âncora.
   microfone (0x00 padrão, 0x40 chat, 0x80 ASR). O Senshi trata 0x30 como rota do
   alto-falante e usa 0x05 como modo padrão — coerente. **O kernel não decompõe
   esse byte.** — `command.ts:34-68`
+> **[8.19] CONFIRMADO NO APARELHO — 10/09/2026, e ele estava certo desde 31/08.**
+> O `0x35` com **334 B e CRC em 330..333** é o report de áudio, e são exatamente
+> os números deste achado. O alto-falante tocou 70 s por rádio com essa forma.
+>
+> **O QUE FALHOU NÃO FOI A PESQUISA — FOI O QUE A CASA FEZ COM ELA.** Este
+> achado nomeia QUATRO reports; o que chegou ao `docs/data/mapa-controles.csv`
+> foi o arranjo do **`0x39`**, e o `0x35` entrou lá só como item da lista de
+> degraus, ao lado dos outros oito. Nove passadas de áudio desta casa bateram
+> todas no `0x39`, e nenhuma tentou o quinto degrau.
+>
+> Ver `docs/protocol/dualsense-referencia-canonica.md`, *"O som que saiu pelo
+> rádio"*.
+
 - **[8.19] Quatro reports de saída por rádio ALÉM do 0x31 -> uma virou CÉLULA.**
   **0x32** com 142 B (CRC em 138..141), **0x35** com 334 (CRC em 330..333),
   **0x36** com 398 (CRC em 394..397) e **0x39** com 547 (CRC em 543..546). Todos

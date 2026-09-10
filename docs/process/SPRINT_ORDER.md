@@ -80,7 +80,7 @@ Aqui, a ordem e uma linha:
 | [MESA-DE-QUATRO-01](sprints/2026-09-06-MESA-DE-QUATRO-01-quatro-dualsense-por-cabo-e-por-radio-com-ela.md) | o roteiro das 21 linhas com os quatro na mão (`./validar.sh`); o §1 está pago |
 | [LUZ-NO-RADIO-01](sprints/2026-09-01-LUZ-NO-RADIO-01-a-prova-que-falta-e-de-aparelho.md) | a linha 21 da mesa — há dois no rádio agora |
 | [BRILHO-DE-HARDWARE-01](sprints/2026-09-09-BRILHO-DE-HARDWARE-01-o-byte-que-nem-o-kernel-escreve-medido-na-bancada.md) | uma linha da mesa: `common[42]` em 0/1/2, com e sem o bit, ela olhando a barra — nos dois transportes |
-| [A-BANCADA-QUE-O-RADIO-PEDE-INDICE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md) | o ensaio 13 (o envelope do som por BT); as seis passadas de 08/09 ainda sem linha no caderno |
+| [A-BANCADA-QUE-O-RADIO-PEDE-INDICE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md) | **os ensaios 1 e 13 FECHARAM em 10/09** — o som saiu pelo rádio, report `0x35`, 70 s com a orelha dela; as nove passadas anteriores estão no caderno. Sobram os 21 ensaios do SN30 e do Pro, e o *negativo de rota* do som |
 
 **Feitas em 08/09**, com a prova no topo: JANELA-01 · FITA-01 · JOGAR-01 ·
 [LANCADORES-DELA-01](sprints/2026-09-08-LANCADORES-DELA-01-o-selo-o-botao-a-epic-e-o-que-o-hefesto-nao-conhece.md).
@@ -149,12 +149,23 @@ ainda aponta para a janela está em
 
 ### 3.4 Áudio pelo rádio
 
-O som por BT é a metade que falta da SOM-POR-CONTROLE-01: **seis passadas em
-08/09, silêncio nas seis**, e a hipótese que sobra é o ENVELOPE (HIDP/L2CAP) —
-ensaio 13 do índice do rádio. Os outros 22 ensaios de
+**O SOM POR BT SAIU — 10/09/2026.** O alto-falante do DualSense tocou por
+rádio, 70 s contínuos com a orelha dela. **A hipótese do ENVELOPE (HIDP/L2CAP)
+caiu junto:** era o REPORT. As seis passadas de 08/09 e as três anteriores
+mandaram todas o `0x39` de 547 B a 20 ms; o report de áudio é o **`0x35` de
+334 B, com UM quadro Opus, a cada 10,667 ms**. Os ensaios 1 e 13 do índice do
+rádio fecharam.
+
+**O QUE FALTA, e é o produto:** `integrations/alto_falante_bt.py` monta o
+report errado na cadência errada. Enquanto isso não muda, o som vive só em
+`scripts/ensaios/o_som_pelo_035.py`. É a metade que falta da SOM-POR-CONTROLE-01.
+
+Os outros 21 ensaios de
 [A BANCADA QUE O RÁDIO PEDE](sprints/2026-08-31-A-BANCADA-QUE-O-RADIO-PEDE-INDICE.md)
 são dela, na ordem daquele índice. O microfone pelo rádio **já entrega voz**
-com a ponte de pé (07/09) — o que falta é a MIC-OS-QUATRO-01.
+com a ponte de pé (07/09), e ganhou duas curas em 10/09 — o perfil foi de 800 ms
+decrescente para **1,1 s de energia estável**, e ele ainda para depois disso. O
+que falta é a MIC-OS-QUATRO-01 e achar o que o derruba.
 
 ### 3.5 Fora do foco, por palavra dela
 

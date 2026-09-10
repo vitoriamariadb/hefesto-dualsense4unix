@@ -27,6 +27,30 @@ nao_toca:
 > HIDP/L2CAP), o que muda o alvo do ensaio 13: o conteúdo já foi variado; o que
 > falta variar é o envelope. E o microfone pelo rádio, que este índice não lista,
 > foi MEDIDO em 07/09 e entrega voz (`mic-radio-a-voz-sai-0907`).
+>
+> **ESTADO 10/09/2026 — O ENSAIO 1 FECHOU, E COM ELE O 13.** O alto-falante do
+> DualSense TOCOU por rádio, com ela na bancada: **70 segundos contínuos**, sem
+> um corte, alcance testado. Foi a hipótese de TRANSPORTE que caiu junto — não
+> era o envelope HIDP nem o L2CAP, e o `hidraw` bastou.
+>
+> **O QUE ESTAVA ERRADO ERA O REPORT.** As seis passadas de 08/09 e as três
+> anteriores usaram todas o `0x39` de 547 B com DOIS quadros Opus. O report de
+> áudio é o **`0x35` de 334 B, com UM quadro**, a cada **10,667 ms** (512/48000)
+> — e não a cada 20 ms. Cinco erros ao mesmo tempo: report, número de quadros,
+> cadência, o bloco `0x11` zerado e a tag.
+>
+> **A frase de 31/08 que abriu este índice caducou:** *"ninguém desta casa mandou
+> um único byte de áudio por rádio"*. Mandou, e ela ouviu.
+>
+> O layout byte a byte está em `docs/protocol/dualsense-referencia-canonica.md`,
+> seção *"O som que saiu pelo rádio"*; o instrumento é
+> `scripts/ensaios/o_som_pelo_035.py`; o handoff é
+> `docs/process/2026-09-10-ONDE-PARAMOS-o-som-que-saiu-pelo-radio.md`.
+>
+> **O QUE SOBRA DESTE ENSAIO, e é pouco:** o *negativo de rota* (o mesmo timbre
+> mirado no HDMI não sai do controle) e o *teste cego*. É o que falta para
+> `audio.alto_falante@dualsense` sair de `radio_aciona = não` — o contrato está
+> escrito na própria célula, e a corrida de 10/09 cumpriu um terço dele.
 
 # A BANCADA QUE O RÁDIO PEDE — o índice
 
@@ -56,7 +80,7 @@ primeiras somam **29 minutos** e movem sete células.
 
 | # | ensaio | aparelho | tempo | o que decide |
 |---:|---|---|---:|---|
-| **1** | **Som no rádio, com a orelha dela** | DualSense | **4 min** | fecha um `inconclusivo` aberto desde 16/08/2026 |
+| ~~1~~ | **FECHADO EM 10/09/2026 — o som SAIU.** 70 s com a orelha dela, mordida do CRC provando. O `inconclusivo` de 16/08 (`som-no-radio-observado-não-replicado`) fecha: **a lembrança dela estava certa**, e o que faltava era o report | DualSense | **FEITO** | fechou, e derrubou cinco fatos desta casa |
 | **2** | Haptics E-A — qual enquadramento o firmware parseia | DualSense | 5 min | decide se o ensaio 3 (30 min) vale a pena |
 | **3** | LED de jogador — o `[46]` por discriminação | DualSense | 10 min | 2 células: `inferido-do-codigo` → `medido`/`olho-dela` |
 | **4** | Touchpad por rádio — o nó, a ACL e os três eventos | DualSense | 10 min | 1 célula → `medido`; e pode achar defeito com dono |
@@ -68,7 +92,7 @@ primeiras somam **29 minutos** e movem sete células.
 | 10 | Qual tipo o SN30 declara (byte 17) | Pro + SN30 | 15 min | decide se a OUI continua sendo o único discriminador |
 | 11 | Haptics E-B — o `0x12` faz alguma coisa | DualSense | 30 min | só se o 2 der verde; a mão dela é o instrumento |
 | 12 | Sniff ou cadência | Pro + SN30 | 40 min | decide se o no-sniff do adaptador ainda se justifica |
-| 13 | O degrau que fala — áudio por rádio de verdade — **instrumento (09/09): `scripts/ensaios/o_envelope_do_som_no_radio.py`**, o mesmo Opus em DOIS envelopes HID (DATA vs SET_REPORT), passo 0 de luz e `--crc-errado` | DualSense | 40 min | a outra metade do ensaio 1 |
+| ~~13~~ | **FECHADO EM 10/09/2026** — o degrau que fala é o **`0x35`**, e a resposta não estava no envelope: `hidraw` puro, um quadro Opus por report, 10,667 ms. Ela ouviu 70 s. Instrumento: `scripts/ensaios/o_som_pelo_035.py` | DualSense | **FEITO** | fechou o ensaio 1 junto |
 | — | **↓ daqui para baixo tudo começa por um PAREAMENTO NOVO ↓** | | | |
 | **14** | **Ensaio A — o pareamento, e as duas linhas que decidem** | SN30 | **20 min** | abre os nove seguintes; 2 células |
 | 15 | A contradição do MAC por modo | SN30 | +5 min sobre o 14 | duas páginas da casa que não podem estar as duas certas |

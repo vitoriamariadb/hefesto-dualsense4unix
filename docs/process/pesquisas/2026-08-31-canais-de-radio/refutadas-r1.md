@@ -240,6 +240,21 @@ Passaram, mas o cético anotou reparo que quem aplicar precisa ver.
 | `plataforma.handshake_usb@pro` · `radio_offset` | `JC_USB_CMD_EN_TIMEOUT` aparece **uma vez no arquivo inteiro** (o `#define`, `:172`) — não é enviada por barramento nenhum. Saem **QUATRO** comandos, com HANDSHAKE duas vezes. O erro nasceu no `cabo_offset` da mesma linha, e tem de ser corrigido lá, não espelhado aqui. |
 | `plataforma.sniff@pro` · `radio_offset` | A citação literal `ENV{HID_NAME}=="*Pro Controller*"` é falsa: o arquivo diz `ENV{HID_NAME}!="*[Pp]ro [Cc]ontroller*", GOTO=...` — **negativa, com classes de caixa**. Um Pro que se anuncie em minúsculas casa na regra real e não casaria no texto proposto. E aplicar só esta célula deixa `radio_ressalva`, `radio_comando`, `radio_codigo_ref` (aponta `:1-24`, hoje só comentário) e `assimetria_declarada` contradizendo a linha. |
 | `audio.alto_falante@dualsense` · `radio_offset` | Tirar **ESTÉREO**: a casa mediu em 16/08 que o alto-falante interno é MONO (`2026-08-16-E5-O-TERRENO…:245`, "REFUTADO na prática"). O estéreo do DS5Dongle serve à rota de FONE (`0x16`). E declarar a divergência: o Senshi monta um `0x39` **também de 547 B, também com CRC em `[543]`**, com o Opus **espelhado** em `[13..412]` e o háptico no fim (`DualSenseBtReportBuilder.kt:63-70`, `:959-1014`) — a proposta citou o `0x35` e o `0x36` do Senshi como corroboração e calou sobre o `0x39` dele, que é a única célula em disputa. |
+
+> **NOTA DE 10/09/2026 — ESTA CONFERÊNCIA ESTAVA CERTA, E O EFEITO FOI CARO.**
+> Ela auditou o que tinha de auditar: a proposta calava sobre a divergência do
+> `0x39`, e isso é defeito. Mas a frase *"o `0x39` é a única célula em disputa"*
+> fixou a atenção da casa no `0x39` — **e o report de áudio é o `0x35`**, que a
+> própria proposta havia citado e que esta linha classificou como corroboração
+> lateral.
+>
+> Medido em 10/09: 70 s de som pelo alto-falante, por rádio, com o `0x35` de
+> 334 B e UM quadro. As nove passadas de áudio desta casa foram todas no `0x39`.
+>
+> **A REGRA QUE ISSO DEIXA:** *a conferência mede se a proposta é honesta sobre
+> a disputa — ninguém estava encarregado de perguntar se o report em disputa era
+> o certo.* Uma auditoria de proposta não é uma auditoria da PERGUNTA, e as duas
+> precisam acontecer.
 | `audio.alto_falante@dualsense` · `radio_canal` | A separação de 15/08 continua valendo: a hipótese mora em `audio.saida_dedicada.payload_do_degrau@dualsense`, e `radio_offset` desta linha ainda diz "não localizado". |
 | `entrada.stick@sn30` · `radio_offset` | Os bytes 6-8 / 9-11 só existem no report **0x30**, e `radio_report_id` desta linha está **vazio** — offset sem o id que o ancora é o erro do `data[1]` × `data[2]`. E por rádio o `SET_REPORT_MODE` é justamente onde o firmware clone falha (`:1543`, `:2951`), com `joycon_may_degrade` USB-only. |
 | `energia.bateria.degraus@sn30` · `radio_offset` | Tirar a cláusula "sem byte de sequência **nem CRC**": um CRC de cauda é **invisível** a um driver que ignora tudo além da struct — o silêncio não é prova de ausência, e a cláusula é decorativa (nenhum CRC de cauda deslocaria o byte 2). E "`joycon_parse_report` também não consulta `hdev->bus`" é falso: `:2022`. |

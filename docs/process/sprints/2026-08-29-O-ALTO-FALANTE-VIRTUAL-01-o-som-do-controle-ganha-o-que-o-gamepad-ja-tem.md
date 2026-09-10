@@ -69,7 +69,9 @@ pede.
   medida como *"não há uma linha em toda a árvore"*. O **canal** já foi medido —
   os OUTPUT por rádio formam uma escada de +64 B (`0x31` = 77 B até `0x39` =
   546 B) e o firmware **executa** os degraus (15/08, com o olho dela na
-  lightbar) —, mas o **payload** continua não identificado.
+  lightbar) —, e o **payload FOI IDENTIFICADO em 10/09/2026**: report `0x35`,
+  334 B, UM quadro Opus de 10 ms a cada 10,667 ms. Ela ouviu 70 s sem corte.
+  Ver `docs/protocol/dualsense-referencia-canonica.md`, *"O som que saiu pelo rádio"*.
 
 **A consequência para quem usa:** hoje "mandar som para o controle" é uma
 pergunta diferente em cada transporte, e em nenhum dos dois há um nome estável

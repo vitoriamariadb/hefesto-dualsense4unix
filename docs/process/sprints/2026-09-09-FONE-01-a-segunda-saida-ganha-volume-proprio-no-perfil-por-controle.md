@@ -47,6 +47,20 @@ no perfil, por controle, medido com o ouvido*, ela escolheu o campo próprio —
 novo nasce `None` = *igual ao alto-falante*. Só um valor explícito faz o fone
 divergir — quem pluga um headset nunca cai no silêncio.
 
+> **ACRÉSCIMO DE 10/09/2026 — O RÁDIO DEIXOU DE SER SÓ "MONTA E DIZ".** O som
+> por rádio foi medido e sai: report `0x35`, 334 B, um quadro Opus de 10 ms a
+> cada 10,667 ms, `write()` no `/dev/hidraw`. **E a rota do FONE é o mesmo
+> report, trocando um byte:** `[11]` é `0x13 | 0x80` para o alto-falante interno
+> e **`0x16 | 0x80` para o fone**.
+>
+> Isso muda o item 1 desta sprint: no rádio agora dá para mandar SOM pelo fone e
+> ela ouvir, em vez de só escrever `common[4]` e esperar. O instrumento é
+> `scripts/ensaios/o_som_pelo_035.py --rota fone`.
+>
+> **E a ressalva que viaja junto:** o alto-falante interno é MONO (medido em
+> 16/08), e o codificador é estéreo — o estéreo casa com a rota de FONE, não
+> com o alto-falante. Esta sprint é justamente sobre o fone.
+
 ## §2 — O que esta sprint entrega, na ordem
 
 1. **A bancada primeiro** — instrumento pronto em 09/09,
