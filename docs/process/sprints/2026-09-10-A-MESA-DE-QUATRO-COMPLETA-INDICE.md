@@ -94,7 +94,7 @@ Desbloqueia sozinho. É a dívida que 10/09 deixou explícita.
 | --- | --- | --- |
 | A1 | **SOM-FIADO-01** — a ponte por controle sobe em produção | **FEITA em 10/09/2026** — a fábrica por controle, o subsystem no daemon (as três pontas) e a guarda «sem rota, sem nó». `casa-sabe` fechou. [A sprint](2026-09-10-SOM-FIADO-01-a-ponte-por-controle-sobe-em-producao.md) |
 | A2 | **SFX-POR-CONTROLE-01** — o efeito sonoro chega ao controle certo | **FEITA em 10/09/2026** — `fonte_por_controle` era o mesmo defeito da A1: parâmetro sem chamador. O `mix` de um não vira o do vizinho, provado no daemon. [A sprint](2026-09-10-SFX-POR-CONTROLE-01-o-som-de-cada-um-e-do-dono.md) |
-| A3 | **SOM-NA-TELA-01** — ligar/desligar o som por controle | o botão existe; falta ele valer só para aquele controle |
+| A3 | **SOM-NA-TELA-01** — a fonte de cada um na tela | **PREMISSA DERRUBADA em 10/09**: o botão JÁ vale só para aquele controle (medido no fonte). O buraco é outro — a `fonte` (`mix`/`sfx`) não tem gesto, e **a forma dela na tela é decisão DELA**. [A sprint](2026-09-10-SOM-NA-TELA-01-a-fonte-de-cada-um-na-tela.md) |
 
 ### LOTE B — O MICROFONE DE CADA UM (3 sprints)
 
@@ -105,7 +105,7 @@ Depende de A só no que toca a tela. A estrutura de N microfones simultâneos
 | --- | --- | --- |
 | B1 | **MIC-OS-QUATRO-01** — quatro fontes de captura ao mesmo tempo | medir; a estrutura existe, a prova com quatro não |
 | B2 | **LUZ-DO-MIC-VIVA-01** — a luz diz o estado, com o mic no ar | o contrato de 02/09 (apagado/aceso/piscando) nunca rodou: o mic caía antes |
-| B3 | **MIC-NA-TELA-01** — ligar/desligar o microfone por controle | idem A3, do outro lado |
+| B3 | **MIC-NA-TELA-01** — o botão aceso, e o piscando | o contrato de TRÊS estados que ELA desenhou: apagado=mudo · aceso=gravando · piscando=captando. O aceso não existe (`.mudo-i.on` caiu em 06/09, com razão) e o piscando nunca existiu. [A sprint](2026-09-10-MIC-NA-TELA-01-o-botao-aceso-e-o-piscando.md) |
 
 ### LOTE C — A MESA DE QUATRO, MEDIDA (3 sprints)
 
@@ -166,8 +166,14 @@ git log --since=midnight --format='%h %s'     # o que esta casa fechou hoje
 parâmetro por controle que ninguém injetava. O lote A tem agora nó, rota e
 fonte **por controle**, provados num `Daemon` de verdade com quatro DualSense.
 
-**A PRÓXIMA A RODAR É A A3 (SOM-NA-TELA-01)** — e ela é de outra natureza:
-toca a TELA, então fecha com o olho dela, nunca com régua.
+**A3 E B3 ESTÃO ESCRITAS E PARADAS, e as duas param por decisão DELA** — não
+por falta de código:
+
+* a **A3** precisa da forma da `fonte` na tela (três opções na §2 daquela
+  sprint, com recomendação). Sem a palavra dela, um terceiro par de botões na
+  coluna do som é a *"segunda gramática"* que o gerador já recusou uma vez;
+* a **B3** precisa do controle na mão dela: o limiar do «captando» e o ritmo da
+  piscada são números que ninguém chuta, e ela já se ofereceu para apertar.
 
 **O QUE ESPERA A BANCADA DELA está reunido num lugar só:**
 [OS GESTOS QUE SÓ ELA PODE FAZER](2026-09-10-OS-GESTOS-QUE-SO-ELA-PODE-FAZER.md)
