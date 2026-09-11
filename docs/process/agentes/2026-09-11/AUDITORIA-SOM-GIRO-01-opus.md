@@ -160,3 +160,152 @@ Ela acusou o MEU arquivo, na MINHA linha, com o nome que eu inventei.
 5. **A SOM-BOTOES-01, que corre nesta mesma leva, tem a medição que precisa** —
    três das quatro rotas fazem a mesma coisa no fone, com as palavras dela no
    ensaio `folha-rota-todas-mono-no-fone-cabo-0909`. Está na §8.2 do documento.
+
+---
+
+## O reparo de 11/09
+
+A entrega voltou do conferente adversarial. Ele **reproduziu e confirmou** o que
+sustenta a auditoria — `celulas=48 destino_jogo=18 ja_no_degrau_do_jogo=0`, o
+`0 de 227` da coluna `ponte`, os cinco greps, os cinco instrumentos, os doze
+ensaios citados, os 56 portões e a mordida do `referencias-docs` — e devolveu por
+**quatro afirmações que a medição derruba**, mais duas de contagem e uma de
+guarda. **As sete fecharam, e nenhuma linha de produto foi tocada.**
+
+**O padrão das quatro primeiras é um só, e é o da casa:** *a afirmação respondia
+sobre outra coisa que não o que a frase prometia* — a máscara respondendo pelo nó
+do físico, o LED respondendo pelas células de áudio, o inode do vpad respondendo
+por chaves de `evdev`.
+
+### [ALTA] §5 — «é o único caminho com giroscópio em Virtual» era falso
+
+**O que a árvore mede.** `core/virtual_motion.py` (a medição de 04/09, SDL 2.30.0
+headless, um DualSense no cabo): *"em Virtual o nó de movimento do FÍSICO
+continua livre e publicando, ao lado do espelho"*, e o `EVIOCGRAB` de
+`daemon/sensor_hub.py` existe porque *"alcança o consumidor evdev direto, nos
+DOIS modos"*. No mapa, `movimento.giroscopio@dualsense` tem `canal = evdev` nos
+dois transportes e `cabo_detalhe = «Existe mesmo com a emulação desligada»`. **O
+nó de movimento do físico não depende de máscara nenhuma.**
+
+**O que fiz.** A tabela das máscaras passou a ter **duas** colunas de movimento —
+*pelo vpad* e *pelo nó do FÍSICO* — e as três máscaras dizem «livre e publicando»
+na segunda. Acima dela, uma **CORREÇÃO DE FATO** nomeando a frase derrubada e
+citando as duas medições. **O que a máscara decide é o caminho do vpad, e só
+ele.**
+
+**E o alcance não cresceu para o outro lado:** a mesma página mede que o **SDL
+não enumera** o nó de movimento (`SDL_NumJoysticks` devolve só os controles; o nó
+carrega `ID_INPUT_ACCELEROMETER`). Quem lê por ali é o consumidor evdev direto —
+`evtest`, emuladores. Ficou escrito, com o degrau: `MONTOU` nos dois transportes,
+e dentro do jogo, em qualquer máscara, **não medido**.
+
+Com isso some a contradição que o conferente apontou: a §3 lista
+`movimento.giroscopio` (evdev) com destino JOGO, e a §9.4 diz que nenhum ensaio
+pode ser relido como prova sobre máscara. As três frases agora dizem a mesma
+coisa.
+
+### [ALTA] §2 — o resumo contradizia a própria tabela, nos dois números
+
+**Recontado no mapa**, as 24 células das doze chaves `audio.@dualsense`:
+
+    O APARELHO OBEDECEU = 2    SAIU NO FIO = 3    MONTOU = 12    sem registro = 7
+
+O parágrafo dizia «três … e duas», e **a causa era uma só**: as duas células que
+eu contei do LED são de `luz.led_microfone`, família `luz.`, que **nunca esteve
+entre as 24** — enquanto `audio.alto_falante` no cabo, que está, ficou de fora do
+parêntese. O resumo virou **tabela com os nomes de cada célula**, mais uma
+CORREÇÃO DE FATO dizendo o que estava errado e por quê.
+
+### [MEDIA] §J1 — o gesto prometia o que o instrumento não alcança
+
+Das nove chaves de destino JOGO destas famílias, **seis são `uhid`** e **três são
+`evdev`** — medido com `DIRECAO_POR_CANAL` sobre o mapa. O inode do vpad responde
+pelas seis (`toque.touchpad`, `.clique`, `movimento.giroscopio.jogo`,
+`.acelerometro.jogo`, `movimento.giroscopio.taxa`, `audio.jack.deteccao`), que
+viajam no mesmo nó. **Não responde pelas três de `evdev`**
+(`movimento.giroscopio`, `movimento.acelerometro`, `toque.touchpad.cursor`): elas
+viajam pelo nó que o kernel publica para o controle FÍSICO — está no
+`cabo_codigo_ref` das três células (`core/evdev_reader.py`,
+`discover_dualsense_motion_evdevs` e `_discover_dualsense_por_nome` com o
+marcador «Touchpad»).
+
+O J1 passou a dizer as seis pelo nome e a dizer, em parágrafo próprio, **o que
+ele não alcança**. E o repasse ao J2 ficou honesto em vez de confortável: o J2
+mede o que um consumidor **SDL** recebe, e o consumidor **evdev direto** daquele
+nó **não tem gesto nesta lista** — fica como buraco declarado, não como gesto
+prometido. O fecho do J1 («as nove linhas mudam de dono») virou «as seis chaves
+de `uhid`».
+
+### [MEDIA] §5 — o microfone sob a máscara Xbox, no presente do indicativo
+
+A frase virou **previsão declarada**: o esperado é que o microfone continue
+servindo sob a máscara Xbox (o caminho é PipeWire mais `hidraw`, e nenhum dos
+dois passa pelo vpad), **não medido sob máscara nenhuma** — e a falta tem causa
+escrita: a coluna `ponte` está vazia nos 227 ensaios, logo nenhum ensaio pode ser
+relido como prova de máscara. O degrau de hoje de `audio.microfone` é `SAIU NO
+FIO` nos dois transportes, medido sem máscara declarada, e **o gesto que fecha é
+o J4**.
+
+### [BAIXA] §3 — «as nove chaves» sob uma tabela que marca oito
+
+Virou: **as OITO desta tabela**, mais a nona, que é `audio.jack.deteccao` da §2 —
+a única linha de áudio que chega ao jogo. Nove chaves, 18 células, zero num
+degrau de jogo.
+
+### [BAIXA] §5 — «as DEZ linhas que chegam ao jogo por `uhid`»
+
+Medido: as chaves de movimento e toque com canal `uhid` são **cinco**, e valem
+**dez células**. O documento diz agora as duas contas e nomeia as cinco, com a
+frase que explica o erro: neste vocabulário «linha» é **chave**, e dez era a
+conta de **células**.
+
+### [BAIXA] o contador rodou fora da árvore — e a resposta é declarar, não criar
+
+A `posse:` desta sprint tem **um arquivo**: o documento. Criar um script em
+`scripts/` sem o alargamento colidiria com os outros agentes desta leva, então
+**não criei**. O que fiz foi a outra metade que o conferente ofereceu: o programa
+inteiro está agora na **§12 do documento**, com a saída de hoje, com a mordida
+(uma cópia do mapa no scratchpad, uma célula levada a `O JOGO RECEBEU`: o zero
+vira um) e com o aviso em negrito de que **nenhum portão o recalcula** — o número
+envelhece em silêncio enquanto não tiver dono. **A pergunta do alargamento é
+dela.**
+
+## As mordidas do reparo
+
+**1. O contador continua mordendo, e agora está escrito no documento.**
+
+    COM A CURA (o mapa de verdade):
+      celulas=48 destino_jogo=18 ja_no_degrau_do_jogo=0 | mapa_inteiro=0
+
+    MORDIDA (cópia do mapa no scratchpad, `movimento.giroscopio.jogo`
+    levado a `O JOGO RECEBEU` no cabo):
+      celulas=48 destino_jogo=18 ja_no_degrau_do_jogo=1 | mapa_inteiro=1
+
+    git status --short docs/data/mapa-controles.csv  ->  (vazio: intocado)
+
+**2. O `referencias-docs` reprova o documento REPARADO.** A §12 e o J1 novo
+acrescentaram citações de arquivo (`core/evdev_reader.py`,
+`daemon/sensor_hub.py`, `docs/data/ensaios.csv`), e a régua passou a ter mais o
+que conferir:
+
+    CURA ARRANCADA (uma linha citando `core/evdev_reader_que_nao_existe.py`):
+      1 referência(s) morta(s) em 924 documento(s):
+        docs/process/2026-09-11-A-AUDITORIA-DO-SOM-E-DO-GIROSCOPIO.md:665:
+          core/evdev_reader_que_nao_existe.py  [arquivo]
+      rc=1
+
+    CURA DEVOLVIDA:
+      OK: 924 documento(s) sem referência morta.   rc=0
+
+## Os portões do reparo
+
+    git add -A && bash scripts/portoes.sh  ->  TODOS VERDES — 56 portões
+
+## O que o reparo NÃO fez
+
+- **Não reabri o escopo.** Só os sete achados. Nenhuma seção nova além da §12,
+  que é a guarda do número, e nenhuma linha de produto.
+- **Não criei script fora da posse** (§12 explica), e **não toquei o mapa**: ele
+  segue em `nao_toca`, e o `git status` do arquivo segue vazio.
+- **Nada foi medido no aparelho neste reparo.** Ele é de leitura: o mapa, o
+  caderno e o fonte desta árvore. Os sete gestos da §10 continuam sendo dela.

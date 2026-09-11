@@ -34,6 +34,9 @@ lançador, em nenhuma máscara.* E o número é duro:
 | células do mapa INTEIRO num degrau de jogo (todas as 311 linhas × 2) | **ZERO** | idem |
 | ensaios do caderno que declaram sob qual **ponte** mediram | **ZERO de 227** | `docs/data/ensaios.csv`, coluna `ponte` |
 
+**Os quatro primeiros números saem de um programa, e ele está na §12 — junto com
+o aviso de que NENHUM portão o recalcula.**
+
 A última linha é a mais cara das cinco, e é achado desta auditoria: **nenhum
 ensaio desta casa diz com que máscara foi medido.** A coluna existe desde que a
 escada ganhou os dois degraus de entrada, e nunca foi preenchida — o que quer
@@ -100,9 +103,24 @@ no código, não a promessa da tela.
 | `audio.saida_dedicada.payload_do_degrau` | não (`nada-a-acionar`) / — | não (`so-ela-decide`) / — | não se aplica | aparelho | `sfx-radio-a-bomba-monta-os-dois-arranjos-0907`, `MONTOU` |
 | `audio.leitura_de_volta` | não (`nao-medido`) / — | não (`nao-medido`) / — | — | **sem direção** (canal `outro`) | a célula **espera a palavra dela** desde 02/09 |
 
-**O que a matriz diz de uma vez:** de 24 células de áudio com degrau possível,
-**três** chegaram a `O APARELHO OBEDECEU` (as duas do LED do microfone e a rota
-por cabo) e **duas** a `SAIU NO FIO`. O resto é `MONTOU` ou sem registro.
+**O que a matriz diz de uma vez, e é contagem no mapa.** As 24 células são as
+das **doze chaves `audio.`** — a linha `luz.led_microfone` está na tabela por
+vizinhança de assunto e é família `luz.`: ela **não** entra nesta conta.
+
+| degrau | células | quais |
+| --- | --- | --- |
+| `O APARELHO OBEDECEU` | **2** | `audio.alto_falante` e `audio.alto_falante.rota`, as duas **no cabo** |
+| `SAIU NO FIO` | **3** | `audio.alto_falante` no rádio; `audio.microfone` nos dois transportes |
+| `MONTOU` | **12** | `rota` no rádio, `volume`, `preamp`, `jack.volume`, `jack.deteccao`, `microfone.mudo` (dois transportes cada) e `saida_dedicada` no cabo |
+| sem registro | **7** | `microfone.volume`, `payload_do_degrau` e `leitura_de_volta` (dois cada) e `saida_dedicada` no rádio |
+
+**CORREÇÃO DE FATO — este parágrafo dizia o contrário da tabela acima dele.** Ele
+afirmava *"três chegaram a `O APARELHO OBEDECEU` (as duas do LED do microfone e a
+rota por cabo) e duas a `SAIU NO FIO`"*. Os dois números estavam trocados, e a
+causa é uma só: as duas células do LED são de `luz.led_microfone` e **nunca
+estiveram entre as 24**, enquanto `audio.alto_falante` no cabo, que está, ficou
+de fora do parêntese. Recontado célula a célula no mapa: **2 · 3 · 12 · 7**. O
+programa que conta está na §12, e **o número não tem guarda** — leia lá por quê.
 
 **A assimetria de transporte do áudio é DO APARELHO, não do produto** — e está
 declarada no mapa: por cabo o DualSense é placa USB Audio Class e o descritor
@@ -130,9 +148,12 @@ Doze chaves, `@dualsense`. Mesmas colunas.
 | `toque.touchpad.cursor` | sim / **MONTOU** | sim / **MONTOU** | sim | **JOGO** | `fonte-do-driver`, 31/08 |
 | `toque.touchpad.escrita` | não (`nada-a-acionar`) / — | não (`nada-a-acionar`) / — | — | **sem direção** | nada a acionar |
 
-**As nove chaves cujo destino é o jogo estão TODAS em `MONTOU` ou sem
-registro.** É o mesmo desenho do defeito do touchpad, e ele é o precedente que
-manda desconfiar: *o repasse está íntegro e o jogo não reage.*
+**As OITO chaves desta tabela cujo destino é o jogo estão TODAS em `MONTOU` ou
+sem registro** — e com a nona, que é `audio.jack.deteccao` da §2 (a única linha
+de áudio que chega ao jogo), fecham as **nove** de que o resto deste documento
+fala. Nove chaves, **18 células**, **zero** num degrau de jogo. É o mesmo desenho
+do defeito do touchpad, e ele é o precedente que manda desconfiar: *o repasse
+está íntegro e o jogo não reage.*
 
 **O `movimento.imu.ligar` fecha uma pergunta que volta sempre:** não existe, no
 DualSense, comando de ligar ou desligar a IMU. Logo, em **Nativo** não há byte a
@@ -220,20 +241,58 @@ Uma afirmação sobre «o jogo recebe giroscópio» sem dizer a máscara não é
 afirmação. O tipo fechado é `MascaraDeGamepad` (`profiles/schema.py`), e são
 três.
 
-| máscara | o vpad | movimento | áudio |
-| --- | --- | --- | --- |
-| **DualSense** (`054c:0df2`) | `uhid`, report `0x01` com a janela de motion de 25 bytes | **é o único caminho com giroscópio em Virtual** | indiferente |
-| **Xbox 360** (`045e:028e`) | `uinput` | o pacote do Xbox 360 é fixo desde 2005, sete eixos — **não há onde pôr** | indiferente |
-| **Nintendo Pro** (`057e:2009`) | `uinput` (o `uhid` só nasce para `dualsense`) | idem — **não há onde pôr** | indiferente |
-| **Nativo** (sem vpad) | não há | o jogo lê o `hidraw` do físico; o daemon não está no caminho | indiferente |
+**E a coluna do movimento virou DUAS**, porque os caminhos são dois e só um
+deles é da máscara.
+
+| máscara | o vpad | movimento **pelo vpad** | movimento **pelo nó do FÍSICO** | áudio |
+| --- | --- | --- | --- | --- |
+| **DualSense** (`054c:0df2`) | `uhid`, report `0x01` com a janela de motion de 25 bytes | **o único vpad que carrega giroscópio** | livre e publicando | indiferente |
+| **Xbox 360** (`045e:028e`) | `uinput` | o pacote do Xbox 360 é fixo desde 2005, sete eixos — **não há onde pôr** | livre e publicando | indiferente |
+| **Nintendo Pro** (`057e:2009`) | `uinput` (o `uhid` só nasce para `dualsense`) | idem — **não há onde pôr** | livre e publicando | indiferente |
+| **Nativo** (sem vpad) | não há | não há vpad | livre e publicando — e o jogo lê o `hidraw` do físico, que é quem lhe entrega o giro | indiferente |
+
+**CORREÇÃO DE FATO — esta tabela dizia que a máscara DualSense «é o único caminho
+com giroscópio em Virtual», e a árvore mede o contrário.** O nó de movimento do
+FÍSICO **não depende de máscara nenhuma**: `movimento.giroscopio@dualsense` tem
+`canal = evdev` nos dois transportes e `cabo_detalhe = «Existe mesmo com a
+emulação desligada»`, e `core/virtual_motion.py` mediu em 04/09 (SDL 2.30.0
+headless, um DualSense no cabo) que *"em Virtual o nó de movimento do FÍSICO
+continua livre e publicando, ao lado do espelho"*. O `EVIOCGRAB` de
+`daemon/sensor_hub.py` existe exatamente por isso — ele *"alcança o consumidor
+evdev direto, nos DOIS modos"*. **O que a máscara decide é o caminho do vpad, e
+só ele.**
+
+**E esse nó tem alcance medido, na mesma página, para a afirmação não crescer
+mais do que deve:** o SDL **não enumera** o nó de movimento —
+`SDL_NumJoysticks` devolve só os controles, e o nó carrega
+`ID_INPUT_ACCELEROMETER`, que o SDL pula. Quem lê por ali é o **consumidor evdev
+direto** (`evtest`, emuladores). **Degrau das duas chaves de movimento que andam
+por `evdev` — `movimento.giroscopio` e `movimento.acelerometro`: `MONTOU` nos
+dois transportes; dentro do jogo, em qualquer máscara, não medido.**
 
 **A assimetria que esta auditoria quer deixar escrita:** *o som não depende da
-máscara e o movimento depende inteiramente dela.* O som do controle é um nó do
-PipeWire mais uma escrita por `hidraw` — nenhum dos dois passa pelo vpad, e por
-isso o microfone do DualSense continua servindo **sob a máscara Xbox**, que é
-exatamente o princípio que ela nomeou em 05/09: *a máscara não custa feature*.
-O movimento não tem essa sorte: as dez linhas que chegam ao jogo por `uhid` só
-existem na máscara DualSense.
+máscara; o movimento **pelo vpad** depende inteiramente dela.* O som do controle
+é um nó do PipeWire mais uma escrita por `hidraw`, e nenhum dos dois passa pelo
+vpad.
+
+**Daí a previsão do microfone — e ela é previsão, não medição.** O esperado é que
+o microfone do DualSense continue servindo sob a máscara Xbox, que é o princípio
+que ela nomeou em 05/09: *a máscara não custa feature*. **Não medido sob máscara
+nenhuma**, e a falta não é de atenção: a coluna `ponte` está vazia nos 227
+ensaios (§0), então nenhum ensaio desta casa pode ser relido como prova de
+máscara. O degrau de hoje de `audio.microfone` é **`SAIU NO FIO`** nos dois
+transportes, medido sem máscara declarada. **O gesto que fecha é o J4**, com o
+jogo aberto e a máscara dita em voz alta.
+
+**O movimento não tem essa sorte, e o número é POR CHAVE.** Das nove chaves de
+destino JOGO destas famílias, **seis** andam por `uhid` — e essas seis só existem
+na máscara DualSense; as **três** de `evdev` não dependem de máscara. Nas
+famílias de movimento e toque, as de `uhid` são **cinco**
+(`movimento.giroscopio.jogo`, `movimento.acelerometro.jogo`,
+`movimento.giroscopio.taxa`, `toque.touchpad` e `toque.touchpad.clique`), que
+valem **dez células**. Esta frase dizia *"as dez linhas que chegam ao jogo por
+`uhid`"*: no vocabulário deste documento «linha» é **chave**, e dez era a conta
+de **células**.
 
 **E a escada de pontes conhece DUAS das três.** `integrations/ponte_escada.py`
 tem quatro degraus — `gamepad/dualsense`, `gamepad/xbox`, `native`,
@@ -437,14 +496,34 @@ precisa, e o que destrava. **Eles não repetem** os sete gestos de
 direção de SAÍDA — estes são a coluna do JOGO, que nenhum deles cobre.
 
 ### J1 · O touchpad dentro do jogo, no rádio — 15 min, 1 controle, 1 jogo
-**Destrava:** a causa mais antiga em aberto desta família (16/08) e, com ela, a
-credibilidade das outras oito linhas `uhid`.
-Com o jogo aberto e a máscara DualSense, rode
+**Destrava:** a causa mais antiga em aberto desta família (16/08) e, com ela, as
+**seis** chaves que chegam ao jogo por `uhid` — `toque.touchpad`,
+`toque.touchpad.clique`, `movimento.giroscopio.jogo`,
+`movimento.acelerometro.jogo`, `movimento.giroscopio.taxa` e
+`audio.jack.deteccao`. As seis viajam no MESMO nó, e é por isso que **uma**
+medição de inode responde por todas.
+
+**E o que ele NÃO alcança — escrito aqui para ela não gastar o gesto esperando
+demais.** As outras três chaves de destino JOGO — `movimento.giroscopio`,
+`movimento.acelerometro` e `toque.touchpad.cursor` — têm canal **`evdev`** e
+viajam pelo nó que o kernel publica para o controle **FÍSICO**
+(`core/evdev_reader.py`: `discover_dualsense_motion_evdevs` para as duas de
+movimento, `_discover_dualsense_por_nome` com o marcador «Touchpad» para o
+cursor — é o `cabo_codigo_ref` das três células). **O inode do vpad não toca
+nesse nó**, e nenhum resultado do J1 diz coisa alguma sobre as três.
+
+**E quem responde por elas responde só em parte, o que também tem de ficar
+escrito.** O **J2** mede o que um consumidor **SDL** recebe — e SDL é o que quase
+todo jogo é. O consumidor **evdev direto** daquele nó (`evtest`, emuladores)
+**não tem gesto nesta lista**, e a §5 diz a causa medida: o SDL não enumera o nó
+de movimento. Fica como buraco declarado, não como gesto prometido.
+
+**O gesto:** com o jogo aberto e a máscara DualSense, rode
 `scripts/ensaios/o_jogo_segura_o_nosso_no.py`. Se o inode do nosso vpad
 **estiver** em `/proc/<pid>/fd` da árvore do jogo e o dedo continuar sem
 resposta, a falha é DEPOIS do vpad e o alvo encolheu de «tudo» para «o que o
 jogo faz com o report». Se **não estiver**, o defeito é de ponte, não de
-touchpad — e as nove linhas mudam de dono no mesmo gesto.
+touchpad — e as **seis** chaves de `uhid` mudam de dono no mesmo gesto.
 
 ### J2 · O giroscópio dentro do jogo, nas três máscaras — 30 min, 1 controle
 **Destrava:** `movimento.giroscopio.jogo` e `.acelerometro.jogo`, os dois
@@ -513,3 +592,73 @@ mais confortável desta casa — a de que o repasse ao vpad basta.
 - **Não confirmei se a permissão de som do Flatpak está de fato ausente** em
   algum dos cinco lançadores dela. O que está medido é que o **produto não olha**
   para ela (§6.5).
+
+---
+
+## §12 — O CONTADOR, e o aviso de que ele NÃO TEM GUARDA
+
+**O `48 / 18 / 0` da §0 é medição, não impressão — mas nada nesta árvore o
+recalcula amanhã.** O programa abaixo rodou fora da árvore (num rascunho de
+sessão) e por isso está escrito aqui, inteiro: enquanto ele não virar arquivo em
+`scripts/`, **o número envelhece em silêncio**. É o mesmo defeito que esta casa
+já pagou três vezes — *a régua mede o mundo de ontem* —, e fica declarado em vez
+de escondido.
+
+Ele não digita degrau nem direção: pergunta os dois ao dono executável,
+`DIRECAO_POR_CANAL` de `scripts/check_paridade_transporte.py`, e lê as células de
+`docs/data/mapa-controles.csv`.
+
+```python
+import csv, pathlib, importlib.util, sys
+
+spec = importlib.util.spec_from_file_location("cpt", "scripts/check_paridade_transporte.py")
+cpt = importlib.util.module_from_spec(spec)
+sys.modules["cpt"] = cpt
+spec.loader.exec_module(cpt)
+
+JOGO = {"O JOGO RECEBEU", "O JOGO REAGIU"}
+rows = list(csv.DictReader(pathlib.Path("docs/data/mapa-controles.csv").open(encoding="utf-8")))
+alvo = [r for r in rows
+        if r["controle"] == "dualsense"
+        and r["chave"].startswith(("audio.", "movimento.", "toque."))]
+
+celulas = destino_jogo = no_degrau = 0
+for r in alvo:
+    for t in ("cabo", "radio"):
+        celulas += 1
+        if cpt.DIRECAO_POR_CANAL.get(r[f"{t}_canal"]) == cpt.DIRECAO_ENTRADA:
+            destino_jogo += 1
+            if r[f"{t}_ate_onde_foi"].strip() in JOGO:
+                no_degrau += 1
+
+mapa_inteiro = sum(1 for r in rows for t in ("cabo", "radio")
+                   if r[f"{t}_ate_onde_foi"].strip() in JOGO)
+print(f"celulas={celulas} destino_jogo={destino_jogo} "
+      f"ja_no_degrau_do_jogo={no_degrau} | mapa_inteiro={mapa_inteiro}")
+```
+
+**A saída de hoje, 11/09/2026, nesta árvore:**
+
+    celulas=48 destino_jogo=18 ja_no_degrau_do_jogo=0 | mapa_inteiro=0
+
+**E ele MORDE.** Numa CÓPIA do mapa, fora da árvore, com
+`movimento.giroscopio.jogo` levado a `O JOGO RECEBEU` no cabo:
+
+    celulas=48 destino_jogo=18 ja_no_degrau_do_jogo=1 | mapa_inteiro=1
+
+O zero vira um quando UMA célula sobe. Se o contador fosse cego, os dois lados
+dariam o mesmo número. **`docs/data/mapa-controles.csv` não foi tocado** — ele
+está em `nao_toca` desta sprint.
+
+**A quinta linha da §0 se confere com duas linhas, e também não tem guarda:**
+
+```python
+import csv, pathlib
+e = list(csv.DictReader(pathlib.Path("docs/data/ensaios.csv").open(encoding="utf-8")))
+print(len(e), sum(1 for r in e if (r.get("ponte") or "").strip()))   # 227 0
+```
+
+**O que falta para o número ter dono, e é uma frase:** a `posse` desta sprint tem
+um arquivo só — este documento. Criar o contador em `scripts/` e pendurá-lo no
+`scripts/portoes.sh` é trabalho de UMA hora, e **precisa do alargamento da posse**
+para não colidir com os outros agentes desta leva. **A pergunta é dela.**
