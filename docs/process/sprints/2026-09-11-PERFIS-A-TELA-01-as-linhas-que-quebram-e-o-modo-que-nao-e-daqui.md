@@ -1,6 +1,6 @@
 ---
 sprint: PERFIS-A-TELA-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   PERFIS-A-TELA-01:
@@ -17,6 +17,8 @@ nao_toca:
 ---
 
 # PERFIS-A-TELA-01 — as linhas dos controles que quebram, e o Modo que não é daqui
+
+> **ESTADO 2026-09-11: feita** — o quadro «Modo» saiu do editor de Perfis (e o gesto `editor_modo` com ele), as quatro linhas da tabela «Ajuste próprio» passaram a caber **com a tira do desfecho acesa** (118px de espaço para 107 pedidos, contra −29px antes), e a coluna do nome voltou a se centrar na linha — o `<td>` era `display:flex` e por isso perdia o `vertical-align:middle`, um desalinho que a própria cura da altura levaria de 3,13 para 8,13px. Publicado com `--publicar 10`. A entrega está em `docs/process/agentes/2026-09-11/PERFIS-A-TELA-01-opus.md`.
 
 **Duas queixas dela, 11/09/2026, na mesma aba e no mesmo arquivo.** Por isso uma
 sprint só: separá-las poria dois agentes no `aba10.py` ao mesmo tempo.
