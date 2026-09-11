@@ -87,6 +87,34 @@ A linha `aba10.py:1643` já avisa que *"«Modo que liga» e «O jogo vê o contr
 como» não estão desenhados aqui"*. Confira se a saída do quadro deixa o texto
 dessa lista mentindo — se deixar, ele é seu no mesmo commit.
 
+### §3.1 — A PERDA, MEDIDA E DECLARADA (11/09/2026, na conferência)
+
+**Esta seção dizia que "o que muda é quem EDITA", e isso estava certo pela
+metade.** A conferência adversarial mediu o que sobrou, e sobrou MENOS do que a
+frase acima sugere. A entrega fechou a §4 inteira e esta é a conta do que ela
+custou — a ordem dela NÃO se desfaz por causa disto:
+
+| o que a janela GTK fazia | quem faz hoje |
+| --- | --- |
+| escrever `mode` de **qualquer** perfil, ativo ou não | **ninguém.** `pacotes/perfil.gravar_o_modo_no_ativo:453` resolve o alvo por `nome_do_ativo(state)` — só o perfil que está VALENDO recebe |
+| escrever **«Não mexer no modo»** (remover a seção) | **ninguém.** Os quatro gestos da aba Jogar (`a01_jogar.py:2134`, `:2266`, `:2286`, `:2390`) passam `gamepad`/`native`/`desktop`, nunca `"none"` |
+| abrir a linha da máscara junto com «Jogar pelo Hefesto» | a aba Jogar, pelos chips — e já era assim antes desta sprint |
+
+**O CUSTO, em uma frase:** quem tem um perfil com `mode` gravado e quiser
+trocá-lo precisa **ativar o perfil primeiro**; quem quiser apagar a seção não
+tem caminho de tela nenhum.
+
+**ONDE ISSO MORA, e não é na tela.** A dívida está em
+`docs/data/paridade-gtk-html.csv:384`, que voltou a `FALTA_NO_HTML` no mesmo
+commit — o veredito que ela tinha antes de o quadro nascer, com o alcance agora
+medido. O custo está declarado no docstring de `gravar_o_modo_no_ativo`, que é
+onde a próxima pessoa lê. **Na interface, nada:** *"o layout não informa os
+nossos defeitos"*, palavra dela de 07/09/2026.
+
+**O QUE NÃO SE FAZ POR CONTA PRÓPRIA:** reinventar o quadro noutro lugar da aba
+Perfis. A ordem dela é clara e esta sprint a cumpre. Se a falta incomodar, a
+pergunta que é dela está na §5.
+
 ## §4 — O QUE ENTREGAR
 
 1. **A medição primeiro**, com a ponte JS e `--oculta`: a altura pedida pelas
@@ -104,4 +132,10 @@ dessa lista mentindo — se deixar, ele é seu no mesmo commit.
 ## §5 — O QUE É DELA
 
 **O olho.** A tela só fecha com a foto antes/depois e a palavra dela. Entregue
-as duas fotos no relatório, `--oculta` nas duas.
+as duas fotos no relatório, `--oculta` nas duas — e a do **antes** com a tira do
+desfecho ACESA, que é o estado em que ela viu a tabela quebrar.
+
+**A pergunta que sobrou da §3.1, e é uma só:** com o quadro «Modo» fora de
+Perfis, trocar o modo de um perfil exige ativá-lo antes, e apagar a seção não
+tem tela — isso fica assim, ou a aba **Jogar** ganha onde escolher o modo de um
+perfil que não está valendo?

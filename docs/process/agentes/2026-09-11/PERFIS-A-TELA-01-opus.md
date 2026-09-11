@@ -139,8 +139,10 @@ paga mais caro.
 dizia *"QUEM JÁ FAZIA ISTO CERTO: `interface/perfis_vivos.mesa_de_agora`"*. Ele
 fazia o CONTRÁRIO. A frase foi reescrita com a medição.
 
-**E ISSO EXPLICA A DIFERENÇA ENTRE AS DUAS FOTOS que NÃO é o meu conserto:** na
-foto do ANTES a coluna «Perfis Salvos» aparece estreita e a «Definições» larga.
+**E ISSO EXPLICAVA A DIFERENÇA ENTRE O PRIMEIRO PAR DE FOTOS que NÃO era o meu
+conserto** — no par refeito pelo reparo ela não aparece mais, porque o ANTES foi
+fotografado com o instrumento já curado: na foto do ANTES original a coluna
+«Perfis Salvos» aparecia estreita e a «Definições» larga.
 Era o texto com marcação, que é longo e `nowrap`, esticando a coluna da direita.
 Medido nas páginas estáticas, a grade `1fr 1fr` dá **562,5px / 562,5px** ANTES e
 DEPOIS, e no publicado de ontem também. **Nenhuma proporção do desenho dela
@@ -255,10 +257,9 @@ e a razão está escrita lá.
 
 ### As duas fotos, `--oculta` nas duas
 
-* antes: `perfis_vivos.py --oculta --segundos 6 --foto` — com o quadro Modo, as
-  linhas apertadas em 21px, e a marcação vazada da bancada;
-* depois: as mesmas quatro linhas, sem o quadro, a 31,25px, alinhadas, e o
-  rótulo em texto.
+**AS DUAS FORAM REFEITAS NO REPARO, e as primeiras não serviam** — elas
+mostravam a tira do desfecho APAGADA, que é o estado em que a tabela já cabia.
+O par que vale está descrito no achado 5 de `## O reparo de 11/09`.
 
 Os PNG ficaram no scratchpad da sessão (`/tmp/claude-1000/…/scratchpad/w/`,
 `ANTES-piloto.png` e `DEPOIS-piloto.png`) — **a palavra final é dela**, e esta
@@ -306,8 +307,211 @@ entrega não a substitui.
    exige mexer em `scripts/portoes.sh` **e** no `ci.yml` (o portão do portão
    compara os dois), e isso é colisão garantida numa leva com seis frentes. Fica
    para quem costurar.
-4. **`perfis_web.MODO_DO_PERFIL` perdeu um dos dois leitores.** Com o
-   `editor_modo` fora, quem lê o dicionário é só o `_pacote_do_editor` e a aba
-   Jogar. Se a Jogar não o usar, ele vira tabela sem leitor — não medi a Jogar.
+4. **FATO ERRADO, SUBSTITUÍDO — `perfis_web.MODO_DO_PERFIL` perdeu os DOIS.**
+   Aqui estava escrito *"quem lê o dicionário é só o `_pacote_do_editor` e a
+   aba Jogar"*. **Nenhum dos dois lia.** O `_pacote_do_editor` publica o `kind`
+   cru, e a aba Jogar tem léxico próprio (`jogar/painel._ROTULO_DO_MODO`, que é
+   `home_actions._MODE_ITEMS`). A cópia morreu no reparo, com a lápide — ver
+   `## O reparo de 11/09`, achado 4.
 5. **A foto é dela.** PROVA-DE-TELA-01: a palavra final é o olho dela sobre as
    duas fotos.
+
+---
+
+## O reparo de 11/09
+
+A entrega voltou do conferente adversarial com **cinco achados**. Os cinco
+fecharam, e a ordem dela — *"em perfis ainda aparece modo. Isso deve aparecer só
+na aba jogar."* — não foi desfeita em nenhum deles: o quadro «Modo» continua
+fora do editor de Perfis.
+
+**O QUE ATRAVESSA TRÊS DOS CINCO, e é uma frase só:** *a retirada foi bem feita
+e a PROSA em volta dela ficou descrevendo o mundo de ontem.* A legenda, a linha
+384 do CSV da paridade e o comentário do `MODO_DO_PERFIL` — os três afirmavam um
+mundo em que o quadro ainda existia ou em que outra tela o substituía. Nenhum
+deles é código; todos os três passavam por portão verde.
+
+### 1 · A LEGENDA MENTIA, e a régua nova exigia a mentira
+
+**O que estava escrito** (`aba10.py:1570`, publicado em
+`paginas/10-perfis.html:2353`):
+
+> O que o perfil já guarda continua guardado: **quem o escolhe é a Jogar.**
+
+**Medido, e é falso:** `pacotes/perfil.gravar_o_modo_no_ativo:453` resolve o
+alvo por `nome_do_ativo(state)`, logo a aba Jogar escreve a seção `mode` **só do
+perfil que está VALENDO**. Para um perfil que ela seleciona na lista e não
+ativou, tela nenhuma escolhe modo. E os quatro gestos que alimentam aquele
+escritor (`a01_jogar.py:2134`, `:2266`, `:2286`, `:2390`) passam
+`gamepad`/`native`/`desktop` — **nunca `"none"`**.
+
+**O que passou a estar escrito:**
+
+> O que este perfil já guarda continua guardado — nenhum botão desta aba mexe
+> nisso. **Quem escreve o modo é a Jogar, e ela escreve no perfil que está
+> valendo.**
+
+A frase diz o ALCANCE e para no fato. **O que ela NÃO diz é o que falta**, e
+isso é decisão dela de 07/09: *"o layout não informa os nossos defeitos"*. A
+falta está declarada no mapa da paridade e no código — não na tela.
+
+**A régua virou junto** (`aba10._conferir`): a exigência que existia cobrava só
+que a legenda nomeasse o quadro. Agora ela cobra o alcance escrito e **proíbe a
+frase larga de voltar**.
+
+**A MORDIDA:** devolvi a redação antiga e regerei numa bancada temporária
+(`HEFESTO_BANCADA`, sem tocar a bancada dela):
+
+```
+ERRO em 10-perfis — decisão dela desfeita:
+  - a legenda perdeu o ALCANCE do que a aba Jogar escreve — sem ele a frase
+    promete que a Jogar escolhe o modo de QUALQUER perfil, e o escritor
+    (`pacotes/perfil.gravar_o_modo_no_ativo`) só alcança o perfil ativo
+  - a frase larga voltou à legenda — ela afirma que a Jogar escolhe o modo de
+    qualquer perfil, e a Jogar grava só no que está valendo
+```
+
+Devolvida a redação certa: `rc=0`, e `--publicar 10` levou a frase à página.
+
+### 2 · A PERDA DE CAPACIDADE, declarada nos três lugares onde se lê
+
+Com o `editor_modo` fora e a janela GTK aposentada
+(`D-0609-GTK-LEVA-INTEIRA`), **não sobrou nenhum caminho de interface que
+escreva `Profile.mode` de um perfil que não está ativo** — e «Não mexer no modo»
+ficou inalcançável para qualquer perfil que já tenha seção.
+
+| a janela GTK fazia | quem faz hoje |
+| --- | --- |
+| escrever `mode` de qualquer perfil | **ninguém** — o escritor resolve por `nome_do_ativo(state)` |
+| remover a seção («Não mexer no modo») | **ninguém** — nenhum chamador passa `"none"` a `secao_do_modo` |
+
+**O CUSTO:** trocar o modo de um perfil exige **ativá-lo antes**; apagar a seção
+não tem caminho de tela.
+
+Declarado em três lugares, e cada um por um motivo:
+
+* **`interface/pacotes/perfil.py`**, no docstring de `gravar_o_modo_no_ativo` —
+  é onde a próxima pessoa que mexer no escritor lê;
+* **a sprint**, §3.1 nova — ela dizia *"o que muda é quem EDITA"*, e isso estava
+  certo pela metade;
+* **`docs/data/paridade-gtk-html.csv:384`** — é o mapa, e é o lugar da dívida.
+
+**O quadro NÃO foi reinventado em outro canto da aba.** A pergunta que sobra é
+dela e está escrita em uma frase na §5 da sprint.
+
+### 3 · O MAPA DESCREVIA O MUNDO DE ONTEM, e o portão estava cego por PROSA
+
+A linha 384 dizia `veredito=DIFERENTE`, `sinal=editor_modo`,
+`sinal_espera=PRESENTE`, e apontava `a10_perfis.py:2442` e `aba10.py:885` — os
+dois endereços mortos desde o commit anterior. **`check_paridade_gtk_html.py`
+dava `rc=0`** porque a regra `sinal-sumiu` usa `ocorre` (que conta PROSA de
+propósito, por 82 linhas legítimas), e o único `editor_modo` que restava era a
+**lápide em comentário** de `a10_perfis.py:2509`. É a armadilha
+`D-0609-O-SINAL-DA-PARIDADE-NAO-E-PROSA` mordendo do lado de dentro da régua.
+
+A linha foi remedida para o mundo de hoje:
+
+| campo | era | é |
+| --- | --- | --- |
+| `veredito` | `DIFERENTE` | **`FALTA_NO_HTML`** |
+| `sinal` | `editor_modo` (símbolo do lado HTML) | **`_mode_section_from_editor`** (símbolo da GTK) |
+| `sinal_espera` | `PRESENTE` | **`AUSENTE`** |
+| `sinal_escopo` | `a10_perfis.py` | **`LADO-HTML`** |
+| `html_onde` | dois endereços mortos | `perfil.py:453` · `perfis_web.py:504` · `a10_perfis.py:565` |
+| `html_faz` | *"Quadro Modo com as MESMAS quatro escolhas"* | o que sobrou, com os dois limites medidos |
+
+**A troca do sinal não é cosmética, e é o que tira a cegueira:** com
+`sinal_espera=AUSENTE` quem lê passa a ser a regra `divida-fechada`, que usa
+`usa()` — e `usa()` **não conta comentário nem docstring**. O meu próprio
+docstring novo em `perfil.py` cita `_mode_section_from_editor` e a régua o
+ignora, como deve.
+
+**A MORDIDA:** simulei a dívida fechando — uma linha de código real (não prosa)
+no lado HTML referenciando o símbolo:
+
+```
+divida-fechada: paridade-gtk-html.csv:384  [10-perfis] A seção "Modo" do perfil…
+    o sinal '_mode_section_from_editor' APARECEU em …/pacotes/a10_perfis.py.
+    O CSV diz FALTA_NO_HTML e o lado HTML passou a ter o símbolo.
+```
+
+Arrancada a mordida, `rc=0`. **E o portão mordeu sozinho no caminho**: a regra
+`numero-publicado` reprovou a tabela de `2026-09-03-O-TERCEIRO-NUMERO` no mesmo
+instante em que o veredito mudou — `10-perfis` 20/7 → **19/8**, `TODAS` 160/29 →
+**159/30**, com a paridade intacta em 28% e 36%. A tabela foi atualizada.
+
+### 4 · `MODO_DO_PERFIL` era peça sem chamador — saiu com a lápide
+
+`perfis_web.MODO_DO_PERFIL` era `dict(profiles_actions._MODE_KIND_ITEMS)`: os
+quatro rótulos servidos à página por `id → rótulo`. **Quem o consumia era o
+quadro**, e o quadro saiu. Medido depois disso: `grep` em `src/` acha só a
+definição; os únicos leitores eram **asserções de teste**.
+
+**A afirmação que caiu é minha, do relatório anterior:** eu escrevi que a aba
+Jogar seria a segunda leitora. Ela não é — a Jogar tem léxico próprio
+(`jogar/painel._ROTULO_DO_MODO`, que é `home_actions._MODE_ITEMS`, a MESMA
+frase-dona alcançada por outro caminho). **Nada se perdeu com a morte da cópia.**
+
+O comentário de sete linhas acima dela também afirmava o consumidor apagado
+(*"quem consome é a página, por `id → rótulo`"*). Os dois saíram juntos, e no
+lugar ficou a lápide com a medição. O `import` de `_MODE_KIND_ITEMS` saiu com
+eles.
+
+**O QUE NÃO FIZ, e é a escolha que importa:** derivar `MODO_SEM_OPINIAO` de
+`next(iter(...))` do dono daria um chamador ao dicionário e teria sido a cura
+preguiçosa. Ela **desligaria a régua**: uma reordenação da lista do dono trocaria
+em silêncio o id com que `secao_do_modo` REMOVE a seção, e o teste passaria a se
+medir contra a própria saída. O literal fica, e a razão está escrita ao lado
+dele.
+
+A régua mudou de alvo em vez de morrer:
+`test_os_quatro_rotulos_continuam_vindo_do_dono` virou
+`test_o_perfil_sem_opiniao_e_o_primeiro_par_do_dono` e pergunta ao DONO.
+
+**A MORDIDA:** movi `("none", "Não mexer no modo")` para o fim de
+`_MODE_KIND_ITEMS` —
+
+```
+AssertionError: «Não mexer no modo» deixou de ser o primeiro par do dono …
+assert 'desktop' == 'none'
+```
+
+— e devolvi. Os 11 testes do arquivo, verdes.
+
+### 5 · AS FOTOS AGORA MOSTRAM O DEFEITO DELA
+
+As duas primeiras não serviam: na `ANTES-piloto.png` a tira do desfecho estava
+**apagada**, que é justamente o estado em que a tabela já cabia. A queixa dela é
+o outro estado — o que dura **30 segundos a cada gesto**.
+
+O par novo, no piloto, `--oculta` nas duas, com a tira **acesa** nas duas:
+
+| | `ANTES-tira-acesa.png` | `DEPOIS-tira-acesa.png` |
+| --- | --- | --- |
+| a tira | acesa — *"Perfil salvo: Mortal Kombat"* | acesa, a mesma |
+| o quadro «Modo» | presente, a fileira de quatro botões | fora |
+| a tabela | **rola 36px**, P3 cortada ao meio, **P4 invisível** | as quatro linhas inteiras |
+| o quadro tem / as linhas pedem | 78px / 107px — **faltam 29** | 118px / 107px — **sobram 11** |
+| desalinho das três colunas | até 3,13px | 1,50px |
+
+Os números saem do ensaio versionado, rodado nas duas páginas:
+
+```
+bancada  · com a tira : quadro  78px · pedem 107px · sobra -29 · rola 36 · linha 21px    ← ANTES
+publicada· com a tira : quadro 118px · pedem 107px · sobra  11 · rola  0 · linha 22px    ← HOJE
+```
+
+Os PNG estão no scratchpad da sessão (`…/scratchpad/w/ANTES-tira-acesa.png` e
+`DEPOIS-tira-acesa.png`). **A palavra final continua sendo dela**
+(PROVA-DE-TELA-01).
+
+### O que este reparo NÃO tocou
+
+* **A aba Jogar.** Continua não sendo desta sprint. O que foi feito nela é
+  **medir**, não mexer: os quatro gestos foram lidos para saber o alcance real
+  do que a legenda promete.
+* **O quadro, em qualquer outro canto.** A ordem dela é clara; a falta foi
+  declarada, não remendada.
+* **A tela dela, instalada.** Nada foi instalado e o daemon não foi reiniciado.
+* **A suíte inteira.** Rodei os arquivos do escopo; os doze lotes são de quem
+  costura.
