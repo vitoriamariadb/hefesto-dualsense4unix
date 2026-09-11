@@ -12,15 +12,31 @@ chamados como o piloto os chama. O lar foi de mentira — `HOME` e os quatro
 
 ## §0 — A RESPOSTA EM UMA FRASE
 
-**Num perfil de jogo, a aba Jogar guarda o MODO no clique e guarda a MÁSCARA de
-cada controle no clique — e o «Salvar Perfil» não destrói nenhum dos dois; o
-que ele faz, com o daemon calado, é RECUSAR: ele pergunta o perfil ativo a um
-lugar que a casa inteira já parou de perguntar.**
+**Num perfil de jogo, a aba Jogar guarda o MODO no clique, sempre; guarda a
+MÁSCARA no clique SÓ SE o daemon souber dizer qual perfil está ativo; e o
+«Salvar Perfil» não destrói nenhum dos dois — o que ele faz, com o daemon
+calado, é RECUSAR.** Os três caem no mesmo lugar: **perguntam o perfil ativo a
+uma perna só** — a do daemon — quando a casa inteira já pergunta às duas.
 
-E há dois buracos ao lado, nenhum deles de perda: o quarto chip da fileira
-(**Steam Input**) não tem quem o atenda e não grava nada; e **sem perfil ativo o
-clique não grava em lugar nenhum, calado** — a tela não diz que a escolha não
-foi guardada.
+**A CONDIÇÃO DA MÁSCARA NÃO É DETALHE, e ela foi medida na segunda perna:** com
+o daemon **de pé e respondendo**, mas com `active_profile: null`, e os
+marcadores no disco valendo, a mesma corrida dá
+
+```
+MODO    → grava:  "mode": {"kind":"gamepad","gamepad_flavor":"xbox"}
+MÁSCARA → NÃO grava:  {'perfil': None, 'gravado': False, 'motivo': 'sem_perfil'}
+          o .json fica byte-idêntico · "controllers": null
+```
+
+**E ela não é avisada.** O daemon devolve o motivo; a ponte o joga fora
+(`pacotes/ponte.py:180`, `ok, _ = _safe_call(...)`). O chip acende, a resposta
+é `status: ok`, e o perfil não recebeu nada. **É a forma exata que custou 04/09
+e 05/09** — a máscara que nunca gravou um byte, e o Salvar que destruía depois
+de a aba ter gravado certo.
+
+E há dois buracos ao lado: o quarto chip da fileira (**Steam Input**) não tem
+quem o atenda e não grava nada; e **sem perfil ativo nenhum o clique do modo
+também não grava em lugar nenhum, calado**.
 
 ---
 
@@ -29,7 +45,7 @@ foi guardada.
 | # | a pergunta | veredito | onde para, no JSON | arquivo lido |
 | --- | --- | --- | --- | --- |
 | 1 | o clique na fileira «Modo» grava? | **sobrevive** | `mode.kind` + `mode.gamepad_flavor` | `…/profiles/mortal_kombat.json` |
-| 2 | o clique nos três «O Controle é visto como» grava a máscara? | **sobrevive** | `controllers.<uniq>.mascara` — **só ali**, nunca em `mode.gamepad_flavor` | `…/profiles/mortal_kombat.json` |
+| 2 | o clique nos três «O Controle é visto como» grava a máscara? | **sobrevive COM CONDIÇÃO** — só com o daemon dizendo quem está ativo; com ele respondendo `active_profile: null`, **não grava** (`motivo: sem_perfil`) e a tela não avisa | `controllers.<uniq>.mascara` — **só ali**, nunca em `mode.gamepad_flavor` | `…/profiles/mortal_kombat.json` |
 | 3 | o «Salvar Perfil» preserva o que o clique gravou? | **sobrevive** — com o daemon dizendo quem está ativo. Com ele calado, **o Salvar nem acontece**: recusa | — | `…/profiles/mortal_kombat.json` |
 | 4 | e se o perfil do jogo não estiver ativo? | **grava no ATIVO, nunca no selecionado** | `mode` do perfil ativo | `…/profiles/personalizado.json` |
 
@@ -101,6 +117,36 @@ atualiza o `controller_masks.json` (que nasceu no lar de mentira), e ele é
 perfil **por dentro da interface**; a máscara entra **por fora, pelo daemon**.
 Com o serviço parado, clicar o chip do cartão não grava um byte — e clicar o
 chip da fileira grava.
+
+**E HÁ UM CASO PIOR QUE O SERVIÇO PARADO, medido na conferência:** o serviço
+**de pé, respondendo**, com `active_profile: null`. Aí não há falha visível
+para se agarrar — a chamada volta, o chip acende, a resposta é `status: ok`.
+
+```
+_mascara_no_perfil, com store.active_profile = None e os marcadores no disco:
+  → {'perfil': None, 'gravado': False, 'motivo': 'sem_perfil'}
+  → mortal_kombat.json BYTE-IDÊNTICO · "controllers": null
+  → na MESMA corrida, o modo gravou {"kind":"gamepad","gamepad_flavor":"xbox"}
+```
+
+A máscara fica só no `controller_masks.json`, que é **cache**: a escolha dela
+vale a sessão e **não volta amanhã**.
+
+**O ENDEREÇO É `daemon/ipc_handlers.py:6506`** — `nome = getattr(self.store,
+"active_profile", None)`, e `:6508` devolve `sem_perfil`. É a mesma perna só do
+rodapé, e é **o único dos quatro cujo silêncio custa dado dela**.
+
+**E O AVISO MORRE NO CAMINHO:** `a01_jogar.py:2400` chama
+`p.chamar("gamepad.mask.set", …)`, e `ponte.py:180` faz `ok, _ = _safe_call(...)`
+— o `motivo` que o daemon acabou de devolver é **descartado**.
+
+**MAS A FERRAMENTA JÁ EXISTE, e isto encolhe a cura:** `ponte.py:184` tem
+`chamar_detalhado(metodo, **params) -> (ok, motivo)`, *"a recusa do daemon
+traduzida"*. E a docstring do `chamar`, uma linha acima, **já nomeia esta perda
+com todas as letras**: *"perde a tradução da recusa, que é o que faz a tela
+dizer por que não deu, em vez de não dizer nada."* O aviso estava escrito ao
+lado do defeito, esperando um chamador — é a terceira vez em três dias que esta
+casa acha a causa uma linha acima do sintoma.
 
 ### §2.3 — O «Salvar Perfil» (pergunta 3): **não destrói. Recusa.**
 
@@ -244,10 +290,26 @@ A desconfiança que abriu a sprint **fecha**: o quadro «Modo» que saiu da aba
 Perfis em 11/09 não tirou capacidade nenhuma — a aba Jogar grava o modo e a
 máscara, e o Salvar os preserva. **Nada nasce daí.**
 
-O que nasce é de outro lugar, e é o que a medição achou de passagem: o rodapé
-pergunta o perfil ativo ao lugar errado nos seus três gestos. Não é decisão de
-produto — é uma linha em três arquivos, e a frente que a fizer tem esta página
-como prova.
+O que nasce é de outro lugar, e é o que a medição achou de passagem: **quatro
+chamadores perguntam o perfil ativo a uma perna só.**
+
+| onde | o que custa |
+| --- | --- |
+| `pacotes/rodape.py:372` — `salvar` | o botão RECUSA. Barulhento: ela vê |
+| `pacotes/rodape.py:349` — `aplicar` | idem |
+| `pacotes/rodape.py:402` — `exportar` | idem |
+| **`daemon/ipc_handlers.py:6506` — `_mascara_no_perfil`** | **a máscara não grava, e a tela diz que sim.** Calado |
+
+**ERAM TRÊS NESTA PÁGINA ATÉ A CONFERÊNCIA, e a regra que o próprio laudo
+invoca é a que o pegou:** *quando a cura conhece a causa, ela cobre TODOS os
+chamadores*. Contar três deixaria a próxima pessoa curando o barulhento e
+deixando de pé o calado — que é o único que perde dado dela.
+
+Os três do rodapé são uma linha cada (`perfil.nome_do_ativo(ctx.state)`). **O
+quarto é decisão dela**, e está na sprint `A-PERNA-QUE-FALTA-01`: curar no
+daemon (as mesmas duas pernas), ou deixar o daemon como está e **fazer a
+ressalva chegar à tela** — e para isso a peça já existe, `ponte.chamar_detalhado`,
+sem dono neste caminho.
 
 ---
 

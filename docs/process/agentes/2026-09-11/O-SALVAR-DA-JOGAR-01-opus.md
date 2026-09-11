@@ -11,17 +11,28 @@ que nasceu é o laudo:
 
 * `docs/process/2026-09-11-O-SALVAR-DA-JOGAR-o-modo-e-a-mascara-medidos-no-disco.md`
 
-**A resposta dela, em uma frase:** num perfil de jogo, a aba Jogar **guarda o
-modo no clique e guarda a máscara de cada controle no clique**, e o «Salvar
-Perfil» **não destrói nenhum dos dois** — o que ele faz, com o daemon calado, é
+**A resposta dela, em uma frase — CORRIGIDA pela conferência de 11/09:** num
+perfil de jogo, a aba Jogar **guarda o modo no clique, sempre**; guarda a
+**máscara só se o daemon souber qual perfil está ativo**; e o «Salvar Perfil»
+**não destrói nenhum dos dois** — o que ele faz, com o daemon calado, é
 **RECUSAR**.
+
+> **O QUE ESTA FRASE DIZIA E A MEDIÇÃO NÃO SUSTENTAVA:** ela afirmava a máscara
+> sem condição e, no mesmo fôlego, invocava `active_profile: null` para
+> explicar a recusa do Salvar. **Os dois não cabem juntos.** Sob `null` o
+> `_mascara_no_perfil` (`daemon/ipc_handlers.py:6506`) devolve
+> `{'gravado': False, 'motivo': 'sem_perfil'}` e o JSON fica byte-idêntico —
+> medido na conferência, com o modo gravando na MESMA corrida. A pergunta 2
+> tinha sido medida numa perna só (`Store.active_profile` fixado). **São
+> QUATRO os chamadores com o defeito, não três** — o quarto é o do daemon, e é
+> o único calado. A cura é `A-PERNA-QUE-FALTA-01`.
 
 As quatro perguntas da §2 da sprint, respondidas no disco:
 
 | # | veredito | onde grava |
 | --- | --- | --- |
 | 1 — o clique na fileira «Modo» | **sobrevive** | `mode.kind` + `mode.gamepad_flavor` |
-| 2 — os três «O Controle é visto como» | **sobrevive** | `controllers.<uniq>.mascara`, **só ali** |
+| 2 — os três «O Controle é visto como» | **sobrevive COM CONDIÇÃO** — só com o daemon sabendo o ativo; com `active_profile: null` **não grava**, calado | `controllers.<uniq>.mascara`, **só ali** |
 | 3 — o «Salvar Perfil» preserva? | **sobrevive** (com o ativo resolvido); **recusa** com o daemon calado | — |
 | 4 — perfil não ativo | grava no **ATIVO**, nunca no selecionado | `mode` do perfil ativo |
 

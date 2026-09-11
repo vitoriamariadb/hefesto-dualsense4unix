@@ -18,11 +18,24 @@ nao_toca:
 
 # O SALVAR DA JOGAR — o modo e a máscara sobrevivem ao disco?
 
-> **ESTADO 2026-09-11: feita** — medido no disco, num lar de mentira: o
-> clique GRAVA o modo (`mode.kind` + `mode.gamepad_flavor`) e a máscara de
-> cada peça (`controllers.<uniq>.mascara`, só ali), e o «Salvar Perfil» não
-> destrói nenhum dos dois — com o daemon calado ele RECUSA, porque o rodapé
-> lê `state["active_profile"]` cru nos seus três gestos. O laudo é
+> **ESTADO 2026-09-11: feita, com o laudo CORRIGIDO pela conferência** — medido
+> no disco, num lar de mentira: o clique GRAVA o modo (`mode.kind` +
+> `mode.gamepad_flavor`) **sempre**; grava a máscara
+> (`controllers.<uniq>.mascara`, só ali) **só com o daemon sabendo qual perfil
+> está ativo**; e o «Salvar Perfil» não destrói nenhum dos dois. As quatro
+> medições do agente reproduziram valor por valor na conferência.
+>
+> **O QUE A CONFERÊNCIA DEVOLVEU, e é o achado real desta sprint:** a pergunta
+> 2 foi medida numa PERNA SÓ. Com o daemon **de pé e respondendo
+> `active_profile: null`** — o estado que `perfil.nome_do_ativo` documenta como
+> o *"da máquina dela"* — a máscara **não chega ao perfil**
+> (`{'gravado': False, 'motivo': 'sem_perfil'}`, JSON byte-idêntico) enquanto o
+> modo grava na mesma corrida. **E ela não é avisada:** `ponte.py:180` descarta
+> o motivo. São QUATRO os chamadores que perguntam a uma perna só, não três —
+> o quarto é `daemon/ipc_handlers.py:6506`, e é o único cujo silêncio custa
+> dado dela. A cura é a sprint `A-PERNA-QUE-FALTA-01`.
+>
+> O laudo é
 > `docs/process/2026-09-11-O-SALVAR-DA-JOGAR-o-modo-e-a-mascara-medidos-no-disco.md`.
 
 > **ORDEM DELA, 11/09/2026:** *"eu preciso que vc verifique se algo foi alterado*  <!-- noqa-acento: citação literal dela -->
