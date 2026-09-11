@@ -7033,3 +7033,152 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 * **P4** — Também no rádio, mesma medição. Se um dos dois receber e o outro não, anote qual — é diferente de o rádio inteiro ficar mudo.
 
 **A armadilha.** A metade do rádio desta célula está EM BRANCO no mapa: ninguém nunca mediu isto por rádio, e o branco não quer dizer não funciona, quer dizer que não houve resposta. Então aqui um mudo é resultado, não falha sua — anote com todas as letras. E há história: houve um tempo em que o comando montado para o rádio saía malformado e o controle o descartava inteiro, calado; o rádio vibrava zero e nada na tela dizia isso. O comando de hoje sai certo, mas o aparelho nunca confirmou. Se o P3 e o P4 ficarem mudos enquanto a dica da linha do motor das colunas deles traz o número que o jogo pediu, e o P1 chacoalhar no mesmo teste, é exatamente essa pergunta que você acabou de responder. Segunda: o defeito irmão anda ao contrário — se os QUATRO chacoalharem quando só um levou dano, a vibração perdeu o endereço e foi para a mesa inteira. Terceira: controle apoiado no mesmo tampo transmite o tremor do vizinho; separe-os, ou levante um de cada vez. Quarta: bateria baixa no rádio abaixa a força do motor — um chacoalho fraco demais para ouvir não é o mesmo que mudo; levante o controle e sinta antes de decidir.
+
+---
+
+## mapa-audio.alto_falante-radio — Alto-falante do controle — som saindo · rádio
+
+*Célula:* `audio.alto_falante @ rádio`
+
+**O que isto prova.** Prova que o som do jogo sai mesmo pelo alto-falante dos dois controles que estão no rádio — o caminho que só existe nesta casa desde 10/09/2026 — e entrega as duas metades que faltam para o mapa parar de dizer "não": o negativo de rota e a escuta cega. A primeira metade já foi feita e não se repete: o som saiu do plástico por rádio, setenta segundos contínuos, com o seu ouvido. O que falta é provar que ele saiu de LÁ e não de outro lugar.
+
+**Onde olhar.** Na aba Controles do Hefesto. Clique na linha de um controle e o cartão dele abre (o que estava aberto fecha sozinho). Dentro do cartão, o bloco chamado Alto-falante: o deslizante de volume com o número ao lado, o botão ♪, e os dois botões de rota, "Sons do jogo" e "Todo o som do PC". Mas quem responde este teste é o seu OUVIDO, encostado no alto-falante do próprio controle: são nove furinhos em duas fileiras, na frente do DualSense, logo abaixo e entre os dois analógicos. E quem responde a segunda metade é outra pessoa: alguém precisa clicar por você, sem dizer o que clicou.
+
+**Os passos.**
+
+1. Clique na aba Controles.
+2. Confira na fita do topo que P3 e P4 dizem rádio e que P1 e P2 dizem cabo.
+3. Clique na linha do P3 para abrir o cartão dele.
+4. Arraste o deslizante de volume do bloco Alto-falante do P3 até o fim da direita.
+5. Confira que o número ao lado do deslizante diz 100.
+6. Clique em "Todo o som do PC" no bloco do P3.
+7. Toque um som bem marcado e curto, que se reconheça de ouvido — um toque de aviso, não uma música.
+8. Encoste o ouvido no P3 e escute se ele sai por ali.
+9. Encoste o ouvido no P4 e confirme que ele está mudo.
+10. Encoste o ouvido no P1 e no P2 e confirme que os dois estão mudos.
+11. Agora o NEGATIVO DE ROTA, e ele é o coração deste teste: escolha na aba Sistema do seu computador a saída da TV, e toque o MESMO som.
+12. Encoste o ouvido no P3 enquanto ele toca na TV: o P3 tem de ficar MUDO.
+13. Devolva a saída para o controle e toque o mesmo som mais uma vez para confirmar que ele voltou a sair do P3.
+14. Chame outra pessoa e peça que ela faça, sem você ver a tela e sem falar nada, seis passadas em ordem embaralhada: três tocando no P3 e três tocando na TV.
+15. A cada passada, com o ouvido no P3, diga em voz alta "controle" ou "TV", e peça que ela anote a sua resposta ao lado do que ela realmente fez.
+16. Clique em "Sons do jogo" no bloco do P3 para devolver o som às caixas — não pule este passo.
+17. Clique na linha do P4 e repita do passo 4 ao 13 nele, com o P3 agora de testemunha muda.
+
+**Passa quando.** Sai som pelo alto-falante do P3 e pelo do P4, os dois que estão no rádio. O mesmo som, mirado na TV, NÃO sai de nenhum dos dois — esse é o negativo de rota, e sem ele o teste não passa mesmo que você tenha ouvido o som cem vezes. E as seis passadas cegas batem SEIS de seis: você acertou onde o som estava tocando sem saber o que a outra pessoa clicou. Cinco de seis já não passa: uma errada é ruído ou é vazamento, e nos dois casos a resposta é repetir.
+
+**Por controle.**
+
+* **P3** — No rádio, e é o alvo. Ele é quem toca, quem cala no negativo de rota e quem você escuta nas seis passadas cegas.
+* **P4** — No rádio, e é a segunda prova do caminho: se só um dos dois tocar, o problema é daquele controle e não do rádio — anote qual falhou. Ele também é testemunha enquanto o P3 toca: se os dois tocarem juntos, o comando pegou o transporte inteiro em vez do controle escolhido, e isso é achado.
+* **P1** — No cabo, e é TESTEMUNHA: você não toca nele. O som do P3 não pode sair dele.
+* **P2** — No cabo, e é a segunda testemunha. Mesmo gesto do P1.
+
+**A armadilha.** O botão ♪ NÃO faz barulho no rádio, e isso é por desenho, não defeito: a confirmação toca pelo sink daquele controle, e no rádio não há sink próprio para tocar. Se você clicar no ♪ esperando o som curto de confirmação e ele não vier, isso não desmente nada deste teste — o caminho do rádio não passa por ali. Segunda, e é regra desta casa com nome: ninguém pode concluir, de um canal responder, que ele FAZ o que a gente esperava dele. O canal do rádio aceitava bytes muito antes de tocar um som, e foi por isso que a casa mirou no report errado durante semanas. Terceira: "Todo o som do PC" tira o som das caixas e o joga no controle — esquecer de clicar em "Sons do jogo" no fim deixa a máquina muda e parece defeito sem ser. E quarta, que é a razão das seis passadas cegas: você SABE o que quer ouvir, e ouvido que sabe o que quer ouvir ouve. A escuta cega existe porque a sua própria expectativa é a fonte de erro mais provável deste teste — e ela já derrubou uma medição desta casa antes.
+
+---
+
+## mapa-audio.saida_dedicada.payload_do_degrau-radio — Saída de áudio por rádio — o CONTEÚDO do payload dos degraus · rádio
+
+*Célula:* `audio.saida_dedicada.payload_do_degrau @ rádio`
+
+**O que isto prova.** Prova que o que viaja DENTRO do canal do rádio é som de verdade — não que o canal aceitou bytes. São duas perguntas diferentes, e confundi-las custou semanas a esta casa: o aparelho respondia de bom grado a um report que não carregava áudio nenhum. Este teste separa as duas ouvindo o CONTEÚDO: um som que você reconhece sem hesitar, saindo com a forma que você mandou.
+
+**Onde olhar.** Na aba Controles, no cartão do P3 e no do P4, bloco Alto-falante. O que se lê na tela é pouco de propósito: o volume, a rota e o ♪. O conteúdo do que viaja não tem tela e não vai ter — ele se prova com o ouvido, comparando o que saiu com o que foi mandado.
+
+**Os passos.**
+
+1. Clique na aba Controles.
+2. Confira na fita do topo que P3 e P4 dizem rádio.
+3. Escolha TRÊS sons bem diferentes um do outro: um grave longo, um agudo curto e uma voz falando uma frase que você reconheça.
+4. Clique na linha do P3 e arraste o volume do bloco Alto-falante até 100.
+5. Clique em "Todo o som do PC" no bloco do P3.
+6. Toque o grave longo e escute com o ouvido no P3.
+7. Toque o agudo curto e escute com o ouvido no P3.
+8. Toque a voz e escute com o ouvido no P3: você tem de entender a frase, não só ouvir que tem som.
+9. Anote, para cada um dos três, se o que saiu era o MESMO som — e não um estalo, um chiado ou um pedaço dele.
+10. Arraste o volume do P3 até 30 e toque a voz de novo: ela tem de sair mais baixa e continuar compreensível.
+11. Clique em "Sons do jogo" no bloco do P3 para devolver o som às caixas.
+12. Clique na linha do P4 e repita do passo 4 ao 11 nele.
+13. Deixe a voz tocando por dois minutos seguidos no P3 e escute o fim: ela não pode ter engasgado, cortado nem virado chiado no meio do caminho.
+
+**Passa quando.** Os três sons saem reconhecíveis pelos dois controles do rádio, e a voz é COMPREENSÍVEL — não basta sair barulho. O volume em 30 abaixa o som sem quebrá-lo. E os dois minutos seguidos terminam sem engasgo: um caminho que entrega dez segundos e morre no terceiro minuto não entregou o payload, entregou uma amostra.
+
+**Por controle.**
+
+* **P3** — No rádio, e é o alvo. Os três sons, o volume baixo e os dois minutos seguidos são nele.
+* **P4** — No rádio, e faz a mesma volta. Ele é a segunda prova de que o caminho é do RÁDIO e não daquele controle.
+* **P1** — No cabo, e é testemunha muda. No cabo o som é uma saída comum do computador e não passa por este canal: se ele tocar junto, o que está tocando não é o que este teste mede.
+* **P2** — No cabo, e é a segunda testemunha. Mesma leitura do P1.
+
+**A armadilha.** A pergunta desta linha NÃO é "o canal responde" — é "o que viaja dentro dele é som". Duas fontes de fora descrevem o formato deste payload byte a byte, e as duas DIVERGEM entre si; e as duas erraram o report. Por isso a leitura de fonte não vale como resposta aqui, por mais detalhada que seja: só o ouvido responde. Segunda: a voz é o som que decide, e não por gosto — um estalo, um chiado e um engasgo todos soam como "tem som saindo", e só a fala mostra se o que chegou foi o som ou um pedaço dele. Terceira: dois minutos parecem exagero e não são. O caminho já entregou setenta segundos; o que ele nunca entregou é um trecho longo o bastante para uma falha de cadência aparecer.
+
+---
+
+## mapa-luz.led_jogador.brilho-cabo — LED de jogador — brilho de hardware (3 degraus) · cabo
+
+*Célula:* `luz.led_jogador.brilho @ cabo`
+
+**O que isto prova.** Prova que as lâmpadas de numeração do controle — as cinco luzinhas embaixo do touchpad que dizem quem é P1, P2, P3 e P4 — mudam de brilho pelos três degraus que o aparelho tem, no cabo. E prova, no mesmo gesto, uma coisa que hoje não é verdade: o produto ainda não liga o bit que autoriza esse byte, e por isso o degrau que ele manda é inerte. Esta é a metade que o teste mede e a bancada registra.
+
+**Onde olhar.** Na aba Iluminação do Hefesto, no bloco de brilho do controle escolhido. E no PLÁSTICO: as lâmpadas de numeração ficam na frente do DualSense, embaixo do touchpad, em fileira. Elas NÃO são a barra de luz colorida que contorna o touchpad — a barra é outra grandeza, obedece por outro caminho e não entra neste teste. Olhe só as luzinhas brancas da numeração.
+
+**Os passos.**
+
+1. Clique na aba Iluminação.
+2. Confira na fita do topo que P1 e P2 dizem cabo.
+3. Escolha o P1 na fita do topo.
+4. Olhe as lâmpadas de numeração do P1 no plástico e guarde na memória o brilho delas.
+5. Arraste o deslizante de brilho até o mínimo.
+6. Olhe as lâmpadas de numeração do P1 outra vez e anote se elas mudaram.
+7. Arraste o deslizante de brilho até o máximo.
+8. Olhe as lâmpadas de numeração do P1 outra vez e anote se elas mudaram.
+9. Olhe a barra de luz colorida do P1 nas duas pontas do deslizante e anote se ELA mudou.
+10. Escolha o P2 na fita do topo e repita do passo 4 ao 9 nele.
+11. Anote as quatro respostas lado a lado: lâmpadas do P1, barra do P1, lâmpadas do P2, barra do P2.
+
+**Passa quando.** As lâmpadas de numeração NÃO mudam de brilho em nenhuma das duas pontas do deslizante, nos dois controles do cabo — e a barra de luz colorida muda. É esse contraste que é a entrega: ele mostra que o deslizante chega ao aparelho (a barra prova) e que o degrau das lâmpadas não chega (elas provam). Se as lâmpadas MUDAREM, o produto passou a ligar o bit desde a última medição, e isso é achado: anote e avise, porque o mapa desta célula muda com essa resposta.
+
+**Por controle.**
+
+* **P1** — No cabo, e é o alvo. As duas pontas do deslizante, lâmpadas e barra olhadas separadamente.
+* **P2** — No cabo, e é a segunda prova. Se o P1 e o P2 responderem diferente, o problema é de um controle e não do caminho — anote qual.
+* **P3** — No rádio, e não entra neste teste: ele tem a volta dele, na linha do rádio.
+* **P4** — No rádio, e também não entra aqui.
+
+**A armadilha.** A barra de luz colorida e as lâmpadas de numeração são DUAS grandezas, e confundi-las é o erro que este teste existe para não repetir: elas ficam a centímetros uma da outra no mesmo plástico, e a barra obedece ao deslizante. Quem olhar a barra vai concluir que o brilho funciona — e o brilho que esta linha mede continua inerte. Olhe as luzinhas brancas da numeração, e só elas. Segunda: o brilho das lâmpadas tem TRÊS degraus no aparelho, não uma rampa contínua; se um dia elas obedecerem, a mudança vai ser em saltos, e um salto entre dois valores vizinhos pode passar despercebido — por isso os passos vão direto ao mínimo e ao máximo, nunca ao meio. Terceira: nada disso aparece na tela, e não vai aparecer. A dívida é nossa e fica no mapa, por ordem dela de 07/09/2026 — o produto não confessa dívida nossa para quem está usando.
+
+---
+
+## mapa-luz.led_jogador.brilho-radio — LED de jogador — brilho de hardware (3 degraus) · rádio
+
+*Célula:* `luz.led_jogador.brilho @ rádio`
+
+**O que isto prova.** O mesmo que a linha do cabo, e no rádio: as lâmpadas de numeração mudam de brilho pelos três degraus do aparelho, e o produto ainda não liga o bit que autoriza o byte. A razão de ser um teste próprio é que o envelope é outro — no rádio o degrau viaja noutro report, com uma conta de verificação no fim —, e um caminho que funciona no cabo não prova nada sobre o outro.
+
+**Onde olhar.** Na aba Iluminação do Hefesto, no bloco de brilho do controle escolhido. E no PLÁSTICO: as lâmpadas de numeração, na frente do DualSense, embaixo do touchpad, em fileira. Não é a barra de luz colorida que contorna o touchpad.
+
+**Os passos.**
+
+1. Clique na aba Iluminação.
+2. Confira na fita do topo que P3 e P4 dizem rádio.
+3. Escolha o P3 na fita do topo.
+4. Olhe as lâmpadas de numeração do P3 no plástico e guarde na memória o brilho delas.
+5. Arraste o deslizante de brilho até o mínimo.
+6. Olhe as lâmpadas de numeração do P3 outra vez e anote se elas mudaram.
+7. Arraste o deslizante de brilho até o máximo.
+8. Olhe as lâmpadas de numeração do P3 outra vez e anote se elas mudaram.
+9. Olhe a barra de luz colorida do P3 nas duas pontas do deslizante e anote se ELA mudou.
+10. Olhe as lâmpadas de numeração do P1, que está no cabo, e confirme que elas não mexeram enquanto você arrastava o deslizante do P3.
+11. Escolha o P4 na fita do topo e repita do passo 4 ao 10 nele.
+12. Anote as respostas lado a lado: lâmpadas do P3, barra do P3, lâmpadas do P4, barra do P4, e as testemunhas do cabo.
+
+**Passa quando.** As lâmpadas de numeração NÃO mudam de brilho em nenhuma das duas pontas do deslizante, nos dois controles do rádio — e a barra de luz colorida muda. As lâmpadas do P1 e do P2 ficam paradas o tempo todo: o deslizante de um controle não pode mexer no outro. Se as lâmpadas do P3 ou do P4 MUDAREM, o produto passou a ligar o bit desde a última medição — anote e avise, porque o mapa desta célula muda com essa resposta.
+
+**Por controle.**
+
+* **P3** — No rádio, e é o alvo. As duas pontas do deslizante, lâmpadas e barra olhadas separadamente.
+* **P4** — No rádio, e é a segunda prova do envelope do rádio. Se o P3 e o P4 responderem diferente, o problema é de um controle.
+* **P1** — No cabo, e é TESTEMUNHA: você não toca nele. As lâmpadas dele não podem reagir ao deslizante do P3.
+* **P2** — No cabo, e é a segunda testemunha. Mesma leitura do P1.
+
+**A armadilha.** A mesma da linha do cabo, e uma a mais: no rádio o report leva uma conta de verificação no fim, e um envelope com essa conta errada é DESCARTADO pelo aparelho em silêncio. Ou seja, no rádio o "nada aconteceu" tem duas causas possíveis — o bit não foi ligado (que é o que esta casa sabe) ou o envelope foi recusado inteiro (que ninguém mediu). As duas se parecem exatamente na sua mão, e é por isso que o passo 9 existe: se a BARRA muda, o envelope chegou, e então o silêncio das lâmpadas é do bit. Se a barra também não mudar, você está olhando outro defeito, mais grave, e este teste não é quem responde por ele — anote e pare.
