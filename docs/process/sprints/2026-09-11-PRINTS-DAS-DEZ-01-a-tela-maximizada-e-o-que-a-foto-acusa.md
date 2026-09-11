@@ -1,6 +1,6 @@
 ---
 sprint: PRINTS-DAS-DEZ-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   PRINTS-DAS-DEZ-01:
@@ -28,6 +28,13 @@ nao_toca:
 ---
 
 # PRINTS-DAS-DEZ-01 — as dez abas maximizadas, e o que a foto acusa
+
+> **ESTADO 2026-09-11: feita** — as dez fotografadas em **1918x840**, a vista
+> maximizada da TV dela, em `docs/usage/assets/maximizada/`; o laudo em
+> `docs/process/2026-09-11-AS-DEZ-ABAS-MAXIMIZADAS-o-que-a-foto-acusa.md`, com
+> sete problemas nomeados; e o `olhar.py` ganhou `--vista`, porque o recorte da
+> `.janela` sai o mesmo pixel em toda vista e fotografar maximizado não mudava
+> a foto.
 
 > *"quero que vc maximize as telas e tire prints de todas as abas e valide se*  <!-- noqa-acento: citação literal dela -->
 > *houve problemas."*  <!-- noqa-acento: citação literal dela -->
