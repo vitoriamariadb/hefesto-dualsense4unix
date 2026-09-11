@@ -202,8 +202,28 @@ entra quando ela abre o jogo.
 | **2** | **A semeadura dos outros lançadores**: (A) nasce perfil para todo jogo instalado do Heroic/Lutris assim que o produto o vê; (B) nasce quando ela abre o jogo pela primeira vez; (C) fica como está — só sugestão no campo. | hoje vale (C). (A) enche a lista dela de 27 para ~60 de uma vez |
 | **3** | **O «Funciona em:»**: ela mandou tirar quatro opções e pôr os lançadores. Isso muda o que um perfil SABE casar — não é só rótulo. | muda comportamento, não texto |
 
-**A 1 e a 2 travam a C1/A3 e a E1. A 3 trava a C4.** As outras frentes correm
-sem elas.
+### AS DUAS PRIMEIRAS ELA DECIDIU — 11/09/2026, à noite
+
+**[1] OS NOMES DAS ROTAS DO SOM — «aceito sugestão».** A fileira passa a dizer
+DE ONDE O SOM SAI, que é a única coisa que separava as três:
+
+| hoje | passa a ser |
+| --- | --- |
+| Sons do jogo | **Sons do jogo** (fica — é a única que já dizia o que faz) |
+| Ouvir junto | **No controle e na TV** |
+| Todo o som do PC | **Só no controle** |
+
+**[2] A SEMEADURA É A (A)**, palavra dela: *"2-a e se por algum motivo não*  <!-- noqa-acento: citação literal dela -->
+*encontrar eu posso criar ou criar um perfil duplicado do mesmo jogo."*  <!-- noqa-acento: citação literal dela -->
+
+Todo jogo INSTALADO de um lançador que o produto lê ganha perfil sozinho, como
+os da Steam já ganham. **E a segunda metade da frase dela é requisito, não
+ressalva:** o que a semeadura não achar, ela cria à mão — e criar um perfil
+para um jogo que JÁ TEM perfil não pode ser recusado nem sobrescrever o que
+está lá. Os dois convivem e a prioridade decide.
+
+**A 3 continua dela, e a pergunta foi reescrita — ver abaixo.** As outras
+frentes correm sem ela.
 
 ---
 

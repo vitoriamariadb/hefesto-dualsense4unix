@@ -16,6 +16,14 @@ depois_de:
   # vão daquela já curado — medir a altura antes seria medir o mundo de
   # ontem.
   - GATILHOS-VAO-01
+  # SERIALIZADA PARA DEPOIS DA SEGUNDA LISTA DELA — 11/09/2026, e é o
+  # mesmo precedente da lista anterior: a queixa VIVA vem primeiro. As
+  # frentes abaixo reescrevem o TEXTO dos arquivos que esta sprint
+  # também toca; medir ou desenhar sobre a prosa de ontem seria medir o
+  # mundo de ontem — e a costura viraria «a última a gravar vence».
+  - ESQUELETO-C2
+  - LINGUA-A1
+  - LINGUA-A4
 ---
 
 > *"maximizando a tela ela vai pra fora do limite, mas ponto 2 aprovado"* <!-- noqa-acento: citação literal dela -->

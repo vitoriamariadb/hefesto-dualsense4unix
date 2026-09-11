@@ -15,6 +15,12 @@ bancada: false
 depois_de:
   - ALTURA-DA-VISTA-01
   - DICA-DA-COR-01
+  # SERIALIZADA PARA DEPOIS DA SEGUNDA LISTA DELA — 11/09/2026, e é o
+  # mesmo precedente da lista anterior: a queixa VIVA vem primeiro. As
+  # frentes abaixo reescrevem o TEXTO dos arquivos que esta sprint
+  # também toca; medir ou desenhar sobre a prosa de ontem seria medir o
+  # mundo de ontem — e a costura viraria «a última a gravar vence».
+  - ESQUELETO-C2
 nao_toca:
   - src/hefesto_dualsense4unix/interface/aba01.py
   - src/hefesto_dualsense4unix/interface/aba03.py

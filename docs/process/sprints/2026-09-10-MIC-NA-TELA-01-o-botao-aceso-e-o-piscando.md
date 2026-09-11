@@ -14,6 +14,12 @@ depois_de:
   - MIC-OS-QUATRO-01
   - MIC-SEM-FONTE-01
   - SOM-NA-TELA-01
+  # SERIALIZADA PARA DEPOIS DA SEGUNDA LISTA DELA — 11/09/2026, e é o
+  # mesmo precedente da lista anterior: a queixa VIVA vem primeiro. As
+  # frentes abaixo reescrevem o TEXTO dos arquivos que esta sprint
+  # também toca; medir ou desenhar sobre a prosa de ontem seria medir o
+  # mundo de ontem — e a costura viraria «a última a gravar vence».
+  - LINGUA-A3
 nao_toca:
   - novo-layout/
 ---
