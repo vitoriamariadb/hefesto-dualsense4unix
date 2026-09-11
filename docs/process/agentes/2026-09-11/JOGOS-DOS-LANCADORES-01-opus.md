@@ -101,18 +101,29 @@ leitura, **0,33 ms** nas seguintes.
 ```
 jogo_da_janela('gotg.exe')      →  Marvel's Guardians of the Galaxy (Heroic)
 jogo_da_janela('GOTG.EXE')      →  Marvel's Guardians of the Galaxy (Heroic)
-jogo_da_janela('retroarch')     →  RetroArch (Instalado aqui)
-jogo_da_janela('SUPERZSNES')    →  Super ZSNES (Instalado aqui)
 jogo_da_janela('steam_app_3357650') → None   (tem dono, e é o appid)
 jogo_da_janela('unknown') / ('') / (None)    → None   (as recusas honestas)
 ```
+
+**FATO ERRADO, SUBSTITUÍDO NO REPARO DE 11/09:** estas linhas traziam também
+`jogo_da_janela('retroarch')` e `jogo_da_janela('SUPERZSNES')` como **duas das
+três provas de que o motor funciona**. Eles não são jogos: são EMULADORES, que
+ficam na lista por decisão declarada (a janela deles é a única que existe) e
+não por terem sido achados como jogo. **A terceira origem acha ZERO jogos no
+disco dela hoje**, e quem prova o motor é o Heroic — que é o exemplo exato da
+queixa dela. Ver «O reparo de 11/09», achado 5.
 
 ---
 
 ## A PONTA NA TELA — são DUAS linhas, e estão medidas
 
-`a10_perfis.py` está em `nao_toca` desta sprint. As duas linhas, com o número
-que elas têm na árvore `onda/0911`:
+> **ELAS ESTÃO APLICADAS DESDE O REPARO DE 11/09**, com a posse de
+> `a10_perfis.py` devolvida — mais DUAS que vieram junto, porque o
+> `<datalist>` entrega à mão dela um dado que o produto classificava errado.
+> Esta seção fica como o que ela era: a medição que provou as duas antes de
+> haver permissão para escrevê-las. Ver «O reparo de 11/09».
+
+As duas linhas, com o número que elas tinham na árvore `onda/0911`:
 
 **Linha 1 — `a10_perfis.py:2225`, dentro de `_jogo_reconhecido`** (é ela que
 alimenta o rótulo ao lado do campo E o desfecho do «Detectar»):
@@ -194,20 +205,24 @@ aba 07, a aba 10, o campo do jogo e a semeadura de perfil por jogo.
    **vazia** (`pga.db` existe, tabela `games` sem linhas) — medido hoje. O
    leitor novo foi provado com dublê de `pga.db` com o esquema de 23 colunas
    dela, copiado do banco real.
-3. **A aba 10 na tela.** `a10_perfis.py` é `nao_toca`; não abri o piloto e não
-   publiquei HTML nenhum. A prova das duas linhas é em memória, com as funções
-   reais — não é a foto.
-4. **`Rare` entra na lista como jogo.** O `.desktop` dele declara só
-   `Categories=Game;` (sem `PackageManager`), e não há campo que o separe de um
-   jogo. Deixei entrar e declarei: para o «Detectar» isso é **certo** — se ela
-   está com o Rare em foco, responder "Rare" é melhor que responder nada.
+3. **A aba 10 na tela.** *(Escrito quando `a10_perfis.py` era `nao_toca`. A
+   posse voltou no reparo de 11/09 e as quatro linhas estão aplicadas; o que
+   continua sem foto é a tela — ver «O reparo de 11/09», o que continua não
+   verificado.)*
+4. ~~**`Rare` entra na lista como jogo.**~~ **DECISÃO REVERTIDA NO REPARO DE
+   11/09.** Eu escrevi que deixar o Rare entrar era *certo* — *"se ela está com
+   o Rare em foco, responder «Rare» é melhor que responder nada"*. Está errado,
+   e a razão é medida: a biblioteca que o Rare abre é a MESMA que
+   `censo._heroic` já lê pelo `legendary_library.json`, jogo por jogo. Deixá-lo
+   entrar oferece a VITRINE da Epic no campo «Nome do Jogo», ao lado dos jogos
+   dela. Ele sai por `_CLIENTES_DE_LOJA`, declarado com o `.desktop` citado.
 
 ---
 
 ## O que sobrou para o próximo
 
-1. **As duas linhas da tela**, acima, para quem costura — depois da
-   `PERFIS-A-TELA-01`.
+1. ~~**As duas linhas da tela**, acima, para quem costura.~~ **FEITAS no reparo
+   de 11/09** — a posse voltou, e foram quatro.
 2. **A pergunta (A)/(B)/(C) da §3 continua dela**, e nada aqui a antecipa:
    nenhuma linha nova nasce na lista de perfis. Isto é o motor do (C) mais o
    que o «Detectar» precisava.
@@ -220,3 +235,197 @@ aba 07, a aba 10, o campo do jogo e a semeadura de perfil por jogo.
 5. **O cartão do Lutris na aba 07 vai mudar de número** quando ela instalar um
    jogo — hoje diz "A biblioteca está vazia" e agora isso é a verdade medida,
    não o arquivo errado.
+
+---
+
+## O reparo de 11/09
+
+A entrega foi **DEVOLVIDA pelo conferente adversarial** com cinco achados. Ele
+confirmou o núcleo — os 56 portões, as 17 réguas, as seis mordidas, e que o
+motor acha `gotg.exe`/`GOTG.EXE` → *Marvel's Guardians of the Galaxy* no disco
+de hoje. Devolveu porque **o motor não alcançava o produto**, e por mais quatro
+coisas. As cinco fecharam.
+
+### [ALTA] A queixa dela continuava intacta no produto
+
+**A posse de `a10_perfis.py` foi devolvida** por quem coordena: a
+`PERFIS-A-TELA-01` fechou e está costurada em `onda/0911`. O frontmatter da
+sprint mudou — `a10_perfis.py` entrou na `posse:` com a razão e a data, e saiu
+do `nao_toca` (lá ficou `aba10.py`, que continua sendo de outra).
+
+As duas linhas ditas na entrega foram aplicadas, e **mais duas que vieram
+junto** — porque a primeira delas entrega à mão dela um dado que o produto
+classificava errado:
+
+| onde | o que mudou |
+| --- | --- |
+| `_jogo_reconhecido` | `frase_do_campo_do_jogo(texto, _nomes_dos_jogos(), nomes_das_janelas())` |
+| `detectar`, o último `return` | `_agora_vale_em(prof, classe)` — e o comentário que explicava a omissão saiu com a linha, porque o fato dele deixou de valer |
+| `_html_dos_jogos` | o `<datalist>` volta a oferecer as DUAS origens, por `ofertas_do_campo_do_jogo` |
+| `editor_jogo` | a forma da regra sai de `_forma_do_que_ela_escolheu`, e não de `normalize_appid` sozinho |
+
+**A QUARTA LINHA NÃO É ENFEITE.** Com o `<datalist>` oferecendo `gotg.exe`, a
+queda de `editor_jogo` (*"appid vira «Jogo da Steam», o resto vira «Jogo (pelo
+processo)»"*) gravava `process_name: ["gotg.exe"]` — **outro dado**, o basename
+de `/proc/PID/exe`, que o próprio `simple_match` avisa que casa por acaso. Foi
+medido na tela viva em 10/09 e a régua o guarda agora.
+
+**O que o produto responde, medido com as funções REAIS da aba, no disco dela:**
+
+```
+_jogo_reconhecido('gotg.exe')  →  ("Marvel's Guardians of the Galaxy", False)
+_jogo_reconhecido('GOTG.EXE')  →  ("Marvel's Guardians of the Galaxy", False)
+_jogo_reconhecido('3357650')   →  ('PRAGMATA', False)        ← não regrediu
+_agora_vale_em(prof,'gotg.exe')→  “Perfil” agora vale em: Só neste programa ·
+                                  Marvel's Guardians of the Galaxy
+_html_dos_jogos()              →  28 <option>, e um deles é
+                                  value="gotg.exe" label="…(Heroic)"
+_forma_do_que_ela_escolheu     →  gotg.exe: janela · 3357650: steam_game ·
+                                  Cyberpunk2077.exe: game
+segunda pintura                →  0,82 ms
+```
+
+A régua que MORDE a ponta é
+`test_a_aba_perfis_responde_o_nome_do_jogo_do_heroic` (as quatro pontas, uma a
+uma) mais `test_o_botao_detectar_nomeia_o_jogo_do_heroic_que_acabou_de_gravar`,
+que chama o **GESTO** `a10_perfis.detectar` — o que o dedo dela aciona — e
+confere a regra gravada, o campo corrigido e a frase.
+
+### [ALTA] O caderno nunca invalidava para o Heroic
+
+`assinatura_das_bibliotecas` fazia `os.stat()` na RAIZ de configuração, e **o
+`mtime` de um diretório não muda quando um arquivo de um SUBdiretório é
+reescrito** — a biblioteca do Heroic é `store_cache/legendary_library.json`. O
+molde que a docstring dizia copiar, `assinatura_da_biblioteca`, mira a
+`steamapps`, que é a pasta que SEGURA os manifestos: **copiei a forma sem a
+propriedade que a faz funcionar.**
+
+A cura é `censo_dos_lancadores._FONTES` — o que cada leitor ABRE, assinado um a
+um com `(caminho, mtime_ns, tamanho)`:
+
+```
+Heroic     store_cache/*_library.json · store_cache/*_install_info.json
+Lutris     pga.db · pga.db-wal · games/*.yml
+RetroArch  playlists/*.lpl
+Dolphin    Dolphin.ini
+mGBA       config.ini
+```
+
+O `pga.db-wal` entra por medição de contrato: em modo WAL o sqlite escreve as
+linhas novas nele e pode não tocar no `pga.db`, e quem lê em `mode=ro` enxerga
+os dois. A pasta de configuração continua na impressão — instalar o lançador
+depois também é mudança.
+
+**A metade dos `.desktop` fica no `mtime` da PASTA, e isso agora está
+declarado**: instalar, desinstalar ou atualizar um programa cria, apaga ou
+renomeia arquivo, que é o que um diretório enxerga. O que ela não alcança — um
+`.desktop` já existente editado no lugar — custaria 221 `stat()` por tique, dez
+vezes por segundo, e está escrito na docstring com o degrau.
+
+### [ALTA] A mordida do freio só media o acerto
+
+Era a assinatura desta casa: *a trava medida contra a própria saída*. A única
+asserção era `nomes_das_janelas(...) is chaves` — o caderno BATENDO. Nasceram
+duas réguas de INVALIDAÇÃO:
+
+* `test_o_caderno_releu_o_disco_quando_ela_instalou_o_segundo_jogo` — reescreve
+  `legendary_library.json` com dois jogos e exige resposta NOVA. **Mordida
+  conferida:** com `_FONTES["Heroic"] = ()` ela reprova;
+* `test_o_caderno_releu_quando_o_lutris_ganhou_uma_linha_no_banco` — insere no
+  `pga.db` com `journal_mode=MEMORY`, **e o modo é a régua**: no modo padrão o
+  sqlite cria e apaga um `pga.db-journal` dentro da pasta, o `mtime` do
+  diretório muda sozinho, e a régua passaria pelo caminho errado sem medir
+  nada. Ela ASSERTA que a pasta não se mexeu. **Mordida conferida:** sem
+  `"pga.db"` em `_FONTES` ela reprova.
+
+### [ALTA] A declaração que calou o `casa-sabe` era falsa para dois dos três
+
+As três entradas de `_SEM_CAMINHO_HOJE` saíram: **as três ganharam chamador de
+verdade**, que era a saída boa.
+
+| função | chamador |
+| --- | --- |
+| `nomes_das_janelas` | `a10_perfis._jogo_reconhecido` |
+| `ofertas_do_campo_do_jogo` | `a10_perfis._html_dos_jogos` |
+| `jogo_da_janela` | `a10_perfis._forma_do_que_ela_escolheu` |
+
+O terceiro é o que o conferente disse que **continuaria sem chamador depois das
+duas linhas**, e continuaria mesmo: a ponta passa por `chaves.get(...)`. Ele
+ganhou dono onde a pergunta é dele de verdade — *"que jogo é esta classe?"* — e
+ali a diferença importa: `jogo_da_janela` dobra a caixa dos dois lados, e um
+`dict.get` cru faria a MESMA linha da lista ser classificada diferente conforme
+o lançador por onde ela abriu o jogo (`GOTG.exe` do `pga.db` × `gotg.exe` da
+janela do Heroic).
+
+O caderno de `jogos_locais` passou a guardar **a lista e o índice**, e
+`jogos_de_janela()` é a forma de lista: duas chamadas no mesmo tique custam UMA
+leitura de disco, e não há dois caminhos de invalidação para uma verdade só.
+
+### [MEDIA] A terceira origem achava ZERO jogos — e eu vendi dois como prova
+
+**A afirmação estava errada e sai de todos os lugares.** A entrega publicava
+`jogo_da_janela('retroarch')` e `jogo_da_janela('SUPERZSNES')` como duas das
+três provas de que o motor funciona. Medido no disco dela em 11/09, os cinco
+achados eram `azahar`, `mGBA`, `retroarch`, `SUPERZSNES` — quatro
+**EMULADORES** — e `rare`. **Nenhum jogo.** Quem prova o motor é o Heroic, que
+é o exemplo exato da queixa dela.
+
+* **o Rare SAI.** Ele declara só `Categories=Game;` e escapava do filtro por
+  categoria; o `.desktop` dele foi lido e está citado no fonte
+  (`Comment=Open source alternative for Epic Games Launcher, using Legendary`).
+  Sai por `_CLIENTES_DE_LOJA`, um filtro POR NOME e DECLARADO — o mesmo
+  argumento de `_FERRAMENTA_RE` para a infraestrutura da Steam. O preço de
+  deixá-lo entrar era concreto: a biblioteca que ele abre é a MESMA que
+  `censo._heroic` já lê jogo por jogo, e ele ofereceria a VITRINE da Epic no
+  campo «Nome do Jogo»;
+* **o emulador FICA, e agora é decisão com razão escrita** no fonte: ele é UM
+  processo para todas as ROMs, então a janela dele é a única que existe. Um
+  perfil mirando `SUPERZSNES` é o perfil daquele console. **Isso não os torna
+  jogos achados**, e a docstring de `jogos_diretos_dos_atalhos` diz o número
+  honesto: zero.
+
+Régua: `test_o_cliente_de_loja_nao_entra_na_lista_de_jogos_e_o_emulador_entra`.
+**Mordida conferida.**
+
+### [MEDIA] A etiqueta não foi medida contra uma janela
+
+Verdade, e fica escrito em vez de inventado. A igualdade *basename do
+`install.executable` == `wm_class`* é **DERIVAÇÃO**: ela vem de o
+`MatchCriteria(window_class=…)` guardar essa forma e de o «Detectar» gravar o
+que o compositor anuncia. Ninguém abriu *Guardiões da Galáxia* e leu a classe
+da janela viva — abrir um jogo exige a tela DELA.
+
+O degrau está na docstring de `JogoDoLancador.classe_de_janela`, com o comando
+e os dois desfechos:
+
+```
+daemon_state_full()["window_detect_last_class"]   # com o jogo em foco
+  → 'gotg.exe'    a derivação vira medição e a nota sai
+  → outra coisa   o `executavel` deixa de ser a chave, e o que sobra é ela
+                  clicar «Detectar» uma vez por jogo — o caminho que já existe
+```
+
+Nada depende do resultado para funcionar: o «Detectar» grava o que o compositor
+disse; esta propriedade só ADIANTA a linha na lista.
+
+### Um defeito que o reparo revelou, e ele não era meu
+
+`test_a_lista_de_jogos_desta_maquina_oferece_sem_recusar` tem uma fixture
+`autouse` cujo nome promete *"a biblioteca DELA nunca é lida por uma régua"* —
+e ela calava só a origem da Steam. Com a segunda origem ligada, o
+`test_com_a_biblioteca_vazia…` passou a ler o Heroic, o Lutris e os 221
+`.desktop` **da máquina de quem roda**, e reprovou aqui com três emuladores
+dela na lista — enquanto no CI teria passado. *A mesma linha com dois
+resultados conforme a máquina.* A fixture agora cala as DUAS.
+
+### O que continua NÃO verificado
+
+1. **O caminho pelo daemon VIVO com a janela do jogo em foco** — é o degrau do
+   achado 6, e é dela. Continua valendo o item 1 da lista acima.
+2. **A aba 10 na tela, com foto.** Com a posse devolvida eu poderia abrir o
+   piloto, mas o preâmbulo desta leva manda não tocar a tela dela e não
+   reiniciar nada; a prova aqui é em processo, com as funções e o GESTO reais,
+   e a foto fica para a PROVA-DE-TELA dela.
+3. A lista do «o que sobrou para o próximo», acima, continua valendo — os itens
+   3 e 4 (a coluna «Quando usar» e o `perfil_e_regra_de_jogo` da trava manual)
+   seguem fora da posse desta sprint.

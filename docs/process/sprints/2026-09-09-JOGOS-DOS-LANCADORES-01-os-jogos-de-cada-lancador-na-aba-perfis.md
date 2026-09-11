@@ -6,15 +6,20 @@ posse:
     - src/hefesto_dualsense4unix/profiles/loader.py
     - src/hefesto_dualsense4unix/integrations/censo_dos_lancadores.py
     - src/hefesto_dualsense4unix/integrations/jogos_locais.py
+    # DEVOLVIDO À POSSE EM 11/09/2026, por quem coordena: a PERFIS-A-TELA-01
+    # fechou e está costurada em `onda/0911`, e nenhuma sprint aberta possui
+    # este arquivo. Sem ele o motor desta sprint não alcançava o produto — o
+    # «Detectar» continuava respondendo «PRAGMATA» à Steam e NADA ao Heroic,
+    # que é a queixa dela com o exemplo na mão.
+    - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py
 bancada: true
 depois_de:
-  # A tela da aba 10 saiu daqui em 11/09 e está com a PERFIS-A-TELA-01, que
-  # corre antes. Esta sprint entrega o MOTOR; a ponta no `Detectar` entra
-  # depois, com a aba já costurada.
+  # A PERFIS-A-TELA-01 corria antes por causa de `a10_perfis.py`, que as duas
+  # escreviam. Ela FECHOU em 11/09 e a posse voltou para cá; a dependência
+  # fica registrada porque é ela que explica a ordem em que isto foi feito.
   - PERFIS-A-TELA-01
 nao_toca:
   - src/hefesto_dualsense4unix/interface/aba10.py
-  - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py
 ---
 
 > **ESTADO 2026-09-11: feita** — o MOTOR está entregue: `jogo_da_janela`
@@ -26,8 +31,14 @@ nao_toca:
 > de leitura caíram junto:** o Lutris era lido de `games/*.yml` (0 arquivos no
 > disco dela) em vez do `pga.db`, que é onde a biblioteca mora E onde está o
 > `executable`; e não havia origem nenhuma para o jogo que não é de lançador.
-> **A ponta na tela são DUAS linhas em `a10_perfis`** (`nao_toca` daqui), ditas
-> com o número na entrega — provadas com as funções reais da aba, em memória.
+>
+> **E A PONTA ESTÁ NO PRODUTO DESDE O REPARO DE 11/09.** A entrega foi
+> DEVOLVIDA pelo conferente com cinco achados, e o primeiro decidia: nada em
+> `src/` alcançava o motor. Com a posse de `a10_perfis.py` devolvida, o
+> «Detectar» passou a responder **«Perfil» agora vale em: Só neste programa ·
+> *Marvel's Guardians of the Galaxy*** a um jogo do Heroic, o `<datalist>`
+> oferece as duas origens, e a `wm_class` que a lista entrega é gravada como
+> `window_class` — não como `process_name`, que é outro dado.
 > A entrega: `docs/process/agentes/2026-09-11/JOGOS-DOS-LANCADORES-01-opus.md`.
 
 > **ELA COBROU DE NOVO EM 11/09/2026, com o exemplo na mão, e o exemplo é o
