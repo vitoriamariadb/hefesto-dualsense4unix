@@ -1,6 +1,6 @@
 ---
 sprint: ILUMINACAO-GRADE-01
-estado: aberta
+estado: caducou
 onda: A-LISTA-DE-0911B
 posse:
   ILUMINACAO-GRADE-01:
@@ -22,6 +22,40 @@ nao_toca:
 ---
 
 # ILUMINACAO-GRADE-01 — a coluna estreita de verdade
+
+> **ELA RECUSOU, DEPOIS DE VER — 11/09/2026, e a recusa é o resultado:**
+> *"Pera na aba de ilumininação se for pra mudar os modos pra pior. Deixa como*  <!-- noqa-acento: citação literal dela -->
+> *está hoje então."*  <!-- noqa-acento: citação literal dela -->
+>
+> **A grade NÃO foi publicada.** A aba fica com os 345,75px de hoje. O trabalho
+> foi feito, medido e fotografado nas quatro faixas — e é por TER sido medido
+> que ela pôde recusar com o número na mão, que é o ponto do processo.
+>
+> **O QUE A MEDIÇÃO DEIXA, e não se apaga:**
+>
+> | saída | coluna | tom | o que custa |
+> | --- | --- | --- | --- |
+> | **hoje** (fica) | 345,75px | 27,70px | o desenho do controle sai **CORTADO em 78,58px** |
+> | 1 — cada coluna ao conteúdo | 135,25px | 8,56px | o desenho encolhe, sobra faixa vazia |
+> | 2 — quatro iguais e menores | 231,80px | 17,34px | o desenho enche a faixa (corte de 0,02px) |
+> | 3 — tons em duas linhas | 160px | 26px | a fileira invade Modelo e Brilho |
+>
+> **O TROCO QUE ELA RECUSOU, em uma linha:** a saída 2 devolvia o desenho
+> inteiro do controle e ganhava 114px de coluna, mas encolhia o tom de 27,70
+> para 17,34px — quase o tamanho de antes da poda dos três. Ela pagou a largura
+> pelo tamanho da cor, e a escolha é dela.
+>
+> **O ACHADO QUE SOBREVIVE À RECUSA, e ele não é de largura:** o desenho do
+> DualSense está sendo **cortado em 78,58px** na aba de hoje — os punhos não
+> cabem na faixa. Isso foi medido aqui pela primeira vez e **continua valendo**
+> com a grade de hoje. Ela viu a foto e escolheu ficar assim; se um dia quiser o
+> desenho inteiro sem estreitar coluna nenhuma, o caminho é dar ALTURA à faixa
+> do controle, e é uma frente própria.
+>
+> O que foi feito está na branch `voo/ILUMINACAO-GRADE-01-opus`, não costurada,
+> com as quatro fotos e as seis mordidas. Quem reabrir isto começa de lá e não
+> do zero.
+
 
 **Decisão dela, 11/09/2026, com a medição na mão: «Estreitar a grade de
 verdade».**
