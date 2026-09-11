@@ -6,7 +6,27 @@ posse:
   ESQUELETO-C2:
     - src/hefesto_dualsense4unix/interface/topo.html
     - src/hefesto_dualsense4unix/interface/monta.py
-cria: []
+    # ACRESCENTADOS PELO AGENTE, 11/09/2026, e os três são a RÉGUA que a §3
+    # desta sprint encomenda — mais o portão que a chama e o teste que a morde.
+    # Medido antes de declarar: nenhuma das 26 sprints abertas reivindica
+    # `scripts/portoes.sh` nem o `ci.yml`, e o portão-do-portão
+    # (`test_portao_a_lista_de_portoes_e_uma_so`) exige os dois juntos.
+    - scripts/check_a_maiuscula_decorativa.py
+    - tests/unit/test_portao_a_maiuscula_decorativa_morde.py
+    - scripts/portoes.sh
+    - .github/workflows/ci.yml
+    # A RÉGUA DE 08/09 QUE MEDIA O CONTRÁRIO: ela cobrava a caixa alta da via
+    # no navegador, e a decisão que ela guardava é a que esta sprint revoga.
+    # Sem reescrevê-la, a cura nasce vermelha.
+    - tests/unit/test_tela_tres_a_altura_e_a_caixa_alta.py
+    # Uma nota de uma linha: a docstring dele cita a decisão de 08/09 como
+    # viva. Fato errado se substitui, e sai de todos os lugares.
+    - tests/unit/test_a_fita_diz_o_controle_que_esta_na_mesa.py
+    - docs/process/agentes/2026-09-11/ESQUELETO-C2-opus.md
+cria:
+  - scripts/check_a_maiuscula_decorativa.py
+  - tests/unit/test_portao_a_maiuscula_decorativa_morde.py
+  - docs/process/agentes/2026-09-11/ESQUELETO-C2-opus.md
 bancada: false
 depois_de: []
 nao_toca:
