@@ -154,3 +154,174 @@ aba09.py:1029  f"Bluetooth: 1 adaptador, {len(BT)} controles no rádio"
    `interface/olhar.py --todas --publicado --doc --vista dela`. Se essa foto
    virar rotina, ela merece entrar no `COMO-OLHAR-A-TELA.md` ao lado da regra em
    uma linha — deixei fora porque rotina é decisão de quem coordena.
+
+---
+
+## O reparo de 11/09
+
+O conferente devolveu por CINCO coisas. As cinco fecharam; o que segue é achado
+por achado, com o que foi medido.
+
+### 1 · ALTA — o laudo afirmava o que a foto não mostra
+
+**Ele estava certo, e eu medi de novo.** A §2 listava «o selo na 07» entre as
+curas que «as fotos mostram». Na página publicada:
+
+```
+class="lanc-selo nao_sei"        6     os seis cartões
+class="lanc-selo localizado"     1     e está DENTRO de um comentário CSS (07-lancadores.html:956)
+.lanc-selo.ok,.lanc-selo.localizado{background:var(--green)}   presente, linha 969
+```
+
+E a foto, aberta e lida: seis pílulas cinza `NÃO SEI` e o cabeçalho «0
+localizados · 0 com impedimentos».
+
+**O diagnóstico é (a), e não (b): a cura CHEGA — o que não chega é o gatilho
+dela.** A regra verde está na página; nenhum elemento da página carrega a
+classe `localizado` que a dispara. Quem escreve a classe é o PILOTO, com o
+daemon vivo — `desenho_dos_lancadores.valores_do_cartao` emite `{chave}-selo`
+com `selo_html(lanc.selo)`, medido aqui:
+
+```
+selo_html('localizado') -> '<span class="lanc-selo localizado">LOCALIZADO</span>'
+```
+
+e os seis endereços da página são `data-campo="…-selo" data-hef-alvo="html"`,
+isto é, pontos que o piloto sobrescreve. Não há achado de produto: há um limite
+do instrumento. **A página publicada é o primeiro instante, antes de o censo
+responder.**
+
+**O que nasceu disso é a §2.1 do laudo**, que é a informação que faltava ao
+documento inteiro:
+
+> A foto estática prova FORMA e prova TEXTO DE PARTIDA. Ela não prova nada que
+> o piloto escreva por tique.
+
+E o ponto cego tem tamanho medido: **1.114 endereços `data-campo` nas dez
+páginas publicadas** (513 só na 02-controles), todos valores de partida que o
+produto vivo pode trocar. A cura do selo saiu da lista das que as fotos
+mostram; as outras quatro (02, 03, 04, 10) são de forma e de texto de partida,
+e sobrevivem. A §3.5 deixou de contradizer a §2: ela agora aponta para a §2.1.
+
+### 2 · MÉDIA — a pasta nova abria buraco em dois portões que já existiam
+
+Fechado nos dois, e a cura é a mesma: **cada família de foto responde por si.**
+
+| | antes | agora |
+| --- | --- | --- |
+| `scripts/check_fotos_da_tela.py` | `any(_toca(c, (FOTOS,)))` — a foto da vista quitava a dívida das dez do README | `familias_sem_prova()`, e o bloqueio NOMEIA a pasta devedora |
+| `test_as_fotos_acompanham_a_versao.py` | `git log -- docs/usage/assets` respondia com o commit da subpasta | `_pathspec()` com `:(exclude)`, `uma_familia_em_dia()` por pasta |
+
+O alcance é das TRÊS perguntas, não só da primeira: a topologia, o perdão de
+`fotos_sendo_refeitas_agora` (perdoar em bloco repetia o mesmo defeito) e a
+mensagem, que agora traz **um comando por família** — sem isso quem apanhasse
+pela vista rodaria o comando do README, veria nada mudar, e concluiria que o
+portão quebrou.
+
+**As duas mordidas, aplicadas:**
+
+```
+_pathspec -> [familia]                  test_a_foto_da_vista_nao_paga_a_divida_das_dez_do_readme
+                                        FAILED: assert True is False
+familias_sem_prova -> any(_toca(...))   test_a_foto_da_vista_nao_paga_...  (o gancho)
+                                        FAILED: - bloqueado / + em-dia
+```
+
+E `test_as_duas_listas_de_codigo_de_tela_sao_a_mesma` passou a trancar também
+`FAMILIAS_DE_FOTO`: uma terceira pasta criada num lado só recria o buraco um
+nível acima.
+
+### 3 · MÉDIA — nada do que nasceu tinha régua
+
+`tests/unit/test_o_retratista_fotografa_a_vista_pedida.py`, **22 casos**, e as
+mordidas saíram do texto da entrega para dentro dele. Cobre `--vista`,
+`_vista_pedida`, `VISTA_DELA`, `SUBPASTA_DA_VISTA`, `destino_das_fotos`,
+`morto_abaixo`, `vao_dos_lados`, `passa_da_dobra` e a linha `vista:` do recibo.
+
+Duas coisas mudaram no `olhar.py` para que houvesse o que medir:
+
+* o JavaScript da medida saiu de dentro do `_retratar` e virou
+  `olhar.MEDIDA_NA_VISTA` — enquanto era literal enfiada numa função, a única
+  porta era abrir o Chrome pelo `main`;
+* a escolha da pasta virou `destino_das_fotos(para_a_doc, vista)`, e a
+  desigualdade `destino_das_fotos(True, VISTA_DELA) != destino_das_fotos(True,
+  None)` é o contrato das duas famílias em uma linha.
+
+**AS QUATRO MORDIDAS, aplicadas uma a uma e todas reprovando:**
+
+| o que se arranca | quem reprova |
+| --- | --- |
+| `window.innerHeight` → `1080` no `passa_da_dobra` | `test_a_dobra_pergunta_a_vista_em_que_esta` |
+| o `Math.max(0, …)` do `morto_abaixo` | `test_nenhuma_medida_de_sobra_sai_negativa` |
+| `destino_das_fotos` devolvendo sempre `DESTINO_DOC` | `test_a_foto_da_vista_nao_cai_por_cima_da_do_readme` |
+| `_vista_pedida` aceitando `1918` | `test_o_parser_recusa_o_que_nao_e_vista[1918]` e `[1918x]` |
+
+E a conta da vista ficou ESCRITA, em dois casos que se sustentam um ao outro:
+`test_a_vista_dela_fecha_a_conta_das_parcelas` congela a aritmética, e
+`test_as_dez_fotos_da_vista_nasceram_na_vista_dela` cobra que **o recibo de
+`maximizada/` declare a mesma vista** — sem o segundo, trocar a constante e a
+conta junto passaria, e as dez imagens ficariam no disco afirmando uma tela que
+ninguém mais tira.
+
+**E AQUI UM PORTÃO ME CORRIGIU, o que é o sistema funcionando.** A primeira
+volta desta régua lia `ALTURA_DA_BARRA` do fonte de `gui/ponte_da_tela.py` por
+`ast` — a parcela da barra tem dono vivo, e ler de lá seria não redigitar o
+número. **`nada-aponta-para-a-janela` reprovou**, nomeando arquivo e linha:
+
+```
+tests/unit/test_o_retratista_fotografa_a_vista_pedida.py:19;148:
+  CITAÇÃO NOVA para a janela (gui.ponte_da_tela)
+```
+
+Há precedente declarado no CSV (`test_o_aviso_da_vibracao_cabe_na_aba.py:82`,
+`MOTOR-MUDA-DE-CASA`), e eu poderia ter declarado a minha. **Não declarei**: o
+inventário daquela pasta **só diminui** por decisão dela
+(`D-0609-GTK-LEVA-INTEIRA`, *"não apontar nada mais pra lá"*), e uma citação a
+mais é mais uma coisa a reapontar quando o motor mudar de casa. Declarar para
+calar um portão é o contrário do que ele existe para fazer. A régua perdeu essa
+ponta e a declara no próprio docstring; quem a segura no lugar é o recibo das
+dez.
+
+### 4 · MÉDIA — o documento que ela lê não mostrava uma foto
+
+As dez estão embutidas no laudo, **cada uma sob o veredito daquela aba**
+(`![…](../usage/assets/maximizada/aba-NN-*.png)`, os dez caminhos conferidos).
+A tabela de dez linhas saiu e no lugar dela ficou um placar de uma linha —
+repetir o veredito ao lado da imagem seria escrever a mesma frase duas vezes.
+
+### 5 · BAIXA — `morto_abaixo` sem piso
+
+`Math.max(0, …)` nas duas medidas de sobra. O `vao_dos_lados` ganhou junto,
+pela mesma razão e porque a cura conhece a causa: **um número negativo num
+campo cujo nome promete sobra é afirmação falsa com cara de medida.** O que
+falta já tem instrumento próprio — o `passa_da_dobra` na altura, o
+`rolagem_lateral` na largura.
+
+```
+1918x500, medido:   ANTES  "morto_abaixo": -293   ->  "−293 px mortos embaixo"
+                    AGORA  "morto_abaixo": 0      ->  a linha nem sai
+```
+
+### As vinte fotos, refeitas
+
+O `olhar.py` é `CODIGO_DA_TELA`, e mexer nele torna as vinte suspeitas — pelo
+portão que este mesmo reparo apertou. As duas famílias foram refeitas:
+
+```
+--todas --publicado --doc               10 abas  ->  docs/usage/assets/
+--todas --publicado --doc --vista dela  10 abas  ->  docs/usage/assets/maximizada/
+```
+
+**As vinte saíram byte a byte idênticas** — só os dois recibos mudaram, com a
+data de hoje. É a confirmação de que o piso do `morto_abaixo` não move pixel:
+ele conserta o que o instrumento DIZ, não o que a página desenha.
+
+### O que este reparo NÃO fez
+
+- **Continua sem piloto vivo.** A §2.1 nomeia o que isso custa e mede o
+  tamanho (as 1.114), mas quem responde pelas 1.114 é o `WebKit2.WebView` com o
+  daemon, e esta sprint segue `bancada: false`.
+- **A rotina da foto da vista continua não estando no `COMO-OLHAR-A-TELA.md`.**
+  O que mudou é que o comando agora vive na mensagem dos dois portões, que é
+  onde quem apanha o lê. Pôr a rotina no documento continua sendo decisão de
+  quem coordena.

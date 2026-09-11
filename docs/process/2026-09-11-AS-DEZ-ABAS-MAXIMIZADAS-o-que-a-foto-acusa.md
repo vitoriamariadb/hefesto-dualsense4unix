@@ -52,26 +52,132 @@ instrumento como estava. O `--vista` da §5 é o conserto: com ele a foto é a
 
 ---
 
-## §2 — O VEREDITO, uma linha por aba
+## §2 — O VEREDITO, uma linha por aba — E A FOTO DE CADA UMA
 
-| aba | veredito |
-| --- | --- |
-| 01-jogar | **defeito de forma + de conteúdo** — 160 px de faixa vazia, e os dois lugares vazios não dizem quem são |
-| 02-controles | **defeito de conteúdo** — a forma fecha (18 px de sobra); o P3 e o P4 saem `P3 • — • —` |
-| 03-gatilhos | **defeito de forma** — 179 px de faixa vazia; o resto está limpo, e o `P3 • Desconectado` é a cura de hoje |
-| 04-iluminação | **limpa** — 22 px de sobra, os onze tons na fileira, nenhuma casa hachurada |
-| 05-vibração | **limpa** — 42 px de sobra |
-| 06-navegação | **limpa** — 41 px de sobra |
-| 07-lançadores | **limpa na forma** — 18 px de sobra; a ressalva da §3.5 é do estado de partida |
-| 08-conexões | **defeito de forma** — 181 px de faixa vazia, a maior das dez |
-| 09-sistema | **defeito de conteúdo** — a forma fecha; a tela diz «1 controles» |
-| 10-perfis | **defeito de conteúdo** — a forma fecha e as quatro linhas cabem; o cabeçalho conta 3 e a tabela mostra 2 |
+**O placar:** limpas **04, 05, 06, 07** · defeito de **forma** em **01, 03, 08**
+· defeito de **conteúdo** em **01, 02, 09, 10**.
 
-**As cinco abas que mudaram na leva de ontem (02, 03, 04, 07, 10) entregaram o
-que prometeram**, e as fotos mostram: os três botões do som e o `[mic]` na 02, o
-`P3 • Desconectado` e o glifo do L2/R2 inteiro na 03, os onze tons na 04, o selo
-na 07, e o quadro «Modo» fora do editor com as quatro linhas de controle
-cabendo na 10.
+As dez estão abaixo, cada uma sob o seu veredito. Elas são o arquivo que está
+em `docs/usage/assets/maximizada/`, com o recibo ao lado — **e não custam um
+clique**, que é a regra de 07/09: *o que a pessoa precisa para executar não
+pode custar um clique.* O que cada foto pode e não pode provar está na §2.1,
+logo depois delas.
+
+### 01-jogar — **defeito de forma + de conteúdo**
+
+160 px de faixa vazia, e os dois lugares vazios não dizem quem são: saem
+`— — —`, sem nem o número do lugar.
+
+![A aba Jogar na vista maximizada de 1918x840](../usage/assets/maximizada/aba-01-jogar.png)
+
+### 02-controles — **defeito de conteúdo**
+
+A forma fecha (18 px de sobra); o P3 e o P4 saem `P3 • — • —`. Os três botões
+do som e o `[mic]` da leva de ontem estão na imagem.
+
+![A aba Controles na vista maximizada de 1918x840](../usage/assets/maximizada/aba-02-controles.png)
+
+### 03-gatilhos — **defeito de forma**
+
+179 px de faixa vazia; o resto está limpo. O `P3 • Desconectado` e o glifo do
+L2/R2 inteiro — as duas curas de ontem — estão na imagem.
+
+![A aba Gatilhos na vista maximizada de 1918x840](../usage/assets/maximizada/aba-03-gatilhos.png)
+
+### 04-iluminação — **limpa**
+
+22 px de sobra, os onze tons na fileira, nenhuma casa hachurada.
+
+![A aba Iluminação na vista maximizada de 1918x840](../usage/assets/maximizada/aba-04-iluminacao.png)
+
+### 05-vibração — **limpa**
+
+42 px de sobra.
+
+![A aba Vibração na vista maximizada de 1918x840](../usage/assets/maximizada/aba-05-vibracao.png)
+
+### 06-navegação — **limpa**
+
+41 px de sobra.
+
+![A aba Navegação na vista maximizada de 1918x840](../usage/assets/maximizada/aba-06-navegacao.png)
+
+### 07-lançadores — **limpa na forma**
+
+18 px de sobra. A foto mostra os seis cartões no selo cinza `NÃO SEI` e o
+cabeçalho «0 localizados», que é o **estado de partida** — ver a §2.1 e a §3.5.
+
+![A aba Lançadores na vista maximizada de 1918x840](../usage/assets/maximizada/aba-07-lancadores.png)
+
+### 08-conexões — **defeito de forma**
+
+181 px de faixa vazia, a maior das dez.
+
+![A aba Conexões na vista maximizada de 1918x840](../usage/assets/maximizada/aba-08-conexoes.png)
+
+### 09-sistema — **defeito de conteúdo**
+
+A forma fecha; a tela diz «1 controles».
+
+![A aba Sistema na vista maximizada de 1918x840](../usage/assets/maximizada/aba-09-sistema.png)
+
+### 10-perfis — **defeito de conteúdo**
+
+A forma fecha e as quatro linhas cabem — o quadro «Modo» saiu do editor, que é
+a cura de ontem. O cabeçalho conta 3 e a tabela mostra 2.
+
+![A aba Perfis na vista maximizada de 1918x840](../usage/assets/maximizada/aba-10-perfis.png)
+
+---
+
+## §2.1 — O QUE A FOTO ESTÁTICA PODE E NÃO PODE PROVAR
+
+**Esta seção nasceu de um erro deste próprio laudo, apanhado pelo conferente em
+11/09/2026.** A §2 listava, entre as curas de ontem que "as fotos mostram", **o
+selo da 07** — e a foto da 07 mostra seis pílulas cinza `NÃO SEI`. A afirmação
+era falsa, e a causa não é da cura: é de que **a foto estática não alcança
+aquela classe de cura**, e o laudo inteiro não dizia isso em lugar nenhum.
+
+### O que se mediu na 07
+
+| o que | quanto |
+| --- | ---: |
+| `class="lanc-selo nao_sei"` na página publicada | **6** |
+| `class="lanc-selo localizado"` na página publicada | **1**, e ela está dentro de um comentário CSS (`07-lancadores.html:956`) |
+| a regra que a cura de ontem escreveu — `.lanc-selo.ok,.lanc-selo.localizado{background:var(--green)}` | **presente**, `07-lancadores.html:969` |
+
+**A cura chegou; o que não chega é o gatilho dela.** A regra verde está na
+página, e nenhum elemento da página carrega a classe `localizado` que a
+dispara. Quem escreve essa classe é o PILOTO, com o daemon vivo:
+`desenho_dos_lancadores.valores_do_cartao` emite `{chave}-selo` com
+`selo_html(lanc.selo)`, que devolve
+`<span class="lanc-selo localizado">LOCALIZADO</span>` — e os seis endereços da
+página são `data-campo="…-selo" data-hef-alvo="html"`, isto é, pontos que o
+piloto sobrescreve. **A página publicada é o primeiro instante, antes de o
+censo responder.** Não há achado de produto aqui: há um limite do instrumento.
+
+### A regra que isto deixa, e ela vale para o laudo todo
+
+> **A foto estática prova FORMA e prova TEXTO DE PARTIDA. Ela não prova nada
+> que o piloto escreva por tique.**
+
+E o tamanho do ponto cego é medido: as dez páginas publicadas carregam
+**1.114 endereços `data-campo`**, do `data-campo="lanc-conta"` que diz «0
+localizados» aos 513 da 02-controles. Todos eles são valores de partida que o
+produto vivo pode trocar — e nenhum deles é conferível numa foto tirada com o
+Chrome sobre o arquivo.
+
+**Como se prova o outro lado**, e é o que esta sprint NÃO fez (`bancada:
+false`): o piloto no `WebKit2.WebView`, com o daemon vivo, dirigido por
+`run_javascript`. É o instrumento que o `CLAUDE.md` cobra de quem mexe na
+interface, e ele é o único que responde pelas 1.114.
+
+**O que sobrevive a isso na lista de ontem:** as curas de FORMA e de TEXTO DE
+PARTIDA, que estão nas imagens e foram conferidas nelas — os três botões do som
+e o `[mic]` na 02, o `P3 • Desconectado` e o glifo do L2/R2 na 03, os onze tons
+na 04, e o quadro «Modo» fora do editor com as quatro linhas cabendo na 10. **A
+cura do selo na 07 sai dessa lista**: ela é real, está no fonte e na folha, e
+**esta foto não é a régua dela**.
 
 ---
 
@@ -196,7 +302,9 @@ carregam só «Abrir o lançador»; `acao_de_localizar` é chamada nos ramos `of
 `localizado`, não neste.
 
 **Custo baixo, e por uma razão honesta:** é o estado do primeiro instante, antes
-de o censo responder. **Não medi com o piloto vivo** — ver §5.
+de o censo responder — a mesma razão pela qual a foto mostra os seis selos em
+`NÃO SEI`. **Não medi com o piloto vivo**, e a §2.1 diz por que nenhuma foto
+estática poderia: os seis cartões são endereços que o piloto sobrescreve.
 
 ### 3.6 — A página salta 2 px ao trocar de aba
 
@@ -215,7 +323,9 @@ desce 2 px. Medido nas dez; o `y` do `.miolo` é 171 em três abas e 169 em sete
 
 - **Não é o motor dela.** São as páginas de `interface/paginas/` num Chrome
   headless. Quem prova o produto é o piloto, no `WebKit2.WebView`, com o daemon
-  vivo — e nenhum dado desta medição saiu de aparelho nenhum.
+  vivo — e nenhum dado desta medição saiu de aparelho nenhum. **O tamanho desse
+  ponto cego está medido na §2.1: 1.114 endereços `data-campo` nas dez
+  páginas**, e a foto estática não confere nenhum deles.
 - **O dado é o dublê do gerador.** «2 controles: 1 USB · 1 BT», os nomes de
   plástico e as porcentagens de bateria são o desenho, não a mesa dela. Os
   defeitos acima são de FORMA e de TEXTO, que sobrevivem a qualquer dado — os
@@ -252,9 +362,45 @@ Na vista de 840 ele diria «passa 0 da dobra» sobre uma página que passa 240 �
 instrumento respondendo sobre o viewport de ontem. Agora pergunta a
 `window.innerHeight`.
 
+### O que o reparo de 11/09 acrescentou ao instrumento
+
+**Nada do que nasceu nesta sprint tinha régua**, e o conferente cobrou com a
+frase que o `CLAUDE.md` usa: *instrumento que sabe do próprio risco RESOLVE,
+não avisa.* As três mordidas estavam no texto de uma entrega, que é onde régua
+nenhuma vive. Agora estão em
+`tests/unit/test_o_retratista_fotografa_a_vista_pedida.py`, 22 casos, e são
+QUATRO:
+
+| a mordida | o que ela pega |
+| --- | --- |
+| `1080` de volta no `passa_da_dobra` | «passa 0» sobre uma página que passa 200 |
+| o `Math.max(0, …)` fora do `morto_abaixo` | **−200 px mortos embaixo** — sobra negativa |
+| `destino_das_fotos` ignorando a vista | as duas famílias de foto na mesma pasta |
+| `_vista_pedida` aceitando `1918` | uma vista inventada, fotografada calada |
+
+**E o `morto_abaixo` ganhou PISO** — é o quinto achado do conferente, e ele o
+mediu: em 1918x500 a medida saía **−293**, e o `--todas` imprimia «−293 px
+mortos embaixo». Ali não sobra: ali FALTA, e o que falta já tem instrumento
+próprio (o `passa_da_dobra` na altura, o `rolagem_lateral` na largura). O irmão
+`vao_dos_lados` ganhou o mesmo piso pela mesma razão. O JavaScript da medida
+saiu de dentro do `_retratar` e virou `olhar.MEDIDA_NA_VISTA` — enquanto era
+literal enfiada numa função, a única porta para medi-la era abrir o Chrome pelo
+`main`.
+
+**E A PASTA NOVA ABRIA BURACO EM DOIS PORTÕES QUE JÁ EXISTIAM.**
+`scripts/check_fotos_da_tela.py` e
+`tests/unit/test_as_fotos_acompanham_a_versao.py` casavam `docs/usage/assets`
+por PREFIXO, e `maximizada/` cai dentro: gravar só na pasta nova **quitava a
+dívida das dez do README**, que podiam apodrecer caladas — o defeito que esta
+sprint ACHOU, reaberto numa segunda família. Os dois passaram a medir **por
+família**: a topologia, o perdão da foto suja e a mensagem, que agora nomeia a
+pasta devedora e traz o comando daquela pasta. Uma família atrasada reprova por
+todas.
+
 ### O que ficou dito e não verificado
 
 - **A largura de 1918 é derivada, não lida** (§1). A altura de 840 é medida.
-- **O §3.5 não foi medido no piloto vivo** — só na página publicada.
+- **O §3.5 não foi medido no piloto vivo** — só na página publicada, e a §2.1
+  diz por que a foto estática não poderia medi-lo.
 - **Nenhum aparelho foi tocado.** Esta sprint é `bancada: false` e não pediu a
   bancada.
