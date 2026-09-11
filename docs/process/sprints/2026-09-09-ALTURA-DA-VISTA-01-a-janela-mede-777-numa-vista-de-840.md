@@ -9,7 +9,13 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba09.py
     - scripts/ensaios/a_janela_cabe_no_que_ela_ve.py
 bancada: false
-depois_de: [DICA-DA-COR-01]
+depois_de:
+  - DICA-DA-COR-01
+  # A lista dela de 11/09 vem antes: a GATILHOS-VAO-01 escreve no mesmo
+  # `aba03.py` e é a queixa viva. Esta mede a janela inteira depois, com o
+  # vão daquela já curado — medir a altura antes seria medir o mundo de
+  # ontem.
+  - GATILHOS-VAO-01
 ---
 
 > *"maximizando a tela ela vai pra fora do limite, mas ponto 2 aprovado"* <!-- noqa-acento: citação literal dela -->

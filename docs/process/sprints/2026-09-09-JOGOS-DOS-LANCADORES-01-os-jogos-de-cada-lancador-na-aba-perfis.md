@@ -6,11 +6,41 @@ posse:
     - src/hefesto_dualsense4unix/profiles/loader.py
     - src/hefesto_dualsense4unix/integrations/censo_dos_lancadores.py
     - src/hefesto_dualsense4unix/integrations/jogos_locais.py
-    - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py
-    - src/hefesto_dualsense4unix/interface/aba10.py
 bancada: true
-depois_de: []
+depois_de:
+  # A tela da aba 10 saiu daqui em 11/09 e está com a PERFIS-A-TELA-01, que
+  # corre antes. Esta sprint entrega o MOTOR; a ponta no `Detectar` entra
+  # depois, com a aba já costurada.
+  - PERFIS-A-TELA-01
+nao_toca:
+  - src/hefesto_dualsense4unix/interface/aba10.py
+  - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py
 ---
+
+> **ELA COBROU DE NOVO EM 11/09/2026, com o exemplo na mão, e o exemplo é o
+> enunciado desta sprint virado do avesso:**
+> *"em perfil falta detectar os jogos dos demais lançadores. dando exemplo do*  <!-- noqa-acento: citação literal dela -->
+> *guardi]ães da galáxia."* — e, antes, *"os jogos deles tem que ter o perfil*  <!-- noqa-acento: citação literal dela -->
+> *por jogo tambem"*.  <!-- noqa-acento: citação literal dela -->
+>
+> **O GESTO QUE ELA USOU TEM NOME E ESTÁ NA FOTO: o botão «Detectar»**, ao lado
+> do campo «Nome do Jogo» do editor de perfil. Na foto dela ele responde com o
+> nome certo para um jogo da Steam (`3357650` → `PRAGMATA`) e **não acha** um
+> jogo que não é da Steam. Então esta sprint ganha um alvo concreto que ela não
+> tinha: **o `Detectar` é o lugar onde a falta aparece**, e é por ele que a cura
+> se prova.
+>
+> **A METADE DA TELA É DE OUTRA SPRINT.** `aba10.py` e `pacotes/a10_perfis.py`
+> saíram da posse daqui em 11/09 e estão com a `PERFIS-A-TELA-01`, que corre
+> antes. **Esta sprint é do MOTOR** — `profiles/loader.py`,
+> `integrations/censo_dos_lancadores.py`, `integrations/jogos_locais.py` — e
+> entrega a função que o `Detectar` vai chamar. A ponta na tela entra depois,
+> quando a `PERFIS-A-TELA-01` já estiver costurada.
+>
+> **E a frase dela *"falta a tag chegam em todos os demais lançadores"*  <!-- noqa-acento: citação literal dela -->
+> aponta para a mesma coisa:** o que a Steam tem e os outros não é a ETIQUETA
+> que liga um perfil a um jogo — o `steam_app_<id>`. Achar o equivalente do
+> Heroic e do Lutris é o trabalho, e a §1 abaixo já mediu por que ele é difícil.
 
 > *"aí a ideia é cada um dos lançadores passarem a ter os jogos com perfis
 > dentro da aba perfis."* <!-- noqa-acento: citação literal dela -->

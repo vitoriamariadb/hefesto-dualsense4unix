@@ -16,6 +16,21 @@ bancada: false
 depois_de: []
 ---
 
+> **ELA COBROU DE NOVO EM 11/09/2026, e a cobrança acrescenta METADE:**
+> *"essa página continua com os botões de consertar ( não aparece verde os*  <!-- noqa-acento: citação literal dela -->
+> *localizados"*  <!-- noqa-acento: citação literal dela -->
+>
+> São duas coisas, e a segunda é nova nesta sprint: **o botão sai** (o que já
+> estava escrito aqui) **e o cartão localizado fica VERDE** — hoje ele não se
+> distingue do que ainda não foi localizado, e é por isso que ela continua
+> vendo «Consertar» como se nada tivesse acontecido. O verde é o mesmo sinal
+> que a casa já usa para «isto está de pé»; a piscada verde de deu-certo tem
+> outro dono (`hef-deu-certo`) e **não é este** — aqui o verde é ESTADO, não
+> resposta a gesto.
+>
+> A segunda metade da frase dela — *"e os jogos deles tem que ter o perfil por*  <!-- noqa-acento: citação literal dela -->
+> *jogo tambem"* — **é da `JOGOS-DOS-LANCADORES-01`**, e não desta.  <!-- noqa-acento: citação literal dela -->
+
 > *"na real não faz sentido. Digo se tenho tudo instalado e tá pra ser*  <!-- noqa-acento: citação literal dela -->
 > *identificado não tem pq ter o botão de consertar. Ou no Máximo Localizar o*  <!-- noqa-acento: citação literal dela -->
 > *lançador. aí eu mesmo abro a tela e procuro o .desktop."*  <!-- noqa-acento: citação literal dela -->

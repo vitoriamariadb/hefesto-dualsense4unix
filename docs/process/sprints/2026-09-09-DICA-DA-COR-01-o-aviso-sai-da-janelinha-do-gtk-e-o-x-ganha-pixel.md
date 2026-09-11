@@ -9,7 +9,11 @@ posse:
 cria:
   - scripts/ensaios/a_dica_da_cor_nao_e_do_gtk.py
 bancada: true
-depois_de: []
+depois_de:
+  # A lista dela de 11/09 vem antes: a ILUMINACAO-PALETA-01 tira três tons
+  # e o seletor livre da MESMA guia de `aba04.py`. A dica da cor se escreve
+  # sobre a guia que sobrar, e não sobre a de ontem.
+  - ILUMINACAO-PALETA-01
 ---
 
 > *"com o mouse parado na frente da cor ele fica piscando e tirando o aviso e voltando"* <!-- noqa-acento: citação literal dela -->
