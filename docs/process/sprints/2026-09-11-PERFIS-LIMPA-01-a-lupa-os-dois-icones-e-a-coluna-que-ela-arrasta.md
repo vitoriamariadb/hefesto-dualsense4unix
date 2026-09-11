@@ -1,6 +1,6 @@
 ---
 sprint: PERFIS-LIMPA-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911B
 posse:
   PERFIS-LIMPA-01:
@@ -26,6 +26,19 @@ nao_toca:
 ---
 
 # PERFIS-LIMPA-01 — a lupa, os dois ícones e a coluna que ela arrasta
+
+> **ESTADO 2026-09-11: feita** — as cinco seções entregues e a aba **publicada**
+> (`--publicar 10`): a lupa procura nome, prioridade, jogo e disputa (sem acento,
+> sem caixa, pelo normalizador desta casa), o duplo clique ordena as três colunas
+> em ciclo de três estados, o ⟳ foi para `Perfis Salvos` e o ↺ para `Definições`
+> com o gesto e a dica intactos, «Ajuste próprio» virou «Status» só no `<th>`, e
+> as duas tabelas ganharam `<colgroup>` com largura arrastável lembrada em
+> `gui_preferences.json`. **A §6 caiu pela metade, por medição:** o WebKit executa
+> `<script>` de página (medido), mas *ordenar* não pode ser de DOM — o pintor
+> distribui as três colunas pela ordem do DOCUMENTO, e reordenar as `<tr>` põe o
+> nome de um perfil na linha de outro no tique seguinte. Filtrar e ordenar moram
+> no pacote; só arrastar ficou no roteiro. A entrega está em
+> `docs/process/agentes/2026-09-11/PERFIS-LIMPA-01-opus.md`.
 
 > **ORDEM DELA, 11/09/2026:**
 > *"Na tabela do perfil tem que terum svg dde lupa no titulo da tabela. Temos*  <!-- noqa-acento: citação literal dela -->
