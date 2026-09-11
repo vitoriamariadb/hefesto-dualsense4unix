@@ -87,32 +87,59 @@ A linha `aba10.py:1643` já avisa que *"«Modo que liga» e «O jogo vê o contr
 como» não estão desenhados aqui"*. Confira se a saída do quadro deixa o texto
 dessa lista mentindo — se deixar, ele é seu no mesmo commit.
 
-### §3.1 — A PERDA, MEDIDA E DECLARADA (11/09/2026, na conferência)
+### §3.1 — A «PERDA» QUE NÃO ERA — corrigida em 11/09/2026, por ELA
 
-**Esta seção dizia que "o que muda é quem EDITA", e isso estava certo pela
-metade.** A conferência adversarial mediu o que sobrou, e sobrou MENOS do que a
-frase acima sugere. A entrega fechou a §4 inteira e esta é a conta do que ela
-custou — a ordem dela NÃO se desfaz por causa disto:
+> **CORREÇÃO DE FATO, 11/09/2026 (`CADEADO-E-O-FATO-01`).** Esta seção se
+> chamava *"A PERDA, MEDIDA E DECLARADA"* e trazia uma tabela cujas duas
+> primeiras linhas respondiam **«ninguém»**. **O fato estava errado, e quem o
+> derrubou foi ela**, no mesmo dia em que a leva o escreveu. A regra desta casa
+> é substituir o fato errado em TODOS os lugares onde ele aparece — nunca
+> guardá-lo ao lado do certo —, então a tabela saiu. O que ela mediu de
+> verdade — os dois limites de alcance — fica abaixo, com o nome certo.
 
-| o que a janela GTK fazia | quem faz hoje |
-| --- | --- |
-| escrever `mode` de **qualquer** perfil, ativo ou não | **ninguém.** `pacotes/perfil.gravar_o_modo_no_ativo:453` resolve o alvo por `nome_do_ativo(state)` — só o perfil que está VALENDO recebe |
-| escrever **«Não mexer no modo»** (remover a seção) | **ninguém.** Os quatro gestos da aba Jogar (`a01_jogar.py:2134`, `:2266`, `:2286`, `:2390`) passam `gamepad`/`native`/`desktop`, nunca `"none"` |
-| abrir a linha da máscara junto com «Jogar pelo Hefesto» | a aba Jogar, pelos chips — e já era assim antes desta sprint |
+**A palavra dela:**
 
-**O CUSTO, em uma frase:** quem tem um perfil com `mode` gravado e quiser
-trocá-lo precisa **ativar o perfil primeiro**; quem quiser apagar a seção não
-tem caminho de tela nenhum.
+> *"a informação que eu selecionar no modo ou mascara na aba jogar ao salvar o*  <!-- noqa-acento: citação literal dela -->
+> *perfil faz a mesma função que o modo tinha na aba perfil isso foi*  <!-- noqa-acento: citação literal dela -->
+> *implementado desde o inicio mas voltou e não deVEria ter ocorrido"*  <!-- noqa-acento: citação literal dela -->
 
-**ONDE ISSO MORA, e não é na tela.** A dívida está em
-`docs/data/paridade-gtk-html.csv:384`, que voltou a `FALTA_NO_HTML` no mesmo
-commit — o veredito que ela tinha antes de o quadro nascer, com o alcance agora
-medido. O custo está declarado no docstring de `gravar_o_modo_no_ativo`, que é
-onde a próxima pessoa lê. **Na interface, nada:** *"o layout não informa os
-nossos defeitos"*, palavra dela de 07/09/2026.
+**E O CÓDIGO CONCORDA COM ELA.** A cadeia é
+`a01_jogar._gravar_o_modo_do_chip` → `a01_jogar._gravar_o_modo` →
+`interface/pacotes/perfil.gravar_o_modo_no_ativo`, e a docstring do meio já
+dizia, desde antes desta sprint: *"Leva o modo clicado à seção `mode` do perfil
+ativo."* **Clicar um chip na aba Jogar GRAVA `mode` no perfil** — e a máscara
+também (`_gravar_o_modo(ctx, "gamepad", mascara)`). Não precisa nem do «Salvar
+Perfil»: o clique grava.
+
+(Os endereços acima vão por **símbolo** e não por linha: os números desta seção
+— `perfil.gravar_o_modo_no_ativo:453`, `a01_jogar.py:2134`, `:2266`, `:2286`,
+`:2390` — já andaram uma vez, e reapontá-los por aritmética é como esta casa já
+errou.)
+
+**O QUADRO EM PERFIS ERA DUPLICATA, e ter voltado para lá foi o engano.** A
+retirada de 11/09 **não tirou capacidade: desfez a cópia.** A ordem dela segue
+cumprida, e agora pela razão certa.
+
+**O QUE SOBRA SÃO DOIS LIMITES DE ALCANCE, e os dois são decisão dela — não
+dívida:**
+
+1. **de ALVO** — mexer no modo de um perfil **sem ativá-lo antes**. O alvo é
+   resolvido por `nome_do_ativo(state)`, logo só o perfil que está VALENDO
+   recebe;
+2. **de FAIXA** — o valor **«Não mexer no modo»** (`none`), que a Jogar não
+   emite: os quatro gestos passam `gamepad`/`native`/`desktop`, e `secao_do_modo`
+   nunca é chamada com o valor que REMOVE a seção.
+
+**ONDE ISSO MORA, e não é na tela.** O alcance está em
+`docs/data/paridade-gtk-html.csv`, na linha da feature *"A seção «Modo» do
+perfil"*, que **voltou a `DIFERENTE` em 11/09** — a função existe do lado HTML,
+na aba Jogar, e o que difere é LUGAR e ESCOPO. O detalhe está no docstring de
+`gravar_o_modo_no_ativo`, que é onde a próxima pessoa lê. **Na interface,
+nada:** *"o layout não informa os nossos defeitos"*, palavra dela de
+07/09/2026.
 
 **O QUE NÃO SE FAZ POR CONTA PRÓPRIA:** reinventar o quadro noutro lugar da aba
-Perfis. A ordem dela é clara e esta sprint a cumpre. Se a falta incomodar, a
+Perfis. A ordem dela é clara e esta sprint a cumpre. Se o alcance incomodar, a
 pergunta que é dela está na §5.
 
 ## §4 — O QUE ENTREGAR

@@ -90,8 +90,8 @@ O dado mora em **[`docs/data/paridade-gtk-html.csv`](../data/paridade-gtk-html.c
 | 07-lancadores | 30 | 15 | 5 | 0 | 9 | 1 | 50% |
 | 08-conexoes | 49 | 21 | 23 | 3 | 2 | 0 | 43% |
 | 09-sistema | 38 | 11 | 18 | 2 | 7 | 0 | 29% |
-| 10-perfis | 50 | 14 | 19 | 8 | 9 | 0 | 28% |
-| TODAS | 396 | 143 | 159 | 31 | 59 | 4 | 36% |<!-- /TABELA-DA-PARIDADE -->
+| 10-perfis | 50 | 14 | 20 | 7 | 9 | 0 | 28% |
+| TODAS | 396 | 143 | 160 | 30 | 59 | 4 | 36% |<!-- /TABELA-DA-PARIDADE -->
 
 A tabela é **gerada da contagem do CSV** e conferida pelo portão (regra
 `numero-publicado`): quem mexer no dado e não regerar esta seção é barrado
@@ -473,3 +473,41 @@ entregue a MESMA RESPOSTA por outro caminho, com endereço. Se a resposta não
 chega à tela, é `FALTA_NO_HTML` — e é por isso que a *linha da verdade* (56) e
 o *"Já movi — reexaminar"* (269) continuam `FALTA` mesmo sendo escolha dela: o
 que elas não são é **dívida a pagar**, e isso o `porque` diz.
+
+## Nota de verificação — 11/09/2026, a linha 384 e o fato que ela derrubou
+
+`CADEADO-E-O-FATO-01`. A linha **`10-perfis` · "A seção «Modo» do perfil"** saiu
+de `FALTA_NO_HTML` e voltou a **`DIFERENTE`**, e a tabela acima foi **recontada
+do CSV** — `10-perfis` vai de `19 DIFER · 8 FALTA` para `20 · 7`, e a linha
+`TODAS` de `159 · 31` para `160 · 30`. A paridade (`IGUAL / total`) não se mexe:
+nenhuma linha virou `IGUAL`.
+
+**A razão não é uma cura de código — é um fato errado sendo substituído.** A
+leva de 11/09 tirou o quadro «Modo» do editor de Perfis por ordem dela e
+declarou, em três lugares, uma **«perda de capacidade»**. Quem derrubou a
+declaração foi **ELA**, no mesmo dia:
+
+> *"a informação que eu selecionar no modo ou mascara na aba jogar ao salvar o*  <!-- noqa-acento: citação literal dela -->
+> *perfil faz a mesma função que o modo tinha na aba perfil isso foi*  <!-- noqa-acento: citação literal dela -->
+> *implementado desde o inicio mas voltou e não deVEria ter ocorrido"*  <!-- noqa-acento: citação literal dela -->
+
+E o código concorda: `a01_jogar._gravar_o_modo_do_chip` → `_gravar_o_modo` →
+`interface/pacotes/perfil.gravar_o_modo_no_ativo` grava a seção `mode` do perfil
+ativo **no clique**, sem passar pelo «Salvar Perfil». O quadro em Perfis era
+**duplicata** disso; a retirada desfez a cópia, não a capacidade.
+
+**A régua de `DIFERENTE` firmada em 06/09 é o que sustenta a promoção**: o lado
+HTML entrega a MESMA RESPOSTA por outro caminho, com endereço. O que sobra de
+diferença é **LUGAR** (fileira de chips na Jogar, não quadro no editor de
+Perfis) e **ESCOPO** (só o perfil ATIVO; nunca `"none"`), e os dois são
+consequência de decisão dela — está escrito no `porque` da linha e no docstring
+de `gravar_o_modo_no_ativo`.
+
+**O SINAL TROCOU JUNTO, e não por conveniência:** `_mode_section_from_editor` é
+símbolo da GTK e só serve para cobrar AUSÊNCIA (`usa`, que não conta prosa). Uma
+linha que AFIRMA paridade tem de vigiar o que FAZ do lado HTML — passou a ser
+`gravar_o_modo_no_ativo`, em `interface/pacotes/perfil.py`.
+
+**A MORDIDA:** devolvido o veredito `FALTA_NO_HTML` na linha 384 e reposto o
+sinal velho, o portão reprova em `numero-publicado` nomeando `10-perfis` e
+`TODAS` — que é a prova de que esta tabela não envelhece calada.
