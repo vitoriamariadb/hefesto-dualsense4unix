@@ -1,6 +1,6 @@
 ---
 sprint: AUDITORIA-SOM-GIRO-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   AUDITORIA-SOM-GIRO-01:
@@ -15,6 +15,17 @@ nao_toca:
 ---
 
 # AUDITORIA-SOM-GIRO-01 — áudio e giroscópio, por controle e dentro do jogo
+
+> **ESTADO 2026-09-11: feita** — a auditoria está em
+> `docs/process/2026-09-11-A-AUDITORIA-DO-SOM-E-DO-GIROSCOPIO.md`: as duas
+> matrizes (12 chaves de áudio e 12 de movimento/toque, `@dualsense`, com o
+> degrau de cada célula), a coluna do JOGO em Steam · Heroic · jogo direto, as
+> três máscaras, as cinco células que o caderno já ultrapassou, seis buracos com
+> endereço e os sete gestos da bancada. **O número que ela decide: das 48
+> células, 18 têm o jogo como destino e ZERO estão num degrau de jogo — e os
+> 227 ensaios do caderno não declaram ponte nenhuma.** Nenhuma linha de produto
+> mudou; o mapa não foi tocado. Entrega em
+> `docs/process/agentes/2026-09-11/AUDITORIA-SOM-GIRO-01-opus.md`.
 
 > *"eu preciso de uma auditoria completo no sistema de audio e giroscopio pra*  <!-- noqa-acento: citação literal dela -->
 > *ver se todas as features funcionam por controles e se cada uma vai ser*  <!-- noqa-acento: citação literal dela -->
