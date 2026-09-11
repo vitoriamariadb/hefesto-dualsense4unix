@@ -1,6 +1,6 @@
 ---
 sprint: GATILHOS-VAO-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   GATILHOS-VAO-01:
@@ -15,6 +15,14 @@ nao_toca:
 ---
 
 # GATILHOS-VAO-01 — o vão horizontal, e o P2 que perdeu o nome
+
+> **ESTADO 2026-09-11: feita** — o P2 diz `P2 • Desconectado` no DOM vivo com um
+> DualSense na mesa (o bloco pousava e o CAMPO o sobrescrevia: cura em
+> `pacotes.apagar_os_lugares_sem_dono`, que deixou de apagar o que a aba já
+> escrevera por bloco); o retângulo de glifo faltando ao lado do L2/R2 caiu
+> junto (fuga octal do Python) e a aba foi publicada; e o vão é de TRÊS páginas,
+> não desta sprint — `VAO-DO-ESQUELETO-01`, aberta e esperando a palavra dela.
+> Entrega: `docs/process/agentes/2026-09-11/GATILHOS-VAO-01-opus.md`.
 
 > *"tem uma falha horizobntal nos blocos das páginas além disso o p2 tá com -*  <!-- noqa-acento: citação literal dela -->
 > *ao invés de P2 - Desconectado como os demais."*  <!-- noqa-acento: citação literal dela -->
