@@ -34,9 +34,21 @@ FRASE: a cura do travamento está agendada. O que fazer: desconecte e
 /etc/modprobe.d/hefesto-dualsense-storm.conf            existe
 ```
 
-Na máquina dela o mesmo `check_snd_quirk` responde `[ OK ]` e as nove passam.
-Aqui entra uma linha de selo `CONTROLE` na coluna Atenção, e as nove reprovam
-com nove diffs diferentes da mesma causa.
+**O lado que vira é o do CABO, não o da máquina** — há uma máquina só
+(`MeowSystem`), e `/sys/module` e `/etc/modprobe.d` são dela, não da árvore. O
+`snd_usb_audio` só carrega quando há aparelho de áudio USB plugado; sem ele o
+veredito é `[INFO]`, entra uma linha de selo `CONTROLE` na coluna Atenção, e as
+nove reprovam com nove diffs diferentes da mesma causa. Com o módulo carregado
+trazendo o quirk o veredito é `[ OK ]` e as nove passam — medido chamando a
+função pura, **não observado com controle no cabo**:
+
+```bash
+python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+  check_snd_quirk as c; print(c()); \
+  print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
+# ('[INFO]', 'a cura do travamento está agendada. …')
+# ('[ OK ]', 'cura do travamento do USB ATIVA …')
+```
 
 O arquivo IRMÃO (`test_a01_a_coluna_atencao_acende_o_mais_grave.py`) já a
 calava desde que ela nasceu, com a razão escrita no `_so_estes` dele. Este não
@@ -45,14 +57,17 @@ foi junto.
 **A cura fecha a família, não só a fonte que gritou:** `_sem_a_maquina()` cala
 as DUAS fontes que perguntam ao hardware — a cura do travamento e o `_do_exame`
 (que chama `a08_conexoes._exame()`, os controles que estão na mesa AGORA). O
-`_do_exame` cala hoje nesta máquina; com os quatro DualSense na bancada dela
-derrubaria as mesmas quatro réguas do selo `JOGO` por outro nome. Calar um e
-deixar o outro seria pagar este diagnóstico duas vezes.
+`_do_exame` cala com a mesa vazia, que é o estado de agora; com os quatro
+DualSense na mesa derrubaria as mesmas quatro réguas do selo `JOGO` por outro
+nome. **A virada é a mesma da cura do travamento — o que muda é o que está
+plugado no minuto, não a máquina.** Calar um e deixar o outro seria pagar este
+diagnóstico duas vezes.
 
 **E nasceu a régua que faltava em 06/09:**
 `test_nenhuma_fonte_fala_sem_este_arquivo_saber` reprova UMA vez e diz o campo
 `fonte` de quem falou — o endereço exato da função a acrescentar. O limite dela
-está declarado: pega a fonte nova que FALA na máquina em que a suíte roda.
+está declarado: pega a fonte nova que FALA no estado em que a máquina está
+QUANDO a suíte roda — uma fonte calada nesse minuto passa.
 
 ### 2. Os DOIS do `test_a_fita_diz_o_controle_que_esta_na_mesa.py`
 
@@ -180,10 +195,12 @@ nome novo — `38 passed`.
   não escrevi uma célula.
 * **A suíte inteira.** Rodei os treze arquivos da posse, juntos e isolados, e
   os portões. A suíte é de quem coordena e roda no fim.
-* **A máquina dela com a cura `[ OK ]`.** Afirmo pela leitura do dono
-  (`check_snd_quirk` devolve `None` no ramo `OK`) e pelo docstring do produto,
-  que declara a medição de 06/09. Não consigo forçar o `[ OK ]` aqui sem tocar
-  em `/sys`, e não toquei.
+* **O `[ OK ]` com um DualSense no cabo — NÃO MEDIDO.** Medi o veredito com o
+  texto do `quirk_flags` dado à mão (a função é pura nesse caminho), e li o
+  dono para saber que o ramo `OK` não acrescenta aviso. O que não fiz foi
+  plugar um controle e ver o `snd_usb_audio` carregar: forçar isso pedia tocar
+  em `/sys`, e não toquei. **Não é diferença de máquina** — há uma só
+  (`MeowSystem`); é o estado do cabo naquele minuto.
 
 ## O que sobrou para o próximo
 
@@ -224,3 +241,61 @@ nove da aba Jogar e nos dois do `config` no mesmo dia, por caminhos diferentes
 — e nos dois casos o arquivo irmão já sabia e o vizinho não foi junto. **Quando
 uma cura calar uma fonte que lê o disco, procure quem mais a lê antes de fechar
 a leva.**
+
+## O reparo de 11/09
+
+O conferente devolveu a entrega por **uma afirmação falsa**, e ela carregava a
+palavra *medido*: eu escrevi *"o número que isso dá, medido nas duas máquinas"*
+e *"na dela `[ OK ]`, aqui `[INFO]`"*. **Não há duas máquinas.** O código
+estava certo — os quinze fecharam, as mordidas mordem, os portões saem verdes;
+o que estava errado era o diagnóstico escrito ao lado dele.
+
+**O QUE ELE MEDIU, e eu conferi antes de reescrever:**
+
+```
+hostname                                 → MeowSystem            (uma só)
+/sys/module/snd_usb_audio                → não existe AGORA      (para ninguém)
+/etc/modprobe.d/hefesto-dualsense-storm.conf → existe            (root, 01/09)
+/proc/asound/cards                       → NVidia, HD-Audio Generic — zero DualSense
+```
+
+A árvore dela e a minha dividem o mesmo disco, e `/sys/module` e
+`/etc/modprobe.d` são da **máquina**, não da árvore: nenhuma das duas pode ver
+um veredito diferente da outra no mesmo minuto.
+
+**O DIAGNÓSTICO CERTO É TEMPORAL:** o `snd_usb_audio` só carrega quando há
+aparelho de áudio USB plugado — um DualSense no cabo é um. Sem ele o
+`quirk_flags` nem existe, sobra o drop-in, e `check_snd_quirk` responde
+`[INFO]`; com o módulo carregado trazendo o quirk responde `[ OK ]`. A régua
+vira **com o cabo**, não com a máquina. Os dois lados, sem plugar nada:
+
+```bash
+python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+  check_snd_quirk as c; print(c()); \
+  print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
+# ('[INFO]', 'a cura do travamento está agendada. …')
+# ('[ OK ]', 'cura do travamento do USB ATIVA …')
+```
+
+**E o `[ OK ]` com um controle no cabo continua NÃO MEDIDO** — o de cima saiu
+da função pura, com o texto dado à mão. Agora está escrito assim nos cinco
+lugares, em vez de assumido.
+
+**POR QUE ISSO ERA ALTA, e o conferente tem razão:** a frase morava num
+*docstring*, que sobrevive ao relatório. Ela mandava a próxima pessoa procurar
+diferença de MÁQUINA onde a diferença é de MOMENTO — a mesma família que esta
+sprint existe para fechar, *o instrumento respondia sobre outra coisa*. Desta
+vez o instrumento estava certo e quem **respondeu sobre outra coisa fui eu**,
+na prosa que explica o instrumento.
+
+**Onde mudou** (a frase velha SAIU, não ficou ao lado):
+
+| arquivo | o quê |
+| --- | --- |
+| `tests/unit/test_a_aba01_le_o_estado_em_vez_de_cravar.py` | o docstring de `_sem_a_maquina` (a causa, os dois lados e o comando) e o limite declarado em `test_nenhuma_fonte_fala_sem_este_arquivo_saber` |
+| idem | o parágrafo do `_do_exame`, que dizia *"na bancada dela"* — mesma virada, mesmo enquadramento errado |
+| `docs/process/sprints/2026-09-11-OS-VINTE-E-SEIS-VERMELHOS-…md` | §5.1, nos dois parágrafos |
+| `docs/process/agentes/2026-09-11/OS-VINTE-E-SEIS-VERMELHOS-01-opus.md` | §1, o parágrafo do `_do_exame`, e o item de *"O que NÃO verifiquei"*, que agora diz **não medido** com o que foi medido no lugar |
+
+**Escopo:** só o achado. Nenhuma linha de `src/`, nenhum teste afrouxado,
+nenhum dos dez vermelhos que sobram tocado.

@@ -164,18 +164,35 @@ aba 07, que a §3.2 já nomeia e que não está nesta lista.
 USB entrou como mais uma fonte de `a01_jogar._avisos`, e ela lê o disco
 (`/sys/module/snd_usb_audio/parameters/quirk_flags` e
 `/etc/modprobe.d/hefesto-dualsense-storm.conf`) em vez do `state` que os testes
-montam. **Na máquina dela `check_snd_quirk` responde `[ OK ]` e as nove passam;
-aqui responde `[INFO]`** — o `snd_usb_audio` não está carregado, o drop-in está
-no lugar, e a cura está *agendada, esperando o replug*. Uma linha de selo
-`CONTROLE` entra na coluna e as nove reprovam com nove diffs diferentes.
+montam. **O que faz a régua virar é o que está NO CABO, não a máquina** — há
+uma máquina só (`MeowSystem`), e `/sys/module` e `/etc/modprobe.d` são dela,
+não da árvore. O `snd_usb_audio` só carrega quando há aparelho de áudio USB
+plugado: **sem ele o `quirk_flags` nem existe, sobra o drop-in, e
+`check_snd_quirk` responde `[INFO]`** (*a cura está agendada, esperando o
+replug*) — uma linha de selo `CONTROLE` entra na coluna e as nove reprovam com
+nove diffs diferentes. **Com o módulo carregado trazendo o quirk ele responde
+`[ OK ]` e as nove passam.** Os dois lados, sem plugar nada — a função é pura
+quando se dá o texto:
+
+```bash
+python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+  check_snd_quirk as c; print(c()); \
+  print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
+# ('[INFO]', 'a cura do travamento está agendada. …')   ← medido em 11/09
+# ('[ OK ]', 'cura do travamento do USB ATIVA …')       ← o quirk no ar
+```
+
+**O `[ OK ]` NÃO FOI OBSERVADO com controle no cabo** — só com o texto dado à
+mão acima. *Não medido* é o que se sabe dele.
 
 O arquivo IRMÃO já calava essa fonte desde que ela nasceu, com a razão escrita
 no `_so_estes` dele (`test_a01_a_coluna_atencao_acende_o_mais_grave.py`). Este
 não foi junto. **A cura fecha a família inteira, e não só a fonte que gritou:**
 `_do_exame` — que pergunta ao `a08_conexoes._exame()`, isto é, aos controles que
-estão na mesa AGORA — saiu no mesmo gesto, porque hoje ele cala aqui e com os
-quatro DualSense na bancada dela derrubaria as mesmas quatro réguas por outro
-nome.
+estão na mesa AGORA — saiu no mesmo gesto, porque com a mesa vazia ele cala e
+com os quatro DualSense na mesa derrubaria as mesmas quatro réguas por outro
+nome. **É a mesma virada da cura do travamento: o que muda é o que está plugado
+no minuto, não a máquina.**
 
 **E FICOU UMA RÉGUA NOVA, que é o que faltava em 06/09:**
 `test_nenhuma_fonte_fala_sem_este_arquivo_saber` reprova UMA vez, dizendo o
