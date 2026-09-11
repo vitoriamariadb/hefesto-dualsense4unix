@@ -86,12 +86,12 @@ proposta: são defeitos, e vão direto para a execução.**
 
 | # | o que ela disse | onde mora |
 | --- | --- | --- |
-| 1 | *"em todos os tooltips somem os textos e eles não mostram ou mostram e saem direto. em todas as paginas isso ocorre."* | o `title` nativo dentro do `WebKit2.WebView` — a medir |
+| 1 | *"em todos os tooltips somem os textos e eles não mostram ou mostram e saem direto. em todas as paginas isso ocorre."* | o `title` nativo dentro do `WebKit2.WebView` — a medir |  <!-- noqa-acento: citação literal dela -->
 | 2 | *"no nome da janela não conseguimos deixar Hefesto - DualSense4Unix ao invés de só hefesto?"* | `interface/ver.py:158` — `barra.set_title("Hefesto")` |
 | 3 | *"Não conseguimos centralizar a interfcace? tipo o bloco que contém todos os demais elementos"* | `interface/topo.html:119-123` (`body`) e `:186-191` (`.janela`) |
 | 4 | *"Leia o cabo e acordado (ambos minusculo sem iniciar de forma capitular)"* | a fita do topo — o `CABO` sai maiúsculo no seletor de controle |
 | 5 | *"o touchpad não reconhece os toques quando usamos dois ou mais dedos. Mas o produto já reconhece e funciona corretamente"* | aba Controles — o bloco `Touchpad` do cartão |
-| 6 | *"aqui deveria aparecer o nome e o codigo não só o codigo e não deveria aparecer o nome do programa"* | o `datalist` do campo «Nome do Jogo» (`a10_perfis.py:1344-1353`) |
+| 6 | *"aqui deveria aparecer o nome e o codigo não só o codigo e não deveria aparecer o nome do programa"* | o `datalist` do campo «Nome do Jogo» (`a10_perfis.py:1344-1353`) |  <!-- noqa-acento: citação literal dela -->
 | 7 | *"seria legal nome do programa launcher aqui… remove jogo da steam, jogo, jogo pela janela, estilo de jogo, e colocariamos os launchers"* | o campo «Funciona em:» da aba Perfis |
 
 **O item 1 é o mais grave e vem primeiro**: um tooltip que não abre apaga toda
