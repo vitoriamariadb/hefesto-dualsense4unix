@@ -1,6 +1,6 @@
 ---
 sprint: O-SALVAR-DA-JOGAR-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911B
 posse:
   O-SALVAR-DA-JOGAR-01:
@@ -17,6 +17,13 @@ nao_toca:
 ---
 
 # O SALVAR DA JOGAR — o modo e a máscara sobrevivem ao disco?
+
+> **ESTADO 2026-09-11: feita** — medido no disco, num lar de mentira: o
+> clique GRAVA o modo (`mode.kind` + `mode.gamepad_flavor`) e a máscara de
+> cada peça (`controllers.<uniq>.mascara`, só ali), e o «Salvar Perfil» não
+> destrói nenhum dos dois — com o daemon calado ele RECUSA, porque o rodapé
+> lê `state["active_profile"]` cru nos seus três gestos. O laudo é
+> `docs/process/2026-09-11-O-SALVAR-DA-JOGAR-o-modo-e-a-mascara-medidos-no-disco.md`.
 
 > **ORDEM DELA, 11/09/2026:** *"eu preciso que vc verifique se algo foi alterado*  <!-- noqa-acento: citação literal dela -->
 > *nisso, manda um agente ver se salvar na aba jogar o perfil do jogo vai salvar*  <!-- noqa-acento: citação literal dela -->
