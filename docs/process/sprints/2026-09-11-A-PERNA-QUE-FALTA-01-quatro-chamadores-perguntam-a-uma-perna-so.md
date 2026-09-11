@@ -1,6 +1,6 @@
 ---
 sprint: A-PERNA-QUE-FALTA-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911B
 posse:
   A-PERNA-QUE-FALTA-01:
@@ -21,6 +21,19 @@ nao_toca:
 ---
 
 # A PERNA QUE FALTA — quatro chamadores perguntam o perfil ativo a uma perna só
+
+> **ESTADO 2026-09-11: feita** — os quatro curados e mais DOIS que o censo
+> da §3 achou (`rumble.motores.set` e `sensor.set`, os outros gravadores do
+> `ipc_handlers`): a segunda perna do daemon é `_perfil_que_grava`, que
+> pergunta ao `resolve_boot_profile` do próprio boot e **confirma que o nome
+> carrega** antes de devolvê-lo. `ponte.chamar_detalhado` passou a juntar as
+> duas formas de o daemon dizer não (`_recusa_no_corpo`), e o gesto da
+> máscara traduz o motivo em frase de cartão. Régua nova com as quatro
+> mordidas, e **toda escrita medida no `json.load` do perfil**.
+> **O QUE A FOTO ACHOU, e é o que sobra:** a frase chega ao DOM e fica
+> `visibility:hidden` — `.faixa-final:not(.ha) .pendente` (01-jogar.html:1500)
+> apaga todo recado de sucesso desta aba, **inclusive o recibo do «Reconectar
+> Controles» de 09/09**. O conserto é de `interface/aba01.py`, fora da posse.
 
 **Achado pela conferência da `O-SALVAR-DA-JOGAR-01`, em 11/09/2026, e não pela
 sprint que a mediu.** O laudo contou TRÊS chamadores; são QUATRO, e **o quarto
