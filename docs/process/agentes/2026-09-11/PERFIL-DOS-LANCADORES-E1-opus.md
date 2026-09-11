@@ -288,3 +288,37 @@ Perfis já mostra o que está no disco), o `install.sh`, e o caminho da Steam, q
 funciona há semanas — os 23 jogos dela saíram `ja_semeado`, um a um.
 **Nenhum botão para semear:** é automático, pelas mesmas três portas de carga de
 perfil de sempre.
+
+---
+
+## §7 — OS PORTÕES: 54 de 56, e os DOIS vermelhos não são desta frente
+
+Cabeçalho conferido: a árvore medida é
+`/mnt/Apate/Desenvolvimento/hefesto-voo/PERFIL-DOS-LANCADORES-E1-opus`.
+
+| portão | o que acusa | de quem é |
+| --- | --- | --- |
+| `referencias-docs` | 5 mortas, todas `docs/process/agentes/2026-09-11/LINGUA-A{1..5}-opus.md` | **das frentes LINGUA-A1..A5**, que estão EM VOO nesta mesma onda. Fecha quando cada uma gravar o laudo que a própria sprint promete |
+| `acentuacao` | 3, todas em `2026-09-11-A-SEGUNDA-LISTA-DELA-…-INDICE.md:89,94` (`paginas`, `codigo` ×2) | **do INDICE, posse `COORDENA`** — e as três são **citação literal dela** (itens 1 e 6 da §2). A cura é `<!-- noqa-acento: citação literal dela -->` na linha, nunca corrigir a digitação dela |
+
+**Nenhum dos dois toca arquivo desta frente** — `git status` mostra só os seis
+da §6, e nenhum dos citados está entre eles.
+
+**E TRÊS VERMELHOS QUE ERAM MEUS FECHARAM NO CAMINHO**, cada um com a causa:
+
+* `mypy` — `type: ignore[union-attr]` sobre um `object` iterado. Curado por
+  `isinstance` que ESTREITA, e não por ignore mais largo;
+* `casa-sabe` — `classes_de_jogo_conhecidas` nascia sem chamador em produção.
+  Curado FIANDO (opção 1 das quatro): `e_endereco_de_jogo` passou a ler o
+  cadastro por ela, que é também o certo — um `global` com dois leitores é duas
+  verdades esperando divergir;
+* `citacoes-no-codigo` — **e este é o que ensina.** Um `import` novo na linha 10
+  de `schema.py` empurrou o arquivo inteiro em UMA linha, e **quatro endereços
+  citados em quatro arquivos envelheceram de uma vez** — três deles em arquivos
+  que esta sprint não pode tocar (`interface/aba10.py` está no `nao_toca`).
+  A cura não foi reapontar as quatro citações: foi **não empurrar o arquivo** —
+  a anotação passou a ser `object` com `isinstance`, sem import novo, e as
+  quatro voltaram a apontar para o que prometem.
+  *Acrescentar uma linha no topo de um módulo muito citado custa o preço de
+  todas as citações a ele, e o preço é pago por quem não pode tocar nos
+  citantes.*
