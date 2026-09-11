@@ -5,11 +5,31 @@ onda: A-LISTA-DE-0911
 posse:
   OS-VINTE-E-SEIS-VERMELHOS-01:
     - docs/process/sprints/2026-09-11-OS-VINTE-E-SEIS-VERMELHOS-QUE-JA-ESTAVAM-LA.md
+    # OS DOZE ARQUIVOS DOS VINTE E CINCO, acrescentados em 11/09 quando ela
+    # mandou um agente cuidar disto em paralelo. Sem eles na posse, quem
+    # executar esta sprint escreve fora da posse e a costura conflita.
+    - tests/unit/test_a_aba01_le_o_estado_em_vez_de_cravar.py
+    - tests/unit/test_a_fita_diz_o_controle_que_esta_na_mesa.py
+    - tests/unit/test_a_prova_da_mesa_de_medicao.py
+    - tests/unit/test_bancada_nomeia_coluna_que_o_csv_nao_tem.py
+    - tests/unit/test_causa_nao_declarada_z6_05.py
+    - tests/unit/test_config_a_palavra_de_tela_da_aba_montada.py
+    - tests/unit/test_identidade_do_aplicativo_01.py
+    - tests/unit/test_leia_primeiro_nao_digita_numero_a_mao.py
+    - tests/unit/test_o_caminho_do_radio_da_luz_no_mapa.py
+    - tests/unit/test_o_painel_encabeca_as_decisoes_dela.py
+    - tests/unit/test_o_registro_diz_quem_decidiu.py
+    - tests/unit/test_sn30_plataforma_e_identidade_transporte.py
+    - tests/unit/test_validar_referencias_docs.py
 cria: []
 bancada: false
 depois_de: []
 nao_toca:
+  # A CURA É DO TESTE, NÃO DO PRODUTO. Um vermelho que só fecha mexendo em
+  # `src/` não é desta sprint: ele é defeito de produto e vira frente própria,
+  # com a medição no relatório.
   - src/
+  - tests/unit/test_o_cadeado_mora_no_canto_do_bloco.py
 ---
 
 # OS VINTE E SEIS VERMELHOS QUE JÁ ESTAVAM LÁ — medidos na costura de 11/09

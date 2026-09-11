@@ -14,6 +14,11 @@ depois_de:
   # e o seletor livre da MESMA guia de `aba04.py`. A dica da cor se escreve
   # sobre a guia que sobrar, e não sobre a de ontem.
   - ILUMINACAO-PALETA-01
+  # E A GRADE VEM ANTES DA DICA, pela mesma razão levada um passo adiante:
+  # a ILUMINACAO-GRADE-01 muda a LARGURA da coluna (decisão dela de 11/09,
+  # «estreitar a grade de verdade»). Uma dica posicionada sobre a coluna de
+  # hoje nasceria fora do lugar amanhã.
+  - ILUMINACAO-GRADE-01
 ---
 
 > *"com o mouse parado na frente da cor ele fica piscando e tirando o aviso e voltando"* <!-- noqa-acento: citação literal dela -->
