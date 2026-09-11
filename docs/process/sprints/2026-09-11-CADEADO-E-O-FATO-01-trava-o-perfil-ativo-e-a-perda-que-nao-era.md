@@ -1,6 +1,6 @@
 ---
 sprint: CADEADO-E-O-FATO-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911B
 posse:
   CADEADO-E-O-FATO-01:
@@ -24,6 +24,8 @@ nao_toca:
 ---
 
 # CADEADO-E-O-FATO-01 — «Trava o perfil ativo», e a perda que não era perda
+
+> **ESTADO 2026-09-11: feita** — a caixa do canto do bloco Modo diz **«Trava o perfil ativo»** nos cinco endereços, com a página gerada e PUBLICADA (`--publicar 01`) e as duas réguas do par rótulo↔GTK verdes; e o fato errado da leva de 11/09 — a «perda de capacidade» — foi SUBSTITUÍDO nos três lugares, com a palavra dela e a cadeia de código que a sustenta. A linha 384 da paridade saiu de `FALTA_NO_HTML` e voltou a `DIFERENTE`, a tabela publicada foi RECONTADA do CSV (`10-perfis` 19→20 DIFER e 8→7 FALTA; `TODAS` 159→160 e 31→30) e as duas mordidas reprovaram. Medido na tela: o rótulo vai de 254,1px para 116px numa linha de 1528px que já tinha 1219,9px livres — ele é ancorado à DIREITA, então encurtar não deixa nada solto. A entrega está em `docs/process/agentes/2026-09-11/CADEADO-E-O-FATO-01-opus.md`.
 
 **Duas coisas, e as duas vêm da mesma conversa dela de 11/09/2026, depois de
 olhar as fotos da Jogar e da Perfis lado a lado.**
