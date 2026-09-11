@@ -1,6 +1,6 @@
 ---
 sprint: LANCADOR-LOCALIZAR-01
-estado: aberta
+estado: feita
 posse:
   LANCADOR-LOCALIZAR-01:
     - src/hefesto_dualsense4unix/interface/desenho_dos_lancadores.py
@@ -50,6 +50,18 @@ depois_de: []
 > o `--publicar 07`, que é ato dela.
 
 # LANCADOR-LOCALIZAR-01 — o «Consertar» sai do cartão que já foi localizado
+
+> **ESTADO 2026-09-10: feita** — o «Consertar» saiu do cartão LOCALIZADO (o
+> botão, o gesto `consertar-lancador` e o `PROVISÓRIO` de dois cliques); o
+> «Localizar este Lançador» passou a valer nos SEIS cartões achados, inclusive
+> o da Steam; a recusa do botão global parou de confessar *"hoje o cartão não
+> tem por onde trocar"*; a caixa de registro ganhou o
+> «Escolher o arquivo…» (a opção **C** dela) com gesto, recusa própria e dublê;
+> e `cura_por_estrada` ficou com as 26 provas e a dívida declarada em
+> `_SEM_CAMINHO_HOJE`, apontando para a LANCADOR-CARONA-01. A metade que muda a
+> PÁGINA está na bancada e declarada em `mockup/DIVERGENCIAS.md` — o
+> `--publicar 07` é ato dela. Entrega:
+> `docs/process/agentes/2026-09-10/LANCADOR-LOCALIZAR-01-opus.md`.
 
 Ela respondeu à pergunta que o próprio código pendurou em 09/09 — o bloco
 `PROVISÓRIO` de `a07_lancadores.py:911`, aberto com a palavra dela de horas
