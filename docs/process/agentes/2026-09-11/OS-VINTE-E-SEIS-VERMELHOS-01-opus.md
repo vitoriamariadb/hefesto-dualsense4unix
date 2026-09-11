@@ -43,7 +43,7 @@ trazendo o quirk o veredito é `[ OK ]` e as nove passam — medido chamando a
 função pura, **não observado com controle no cabo**:
 
 ```bash
-python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+.venv/bin/python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
   check_snd_quirk as c; print(c()); \
   print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
 # ('[INFO]', 'a cura do travamento está agendada. …')
@@ -200,7 +200,11 @@ nome novo — `38 passed`.
   dono para saber que o ramo `OK` não acrescenta aviso. O que não fiz foi
   plugar um controle e ver o `snd_usb_audio` carregar: forçar isso pedia tocar
   em `/sys`, e não toquei. **Não é diferença de máquina** — há uma só
-  (`MeowSystem`); é o estado do cabo naquele minuto.
+  (`MeowSystem`); é o estado do cabo naquele minuto. **E o ramo `OK` já foi
+  visto vivo aqui**, do sysfs real, em 06/09 com a bancada livre:
+  `docs/process/agentes/2026-09-06/ONDA5-01-01.md:53-62`. A pergunta que subiu
+  daqui — *«vale pedir o gesto dela?»* — está respondida: **não**, a casa já
+  pagou essa medição; o que faltava era o ponteiro.
 
 ## O que sobrou para o próximo
 
@@ -270,7 +274,7 @@ aparelho de áudio USB plugado — um DualSense no cabo é um. Sem ele o
 vira **com o cabo**, não com a máquina. Os dois lados, sem plugar nada:
 
 ```bash
-python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+.venv/bin/python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
   check_snd_quirk as c; print(c()); \
   print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
 # ('[INFO]', 'a cura do travamento está agendada. …')

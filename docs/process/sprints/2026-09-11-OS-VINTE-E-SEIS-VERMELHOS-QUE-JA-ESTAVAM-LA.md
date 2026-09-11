@@ -175,15 +175,19 @@ nove diffs diferentes. **Com o módulo carregado trazendo o quirk ele responde
 quando se dá o texto:
 
 ```bash
-python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
+.venv/bin/python -c "from hefesto_dualsense4unix.integrations.storm_doctor import \
   check_snd_quirk as c; print(c()); \
   print(c('054c:0ce6:ignore_ctl_error|ctl_msg_delay_1m'))"
 # ('[INFO]', 'a cura do travamento está agendada. …')   ← medido em 11/09
 # ('[ OK ]', 'cura do travamento do USB ATIVA …')       ← o quirk no ar
 ```
 
-**O `[ OK ]` NÃO FOI OBSERVADO com controle no cabo** — só com o texto dado à
-mão acima. *Não medido* é o que se sabe dele.
+**O `[ OK ]` NÃO FOI OBSERVADO AQUI com controle no cabo** — só com o texto dado
+à mão acima. **E O RAMO `OK` JÁ FOI VISTO VIVO NESTA MÁQUINA**, do sysfs real e com a
+bancada LIVRE a sessão inteira — `docs/process/agentes/2026-09-06/ONDA5-01-01.md:53-62`,
+que registra o `quirk_flags` EXISTINDO com o quirk e o `check_snd_quirk()`
+devolvendo `[ OK ]`. Módulo carregado não cai no desplugue; o que decide é o
+estado do `snd_usb_audio` no minuto, não a bancada. **Não custa um gesto dela.**
 
 O arquivo IRMÃO já calava essa fonte desde que ela nasceu, com a razão escrita
 no `_so_estes` dele (`test_a01_a_coluna_atencao_acende_o_mais_grave.py`). Este
