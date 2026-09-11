@@ -1,6 +1,6 @@
 ---
 sprint: ILUMINACAO-PALETA-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   ILUMINACAO-PALETA-01:
@@ -16,6 +16,24 @@ nao_toca:
 ---
 
 # ILUMINACAO-PALETA-01 — três tons saem da guia, e o seletor livre vai junto
+
+> **ESTADO 2026-09-11: feita** — a fileira tem ONZE casas em cada um dos quatro
+> lugares e a casa hachurada do fim não existe mais, com o gesto dela morto
+> junto (o `<input>`, as quatro regras de CSS, a entrada do mapa de cobertura, a
+> régua do `value` preto e a segunda porta do gesto `cor`, que agora recusa
+> dizendo sem `data-hex`). Os três que saíram foram MEDIDOS pelo critério da §3:
+> `#0080FF` (209,88°, vizinho a 29,88° contra 30,12° do `#0000FF`), `#FF00FF`
+> (300,00°, empate em 29,88° desfeito pela §2 — o corte é na metade que NÃO é
+> cor automática de jogador) e `#000000`. A poda é de TELA: `player_slot_color`
+> e `monta.TOM_DA_CASA` não foram tocados, e `FORA_DA_GUIA` recusa dizendo se
+> alguém tentar podar uma cor automática. Gerado e **PUBLICADO** (`--publicar
+> 04`). **A §4 item 1 CAIU pela medição:** a largura renderizada da coluna NÃO
+> cai — `repeat(4,1fr)` numa janela de 1180 px fixos —, e o que cai é a pressão
+> (min-content da fileira 130 → 64 px; da coluna 151 → 129/134 px) e a largura
+> de cada tom (10,23 → 15,77 px, +54%). Estreitar a coluna pede mudar a GRADE, e
+> isso é decisão de tela dela. SEM APARELHO: `bancada: false`, nenhum byte vai
+> ao controle, nenhuma célula do mapa exercitada. Entrega:
+> `docs/process/agentes/2026-09-11/ILUMINACAO-PALETA-01-opus.md`.
 
 > *"temos que remover esse botão que o mouse tá (que abre outras cores.) remover*  <!-- noqa-acento: citação literal dela -->
 > *um tom de azul. um tom de rosa e o tom de preto de todas as cores pros 4*  <!-- noqa-acento: citação literal dela -->
