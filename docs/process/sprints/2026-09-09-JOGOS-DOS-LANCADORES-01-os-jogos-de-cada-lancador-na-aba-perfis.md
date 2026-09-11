@@ -1,6 +1,6 @@
 ---
 sprint: JOGOS-DOS-LANCADORES-01
-estado: aberta
+estado: feita
 posse:
   JOGOS-DOS-LANCADORES-01:
     - src/hefesto_dualsense4unix/profiles/loader.py
@@ -16,6 +16,19 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/aba10.py
   - src/hefesto_dualsense4unix/interface/pacotes/a10_perfis.py
 ---
+
+> **ESTADO 2026-09-11: feita** — o MOTOR está entregue: `jogo_da_janela`
+> traduz a `wm_class` que o «Detectar» pega em NOME DE JOGO, pelas três
+> origens de fora da Steam (Heroic, Lutris, e o jogo direto do menu pelo
+> `StartupWMClass=`), que é o que o `steam_appid_from_wm_class` já fazia para
+> a Steam. Medido no disco dela: `gotg.exe` → *Marvel's Guardians of the
+> Galaxy (Heroic)*, ao lado do `3357650` → *PRAGMATA* da foto. **Dois defeitos
+> de leitura caíram junto:** o Lutris era lido de `games/*.yml` (0 arquivos no
+> disco dela) em vez do `pga.db`, que é onde a biblioteca mora E onde está o
+> `executable`; e não havia origem nenhuma para o jogo que não é de lançador.
+> **A ponta na tela são DUAS linhas em `a10_perfis`** (`nao_toca` daqui), ditas
+> com o número na entrega — provadas com as funções reais da aba, em memória.
+> A entrega: `docs/process/agentes/2026-09-11/JOGOS-DOS-LANCADORES-01-opus.md`.
 
 > **ELA COBROU DE NOVO EM 11/09/2026, com o exemplo na mão, e o exemplo é o
 > enunciado desta sprint virado do avesso:**
