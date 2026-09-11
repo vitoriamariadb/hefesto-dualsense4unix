@@ -51,6 +51,24 @@ depois_de: []
 
 # LANCADOR-LOCALIZAR-01 — o «Consertar» sai do cartão que já foi localizado
 
+> **ESTADO 2026-09-11: feita** — a metade nova (o cartão localizado fica VERDE)
+> fechou, e a causa era de 09/09: `SELOS` ganhou a chave `localizado` e **a
+> folha nunca soube da classe**. Medido na página viva antes da cura, com a
+> grade pintada como o pacote a pinta: o selo da Steam saía
+> `background: rgb(80,250,123)` e os CINCO `LOCALIZADO` saíam
+> `rgba(0,0,0,0)` — **verde nenhum, não verde fraco**. A regra nasceu dividindo
+> o estilo com `ok`, que é o que `MOLDURA` já declarava, e duas réguas novas
+> cobram a folha contra `SELOS` e contra `MOLDURA`. **E a aba foi PUBLICADA**
+> (`--publicar 07`): sem isso a cor ficaria só na bancada, que foi exatamente o
+> que fez a queixa voltar. Entrega:
+> `docs/process/agentes/2026-09-11/LANCADOR-LOCALIZAR-01-opus.md`.
+>
+> **O QUE AINDA NÃO ESTÁ NA TELA DELA, e não é código:** o «Consertar» sai por
+> código de produto, e esse código está em `voo/LANCADOR-LOCALIZAR-01-opus`,
+> **fora de `onda/0911` e fora de `dev`** — a árvore de 10/09 nasceu de `dev` e
+> nunca foi costurada (`git cherry onda/0911 HEAD` → `+`). Enquanto a costura
+> não acontecer, ela continua vendo os botões.
+
 > **ESTADO 2026-09-10: feita** — o «Consertar» saiu do cartão LOCALIZADO (o
 > botão, o gesto `consertar-lancador` e o `PROVISÓRIO` de dois cliques); o
 > «Localizar este Lançador» passou a valer nos SEIS cartões achados, inclusive

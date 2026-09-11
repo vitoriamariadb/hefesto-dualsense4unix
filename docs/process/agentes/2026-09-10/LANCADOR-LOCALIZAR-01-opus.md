@@ -331,19 +331,30 @@ $ git log --oneline -1 -- tests/unit/test_o_no_do_radio_conta_como_placa.py
 `315d912b` é a ponta de `dev` de onde esta árvore nasceu hoje. **O `dev` está
 vermelho nesses dois portões agora**, e o `pre-push` do anonimato barra.
 
-**A FORMA DO DEFEITO É A QUE O `CLAUDE.md` JÁ DESCREVE:** a máscara foi aplicada
-nos octetos ERRADOS. `a0fa9c` + `02fe00` põe a faixa sintética da casa no
-SUFIXO e deixa o OUI real na frente; a convenção é o contrário — octetos **4 e
-5 zerados**. **A cura é de duas linhas**, e faz os DOIS portões passarem
-(`_permitido` aceita OUI de fabricante com `candidato[6:10] == "0000"`):
-
-```python
-UNIQ_RADIO = "a0fa9c000001"   # era "a0fa9c02fe00"
-UNIQ_CABO  = "d42f4b000002"   # era "d42f4baabbcc"
-```
+**A FORMA DO DEFEITO:** as duas constantes traziam o **OUI real do fabricante**
+de cada um dos controles dela na frente, com um sufixo inventado atrás — o
+oposto do que a convenção da casa pede.
 
 Não as escrevi: o arquivo é de outra posse, e a regra desta casa é relatar, não
 editar. **Quem costurar esta leva tem de resolver isto antes de empurrar.**
+
+> **FECHOU EM 10/09/2026, e NÃO pela cura que este relato propunha** — nota
+> acrescentada em 11/09 pela leva seguinte desta mesma sprint.
+>
+> O conserto veio em `f59e4ddf` (*"os endereços das réguas saem da faixa real,
+> e as onze citações reapontam"*), já dentro de `onda/0911`. Aqui estava
+> proposta uma cura de duas linhas que **mantinha o OUI real** e zerava os
+> octetos 4 e 5; o que a casa fez foi outra coisa, e melhor: **os dois
+> endereços saíram inteiros para a faixa sintética** (`02fe00…`, `aabbcc…`),
+> que é a convenção escrita. Um OUI de fabricante mascarado continua sendo o
+> fabricante dela na frente do endereço.
+>
+> **A proposta velha saiu daqui em vez de ficar ao lado da certa** — regra
+> desta casa: *fato errado se substitui, e sai de todos os lugares onde
+> aparece*; mantê-lo obrigaria a próxima pessoa a escolher entre duas
+> respostas. Saíram junto os dois valores literais que ele citava: eles eram
+> o OUI real com sufixo à mostra, e **`mac-por-oui` reprovava este arquivo por
+> causa deles** — o relato virou a segunda cópia do defeito que denunciava.
 
 ---
 
