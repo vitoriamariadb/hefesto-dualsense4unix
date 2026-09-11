@@ -1,6 +1,6 @@
 ---
 sprint: SOM-BOTOES-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911
 posse:
   SOM-BOTOES-01:
@@ -23,6 +23,19 @@ nao_toca:
 ---
 
 # SOM-BOTOES-01 — os botões do som fazem o que dizem?
+
+> **ESTADO 2026-09-11: feita** — dois defeitos medidos e curados na fileira de
+> três botões do alto-falante. **«Ouvir junto» nunca acendia**:
+> `A_FILEIRA_TEM_TRES` valia `False` com a página publicada trazendo o botão
+> quatro vezes, porque a atribuição rodava antes de `PAGINA` existir e um
+> `except Exception` devolvia o `NameError` como *"a página não tem o botão"*
+> — e a régua de 10/09 não via porque monkeypatchava a própria constante
+> (12/12 verde com o defeito inteiro de volta). E **sair de «Todo o som do PC»
+> para «Ouvir junto» deixava o firmware em «só no alto-falante»**, com o
+> cartão publicando a ressalva que mandava desfazer o clique dela. Régua nova
+> com 19 testes, sem monkeypatch da constante. A ORELHA DELA continua devendo:
+> nada aqui tocou o aparelho. A entrega é
+> `docs/process/agentes/2026-09-11/SOM-BOTOES-01-opus.md`.
 
 > *"tipo sobre o som ta funcionando como deveria mas não sei se os botões*  <!-- noqa-acento: citação literal dela -->
 > *funcionam lá como deveriam. eu não sei explicar funciona mas sinto que tem*  <!-- noqa-acento: citação literal dela -->
