@@ -43,8 +43,22 @@ while IFS=$'\t' read -r SPRINT BRANCH ARQ ENTREGA; do
   fi
   N="$(echo "$NOVOS" | wc -l)"
   if [ -n "$SECO" ]; then echo "  ${SPRINT}: ${N} commit(s) a colher de ${BRANCH}"; continue; fi
-  # os commits em ordem de história, e um a um — para o conflito nomear o commit
-  for SHA in $(echo "$NOVOS" | tac); do
+  # os commits em ordem de história, e um a um — para o conflito nomear o commit.
+  #
+  # O `tac` SAIU EM 11/09/2026, e ele era o defeito. `git cherry` já devolve do
+  # mais ANTIGO para o mais novo — medido nesta árvore:
+  #
+  #     $ git cherry onda/0911 voo/PERFIS-A-TELA-01-opus
+  #     + 3a8d06fd   (a cura)
+  #     + c10c7633   (o reparo, que nasceu DEPOIS)
+  #
+  # Com o `tac`, o reparo era colhido ANTES da cura que ele repara, e o
+  # cherry-pick batia em conflito num commit que aplicaria limpo. O defeito só
+  # aparece quando uma branch tem MAIS DE UM commit — por isso ele atravessou as
+  # levas de 06 e 07/09 sem ser visto: naquelas, cada agente commitou uma vez.
+  # A leva de 11/09 tem conferente adversarial, logo tem segunda volta, logo tem
+  # duas pontas de história por branch.
+  for SHA in $NOVOS; do
     if ! git -C "$RAIZ" cherry-pick -x "$SHA" >>"$SAIDA" 2>&1; then
       {
         echo "CONFLITO em ${SPRINT} (${SHA}). Arquivos:"
