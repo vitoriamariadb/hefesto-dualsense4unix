@@ -112,8 +112,13 @@ Nove caminhos, rodados num lar de mentira. A §6 diz como refazer.
 
 ### 1. Quem lê `Profile.mode` hoje? — **de pé**
 
-A tabela da §2: dezenove nós de código, onze comentários e setenta e oito
-strings. **Zero leitores dependiam do quadro.**
+A tabela da §2: dezenove nós de código, **oitenta e oito** comentários e
+setenta e oito strings. **Zero leitores dependiam do quadro.**
+
+> **UM NÚMERO ERRADO, SUBSTITUÍDO:** aqui se lia *"onze comentários"*, contra
+> os **88** da tabela da §2 — dois números para a mesma medição, no mesmo
+> documento. A aritmética do próprio texto decide: 88 + 78 = **166**, que é o
+> total que a §2 publica duas vezes (*"166 contra 19"*). O 88 fica; o onze sai.
 
 ### 2. O `Ativar` continua aplicando o modo? — **de pé**
 
@@ -158,8 +163,23 @@ embora. Com o perfil **ativo** o gesto passa por
 `rodape._draft_do_ativo` → `DraftConfig.to_profile`, que é outro código e tem
 o portão `mesmo_perfil` do R-11 no caminho — o mesmo portão que, com nome novo,
 **zera `match`, `mode` e `suppress_desktop_emulation` de propósito**. Medido
-nos dois: o `source_name` fotografado por `from_profile` casa por slug, o
-`mesmo_perfil` responde verdadeiro, e o modo atravessa inclusive o RENOMEAR.
+nos dois: o modo atravessa, **inclusive o RENOMEAR**.
+
+> **FATO ERRADO, SUBSTITUÍDO na conferência de 11/09** — esta linha dizia que
+> *"o `source_name` casa por slug, o `mesmo_perfil` responde verdadeiro"*, e a
+> medição derruba: `slugify("Stray")` é `stray`, `slugify("Stray BR")` é
+> `stray_br`, e num draft fotografado de um perfil o `to_profile` com nome novo
+> devolve `mode=None` — o R-11 zera, como ele promete zerar.
+>
+> **O QUE DE FATO SALVA O RENOMEAR É OUTRA COISA, e é mais frágil:**
+> `interface/pacotes/a10_perfis.py:2447` chama `_com_o_que_esta_valendo(era, ctx)`
+> com o nome **VELHO**, e só em `:2457` faz `model_copy(update={"name": novo})`.
+> **O portão nunca vê o nome novo.** Conferido linha a linha.
+>
+> **POR QUE A CORREÇÃO IMPORTA, sendo o desfecho o mesmo:** a frase velha
+> ensinava que o R-11 protege renomeação por slug. Ele **não protege**. Quem
+> mover o `rename` para antes do `to_profile` — uma refatoração inocente —
+> perde a seção `mode` dela **calado**, e teria a página como aval.
 
 `Exportar` copia o arquivo byte a byte e `Importar` regrava o JSON cru depois
 de validar — nenhum dos dois reserializa o perfil, então não há como perderem
@@ -204,6 +224,21 @@ A quebra está na §4.
 ---
 
 ## §4 — A QUEBRA: `docs/data/donos-de-comportamento.csv:48`
+
+> **FECHADA NA COSTURA — 11/09/2026.** A linha foi reclassificada de `SO-GTK`
+> para `DIVERGE`, com `aba` 10→01, `onde_html` apontando para
+> `interface/pacotes/a01_jogar.py:_gravar_o_modo` e a razão dizendo os DOIS
+> pontos em que os lados de fato divergem — o alcance (a tela nova só escreve
+> no perfil ATIVO) e o valor «Não mexer no modo», que os chips não emitem. As
+> duas são decisão dela de 11/09, não dívida. `check_donos_de_comportamento.py`
+> verde: 50 comportamentos com dono vivo.
+>
+> **O QUE NÃO FECHOU, e fica com endereço:** a cegueira do portão, descrita
+> abaixo. Ela é estrutural — a regra `SO-GTK` pergunta se a tela nova chama o
+> símbolo do **GTK**, e um comportamento reimplementado com outro nome passa
+> por baixo dela **por desenho**. Curá-la pede um campo que diga o símbolo novo
+> numa linha que, sendo `SO-GTK`, tem `onde_html` vazio por definição. **É
+> frente própria, e não nasce nesta leva.**
 
 **O que a linha diz hoje:**
 
@@ -295,6 +330,47 @@ uma linha de lá muda o que ela decide. **A decisão é dela**, e está na §5.
 * **A `O-SALVAR-DA-JOGAR-01`**, que roda agora e mede o que a aba Jogar GRAVA.
   A entrega dela não existia quando esta fechou; se as duas se cruzarem em
   `gravar_o_modo_no_ativo`, a dela é a que mediu a aba.
+
+### O QUE A CONFERÊNCIA ACRESCENTOU A ESTA SEÇÃO — 11/09/2026
+
+**Duas coisas que faltavam, e a segunda é a que a própria §1 tinha nomeado como
+o perigo.**
+
+**(a) O ELO `source_mode` FICOU FORA DA TABELA DOS DEZENOVE, e nele há um
+ESCRITOR.** A tabela conta o campo `Profile.mode`; o rascunho tem um espelho, e
+ele decide se a seção sobrevive a um Salvar com nome novo:
+
+| onde | o que é |
+| --- | --- |
+| `app/draft_config.py:957`, `:970` — `DraftConfig.with_mode` | **ESCREVE** `source_mode` e acende `mode_dirty` — o quarto escritor |
+| `app/actions/home_actions.py:1896` | o **único** chamador de `with_mode` em `src/`: é por aqui que a janela GTK escreve o modo |
+| `app/actions/home_actions.py:1847`, `:2098`, `:3064` | leem `source_mode` pelo rascunho |
+| `app/actions/profiles_actions.py:4555` | lê `mode_dirty` — o par do `with_mode`, e é ele que fecha o elo |
+| `daemon/ipc_handlers.py:961` | lê o desfecho (`relatorio["mode"]`) que o leitor nº 1 escreve — é por ele que a tela sabe se o modo entrou |
+
+**Nenhum dependia do quadro retirado** — o de `home_actions` é o quadro da
+JANELA, que é outro. A conclusão da §0 não muda; **o levantamento estava
+incompleto**, e um censo que corta o elo do rascunho não responde *"quem mais
+lia"*.
+
+**(b) CINCO ESCRITORES DO PERFIL INTEIRO NA MESMA TELA não foram medidos** —
+e a §1 deste laudo nomeia exatamente esse perigo: *"um deles que reconstruísse
+o `Profile` sem a seção apagaria o modo dela sem nada na tela para mostrar"*.
+A medição parou em dois dos sete. **A conferência mediu os cinco que faltavam,
+no disco, com o perfil ATIVO e `mode` gravado — e os cinco PRESERVAM:**
+
+`a10_perfis.py:2589` (`editor.ambiente`) · `:2806` (`editor.estilo`) · `:2898`
+(`editor.jogo`) · `:2985`/`:2991` (`detectar`) · `rodape.py:382` (`salvar`).
+
+**Os dois que mais mereciam a medição eram justamente estes:** o
+`editor.estilo` **não faz `model_copy`** — passa por `_com_o_estilo`, que MONTA
+outro perfil; e o `rodape.salvar` é o Salvar que esta casa pegou **destruindo
+campo em 05/09**. Os dois passaram.
+
+**E sobram dois lidos, não medidos:** `a02_controles.py:3362` e
+`a05_vibracao.py:1749`, que chamam `to_profile(nome, …)` com o **mesmo** nome
+— logo `mesmo_perfil` verdadeiro, logo a seção passa. **É leitura, não
+medição**, e agora está dito.
 
 ---
 
