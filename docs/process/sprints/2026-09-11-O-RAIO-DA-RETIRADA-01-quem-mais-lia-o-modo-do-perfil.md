@@ -1,6 +1,6 @@
 ---
 sprint: O-RAIO-DA-RETIRADA-01
-estado: aberta
+estado: feita
 onda: A-LISTA-DE-0911B
 posse:
   O-RAIO-DA-RETIRADA-01:
@@ -17,6 +17,8 @@ nao_toca:
 ---
 
 # O RAIO DA RETIRADA — quem mais lia o «Modo» do perfil?
+
+> **ESTADO 2026-09-11: feita** — nada do produto quebrou: os DEZENOVE leitores de `Profile.mode` leem o CAMPO e nenhum lia o quadro, e os nove caminhos medidos (Ativar · autoswitch · Duplicar · Voltar à de ontem · o editor no perfil ATIVO · o RENOMEAR do ativo · Exportar/Importar · a semeadura · o escritor da aba Jogar) seguem de pé, com quatro mordidas provando que a medição sabe reprovar. A ÚNICA quebra é de MAPA: `docs/data/donos-de-comportamento.csv:48` ainda diz `SO-GTK` — «não é editável na tela nova» — sobre um comportamento que a aba Jogar escreve, e o portão dela é cego a isso porque pergunta pelo símbolo da GTK. O laudo está em `docs/process/2026-09-11-O-RAIO-DA-RETIRADA-o-que-mais-lia-o-modo-do-perfil.md` e a entrega em `docs/process/agentes/2026-09-11/O-RAIO-DA-RETIRADA-01-opus.md`.
 
 > **ORDEM DELA, 11/09/2026:** *"veja se a remoção dessa info na aba perfil não*  <!-- noqa-acento: citação literal dela -->
 > *vai quebrar o resto tambem."*  <!-- noqa-acento: citação literal dela -->
