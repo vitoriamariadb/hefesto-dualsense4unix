@@ -7,6 +7,15 @@ posse:
     - src/hefesto_dualsense4unix/interface/aba03.py
     - src/hefesto_dualsense4unix/interface/pacotes/a03_gatilhos.py
     - mockup/03-gatilhos.html
+    # ACRESCENTADO NA COSTURA, 11/09/2026, por quem coordena — e é conserto de
+    # DECLARAÇÃO, não de código. A cura do P2 mora em `pacotes.apagar_os_lugares_sem_dono`,
+    # o despachante que as DEZ abas chamam, e a conferência provou que não há cura
+    # dentro da posse original: emitir coluna para o P2 o tira da conta
+    # `TODOS_OS_LUGARES - colunas` e com ela some o `data-conectado="nao"` que
+    # segura o `pointer-events:none`. O agente declarou a travessia em prosa, e
+    # prosa nenhuma máquina lê — `check_colisao_de_sprints.py` lê só o frontmatter.
+    # Medido antes de costurar: nenhuma das cinco irmãs da leva toca este arquivo.
+    - src/hefesto_dualsense4unix/interface/pacotes/__init__.py
 cria: []
 bancada: false
 depois_de: []
