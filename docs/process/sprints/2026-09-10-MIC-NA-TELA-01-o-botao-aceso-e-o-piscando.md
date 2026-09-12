@@ -1,6 +1,6 @@
 ---
 sprint: MIC-NA-TELA-01
-estado: aberta
+estado: feita
 onda: MESA-COMPLETA
 posse:
   ESCREVE:
@@ -25,6 +25,29 @@ nao_toca:
 ---
 
 # MIC-NA-TELA-01 — o botão aceso, e o piscando
+
+> **ESTADO 2026-09-12: feita no CÓDIGO; o §4 continua sendo dela.** O 🎙 tem os
+> três estados na tela publicada (`79bde59e`), e a inversão que ela pediu está
+> de pé: apagado é mudo, `--green` firme é «no ar», `--green` pulsando é
+> «captando». **Nada disso foi decidido do lado da tela** — o contrato de três
+> estados já existia no byte que acende a luz do PLÁSTICO
+> (`luz_do_mic.decidir`), o `state_full` passou a publicá-lo em
+> `audio.luz_do_mic`, e `mesa_viva.estado_do_botao_do_mic` só TRADUZ o número
+> na palavra do seletor. Foi assim que o `.mudo-i.on` de 06/09 pôde voltar sem
+> repetir o que o derrubou: lá a classe vinha do gerador, aqui vem do aparelho.
+>
+> **O §3.4 (o limiar) foi respondido pelo dono que já existia**, e não chutado:
+> quem decide «captando» é `integrations/nivel_do_microfone`, com HISTERESE —
+> entra acima de `LIMIAR_ENTRA` (−24,0 dBFS) por 120 ms contínuos, e só apaga
+> abaixo de `LIMIAR_SAI` (−30,0 dBFS) por `SEGURA_S` (0,6 s). Os 0,6 s são o
+> que impede o botão de tremular entre duas sílabas.
+>
+> **O QUE CONTINUA SENDO DELA, e é metade da sprint (§4):** os apertos com o
+> controle na mão para conferir o limiar na voz dela; o olho na piscada (ritmo
+> de 1,2 s por ciclo — legível de longe, e não pode parecer defeito); e a
+> palavra sobre a cor do aceso, hoje `--green` por eliminação, já que `--red`
+> está proibido pela §1. Enquanto ela não olhar, a sprint está feita mas **não
+> aprovada** — interface só fecha com o olho dela (PROVA-DE-TELA-01).
 
 **Lote B, sprint 3.** E ela **nasceu de um pedido dela**, dito com todas as
 letras em 10/09/2026 e interrompido pela bancada do teclado fantasma:
