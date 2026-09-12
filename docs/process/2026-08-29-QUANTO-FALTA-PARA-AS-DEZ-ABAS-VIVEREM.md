@@ -112,7 +112,7 @@ Medidas em 29/08 contra o daemon vivo. Cada uma substitui a afirmação anterior
 1. **A máscara por controle TEM rota até a tela, e o censo da 08 disse que não.**
    Ele escreveu: *"é o único valor das duas páginas sem rota até a tela"*.
    Medido: `coop.mesa[N].vpad_nome` publica, por controle e por `uniq`, o nome do
-   gamepad virtual — `"Microsoft X-Box 360 pad (Hefesto - Dualsense4Unix
+   gamepad virtual — `"Microsoft X-Box 360 pad (Hefesto - DualSense4Unix
    virtual)"` nos dois controles dela agora. O nome sai de `FLAVORS[...]["name"]`
    (`integrations/uinput_gamepad.py:117,122`), e `app/widgets/controller_card.py:1118`
    **já o lê**. A máscara efetiva por controle é derivável do nome hoje; o que
