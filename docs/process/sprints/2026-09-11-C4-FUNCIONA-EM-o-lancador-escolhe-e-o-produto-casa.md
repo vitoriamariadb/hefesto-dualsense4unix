@@ -70,7 +70,7 @@ A lista **não é digitada**: sai do censo (`integrations/censo_dos_lancadores.p
 e um lançador que a máquina não tem **não aparece**. Numa instalação sem Steam,
 sem Heroic e sem Lutris sobram «Navegação» e «Qualquer jogo» — e a tela continua
 certa. É a ordem dela de hoje: *"a ideia é que todas as features mesmo do app  <!-- noqa-acento: citação literal dela -->
-funcionem nao so pra mim mas pra qualquer outro user"*.
+funcionem nao so pra mim mas pra qualquer outro user"*.  <!-- noqa-acento: citação literal dela -->
 
 **«Estilo de Jogo» não morre — muda de lugar.** Ele não é uma procedência, é um
 corte transversal; fica onde já vive na aba, fora deste campo.
