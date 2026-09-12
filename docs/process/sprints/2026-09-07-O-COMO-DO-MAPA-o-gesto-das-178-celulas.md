@@ -7182,3 +7182,49 @@ rótulo. Quatorze escreveram, quatorze conferiram.
 * **P2** — No cabo, e é a segunda testemunha. Mesma leitura do P1.
 
 **A armadilha.** A mesma da linha do cabo, e uma a mais: no rádio o report leva uma conta de verificação no fim, e um envelope com essa conta errada é DESCARTADO pelo aparelho em silêncio. Ou seja, no rádio o "nada aconteceu" tem duas causas possíveis — o bit não foi ligado (que é o que esta casa sabe) ou o envelope foi recusado inteiro (que ninguém mediu). As duas se parecem exatamente na sua mão, e é por isso que o passo 9 existe: se a BARRA muda, o envelope chegou, e então o silêncio das lâmpadas é do bit. Se a barra também não mudar, você está olhando outro defeito, mais grave, e este teste não é quem responde por ele — anote e pare.
+
+---
+
+## mapa-audio.microfone.volume-cabo — Microfone · volume · cabo
+
+*Célula:* `audio.microfone.volume @ cabo`
+
+**O que isto prova.** Prova que o número ao lado da barra do microfone é o volume REAL do canal daquele controle, lido do sistema, e não um número do desenho. A célula nasceu em 12/09/2026, com a `MIC-VOLUME-02`: até esse dia a tela mostrava a barra de nível (que se move com a voz) mas o volume do canal não tinha endereço — quem mudasse o volume por fora via a tela continuar dizendo outra coisa.
+
+**Onde olhar.** Na aba Controles. Clique na linha de um controle **ligado pelo cabo** e o cartão dele abre. Dentro do cartão, o bloco do Microfone: a barra de nível, o botão 🎙 e, ao lado, o número do volume.
+
+**Os passos.**
+
+1. Clique na aba Controles.
+2. Confira na fita do topo que o controle que você vai usar diz **cabo**.
+3. Clique na linha dele para abrir o cartão.
+4. Anote o número do volume que a tela mostra.
+5. Abra o painel de som do sistema, ache a entrada daquele controle e **mude o volume** — para 30, por exemplo.
+6. Volte ao Hefesto sem fechar nada e espere dois segundos.
+
+**O que tem de acontecer.** O número na tela acompanha o que você mudou por fora, sem você clicar em nada. Se ele ficar parado no valor antigo, a leitura não está chegando; se ele mostrar um número que o sistema não tem, a tela está inventando.
+
+**O que anotar.** O número antes, o número que você pôs no painel do sistema, e o número que a tela mostrou depois — os três.
+
+---
+
+## mapa-audio.microfone.volume-radio — Microfone · volume · rádio
+
+*Célula:* `audio.microfone.volume @ rádio`
+
+**O que isto prova.** O mesmo que a de cima, pelo outro transporte — e aqui a pergunta tem uma metade a mais, porque pelo rádio o canal do microfone não é uma placa que o sistema publica sozinho: ele sobe pela ponte desta casa. Provar o volume no rádio é provar que a leitura atravessa essa ponte.
+
+**Onde olhar.** O mesmo lugar: aba Controles, cartão do controle aberto, bloco do Microfone.
+
+**Os passos.**
+
+1. Clique na aba Controles.
+2. Confira na fita do topo que o controle que você vai usar diz **rádio**.
+3. Clique na linha dele para abrir o cartão.
+4. Aperte o botão 🎙 para pôr o microfone no ar — ele fica verde fixo enquanto capta.
+5. Anote o número do volume.
+6. Mude o volume daquele canal pelo painel de som do sistema e volte.
+
+**O que tem de acontecer.** O número acompanha, igual ao do cabo. E há uma segunda coisa a ver: **o botão 🎙 fica verde e PARADO** enquanto capta — quem se move é a barra de nível, com a sua voz. Desde 12/09/2026 o botão não pisca mais, por decisão dela: duas animações para o mesmo fato competiam entre si.
+
+**O que anotar.** Os três números, e se o botão ficou mesmo parado.
