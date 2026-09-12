@@ -26,6 +26,17 @@ depois_de:
   - LINGUA-A4
 ---
 
+> **ESTADO 12/09/2026: continua ABERTA, e o motivo não é falta de
+> trabalho.** Ela foi ENTREGUE em `voo/ALTURA-DA-VISTA-01-opus` e **não está na costura** —
+> medido com `git cherry` contra `onda/0911c`, que não a tem:
+>
+>   · `87de2f54e2bf` feat(tela): a altura segue a vista, e as duas faixas de cromo que sobr
+>
+> Ela ficou de fora da arrumação de estados de 12/09 DE PROPÓSITO:
+> carimbá-la `feita` porque existe uma branch faria o trabalho
+> desaparecer — ninguém mais abriria essa branch. **O que falta é a
+> costura, não o código.**
+
 > *"maximizando a tela ela vai pra fora do limite, mas ponto 2 aprovado"* <!-- noqa-acento: citação literal dela -->
 >
 > *"semi aprovado. ainda joga pra baixo e abre a barra de navegação. tem espaço vertical pra aproveitar aqui"* <!-- noqa-acento: citação literal dela -->

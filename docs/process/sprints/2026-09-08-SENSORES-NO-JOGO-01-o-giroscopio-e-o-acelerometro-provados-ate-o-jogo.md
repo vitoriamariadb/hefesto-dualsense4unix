@@ -14,6 +14,17 @@ nao_toca:
   - src/
 ---
 
+> **ESTADO 12/09/2026: continua ABERTA, e o motivo não é falta de
+> trabalho.** Ela foi ENTREGUE em `voo/SENSORES-NO-JOGO-01-opus` e **não está na costura** —
+> medido com `git cherry` contra `onda/0911c`, que não a tem:
+>
+>   · `8d5eddc9cd44` test(sensores): o giro chega íntegro ao vpad, e o jogo recebe ZERO em
+>
+> Ela ficou de fora da arrumação de estados de 12/09 DE PROPÓSITO:
+> carimbá-la `feita` porque existe uma branch faria o trabalho
+> desaparecer — ninguém mais abriria essa branch. **O que falta é a
+> costura, não o código.**
+
 # SENSORES-NO-JOGO-01 — o giroscópio e o acelerômetro, provados até o JOGO
 
 **A dúvida é dela, 08/09/2026:** *"tambem tenho duvidas se a função giroscopio e acelerometro funcionam de fato."* <!-- noqa-acento: citação literal dela, palavra por palavra -->

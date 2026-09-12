@@ -1,6 +1,6 @@
 ---
 sprint: PAGINAS-ESPECIAIS-B1
-estado: aberta
+estado: feita
 onda: A-LINGUA-DA-TELA
 posse:
   PAGINAS-ESPECIAIS-B1:
@@ -12,6 +12,11 @@ nao_toca:
   - src/
   - install.sh
 ---
+
+> **ESTADO 12/09/2026: feita** — medido com `git cherry` contra
+> `onda/0911c`: `voo/PAGINAS-ESPECIAIS-B1-opus` e `voo/APLICA-B1-opus` não tem um único commit fora da costura.
+> O carimbo não é de quem entregou; é da MEDIÇÃO. Quatro irmãs desta
+> mesma leva continuam `aberta` justamente por falharem nela.
 
 # PAGINAS-ESPECIAIS-B1 — o inventário primeiro, a língua depois
 

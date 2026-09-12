@@ -14,6 +14,17 @@ nao_toca:
   - docs/data/mapa-controles.csv
 ---
 
+> **ESTADO 12/09/2026: continua ABERTA, e o motivo não é falta de
+> trabalho.** Ela foi ENTREGUE em `voo/TOUCHPAD-NO-3DS-01-opus` e **não está na costura** —
+> medido com `git cherry` contra `onda/0911c`, que não a tem:
+>
+>   · `a2fcd275bab4` feat(ensaio): o touchpad na tela de baixo do 3DS, medido em quatro deg
+>
+> Ela ficou de fora da arrumação de estados de 12/09 DE PROPÓSITO:
+> carimbá-la `feita` porque existe uma branch faria o trabalho
+> desaparecer — ninguém mais abriria essa branch. **O que falta é a
+> costura, não o código.**
+
 # TOUCHPAD-NO-3DS-01 — o preço do `ignore`, medido na tela de baixo
 
 **Nasce de uma ressalva escrita e NÃO medida, em 10/09/2026.** A sprint existe
