@@ -1,6 +1,6 @@
 ---
 sprint: MIC-VOLUME-02
-estado: aberta
+estado: feita
 posse:
   MIC-VOLUME-02:
     - src/hefesto_dualsense4unix/core/backend_pydualsense.py
@@ -10,10 +10,34 @@ bancada: true
 depois_de: [MIC-OS-QUATRO-01, FONE-01]
 nao_toca:
   - docs/data/ensaios.csv
-  - docs/data/mapa-controles.csv
   - src/hefesto_dualsense4unix/daemon/subsystems/mic_da_mesa.py
-  - src/hefesto_dualsense4unix/profiles/schema.py
 ---
+
+> **FEITA EM 09/09/2026.** O byte está ligado nos DOIS chamadores — o gesto
+> (`mic.volume.set`) e o perfil (`apply_profile_mic`) —, com a régua única
+> `byte_do_volume_do_microfone`, a posse por `uniq` em
+> `set_microphone_volume`, a devolução separada
+> (`release_microphone_volume`), e sete mordidas arrancadas uma a uma em
+> `tests/unit/test_mic_volume_02_o_byte_do_aparelho.py`.
+>
+> **DUAS COISAS DIVERGIRAM DO ENUNCIADO, e as duas estão medidas:**
+>
+> 1. **a conta.** A §3 pedia `v * 0x40 // 100`, que devolve **byte 0 para
+>    1 %** — a tela dizendo "um pouquinho" sobre um microfone mudo. A régua
+>    da casa para a grandeza irmã (`core/speaker_scale.volume_do_percentual`)
+>    já cobrava o contrário, com a razão escrita, e é ela que vale: 0 % é
+>    zero, e qualquer coisa acima de 0 % sai pelo menos em 1;
+> 2. **o `nao_toca` do `schema.py` e do mapa.** O `schema.py` foi tocado só na
+>    PROSA: a sua seção "O QUE FICA DE FORA" ainda listava o `volume` como
+>    recusado, três dias depois de ela mandar abri-lo — uma recusa escrita ao
+>    lado do campo aberto, na mesma classe. O mapa de canais mudou de célula
+>    porque a `cabo_evidencia` dele afirmava que `microphone=` tinha **zero
+>    chamadas**, e isso deixou de ser verdade nesta sprint.
+>
+> **O que a §3 pedia e NÃO se fez:** a `ControllerMicOverride.volume` já
+> existia (aberta em 03/09), então nenhum campo nasceu — o que a §"Critério de
+> pronto" chamava de `✓` estava certo, e a seção §1 que o dava como "campo sem
+> ato" estava certa pela outra metade: ato na FONTE havia; no aparelho, não.
 > **A BANCADA RESPONDEU EM 09/09/2026: o byte AGE.** Ela mediu no painel de ajustes, no
 > cabo, e disse *"Deu certo. funciona"*. Pela régua desta sprint (§2), byte que obedece
 > GANHA campo — logo o volume do microfone passa a ter os dois degraus (a fonte do
