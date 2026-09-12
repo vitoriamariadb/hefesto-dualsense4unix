@@ -186,7 +186,7 @@ mesma sessão, com o opt-out ligado:   GDK_BACKEND=None  Gtk.init_check -> True
 **O Wayland funcionava.** Quem impede a janela de abrir é o `x11` que nós
 escrevemos. A saída existe — `HEFESTO_DUALSENSE4UNIX_NO_XWAYLAND=1` — e não é
 nomeada em lugar nenhum do caminho de erro: `app/main.py:256` imprime
-`"Falha ao iniciar GUI Hefesto - Dualsense4Unix: {exc}"` e mais nada.
+`"Falha ao iniciar GUI Hefesto - DualSense4Unix: {exc}"` e mais nada.
 
 **Isto quebraria na máquina de outra pessoa?** Em qualquer COSMIC sem XWayland
 instalado ou ligado (NixOS monta assim com facilidade), e em qualquer sessão

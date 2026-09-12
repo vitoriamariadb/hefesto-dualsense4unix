@@ -342,7 +342,7 @@ para baixo, de `app.rs:413-539`:
 
 | Bloco | Linhas | Aparece quando | O que diz |
 |---|---|---|---|
-| Cabeçalho | `:418-419` | sempre | `Hefesto - Dualsense4Unix` |
+| Cabeçalho | `:418-419` | sempre | `Hefesto - DualSense4Unix` |
 | Estado | `:543-637` | sempre | `Daemon desconectado` **ou** `Nenhum controle conectado` **ou** `Consultando…`; senão Bateria / Perfil ativo / Modo, mais `Controles` com 2+, `Modo jogo` se suprimido e `Estado: Pausado` se pausado |
 | O QUE O CONTROLE FAZ | `:643-712` | daemon online | três modos exclusivos; no modo Jogo acrescenta a frase de jogadores e as duas máscaras |
 | CONTROLE-ALVO | `:719-760` | 2+ controles conectados | `Todos (broadcast)` + `Controle N — USB/BT`, pelo `player_slot` com fallback posicional |
@@ -382,13 +382,13 @@ São cinco textos e um sufixo. É tudo:
 
 | Texto | Onde | Observação |
 |---|---|---|
-| `Hefesto - Dualsense4Unix` | `tray.py:156` | título do indicator |
-| `Hefesto - Dualsense4Unix (carregando...)` | `:160` | item de status, insensível |
+| `Hefesto - DualSense4Unix` | `tray.py:156` | título do indicator |
+| `Hefesto - DualSense4Unix (carregando...)` | `:160` | item de status, insensível |
 | `Abrir painel` | `:164` | mesma frase do applet (`app.rs:505`) |
 | `Perfis` | `:170` | submenu |
-| `Sair do Hefesto - Dualsense4Unix` | `:181` | encerra o processo da GUI |
+| `Sair do Hefesto - DualSense4Unix` | `:181` | encerra o processo da GUI |
 | `(nenhum perfil)` | `:407` | submenu vazio |
-| `Hefesto - Dualsense4Unix - perfil: %s` / `- %d perfis` | `:433-437` | item de status já carregado |
+| `Hefesto - DualSense4Unix - perfil: %s` / `- %d perfis` | `:433-437` | item de status já carregado |
 | ` · %(n)d controles (%(t)s)` | `:387` | sufixo, só com 2+ conectados |
 
 Comparada às outras duas superfícies, a bandeja **não mostra bateria, não mostra
@@ -924,7 +924,7 @@ não suposição:
 
 | Linha do popover | De onde sai | O que diz agora |
 |---|---|---|
-| Cabeçalho | `:418` | `Hefesto - Dualsense4Unix` |
+| Cabeçalho | `:418` | `Hefesto - DualSense4Unix` |
 | Bateria | `:565-573` | `95% (USB)` |
 | Perfil ativo | `:575-580` | `Pragmata2` |
 | Modo | `:584-596` | `Jogando pelo Hefesto` |

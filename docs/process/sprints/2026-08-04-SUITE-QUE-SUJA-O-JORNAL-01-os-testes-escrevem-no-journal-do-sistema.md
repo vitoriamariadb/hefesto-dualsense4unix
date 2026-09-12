@@ -240,7 +240,7 @@ O portão cobre a sessão inteira pelo `sessionfinish` (que reprova com
 
 1. rodar a suíte inteira e **não** encontrar `pytest-of-` no
    `journalctl --since` daquela janela;
-2. rodar a suíte inteira e **não** ver `Hefesto - Dualsense4Unix Virtual
+2. rodar a suíte inteira e **não** ver `Hefesto - DualSense4Unix Virtual
    Keyboard` nascer no `journalctl -k` (o nome de produção fica reservado à
    produção);
 3. os testes que exercitam a borda com o kernel continuam existindo e
