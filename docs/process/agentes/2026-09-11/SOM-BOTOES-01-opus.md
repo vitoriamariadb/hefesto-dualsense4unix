@@ -250,13 +250,20 @@ aparelho uma escolha que ela não fez).
 
 ## O que sobrou para o próximo
 
-1. **`escolher-na-fita` é `data-gesto` SEM DONO** — três `<label>` na página
-   publicada, e `pacotes.gesto_da_pagina("02-controles.html",
-   "escolher-na-fita")` devolve `None`. Não é defeito visível: o chip é um
-   `<label for=…>` e quem abre o card é o CSS. Mas cada clique dela produz um
-   `[gesto sem dono]` no piloto. **Não curei: é a FITA, não a coluna de som** —
-   §1 da sprint escopa o trabalho à coluna de som, e tirar o atributo é mudança
-   de desenho. Para quem possuir `aba02.py`.
+1. ~~**`escolher-na-fita` é `data-gesto` SEM DONO**~~ — **AFIRMAÇÃO DERRUBADA
+   em 12/09/2026, pela SOM-DA-02, que herdou o item.** O gesto TEM dono, e ele
+   é curinga: `hefesto_vivo.py:2300` faz
+   `pacotes.gesto("*", monta.GESTO_DA_FITA)(_escolher_na_fita)` no import, e
+   `gesto_da_pagina` resolve por `GESTOS.get((pagina, nome)) or GESTOS.get(("*",
+   nome))`. Nenhum `[gesto sem dono]` sai da fita.
+
+   **A MEDIÇÃO É QUE ESTAVA NO LUGAR ERRADO, e o erro é reprodutível:**
+   perguntar a `pacotes.gesto_da_pagina` sem importar `hefesto_vivo` responde
+   `None` para as TRÊS páginas que emitem o chip (`01-jogar`, `02-controles`,
+   `08-conexoes`) — porque quem registra o curinga é o piloto, não um pacote de
+   aba. É a armadilha da casa outra vez: *régua que pergunta no lugar errado
+   produz não-achado convincente*, aqui virada do avesso — um ACHADO
+   convincente sobre um botão que funciona.
 2. **Uma citação do mapa já estava podre ANTES desta leva, e o portão é cego a
    ela.** `docs/data/mapa-controles.csv:23` diz *"o docstring de
    `a02_controles.py:3921` usa esse mesmo `title` como PROVA"*. Em `HEAD` aquele
@@ -264,8 +271,24 @@ aparelho uma escolha que ela não fez).
    `volume`. O `citacoes-de-linha` passa porque procura outra palavra na faixa.
    Para a SPECS-A-PROCEDENCIA-01, que é dona do mapa: o símbolo é
    `mic_modo`, parágrafo *"A FRASE DA TELA VIROU O ARGUMENTO"*.
-3. **«Todo o som do PC» sai cortado do card** na página publicada, à largura de
-   1180 px — visível na foto. Não medi o vão; é a família da GATILHOS-VAO-01.
+3. ~~**«Todo o som do PC» sai cortado do card**~~ — **CADUCOU no mesmo dia, e
+   pela LINGUA-A3.** O rótulo «Todo o som do PC» não existe mais: ela aprovou
+   «Só no controle», que é 24px mais curto. **Medido em 12/09/2026** com o
+   Chrome dirigido sobre a página publicada, lendo `getBoundingClientRect` dos
+   três botões e da `.moldura`:
+
+   | vista | `.rota` disponível | o que os três pedem | sobra |
+   | --- | --- | --- | --- |
+   | 1918 (a dela) | 388px | 388 | 0, e nada vaza |
+   | 1366 | 313px | 313 | 0 |
+   | **1180 (o da queixa)** | **261px** | **254** | **7px** |
+   | 1000 | 211px | 254 | **−43px — vaza 33px da moldura** |
+
+   O corte volta abaixo de ~1140px de vista, que é onde a `.rota` cai de 254.
+   Fica **declarado e não curado**: a cura é `flex-wrap` ou fonte menor, as
+   duas mexem na ALTURA do card — e a altura desta aba é orçamento apertado
+   (o card tem 328px contra os 328 que a caixa reserva, e cada pixel a mais
+   tira o P4 da tela). Mudar isso é desenho, e desenho é decisão dela.
 4. **A prova de aparelho da fileira**, com ela ouvindo: clicar «Ouvir junto» com
    o som do PC na televisão e confirmar que ele passa a sair **também** no
    plástico, sem sair da TV; e depois clicar saindo de «Todo o som do PC» e

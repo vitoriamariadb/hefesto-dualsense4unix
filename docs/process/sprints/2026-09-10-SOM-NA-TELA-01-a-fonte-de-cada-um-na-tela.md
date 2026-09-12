@@ -1,6 +1,6 @@
 ---
 sprint: SOM-NA-TELA-01
-estado: aberta
+estado: feita
 onda: MESA-COMPLETA
 posse:
   ESCREVE:
@@ -28,6 +28,23 @@ nao_toca:
 
 **Lote A, sprint 3.** Escrita em 10/09/2026 depois de MEDIR a tela e o código —
 e a medição derrubou a premissa com que ela foi anunciada.
+
+> **ESTADO 2026-09-12: feita, e a §2 foi decidida pela recomendação (b).** A
+> fonte é o TERCEIRO botão da fileira que já existia, e o trio está na tela
+> publicada, quatro vezes: «Sons do jogo · No controle e na TV · Só no
+> controle» — os dois últimos nomes são os que a LINGUA-A3 reescreveu e ela
+> aprovou (*"ok aprovadíssimo todas"*), porque os de antes não diziam DE ONDE O
+> SOM SAI. O gesto grava por `_lembrar_do_som(ctx, uniq, speaker={"fonte": …})`
+> e o caminho de disco foi consertado junto (`SpeakerDraft`, `from_profile`,
+> `to_profile`, `effective_speaker_for`, `with_controller_speaker`): todo
+> «Salvar Perfil» reescrevia a seção do som SEM a fonte, que é a família exata
+> do item 13 daquele laudo. Entregas: `9d3eb2d3` (o gesto e o disco) e
+> `b2f00c9b` + `059b6299` (o botão do meio nunca acendia, e os três nomes).
+>
+> **O que sobra é dela, e só dela:** a prova de aparelho da fileira, com ela
+> ouvindo — clicar «No controle e na TV» com o som na televisão e confirmar
+> que ele passa a sair TAMBÉM no plástico, sem sair da TV; e depois sair de
+> «Só no controle» e confirmar que a televisão volta. ~2 min por controle.
 
 ## §0 — A PREMISSA DO ÍNDICE ESTAVA ERRADA, e este é o achado da sprint
 
