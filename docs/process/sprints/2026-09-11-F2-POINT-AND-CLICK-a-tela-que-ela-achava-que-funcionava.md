@@ -11,6 +11,7 @@ posse:
     - scripts/check_cabo_bt_perfil_controle.py
     - scripts/check_a_tela_nao_confessa.py
     - tests/unit/test_a_aba_06_navegacao_fecha_as_linhas.py
+    - tests/unit/test_a_06_o_duble_decide_o_indecidivel.py
 cria:
   - tests/unit/test_a_06_o_ponto_guarda_o_que_ela_escolhe.py
 bancada: false
@@ -108,6 +109,40 @@ As telas *Definições Controle e Mouse* e *Estilo Point-and-click* falam do
 Um segundo prefixo de endereço era a alternativa, e ela é a segunda verdade que
 esta casa persegue: a tela não pintada mostraria o desenho enquanto o perfil diz
 outra coisa.
+
+### §3-bis — UM ENDEREÇO, UM VALOR CRAVADO — e quem mandou foi outra régua
+
+O desenho desta tela cravava a **receita do estilo** nas `<option selected>` (o
+touchpad e o ✕ como *Botão esquerdo*, o ○ como *Botão direito*), e a tela irmã
+crava o **de fábrica** (Backspace, Delete, Enter). Com as duas dividindo o
+endereço, o mesmo campo passou a aparecer no documento com **dois valores** — e
+a `test_a_06_o_duble_decide_o_indecidivel` reprovou dizendo o preço exato:
+
+> *"estes endereços da 06 concordam com o desenho ATÉ SOB O DUBLÊ, logo
+> continuam indecidíveis na régua viva: `acao-touchpad_left_press = 'Botão
+> esquerdo'`"*
+
+A régua que separa PRODUTO de MOCKUP **lendo a tela** compara o valor declarado
+com o cravado; com dois cravados para um endereço, um dublê que discorde de um
+ainda coincide com o outro, e aquele campo fica indecidível para sempre. As seis
+linhas passaram a cravar `_PADRAO_DOS_BOTOES` — o mesmo que a tela irmã. **O que
+a pessoa vê não mudou:** a pintura chega em 100 ms e escreve nas duas de uma vez.
+
+**E ISSO CUSTOU UMA COISA, que vai para ela:** a receita do estilo vivia SÓ ali,
+como `<option selected>` de HTML, onde código nenhum a alcança — nem o
+`Estilo("point_and_click", …)` de `profiles/estilos_de_jogo.py` (que só carrega
+gatilho, vibração e luz), nem o `assets/estilos_de_jogo/point_and_click.json`
+(cujos `key_bindings` são de um jogo). Ela não sai do produto porque nunca
+esteve nele; perde o último lugar em que estava escrita. **Se ela quiser
+«aplicar o estilo com um clique», a receita precisa virar dado com dono** — e é
+decisão dela.
+
+**E a régua da contagem foi junto:** a `test_todo_valor_do_duble_existe_como_opcao`
+contava ELEMENTOS (`39 != 33`) e passou a contar ENDEREÇOS. Contar elementos só
+valia enquanto cada endereço aparecesse uma vez; do jeito antigo ela reprovava a
+melhora, que é a forma exata do defeito que esta casa pagou onze vezes em 26/08.
+A cobertura não afrouxou — cada elemento continua conferido no laço; só não é
+contado duas vezes.
 
 ## §4 — A LINHA QUE NÃO GANHOU ENDEREÇO, e o que seria preciso
 
@@ -218,6 +253,13 @@ e devolvida:
 | o endereço das listas no gerador, republicado | **8 casos** |
 | a marca «não dispara» de uma linha de touchpad desta tela | 2 casos, na régua da marca |
 
+**E DOIS VERMELHOS QUE NÃO SÃO DESTA FRENTE** ficam medidos, para quem costurar
+não os atribuir a ela: `test_a_aba_controles_reusa_o_motor::test_publicada_a_
+pagina_o_ponto_do_touchpad_segue_o_campo` (`KeyError: 'touch-ponto'`, aba 02) e
+`test_arranjo_invariantes::test_as_duas_casas_versionadas_do_mockup_nao_andam_
+sozinhas` (`mapa-das-portas.html`, que é da F4). Os dois já estavam vermelhos no
+topo da costura (`8ea32b4a`) e nenhum arquivo deles é tocado por esta frente.
+
 ## §6 — O QUE FICA PARA ELA
 
 1. a linha do **deslizar** (§4) — vira escolha, ou vira leitura;
@@ -225,7 +267,9 @@ e devolvida:
 3. a coluna diz **«O que ele faz neste estilo»**, e o que se grava é o perfil
    ATIVO. É coerente com o resto (o estilo de jogo de um perfil mora no perfil),
    e mesmo assim é palavra de tela — fica anotado, e não mexido;
-4. a **dica do cabeçalho contra a marca «não dispara»** (§4-bis).
+4. a **dica do cabeçalho contra a marca «não dispara»** (§4-bis);
+5. a **receita do estilo** (§3-bis) — vira dado com dono e ganha um «aplicar»,
+   ou deixa de existir.
 
 ## §7 — A OUTRA COISA QUE CAIU, e é de PROSA
 
