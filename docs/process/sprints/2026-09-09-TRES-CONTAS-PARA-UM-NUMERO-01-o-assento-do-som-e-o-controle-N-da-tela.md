@@ -1,6 +1,6 @@
 ---
 sprint: TRES-CONTAS-PARA-UM-NUMERO-01
-estado: aberta
+estado: feita
 posse:
   TRES-CONTAS-PARA-UM-NUMERO-01:
     - src/hefesto_dualsense4unix/daemon/subsystems/alto_falante.py
@@ -13,6 +13,51 @@ depois_de: []
 nao_toca:
   - src/hefesto_dualsense4unix/app/actions/base.py
 ---
+
+> **FECHADA EM 12/09/2026 — as três contas viraram uma.** A decisão é a **(a)**,
+> a recomendada: o N do rótulo é o do CARTÃO (`player_slot`). Como:
+>
+> * `daemon/subsystems/base.numero_do_assento_na_mesa` nasceu, e ela **não conta
+>   nada** — pergunta o `player_slot` ao dono (`identity_registry.slot_for`, com
+>   `assign=False`) e entrega a entrada à regra da casa
+>   (`ipc_handlers._numero_de_exibicao`). A §5 pedia *"a cura não pode mexer na
+>   conta da casa, só alcançá-la"*, e é o que ela faz;
+> * as DUAS implementações de `numero_do_assento` (`alto_falante.py` e
+>   `bt_mic.py`) passaram a chamá-la — a dívida declarada das duas cópias morreu
+>   junto;
+> * o registro chega pelo **daemon**, não por valor: `run()` sobe os dois
+>   subsystems nas linhas 931/936 e só fia o `identity_registry` na 953 —
+>   guardar o registro no `start` congelaria `None` pela sessão inteira. As três
+>   linhas de `daemon/` que a §3 pedia são estas, e não foram mais que isso.
+>
+> **MEDIDO, com o registro de VERDADE (nenhum dublê) e quatro controles:** a fila
+> de chegada `(P2, P4, P3, P1)` dá `player_slot` `[4,1,3,2]` — o mesmo par de
+> listas que a MESA-CHEIA-11 mediu no payload real dela —, e as quatro contas
+> (tela · daemon · nó de saída · nó de entrada) devolvem `[4,1,3,2]`. Antes, os
+> nós diziam `[1,2,3,4]`: a ordem dos HANDLES. **A causa não era desconexão de
+> ninguém — era a ordem**, e é por isso que a divergência apareceu na mesa dela
+> com os quatro ligados.
+>
+> A §2 e a §6 estão curadas; a régua que travava a divergência saiu, e no lugar
+> dela ficaram três: as quatro contas iguais, o desligado sem nome mesmo com
+> lugar na fila, e a entrada já carimbada que não é perguntada de novo.
+>
+> **§6, e a decisão foi de forma:** o nó **não** ganhou propriedade nova. A
+> identidade estável que a ponte já tinha é o NOME do nó —
+> `hefesto_som_<hex6>` e `hefesto_mic_<hex6>`, escritos pelo daemon a partir do
+> endereço, e que o usuário não renomeia (o que a interface de som deixa
+> renomear é o `Description`). O censo
+> (`scripts/ensaios/os_nos_de_som_por_controle.py`) passou a casar por ele nas
+> DUAS metades — a da saída já casava; a da entrada recebia `""` e por isso só
+> tinha a prosa. No mesmo movimento, dois rótulos digitados no instrumento
+> passaram a ser PERGUNTADOS ao produto, e o número da tabela deixou de sair de
+> uma varredura que aceitava `player`/`jogador`/`assento`/`slot` — quatro campos
+> para a pergunta que tem um dono — e passa a ser o `player_slot`.
+>
+> Corrido na máquina dela (leitura pura, daemon vivo, dois DualSense):
+> os dois `hefesto_som_*` casados pelo nome, e a coluna de faltas passou a dizer
+> o rótulo **e** o nome que foi procurado — `sem «Microfone do Controle 1»
+> (hefesto_mic_4846d8)`.
 
 > **DEIXOU DE SER TEÓRICA — 09/09/2026, 22h, na tela DELA.** A divergência foi
 > achada em teste e virou PUBLICADA: o nó do microfone do controle BRANCO existe
@@ -62,10 +107,16 @@ $ pactl list sources | grep -A3 hefesto_mic
 tela:   P1 • White • cabo                          ← a interface
 ```
 
-Régua que fixa isto:
-`tests/unit/test_o_som_por_controle_cai_em_cada_um.py::test_o_terceiro_numerador_do_mesmo_rotulo_esta_medido_e_confinado`.
-Ela não reprova hoje: ela **trava a divergência onde ela está**, e reprova se
-qualquer uma das três contas mudar sem as outras.
+Régua que fixava isto, e SAIU em 12/09/2026 com a cura
+(`test_o_terceiro_numerador_do_mesmo_rotulo_esta_medido_e_confinado`): uma
+divergência travada que já foi curada é propaganda, e a §5 já mandava tirá-la. No
+lugar dela, em `tests/unit/test_o_som_por_controle_cai_em_cada_um.py`:
+
+* `test_as_tres_contas_do_mesmo_rotulo_viraram_uma` — as quatro leituras (tela,
+  daemon, nó de saída, nó de entrada) sobre a mesma mesa, com o registro de
+  VERDADE e a fila de chegada que dá o `[4,1,3,2]`;
+* `test_o_controle_desligado_nao_ganha_nome_mesmo_com_lugar_na_fila`;
+* `test_a_entrada_que_ja_traz_o_slot_nao_e_perguntada_de_novo`.
 
 ## §3 — Por que não se cura numa linha
 
