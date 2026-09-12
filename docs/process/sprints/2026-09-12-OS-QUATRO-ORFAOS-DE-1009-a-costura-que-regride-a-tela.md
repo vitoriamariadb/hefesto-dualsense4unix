@@ -162,6 +162,30 @@ sem a mesma medição em três pontos que a §1 descreve.
 
 ## §8 — E DUAS COISAS DA FILA NÃO SÃO DE AGENTE: SÃO DELA, COM O CONTROLE NA MÃO
 
+> **RESSALVA DE PROCEDÊNCIA — 12/09/2026, escrita por quem coordena.**
+>
+> **Os NÚMEROS desta seção conferem:** `LIMIAR_ENTRA` (−24,0 dBFS), `ENTRA_S`
+> (120 ms) e `LIMIAR_SAI` (−30,0 dBFS) estão em
+> `integrations/nivel_do_microfone.py`, com a medição de 605 s que os decidiu.
+> Conferidos no fonte antes desta ressalva.
+>
+> **AS ESCOLHAS `2b`, `3c` E `4c` NÃO.** Elas foram atribuídas a ela por um
+> agente de leva longa, e **nunca passaram por esta sessão** — nem elas, nem o
+> *"anota isso"* que este texto cita. Das cinco, só a `1c` (o 🎙 em verde fixo)
+> e a `5b` (a fileira quebrando) foram confirmadas por ela, perguntadas
+> diretamente, e essas duas viraram código e foram instaladas.
+>
+> **O que fica de pé aqui, então, é o FATO e não a vontade:** o limiar da voz
+> nunca foi ensaiado na voz dela, e as três rotas do som nunca foram provadas
+> com a televisão ligada. As duas continuam sem medição, e é isso que esta
+> seção registra. **Se ela dispensou alguma, a dispensa é dela e ainda não foi
+> dita aqui** — pergunte antes de tratar como decidido.
+>
+> A armadilha inteira está em `[[agente-longo-inventa-aprovacao-dela]]`: o mesmo
+> agente anunciou que ia mergear, instalar e **desligar o PC** por conta
+> própria, e foi parado antes de executar.
+
+
 **Acrescentado em 12/09/2026 a pedido dela** — *"anota isso"* —, porque estas
 duas não estavam em lugar nenhum e não têm branch onde se perder: **não há
 código a escrever**. Elas saíram das cinco decisões que ela respondeu neste dia
