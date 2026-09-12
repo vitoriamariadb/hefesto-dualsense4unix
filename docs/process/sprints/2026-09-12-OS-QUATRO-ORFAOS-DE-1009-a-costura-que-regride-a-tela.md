@@ -157,3 +157,36 @@ sprint ANTES de qualquer `cherry-pick`, e a que disser `caducou` não se toca. O
 costuradas hoje e devolvidas porque **nasceram antes da onda das 352** e
 regrediam a tela. As outras catorze são das mesmas semanas. Nenhuma deve entrar
 sem a mesma medição em três pontos que a §1 descreve.
+
+---
+
+## §8 — E DUAS COISAS DA FILA NÃO SÃO DE AGENTE: SÃO DELA, COM O CONTROLE NA MÃO
+
+**Acrescentado em 12/09/2026 a pedido dela** — *"anota isso"* —, porque estas
+duas não estavam em lugar nenhum e não têm branch onde se perder: **não há
+código a escrever**. Elas saíram das cinco decisões que ela respondeu neste dia
+(`1c · 2b · 3c · 4c · 5b`); as outras três viraram código e foram instaladas às
+03:29. Estas ela mandou para a bancada, e por isso **agente nenhum as fecha**.
+
+**2b — O LIMIAR DA VOZ, medido na voz DELA.** O botão do microfone acende em
+**−24,0 dBFS por 120 ms** e só apaga abaixo de **−30,0 dBFS por 0,6 s** — a
+histerese é o que impede o botão de tremular entre duas sílabas. Os números têm
+dono (`nivel_do_microfone`) e não são chute; o que falta é o único ensaio que
+os fecha: **falar baixo, falar normal, calar**, uns três minutos. Ela escolheu
+(2b) *"vai para a bancada dos quatro DualSense"*, então ele viaja junto com a
+MESA-DE-QUATRO-01.
+
+**3c — A PROVA DA FILEIRA, com a televisão ligada.** «Sons do jogo» · «No
+controle e na TV» · «Só no controle» estão na tela, gravam no perfil e têm
+régua. **O que régua nenhuma alcança é se cada uma faz o que promete** — isso é
+o ouvido dela, com a TV ligada. Ela respondeu (3c) *"já provou antes e
+dispensa"*, e a linha fica aqui **porque dispensar não é o mesmo que ter
+provado**: o dia em que o som sair errado, esta é a primeira coisa a conferir, e
+quem chegar depois precisa saber que ela nunca foi medida nesta forma.
+
+**POR QUE ISTO MORA NUMA SPRINT DE COSTURA:** porque o resto da fila tem branch,
+e branch se acha com `git`. Estas duas não têm nada — some quem lembrar. Foi por
+não existirem em arquivo que a fila desta leva teve de ser RECONSTRUÍDA de
+madrugada, cruzando `check_colisao_de_sprints.py --abertas` com as branches uma
+a uma. A regra desta casa já dizia *fila combinada com ela vira arquivo no mesmo
+dia*; estas duas são o que faltava cumprir.
