@@ -1,6 +1,6 @@
 ---
 sprint: ESQUELETO-C2
-estado: aberta
+estado: feita
 onda: A-LINGUA-DA-TELA
 posse:
   ESQUELETO-C2:
@@ -32,6 +32,11 @@ depois_de: []
 nao_toca:
   - install.sh
 ---
+
+> **ESTADO 12/09/2026: feita** — medido com `git cherry` contra
+> `onda/0911c`: `voo/ESQUELETO-C2-opus` não tem um único commit fora da costura.
+> O carimbo não é de quem entregou; é da MEDIÇÃO. Quatro irmãs desta
+> mesma leva continuam `aberta` justamente por falharem nela.
 
 # ESQUELETO-C2 — o nome da janela, o centro e a maiúscula decorativa
 

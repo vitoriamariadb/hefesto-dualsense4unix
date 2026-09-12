@@ -1,6 +1,6 @@
 ---
 sprint: TOOLTIP-C1
-estado: aberta
+estado: feita
 onda: A-LINGUA-DA-TELA
 posse:
   TOOLTIP-C1:
@@ -12,6 +12,11 @@ depois_de: []
 nao_toca:
   - install.sh
 ---
+
+> **ESTADO 12/09/2026: feita** — medido com `git cherry` contra
+> `onda/0911c`: `voo/TOOLTIP-C1-opus` não tem um único commit fora da costura.
+> O carimbo não é de quem entregou; é da MEDIÇÃO. Quatro irmãs desta
+> mesma leva continuam `aberta` justamente por falharem nela.
 
 # TOOLTIP-C1 — a dica que não abre, e ela apaga a tela inteira
 

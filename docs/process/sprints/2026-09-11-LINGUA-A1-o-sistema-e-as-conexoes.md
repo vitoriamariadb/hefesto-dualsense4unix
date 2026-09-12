@@ -1,6 +1,6 @@
 ---
 sprint: LINGUA-A1
-estado: aberta
+estado: feita
 onda: A-LINGUA-DA-TELA
 posse:
   LINGUA-A1:
@@ -16,6 +16,11 @@ depois_de: []
 nao_toca:
   - install.sh
 ---
+
+> **ESTADO 12/09/2026: feita** — medido com `git cherry` contra
+> `onda/0911c`: `voo/LINGUA-A1-opus` e `voo/APLICA-A1-opus` não tem um único commit fora da costura.
+> O carimbo não é de quem entregou; é da MEDIÇÃO. Quatro irmãs desta
+> mesma leva continuam `aberta` justamente por falharem nela.
 
 # LINGUA-A1 — a língua da aba Sistema e da aba Conexões
 

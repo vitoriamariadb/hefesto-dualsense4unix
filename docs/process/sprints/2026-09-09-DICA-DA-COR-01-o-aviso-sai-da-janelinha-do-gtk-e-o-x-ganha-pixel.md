@@ -28,6 +28,17 @@ depois_de:
   - LINGUA-A4
 ---
 
+> **ESTADO 12/09/2026: continua ABERTA, e o motivo não é falta de
+> trabalho.** Ela foi ENTREGUE em `voo/DICA-DA-COR-01-opus` e **não está na costura** —
+> medido com `git cherry` contra `onda/0911c`, que não a tem:
+>
+>   · `65838cf4ef91` fix(iluminacao): a explicação da cor sai da janelinha do GTK, e o X ga
+>
+> Ela ficou de fora da arrumação de estados de 12/09 DE PROPÓSITO:
+> carimbá-la `feita` porque existe uma branch faria o trabalho
+> desaparecer — ninguém mais abriria essa branch. **O que falta é a
+> costura, não o código.**
+
 > *"com o mouse parado na frente da cor ele fica piscando e tirando o aviso e voltando"* <!-- noqa-acento: citação literal dela -->
 
 
