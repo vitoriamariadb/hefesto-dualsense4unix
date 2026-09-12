@@ -1,6 +1,6 @@
 ---
 sprint: C4-FUNCIONA-EM
-estado: aberta
+estado: feita
 onda: A-SEGUNDA-LISTA-DELA
 posse:
   EDITA:
