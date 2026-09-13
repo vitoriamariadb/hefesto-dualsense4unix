@@ -21,6 +21,9 @@ depois_de:
   # página em que nasceu) — e a tarja do título desta sprint saiu em
   # `71c69c57`. Medir a recusa antes daquela costura é medir o canal velho.
   - TELA-CALADA-01
+  # 13/09/2026: a OS-QUATRO-NO-AR-01 muda o que o botão do microfone faz
+  # no mesmo `a02_controles.py` (os quatro no ar juntos, decisão dela).
+  - OS-QUATRO-NO-AR-01
 nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
