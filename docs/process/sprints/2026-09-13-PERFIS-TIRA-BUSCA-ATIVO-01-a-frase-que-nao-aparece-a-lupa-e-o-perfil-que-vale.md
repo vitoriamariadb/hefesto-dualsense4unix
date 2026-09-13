@@ -21,6 +21,20 @@ nao_toca:
 
 # PERFIS-TIRA-BUSCA-ATIVO-01 — a frase que não devia aparecer, a lupa que não filtra, o ↻ em dobro e o perfil que não acompanha
 
+> **ESTADO 13/09/2026: continua ABERTA por um item só, o §4.1.**
+>
+> * **§1 (a tira) fechou** no commit `fix(tela): a tira da aba Perfis para de
+>   falar`: `perfis.desfecho` recebe vazio em todo gesto, e a frase vai ao
+>   `interface.log` como `[desfecho]` e à régua como `relato`. Medido no piloto
+>   oculto: a tira fica «—» com altura 0 depois do ↻, do clique na linha e 6 s
+>   depois.
+> * **§2, §3 e §4 fecharam em `71c69c57`.** A causa das três queixas não era a
+>   aba: era a janela CONGELADA pela guarda de palavra banida levantando no
+>   tique, que deixava na tela o literal do mockup. O ↻ em dobro saiu da página.
+> * **§4.1 não fechou:** o chip «Perfil ativo» nasce «Mortal Kombat» nas DEZ
+>   páginas publicadas. O literal é do `topo.html`, que está na posse da
+>   ALTURA-DA-VISTA-01 (entregue em `87de2f54`, não costurada).
+
 **13/09/2026, madrugada.** Ela abriu a aba Perfis com dois controles (P1 no
 cabo, P2 no rádio) e mandou, em três mensagens seguidas:
 
