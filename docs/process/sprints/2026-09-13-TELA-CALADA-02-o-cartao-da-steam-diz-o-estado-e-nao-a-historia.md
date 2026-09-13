@@ -1,6 +1,6 @@
 ---
 sprint: TELA-CALADA-02
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   TELA-CALADA-02:
@@ -20,6 +20,8 @@ nao_toca:
 ---
 
 # TELA-CALADA-02 — o cartão da Steam diz o estado, e não a história
+
+> **ESTADO 2026-09-13: feita** — os quatro canais calaram: o corpo diz «N jogos sem o atalho», a notícia da vigia vai ao `[relato]` do stderr, o jogo aberto vira o rótulo «Jogo aberto sem o atalho» (o botão «Não perguntar» não se explicava sem ele) e a primeira volta não narra; aba 07 publicada com `--publicar 07`. A entrega está em `docs/process/agentes/2026-09-13/TELA-CALADA-02-opus.md`.
 
 **13/09/2026.** A mesma palavra dela da TELA-CALADA-01:
 
