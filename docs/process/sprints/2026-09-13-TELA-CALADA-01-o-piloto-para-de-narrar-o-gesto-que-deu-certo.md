@@ -1,6 +1,6 @@
 ---
 sprint: TELA-CALADA-01
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   TELA-CALADA-01:
@@ -20,6 +20,16 @@ nao_toca:
 ---
 
 # TELA-CALADA-01 — o piloto para de narrar o gesto que deu certo
+
+> **ESTADO 2026-09-13: feita, com o item 4 PARADO pela régua da própria sprint** —
+> o sucesso não deposita mais (a frase vai ao diário como `[relato]`), o
+> `rodape._recado` devolve `None`, e a recusa só aparece na aba em que nasceu.
+> Medido no piloto oculto: o «Aplicar» com um jogo da Steam sem o atalho não
+> escreve nada na 01, na 02 nem na 05, e o atalho continua reposto. O item 4 não
+> foi construído: o pouso de uma recusa é invisível (o recorte do botão sai byte
+> a byte igual antes do clique e depois do pouso, no cadeado e no «Aplicar» da
+> 01), e o item manda parar nesse caso. A entrega está em
+> `docs/process/agentes/2026-09-13/TELA-CALADA-01-opus.md`.
 
 **13/09/2026, madrugada.** A palavra dela, com a foto do rodapé:
 
