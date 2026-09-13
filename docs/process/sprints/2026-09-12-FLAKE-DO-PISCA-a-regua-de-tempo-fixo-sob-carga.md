@@ -1,6 +1,6 @@
 ---
 sprint: FLAKE-DO-PISCA
-estado: aberta
+estado: feita
 onda: A-FILA-DE-0911
 posse:
   EDITA:
@@ -13,6 +13,17 @@ nao_toca:
 ---
 
 # O pisca reprova sob carga — e a medição diz que não é regressão
+
+> **ESTADO 2026-09-13: feita** — os marcos de tempo fixo viraram esperas por
+> condição com teto e frase do que não chegou; o voo e a piscada passaram a ser
+> fotografados por um `MutationObserver` no instante em que o botão muda, e a
+> leitura "no meio do voo" mora dentro do próprio gesto. Sob
+> `stress-ng --cpu 64` a régua velha reprovou 4 voltas de 20 e a curada,
+> alternada com ela sob a mesma carga, nenhuma; sem carga, um gesto 1,6 s mais
+> lento reprova a velha e deixa a curada verde. Cinco sabotagens do produto
+> reprovam cada uma a sua régua, e uma delas achou uma régua que passava sobre
+> o vazio (`test_o_recibo_vence_e_some`). A entrega está em
+> `docs/process/agentes/2026-09-13/FLAKE-DO-PISCA-opus.md`.
 
 **12/09/2026, 01h.** A suíte da leva fechou com **2 vermelhos de 20.199**, os
 dois em `test_o_recado_de_sucesso_pousa_no_cartao.py`. Medidos antes de
