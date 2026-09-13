@@ -1,6 +1,6 @@
 ---
 sprint: OS-QUATRO-NO-AR-01
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   OS-QUATRO-NO-AR-01:
@@ -23,6 +23,8 @@ nao_toca:
 ---
 
 # OS-QUATRO-NO-AR-01 — os quatro microfones e os quatro alto-falantes ao mesmo tempo
+
+> **ESTADO 2026-09-13: feita** — perder o padrão deixou de tirar alguém do ar: os quatro microfones ficam no ar juntos, o padrão do sistema é o último ligado que continua no ar, desligar quem não é o padrão tira só ele, e quem sai do ar de fato (duas leituras seguidas sem canal) perde a luz e a palavra sem tocar os outros. O selo da aba Controles passou a dizer ATIVO para cada um no ar. O §2 fechou sem código: nenhuma regra de um-por-vez no som, e a régua com quatro controles fica como prova. Sem aparelho: a prova com dois controles no rádio fica para a MESA-DE-QUATRO-01. A entrega está em `docs/process/agentes/2026-09-13/OS-QUATRO-NO-AR-01-opus.md`.
 
 **13/09/2026, madrugada.** A pergunta de quem coordena: «com dois controles
 ligados, quer os dois microfones funcionando ao mesmo tempo, cada um no seu
