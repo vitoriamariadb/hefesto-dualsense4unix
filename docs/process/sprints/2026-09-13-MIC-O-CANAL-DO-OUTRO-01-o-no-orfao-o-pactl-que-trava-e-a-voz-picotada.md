@@ -1,6 +1,6 @@
 ---
 sprint: MIC-O-CANAL-DO-OUTRO-01
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   MIC-O-CANAL-DO-OUTRO-01:
@@ -16,6 +16,8 @@ nao_toca:
   - src/hefesto_dualsense4unix/interface/pacotes/a02_controles.py
   - docs/data/mapa-controles.csv
 ---
+
+> **ESTADO 2026-09-13: feita** — o nó com o nome de outro controle deixou de ser resposta das regras 3 e 4 de `escolher_fonte`; o canal órfão sai pela varredura do supervisor com quatro provas (fora da tabela deste processo, sem pedido, ninguém escrevendo no fifo, duas varreduras); e o `pactl` mudo ganhou recuo crescente, de 5 a 60 s, sem repetir o `load-module` no ciclo seguinte. Sem aparelho: a causa do travamento, a voz picotada e a orelha dela ficam para a MESA-DE-QUATRO-01. A entrega está em `docs/process/agentes/2026-09-13/MIC-O-CANAL-DO-OUTRO-01-opus.md`.
 
 # MIC-O-CANAL-DO-OUTRO-01 — o canal órfão, o `pactl` que trava e a voz picotada
 
