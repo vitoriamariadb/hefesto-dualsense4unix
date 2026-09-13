@@ -1,6 +1,6 @@
 ---
 sprint: JOGAR-A-FAIXA-QUE-PULA-01
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   JOGAR-A-FAIXA-QUE-PULA-01:
@@ -19,6 +19,8 @@ nao_toca:
 ---
 
 # JOGAR-A-FAIXA-QUE-PULA-01 — o «Reconectar controles» fica onde está
+
+> **ESTADO 2026-09-13: feita** — o «Reconectar controles» não muda mais de lugar. Medido no piloto (WebKit) em 1212, 1228, 1282 e 1300: parado 60 s e com a pendência acendendo ele não se movia; o que o empurrava era o recibo do Reconectar pousando INVISÍVEL na fileira, vestido de `.pendente` (223 px, 301 px, até a outra ponta). O nó saiu da página, a faixa ganhou três regras que prendem o botão à direita em uma linha, e a ressalva da máscara e a frase da pendência saíram da tela — a pendência vai ao diário da janela. **Costura junto ou depois da TELA-CALADA-01**: sozinha, o recibo volta ao cartão do P1 (medido pelo clique). Publicado com `--publicar 01`. A entrega está em `docs/process/agentes/2026-09-13/JOGAR-A-FAIXA-QUE-PULA-01-opus.md`.
 
 **13/09/2026, 02:48.** Duas fotos dela da aba Jogar, no mesmo minuto:
 
