@@ -1,6 +1,6 @@
 ---
 sprint: TELA-CALADA-03
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   TELA-CALADA-03:
@@ -18,6 +18,13 @@ nao_toca:
 ---
 
 # TELA-CALADA-03 — Sistema e Conexões perguntam, e não narram
+
+> **ESTADO 2026-09-13: feita** — `docs/process/agentes/2026-09-13/TELA-CALADA-03-opus.md`.
+> A pergunta do «Aplicar aos jogos» vai ao painel pelo pacote (medido: antes o
+> primeiro clique não mostrava nada); os quatro segundos cliques limpam o painel
+> e levam o recibo ao diário; o ramo do serviço parado apaga o registro, o exame
+> e a contagem do desenho; e o fim da espera do «A luz não acende» sai do
+> cartão, com a contagem intacta. Piloto oculto antes e depois, cinco mordidas.
 
 **13/09/2026.** A mesma palavra dela da TELA-CALADA-01:
 
