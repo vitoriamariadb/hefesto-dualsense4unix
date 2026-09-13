@@ -219,17 +219,71 @@ lista deu **445 passed**.
 
 ## O que sobrou para o próximo
 
-1. **QUATRO TESTES DA ABA 07 REPROVAM COM UM JOGO DA STEAM ABERTO NA MÁQUINA**, e
-   não são desta sprint: `test_o_botao_de_desligar_so_nasce_com_o_steam_input_ligado`,
+1. **FECHADO NO COMMIT SEGUINTE — os quatro testes da aba 07 que reprovavam com
+   um jogo da Steam aberto.** `test_o_botao_de_desligar_so_nasce_com_o_steam_input_ligado`,
    `test_o_desligar_com_a_steam_aberta_pergunta_antes_de_fechar`,
    `test_deixar_tudo_pronto_so_nasce_quando_os_dois_tem_trabalho` e
    `test_a_leitura_do_disco_leva_o_steam_input_ate_o_cartao`, em
-   `tests/unit/test_a_aba_07_lancadores_fecha_as_linhas.py`. A causa provável:
-   `test_o_produto_enche_a_linha_com_a_constante_do_motor` chama
-   `a07._ler_do_disco()` sem dublar `steam_game_running`, e o `PORTOES` do
-   módulo fica com `jogo_aberto=True` lido do `/proc` real — o que esconde o
-   «Desligar o Steam Input» nos quatro seguintes. Medido: verde às 03:2x sem
-   jogo aberto, vermelho às 03:47 com jogo aberto, nas duas árvores.
+   `tests/unit/test_a_aba_07_lancadores_fecha_as_linhas.py`. Ver a seção
+   seguinte.
+
+### A régua da aba 07 deixou de ler o `/proc` dela
+
+**A CAUSA, MEDIDA COM UMA SONDA DO `PORTOES` ANTES E DEPOIS DE CADA TESTE** — e
+não a que eu tinha escrito aqui (o `test_o_produto_enche_a_linha_com_a_constante_do_motor`
+dubla o censo com `jogo_aberto=False` e não vaza nada): o
+`test_o_gesto_copia_a_linha_do_motor_e_diz_o_que_fez` chama o gesto
+`copiar_a_linha`, que devolve `_resposta(VIGIA.agora(), …)`; a vigia sem dado
+dispara a thread `hefesto-lancadores`, que roda o `_ler_do_disco` de verdade; o
+censo pergunta `steam_game_running()` ao `/proc` real **pela cópia do
+`from-import` guardada em `sentinela_do_wrapper`**, e a thread grava `PORTOES`
+(global do módulo) com `jogo_aberto=True` **dentro do
+`test_a_area_de_transferencia_recusa_sem_laco_de_gtk`, dois testes depois**. Daí
+em diante o valor fica, e esconde o «Desligar o Steam Input» e o «Deixar tudo
+pronto». O quarto (`test_a_leitura_do_disco…`) lia o `/proc` direto, na thread
+principal. **O vazamento não está no `src/`**: ler o `/proc` na vigia é o
+produto fazendo o que deve; quem não pode depender da máquina é a régua.
+
+**A CURA É SÓ O ARQUIVO DE TESTE:** uma fixture `autouse` que dubla
+`steam_game_running` e `steam_running` (`False`) em `steam_launch_options` **e** em
+`sentinela_do_wrapper`. Quem precisa de outro valor já sobrescreve no próprio
+teste.
+
+**A PROVA NOS DOIS SENTIDOS**, com o `/proc` forçado na origem e na cópia da
+sentinela ANTES do pytest (um invólucro fora do repositório — é o estado da
+máquina simulado, não dublê de teste):
+
+```
+sem cura, jogo=True    4 failed, 26 passed   (os mesmos quatro que quem coordena mediu)
+sem cura, jogo=False   30 passed
+com cura, jogo=True    30 passed
+com cura, jogo=False   30 passed
+com cura, jogo real    30 passed   (steam_game_running=False — ver abaixo)
+```
+
+**A MORDIDA**, numa cópia da árvore, com o jogo forçado aberto:
+
+```
+fixture sem autouse                          4 failed, 26 passed
+fixture sem o dublê                          4 failed, 26 passed
+dublê só em steam_launch_options             4 failed, 26 passed
+cura devolvida                               30 passed
+```
+
+**O QUE FOI TENTADO E SAIU, porque não mordeu:** devolver `PORTOES` e o cache da
+vigia ao padrão a cada teste, e esperar a thread da vigia terminar. Com o dublê
+no lugar, arrancar cada um deu 30 verdes; e com um arquivo anterior sujando o
+módulo (`PORTOES` com jogo aberto e uma thread tardia) também — o quarto teste
+do arquivo já regrava `PORTOES` pelo `_ler_do_disco` dublado.
+
+**O QUE NÃO VERIFIQUEI:** **o jogo DELA aberto de verdade.** Havia um quando
+quem coordena mediu; às 04:17:46, 04:21:37, 04:23:51 e 04:25:33
+`steam_game_running()` respondeu `False` (Steam aberta, jogo fechado), e eu não
+abro jogo. O «aberto» desta seção é o forçado, que reproduziu exatamente os
+quatro vermelhos. **E a thread da vigia que sobreviver ao fim do arquivo** não é
+fechada por esta régua: se ela ler o `/proc` depois do último dublê desfeito,
+quem recebe o `PORTOES` é o arquivo seguinte — nenhum dos cenários medidos
+produziu isso.
 2. **Citações que envelheceram em arquivo que não é meu** — citam a notícia no
    cartão (`a07_lancadores.noticia`):
    `src/hefesto_dualsense4unix/integrations/sentinela_do_wrapper.py` (docstring
