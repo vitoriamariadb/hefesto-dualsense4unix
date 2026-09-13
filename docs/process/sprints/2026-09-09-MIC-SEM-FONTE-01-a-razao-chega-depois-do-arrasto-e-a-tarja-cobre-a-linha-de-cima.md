@@ -16,6 +16,11 @@ depois_de:
   # mundo de ontem — e a costura viraria «a última a gravar vence».
   - LINGUA-A3
   - TOOLTIP-C1
+  # 13/09/2026: a TELA-CALADA-01 muda o canal de recado no mesmo
+  # `hefesto_vivo.py` (o sucesso para de depositar, a recusa fica só na
+  # página em que nasceu) — e a tarja do título desta sprint saiu em
+  # `71c69c57`. Medir a recusa antes daquela costura é medir o canal velho.
+  - TELA-CALADA-01
 nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
