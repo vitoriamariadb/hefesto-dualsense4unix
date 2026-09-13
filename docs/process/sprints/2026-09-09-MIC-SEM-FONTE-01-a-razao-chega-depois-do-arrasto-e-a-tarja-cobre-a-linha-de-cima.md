@@ -24,6 +24,9 @@ depois_de:
   # 13/09/2026: a OS-QUATRO-NO-AR-01 muda o que o botão do microfone faz
   # no mesmo `a02_controles.py` (os quatro no ar juntos, decisão dela).
   - OS-QUATRO-NO-AR-01
+  # 13/09/2026: a TELA-CALADA-04 muda a recusa de gesto sem coluna no mesmo
+  # `hefesto_vivo.py` — medir a recusa antes dela é medir o canal velho.
+  - TELA-CALADA-04
 nao_toca:
   - src/hefesto_dualsense4unix/daemon/ipc_handlers.py
   - src/hefesto_dualsense4unix/daemon/subsystems/bt_mic.py
