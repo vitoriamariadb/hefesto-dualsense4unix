@@ -1,6 +1,6 @@
 ---
 sprint: SOM-RECUO-01
-estado: aberta
+estado: feita
 onda: A-FILA-DE-1309
 posse:
   SOM-RECUO-01:
@@ -20,6 +20,8 @@ nao_toca:
 ---
 
 # SOM-RECUO-01 — o som e o volume param de martelar o servidor mudo
+
+> **ESTADO 2026-09-13: feita** — som, microfone e volume dividem UM recuo do `pactl`: o `load-module` do som não se repete no servidor mudo e só sai depois de a sondagem responder, a rota e as leituras do `rota_do_no` esperam o recuo, o `audio_control` devolve o «não sei» na hora, e a suíte guarda os dois `_rodar` e zera o recuo a cada teste. Sem aparelho: a prova no servidor travando de verdade fica para a MESA-DE-QUATRO-01. A entrega está em `docs/process/agentes/2026-09-13/SOM-RECUO-01-opus.md`.
 
 **13/09/2026.** Continuação da MIC-O-CANAL-DO-OUTRO-01 (entrega em
 `docs/process/agentes/2026-09-13/MIC-O-CANAL-DO-OUTRO-01-opus.md`, §«O que
